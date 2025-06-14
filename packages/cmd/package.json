@@ -1,0 +1,25 @@
+{
+  "name": "@kingly/cmd",
+  "version": "1.0.0", 
+  "description": "Ultra-lightweight process management and git worktree operations",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./process-manager": "./src/process-manager.js",
+    "./job-integration": "./src/job-integration.js",
+    "./worktree-manager": "./src/worktree-manager.js"
+  },
+  "dependencies": {
+    "execa": "^8.0.1",
+    "ps-tree": "^1.2.0",
+    "tree-kill": "^1.2.2"
+  },
+  "peerDependencies": {
+    "@kingly/debug": "workspace:*",
+    "@kingly/core": "workspace:*"
+  },
+  "keywords": ["kingly", "process", "command", "git", "worktree"],
+  "author": "Kingly Core Team",
+  "license": "MIT"
+}

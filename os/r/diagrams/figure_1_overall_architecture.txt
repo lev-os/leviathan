@@ -1,0 +1,59 @@
+FIGURE 1 - OVERALL SYSTEM ARCHITECTURE
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                    KINGLY OS PROTOCOL-AS-KERNEL ARCHITECTURE         │
+└─────────────────────────────────────────────────────────────────────┘
+
+External Protocol Sources                    System Core                     Hardware Resources
+┌─────────────────────┐                ┌─────────────────────┐           ┌─────────────────────┐
+│ User Applications   │◄──────────────►│   PROTOCOL          │◄─────────►│ CPU Cluster (109a)  │
+│ (MCP, HTTP, WS)     │                │   DISPATCHER        │           │                     │
+└─────────────────────┘                │   (101) [KERNEL]    │           └─────────────────────┘
+                                       └─────────┬───────────┘           ┌─────────────────────┐
+┌─────────────────────┐                          │                       │ GPU Array (109b)   │
+│ External Services   │                          ▼                       │                     │
+│ (APIs, Databases)   │──► Protocol Input ──► ┌─────────────────┐       └─────────────────────┘
+└─────────────────────┘    Interface (102)    │ INTENT CLASS.   │       ┌─────────────────────┐
+                                              │ ENGINE (103)     │       │ AI Accelerators     │
+┌─────────────────────┐                       └─────────┬───────┘       │ (TPU/NPU) (109c)   │
+│ Real-Time Data      │                                 │               └─────────────────────┘
+│ Streams (106)       │────────────────────────────────┼─────────────► ┌─────────────────────┐
+└─────────────────────┘                                 ▼               │ Protocol Processors │
+                                                ┌─────────────────┐     │ (FPGA/ASIC) (109d) │
+Memory Systems                                  │ CONTEXT         │     └─────────────────────┘
+┌─────────────────────┐                        │ ASSEMBLY        │
+│ Long-Term Memory    │◄──────────────────────►│ SYSTEM (104)    │
+│ (105)              │                        └─────────┬───────┘
+└─────────────────────┘                                 │
+                                                        ▼
+External Interfaces                             ┌─────────────────┐            Learning Network
+┌─────────────────────┐                        │ RESOURCE        │           ┌─────────────────┐
+│ Protocol Gateway    │◄──────────────────────►│ ALLOCATION      │◄─────────►│ Knowledge       │
+│ (107)              │                        │ MANAGER (108)    │           │ Sharing (111)   │
+└─────────────────────┘                        └─────────┬───────┘           └─────────────────┘
+                                                        │                            ▲
+                                               ┌─────────▼───────┐                   │
+                                               │ HARDWARE        │◄──────────────────┘
+                                               │ INTERFACE       │
+                                               │ LAYER (112)     │
+                                               └─────────────────┘
+                                                        │
+                                               ┌─────────▼───────┐
+                                               │ CROSS-CONTEXT   │
+                                               │ LEARNING        │
+                                               │ MODULE (110)    │
+                                               └─────────────────┘
+
+KEY ARCHITECTURAL PRINCIPLES:
+├─ Protocol-First Abstraction: All operations via protocol exchanges
+├─ Intent-Driven Operation: Semantic understanding drives resource allocation  
+├─ Dynamic Assembly: Runtime configuration without static templates
+├─ Context-Aware Management: Resource decisions based on semantic understanding
+└─ Universal Scaling: Same architecture scales from single-user to distributed
+
+INNOVATION HIGHLIGHTS:
+• Protocol Dispatcher (101) replaces traditional OS kernel abstractions
+• Zero static configuration through Intent Classification Engine (103)
+• Dynamic Context Assembly (104) eliminates prompt templates
+• Cross-Context Learning (110) enables knowledge accumulation
+• Hardware Interface Layer (112) provides protocol-based hardware abstraction

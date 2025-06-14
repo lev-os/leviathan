@@ -1,0 +1,68 @@
+metadata:
+  type: "workflow"
+  id: "system-archaeology-consolidation"
+  version: "1.0.0"
+  description: "Systematic discovery and consolidation of complex systems with conflicts"
+  origin: "learned_pattern_from_claude_consolidation_breakthrough"
+  promotion_status: "learning_phase"
+  success_evidence:
+    - "eliminated_80_percent_duplication_in_claude_md"
+    - "discovered_sophisticated_agent_system"
+    - "created_clean_2_file_architecture"
+
+workflow_config:
+  philosophy: "Discover what exists, understand conflicts, consolidate intelligently"
+  
+  triggers:
+    automatic:
+      - "multiple_conflicting_config_files"
+      - "duplicate_functionality_detected"
+      - "legacy_system_analysis_needed"
+    manual:
+      - "user_requests_system_cleanup"
+      - "$learn detects consolidation opportunity"
+      
+  archaeology_phases:
+    phase_1_discovery:
+      description: "Deep context scanning to map existing system"
+      tools_required: ["mcp__desktop-commander__read_multiple_files"]
+      process: "Map existing capabilities, configs, duplicates, hidden assets"
+      
+    phase_2_conflict_analysis:
+      description: "Identify conflicts, duplications, and inconsistencies"
+      process: "Analyze for 80%+ overlap, contradictions, integration gaps"
+      
+    phase_3_consolidation_design:
+      description: "Design intelligent consolidation strategy"
+      process: "Create architecture, preservation plan, migration path"
+      
+    phase_4_systematic_enhancement:
+      description: "Add missing capabilities while consolidating"
+      process: "Fill gaps, reduce friction, add workflow connectors"
+
+  consolidation_strategies:
+    file_architecture:
+      two_file_pattern: "global + project separation"
+    command_systems:
+      progressive_disclosure: "simple → power → menu systems"
+    capability_preservation:
+      asset_migration: "preserve, enhance, surface hidden gems"
+  promotion_criteria:
+    usage_metrics:
+      successful_applications: 3  # Apply successfully 3+ times
+      user_satisfaction: "high"   # User expresses satisfaction
+      time_savings: "significant" # Measurable efficiency gains
+      
+    generalizability:
+      applicable_domains: 3  # Works across 3+ different domains
+      reusable_patterns: true # Contains reusable sub-patterns
+      
+    integration_readiness:
+      well_documented: true
+      clear_triggers: true
+      measurable_outcomes: true
+
+  workflow_promotion:
+    when_criteria_met: "move to /digital/kingly/core/agent/contexts/workflows/"
+    preserve_learning_history: true
+    update_agents_md_catalog: true

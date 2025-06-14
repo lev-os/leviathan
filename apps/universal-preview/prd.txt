@@ -1,0 +1,339 @@
+# Universal Preview Platform - Product Requirements Document (PRD)
+
+## Executive Summary
+
+The Universal Preview Platform is an open-source infrastructure assistant that democratizes access to AI development tools by providing one-click preview and testing capabilities for any repository, regardless of interface type (CLI, API, MCP, browser automation).
+
+## Problem Statement
+
+Developers without access to premium AI assistants like Claude Code lack efficient tools to:
+- Quickly understand and test unfamiliar repositories
+- Convert between different interface types (CLI ↔ API ↔ MCP)
+- Securely manage API keys across multiple projects
+- Generate test harnesses for various project types
+- Execute code safely in isolated environments
+
+## Solution Overview
+
+A comprehensive platform that automatically ingests repositories, analyzes their structure, generates interactive test UIs, and provides secure execution environments with universal interface conversion capabilities.
+
+## Core Features
+
+### 1. Repository Ingestion Engine
+**Description**: Automatically analyzes any git repository to extract metadata, detect project types, and generate interface specifications.
+
+**Key Capabilities**:
+- Git clone and analysis of repository structure
+- Language and framework detection (Node.js, Python, Rust, Go, etc.)
+- Project type classification (MCP Server, Browser Automation, API, CLI Tool, Library)
+- Dependency extraction and script analysis
+- Interface specification generation
+- Auto-categorization and tagging
+
+**Technical Implementation**:
+- Service: `IngestEngine.js`
+- Supports bulk ingestion of multiple repositories
+- File structure analysis with configurable depth limits
+- Metadata extraction from package.json, README, and configuration files
+
+### 2. Test Harness Generator
+**Description**: Automatically generates interactive UIs for testing any project interface type.
+
+**Supported Interface Types**:
+- **CLI**: Command input, environment variables, file upload, terminal output
+- **API**: Endpoint selector, HTTP methods, headers editor, request/response viewer
+- **MCP**: Tool selector, JSON schema forms, MCP protocol handling
+- **Library**: Function selector, code editor, console output
+- **Browser Automation**: URL input, browser selector, screenshot viewer, automation scripts
+
+**Key Features**:
+- Dynamic UI generation based on project analysis
+- Real-time execution with streaming output
+- Pre-built examples and suggestions
+- Docker-based execution environments
+
+### 3. Interface Converter
+**Description**: Universal bridge between different interface types with automatic wrapper generation.
+
+**Conversion Matrix**:
+```
+CLI ↔ API ↔ MCP
+ ↕     ↕     ↕
+All interfaces are interconvertible
+```
+
+**Generated Artifacts**:
+- Express.js API wrappers for CLI tools
+- MCP servers that bridge to APIs
+- CLI interfaces for REST APIs
+- Docker configurations for deployment
+- OpenAPI documentation
+- Package.json with dependencies
+
+### 4. Secure Sandbox Manager
+**Description**: Containerized execution environment with resource limits and security controls.
+
+**Security Features**:
+- Docker-based isolation
+- Resource limits (CPU, memory, processes)
+- Network restrictions
+- Read-only root filesystem
+- Capability dropping
+- Automatic cleanup and timeouts
+
+**Execution Types**:
+- Interactive command execution
+- Real-time streaming output
+- File upload and processing
+- Health checks and monitoring
+
+### 5. API Key Vault
+**Description**: Encrypted storage system for managing API keys across projects.
+
+**Key Features**:
+- AES-256-GCM encryption with PBKDF2 key derivation
+- Project-scoped key management
+- Built-in testing for popular services (OpenAI, Anthropic, GitHub)
+- Environment file generation (.env, Docker, JSON)
+- Import/export with password protection
+- Usage tracking and analytics
+
+### 6. Metadata Database
+**Description**: PostgreSQL-based storage with analytics and categorization.
+
+**Schema**:
+- Projects: Repository metadata, analysis results, interfaces
+- Test Harnesses: Generated UI configurations
+- Interface Conversions: Conversion artifacts and metadata
+- Execution Logs: Command history, performance metrics
+- Usage Statistics: Analytics and tracking
+- Categories/Tags: Organization and discovery
+
+## Technical Architecture
+
+### Backend Stack
+- **Runtime**: Node.js 18+
+- **Framework**: Express.js with Socket.io for real-time features
+- **Database**: PostgreSQL with automatic migrations
+- **Caching**: Redis for session and execution data
+- **Containerization**: Docker with dockerode for container management
+- **Security**: Helmet, CORS, rate limiting, JWT authentication
+
+### API Design
+- **REST API**: Full CRUD operations for all resources
+- **WebSocket**: Real-time execution streaming
+- **Server-Sent Events**: Progress updates and logs
+- **File Upload**: Multipart form data handling
+- **Export/Import**: ZIP archives and encrypted backups
+
+### Service Architecture
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   IngestEngine  │    │ TestHarnessGen  │    │InterfaceConvert │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         └───────────────────────┼───────────────────────┘
+                                 │
+┌─────────────────┐    ┌─────────▼─────────┐    ┌─────────────────┐
+│  SandboxManager │    │   MetadataDB      │    │   APIKeyVault   │
+└─────────────────┘    └───────────────────┘    └─────────────────┘
+```
+
+## API Endpoints
+
+### Project Management
+- `POST /api/projects/ingest` - Ingest repository from URL
+- `GET /api/projects` - Search and list projects
+- `GET /api/projects/:id` - Get project details
+- `POST /api/projects/:id/reanalyze` - Re-run analysis
+- `POST /api/projects/bulk-ingest` - Bulk repository ingestion
+
+### Test Execution
+- `POST /api/test/sandbox` - Create execution sandbox
+- `POST /api/test/sandbox/:id/execute` - Execute command
+- `POST /api/test/sandbox/:id/stream` - Stream execution output
+- `GET /api/test/sandbox/:id/logs` - Get execution logs
+- `DELETE /api/test/sandbox/:id` - Destroy sandbox
+
+### Interface Conversion
+- `POST /api/convert/:projectId/:from/:to` - Convert interface
+- `GET /api/convert/:projectId/available` - List available conversions
+- `POST /api/convert/:projectId/:from/:to/preview` - Preview conversion
+- `GET /api/convert/:projectId/:from/:to/download` - Download as ZIP
+
+### API Key Management
+- `POST /api/vault/keys` - Store API key
+- `GET /api/vault/keys` - List all keys
+- `GET /api/vault/keys/:service` - List service keys
+- `POST /api/vault/keys/:service/:name/test` - Test key validity
+- `GET /api/vault/projects/:id/env/:format` - Generate environment file
+
+### Execution
+- `POST /api/execute/:projectId` - Execute with API key injection
+- `POST /api/execute/:projectId/stream` - Stream execution
+- `POST /api/execute/:projectId/with-files` - Execute with file upload
+
+## User Workflows
+
+### 1. Repository Analysis Workflow
+1. User provides GitHub URL
+2. Platform clones and analyzes repository
+3. Extracts metadata, dependencies, and structure
+4. Detects project type and available interfaces
+5. Auto-generates categories and tags
+6. Stores analysis in database
+
+### 2. Testing Workflow
+1. User selects project and interface type
+2. Platform generates appropriate test harness
+3. User configures parameters and API keys
+4. Platform creates secure sandbox
+5. Executes code with real-time output streaming
+6. Logs results and cleans up environment
+
+### 3. Interface Conversion Workflow
+1. User selects source and target interface types
+2. Platform validates conversion requirements
+3. Generates wrapper code and configuration
+4. Provides preview and download options
+5. Creates deployment-ready artifacts
+
+### 4. API Key Management Workflow
+1. User stores encrypted API keys by service
+2. Platform tests key validity
+3. Keys are automatically injected during execution
+4. Usage is tracked and logged
+5. Keys can be exported/imported securely
+
+## Security Considerations
+
+### Execution Security
+- All code runs in isolated Docker containers
+- Resource limits prevent resource exhaustion
+- Network access is restricted
+- File system access is controlled
+- Automatic timeout and cleanup
+
+### Data Security
+- API keys encrypted with AES-256-GCM
+- Master password for vault access
+- Secure key derivation (PBKDF2, 100k iterations)
+- No plaintext storage of sensitive data
+
+### Network Security
+- CORS configuration for cross-origin requests
+- Rate limiting to prevent abuse
+- Helmet.js for security headers
+- Input validation and sanitization
+
+## Performance Requirements
+
+### Ingestion Performance
+- Repository analysis: < 30 seconds for typical projects
+- Bulk ingestion: 3-5 repositories concurrently
+- Database operations: < 100ms for queries
+
+### Execution Performance
+- Sandbox creation: < 10 seconds
+- Command execution: Configurable timeout (default 30s)
+- Real-time streaming: < 100ms latency
+
+### Scalability
+- Concurrent sandboxes: 10 (configurable)
+- Database connections: 20 pool size
+- File upload: 100MB limit
+- Session storage: Redis-backed
+
+## Future Enhancements
+
+### Phase 2 Features
+- **Frontend React Application**: Complete UI for all platform features
+- **Browser Extension**: GitHub integration for one-click analysis
+- **CI/CD Integration**: Automated testing in pipelines
+- **Collaboration Features**: Shared workspaces and projects
+- **Advanced Analytics**: Usage patterns and performance insights
+
+### Phase 3 Features
+- **Multi-language Support**: Python, Rust, Go execution environments
+- **Cloud Deployment**: AWS/GCP integration
+- **Plugin System**: Custom analyzers and converters
+- **AI-Powered Suggestions**: Smart parameter recommendations
+- **Enterprise Features**: SSO, audit logs, compliance
+
+## Success Metrics
+
+### Adoption Metrics
+- Number of repositories analyzed
+- User registration and retention
+- Community contributions
+- GitHub stars and forks
+
+### Usage Metrics
+- Test harnesses generated per day
+- Interface conversions performed
+- Sandbox execution success rate
+- API key vault adoption
+
+### Performance Metrics
+- Average analysis time
+- Execution success rate
+- System uptime and reliability
+- Response time percentiles
+
+## Technical Dependencies
+
+### Core Dependencies
+```json
+{
+  "express": "^4.18.2",
+  "socket.io": "^4.7.2",
+  "dockerode": "^4.0.2",
+  "pg": "^8.11.3",
+  "redis": "^4.6.8",
+  "simple-git": "^3.19.1",
+  "archiver": "^6.0.1",
+  "helmet": "^7.0.0",
+  "cors": "^2.8.5"
+}
+```
+
+### Development Dependencies
+- Jest for testing
+- ESLint for code quality
+- Docker for containerization
+- PostgreSQL for database
+- Redis for caching
+
+## Deployment Architecture
+
+### Docker Compose Services
+- **Backend**: Express.js API server
+- **Frontend**: React application (future)
+- **Database**: PostgreSQL with persistent volumes
+- **Cache**: Redis for sessions
+- **Nginx**: Reverse proxy and load balancer
+- **Sandbox Runner**: Isolated execution environment
+
+### Environment Configuration
+- Development, staging, and production environments
+- Environment-specific Docker configurations
+- Automated database migrations
+- Health checks and monitoring
+
+## Risk Assessment
+
+### Technical Risks
+- **Container Security**: Mitigation through strict resource limits and isolation
+- **Code Injection**: Mitigation through sandboxing and input validation
+- **Resource Exhaustion**: Mitigation through limits and monitoring
+
+### Business Risks
+- **Competition**: Open-source approach encourages community contribution
+- **Scalability**: Cloud-native design supports horizontal scaling
+- **Maintenance**: Modular architecture enables sustainable development
+
+## Conclusion
+
+The Universal Preview Platform addresses a critical gap in the developer tools ecosystem by providing universal repository analysis, testing, and interface conversion capabilities. The MVP implementation provides a solid foundation for democratizing access to advanced development tools while maintaining enterprise-grade security and performance standards.
+
+The platform's open-source nature and comprehensive feature set position it to become an essential tool for developers working with diverse codebases and interface types. The modular architecture ensures extensibility and long-term maintainability as the platform evolves to meet emerging developer needs.

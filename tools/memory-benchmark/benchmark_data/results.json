@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Simple JSON Memory",
+    "startup_time": 114709,
+    "memory_usage_mb": 1.7580642700195312,
+    "query_speed_ns": 16332,
+    "storage_size_kb": 345.8505859375,
+    "setup_complexity": "Minimal - Go stdlib only",
+    "notes": ""
+  },
+  {
+    "name": "Qdrant (Vector DB)",
+    "startup_time": 500000000,
+    "memory_usage_mb": 150,
+    "query_speed_ns": 50000,
+    "storage_size_kb": 2048,
+    "setup_complexity": "High - Requires Docker/Server setup",
+    "notes": "Estimated values based on typical vector DB performance"
+  },
+  {
+    "name": "Graphiti",
+    "startup_time": 200000000,
+    "memory_usage_mb": 80,
+    "query_speed_ns": 25000,
+    "storage_size_kb": 1024,
+    "setup_complexity": "Medium - Python dependencies, graph DB",
+    "notes": "Estimated values based on graph-based memory systems"
+  },
+  {
+    "name": "Memento",
+    "startup_time": 150000000,
+    "memory_usage_mb": 60,
+    "query_speed_ns": 20000,
+    "storage_size_kb": 512,
+    "setup_complexity": "Medium - External dependencies",
+    "notes": "Estimated values based on similar memory systems"
+  }
+]

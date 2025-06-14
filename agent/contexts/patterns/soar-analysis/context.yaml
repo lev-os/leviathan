@@ -1,0 +1,76 @@
+metadata:
+  type: "pattern"
+  id: "soar-analysis"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Positive-focused strategic planning beyond traditional SWOT"
+
+pattern_config:
+  methodology: "appreciative_inquiry"
+  philosophy: "Build on strengths rather than fix weaknesses"
+  
+  analysis_components:
+    strengths:
+      description: "What are we doing really well?"
+      prompts:
+        - "Peak moments and successes"
+        - "Core competencies"
+        - "Unique value propositions"
+        - "Cultural advantages"
+      focus: "Amplification opportunities"
+      
+    opportunities:
+      description: "What possibilities excite us?"
+      prompts:
+        - "Market potential"
+        - "Emerging trends"
+        - "Partnership possibilities"
+        - "Innovation spaces"
+      focus: "Strategic priorities"
+      
+    aspirations:
+      description: "What do we want to become?"
+      prompts:
+        - "Preferred future state"
+        - "Bold vision"
+        - "Measurable goals"
+        - "Inspiring mission"
+      focus: "North star direction"
+      
+    results:
+      description: "How will we measure success?"
+      prompts:
+        - "Key metrics"
+        - "Milestone markers"
+        - "Success indicators"
+        - "Impact measures"
+      focus: "Tangible outcomes"
+      
+  process:
+    1_appreciate: "Identify what's working well"
+    2_imagine: "Envision preferred future"
+    3_design: "Create strategies to get there"
+    4_deploy: "Implement with measurements"
+    
+  key_differences_from_swot:
+    - "Focuses on positives, not problems"
+    - "Future-oriented, not past-focused"
+    - "Builds energy and momentum"
+    - "Creates shared vision"
+    - "Emphasizes measurable results"
+    
+  facilitation_approach:
+    questions:
+      - "When were we at our best?"
+      - "What made that possible?"
+      - "What would amazing look like?"
+      - "How will we know we've arrived?"
+    energy: "High engagement and enthusiasm"
+    outcome: "Actionable strategic initiatives"
+    
+  output_format:
+    vision_statement: true
+    strategic_initiatives: true
+    success_metrics: true
+    action_roadmap: true
+    celebration_milestones: true

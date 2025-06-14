@@ -1,0 +1,126 @@
+metadata:
+  type: "tool"
+  id: "graphiti"
+  version: "1.0.0"
+  description: "LLM-driven temporal knowledge graph for emergent pattern discovery"
+
+tool_config:
+  capabilities:
+    - "llm_driven_extraction"
+    - "episodic_memory" 
+    - "emergent_relationships"
+    - "temporal_awareness"
+    - "workspace_isolation"
+    - "pattern_discovery"
+    
+  architecture:
+    source_of_truth: "filesystem"  # Aligns with ADR-005
+    role: "intelligent_index"      # Graphiti enhances, doesn't replace
+    sync_strategy: "episodic"      # Feed conversations as episodes
+    
+  deployment:
+    method: "docker_compose"
+    services:
+      - "neo4j"           # Graph database storage
+      - "graphiti-mcp"    # LLM-powered framework
+    configuration: ".kingly/graphiti/"
+      
+  workspace_isolation:
+    strategy: "group_id_based"
+    default_groups:
+      global: "kingly-global"
+      agents:
+        ceo: "kingly-ceo-memory"
+        dev: "kingly-dev-memory"
+      projects: "project-{project_id}"
+      research: "workshop-research"
+      personal: "personal-context"
+      
+  mcp_tools:
+    - name: "add_episode"
+      description: "Add conversational episode to knowledge graph"
+      parameters:
+        content: "episode content"
+        group_id: "workspace identifier"
+        episode_type: "conversation|task|insight"
+        
+    - name: "search_memory"
+      description: "Search temporal knowledge across workspaces"
+      parameters:
+        query: "search terms"
+        group_ids: "list of workspace groups"
+        limit: "max results"
+        
+    - name: "get_context"
+      description: "Get relevant context for current situation"
+      parameters:
+        situation: "current context description"
+        group_id: "primary workspace"
+        include_related: "include cross-workspace insights"
+        
+    - name: "capture_insight"
+      description: "Capture significant insight or pattern"
+      parameters:
+        insight: "key learning or pattern"
+        confidence: "confidence level 0-1"
+        group_id: "workspace context"
+        
+  whisper_integration:
+    auto_capture_triggers:
+      task_success: "Task completed with high confidence"
+      pattern_detected: "Recurring behavior or insight noticed"
+      confidence_assessment: "Confidence decision made"
+      agent_handoff: "Successful agent coordination"
+      context_assembly: "Dynamic context selection occurred"
+      
+    whisper_prompts:
+      - "Should I remember this approach for future tasks?"
+      - "This pattern seems valuable - capture it?"
+      - "Key insight detected - worth preserving?"
+      - "Successful coordination - add to memory?"
+      
+  fallback_behavior:
+    backend_unavailable:
+      neo4j: "fallback_to_chroma"
+      chroma: "fallback_to_sqlite" 
+      sqlite: "memory_disabled_graceful"
+      
+    graceful_degradation:
+      full_features: ["neo4j"]
+      semantic_only: ["chroma"]
+      basic_storage: ["sqlite"]
+      memory_disabled: ["log_only"]
+      
+  dynamic_assembly:
+    memory_inclusion:
+      working_memory: "always_include"
+      recent_episodes: "last_10_relevant"
+      semantic_patterns: "confidence_threshold_0.7"
+      cross_workspace: "on_explicit_request"
+      
+    token_budgets:
+      recent_context: 800
+      semantic_insights: 400
+      cross_workspace: 200
+      pattern_hints: 100
+      
+  privacy_controls:
+    default_isolation: true
+    workspace_boundaries: "strict"
+    cross_workspace_search: "explicit_permission"
+    memory_sharing: "group_based_only"
+    
+  initialization:
+    auto_setup_backends:
+      - "sqlite"  # Always available
+      - "chroma"  # If dependencies installed
+      - "neo4j"   # If server available
+      
+    workspace_creation:
+      auto_create_groups: true
+      default_permissions: "isolated"
+      
+    health_checks:
+      startup: true
+      periodic: "every_hour"
+      fallback_testing: true

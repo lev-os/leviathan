@@ -1,0 +1,170 @@
+metadata:
+  name: "Lean Startup"
+  type: "pattern"
+  category: "innovation-framework"
+  description: "Methodology for developing businesses and products through validated learning, scientific experimentation, and iterative product releases"
+  author: "Eric Ries"
+  complexity: "medium"
+  time_estimate: "Ongoing methodology, 2-4 week cycles"
+
+context:
+  role: "Lean Startup Practitioner applying scientific method to entrepreneurship"
+  
+  framework_overview: |
+    The Lean Startup methodology teaches how to drive a startup through validated learning,
+    scientific experimentation, and iterative product releases to shorten development cycles,
+    measure progress, and gain valuable customer feedback.
+
+  core_principles:
+    - "Entrepreneurs are everywhere"
+    - "Entrepreneurship is management"
+    - "Validated learning over opinions"
+    - "Build-Measure-Learn feedback loop"
+    - "Innovation accounting"
+
+  build_measure_learn_loop:
+    build_phase:
+      description: "Create minimum viable product (MVP) to test hypotheses"
+      activities:
+        - "Define hypotheses to test"
+        - "Design minimal experiment"
+        - "Build MVP or prototype"
+        - "Set up measurement systems"
+      deliverables:
+        - "MVP or prototype"
+        - "Measurement plan"
+        - "Success criteria"
+
+    measure_phase:
+      description: "Collect data on how customers respond to product"
+      activities:
+        - "Deploy MVP to customers"
+        - "Collect quantitative data"
+        - "Gather qualitative feedback"
+        - "Track key metrics"
+      deliverables:
+        - "Usage data and analytics"
+        - "Customer feedback"
+        - "Metric results"
+
+    learn_phase:
+      description: "Analyze results and decide whether to pivot or persevere"
+      activities:
+        - "Analyze collected data"
+        - "Validate or invalidate hypotheses"
+        - "Generate new hypotheses"
+        - "Make pivot or persevere decision"
+      deliverables:
+        - "Learning insights"
+        - "Validated hypotheses"
+        - "Next iteration plan"
+
+  types_of_mvp:
+    smoke_test: "Landing page with signup to test demand"
+    concierge: "Manual delivery of service to test value proposition"
+    wizard_of_oz: "Fake automation with manual backend"
+    piecemeal: "Combine existing tools/services"
+    single_feature: "Focus on one core feature only"
+
+  types_of_pivots:
+    zoom_in_pivot: "Single feature becomes whole product"
+    zoom_out_pivot: "Whole product becomes single feature"
+    customer_segment_pivot: "Change target customer"
+    customer_need_pivot: "Change problem being solved"
+    solution_pivot: "Change solution for same problem"
+    revenue_model_pivot: "Change monetization strategy"
+    engine_of_growth_pivot: "Change growth mechanism"
+    channel_pivot: "Change distribution channel"
+    technology_pivot: "Change underlying technology"
+
+  innovation_accounting:
+    metrics_framework:
+      vanity_metrics: "Metrics that look good but don't drive decisions"
+      actionable_metrics: "Metrics that lead to clear actions"
+      
+    three_learning_milestones:
+      baseline: "Current state measurement"
+      hypothesis: "Predicted improvement"
+      learning: "Actual results and insights"
+
+    cohort_analysis:
+      description: "Track groups of customers over time"
+      benefits:
+        - "See true customer behavior patterns"
+        - "Measure retention and engagement"
+        - "Identify improvement trends"
+
+  engines_of_growth:
+    sticky_engine:
+      focus: "Customer retention"
+      key_metric: "Customer retention rate"
+      strategy: "Keep customers engaged and using product"
+      
+    viral_engine:
+      focus: "Customer referrals"
+      key_metric: "Viral coefficient"
+      strategy: "Customers bring in new customers"
+      
+    paid_engine:
+      focus: "Customer acquisition"
+      key_metric: "Customer lifetime value vs acquisition cost"
+      strategy: "Profitable customer acquisition"
+
+  validation_techniques:
+    customer_development:
+      - "Get out of building and talk to customers"
+      - "Validate problem exists"
+      - "Test solution desirability"
+      - "Verify business model viability"
+      
+    a_b_testing:
+      - "Test different versions simultaneously"
+      - "Measure comparative performance"
+      - "Make data-driven decisions"
+      - "Iterate based on results"
+
+  common_mistakes:
+    - "Building too much before testing"
+    - "Focusing on vanity metrics"
+    - "Not talking to customers"
+    - "Pivoting too quickly or too slowly"
+    - "Confusing vision with strategy"
+
+  output_structure:
+    hypothesis_formation:
+      - customer_hypotheses: "Who are our customers?"
+      - problem_hypotheses: "What problems do they have?"
+      - solution_hypotheses: "How will we solve them?"
+      - business_model_hypotheses: "How will we make money?"
+      
+    experiment_design:
+      - mvp_description: "What we're building to test"
+      - success_metrics: "How we'll measure success"
+      - learning_goals: "What we hope to learn"
+      - test_duration: "How long we'll run experiment"
+      
+    results_analysis:
+      - quantitative_results: "Data and metrics"
+      - qualitative_insights: "Customer feedback and observations"
+      - hypothesis_validation: "What was confirmed/refuted"
+      - next_steps: "Pivot or persevere decision"
+
+triggers:
+  - when: "building new product or service"
+  - when: "high uncertainty environment"
+  - when: "need to validate assumptions"
+  - when_semantic: "startup or innovation project"
+  - when_semantic: "testing market fit"
+  - when_semantic: "iterative development needed"
+
+integration:
+  complements:
+    - "design-thinking"
+    - "agile-development"
+    - "customer-development"
+  follows_well:
+    - "business-model-canvas"
+    - "value-proposition-canvas"
+  leads_to:
+    - "product-market-fit"
+    - "scaling-strategies"

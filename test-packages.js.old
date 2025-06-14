@@ -1,0 +1,94 @@
+#!/usr/bin/env node
+// Quick test script to verify core packages work
+import { logger, tracer, monitor, initializeDebug } from './packages/debug/src/index.js';
+import { processManager, jobIntegration, worktreeManager, initializeCmd } from './packages/cmd/src/index.js';
+
+async function testPackages() {
+  console.log('🧪 Testing Kingly Core Packages...\n');
+  
+  try {
+    // Test 1: Initialize debug system
+    console.log('1️⃣ Testing @kingly/debug initialization...');
+    await initializeDebug({
+      logLevel: 'info',
+      traceEnabled: true,
+      monitorEnabled: true
+    });
+    console.log('✅ Debug system initialized\n');
+
+    // Test 2: Test logging
+    console.log('2️⃣ Testing logger...');
+    logger.info('Test log message', { test: true });
+    logger.plugin('test-plugin', 'Plugin log test');
+    logger.command('test-command', 'Command log test');
+    console.log('✅ Logger working\n');
+
+    // Test 3: Test tracing
+    console.log('3️⃣ Testing tracer...');
+    const trace = tracer.start('test-operation');
+    trace.addEvent('test-event', { data: 'test' });
+    trace.end({ success: true });
+    const recentTraces = tracer.getRecentTraces(1);
+    console.log(`✅ Tracer working - ${recentTraces.length} traces captured\n`);
+
+    // Test 4: Test monitoring
+    console.log('4️⃣ Testing monitor...');
+    monitor.trackPlugin('test-plugin', { duration: 100 });
+    monitor.trackCommand('test-command', { success: true, duration: 50 });
+    const metrics = monitor.getMetrics();
+    console.log(`✅ Monitor working - ${metrics.length} metrics tracked\n`);
+
+    // Test 5: Initialize cmd system
+    console.log('5️⃣ Testing @kingly/cmd initialization...');
+    await initializeCmd({
+      processTimeout: 30000,
+      maxConcurrentProcesses: 5,
+      worktreeBasePath: './.test-worktrees'
+    });
+    console.log('✅ Cmd system initialized\n');
+
+    // Test 6: Test process execution
+    console.log('6️⃣ Testing process manager...');
+    const result = await processManager.execute('echo', ['Hello Kingly!'], {
+      timeout: 5000
+    });
+    console.log(`✅ Process executed: ${result.stdout.trim()}\n`);
+
+    // Test 7: Test job integration
+    console.log('7️⃣ Testing job integration...');
+    const jobResult = await jobIntegration.executeJob('test-job-1', 'echo', ['Job test']);
+    console.log(`✅ Job executed: ${jobResult.stdout.trim()}\n`);
+
+    // Test 8: List processes and jobs
+    console.log('8️⃣ Testing status queries...');
+    const processes = processManager.getProcesses();
+    const jobs = jobIntegration.listJobs();
+    console.log(`✅ Status: ${processes.length} processes, ${jobs.active.length} active jobs\n`);
+
+    // Test 9: Monitor summary
+    console.log('9️⃣ Testing monitor summary...');
+    const summary = monitor.getSummary();
+    console.log(`✅ Monitor summary: ${summary.summary.totalPlugins} plugins, ${summary.summary.totalCommands} commands\n`);
+
+    console.log('🎉 All tests passed! Core packages are working correctly.');
+    
+    return true;
+
+  } catch (error) {
+    console.error('❌ Test failed:', error.message);
+    console.error(error.stack);
+    return false;
+  }
+}
+
+// Run tests if called directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  testPackages()
+    .then(success => process.exit(success ? 0 : 1))
+    .catch(error => {
+      console.error('Test runner error:', error);
+      process.exit(1);
+    });
+}
+
+export { testPackages };

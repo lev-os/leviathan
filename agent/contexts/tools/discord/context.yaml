@@ -1,0 +1,41 @@
+metadata:
+  type: "tool"
+  id: "discord"
+  version: "1.0.0"
+  description: "Discord integration tool for Kingly agent system"
+
+tool_config:
+  capabilities:
+    - "message_reception"
+    - "message_routing"
+    - "response_delivery"
+    
+  mcp_tools:
+    - name: "process_discord_message"
+      description: "Route Discord message to appropriate context/workflow"
+      parameters:
+        message:
+          content: "string"
+          channel: "string"
+          author: "object"
+      returns:
+        routing_decision:
+          suggested_context: "string"
+          confidence: "float"
+          
+    - name: "send_discord_response"
+      description: "Send response back to Discord channel"
+      parameters:
+        channel: "string"
+        content: "string"
+        
+  routing_strategy:
+    default_handlers:
+      status: "patterns/project-status"
+      help: "workflows/cognitive-parliament"
+      swot: "patterns/swot-analysis"
+      
+    context_discovery:
+      - "Check project .kingly/discord.yaml"
+      - "Use channel-to-context mapping"
+      - "Semantic matching to available contexts in ~/c"

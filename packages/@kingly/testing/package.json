@@ -1,0 +1,29 @@
+{
+  "name": "@kingly/testing",
+  "version": "1.0.0",
+  "description": "Universal testing framework for Kingly core packages and community plugins",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node src/test.js",
+    "test:plugins": "node src/test-plugins.js",
+    "test:discovery": "node src/test-discovery.js",
+    "test:integration": "node src/test-integration.js",
+    "test:community": "node src/test-community.js"
+  },
+  "dependencies": {
+    "@kingly/debug": "workspace:*",
+    "js-yaml": "^4.1.0",
+    "glob": "^11.0.0",
+    "fs-extra": "^11.2.0"
+  },
+  "keywords": [
+    "testing",
+    "plugins",
+    "kingly",
+    "validation",
+    "framework"
+  ],
+  "author": "Kingly Core Team",
+  "license": "MIT"
+}

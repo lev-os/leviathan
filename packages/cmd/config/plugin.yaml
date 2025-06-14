@@ -1,0 +1,57 @@
+plugin:
+  name: cmd
+  version: 1.0.0
+  type: core_plugin
+  description: Universal command runner and process management
+
+capabilities:
+  - process_management
+  - git_worktree_operations  
+  - job_system_integration
+  - constitutional_validation
+
+commands:
+  cmd_exec:
+    syntax: "kingly cmd exec <command> [options]"
+    description: "Execute command with tracking and cleanup"
+    whisper:
+      strategies:
+        - "Execute commands with proper process isolation"
+        - "Track and monitor command execution lifecycle"
+        - "Ensure cleanup of resources on completion or failure"
+      llm_guidance: "Use process management for safe command execution"
+    
+  cmd_worktree:
+    syntax: "kingly cmd worktree <action> [args]"
+    description: "Manage git worktrees for parallel development"
+    whisper:
+      strategies:
+        - "Create isolated git worktrees for parallel development streams"
+        - "Apply constitutional AI validation before worktree operations"
+        - "Coordinate context assignment across worktrees"
+      llm_guidance: "Use worktree management for parallel development coordination"
+    
+  cmd_jobs:
+    syntax: "kingly cmd jobs [status|kill|list]"
+    description: "Integrate with job system for workflow management"
+    whisper:
+      strategies:
+        - "Connect command execution with workflow orchestration"
+        - "Monitor job status and provide lifecycle management"
+        - "Enable workflow-aware process coordination"
+      llm_guidance: "Use job integration for workflow-coordinated command execution"
+
+reasoning_patterns:
+  process_execution:
+    prompt: |
+      You are managing process execution in a LLM-first system.
+      
+      Context: User wants to execute commands safely with proper tracking and cleanup.
+      
+      Your reasoning should:
+      1. Assess command safety and resource requirements
+      2. Choose appropriate isolation and monitoring strategies
+      3. Plan cleanup and error handling approaches
+      4. Consider workflow integration opportunities
+      
+      Always prioritize: Safe execution, proper cleanup, workflow integration.

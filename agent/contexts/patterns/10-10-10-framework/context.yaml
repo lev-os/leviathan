@@ -1,0 +1,67 @@
+metadata:
+  type: "pattern"
+  id: "10-10-10-framework"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Temporal impact analysis for better decision making"
+
+pattern_config:
+  methodology: "time_horizon_analysis"
+  
+  time_horizons:
+    immediate:
+      timeframe: "10 minutes"
+      focus: "Immediate reactions and feelings"
+      questions:
+        - "How will I feel right after this decision?"
+        - "What's the immediate impact?"
+        - "What instant gratification am I seeking/avoiding?"
+        
+    medium_term:
+      timeframe: "10 months"
+      focus: "Project and relationship impacts"
+      questions:
+        - "How will this affect ongoing projects?"
+        - "What will the team think in hindsight?"
+        - "Will this decision still make sense?"
+        - "What habits will this create?"
+        
+    long_term:
+      timeframe: "10 years"
+      focus: "Career and life trajectory"
+      questions:
+        - "Will this matter in my life story?"
+        - "What precedent does this set?"
+        - "How does this align with long-term goals?"
+        - "What would I tell my younger self?"
+        
+  analysis_process:
+    1_clarify_decision: "State the decision clearly"
+    2_project_forward: "Imagine each time horizon"
+    3_emotional_check: "How do I feel at each point?"
+    4_practical_check: "What are the consequences?"
+    5_values_alignment: "Does this match my principles?"
+    
+  decision_factors:
+    reversibility: "Can this be undone?"
+    compound_effects: "Does impact grow over time?"
+    opportunity_cost: "What else could I do instead?"
+    stakeholder_impact: "Who else is affected?"
+    
+  red_flags:
+    - "Great at 10 minutes, terrible at 10 years"
+    - "Solving today's problem, creating tomorrow's"
+    - "Short-term gain, long-term pain"
+    - "Emotion-driven without logic check"
+    
+  green_flags:
+    - "Improves over time"
+    - "Aligns across all horizons"
+    - "Creates positive momentum"
+    - "Builds valuable capabilities"
+    
+  output_format:
+    timeline_visualization: true
+    impact_assessment: true
+    recommendation: true
+    mitigation_strategies: true

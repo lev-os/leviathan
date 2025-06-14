@@ -1,0 +1,68 @@
+metadata:
+  type: "theme"
+  id: "cyberpunk-neon"
+  version: "1.0.0"
+  author: "@kingly/themes"
+  description: "Matrix-inspired neon aesthetic"
+
+theme_config:
+  colors:
+    primary: "#00ff41"        # Matrix green
+    secondary: "#ff006e"      # Hot pink
+    accent: "#00b4d8"         # Electric blue
+    background: "#0a0a0a"     # Deep black
+    surface: "#1a1a1a"        # Dark gray
+    error: "#ff0066"          # Danger pink
+    
+  typography:
+    mono: "Fira Code, Consolas, monospace"
+    headers: "Orbitron, sans-serif"
+    ascii_art: "enabled"
+    
+  components:
+    progress:
+      empty: "░"
+      filled: "▓"
+      style: "glitch"
+      animation: true
+      
+    lists:
+      bullets: ["◈", "◉", "◊", "▪", "▫"]
+      numbered: ["[1]", "[2]", "[3]", "[4]", "[5]"]
+      checked: "◉"
+      unchecked: "◈"
+      
+    dividers:
+      primary: "◈━━━━━━━━━━━━━━━━━━━━◈"
+      secondary: "░░░░░░░░░░░░░░░░░░░░░"
+      section: "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+      
+    callouts:
+      info: "[!] INFO >>"
+      warning: "[⚠] ALERT >>"
+      success: "[✓] SUCCESS >>"
+      error: "[✗] ERROR >>"
+      
+    interactions:
+      prompt: ">> "
+      cursor: "▓"
+      selection: "◈ {} ◈"
+      
+  effects:
+    text_shadows: true
+    glitch_text: "occasional"
+    matrix_rain: "on_startup"
+    neon_glow: true
+    
+  ascii_headers:
+    welcome: |
+      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+      ▓▓  ╦╔═╦╔╗╔╔═╗╦ ╦ ╦  ╔═╗╔═╗  ▓▓▓▓▓▓
+      ▓▓  ╠╩╗║║║║║ ╦║ ╚╦╝  ║ ║╚═╗  ▓▓▓▓▓▓
+      ▓▓  ╩ ╩╩╝╚╝╚═╝╩═╝╩   ╚═╝╚═╝  ▓▓▓▓▓▓
+      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+      
+  sounds:
+    enabled: false  # Future feature
+    keypress: "mechanical"
+    notification: "synth_beep"

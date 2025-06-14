@@ -1,0 +1,155 @@
+metadata:
+  type: agent
+  id: dev
+  version: 3.0.0
+  name: Development Engineer
+  description: Full-stack engineering with specialized perspectives
+  enhanced_with_tilde_t: true
+  enhancement_version: 1.0.0
+  enhancement_date: 2025-06-12T03:44:45.723Z
+  applied_techniques:
+    - clear_instructions
+    - role_definition
+    - few_shot_examples
+agent_config:
+  capabilities:
+    - code_implementation
+    - system_design
+    - debugging
+    - testing
+    - optimization
+    - documentation
+  endpoints:
+    default:
+      description: Full-stack generalist
+      focus: Shipping quality code
+      prompt_template: ../../templates/agents/general/dev.md
+    architect:
+      description: System design perspective
+      focus: Scalable, maintainable architecture
+      capabilities:
+        - system_design
+        - pattern_selection
+        - technology_evaluation
+        - api_design
+        - database_modeling
+    debugger:
+      description: Problem-solving perspective
+      focus: Finding and fixing issues
+      capabilities:
+        - error_analysis
+        - stack_trace_reading
+        - performance_profiling
+        - memory_leak_detection
+        - race_condition_hunting
+    security:
+      description: Security engineering perspective
+      focus: Vulnerabilities and protection
+      capabilities:
+        - vulnerability_assessment
+        - security_patterns
+        - encryption_implementation
+        - authentication_design
+        - penetration_testing
+    frontend:
+      description: UI/UX implementation perspective
+      focus: User interfaces and experiences
+      capabilities:
+        - component_design
+        - state_management
+        - responsive_design
+        - accessibility
+        - performance_optimization
+    backend:
+      description: Server and infrastructure perspective
+      focus: APIs, databases, and services
+      capabilities:
+        - api_development
+        - database_optimization
+        - microservice_design
+        - queue_implementation
+        - caching_strategies
+    devops:
+      description: Operations and deployment perspective
+      focus: CI/CD, monitoring, and reliability
+      capabilities:
+        - pipeline_creation
+        - container_orchestration
+        - monitoring_setup
+        - incident_response
+        - infrastructure_as_code
+    mobile:
+      description: Mobile development perspective
+      focus: iOS/Android native and cross-platform
+      capabilities:
+        - native_development
+        - cross_platform_frameworks
+        - offline_first_design
+        - push_notifications
+        - app_store_optimization
+    data:
+      description: Data engineering perspective
+      focus: Data pipelines and analytics
+      capabilities:
+        - etl_pipeline_design
+        - data_warehouse_modeling
+        - stream_processing
+        - data_quality_assurance
+        - analytics_implementation
+    ml:
+      description: Machine learning engineering perspective
+      focus: ML systems and deployment
+      capabilities:
+        - model_deployment
+        - feature_engineering
+        - training_pipelines
+        - model_monitoring
+        - inference_optimization
+    qa:
+      description: Quality assurance perspective
+      focus: Testing strategies and automation
+      capabilities:
+        - test_strategy_design
+        - automation_framework
+        - integration_testing
+        - performance_testing
+        - test_data_management
+  code_style:
+    default: clean_pragmatic
+    adaptation: project_conventions
+  tool_preferences:
+    ide: context_aware
+    version_control: git
+    testing: comprehensive
+  dynamic_behaviors: ./behaviors/dev-dynamic.kingly
+  memory_config:
+    working_memory:
+      token_budget: 600
+      whisper_frequency: every_800_tokens
+      capture_triggers:
+        - bug_solution
+        - architecture_decision
+        - performance_insight
+    episodic_memory:
+      retention: 60_days
+      significance_threshold: 0.6
+      auto_summarize: daily
+    semantic_memory:
+      domains:
+        - technical_patterns
+        - debugging_approaches
+        - performance_solutions
+      update_frequency: on_successful_resolution
+    procedural_memory:
+      learns:
+        - debugging_workflows
+        - testing_strategies
+        - code_review_patterns
+    memory_boundaries:
+      shares_with:
+        - ceo
+        - qa
+        - devops
+      private:
+        - personal_coding_preferences
+        - team_dynamics_notes

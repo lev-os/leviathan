@@ -1,0 +1,216 @@
+# CPU Alert Basic Theory - Self-Learning Research Test
+# Following ~/c/agents/dev model for self-contained research experiments
+
+theory_meta:
+  id: "cpu_alert_basic"
+  name: "Conservative CPU Alert Strategy"
+  version: "1.0"
+  confidence: 0.7
+  stage: "sandbox"  # sandbox -> testing -> production
+  created_by: "llm_reasoning"
+  parent_theory: null
+  created_at: "2024-06-14T12:00:00Z"
+  original_instruction: "if cpu over 80% call me"
+
+# LLM execution guidance and hints
+llm_hints:
+  execution_style: "conservative_safety_first"
+  error_handling: "immediate_rollback_on_uncertainty"
+  learning_focus: "response_time_optimization"
+  context_awareness: "desktop_environment_assumptions"
+  risk_tolerance: "low"
+  innovation_level: "incremental"
+  debugging_approach: "verbose_logging_preferred"
+  
+# Link to supporting files for rich LLM context
+system_prompts:
+  execution_strategy: "./system_prompts/execution.md"
+  monitoring_approach: "./system_prompts/monitoring.md"
+  error_recovery: "./system_prompts/error_handling.md"
+  optimization_hints: "./system_prompts/optimization.md"
+
+# AI-generated executable components
+scripts:
+  main_implementation: "./scripts/cpu_monitor.py"
+  validation_test: "./scripts/test_scenario.py"
+  system_monitor: "./scripts/monitor.sh"
+  notification: "./scripts/notify.sh"
+  cleanup_rollback: "./scripts/cleanup.sh"
+
+# Documentation and learning files
+docs:
+  theory_rationale: "./docs/rationale.md"
+  expected_results: "./docs/expected_outcomes.md"
+  learning_log: "./docs/learning_log.md"
+  failure_analysis: "./docs/failure_analysis.md"
+
+# Self-contained executable workflow
+workflow:
+  initialization:
+    - name: "environment_setup"
+      script: "${scripts.system_monitor}"
+      llm_guidance: "${system_prompts.execution_strategy}"
+      timeout: "10s"
+      description: "Prepare monitoring environment and validate system state"
+      
+  execution:
+    - name: "cpu_monitoring_loop"
+      script: "${scripts.main_implementation}"
+      llm_guidance: "${system_prompts.monitoring_approach}"
+      timeout: "30s"
+      description: "Run CPU monitoring with 80% threshold detection"
+      success_criteria:
+        - "exit_code == 0"
+        - "response_time < 1.0s"
+        - "no_system_impact"
+        
+    - name: "alert_delivery"
+      script: "${scripts.notification}"
+      llm_guidance: "${system_prompts.optimization_hints}"
+      timeout: "5s"
+      description: "Deliver user notification when threshold exceeded"
+      
+  validation:
+    - name: "result_verification"
+      script: "${scripts.validation_test}"
+      llm_guidance: "${system_prompts.monitoring_approach}"
+      timeout: "15s"
+      description: "Validate monitoring accuracy and notification delivery"
+      
+  cleanup:
+    - name: "safe_rollback"
+      script: "${scripts.cleanup_rollback}"
+      llm_guidance: "${system_prompts.error_recovery}"
+      always_run: true
+      timeout: "10s"
+      description: "Clean up monitoring processes and restore system state"
+
+# Research parameters for theory evaluation
+research_parameters:
+  success_criteria:
+    response_time: "< 1.0 seconds"
+    detection_accuracy: "> 0.95"
+    user_satisfaction: "> 0.8"
+    system_stability: "no_degradation"
+    resource_usage: "< 2% cpu, < 50MB memory"
+    false_positive_rate: "< 0.05"
+    
+  failure_conditions:
+    missed_detections: "> 0.1"
+    system_crashes: "> 0"
+    user_complaints: "> 2"
+    excessive_resources: "> 5% cpu OR > 100MB memory"
+    notification_failures: "> 0.1"
+    
+  evolution_triggers:
+    promote_to_testing: "success_rate > 0.7 AND trials > 10"
+    promote_to_production: "success_rate > 0.85 AND trials > 50"
+    revise_theory: "success_rate < 0.6 OR user_satisfaction < 0.7"
+    retire_theory: "consecutive_failures > 10 OR security_risk"
+
+# Embedding generation for pattern learning
+embedding_config:
+  syscall_patterns:
+    focus_syscalls: ["getloadavg", "notify_send", "sleep", "signal_handling"]
+    context_dimensions: ["system_load", "user_presence", "time_of_day", "desktop_environment"]
+    pattern_type: "resource_monitoring_notification"
+    
+  theory_characteristics:
+    innovation_score: 3.2  # Conservative approach, proven methods
+    complexity_level: 2.1  # Simple implementation
+    risk_assessment: 1.8   # Low risk
+    adaptability: 4.5      # Should work across different desktop environments
+    user_impact: 2.0       # Minimal disruption
+    learning_potential: 6.0 # Good foundation for evolution
+
+# Cross-theory learning and relationships
+relationship_map:
+  competes_with: ["cpu_alert_predictive", "cpu_alert_adaptive"]
+  collaborates_with: ["memory_optimization_basic", "system_health_monitor"]
+  evolved_from: null
+  spawned_theories: []
+  
+cross_pollination:
+  successful_patterns_adopted: []  # Will be populated as theory learns
+  failed_patterns_avoided: []     # Will be populated from other theory failures
+  novel_combinations: []          # Will be discovered through execution
+
+# Code execution environment configuration
+execution_environment:
+  container: "docker"
+  base_image: "alpine:latest"
+  working_directory: "/theory_test"
+  
+  resource_limits:
+    max_cpu: "5%"
+    max_memory: "100MB"
+    max_disk: "50MB"
+    max_execution_time: "60s"
+    max_network_calls: 0  # No network needed for basic CPU monitoring
+    
+  allowed_syscalls:
+    - "getloadavg"
+    - "notify_send"
+    - "file_io_basic"
+    - "process_monitoring"
+    - "sleep"
+    
+  prohibited_actions:
+    - "kernel_modifications"
+    - "security_changes"
+    - "user_account_changes"
+    - "system_service_changes"
+    - "network_access"
+    
+  rollback_triggers:
+    - "timeout_exceeded"
+    - "resource_limit_hit"
+    - "unexpected_error"
+    - "user_intervention_signal"
+
+# Multi-provider LLM integration
+llm_provider_config:
+  theory_refinement:
+    provider: "claude"
+    model: "claude-3-5-sonnet"
+    context: "conservative system monitoring"
+    
+  script_generation:
+    provider: "openai"
+    model: "gpt-4"
+    context: "safe python system scripts"
+    
+  failure_analysis:
+    provider: "local_ollama"
+    model: "llama3.2:1b"
+    context: "debugging and error analysis"
+    
+  pattern_extraction:
+    provider: "embedding_model"
+    model: "text-embedding-ada-002"
+    context: "syscall pattern recognition"
+
+# Results tracking and learning data
+results_config:
+  performance_metrics: "./results/metrics.json"
+  embedding_vectors: "./results/embeddings.json"
+  success_log: "./results/success_log.yaml"
+  failure_log: "./results/failure_log.yaml"
+  learning_insights: "./results/insights.json"
+  
+  metrics_to_track:
+    - "execution_time"
+    - "cpu_usage_during_monitoring"
+    - "memory_usage_during_monitoring"
+    - "detection_accuracy"
+    - "notification_delivery_time"
+    - "user_response_time"
+    - "false_positive_count"
+    - "false_negative_count"
+
+# Integration with Go semantic search (from ../agent project)
+go_integration:
+  semantic_search_enabled: true
+  go_docs_context: "system_monitoring_syscalls"
+  optimization_hints: "go_performance_patterns"
+  cross_reference: "go_telemetry_collector"

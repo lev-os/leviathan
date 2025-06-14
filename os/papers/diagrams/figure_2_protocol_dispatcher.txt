@@ -1,0 +1,108 @@
+FIGURE 2 - PROTOCOL DISPATCHER DETAILS
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      PROTOCOL DISPATCHER ARCHITECTURE                   │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Input Protocol Messages                 Dispatcher Core                    Output Pathways
+                                  ┌─────────────────────────┐
+┌─────────────────┐              │   MULTI-PROTOCOL        │
+│ MCP Messages    │──────────────►│   PARSER (201)          │
+└─────────────────┘              │                         │
+┌─────────────────┐              │ ┌─────────────────────┐ │
+│ HTTP/HTTPS      │──────────────►│ │ Dynamic Protocol    │ │
+└─────────────────┘              │ │ Schema Defs (202)   │ │         ┌─────────────────┐
+┌─────────────────┐              │ └─────────────────────┘ │◄───────►│ Resource Pool A │
+│ WebSocket       │──────────────►│                         │         │ (CPU Intensive) │
+└─────────────────┘              └─────────┬───────────────┘         └─────────────────┘
+┌─────────────────┐                        │                         ┌─────────────────┐
+│ gRPC           │────────────────────────┬─▼─────────────────┐       │ Resource Pool B │
+└─────────────────┘                      │ SEMANTIC ROUTING   │◄─────►│ (GPU Compute)   │
+┌─────────────────┐                      │ ENGINE (203)       │       └─────────────────┘
+│ Custom AI       │──────────────────────┤                    │       ┌─────────────────┐
+│ Protocols      │                      │ ┌─────────────────┐│       │ Resource Pool C │
+└─────────────────┘                      │ │Protocol Trans   ││◄─────►│ (AI Accelerator)│
+                                        │ │Layer (204)      ││       └─────────────────┘
+                                        │ └─────────────────┘│       ┌─────────────────┐
+                                        └─────────┬──────────┘       │ Resource Pool D │
+                                                 │                   │ (Memory/Storage)│
+                                                 ▼                   └─────────────────┘
+                              ┌─────────────────────────────────┐
+                              │     INTENT CLASSIFICATION       │
+                              │       PIPELINE (205)            │
+                              │                                 │
+                              │ ┌─────────────────────────────┐ │
+                              │ │ NLP Modules (206)           │ │
+                              │ │ ├─ Context Understanding    │ │
+                              │ │ ├─ Domain Adaptation        │ │
+                              │ │ └─ Intent Disambiguation    │ │
+                              │ └─────────────────────────────┘ │
+                              │                                 │
+                              │ ┌─────────────────────────────┐ │
+                              │ │ Multi-Modal Recognition     │ │
+                              │ │ (207)                       │ │
+                              │ │ ├─ Text Processing          │ │
+                              │ │ ├─ Structured Data          │ │
+                              │ │ ├─ Voice Input              │ │
+                              │ │ └─ Behavioral Patterns      │ │
+                              │ └─────────────────────────────┘ │
+                              │                                 │
+                              │ ┌─────────────────────────────┐ │
+                              │ │ Context-Aware Classification│ │
+                              │ │ (208)                       │ │
+                              │ │ ├─ System State (211)       │ │
+                              │ │ ├─ Hardware Caps (212)      │ │
+                              │ │ └─ QoS Requirements (213)   │ │
+                              │ └─────────────────────────────┘ │
+                              └─────────────┬───────────────────┘
+                                           │
+                                           ▼
+                              ┌─────────────────────────────────┐
+                              │   INTENT-TO-RESOURCE MAPPING   │
+                              │        ALGORITHMS (209)        │
+                              │                                 │
+                              │ ┌─────────────────────────────┐ │
+                              │ │ Dynamic Resource Assessment │ │
+                              │ │ Optimization Strategy Select│ │
+                              │ │ Load Balancing Integration  │ │
+                              │ │ QoS Optimization           │ │
+                              │ └─────────────────────────────┘ │
+                              └─────────────┬───────────────────┘
+                                           │
+                                           ▼
+                              ┌─────────────────────────────────┐
+                              │    RESOURCE ALLOCATION          │
+                              │     PATHWAYS (210)              │
+                              │                                 │
+                              │ ┌─ Pathway A: High Priority ────┤
+                              │ ├─ Pathway B: Standard Proc ────┤
+                              │ ├─ Pathway C: Background Task ──┤
+                              │ └─ Pathway D: Emergency Route ──┤
+                              └─────────────────────────────────┘
+                                           │
+                                           ▼
+                              ┌─────────────────────────────────┐
+                              │   DECISION POINTS & FLOW        │
+                              │     CONTROL (214)               │
+                              │                                 │
+                              │ ┌─ Execution Path Selection     │
+                              │ ├─ Performance Optimization     │
+                              │ ├─ Failure Recovery Routes      │
+                              │ └─ Dynamic Reconfiguration      │
+                              └─────────────────────────────────┘
+
+PROCESSING FLOW:
+1. Multi-Protocol Parser (201) receives and validates incoming messages
+2. Dynamic Protocol Schema Definitions (202) enable runtime protocol support
+3. Semantic Routing Engine (203) performs intent-aware message dispatching
+4. Intent Classification Pipeline (205) determines user objectives and requirements
+5. Intent-to-Resource Mapping (209) translates intentions to optimal strategies
+6. Resource Allocation Pathways (210) direct requests to appropriate resources
+7. Decision Points (214) enable adaptive optimization and error recovery
+
+KEY INNOVATIONS:
+• Kernel-level protocol processing eliminates application-layer overhead
+• Intent-aware routing considers semantic content, not just destination
+• Dynamic protocol schema support enables runtime protocol evolution
+• Multi-modal intent recognition supports diverse communication channels
+• Context-aware classification ensures feasible resource allocation

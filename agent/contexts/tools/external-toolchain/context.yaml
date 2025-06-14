@@ -1,0 +1,81 @@
+name: "External Toolchain Integration"
+slug: "external-toolchain"
+type: "tool"
+version: "1.0.0"
+
+metadata:
+  description: "Integration layer for ~/i and ~/r external tooling"
+  tags: ["integration", "toolchain", "mcp", "agent-zero"]
+  author: "kingly-system"
+
+toolchain:
+  infrastructure_path: "~/i"
+  research_path: "~/r"
+  
+  # Infrastructure tools (~/i)
+  infrastructure:
+    agent_zero:
+      path: "~/i/agent-zero"
+      capabilities: ["task_execution", "memory_management", "tool_orchestration"]
+      mcp_integration: true
+      session_aware: true
+    
+    mcp_bridge:
+      path: "~/i/mcp-proxy"
+      type: "sse_bridge"
+      port: 8051
+      protocol: "stdio_to_sse"
+    
+    crawl4ai:
+      path: "~/i/mcp-crawl4ai-rag"
+      type: "mcp_server"
+      capabilities: ["web_crawling", "rag", "content_extraction"]
+
+  # Research tools (~/r)  
+  research:
+    browser_automation:
+      path: "~/r/mcp-browser-use"
+      capabilities: ["browser_control", "web_interaction", "form_automation"]
+      
+    ai_models:
+      tools: ["generate_completion", "stream_completion", "chat_completion", "multi_completion"]
+      capabilities: ["text_generation", "conversation", "model_comparison"]
+      
+    memory_systems:
+      tools: ["store_memory", "query_memories", "get_linked_memories", "cognitive_state"]
+      capabilities: ["persistent_memory", "vector_search", "context_awareness"]
+      
+    file_operations:
+      tools: ["read_file", "write_file", "search_files", "directory_tree"]
+      capabilities: ["file_management", "content_search", "batch_operations"]
+
+integration:
+  hooks:
+    # When Kingly needs external tool execution
+    before_context_load:
+      - check_external_tool_availability
+      - initialize_required_bridges
+    
+    # During context execution  
+    during_execution:
+      - route_to_appropriate_toolchain
+      - maintain_session_continuity
+      
+    # After context completion
+    after_execution:
+      - capture_execution_results
+      - update_context_state
+
+  routing:
+    # Route based on capability requirements
+    web_automation: "~/r/mcp-browser-use"
+    memory_operations: "~/r (memory tools)"
+    ai_generation: "~/r (ai model tools)"
+    task_orchestration: "~/i/agent-zero"
+    crawling_rag: "~/i/mcp-crawl4ai-rag"
+
+  session_management:
+    # Maintain session continuity across toolchains
+    session_bridge: true
+    state_persistence: true
+    context_sharing: "selective"

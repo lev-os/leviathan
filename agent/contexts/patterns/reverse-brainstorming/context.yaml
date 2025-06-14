@@ -1,0 +1,60 @@
+metadata:
+  type: "pattern"
+  id: "reverse-brainstorming"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Find solutions by exploring how to cause the problem"
+
+pattern_config:
+  methodology: "inversion_thinking"
+  
+  process:
+    1_invert_problem:
+      original: "How do we improve X?"
+      inverted: "How do we make X worse?"
+      
+    2_brainstorm_negative:
+      prompt: "List all ways to cause/worsen the problem"
+      quantity: "Aim for 20+ ideas"
+      judgment: "No filtering, wild ideas welcome"
+      
+    3_analyze_causes:
+      questions:
+        - "Which of these are happening now?"
+        - "Which are most damaging?"
+        - "Which are easiest to cause?"
+        
+    4_flip_solutions:
+      method: "Reverse each negative to find positive"
+      example:
+        negative: "Never document code"
+        positive: "Comprehensive documentation system"
+        
+    5_prioritize:
+      criteria:
+        - "Impact of solving"
+        - "Ease of implementation"
+        - "Root cause vs symptom"
+        
+  use_cases:
+    - "Finding hidden problems"
+    - "Identifying risks"
+    - "Breaking mental blocks"
+    - "Team building exercises"
+    
+  prompts:
+    standard: "How could we completely fail at {goal}?"
+    specific: "What would guarantee {negative_outcome}?"
+    team: "If we wanted to sabotage {project}, how?"
+    
+  output_format:
+    negative_list: true
+    cause_analysis: true
+    solution_matrix: true
+    action_items: true
+    
+  psychological_benefits:
+    - "Reduces solution pressure"
+    - "Makes problems less scary"
+    - "Reveals blind spots"
+    - "Engages different thinking"

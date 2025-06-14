@@ -1,0 +1,158 @@
+tier_1_configuration:
+  name: "Broad Base Research"
+  duration: "30_minutes"
+  execution_mode: "parallel"
+  
+  research_streams:
+    stream_1_architecture:
+      id: "architecture_revolution"
+      focus: "Technical breakthroughs and architectural innovations"
+      duration: "30_minutes"
+      
+      research_questions:
+        - "What are the latest breakthroughs in {{research_topic}}?"
+        - "Which architectural patterns are emerging?"
+        - "What technical limitations are being overcome?"
+        
+      tools_sequence:
+        1:
+          tool: "WebSearch"
+          query: "{{research_topic}} breakthrough 2024 2025"
+          purpose: "Initial landscape scan"
+          
+        2:
+          tool: "perplexity_ask"
+          query: "Latest technical innovations in {{research_topic}}"
+          purpose: "Detailed technical insights"
+          
+        3:
+          tool: "fetch_url"
+          targets: "top 3-5 technical sources"
+          purpose: "Deep dive on promising finds"
+          
+      output_expectations:
+        - Technical innovation summary
+        - Key papers/implementations
+        - Architecture patterns
+        - Performance improvements
+        
+    stream_2_world_models:
+      id: "world_models"
+      focus: "Memory, context, and state management innovations"
+      duration: "30_minutes"
+      
+      research_questions:
+        - "How is {{research_topic}} handling memory/context?"
+        - "What are the latest approaches to state management?"
+        - "How are long-term dependencies being addressed?"
+        
+      tools_sequence:
+        1:
+          tool: "memory_retrieve"
+          query: "world models {{research_topic}}"
+          purpose: "Check existing knowledge"
+          
+        2:
+          tool: "search_exa"
+          query: "memory context {{research_topic}}"
+          purpose: "Neural search for concepts"
+          
+        3:
+          tool: "brave_web_search"
+          query: "{{research_topic}} context window memory"
+          purpose: "Alternative perspectives"
+          
+      output_expectations:
+        - Memory architecture insights
+        - Context handling approaches
+        - Scalability solutions
+        - Integration patterns
+        
+    stream_3_reasoning:
+      id: "reasoning_evolution"
+      focus: "Reasoning capabilities and competitive landscape"
+      duration: "30_minutes"
+      
+      research_questions:
+        - "How is reasoning evolving in {{research_topic}}?"
+        - "Who are the key players and what are they building?"
+        - "What reasoning benchmarks are being surpassed?"
+        
+      tools_sequence:
+        1:
+          tool: "WebSearch"
+          query: "{{research_topic}} reasoning benchmark comparison"
+          purpose: "Competitive overview"
+          
+        2:
+          tool: "search_tavily"
+          query: "{{research_topic}} reasoning capabilities companies"
+          purpose: "Deep competitive analysis"
+          
+        3:
+          tool: "desktop_commander"
+          action: "search_code"
+          query: "reasoning implementation"
+          purpose: "Technical implementation scan"
+          
+      output_expectations:
+        - Reasoning capability matrix
+        - Competitive positioning map
+        - Benchmark comparisons
+        - Strategic movements
+        
+    stream_4_efficiency:
+      id: "efficiency_innovations"
+      focus: "Cost reduction and efficiency improvements"
+      duration: "30_minutes"
+      
+      research_questions:
+        - "What efficiency breakthroughs exist in {{research_topic}}?"
+        - "How are costs being reduced?"
+        - "What optimization techniques are emerging?"
+        
+      tools_sequence:
+        1:
+          tool: "perplexity_ask"
+          query: "{{research_topic}} efficiency optimization cost reduction"
+          purpose: "Cost innovation scan"
+          
+        2:
+          tool: "WebSearch"
+          query: "{{research_topic}} inference optimization"
+          purpose: "Technical optimizations"
+          
+        3:
+          tool: "memory_store"
+          action: "save_findings"
+          purpose: "Preserve efficiency insights"
+          
+      output_expectations:
+        - Cost reduction strategies
+        - Optimization techniques
+        - Performance/cost tradeoffs
+        - Implementation feasibility
+        
+  synthesis_phase:
+    duration: "5_minutes"
+    actions:
+      - Combine findings from all streams
+      - Identify convergence points
+      - Score findings by relevance
+      - Generate tier 2 candidates
+      
+  success_metrics:
+    coverage:
+      - All 4 streams executed
+      - Minimum 3 sources per stream
+      - Cross-stream connections identified
+      
+    quality:
+      - Findings are recent (< 6 months)
+      - Sources are credible
+      - Technical depth achieved
+      
+    output:
+      - Clear synthesis document
+      - Relevance scores assigned
+      - Tier 2 candidates identified

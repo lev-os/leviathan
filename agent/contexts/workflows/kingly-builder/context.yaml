@@ -1,0 +1,24 @@
+metadata:
+  id: kingly-builder
+  type: workflow
+  name: Kingly System Builder
+  version: 1.0.0
+  description: Meta-workflow for suggesting agents, templates, and system architecture
+  category: meta-orchestration
+
+workflow_config:
+  steps:
+    - step: 1
+      name: Analyze Request
+      agent: ceo
+      template: templates/request-analysis.md
+      
+    - step: 2
+      name: Suggest Architecture
+      agent: dev.architect
+      template: templates/architecture-suggestions.md
+      
+    - step: 3
+      name: Recommend Templates
+      agent: dev
+      template: templates/template-recommendations.md

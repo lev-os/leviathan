@@ -1,0 +1,137 @@
+selected_tools:
+  # Critical Research Tools (Use Frequently)
+  tier_1_essential:
+    memory_retrieve:
+      purpose: "Check existing knowledge first"
+      cost: "free"
+      priority: "always_first"
+      
+    memory_store:
+      purpose: "Save valuable findings"
+      cost: "free"
+      priority: "always_use"
+      
+    search_tavily:
+      purpose: "Deep web search with AI"
+      cost: "moderate"
+      priority: "primary_research"
+      when_to_use:
+        - "Need comprehensive results"
+        - "Require source citations"
+        - "Multi-perspective needed"
+        
+  # Specialized Tools (Use Strategically)
+  tier_2_specialized:
+    search_exa:
+      purpose: "Neural/semantic search"
+      cost: "premium"
+      priority: "concept_research"
+      when_to_use:
+        - "Finding similar concepts"
+        - "Exploring analogies"
+        - "Discovering connections"
+        
+    read_pdf:
+      purpose: "Academic paper extraction"
+      cost: "low"
+      priority: "academic_research"
+      when_to_use:
+        - "Analyzing research papers"
+        - "Extracting methodologies"
+        - "Citation mining"
+        
+    youtube_transcript:
+      purpose: "Video content extraction"
+      cost: "low"
+      priority: "multimedia_research"
+      when_to_use:
+        - "Conference talks"
+        - "Technical tutorials"
+        - "Expert interviews"
+        
+    csv_analytics:
+      purpose: "Data analysis"
+      cost: "low"
+      priority: "data_research"
+      when_to_use:
+        - "Market data analysis"
+        - "Trend identification"
+        - "Statistical validation"
+        
+  # Advanced Tools (Use Sparingly)
+  tier_3_advanced:
+    python_repl:
+      purpose: "Complex calculations"
+      cost: "moderate"
+      priority: "computational_research"
+      when_to_use:
+        - "Statistical analysis"
+        - "Algorithm testing"
+        - "Data visualization"
+      caution: "Security implications"
+      
+    take_screenshot_with_playwright:
+      purpose: "Visual capture"
+      cost: "high"
+      priority: "visual_research"
+      when_to_use:
+        - "UI/UX analysis"
+        - "Visual proof"
+        - "Competitor interfaces"
+        
+    create_image_with_dalle:
+      purpose: "Diagram generation"
+      cost: "very_high"
+      priority: "final_output_only"
+      when_to_use:
+        - "Executive summaries"
+        - "Concept visualization"
+        - "Architecture diagrams"
+      limit: "Max 2-3 per research task"
+      
+  # Utility Tools
+  tier_4_utility:
+    send_email:
+      purpose: "Report delivery"
+      cost: "low"
+      priority: "output_phase"
+      
+    get_weather_data:
+      purpose: "Environmental data"
+      cost: "low"
+      priority: "context_specific"
+      
+    read_url:
+      purpose: "Web content extraction"
+      cost: "low"
+      priority: "alternative_to_fetch"
+      
+# Tool Combination Patterns
+effective_combinations:
+  comprehensive_research:
+    sequence:
+      - memory_retrieve
+      - search_tavily
+      - read_pdf  # for found papers
+      - memory_store
+      
+  competitive_analysis:
+    sequence:
+      - search_tavily
+      - take_screenshot_with_playwright
+      - csv_analytics  # for market data
+      - memory_store
+      
+  academic_deep_dive:
+    sequence:
+      - memory_retrieve
+      - search_exa  # for concepts
+      - read_pdf  # for papers
+      - python_repl  # for verification
+      - memory_store
+      
+  multimedia_research:
+    sequence:
+      - youtube_transcript
+      - search_tavily  # for context
+      - memory_store

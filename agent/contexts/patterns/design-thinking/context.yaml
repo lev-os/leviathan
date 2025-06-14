@@ -1,0 +1,178 @@
+metadata:
+  name: "Design Thinking"
+  type: "pattern"
+  category: "innovation-framework"
+  description: "Human-centered approach to innovation integrating people's needs, technology possibilities, and business requirements"
+  author: "IDEO, Stanford d.school"
+  complexity: "medium"
+  time_estimate: "Multiple sessions, 2-8 weeks total"
+
+context:
+  role: "Design Thinking Facilitator guiding human-centered innovation process"
+  
+  framework_overview: |
+    Design thinking is a human-centered approach to innovation that integrates the needs of people,
+    the possibilities of technology, and requirements for business success. It's a methodology
+    for creative problem solving with a user-centric core.
+
+  five_phases:
+    empathize:
+      description: "Understand the user and their needs"
+      mindset: "Beginner's mind, observe without judgment"
+      methods:
+        - "User interviews and conversations"
+        - "Observation and ethnographic research"
+        - "Empathy maps and journey mapping"
+        - "Immersion in user environment"
+      deliverables:
+        - "User personas and empathy maps"
+        - "Journey maps and pain points"
+        - "Insights and opportunity areas"
+
+    define:
+      description: "Frame the right problem to solve"
+      mindset: "Synthesis and insight generation"
+      methods:
+        - "Point of view statements"
+        - "Problem framing and reframing"
+        - "How might we questions"
+        - "Insight clustering and synthesis"
+      deliverables:
+        - "Problem statement or design challenge"
+        - "Point of view statement"
+        - "How might we questions"
+
+    ideate:
+      description: "Generate a range of creative solutions"
+      mindset: "Defer judgment, go for quantity"
+      methods:
+        - "Brainstorming and brainwriting"
+        - "Worst possible idea"
+        - "SCAMPER technique"
+        - "Storyboarding and sketching"
+      deliverables:
+        - "Large quantity of ideas"
+        - "Categorized and prioritized concepts"
+        - "Selected ideas for prototyping"
+
+    prototype:
+      description: "Build to think and learn"
+      mindset: "Fail fast, learn quickly"
+      methods:
+        - "Paper prototypes and wireframes"
+        - "Role playing and scenarios"
+        - "Storyboards and service blueprints"
+        - "Digital and physical prototypes"
+      deliverables:
+        - "Testable prototypes"
+        - "Service scenarios"
+        - "User interaction flows"
+
+    test:
+      description: "Learn from users and iterate"
+      mindset: "Learn from failure, iterate quickly"
+      methods:
+        - "User testing and feedback sessions"
+        - "A/B testing and experiments"
+        - "Pilot programs and beta testing"
+        - "Observation and analytics"
+      deliverables:
+        - "User feedback and insights"
+        - "Iteration recommendations"
+        - "Validated solution concepts"
+
+  design_thinking_mindsets:
+    human_centered: "Start with people and their needs"
+    show_dont_tell: "Communicate through experience"
+    radical_collaboration: "Diverse perspectives create breakthrough innovation"
+    mindful_experimentation: "Test assumptions through smart experiments"
+    bias_toward_action: "Do something, don't just think about it"
+    embrace_failure: "Learn from failure and iterate quickly"
+
+  tools_and_methods:
+    research_tools:
+      - "Stakeholder mapping"
+      - "User interviews"
+      - "Surveys and questionnaires"
+      - "Observation studies"
+      - "Secondary research"
+      
+    synthesis_tools:
+      - "Affinity mapping"
+      - "Journey mapping"
+      - "Empathy mapping"
+      - "Persona development"
+      - "Problem statements"
+      
+    ideation_tools:
+      - "Brainstorming variations"
+      - "Mind mapping"
+      - "SCAMPER method"
+      - "Six thinking hats"
+      - "Analogies and metaphors"
+      
+    prototyping_tools:
+      - "Paper prototyping"
+      - "Digital wireframing"
+      - "Service blueprinting"
+      - "Role playing"
+      - "Video prototyping"
+
+  team_composition:
+    recommended_roles:
+      - "Design facilitator/leader"
+      - "User researcher"
+      - "Business stakeholder"
+      - "Technical expert"
+      - "End user representative"
+    
+    team_size: "4-8 people optimal"
+    duration_per_phase: "1-2 weeks typical"
+
+  common_pitfalls:
+    - "Skipping empathy phase"
+    - "Falling in love with first idea"
+    - "Prototyping too late"
+    - "Not testing with real users"
+    - "Making it too linear vs iterative"
+
+  output_structure:
+    empathy_insights:
+      - user_personas: "Key user archetypes"
+      - pain_points: "User frustrations and needs"
+      - journey_maps: "User experience flows"
+      
+    problem_definition:
+      - point_of_view: "User + need + insight"
+      - problem_statement: "Clear challenge definition"
+      - hmw_questions: "How might we questions"
+      
+    solution_concepts:
+      - ideation_results: "Generated ideas and concepts"
+      - selected_concepts: "Prioritized solutions to prototype"
+      - concept_descriptions: "Detailed solution explanations"
+      
+    prototype_learnings:
+      - prototype_artifacts: "Built prototypes and tests"
+      - user_feedback: "Testing results and insights"
+      - iteration_plan: "Next steps and improvements"
+
+triggers:
+  - when: "user experience problems"
+  - when: "innovation needed"
+  - when: "complex human-centered challenges"
+  - when_semantic: "need user-centered solutions"
+  - when_semantic: "innovation and creativity required"
+  - when_semantic: "understanding user needs"
+
+integration:
+  complements:
+    - "lean-startup"
+    - "agile-development"
+    - "jobs-to-be-done"
+  follows_well:
+    - "market-research"
+    - "user-research"
+  leads_to:
+    - "product-development"
+    - "service-design"

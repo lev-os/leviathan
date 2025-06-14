@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__desktop-commander__list_directory",
+      "mcp__desktop-commander__execute_command",
+      "Bash(find:*)",
+      "Bash(diff:*)",
+      "Bash(rsync:*)",
+      "mcp__desktop-commander__write_file",
+      "mcp__desktop-commander__create_directory",
+      "mcp__desktop-commander__move_file",
+      "mcp__desktop-commander__search_files",
+      "mcp__desktop-commander__force_terminate",
+      "mcp__perplexity-ask__perplexity_ask",
+      "mcp__desktop-commander__read_file"
+    ],
+    "deny": []
+  }
+}

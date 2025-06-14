@@ -1,0 +1,227 @@
+metadata:
+  name: "Design Thinking Process"
+  type: "workflow"
+  category: "innovation"
+  description: "5-phase human-centered innovation workflow: Empathize → Define → Ideate → Prototype → Test"
+  complexity: "medium"
+  time_estimate: "2-8 weeks"
+
+context:
+  role: "Design Thinking Facilitator orchestrating human-centered innovation process"
+  
+  workflow_overview: |
+    Guide teams through the complete Design Thinking process, switching between different
+    mindsets and methods at each phase to develop human-centered solutions.
+
+  steps:
+    - step: 1
+      name: "empathize"
+      role: "Empathy Researcher - understanding user needs deeply"
+      description: "Understand users and their needs through observation and engagement"
+      mindset: "Beginner's mind, suspend judgment, be curious"
+      
+      primary_methods:
+        - "Conduct user interviews"
+        - "Observe users in context"
+        - "Create empathy maps"
+        - "Document user journey"
+      
+      deliverables:
+        - "User personas with needs/pain points"
+        - "Empathy maps showing thoughts/feelings"
+        - "User journey maps with moments of truth"
+        - "Research insights and observations"
+      
+      success_criteria:
+        - "Deep understanding of user context"
+        - "Emotional connection to user challenges"
+        - "Rich qualitative insights captured"
+      
+      time_estimate: "1-2 weeks"
+      
+      when_complete: "move to define phase"
+
+    - step: 2
+      name: "define"
+      role: "Problem Framer - synthesizing insights into clear challenge"
+      description: "Frame the right problem based on empathy research"
+      mindset: "Synthesis thinking, pattern recognition, insight generation"
+      
+      inputs_from_previous:
+        - "User research and insights"
+        - "Empathy maps and personas"
+        - "Journey maps and pain points"
+      
+      primary_methods:
+        - "Synthesize research into insights"
+        - "Create point of view statements"
+        - "Generate How Might We questions"
+        - "Define design challenge"
+      
+      deliverables:
+        - "Clear problem statement"
+        - "Point of view: User + Need + Insight"
+        - "How Might We questions for ideation"
+        - "Design challenge definition"
+      
+      success_criteria:
+        - "Problem is human-centered and actionable"
+        - "Team aligned on challenge to solve"
+        - "Clear direction for ideation"
+      
+      time_estimate: "3-5 days"
+      
+      when_complete: "move to ideate phase"
+
+    - step: 3
+      name: "ideate"
+      role: "Creative Facilitator - generating diverse solution ideas"
+      description: "Generate wide range of creative solutions to defined challenge"
+      mindset: "Defer judgment, go for quantity, build on others' ideas"
+      
+      inputs_from_previous:
+        - "Problem statement"
+        - "How Might We questions"
+        - "User insights and constraints"
+      
+      primary_methods:
+        - "Brainstorming sessions"
+        - "Worst possible idea technique"
+        - "SCAMPER method application"
+        - "Idea clustering and selection"
+      
+      deliverables:
+        - "Large quantity of diverse ideas (100+)"
+        - "Categorized and clustered concepts"
+        - "Selected ideas for prototyping (3-5)"
+        - "Concept descriptions and rationale"
+      
+      success_criteria:
+        - "Divergent thinking produced many options"
+        - "Ideas address real user needs"
+        - "Team excited about selected concepts"
+      
+      time_estimate: "1 week"
+      
+      when_complete: "move to prototype phase"
+
+    - step: 4
+      name: "prototype"
+      role: "Rapid Prototyper - building to think and learn"
+      description: "Build quick, testable versions of selected ideas"
+      mindset: "Fail fast, learn quickly, think with your hands"
+      
+      inputs_from_previous:
+        - "Selected ideas for development"
+        - "User needs and context"
+        - "Success criteria from define phase"
+      
+      primary_methods:
+        - "Paper prototyping"
+        - "Digital wireframing"
+        - "Role playing scenarios"
+        - "Service blueprinting"
+      
+      deliverables:
+        - "Testable prototypes (low to mid fidelity)"
+        - "Prototype testing plan"
+        - "User scenarios and use cases"
+        - "Assumptions to test"
+      
+      success_criteria:
+        - "Prototypes convey core concepts"
+        - "Ready for meaningful user testing"
+        - "Clear hypotheses about user response"
+      
+      time_estimate: "1-2 weeks"
+      
+      when_complete: "move to test phase"
+
+    - step: 5
+      name: "test"
+      role: "Learning Researcher - validating with users"
+      description: "Test prototypes with users and iterate based on feedback"
+      mindset: "Learn from users, iterate quickly, embrace feedback"
+      
+      inputs_from_previous:
+        - "Testable prototypes"
+        - "Testing plan and scenarios"
+        - "Hypotheses to validate"
+      
+      primary_methods:
+        - "User testing sessions"
+        - "Feedback collection and analysis"
+        - "Iteration planning"
+        - "Next cycle planning"
+      
+      deliverables:
+        - "User feedback and insights"
+        - "Validated/invalidated assumptions"
+        - "Iteration recommendations"
+        - "Refined solution concepts"
+      
+      success_criteria:
+        - "Clear user feedback captured"
+        - "Key assumptions tested"
+        - "Direction for next iteration clear"
+      
+      time_estimate: "1 week"
+      
+      when_complete: "iterate or implement solution"
+
+  workflow_coordination:
+    iteration_triggers:
+      - when_semantic: "major assumptions invalidated"
+      - when_semantic: "user feedback suggests different direction"
+      - when_semantic: "prototype doesn't solve core problem"
+    
+    parallel_activities:
+      - "Stakeholder communication throughout"
+      - "Technical feasibility assessment"
+      - "Business viability evaluation"
+    
+    decision_points:
+      - step: 3
+        decision: "Which ideas to prototype?"
+        criteria: ["User desirability", "Technical feasibility", "Business viability"]
+      - step: 5
+        decision: "Iterate or proceed to implementation?"
+        criteria: ["User satisfaction", "Problem-solution fit", "Success metrics"]
+
+  success_metrics:
+    process_metrics:
+      - "User research depth and quality"
+      - "Idea generation quantity and diversity"
+      - "Prototype learning velocity"
+      - "User feedback quality and actionability"
+    
+    outcome_metrics:
+      - "Solution addresses real user needs"
+      - "User satisfaction with solution"
+      - "Business viability demonstrated"
+      - "Technical feasibility confirmed"
+
+  common_pitfalls:
+    - "Skipping empathy research"
+    - "Jumping to solutions too quickly"
+    - "Not testing with real users"
+    - "Falling in love with first ideas"
+    - "Making process too linear vs iterative"
+
+  integration:
+    works_well_with:
+      - "lean-startup-cycle"
+      - "agile-development"
+      - "user-research-methods"
+    
+    outputs_feed_into:
+      - "product-development"
+      - "service-design"
+      - "business-model-development"
+
+triggers:
+  - when: "need user-centered innovation"
+  - when: "complex human problems to solve"
+  - when: "launching new product or service"
+  - when_semantic: "innovation and creativity needed"
+  - when_semantic: "understanding users deeply required"

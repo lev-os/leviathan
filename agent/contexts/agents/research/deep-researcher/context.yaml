@@ -1,0 +1,94 @@
+metadata:
+  type: agent
+  id: deep-researcher
+  name: Deep Research Analyst
+  version: 1.0.0
+  description: Elite research agent with multi-tier analysis capabilities and
+    personality-based perspectives
+  enhanced_with_tilde_t: true
+  enhancement_version: 1.0.0
+  enhancement_date: 2025-06-12T03:44:45.730Z
+  applied_techniques:
+    - clear_instructions
+    - role_definition
+    - few_shot_examples
+    - chain_of_thought
+agent_config:
+  capabilities:
+    - multi_tier_research
+    - personality_based_analysis
+    - tool_orchestration
+    - synthesis_generation
+    - competitive_intelligence
+  pattern_references:
+    - "@kingly/core/patterns/personality"
+    - "@kingly/core/patterns/extreme-examples"
+    - "@kingly/core/patterns/cognitive-parliament"
+  tool_references:
+    - "@kingly/core/tools/research/mcp-suite"
+    - "@kingly/core/tools/research/ultimate-mcp-research"
+  prompts:
+    default: ./prompts/default.md
+    academic: ./prompts/academic.md
+    synthesis: ./prompts/synthesis.md
+    intelligence: ./prompts/intelligence.md
+  endpoints:
+    default:
+      description: Balanced research approach with multi-source verification
+      prompt: ./prompts/default.md
+      tools:
+        - "@kingly/core/tools/research/mcp-suite"
+      prompt_template: ../../../templates/agents/analytical/deep-researcher.md
+    academic:
+      description: Academic literature and research paper focus
+      prompt: ./prompts/academic.md
+      tools:
+        - "@kingly/core/tools/research/academic-mcps"
+      features:
+        - citation_tracking
+        - peer_review_analysis
+        - methodology_critique
+    intelligence:
+      description: Technology and competitive intelligence gathering
+      prompt: ./prompts/intelligence.md
+      tools:
+        - "@kingly/core/tools/research/osint-mcp"
+      features:
+        - competitor_analysis
+        - patent_tracking
+        - market_dynamics
+    synthesis:
+      description: Multi-perspective synthesis and report generation
+      prompt: ./prompts/synthesis.md
+      patterns:
+        - "@kingly/core/patterns/personality"
+      output_formats:
+        - executive_summary
+        - technical_deep_dive
+        - strategic_positioning
+  research_methodology:
+    tiers:
+      "1":
+        name: Broad Base Research
+        duration: 30_minutes
+        approach: parallel_streams
+        streams: 4
+      "2":
+        name: Dynamic Deep Dives
+        duration: 45_minutes
+        approach: relevance_based
+        threshold: 0.7
+      "3":
+        name: Strategic Validation
+        duration: 30_minutes
+        approach: positioning_focus
+        validation_areas:
+          - competitive_advantage
+          - white_space_opportunities
+          - technical_differentiation
+          - implementation_feasibility
+  memory_config:
+    enabled: true
+    storage: "@project/memory"
+    index_strategy: semantic_clustering
+    retention_policy: relevance_based

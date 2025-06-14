@@ -1,0 +1,133 @@
+name: "Concept Reviewer"
+slug: "concept-reviewer"
+type: "tool"
+version: "1.0.0"
+
+metadata:
+  description: "Creates human-friendly review sessions for concept evolution analysis"
+  tags: ["review", "human-assisted", "concept-evolution", "interface"]
+  author: "kingly-system"
+
+tool:
+  executable: "src/tools/concept-reviewer.js"
+  category: "review-interface"
+  
+  capabilities:
+    - "Generate review sessions from concept synthesis"
+    - "Create diff analysis for concept evolution"
+    - "Organize review groups by conceptual similarity"
+    - "Generate human-readable review interface"
+    - "Template decision structures for human input"
+
+  parameters:
+    output_dir:
+      description: "Directory for review session"
+      default: "./tmp/concept-review"
+      type: "string"
+
+  usage:
+    command: "node src/tools/concept-reviewer.js"
+    examples:
+      - description: "Create review session"
+        command: "node src/tools/concept-reviewer.js"
+      - description: "Custom review directory"
+        command: "node src/tools/concept-reviewer.js --output ./custom/review"
+
+integration:
+  workflow_stage: "review"
+  inputs: ["concept synthesis results"]
+  outputs: ["review groups", "diff analysis", "decision templates"]
+  
+  dependencies:
+    - "concept-synthesizer output"
+    - "yaml for decision templates"
+    - "markdown for human-readable reports"
+
+  requires: ["concept-synthesizer"]
+  leads_to: ["concept-merger"]
+
+prompts:
+  system: |
+    You are creating a human review interface for concept evolution.
+    
+    Your role is to present complex concept evolution in a way that enables
+    humans to make informed decisions about:
+    1. Which version of a concept to keep
+    2. How to merge features from multiple iterations
+    3. What custom merging might be needed
+    
+    Focus on clarity and actionable insights.
+
+workflow:
+  steps:
+    - name: "Load synthesis results"
+      description: "Import concept analysis from synthesizer"
+    
+    - name: "Group concepts for review"
+      description: "Organize evolved concepts into review groups"
+    
+    - name: "Generate diff analysis"
+      description: "Create detailed evolution analysis for each group"
+    
+    - name: "Create review interface"
+      description: "Generate human-friendly review documentation"
+    
+    - name: "Template decisions"
+      description: "Create decision template for human completion"
+
+templates:
+  diff_analysis: |
+    # Concept Evolution: {{concept_name}}
+    
+    ## Iterations: {{iteration_count}}
+    {{#iterations}}
+    ### {{location}} → {{changes_count}} changes
+    {{#changes}}
+    - **{{type}}** `{{field}}`: {{description}}
+    {{/changes}}
+    {{/iterations}}
+    
+    ## Recommendation
+    {{recommendation}}
+    
+    ## Review Notes
+    _Add your analysis here..._
+
+  decision_template: |
+    {{concept_name}}:
+      decision: "pending"  # keep-version | merge-features | custom-merge
+      rationale: ""
+      selectedFeatures: {}
+      customMerge: null
+
+examples:
+  - name: "Evolution review for agent concept"
+    description: "Review session for agent concept with 4 iterations"
+    scenario: |
+      Agent concept found in:
+      1. mcp-ceo: Basic agent structure
+      2. _infra: Added personality system
+      3. hub/agency: Enhanced endpoints
+      4. current: Integration patterns
+      
+      Review shows progressive enhancement with valuable additions at each step.
+      Recommendation: Merge features from all versions.
+
+review_decisions:
+  options:
+    keep_version:
+      description: "Select the best single version"
+      use_when: "One version clearly superior"
+    
+    merge_features:
+      description: "Combine features from multiple versions"
+      use_when: "Different versions have complementary strengths"
+    
+    custom_merge:
+      description: "Manual specification needed"
+      use_when: "Complex merging logic required"
+
+configuration:
+  max_versions_per_group: 10
+  min_changes_for_review: 1
+  auto_include_unique: true

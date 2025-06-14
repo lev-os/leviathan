@@ -1,0 +1,146 @@
+tier_2_configuration:
+  name: "Dynamic Deep Dives"
+  duration: "45_minutes"
+  execution_mode: "dynamic_generation"
+  
+  generation_strategy:
+    source: "tier_1_findings"
+    method: "relevance_based_selection"
+    
+    selection_criteria:
+      relevance_threshold: 0.7
+      max_streams: 8
+      min_streams: 4
+      
+    scoring_factors:
+      - innovation_potential: 0.3
+      - competitive_advantage: 0.3
+      - implementation_feasibility: 0.2
+      - strategic_alignment: 0.2
+      
+  stream_templates:
+    deep_technical:
+      trigger: "high_technical_innovation_score"
+      duration: "15_minutes"
+      
+      investigation_pattern:
+        1:
+          action: "Identify core innovation"
+          tools: ["perplexity_ask", "search_exa"]
+          
+        2:
+          action: "Analyze implementation details"
+          tools: ["fetch_url", "read_pdf", "youtube_transcript"]
+          
+        3:
+          action: "Assess feasibility"
+          tools: ["python_repl", "desktop_commander"]
+          
+        4:
+          action: "Map to use cases"
+          tools: ["memory_store", "search_tavily"]
+          
+    competitive_analysis:
+      trigger: "strategic_movement_detected"
+      duration: "15_minutes"
+      
+      investigation_pattern:
+        1:
+          action: "Map competitor capabilities"
+          tools: ["search_tavily", "brave_web_search"]
+          
+        2:
+          action: "Analyze strategic positioning"
+          tools: ["take_screenshot_with_playwright", "fetch_url"]
+          
+        3:
+          action: "Identify gaps and opportunities"
+          tools: ["csv_analytics", "memory_retrieve"]
+          
+        4:
+          action: "Develop counter-strategies"
+          tools: ["memory_store", "perplexity_ask"]
+          
+    market_opportunity:
+      trigger: "white_space_identified"
+      duration: "10_minutes"
+      
+      investigation_pattern:
+        1:
+          action: "Validate market need"
+          tools: ["brave_local_search", "search_tavily"]
+          
+        2:
+          action: "Assess barriers to entry"
+          tools: ["perplexity_ask", "WebSearch"]
+          
+        3:
+          action: "Calculate opportunity size"
+          tools: ["csv_analytics", "python_repl"]
+          
+    paradigm_shift:
+      trigger: "breakthrough_technology_found"
+      duration: "20_minutes"
+      
+      investigation_pattern:
+        1:
+          action: "Understand the breakthrough"
+          tools: ["read_pdf", "youtube_transcript", "perplexity_ask"]
+          
+        2:
+          action: "Analyze implications"
+          tools: ["search_exa", "memory_retrieve"]
+          
+        3:
+          action: "Project future impact"
+          tools: ["search_tavily", "create_image_with_dalle"]
+          
+        4:
+          action: "Strategic positioning"
+          tools: ["memory_store", "perplexity_ask"]
+          
+  dynamic_allocation:
+    time_distribution:
+      method: "weighted_by_relevance"
+      minimum_per_stream: "10_minutes"
+      maximum_per_stream: "20_minutes"
+      
+    resource_optimization:
+      - Prioritize free tools for exploration
+      - Use premium tools for validation
+      - Batch similar queries
+      - Reuse fetched content
+      
+  inter_stream_synthesis:
+    frequency: "every_15_minutes"
+    actions:
+      - Cross-reference findings
+      - Identify patterns
+      - Adjust remaining time allocation
+      - Update relevance scores
+      
+  output_generation:
+    per_stream:
+      - Deep dive summary
+      - Key insights with evidence
+      - Strategic implications
+      - Confidence assessment
+      
+    aggregate:
+      - Synthesis across all deep dives
+      - Emergent patterns
+      - Strategic recommendations
+      - Risk assessments
+      
+  quality_assurance:
+    depth_metrics:
+      - Technical detail level
+      - Evidence quality
+      - Source diversity
+      - Insight novelty
+      
+    validation_checks:
+      - Cross-stream consistency
+      - Factual accuracy
+      - Logical coherence
+      - Strategic relevance

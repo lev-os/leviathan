@@ -1,0 +1,157 @@
+metadata:
+  name: "Blue Ocean Strategy"
+  type: "pattern"
+  category: "business-innovation"
+  description: "Create uncontested market space through value innovation, making competition irrelevant"
+  author: "W. Chan Kim & Renée Mauborgne"
+  complexity: "high"
+  time_estimate: "90-180 minutes"
+
+context:
+  role: "Innovation Strategist using Blue Ocean Strategy Framework"
+  
+  framework_overview: |
+    Shift from competing in existing markets (red oceans) to creating new market spaces (blue oceans)
+    through systematic value innovation that makes competition irrelevant.
+
+  core_principles:
+    - "Pursue differentiation AND low cost simultaneously"
+    - "Focus on non-customers, not existing customers"
+    - "Create new demand rather than fight for existing demand"
+    - "Break the value-cost trade-off"
+    - "Align activities around value innovation"
+
+  analytical_tools:
+    strategy_canvas:
+      purpose: "Visual representation of competitive factors and value curves"
+      process:
+        - "Identify key competing factors in the industry"
+        - "Plot current value curves for key players"
+        - "Identify opportunities for value innovation"
+        - "Design new value curve"
+      
+    four_actions_framework:
+      eliminate: "Which factors that the industry takes for granted should be eliminated?"
+      reduce: "Which factors should be reduced well below industry standard?"
+      raise: "Which factors should be raised well above industry standard?"
+      create: "Which factors should be created that the industry has never offered?"
+
+    errc_grid:
+      purpose: "Systematic application of four actions framework"
+      structure:
+        eliminate_factors: []
+        reduce_factors: []
+        raise_factors: []
+        create_factors: []
+
+  six_paths_framework:
+    path_1_alternative_industries:
+      focus: "Look across alternative industries, not just direct competitors"
+      questions:
+        - "What alternative industries do customers consider?"
+        - "Why do customers trade across alternatives?"
+        - "What are the decisive factors for choosing alternatives?"
+
+    path_2_strategic_groups:
+      focus: "Look across strategic groups within industry"
+      questions:
+        - "What strategic groups exist in your industry?"
+        - "What factors do customers consider when trading up/down?"
+        - "How can you capture mass of both groups?"
+
+    path_3_buyer_chain:
+      focus: "Look across chain of buyers"
+      questions:
+        - "Who are the purchasers, users, and influencers?"
+        - "What if you targeted a different buyer group?"
+        - "How would value definition change?"
+
+    path_4_complementary_offerings:
+      focus: "Look across complementary products and services"
+      questions:
+        - "What happens before, during, and after your product is used?"
+        - "What complementary offerings affect total solution?"
+        - "How can you eliminate pain points in total experience?"
+
+    path_5_functional_emotional:
+      focus: "Look across functional-emotional orientation"
+      questions:
+        - "Does your industry compete on functional or emotional appeal?"
+        - "What if you shifted the other direction?"
+        - "How can you reduce/add emotional elements?"
+
+    path_6_time_trends:
+      focus: "Look across time and anticipate trends"
+      questions:
+        - "What trends have clear trajectory impacting business?"
+        - "How would these trends change customer value?"
+        - "How can you lead rather than follow trends?"
+
+  value_innovation_principles:
+    buyer_utility_map:
+      stages: ["Purchase", "Delivery", "Use", "Supplements", "Maintenance", "Disposal"]
+      levers: ["Customer Productivity", "Simplicity", "Convenience", "Risk", "Fun/Image", "Environmental Friendliness"]
+      
+    three_tiers_noncustomers:
+      first_tier: "Soon-to-be noncustomers on edge of market"
+      second_tier: "Refusing noncustomers who consciously choose against market"
+      third_tier: "Unexplored noncustomers in distant markets"
+
+  implementation_sequence:
+    step_1_buyer_utility: "Is there exceptional buyer utility in your idea?"
+    step_2_price: "Is your price accessible to mass of buyers?"
+    step_3_cost: "Can you achieve target cost to profit at strategic price?"
+    step_4_adoption: "What adoption hurdles must you overcome?"
+
+  blue_ocean_idea_index:
+    utility_score: "1-5 (Does it unlock exceptional utility?)"
+    price_score: "1-5 (Is price accessible to mass market?)"
+    cost_score: "1-5 (Can you achieve target cost structure?)"
+    adoption_score: "1-5 (Are adoption hurdles manageable?)"
+    total_score: "4-20 (16+ indicates strong blue ocean potential)"
+
+  output_structure:
+    current_state_analysis:
+      - industry_boundaries: "string"
+      - key_competing_factors: "list"
+      - current_value_curves: "competitors and their positioning"
+    
+    blue_ocean_opportunity:
+      - errc_analysis:
+          eliminate: "list"
+          reduce: "list" 
+          raise: "list"
+          create: "list"
+      - new_value_curve: "description of differentiated positioning"
+      - target_noncustomers: "which tier and why"
+    
+    value_innovation_concept:
+      - unique_value_proposition: "string"
+      - cost_structure_changes: "list"
+      - revenue_model_innovations: "list"
+      - buyer_utility_gains: "list"
+    
+    implementation_roadmap:
+      - pilot_approach: "string"
+      - key_partnerships_needed: "list"
+      - capability_requirements: "list"
+      - success_metrics: "list"
+
+triggers:
+  - when: "market is commoditized"
+  - when: "seeking breakthrough innovation"
+  - when: "competition is intense"
+  - when_semantic: "user wants to escape red ocean competition"
+  - when_semantic: "need to create new market space"
+  - when_semantic: "looking for disruptive strategy"
+
+integration:
+  complements:
+    - "value-proposition-canvas"
+    - "business-model-canvas"
+    - "jobs-to-be-done"
+  conflicts_with:
+    - "porter-five-forces" # Different strategic philosophy
+  leads_to:
+    - "design-thinking"
+    - "lean-startup"

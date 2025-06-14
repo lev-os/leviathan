@@ -1,0 +1,107 @@
+tool_mappings:
+  # Direct MCP Tool Mappings
+  perplexity_ask:
+    mcp_name: "mcp__perplexity-ask__perplexity_ask"
+    parameters:
+      messages:
+        type: "array"
+        description: "Conversation messages with role and content"
+        
+  brave_web_search:
+    mcp_name: "mcp__brave-search__brave_web_search"
+    parameters:
+      query:
+        type: "string"
+        description: "Search query (max 400 chars)"
+      count:
+        type: "number"
+        default: 10
+        description: "Number of results (1-20)"
+        
+  brave_local_search:
+    mcp_name: "mcp__brave-search__brave_local_search"
+    parameters:
+      query:
+        type: "string"
+        description: "Local search query"
+      count:
+        type: "number"
+        default: 5
+        
+  fetch_url:
+    mcp_name: "mcp__fetch-mcp__fetch_url"
+    parameters:
+      url:
+        type: "string"
+        description: "URL to fetch"
+      max_length:
+        type: "number"
+        default: 2000
+      raw:
+        type: "boolean"
+        default: false
+        
+  fetch_youtube_transcript:
+    mcp_name: "mcp__fetch-mcp__fetch_youtube_transcript"
+    parameters:
+      url:
+        type: "string"
+        description: "YouTube video URL"
+        
+  desktop_commander:
+    mcp_names:
+      read_file: "mcp__desktop-commander__read_file"
+      search_code: "mcp__desktop-commander__search_code"
+      list_directory: "mcp__desktop-commander__list_directory"
+      
+  # Smithery-based Tools
+  smithery_tools:
+    base_config:
+      api_key: "{{SMITHERY_API_KEY}}"
+      base_url: "https://api.smithery.ai/v1"
+      
+    arxiv:
+      endpoint: "/tools/arxiv-search"
+      parameters:
+        query:
+          type: "string"
+        max_results:
+          type: "number"
+          default: 10
+          
+    pubmed:
+      endpoint: "/tools/pubmed-search"
+      parameters:
+        query:
+          type: "string"
+        max_results:
+          type: "number"
+          default: 10
+          
+    semantic_scholar:
+      endpoint: "/tools/semantic-scholar"
+      parameters:
+        query:
+          type: "string"
+        limit:
+          type: "number"
+          default: 10
+          
+  # API-based Tools
+  api_tools:
+    exa:
+      base_url: "https://api.exa.ai"
+      api_key: "{{EXA_API_KEY}}"
+      endpoints:
+        search:
+          path: "/search"
+          method: "POST"
+          parameters:
+            query:
+              type: "string"
+            num_results:
+              type: "number"
+              default: 10
+            type:
+              type: "string"
+              default: "neural"

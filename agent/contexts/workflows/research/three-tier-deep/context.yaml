@@ -1,0 +1,92 @@
+metadata:
+  type: "workflow"
+  id: "three-tier-deep"
+  name: "Three-Tier Deep Research Workflow"
+  version: "1.0.0"
+  description: "Progressive research methodology: broad base → dynamic deep → strategic validation"
+  
+workflow_config:
+  philosophy: |
+    Start with parallel exploration across multiple dimensions,
+    dynamically generate deep dives based on discoveries,
+    then validate findings through strategic positioning lens.
+    
+  total_duration: "2_hours"
+  
+  tier_structure:
+    tier_1:
+      name: "Broad Base Research"
+      duration: "30_minutes"
+      approach: "parallel_exploration"
+      description: "Cast a wide net across 4 research streams"
+      
+    tier_2:
+      name: "Dynamic Deep Dives"
+      duration: "45_minutes"
+      approach: "relevance_driven"
+      description: "Pursue high-value discoveries from Tier 1"
+      
+    tier_3:
+      name: "Strategic Validation"
+      duration: "30_minutes"
+      approach: "positioning_focus"
+      description: "Validate findings for competitive advantage"
+      
+  execution_flow:
+    initialization:
+      - load_research_context
+      - check_memory_for_prior_research
+      - prepare_parallel_streams
+      
+    tier_1_execution:
+      parallel: true
+      streams: 4
+      coordination: "independent_then_synthesize"
+      
+    tier_2_generation:
+      dynamic: true
+      based_on: "tier_1_findings"
+      selection_criteria: "relevance_score"
+      
+    tier_3_validation:
+      sequential: true
+      focus: "strategic_positioning"
+      output: "actionable_intelligence"
+      
+  integration_points:
+    agents:
+      - "@kingly/core/agents/research/deep-researcher"
+      - "@kingly/core/agents/research/prompt-architect"
+      
+    tools:
+      - "@kingly/core/tools/research/mcp-suite"
+      - "@kingly/core/tools/research/ultimate-mcp-research"
+      
+    patterns:
+      - "@kingly/core/patterns/personality"
+      - "@kingly/core/patterns/extreme-examples"
+      
+  output_configuration:
+    formats:
+      - executive_summary
+      - detailed_findings
+      - strategic_recommendations
+      - further_research_needed
+      
+    storage:
+      location: "@project/outputs/research"
+      memory: "@project/memory"
+      naming: "{{topic}}_{{timestamp}}.md"
+      
+  quality_controls:
+    source_verification:
+      minimum_sources: 3
+      cross_reference: true
+      
+    relevance_scoring:
+      method: "semantic_similarity"
+      threshold: 0.7
+      
+    insight_validation:
+      peer_review: "personality_patterns"
+      contradiction_check: true

@@ -1,0 +1,235 @@
+metadata:
+  type: "tool"
+  id: "mcp-suite"
+  name: "Research MCP Tool Suite"
+  version: "1.0.0"
+  description: "Integrated suite of MCP tools optimized for research workflows"
+  
+tool_config:
+  available_tools:
+    # Core Research Tools
+    - name: "perplexity_ask"
+      type: "mcp"
+      namespace: "mcp__perplexity-ask__perplexity_ask"
+      capabilities: 
+        - "web_search"
+        - "citations"
+        - "real_time_data"
+      cost_tier: "premium"
+      use_cases:
+        - "Current events research"
+        - "Technical documentation search"
+        - "Multi-source verification"
+        
+    - name: "brave_web_search"
+      type: "mcp"
+      namespace: "mcp__brave-search__brave_web_search"
+      capabilities:
+        - "privacy_focused_search"
+        - "broad_web_coverage"
+        - "independent_results"
+      cost_tier: "standard"
+      use_cases:
+        - "General web research"
+        - "Alternative perspectives"
+        - "Privacy-sensitive queries"
+        
+    - name: "brave_local_search"
+      type: "mcp"
+      namespace: "mcp__brave-search__brave_local_search"
+      capabilities:
+        - "location_based_search"
+        - "business_information"
+        - "local_insights"
+      cost_tier: "standard"
+      use_cases:
+        - "Market research"
+        - "Competitive analysis"
+        - "Regional trends"
+        
+    - name: "WebSearch"
+      type: "builtin"
+      capabilities:
+        - "broad_search"
+        - "current_events"
+        - "quick_overview"
+      cost_tier: "free"
+      use_cases:
+        - "Initial exploration"
+        - "Trend identification"
+        - "Quick fact checking"
+        
+    - name: "fetch_url"
+      type: "mcp"
+      namespace: "mcp__fetch-mcp__fetch_url"
+      capabilities:
+        - "deep_dive"
+        - "content_extraction"
+        - "full_text_analysis"
+      cost_tier: "free"
+      use_cases:
+        - "Detailed article analysis"
+        - "Documentation review"
+        - "Source verification"
+        
+    - name: "fetch_youtube_transcript"
+      type: "mcp"
+      namespace: "mcp__fetch-mcp__fetch_youtube_transcript"
+      capabilities:
+        - "video_content_extraction"
+        - "talk_analysis"
+        - "tutorial_parsing"
+      cost_tier: "free"
+      use_cases:
+        - "Conference talk analysis"
+        - "Tutorial extraction"
+        - "Expert interviews"
+        
+    # Academic Research Tools (via Smithery)
+    - name: "arxiv_search"
+      type: "mcp_smithery"
+      capabilities:
+        - "preprint_access"
+        - "cutting_edge_research"
+        - "citation_tracking"
+      cost_tier: "smithery"
+      use_cases:
+        - "Academic research"
+        - "Algorithm analysis"
+        - "Theory exploration"
+        
+    - name: "pubmed_search"
+      type: "mcp_smithery"
+      capabilities:
+        - "medical_research"
+        - "life_sciences"
+        - "peer_reviewed"
+      cost_tier: "smithery"
+      use_cases:
+        - "Healthcare AI research"
+        - "Biotech applications"
+        - "Scientific validation"
+        
+    - name: "semantic_scholar"
+      type: "mcp_smithery"
+      capabilities:
+        - "citation_graphs"
+        - "author_networks"
+        - "paper_relationships"
+      cost_tier: "smithery"
+      use_cases:
+        - "Literature reviews"
+        - "Research mapping"
+        - "Influence tracking"
+        
+    # Intelligence & Analysis Tools
+    - name: "desktop_commander"
+      type: "mcp"
+      namespace: "mcp__desktop-commander"
+      capabilities:
+        - "file_operations"
+        - "code_analysis"
+        - "local_search"
+      cost_tier: "free"
+      use_cases:
+        - "Codebase analysis"
+        - "Documentation search"
+        - "File management"
+        
+    - name: "exa_search"
+      type: "api"
+      capabilities:
+        - "neural_search"
+        - "semantic_understanding"
+        - "similarity_matching"
+      cost_tier: "premium"
+      use_cases:
+        - "Conceptual research"
+        - "Similar work discovery"
+        - "Semantic exploration"
+        
+  cost_optimization:
+    strategy: "progressive_enhancement"
+    tiers:
+      1:
+        name: "Memory & Free Tier"
+        tools: ["existing_memory", "WebSearch", "fetch_url"]
+        use_when: "Initial exploration"
+        
+      2:
+        name: "Standard Search"
+        tools: ["brave_web_search", "brave_local_search"]
+        use_when: "Broad coverage needed"
+        
+      3:
+        name: "Premium Research"
+        tools: ["perplexity_ask", "exa_search"]
+        use_when: "Deep insights required"
+        
+      4:
+        name: "Academic Deep Dive"
+        tools: ["arxiv_search", "pubmed_search", "semantic_scholar"]
+        use_when: "Scientific validation needed"
+        
+  orchestration_patterns:
+    breadth_first:
+      description: "Wide exploration before deep dive"
+      sequence:
+        - WebSearch
+        - brave_web_search
+        - perplexity_ask
+        - fetch_url  # on interesting finds
+        
+    depth_first:
+      description: "Deep investigation of specific sources"
+      sequence:
+        - WebSearch  # find key sources
+        - fetch_url  # extract full content
+        - perplexity_ask  # verify and expand
+        
+    academic_flow:
+      description: "Scholarly research progression"
+      sequence:
+        - semantic_scholar  # map the field
+        - arxiv_search  # recent developments
+        - fetch_url  # key papers
+        - perplexity_ask  # practical applications
+        
+    competitive_intel:
+      description: "Market and competitor analysis"
+      sequence:
+        - brave_web_search  # public information
+        - brave_local_search  # regional presence
+        - fetch_url  # deep dive on findings
+        - exa_search  # discover similar players
+        
+  quality_metrics:
+    source_diversity:
+      minimum: 3
+      optimal: 5-7
+      description: "Different sources per claim"
+      
+    recency_weight:
+      critical: "last_6_months"
+      standard: "last_2_years"
+      background: "last_5_years"
+      
+    credibility_scoring:
+      academic: 0.9
+      established_media: 0.7
+      corporate: 0.6
+      social_media: 0.3
+      
+  error_handling:
+    rate_limits:
+      strategy: "fallback_cascade"
+      alternatives:
+        perplexity_ask: ["brave_web_search", "WebSearch"]
+        exa_search: ["semantic_scholar", "brave_web_search"]
+        
+    unavailable_tools:
+      strategy: "capability_matching"
+      fallback_map:
+        academic: ["arxiv_search", "semantic_scholar", "perplexity_ask"]
+        general: ["brave_web_search", "WebSearch", "perplexity_ask"]
+        deep_dive: ["fetch_url", "perplexity_ask", "exa_search"]

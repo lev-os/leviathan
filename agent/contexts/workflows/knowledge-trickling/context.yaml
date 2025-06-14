@@ -1,0 +1,109 @@
+metadata:
+  type: "workflow"
+  id: "knowledge-trickling"
+  version: "1.0.0"
+  description: "Share relevant parent insights with child contexts"
+
+workflow_config:
+  philosophy: "Help child contexts benefit from parent wisdom"
+  
+  triggers:
+    automatic:
+      - "new_child_context_created"
+      - "parent_context_learns_something"
+      - "child_context_struggles_detected"
+      - "periodic_knowledge_check"
+    manual:
+      - "user_requests_knowledge_share"
+      - "parent_context_suggests_sharing"
+      
+  steps:
+    1_analyze_child_needs:
+      prompt: |
+        Child context: {child_context}
+        Current challenges: {child_challenges}
+        Goals: {child_goals}
+        
+        What knowledge or patterns could help this context succeed?
+        What gaps or needs are apparent?
+      output: "needs_analysis + knowledge_gaps"
+      
+    2_search_parent_knowledge:
+      action: "traverse_parent_memory"
+      scope:
+        - semantic_memory
+        - successful_episodic_patterns
+        - shared_memory_references
+      search_terms: "derived from child needs"
+      relevance_threshold: 0.6
+      
+    3_match_knowledge_to_needs:
+      prompt: |
+        Child needs: {child_needs}
+        Available parent knowledge: {parent_knowledge_list}
+        
+        Which pieces of parent knowledge would address child needs?
+        Rank by relevance and potential impact.
+      output: "ranked_knowledge_matches"
+      
+    4_adapt_for_child_context:
+      prompt: |
+        Parent knowledge: {parent_knowledge}
+        Child context: {child_context}
+        
+        How should this knowledge be adapted for the child context?
+        What examples would make it clear?
+        What might be different in this context?
+      output: "adapted_knowledge + context_notes"
+      
+    5_gentle_suggestion:
+      action: "whisper_to_child_context"
+      message: |
+        🌟 Your parent context has relevant experience:
+        "{adapted_knowledge}"
+        
+        This might help with: {specific_child_need}
+      options: ["Apply", "Learn More", "Not Relevant", "Remind Later"]
+      
+    6_track_effectiveness:
+      monitor:
+        - child_context_applies_knowledge
+        - improvement_in_child_outcomes
+        - child_context_feedback
+      learn:
+        - what_knowledge_transfers_well
+        - how_to_adapt_better
+        - when_to_suggest_vs_not
+        
+  configuration:
+    trickling_style:
+      proactive: "Suggest knowledge before child struggles"
+      reactive: "Share knowledge when child faces challenges"
+      on_demand: "Only when child requests help"
+      
+    knowledge_types:
+      patterns: "Successful approaches and strategies"
+      insights: "Key learnings and breakthroughs"
+      warnings: "What to avoid based on parent experience"
+      resources: "Useful tools or references"
+      
+    boundaries:
+      respect_child_autonomy: true
+      allow_child_to_decline: true
+      avoid_overwhelming: "max 1 suggestion per session"
+      
+  learning:
+    success_indicators:
+      - child_applies_suggestion
+      - child_outcomes_improve
+      - child_requests_more_help
+      
+    failure_indicators:
+      - child_always_declines
+      - suggestions_not_relevant
+      - child_context_regresses
+      
+    adaptation:
+      - learn_child_preferences
+      - improve_relevance_detection
+      - refine_adaptation_quality

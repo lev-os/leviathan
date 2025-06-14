@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  llm-config-system:
+    build: .
+    container_name: llm-config-system
+    ports:
+      - "8080:8080"   # API server
+      - "4322:3000"   # Web dashboard
+    volumes:
+      - ./data:/app/data
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    privileged: true  # Needed for system metrics access
+    environment:
+      - NODE_ENV=development
+      - API_PORT=8080
+      - WEB_PORT=3000
+      - HOST_PROC_PATH=/host/proc
+      - HOST_SYS_PATH=/host/sys
+    restart: unless-stopped
+    networks:
+      - llm-network
+
+  # Optional: Load generator for testing
+  stress-tester:
+    image: ubuntu:22.04
+    container_name: stress-tester
+    command: >
+      bash -c "
+        apt-get update && apt-get install -y stress-ng &&
+        echo 'Stress tester ready. Run: docker exec stress-tester stress-ng --cpu 4 --timeout 60s' &&
+        tail -f /dev/null
+      "
+    networks:
+      - llm-network
+    profiles:
+      - testing
+
+  # Optional: Monitoring dashboard
+  grafana:
+    image: grafana/grafana:latest
+    container_name: llm-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - llm-network
+    profiles:
+      - monitoring
+
+networks:
+  llm-network:
+    driver: bridge
+
+volumes:
+  grafana-data:

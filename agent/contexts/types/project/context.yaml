@@ -1,0 +1,78 @@
+metadata:
+  type: "project"
+  id: "project-template"
+  version: "1.0.0"
+  name: "Project Template"
+  description: "Goal-oriented work container with team coordination"
+
+project_config:
+  capabilities:
+    - "task_management"
+    - "team_coordination"
+    - "progress_tracking"
+    - "workflow_orchestration"
+    - "pattern_application"
+    - "resource_sharing"
+    
+  # Projects can contain these types
+  allowed_children:
+    - "task"
+    - "folder"
+    - "document"
+    - "workflow"
+    - "pattern"
+    
+  # Integration with existing patterns
+  pattern_integration:
+    decision_patterns:
+      - "contexts/patterns/swot-analysis"
+      - "contexts/patterns/rice-scoring"
+      - "contexts/patterns/10-10-10-framework"
+    
+    auto_apply_patterns:
+      - trigger: "major_decision"
+        pattern: "contexts/patterns/multi-expert-validation"
+      - trigger: "priority_conflict"
+        pattern: "contexts/patterns/rice-scoring"
+        
+  # Integration with existing workflows
+  workflow_integration:
+    project_workflows:
+      - "contexts/workflows/document-synthesis"
+      - "contexts/workflows/cross-context-learning"
+      - "contexts/workflows/insight-bubbling"
+      
+  # Agent assignment per project phase
+  agent_assignment:
+    planning: "contexts/agents/ceo"        # CEO for strategy
+    implementation: "contexts/agents/dev"   # Dev for execution
+    negotiation: "contexts/agents/ceo"      # CEO for deals
+    
+  behavior_rules:
+    - trigger: "project_created"
+      action: "create_default_structure"
+      
+    - trigger: "task_completed"
+      action: "update_progress"
+      
+    - trigger: "progress > 0.9"
+      action: "prepare_completion_checklist"
+      
+    - trigger: "team_member_added"
+      action: "grant_appropriate_access"
+      
+    - trigger: "deadline_approaching"
+      condition: "days_remaining < 3"
+      action: "escalate_to_stakeholders"
+      
+  progress_tracking:
+    metrics:
+      - "task_completion_rate"
+      - "team_velocity"
+      - "risk_score"
+      - "stakeholder_satisfaction"
+      
+  memory_config:
+    shares_with: ["parent_workspace", "team_members"]
+    retention: "project_lifetime + 90_days"
+    capture_insights: true

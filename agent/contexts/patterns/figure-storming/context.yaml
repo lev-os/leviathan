@@ -1,0 +1,63 @@
+metadata:
+  type: "pattern"
+  id: "figure-storming"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Role-play as different experts to gain diverse perspectives"
+
+pattern_config:
+  methodology: "perspective_multiplication"
+  
+  figure_categories:
+    tech_leaders:
+      - name: "Steve Jobs"
+        focus: "Simplicity, user experience, perfection"
+      - name: "Elon Musk"
+        focus: "10x thinking, first principles, speed"
+      - name: "Grace Hopper"
+        focus: "Clarity, standards, teaching"
+        
+    scientists:
+      - name: "Marie Curie"
+        focus: "Rigorous methodology, persistence"
+      - name: "Einstein"
+        focus: "Thought experiments, elegance"
+      - name: "Feynman"
+        focus: "Deep understanding, simplification"
+        
+    business_icons:
+      - name: "Warren Buffett"
+        focus: "Long-term value, fundamentals"
+      - name: "Jeff Bezos"
+        focus: "Customer obsession, long-term"
+        
+    creatives:
+      - name: "Disney"
+        focus: "Magic, storytelling, experience"
+      - name: "Da Vinci"
+        focus: "Cross-discipline, observation"
+        
+    custom_figures:
+      description: "Add domain-specific experts"
+      
+  process:
+    1_select_figures: "Choose 3-5 diverse perspectives"
+    2_embody_mindset: "Think like each figure"
+    3_analyze_problem: "How would they approach it?"
+    4_capture_insights: "Document unique perspectives"
+    5_synthesize: "Combine best insights"
+    
+  prompts:
+    embodiment: "You are {figure}. How do you see this problem?"
+    approach: "Given {figure}'s philosophy, what's the solution?"
+    critique: "What would {figure} say about this approach?"
+    
+  enhancement_features:
+    ai_personality_modeling: true
+    historical_context: true
+    quote_generation: true
+    
+  output_format:
+    perspective_grid: true
+    quotes_and_insights: true
+    synthesis_report: true

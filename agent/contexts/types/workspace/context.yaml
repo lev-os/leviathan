@@ -1,0 +1,61 @@
+metadata:
+  type: "workspace"
+  id: "workspace-template"
+  version: "1.0.0"
+  name: "Workspace Template"
+  description: "Physical isolation and billing boundary for projects"
+
+workspace_config:
+  capabilities:
+    - "project_management"
+    - "resource_isolation"
+    - "billing_boundary"
+    - "git_integration"
+    - "agent_assignment"
+    - "workflow_access"
+    
+  # Workspaces can contain these types
+  allowed_children:
+    - "project"
+    - "folder"
+    - "agent"
+    - "shared_resources"
+    
+  # Integration with existing system
+  agent_integration:
+    default_agent: "contexts/agents/ceo"  # CEO manages workspace strategy
+    available_agents:
+      - "contexts/agents/ceo"
+      - "contexts/agents/dev"
+      
+  workflow_integration:
+    # Workspace-level workflows
+    available_workflows:
+      - "contexts/workflows/multi-expert-validation"  # For major decisions
+      - "contexts/workflows/document-synthesis"       # For research
+      
+  behavior_rules:
+    - trigger: "workspace_created"
+      action: "setup_default_structure"
+      
+    - trigger: "project_created"
+      condition: "project_count > 10"
+      action: "suggest_organization_strategy"
+      
+    - trigger: "billing_limit_approaching"
+      condition: "usage > 0.8 * billing_limit"
+      action: "notify_stakeholders"
+      
+    - trigger: "agent_needed"
+      condition: "no_active_agent"
+      action: "spawn_default_agent"
+      
+  memory_config:
+    isolation: "strict"          # Don't leak across workspaces
+    shares_with: []             # Explicit sharing only
+    retention: "project_lifetime"
+    
+  security_config:
+    access_control: "role_based"
+    audit_logging: true
+    git_integration: "ssh_keys"

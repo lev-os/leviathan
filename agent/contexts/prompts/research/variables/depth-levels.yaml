@@ -1,0 +1,110 @@
+depth_levels:
+  surface:
+    name: "Surface Level"
+    description: "Quick overview and basic understanding"
+    characteristics:
+      - High-level summary
+      - Key concepts only
+      - Minimal technical detail
+      - 5-minute read time
+    use_when:
+      - Initial exploration
+      - Executive briefing
+      - Quick decision needed
+    output_length: "1-2 pages"
+    source_requirement: "2-3 sources"
+    
+  standard:
+    name: "Standard Depth"
+    description: "Balanced analysis with practical insights"
+    characteristics:
+      - Comprehensive coverage
+      - Moderate technical detail
+      - Practical examples
+      - 15-minute read time
+    use_when:
+      - Regular research tasks
+      - Team briefings
+      - Implementation planning
+    output_length: "3-5 pages"
+    source_requirement: "5-7 sources"
+    
+  deep:
+    name: "Deep Dive"
+    description: "Thorough investigation with nuanced understanding"
+    characteristics:
+      - Exhaustive analysis
+      - High technical detail
+      - Multiple perspectives
+      - 30-minute read time
+    use_when:
+      - Strategic decisions
+      - Technical implementation
+      - Competitive analysis
+    output_length: "8-12 pages"
+    source_requirement: "10-15 sources"
+    
+  expert:
+    name: "Expert Level"
+    description: "PhD-level analysis with original insights"
+    characteristics:
+      - Original research
+      - Cutting-edge findings
+      - Methodology critique
+      - 60+ minute read time
+    use_when:
+      - R&D initiatives
+      - Patent applications
+      - Academic collaboration
+    output_length: "15-30 pages"
+    source_requirement: "20+ sources"
+    
+# Depth Modifiers
+depth_modifiers:
+  technical_focus:
+    name: "Technical Deep Dive"
+    adjustments:
+      - Increase code examples
+      - Add implementation details
+      - Include performance metrics
+      - Provide architecture diagrams
+      
+  business_focus:
+    name: "Business Analysis"
+    adjustments:
+      - Emphasize ROI
+      - Add market dynamics
+      - Include competitive positioning
+      - Provide financial implications
+      
+  academic_focus:
+    name: "Academic Rigor"
+    adjustments:
+      - Add literature review
+      - Include methodology section
+      - Provide citations
+      - Discuss limitations
+      
+# Dynamic Depth Calculation
+depth_factors:
+  urgency:
+    high: "reduce_depth"
+    medium: "standard_depth"
+    low: "increase_depth"
+    
+  stakes:
+    high: "increase_depth"
+    medium: "standard_depth"
+    low: "reduce_depth"
+    
+  audience:
+    executive: "surface_to_standard"
+    technical: "standard_to_deep"
+    academic: "deep_to_expert"
+    general: "surface_to_standard"
+    
+  complexity:
+    simple: "surface_to_standard"
+    moderate: "standard"
+    complex: "standard_to_deep"
+    extreme: "deep_to_expert"

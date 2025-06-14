@@ -1,0 +1,45 @@
+plugin:
+  name: debug
+  version: 1.0.0
+  type: core_plugin
+  description: Universal debugging and monitoring system
+
+capabilities:
+  - universal_logging
+  - event_tracing  
+  - performance_monitoring
+  - plugin_observability
+
+commands:
+  debug_events:
+    syntax: "kingly debug events [filter]"
+    description: "Show all system events with optional filtering"
+    whisper:
+      strategies:
+        - "Filter and display event traces across all plugins"
+        - "Highlight patterns and anomalies in event flow"
+      llm_guidance: "Use event filtering to surface relevant debugging information"
+    
+  debug_plugins:
+    syntax: "kingly debug plugins [plugin-name]"
+    description: "Show plugin status and performance metrics"
+    whisper:
+      strategies:
+        - "Analyze plugin performance and health metrics"
+        - "Identify bottlenecks and optimization opportunities"
+      llm_guidance: "Synthesize plugin data into actionable insights"
+    
+  debug_llm:
+    syntax: "kingly debug llm [trace-id]"
+    description: "Show LLM reasoning traces and confidence scores"
+    whisper:
+      strategies:
+        - "Trace LLM decision paths and confidence evolution"
+        - "Identify reasoning patterns and failure modes"
+      llm_guidance: "Analyze LLM reasoning quality and provide optimization suggestions"
+
+configuration:
+  log_level: "info"
+  trace_enabled: true
+  monitor_enabled: true
+  output_format: "structured"

@@ -1,0 +1,71 @@
+metadata:
+  type: "pattern"
+  id: "jobs-to-be-done"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "User-focused framework for understanding true motivations"
+
+pattern_config:
+  methodology: "outcome_driven_innovation"
+  
+  jtbd_template:
+    format: |
+      When I'm [situation/context]
+      I want to [motivation/job]
+      So I can [expected outcome/goal]
+      
+  job_categories:
+    functional:
+      description: "Practical tasks to accomplish"
+      examples:
+        - "Get from point A to B"
+        - "Share information with team"
+        - "Track project progress"
+        
+    emotional:
+      description: "Feelings to achieve or avoid"
+      examples:
+        - "Feel confident in decisions"
+        - "Avoid embarrassment"
+        - "Gain recognition"
+        
+    social:
+      description: "How others perceive us"
+      examples:
+        - "Look professional"
+        - "Be seen as innovative"
+        - "Maintain reputation"
+        
+  analysis_process:
+    1_identify_job_executor: "Who is trying to get the job done?"
+    2_define_job_context: "When/where does this job arise?"
+    3_uncover_motivation: "What progress are they seeking?"
+    4_understand_obstacles: "What prevents job completion?"
+    5_measure_success: "How do they define success?"
+    
+  interview_questions:
+    trigger: "Tell me about the last time you..."
+    motivation: "What were you trying to accomplish?"
+    current_solution: "How do you handle this today?"
+    pain_points: "What's frustrating about current approach?"
+    ideal_solution: "In a perfect world, how would this work?"
+    
+  job_story_format:
+    template: |
+      When [situation],
+      I want to [motivation],
+      so I can [expected outcome],
+      without [anxiety/friction],
+      unlike [current solution problems].
+      
+  prioritization:
+    frequency: "How often does this job occur?"
+    importance: "How critical is job completion?"
+    satisfaction: "How well are current solutions working?"
+    opportunity: "(Importance + Satisfaction Gap) × Frequency"
+    
+  output_format:
+    job_map: true
+    opportunity_matrix: true
+    solution_criteria: true
+    success_metrics: true

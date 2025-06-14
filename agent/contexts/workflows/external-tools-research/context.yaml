@@ -1,0 +1,29 @@
+metadata:
+  id: external-tools-research
+  type: workflow
+  name: External Repository Research Pipeline
+  version: 1.0.0
+  description: Systematic analysis of external tools/repositories for Kingly integration
+  category: research-synthesis
+
+workflow_config:
+  steps:
+    - step: 1
+      name: Initial Assessment
+      agent: ceo.strategist
+      template: templates/initial-assessment.md
+      
+    - step: 2
+      name: Technical Analysis  
+      agent: dev.architect
+      template: templates/technical-analysis.md
+      
+    - step: 3
+      name: Decision Options
+      agent: ceo
+      template: templates/decision-options.md
+      
+    - step: 4
+      name: Follow-up Execution
+      agent: workflow_orchestrator
+      template: templates/follow-up-action.md

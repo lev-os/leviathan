@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__desktop-commander__read_file",
+      "mcp__desktop-commander__list_directory",
+      "mcp__desktop-commander__write_file",
+      "mcp__desktop-commander__create_directory",
+      "mcp__desktop-commander__execute_command",
+      "mcp__desktop-commander__search_files",
+      "mcp__desktop-commander__search_code",
+      "mcp__desktop-commander__move_file",
+      "mcp__perplexity-ask__perplexity_ask",
+      "Bash(go:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(mkdir:*)",
+      "Bash(pip install:*)",
+      "Bash(docker run:*)",
+      "Bash(open:*)",
+      "Bash(docker:*)",
+      "Bash(python:*)",
+      "Bash(PYTHONPATH=semantic-search python -c \"\nfrom setup.collection_manager import CollectionManager\nfrom config.settings import SystemConfig\n\nconfig = SystemConfig()\nmanager = CollectionManager(config)\nmanager.create_project_collections('go-stdlib', 'go')\nprint('Collections created successfully')\n\")",
+      "Bash(timeout:*)",
+      "Bash(curl:*)",
+      "Bash(mv:*)"
+    ],
+    "deny": []
+  }
+}

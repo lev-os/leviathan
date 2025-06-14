@@ -1,0 +1,126 @@
+metadata:
+  type: "tool"
+  id: "ultimate-mcp-research"
+  name: "Ultimate MCP Research Tools"
+  version: "1.0.0"
+  description: "Curated subset of Ultimate MCP Server's 70+ tools optimized for research"
+  
+tool_config:
+  source: "~/k/core/agent/workshop/ultimate-mcp-server"
+  optimization_goal: "70-90% cost reduction through smart tool selection"
+  
+  selected_tools:
+    # Web Research & Content
+    web_research:
+      - name: "search_tavily"
+        description: "Advanced web search with AI summaries"
+        cost_optimization: "Use for deep research after initial WebSearch"
+        
+      - name: "search_exa"
+        description: "Neural search for conceptual queries"
+        cost_optimization: "Reserve for similarity and concept searches"
+        
+      - name: "get_weather_data"
+        description: "Real-time weather information"
+        cost_optimization: "Only for climate/environment research"
+        
+    # Content Extraction
+    content_tools:
+      - name: "read_url"
+        description: "Extract and parse web content"
+        cost_optimization: "Alternative to fetch_url"
+        
+      - name: "take_screenshot_with_playwright"
+        description: "Visual content capture"
+        cost_optimization: "For visual analysis needs"
+        
+      - name: "youtube_transcript"
+        description: "Extract video transcripts"
+        cost_optimization: "Backup for fetch_youtube_transcript"
+        
+    # Data Processing
+    data_tools:
+      - name: "read_pdf"
+        description: "Extract text from PDFs"
+        cost_optimization: "Essential for academic papers"
+        
+      - name: "csv_analytics"
+        description: "Analyze CSV data"
+        cost_optimization: "For data-driven research"
+        
+      - name: "python_repl"
+        description: "Execute Python for analysis"
+        cost_optimization: "Complex calculations only"
+        
+    # Knowledge Management
+    knowledge_tools:
+      - name: "memory_store"
+        description: "Persistent research memory"
+        cost_optimization: "Always use for valuable findings"
+        
+      - name: "memory_retrieve"
+        description: "Recall previous research"
+        cost_optimization: "Check before new searches"
+        
+    # Communication & Reporting
+    output_tools:
+      - name: "send_email"
+        description: "Email research reports"
+        cost_optimization: "For scheduled deliveries"
+        
+      - name: "create_image_with_dalle"
+        description: "Generate visual diagrams"
+        cost_optimization: "Sparingly for key concepts"
+        
+  tool_selection_strategy:
+    principles:
+      - "Memory first - always check stored knowledge"
+      - "Free tier preference - use bundled tools when possible"
+      - "Progressive enhancement - start simple, add complexity"
+      - "Batch operations - combine multiple queries"
+      
+    decision_tree:
+      research_type:
+        general:
+          preferred: ["WebSearch", "memory_retrieve", "search_tavily"]
+          avoid: ["create_image_with_dalle", "python_repl"]
+          
+        academic:
+          preferred: ["read_pdf", "memory_store", "search_exa"]
+          supplement: ["semantic_scholar", "arxiv_search"]
+          
+        competitive:
+          preferred: ["search_tavily", "take_screenshot_with_playwright"]
+          supplement: ["csv_analytics", "python_repl"]
+          
+        technical:
+          preferred: ["read_url", "youtube_transcript", "memory_store"]
+          supplement: ["python_repl", "search_exa"]
+          
+  integration_patterns:
+    with_mcp_suite:
+      description: "Combine with core MCP tools"
+      synergies:
+        - "Use Ultimate for specialized tasks"
+        - "Use MCP Suite for standard research"
+        - "Share memory between both"
+        
+    cost_optimization_workflow:
+      1: "Check memory_retrieve first"
+      2: "Use WebSearch for overview"
+      3: "Apply search_tavily for specifics"
+      4: "Store valuable findings with memory_store"
+      5: "Generate visuals only for final reports"
+      
+  performance_metrics:
+    cost_reduction:
+      target: "70-90%"
+      measurement: "API calls per research task"
+      
+    quality_maintenance:
+      target: "No degradation"
+      measurement: "Research completeness score"
+      
+    speed_improvement:
+      target: "2-3x faster"
+      measurement: "Time to insight"

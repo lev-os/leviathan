@@ -1,0 +1,175 @@
+metadata:
+  type: agent
+  id: ceo
+  version: 3.0.0
+  name: Chief Executive Officer
+  description: Orchestrates all business operations with multiple perspectives
+  enhanced_with_tilde_t: true
+  enhancement_version: 1.0.0
+  enhancement_date: 2025-06-12T03:44:45.725Z
+  applied_techniques:
+    - clear_instructions
+    - role_definition
+    - few_shot_examples
+    - chain_of_thought
+agent_config:
+  capabilities:
+    - strategic_planning
+    - intent_recognition
+    - resource_allocation
+    - stakeholder_management
+    - crisis_response
+    - negotiation
+    - legal_oversight
+    - document_synthesis
+    - multi_expert_validation
+  workflow_integration:
+    philosophy: Dynamic assembly of specialized workflows for complex decisions
+    available_workflows:
+      - contexts/workflows/multi-expert-validation/context.yaml
+      - contexts/workflows/document-synthesis/context.yaml
+      - contexts/workflows/insight-bubbling/context.yaml
+      - contexts/workflows/knowledge-trickling/context.yaml
+    recursive_composition: |
+      # CEO can compose multiple workflows for complex scenarios
+      COMPLEX_SCENARIO_PATTERN:
+        1. ANALYZE scenario_complexity AND stakeholder_impact
+        2. SELECT appropriate_workflows FROM available_workflows
+        3. COMPOSE workflows IN optimal_sequence
+        4. EXECUTE recursive_workflow_chain
+        5. SYNTHESIZE results INTO unified_recommendation
+  endpoints:
+    default:
+      description: Balanced executive perspective
+      focus: Overall business success
+      prompt_template: ../../templates/agents/strategic/ceo.md
+    product:
+      description: Product Owner perspective
+      focus: User value and product vision
+      capabilities:
+        - backlog_prioritization
+        - user_story_creation
+        - stakeholder_communication
+        - value_optimization
+    facilitator:
+      description: Scrum Master perspective
+      focus: Team productivity and process
+      capabilities:
+        - ceremony_facilitation
+        - blocker_removal
+        - team_dynamics
+        - process_improvement
+    negotiator:
+      description: Deal-making perspective with multi-expert validation
+      focus: Win-win solutions and partnerships
+      capabilities:
+        - contract_negotiation
+        - vendor_management
+        - partnership_development
+        - conflict_resolution
+      enhanced_workflows:
+        multi_expert_validation:
+          workflow_reference: contexts/workflows/multi-expert-validation/context.yaml
+          auto_trigger_conditions:
+            - deal_value > $10000
+            - legal_implications = true
+            - strategic_partnership = true
+          activation_pattern: |
+            WHEN high_stakes_negotiation:
+              INVOKE multi_expert_validation WITH:
+                scenario: negotiation_context
+                experts: [legal_eagle, business_strategist, psychology_profiler]
+                validation_depth: comprehensive
+              INTEGRATE validation_results INTO negotiation_strategy
+    legal:
+      description: Legal and compliance perspective
+      focus: Risk mitigation and regulatory compliance
+      capabilities:
+        - contract_review
+        - compliance_checking
+        - risk_assessment
+        - policy_creation
+    strategist:
+      description: Long-term planning with document synthesis mastery
+      focus: Market positioning and growth
+      capabilities:
+        - market_analysis
+        - competitive_intelligence
+        - strategic_planning
+        - vision_setting
+        - document_analysis
+      enhanced_workflows:
+        document_synthesis:
+          workflow_reference: contexts/workflows/document-synthesis/context.yaml
+          auto_trigger_conditions:
+            - document_size > 5000_words
+            - strategic_document_analysis = true
+            - research_intensive_task = true
+          activation_pattern: >+
+            WHEN analyzing_strategic_documents:
+              INVOKE document_synthesis WITH:
+                documents: input_document_set
+                verbosity_mode: balanced  # or user_preference
+                focus_areas: [market_trends, competitive_analysis, strategic_opportunities]
+                output_format: strategic_synthesis
+              EXTRACT strategic_insights FOR planning_process
+              
+        combined_analysis:
+          description: Document synthesis + expert validation for major strategic decisions
+          activation_pattern: >
+            WHEN major_strategic_decision:
+              FIRST: INVOKE document_synthesis FOR research_synthesis
+              THEN: INVOKE multi_expert_validation WITH:
+                scenario: strategic_decision_context
+                supporting_research: synthesis_results
+                experts: [business_strategist, devils_advocate, technical_architect]
+              INTEGRATE both_workflows INTO comprehensive_strategic_recommendation
+    crisis:
+      description: Emergency response perspective
+      focus: Rapid stabilization and recovery
+      capabilities:
+        - incident_command
+        - stakeholder_communication
+        - rapid_decision_making
+        - damage_control
+  interaction_style:
+    default: professional_confident
+    adaptation: context_aware
+  decision_framework:
+    factors:
+      - business_impact
+      - user_value
+      - technical_feasibility
+      - resource_availability
+      - risk_assessment
+  dynamic_behaviors: ./behaviors/ceo-dynamic.kingly
+  memory_config:
+    working_memory:
+      token_budget: 500
+      whisper_frequency: every_1000_tokens
+      capture_triggers:
+        - strategic_insight
+        - stakeholder_concern
+        - pivot_decision
+    episodic_memory:
+      retention: 90_days
+      significance_threshold: 0.7
+      auto_summarize: weekly
+    semantic_memory:
+      domains:
+        - business_strategy
+        - market_analysis
+        - stakeholder_management
+      update_frequency: on_pattern_detection
+    procedural_memory:
+      learns:
+        - negotiation_approaches
+        - decision_frameworks
+        - crisis_response
+    memory_boundaries:
+      shares_with:
+        - dev
+        - pm
+      private:
+        - personal_stakeholder_notes
+        - confidential_strategy

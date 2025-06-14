@@ -1,0 +1,230 @@
+metadata:
+  type: "workflow"
+  id: "entropy-router"
+  version: "1.0.0"
+  description: "Dynamic routing based on system entropy for stability vs innovation"
+
+workflow_config:
+  philosophy: "Route decisions to appropriate personality types based on chaos level"
+  
+  # Inherits eeps_config from parent workflow
+  eeps_config:
+    inherit: true
+    
+  triggers:
+    automatic:
+      - "decision_required AND eeps_enabled"
+      - "context_shift_detected"
+      - "uncertainty_spike"
+    manual:
+      - "assess entropy"
+      - "check system state"
+      
+  entropy_assessment:
+    calculation_factors:
+      uncertainty_level:
+        description: "How much is unknown about the situation"
+        weight: 0.3
+        indicators:
+          - missing_information_ratio
+          - ambiguous_requirements
+          - undefined_success_criteria
+          
+      rate_of_change:
+        description: "How fast is the context evolving"
+        weight: 0.3
+        indicators:
+          - requirement_volatility
+          - stakeholder_churn
+          - technology_shifts
+          
+      complexity_score:
+        description: "Number of interacting components"
+        weight: 0.2
+        indicators:
+          - dependency_count
+          - integration_points
+          - stakeholder_diversity
+          
+      risk_level:
+        description: "Potential for negative outcomes"
+        weight: 0.2
+        indicators:
+          - failure_impact
+          - reversibility_score
+          - time_pressure
+
+    entropy_categories:
+      low:
+        range: [0.0, 0.3]
+        description: "Stable, predictable environment"
+        characteristics:
+          - clear_requirements
+          - established_patterns
+          - low_risk
+          - incremental_change
+          
+      medium:
+        range: [0.3, 0.7]
+        description: "Balanced environment with some uncertainty"
+        characteristics:
+          - moderate_complexity
+          - some_unknowns
+          - manageable_risk
+          - evolutionary_change
+          
+      high:
+        range: [0.7, 1.0]
+        description: "Chaotic, rapidly changing environment"
+        characteristics:
+          - high_uncertainty
+          - many_unknowns
+          - significant_risk
+          - revolutionary_change
+
+  routing_rules:
+    low_entropy_routing:
+      description: "Activate Yin personalities for stability"
+      activated_types:
+        primary:
+          - sfj_caregiver    # Maintain harmony
+          - stj_leader       # Enforce structure
+        secondary:
+          - sfp_connector    # Build relationships
+          - stp_adapter      # Practical solutions
+      reasoning: |
+        In stable environments:
+        - Preserve what works (negative feedback)
+        - Focus on execution and optimization
+        - Maintain group cohesion
+        - Apply proven patterns
+        
+    medium_entropy_routing:
+      description: "Balance Yin and Yang perspectives"
+      activated_types:
+        yin_representatives:
+          - sfj_caregiver
+          - stp_adapter
+        yang_representatives:
+          - nfp_advocate
+          - ntj_strategist
+      reasoning: |
+        In balanced environments:
+        - Consider both stability and change
+        - Blend proven with innovative
+        - Manage transitions carefully
+        - Seek sustainable evolution
+        
+    high_entropy_routing:
+      description: "Activate Yang personalities for innovation"
+      activated_types:
+        primary:
+          - ntp_innovator    # Generate solutions
+          - nfj_visionary    # See possibilities
+        secondary:
+          - nfp_advocate     # Challenge status quo
+          - ntj_strategist   # Control chaos
+      reasoning: |
+        In chaotic environments:
+        - Embrace radical change (positive feedback)
+        - Generate novel solutions
+        - Question all assumptions
+        - Create new patterns
+
+  mathematical_models:
+    von_neumann_entropy:
+      description: "Quantum uncertainty in state transitions"
+      formula: "S = -Tr(ρ log ρ)"
+      application: |
+        Model personality state superpositions
+        Calculate transition probabilities
+        Identify quantum decision points
+        
+    shannon_entropy:
+      description: "Information uncertainty in decisions"
+      formula: "H(X) = -Σᵢ p(xᵢ) log p(xᵢ)"
+      application: |
+        Measure decision complexity
+        Quantify information needs
+        Optimize communication patterns
+        
+    tsallis_entropy:
+      description: "Non-linear dynamics in complex systems"
+      formula: "Sₑ = (1 - Σᵢ pᵢᵍ)/(q-1)"
+      application: |
+        Model emergent behaviors
+        Capture long-range correlations
+        Handle power-law distributions
+
+  dynamic_adjustments:
+    context_specific_overrides:
+      crisis_mode:
+        condition: "urgent AND high_stakes"
+        override: "boost_yang_activation by 0.2"
+        
+      learning_mode:
+        condition: "exploratory AND low_stakes"
+        override: "activate_all_personalities equally"
+        
+      maintenance_mode:
+        condition: "operational AND stable"
+        override: "boost_yin_activation by 0.2"
+        
+    temporal_dynamics:
+      description: "Adjust routing based on time factors"
+      rules:
+        - "IF sustained_high_entropy > 1_week: gradually_increase_yin"
+        - "IF sustained_low_entropy > 1_month: inject_yang_perspectives"
+        - "IF rapid_entropy_oscillation: stabilize_with_medium_routing"
+
+  output_integration:
+    routing_decision_format:
+      silent_mode: |
+        [Internal: Entropy {value}, Routing to {personality_set}]
+        
+      medium_mode: |
+        System State: {stability_level}
+        Recommended Approach: {approach_description}
+        Active Advisors: {friendly_names}
+        
+      verbose_mode: |
+        ENTROPY ASSESSMENT
+        ━━━━━━━━━━━━━━━━
+        Entropy Score: {value} ({category})
+        
+        Contributing Factors:
+        - Uncertainty: {uncertainty_score}
+        - Change Rate: {change_score}
+        - Complexity: {complexity_score}
+        - Risk Level: {risk_score}
+        
+        ROUTING DECISION
+        ━━━━━━━━━━━━━━━
+        Activated Personalities:
+        {for personality in activated}
+        - {personality.code}: {personality.activation_reason}
+        {endfor}
+        
+        Rationale: {routing_reasoning}
+
+  learning_system:
+    feedback_collection:
+      - decision_outcome_tracking
+      - user_satisfaction_by_routing
+      - entropy_prediction_accuracy
+      
+    adaptive_thresholds:
+      - adjust_category_boundaries_based_on_outcomes
+      - learn_domain_specific_entropy_patterns
+      - optimize_personality_activation_combinations
+      
+  success_metrics:
+    routing_effectiveness:
+      - appropriate_personality_activation_rate
+      - decision_quality_by_entropy_level
+      - adaptation_speed_to_context_changes
+      
+    system_stability:
+      - avoid_personality_thrashing
+      - smooth_transitions_between_states
+      - maintain_decision_coherence

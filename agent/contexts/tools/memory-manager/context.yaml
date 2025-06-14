@@ -1,0 +1,104 @@
+metadata:
+  type: "tool"
+  id: "memory-manager"
+  version: "1.0.0"
+  description: "Dynamic memory capture, storage, and retrieval system"
+
+tool_config:
+  capabilities:
+    - "memory_capture"
+    - "memory_retrieval"
+    - "memory_compression"
+    - "memory_sharing"
+    
+  memory_types:
+    working:
+      location: "memory/working/"
+      format: "yaml"
+      lifecycle: "session"
+      
+    episodic:
+      location: "memory/episodic/"
+      format: "yaml"
+      lifecycle: "time_based"
+      
+    semantic:
+      location: "memory/semantic/"
+      format: "markdown"
+      lifecycle: "permanent"
+      
+    procedural:
+      location: "memory/procedural/"
+      format: "context_pattern"
+      lifecycle: "permanent"
+      
+  mcp_tools:
+    - name: "capture_memory"
+      description: "Save significant moment to appropriate memory type"
+      parameters:
+        type: "working|episodic|semantic|procedural"
+        content: "memory content"
+        significance: "0.0-1.0"
+        tags: "list of tags"
+        
+    - name: "recall_memory"
+      description: "Retrieve memories based on query"
+      parameters:
+        query: "search terms or pattern"
+        types: "memory types to search"
+        time_range: "optional time filter"
+        max_results: "result limit"
+        
+    - name: "compress_memories"
+      description: "Extract patterns from episodic to semantic"
+      parameters:
+        source_age: "minimum age for compression"
+        target_domain: "semantic domain to update"
+        
+    - name: "share_memory"
+      description: "Share memory between agents"
+      parameters:
+        memory_id: "specific memory reference"
+        from_agent: "source agent"
+        to_agent: "target agent"
+        
+  whisper_integration:
+    triggers:
+      complexity_spike: "Complexity increased significantly"
+      confidence_drop: "Confidence below threshold"
+      pattern_detected: "Recurring behavior noticed"
+      aha_moment: "Significant insight occurred"
+      
+    responses:
+      - "Worth remembering this approach?"
+      - "Should I capture this pattern?"
+      - "This seems like a key insight"
+      - "Learning opportunity detected"
+      
+  compression_rules:
+    episodic_to_semantic:
+      age_threshold: "30_days"
+      significance_threshold: 0.8
+      pattern_count: 3  # Pattern must appear 3+ times
+      
+    procedural_extraction:
+      success_rate: 0.9  # 90% success rate
+      usage_frequency: 5  # Used 5+ times
+      
+  dynamic_assembly:
+    token_budgets:
+      working_memory: 500
+      episodic_summary: 1000
+      semantic_refs: 300
+      procedural_hints: 200
+      
+    inclusion_strategies:
+      always_include: ["working_memory"]
+      relevance_threshold: 0.7
+      recency_boost: true
+      
+  privacy_controls:
+    default_sharing: false
+    agent_boundaries: true
+    user_control: true
+    anonymization: "on_request"

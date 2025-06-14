@@ -1,0 +1,85 @@
+metadata:
+  type: "pattern"
+  id: "agile-scrum"
+  version: "2.0.0"
+  author: "@kingly/patterns"
+  description: "Scrum framework with AI-powered ceremonies"
+
+pattern_config:
+  methodology: "scrum"
+  cadence: "2-week sprints"
+  
+  roles:
+    product_owner: "agent://ceo.product"
+    scrum_master: "agent://ceo.facilitator"
+    development_team: ["agent://dev", "agent://qa", "agent://designer"]
+    
+  ceremonies:
+    sprint_planning:
+      when: "start of sprint"
+      duration: "2 hours"
+      participants: "all"
+      agenda:
+        - review_backlog
+        - estimate_complexity
+        - commit_to_sprint_goals
+        
+    daily_standup:
+      when: "every morning"
+      duration: "15 minutes"
+      format: |
+        Each member shares:
+        1. What I did yesterday
+        2. What I'm doing today
+        3. Any blockers
+        
+    sprint_review:
+      when: "end of sprint"
+      duration: "1 hour"
+      activities:
+        - demo_completed_work
+        - gather_feedback
+        - update_backlog
+        
+    retrospective:
+      when: "after review"
+      duration: "1 hour"
+      prompts:
+        - "What went well?"
+        - "What could improve?"
+        - "What will we try next?"
+        
+  artifacts:
+    product_backlog:
+      location: "contexts/projects/{project}/backlog/"
+      format: "prioritized task list"
+      
+    sprint_backlog:
+      location: "contexts/projects/{project}/sprints/current/"
+      format: "committed tasks"
+      
+    burndown_chart:
+      auto_generated: true
+      update_frequency: "daily"
+      
+  ai_enhancements:
+    velocity_prediction: true
+    blocker_detection: true
+    retrospective_insights: true
+    automated_standups: "optional"
+    
+  templates:
+    user_story: |
+      As a {user_type}
+      I want {functionality}
+      So that {benefit}
+      
+      Acceptance Criteria:
+      - [ ] Criteria 1
+      - [ ] Criteria 2
+      
+    sprint_goal: |
+      By the end of this sprint, we will have:
+      - {deliverable_1}
+      - {deliverable_2}
+      - {deliverable_3}

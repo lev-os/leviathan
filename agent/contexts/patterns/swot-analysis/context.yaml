@@ -1,0 +1,67 @@
+metadata:
+  type: "pattern"
+  id: "swot-analysis"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Strategic analysis of Strengths, Weaknesses, Opportunities, and Threats"
+
+pattern_config:
+  methodology: "strategic_assessment"
+  
+  analysis_structure:
+    strengths:
+      description: "Internal advantages"
+      prompts:
+        - "What do we do well?"
+        - "What unique resources do we have?"
+        - "What do others see as our strengths?"
+        - "What achievements are we proud of?"
+      
+    weaknesses:
+      description: "Internal disadvantages"
+      prompts:
+        - "What could we improve?"
+        - "Where do we have fewer resources?"
+        - "What are others likely to see as weaknesses?"
+        - "What should we avoid?"
+        
+    opportunities:
+      description: "External possibilities"
+      prompts:
+        - "What trends could we take advantage of?"
+        - "How can we turn strengths into opportunities?"
+        - "What market gaps exist?"
+        - "What strategic partnerships are available?"
+        
+    threats:
+      description: "External risks"
+      prompts:
+        - "What obstacles do we face?"
+        - "What is our competition doing?"
+        - "Are requirements changing?"
+        - "Could any weaknesses threaten us?"
+        
+  process:
+    1_define_scope: "Clear definition of what's being analyzed"
+    2_brainstorm_factors: "Generate items for each quadrant"
+    3_prioritize: "Rank by impact and likelihood"
+    4_cross_analyze: "Find connections between quadrants"
+    5_strategy_formation: "Convert analysis to action"
+    
+  cross_analysis:
+    so_strategies: "Use Strengths to maximize Opportunities"
+    wo_strategies: "Overcome Weaknesses by pursuing Opportunities"
+    st_strategies: "Use Strengths to minimize Threats"
+    wt_strategies: "Minimize Weaknesses and avoid Threats"
+    
+  output_format:
+    visual_grid: true
+    priority_matrix: true
+    strategy_recommendations: true
+    action_items: true
+    
+  ai_enhancements:
+    pattern_recognition: "Identify hidden connections"
+    benchmark_comparison: "Industry standards"
+    trend_analysis: "Future projections"
+    bias_detection: "Challenge assumptions"

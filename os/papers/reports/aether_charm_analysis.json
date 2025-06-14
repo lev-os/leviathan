@@ -1,0 +1,37 @@
+{
+  "id": "aether_charm",
+  "name": "Aether Charm",
+  "type": "card",
+  "image_filename": "AetherCharm.jpg",
+  "mana_cost": 0,
+  "card_type": "Relic",
+  "subtype": "Item > Aether Source",
+  "abilities": [
+    {
+      "cost": "Exhaust, sacrifice",
+      "effect": "Add 1 aether"
+    }
+  ],
+  "flavor_text": "Through trials of fire and trials of ice, it stands as a testament to sacrifice, in the pursuit of paradise.",
+  "rarity": "Common",
+  "set_code": "004/300",
+  "artist": "ChicagoMage",
+  "copyright": "©2025 MageTCG",
+  "visual_description": {
+    "main_object": "A large crystalline teardrop-shaped gem",
+    "crystal_color": "Brilliant blue-cyan with internal crackling energy",
+    "setting": "Ornate bronze/brass pedestal with decorative engravings",
+    "environment": "Dark mystical chamber with warm golden bokeh lights",
+    "atmosphere": "Mystical, magical, arcane workshop setting",
+    "lighting": "Dramatic contrast - dark background with bright internal crystal glow",
+    "magical_effects": "Electric blue energy crackling within the crystal",
+    "mood": "Ancient, powerful, mysterious"
+  },
+  "game_mechanics": {
+    "resource_generation": "aether",
+    "activation_cost": ["exhaust", "sacrifice"],
+    "permanent_type": "artifact/relic"
+  },
+  "extracted_from": "vision_analysis",
+  "extraction_confidence": "high"
+}

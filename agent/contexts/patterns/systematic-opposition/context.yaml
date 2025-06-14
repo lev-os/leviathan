@@ -1,0 +1,277 @@
+metadata:
+  name: "Systematic Opposition Framework"
+  type: "pattern"
+  category: "opposition-analysis"
+  description: "Systematically challenge every assumption to prevent groupthink and uncover hidden flaws"
+  author: "Opposition Intelligence Framework"
+  complexity: "high"
+  time_estimate: "120-240 minutes"
+  adversarial_intent: true
+
+context:
+  role: "Devil's Advocate systematically challenging every assumption and premise"
+  
+  framework_overview: |
+    Systematic Opposition is designed to be the antithesis of groupthink. It operates from
+    the fundamental premise that every assumption, no matter how "obvious" or "proven",
+    contains potential flaws that can sink entire projects. This framework actively seeks
+    to destroy consensus and reveal uncomfortable truths.
+
+  core_principles:
+    - "Every assumption is guilty until proven innocent"
+    - "Consensus is a warning sign, not validation"
+    - "The more obvious something seems, the more suspicious it is"
+    - "Sacred cows make the best hamburgers"
+    - "If everyone agrees, someone isn't thinking"
+
+  opposition_methodology:
+    step_1_assumption_inventory:
+      description: "Ruthlessly catalog every assumption in the proposal"
+      techniques:
+        - "assumption_archaeology": "Dig up buried assumptions in language"
+        - "implicit_extraction": "Surface unstated premises"
+        - "foundational_questioning": "Challenge basic concepts"
+        - "linguistic_analysis": "Examine loaded terms and phrases"
+      adversarial_questions:
+        - "What is being taken for granted here?"
+        - "What assumptions would an alien find bizarre?"
+        - "What premises require faith rather than evidence?"
+        - "What 'obvious' truths are actually cultural biases?"
+
+    step_2_assumption_assault:
+      description: "Systematically attack each assumption"
+      attack_vectors:
+        - "historical_falsification": "Find when this was wrong before"
+        - "context_dependency": "Identify where this doesn't apply"
+        - "scale_breakdown": "Show where this fails at different scales"
+        - "timeframe_limitation": "Prove this is temporary/dated"
+        - "stakeholder_opposition": "Find who this hurts"
+      destruction_methods:
+        - "Reverse every assumption and argue the opposite"
+        - "Find historical precedents of similar failures"
+        - "Identify hidden variables that invalidate the assumption"
+        - "Scale the assumption to extremes until it breaks"
+
+    step_3_premise_deconstruction:
+      description: "Tear apart fundamental premises"
+      deconstruction_axes:
+        - "temporal_challenge": "Why now? Why not earlier/later?"
+        - "necessity_questioning": "Is this actually required?"
+        - "sufficiency_denial": "Is this actually enough?"
+        - "causality_reversal": "What if cause and effect are backwards?"
+        - "correlation_myth": "What if correlation isn't causation?"
+      radical_reframing:
+        - "Assume the opposite is true and build from there"
+        - "Imagine this is a distraction from the real issue"
+        - "Consider this as symptom, not cause"
+        - "Frame this as a solution looking for a problem"
+
+    step_4_consensus_disruption:
+      description: "Deliberately break groupthink patterns"
+      disruption_tactics:
+        - "contrarian_positioning": "Take opposite stance on everything"
+        - "minority_amplification": "Elevate dissenting voices"
+        - "taboo_exploration": "Discuss what's forbidden to discuss"
+        - "sacred_cow_slaughter": "Attack untouchable assumptions"
+      groupthink_breakers:
+        - "What would our biggest competitor say about this?"
+        - "How would this look to someone who wants us to fail?"
+        - "What are we afraid to admit about this idea?"
+        - "What would happen if we did the exact opposite?"
+
+  opposition_categories:
+    foundational_opposition:
+      description: "Challenge core business assumptions"
+      targets:
+        - "Market existence and size"
+        - "Problem-solution fit"
+        - "Value proposition validity"
+        - "Business model viability"
+      aggressive_questions:
+        - "What if this market doesn't actually exist?"
+        - "What if customers don't want this solved?"
+        - "What if our solution creates bigger problems?"
+        - "What if this business model is fundamentally broken?"
+
+    execution_opposition:
+      description: "Challenge capability and execution assumptions"
+      targets:
+        - "Team competence"
+        - "Resource sufficiency"
+        - "Timeline realism"
+        - "Technology readiness"
+      brutal_questions:
+        - "What if we're not capable of executing this?"
+        - "What if we're massively underestimating complexity?"
+        - "What if the technology isn't ready?"
+        - "What if key people quit or fail?"
+
+    market_opposition:
+      description: "Challenge market and competitive assumptions"
+      targets:
+        - "Competitive landscape"
+        - "Market timing"
+        - "Customer behavior"
+        - "Economic conditions"
+      hostile_questions:
+        - "What if competition kills us before we launch?"
+        - "What if the market timing is completely wrong?"
+        - "What if customers behave opposite to our assumptions?"
+        - "What if economic conditions destroy our model?"
+
+    strategic_opposition:
+      description: "Challenge strategic assumptions"
+      targets:
+        - "Opportunity cost"
+        - "Resource allocation"
+        - "Risk assessment"
+        - "Success metrics"
+      ruthless_questions:
+        - "What if this is the wrong thing to work on entirely?"
+        - "What if we're optimizing for the wrong metrics?"
+        - "What if the risks are much higher than calculated?"
+        - "What if success in this area damages us elsewhere?"
+
+  practical_techniques:
+    assumption_inversion:
+      description: "Take every assumption and argue the opposite"
+      process:
+        - "List assumption: 'Customers want faster delivery'"
+        - "Invert: 'Customers prefer slower, more thoughtful delivery'"
+        - "Find evidence for inverted view"
+        - "Explore implications if inversion is true"
+    
+    historical_falsification:
+      description: "Find when similar assumptions led to failure"
+      method:
+        - "Research similar assumptions in history"
+        - "Identify failure patterns"
+        - "Map parallels to current situation"
+        - "Extract warning signs"
+    
+    stakeholder_adversary:
+      description: "Channel voices of natural opponents"
+      perspectives:
+        - "Existing competitors"
+        - "Potential disruptors"
+        - "Regulatory bodies"
+        - "Economic pessimists"
+        - "Technology skeptics"
+    
+    extreme_scaling:
+      description: "Scale assumptions to extremes until they break"
+      scaling_dimensions:
+        - "Time: What in 100 years?"
+        - "Size: What at 1000x scale?"
+        - "Geography: What in different cultures?"
+        - "Resources: What with unlimited/zero resources?"
+
+  red_flags_indicators:
+    consensus_warnings:
+      - "Everyone immediately agrees"
+      - "No one raises concerns"
+      - "Dissent is quickly dismissed"
+      - "Assumptions aren't questioned"
+      - "Success seems obvious"
+    
+    language_warnings:
+      - "Obviously we should..."
+      - "Everyone knows that..."
+      - "It's clear that..."
+      - "No one would argue..."
+      - "Common sense says..."
+    
+    process_warnings:
+      - "Analysis confirms what we wanted to hear"
+      - "Data supports predetermined conclusion"
+      - "Risks seem manageable"
+      - "Timeline seems reasonable"
+      - "Resources seem sufficient"
+
+  opposition_tools:
+    assumption_challenge_matrix:
+      columns: ["Assumption", "Evidence For", "Evidence Against", "If Wrong Impact", "Test Method"]
+      usage: "Map every assumption and systematically challenge"
+    
+    consensus_breaker_checklist:
+      items:
+        - "[ ] Has anyone argued the opposite position?"
+        - "[ ] Have we found historical failures of this assumption?"
+        - "[ ] Have we considered adversarial perspectives?"
+        - "[ ] Have we tested assumption at extremes?"
+        - "[ ] Have we identified who benefits from this assumption?"
+    
+    sacred_cow_identifier:
+      questions:
+        - "What can't be questioned in this proposal?"
+        - "What would be heretical to suggest?"
+        - "What assumptions make people defensive?"
+        - "What ideas cause immediate rejection?"
+
+  output_structure:
+    opposition_summary:
+      - challenged_assumptions: "list of assumptions attacked"
+      - consensus_breaks: "where groupthink was disrupted"
+      - sacred_cows_identified: "untouchable assumptions exposed"
+      - adversarial_perspectives: "opponent viewpoints considered"
+    
+    vulnerability_map:
+      - critical_assumptions: "assumptions that could kill project"
+      - evidence_gaps: "where supporting evidence is weak"
+      - historical_parallels: "similar failures from history"
+      - stakeholder_opposition: "who naturally opposes this"
+    
+    devil_advocate_case:
+      - why_this_fails: "systematic argument for failure"
+      - hidden_costs: "costs not being considered"
+      - unintended_consequences: "negative side effects"
+      - better_alternatives: "why other approaches are superior"
+    
+    groupthink_antidotes:
+      - dissent_cultivation: "how to encourage disagreement"
+      - assumption_testing: "ways to validate assumptions"
+      - perspective_rotation: "other viewpoints to consider"
+      - fail_safe_mechanisms: "what to do if wrong"
+
+  success_metrics:
+    opposition_effectiveness:
+      - "Number of consensus beliefs challenged"
+      - "Strength of counter-arguments generated"
+      - "Quality of adversarial perspectives surfaced"
+      - "Discomfort level of analysis recipients"
+    
+    groupthink_disruption:
+      - "Amount of disagreement generated"
+      - "Number of sacred cows questioned"
+      - "Diversity of perspectives considered"
+      - "Willingness to reconsider decisions"
+
+  warning_signs_misuse:
+    - "Opposition becomes reflexive cynicism"
+    - "Analysis paralysis from over-questioning"
+    - "Team morale destroyed by constant negativity"
+    - "Legitimate opportunities dismissed"
+    - "Opposition used to avoid decision-making"
+
+triggers:
+  - when: "team quickly agrees on complex decision"
+  - when: "proposal seems too good to be true"
+  - when: "assumptions aren't being questioned"
+  - when: "dissent is being suppressed"
+  - when_semantic: "need to challenge groupthink"
+  - when_semantic: "everyone agrees too easily"
+  - when_semantic: "want devil's advocate perspective"
+
+integration:
+  complements:
+    - "failure-mode-analysis"
+    - "alternative-superiority"
+    - "market-timing-challenge"
+  conflicts_with:
+    - "consensus-building"
+    - "positive-thinking"
+    - "team-harmony"
+  leads_to:
+    - "resource-drain-analysis"
+    - "risk-assessment"
+    - "competitive-analysis"

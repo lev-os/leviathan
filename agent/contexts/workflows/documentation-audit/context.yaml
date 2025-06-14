@@ -1,0 +1,192 @@
+metadata:
+  id: documentation-audit
+  type: workflow
+  name: Documentation Lifecycle Audit
+  version: 0.1.0
+  description: Comprehensive audit of documentation state and lifecycle progression
+  category: knowledge-management
+  tags:
+    - documentation
+    - audit
+    - lifecycle
+    - organization
+
+workflow_config:
+  triggers:
+    manual:
+      - user_request
+      - scheduled_review
+    semantic:
+      - condition: "documentation feels scattered or inconsistent"
+        confidence: 0.8
+      - condition: "can't find the right documentation"
+        confidence: 0.7
+      - condition: "ADRs and implementation seem misaligned"
+        confidence: 0.85
+        
+  steps:
+    - step: 1
+      name: Research Inventory
+      personality: doc-shepherd
+      focus: "Raw research analysis"
+      prompt: |
+        Inventory all research artifacts:
+        
+        1. **Unprocessed Research**
+           - What research exists in /docs/research/?
+           - Which topics have multiple research files?
+           - What insights haven't been synthesized?
+           
+        2. **Research Gaps**
+           - What implementation lacks research?
+           - What decisions were made without documentation?
+           
+        3. **Synthesis Opportunities**
+           - Which research clusters form natural drafts?
+           - What themes emerge across research?
+           
+        Output a structured inventory with synthesis recommendations.
+        
+    - step: 2  
+      name: Draft Assessment
+      personality: doc-shepherd
+      focus: "Draft maturity evaluation"
+      prompt: |
+        Assess all draft documentation:
+        
+        1. **Draft Status**
+           - List all files in /docs/drafts/
+           - Categorize by maturity (early/developing/ready)
+           - Identify drafts addressing similar concerns
+           
+        2. **ADR Readiness**
+           - Which drafts contain clear decisions?
+           - Which drafts need more development?
+           - What consolidation opportunities exist?
+           
+        3. **Missing Drafts**
+           - What implemented features lack draft documentation?
+           - What architectural concerns need drafts?
+           
+        Create a draft progression plan.
+        
+    - step: 3
+      name: ADR Alignment Check
+      personality: doc-shepherd  
+      focus: "ADR completeness and consistency"
+      prompt: |
+        Audit architectural decision records:
+        
+        1. **ADR Coverage**
+           - List all ADRs with status
+           - Map ADRs to implementation
+           - Identify gaps in decision documentation
+           
+        2. **ADR Quality**
+           - Which ADRs lack clear decisions?
+           - Which need context updates?
+           - Which are superseded but not marked?
+           
+        3. **Spec Readiness**
+           - Which accepted ADRs lack specs?
+           - Which ADRs imply multiple specs?
+           - Priority order for spec creation?
+           
+        Generate ADR health report with action items.
+        
+    - step: 4
+      name: Specification Gap Analysis
+      personality: doc-shepherd
+      focus: "Spec coverage and quality"
+      prompt: |
+        Analyze specification coverage:
+        
+        1. **Spec Inventory**
+           - List all specs with ADR mappings
+           - Identify specs without ADR backing
+           - Find ADRs without spec translation
+           
+        2. **BDD Quality**
+           - Which specs have clear acceptance criteria?
+           - Which specs include BDD scenarios?
+           - Which specs map cleanly to tests?
+           
+        3. **Implementation Alignment**
+           - Which implemented features lack specs?
+           - Which specs lack implementation?
+           - Test coverage mapping?
+           
+        Create spec coverage matrix.
+        
+    - step: 5
+      name: Audience Optimization
+      personality: doc-shepherd
+      focus: "Human vs agent documentation"
+      prompt: |
+        Optimize documentation for audiences:
+        
+        1. **Agent Documentation**
+           - Review CLAUDE.md files
+           - Check context.yaml completeness
+           - Assess agent-readable structure
+           
+        2. **Human Documentation**  
+           - README quality and coverage
+           - Architecture diagram currency
+           - Tutorial and guide completeness
+           
+        3. **Hybrid Optimization**
+           - ADRs readable by both audiences?
+           - Specs usable by both developers and agents?
+           - Cross-referencing effectiveness?
+           
+        Recommend audience-specific improvements.
+        
+    - step: 6
+      name: Lifecycle Recommendation
+      personality: doc-shepherd
+      focus: "Concrete next actions"
+      prompt: |
+        Synthesize audit findings into actionable plan:
+        
+        1. **Immediate Actions** (This Week)
+           - Which research to synthesize first?
+           - Which drafts to promote to ADRs?
+           - Which ADRs to translate to specs?
+           - Critical gaps to address?
+           
+        2. **Short Term** (This Month)
+           - Documentation structure improvements
+           - Workflow optimizations
+           - Tooling enhancements
+           
+        3. **Long Term** (This Quarter)
+           - Systematic improvements
+           - Automation opportunities
+           - Knowledge graph possibilities
+           
+        4. **Success Metrics**
+           - How to measure documentation health?
+           - What indicates good lifecycle flow?
+           - Warning signs to monitor?
+           
+        Create prioritized action plan with clear ownership.
+
+  output_format:
+    type: structured_report
+    sections:
+      - executive_summary
+      - research_inventory
+      - draft_assessment  
+      - adr_health
+      - spec_coverage
+      - audience_analysis
+      - action_plan
+      - metrics_dashboard
+      
+  validation:
+    completeness_check:
+      - all_directories_scanned
+      - all_file_types_assessed
+      - clear_recommendations
+      - measurable_actions

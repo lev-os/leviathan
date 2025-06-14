@@ -1,0 +1,476 @@
+//go:build darwin
+// +build darwin
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"os/exec"
+	"runtime"
+	"strconv"
+	"strings"
+	"time"
+)
+
+// SystemTelemetry represents the current state of the system
+type SystemTelemetry struct {
+	Timestamp    time.Time `json:"timestamp"`
+	CPU          CPUMetrics `json:"cpu"`
+	Memory       MemoryMetrics `json:"memory"`
+	Network      NetworkMetrics `json:"network"`
+	Disk         DiskMetrics `json:"disk"`
+	LoadAverage  LoadMetrics `json:"load"`
+}
+
+type CPUMetrics struct {
+	UsagePercent float64 `json:"usage_percent"`
+	Cores        int     `json:"cores"`
+	LoadAvg1     float64 `json:"load_avg_1m"`
+	LoadAvg5     float64 `json:"load_avg_5m"`
+	LoadAvg15    float64 `json:"load_avg_15m"`
+}
+
+type MemoryMetrics struct {
+	TotalMB     uint64  `json:"total_mb"`
+	UsedMB      uint64  `json:"used_mb"`
+	FreeMB      uint64  `json:"free_mb"`
+	UsagePercent float64 `json:"usage_percent"`
+	SwapUsedMB  uint64  `json:"swap_used_mb"`
+}
+
+type NetworkMetrics struct {
+	BytesReceived uint64 `json:"bytes_received"`
+	BytesSent     uint64 `json:"bytes_sent"`
+	PacketsReceived uint64 `json:"packets_received"`
+	PacketsSent   uint64 `json:"packets_sent"`
+	Connections   int    `json:"active_connections"`
+}
+
+type DiskMetrics struct {
+	TotalSpaceGB uint64  `json:"total_space_gb"`
+	UsedSpaceGB  uint64  `json:"used_space_gb"`
+	FreeSpaceGB  uint64  `json:"free_space_gb"`
+	UsagePercent float64 `json:"usage_percent"`
+	IOReads      uint64  `json:"io_reads"`
+	IOWrites     uint64  `json:"io_writes"`
+}
+
+type LoadMetrics struct {
+	ProcessCount    int `json:"process_count"`
+	ThreadCount     int `json:"thread_count"`
+	RunningProcesses int `json:"running_processes"`
+}
+
+// TelemetryCollector gathers system metrics (macOS version)
+type TelemetryCollector struct {
+	previousNet NetworkMetrics
+	previousDisk DiskMetrics
+}
+
+// NewTelemetryCollector creates a new collector instance
+func NewTelemetryCollector() *TelemetryCollector {
+	return &TelemetryCollector{}
+}
+
+// CollectMetrics gathers current system telemetry using macOS tools
+func (tc *TelemetryCollector) CollectMetrics() (*SystemTelemetry, error) {
+	telemetry := &SystemTelemetry{
+		Timestamp: time.Now(),
+	}
+
+	// Collect CPU metrics
+	cpu, err := tc.collectCPUMetrics()
+	if err != nil {
+		return nil, fmt.Errorf("failed to collect CPU metrics: %w", err)
+	}
+	telemetry.CPU = cpu
+
+	// Collect memory metrics
+	memory, err := tc.collectMemoryMetrics()
+	if err != nil {
+		return nil, fmt.Errorf("failed to collect memory metrics: %w", err)
+	}
+	telemetry.Memory = memory
+
+	// Collect network metrics
+	network, err := tc.collectNetworkMetrics()
+	if err != nil {
+		return nil, fmt.Errorf("failed to collect network metrics: %w", err)
+	}
+	telemetry.Network = network
+
+	// Collect disk metrics
+	disk, err := tc.collectDiskMetrics()
+	if err != nil {
+		return nil, fmt.Errorf("failed to collect disk metrics: %w", err)
+	}
+	telemetry.Disk = disk
+
+	// Collect load metrics
+	load, err := tc.collectLoadMetrics()
+	if err != nil {
+		return nil, fmt.Errorf("failed to collect load metrics: %w", err)
+	}
+	telemetry.LoadAverage = load
+
+	return telemetry, nil
+}
+
+// collectCPUMetrics reads CPU usage using macOS system commands
+func (tc *TelemetryCollector) collectCPUMetrics() (CPUMetrics, error) {
+	metrics := CPUMetrics{
+		Cores: runtime.NumCPU(),
+	}
+
+	// Get load average using uptime command
+	cmd := exec.Command("uptime")
+	output, err := cmd.Output()
+	if err != nil {
+		return metrics, fmt.Errorf("failed to run uptime command: %w", err)
+	}
+
+	// Parse uptime output: "load averages: 1.23 2.34 3.45"
+	uptimeStr := string(output)
+	if idx := strings.Index(uptimeStr, "load averages:"); idx != -1 {
+		loadPart := uptimeStr[idx+14:]
+		loadFields := strings.Fields(loadPart)
+		if len(loadFields) >= 3 {
+			metrics.LoadAvg1, _ = strconv.ParseFloat(loadFields[0], 64)
+			metrics.LoadAvg5, _ = strconv.ParseFloat(loadFields[1], 64)
+			metrics.LoadAvg15, _ = strconv.ParseFloat(loadFields[2], 64)
+		}
+	}
+
+	// Get CPU usage using top command
+	cmd = exec.Command("top", "-l", "1", "-n", "0")
+	output, err = cmd.Output()
+	if err == nil {
+		lines := strings.Split(string(output), "\n")
+		for _, line := range lines {
+			if strings.Contains(line, "CPU usage:") {
+				// Parse line like "CPU usage: 12.34% user, 5.67% sys, 81.99% idle"
+				if idx := strings.Index(line, "% idle"); idx != -1 {
+					before := line[:idx]
+					parts := strings.Split(before, " ")
+					for i := len(parts) - 1; i >= 0; i-- {
+						if parts[i] != "" {
+							if idle, err := strconv.ParseFloat(parts[i], 64); err == nil {
+								metrics.UsagePercent = 100.0 - idle
+								break
+							}
+						}
+					}
+				}
+				break
+			}
+		}
+	}
+
+	return metrics, nil
+}
+
+// collectMemoryMetrics reads memory usage using vm_stat command
+func (tc *TelemetryCollector) collectMemoryMetrics() (MemoryMetrics, error) {
+	metrics := MemoryMetrics{}
+
+	// Use vm_stat to get memory information
+	cmd := exec.Command("vm_stat")
+	output, err := cmd.Output()
+	if err != nil {
+		return metrics, fmt.Errorf("failed to run vm_stat: %w", err)
+	}
+
+	// Parse vm_stat output
+	lines := strings.Split(string(output), "\n")
+	var pageSize uint64 = 4096 // Default page size for macOS
+	memStats := make(map[string]uint64)
+
+	// Get page size from first line
+	if len(lines) > 0 && strings.Contains(lines[0], "page size of") {
+		parts := strings.Fields(lines[0])
+		for i, part := range parts {
+			if part == "of" && i+1 < len(parts) {
+				if size, err := strconv.ParseUint(parts[i+1], 10, 64); err == nil {
+					pageSize = size
+				}
+				break
+			}
+		}
+	}
+
+	// Parse memory statistics
+	for _, line := range lines[1:] {
+		if strings.Contains(line, ":") {
+			parts := strings.Split(line, ":")
+			if len(parts) == 2 {
+				key := strings.TrimSpace(parts[0])
+				valueStr := strings.TrimSpace(parts[1])
+				valueStr = strings.TrimSuffix(valueStr, ".")
+				
+				if value, err := strconv.ParseUint(valueStr, 10, 64); err == nil {
+					memStats[key] = value * pageSize / (1024 * 1024) // Convert to MB
+				}
+			}
+		}
+	}
+
+	// Calculate memory metrics
+	metrics.FreeMB = memStats["Pages free"]
+	metrics.UsedMB = memStats["Pages active"] + memStats["Pages inactive"] + memStats["Pages wired down"]
+	metrics.TotalMB = metrics.FreeMB + metrics.UsedMB
+	metrics.SwapUsedMB = memStats["Pages swapped out"]
+
+	if metrics.TotalMB > 0 {
+		metrics.UsagePercent = float64(metrics.UsedMB) / float64(metrics.TotalMB) * 100
+	}
+
+	return metrics, nil
+}
+
+// collectNetworkMetrics reads network statistics using netstat
+func (tc *TelemetryCollector) collectNetworkMetrics() (NetworkMetrics, error) {
+	metrics := NetworkMetrics{}
+
+	// Use netstat to get network interface statistics
+	cmd := exec.Command("netstat", "-ib")
+	output, err := cmd.Output()
+	if err != nil {
+		return metrics, fmt.Errorf("failed to run netstat: %w", err)
+	}
+
+	// Parse netstat output
+	lines := strings.Split(string(output), "\n")
+	for i, line := range lines {
+		if i == 0 || strings.TrimSpace(line) == "" {
+			continue // Skip header and empty lines
+		}
+		
+		fields := strings.Fields(line)
+		if len(fields) >= 10 {
+			// Skip loopback interface
+			if fields[0] == "lo0" {
+				continue
+			}
+			
+			// Fields: Name Mtu Network Address Ipkts Ierrs Ibytes Opkts Oerrs Obytes Coll
+			if bytesIn, err := strconv.ParseUint(fields[6], 10, 64); err == nil {
+				metrics.BytesReceived += bytesIn
+			}
+			if packetsIn, err := strconv.ParseUint(fields[4], 10, 64); err == nil {
+				metrics.PacketsReceived += packetsIn
+			}
+			if bytesOut, err := strconv.ParseUint(fields[9], 10, 64); err == nil {
+				metrics.BytesSent += bytesOut
+			}
+			if packetsOut, err := strconv.ParseUint(fields[7], 10, 64); err == nil {
+				metrics.PacketsSent += packetsOut
+			}
+		}
+	}
+
+	// Count active connections using netstat
+	cmd = exec.Command("netstat", "-an")
+	output, err = cmd.Output()
+	if err == nil {
+		lines := strings.Split(string(output), "\n")
+		connectionCount := 0
+		for _, line := range lines {
+			if strings.Contains(line, "ESTABLISHED") {
+				connectionCount++
+			}
+		}
+		metrics.Connections = connectionCount
+	}
+
+	return metrics, nil
+}
+
+// collectDiskMetrics reads disk usage using df command
+func (tc *TelemetryCollector) collectDiskMetrics() (DiskMetrics, error) {
+	metrics := DiskMetrics{}
+
+	// Use df to get disk space information
+	cmd := exec.Command("df", "-h", "/")
+	output, err := cmd.Output()
+	if err != nil {
+		return metrics, fmt.Errorf("failed to run df command: %w", err)
+	}
+
+	// Parse df output
+	lines := strings.Split(string(output), "\n")
+	if len(lines) >= 2 {
+		fields := strings.Fields(lines[1])
+		if len(fields) >= 4 {
+			// Convert sizes from human readable to GB
+			total := parseSize(fields[1])
+			used := parseSize(fields[2])
+			free := parseSize(fields[3])
+			
+			metrics.TotalSpaceGB = total
+			metrics.UsedSpaceGB = used
+			metrics.FreeSpaceGB = free
+			
+			if total > 0 {
+				metrics.UsagePercent = float64(used) / float64(total) * 100
+			}
+		}
+	}
+
+	// For I/O stats, use iostat command
+	cmd = exec.Command("iostat", "-d", "1", "1")
+	output, err = cmd.Output()
+	if err == nil {
+		lines := strings.Split(string(output), "\n")
+		for _, line := range lines {
+			if strings.Contains(line, "disk") {
+				fields := strings.Fields(line)
+				if len(fields) >= 3 {
+					// iostat output: KB/t tps MB/s
+					if tps, err := strconv.ParseFloat(fields[1], 64); err == nil {
+						metrics.IOReads = uint64(tps * 30)  // Rough estimate
+						metrics.IOWrites = uint64(tps * 30) // Rough estimate
+					}
+				}
+				break
+			}
+		}
+	}
+
+	return metrics, nil
+}
+
+// parseSize converts human-readable size (like "123G", "45M") to GB
+func parseSize(sizeStr string) uint64 {
+	if sizeStr == "" {
+		return 0
+	}
+	
+	// Remove last character (unit) and parse number
+	numStr := sizeStr[:len(sizeStr)-1]
+	num, err := strconv.ParseFloat(numStr, 64)
+	if err != nil {
+		return 0
+	}
+	
+	// Convert to GB based on unit
+	unit := sizeStr[len(sizeStr)-1:]
+	switch unit {
+	case "K", "k":
+		return uint64(num / 1024 / 1024)
+	case "M", "m":
+		return uint64(num / 1024)
+	case "G", "g":
+		return uint64(num)
+	case "T", "t":
+		return uint64(num * 1024)
+	default:
+		// Assume bytes
+		return uint64(num / 1024 / 1024 / 1024)
+	}
+}
+
+// collectLoadMetrics reads process information using ps command
+func (tc *TelemetryCollector) collectLoadMetrics() (LoadMetrics, error) {
+	metrics := LoadMetrics{}
+
+	// Use ps to count processes
+	cmd := exec.Command("ps", "aux")
+	output, err := cmd.Output()
+	if err != nil {
+		return metrics, fmt.Errorf("failed to run ps command: %w", err)
+	}
+
+	lines := strings.Split(string(output), "\n")
+	metrics.ProcessCount = len(lines) - 2 // Subtract header and empty line
+	if metrics.ProcessCount < 0 {
+		metrics.ProcessCount = 0
+	}
+
+	// Count running processes
+	runningCount := 0
+	for _, line := range lines[1:] { // Skip header
+		fields := strings.Fields(line)
+		if len(fields) >= 8 && (fields[7] == "R" || fields[7] == "R+") {
+			runningCount++
+		}
+	}
+	metrics.RunningProcesses = runningCount
+
+	// Thread count approximation
+	metrics.ThreadCount = metrics.ProcessCount * 2 // Rough estimate
+
+	return metrics, nil
+}
+
+// ToJSON converts telemetry to JSON string
+func (t *SystemTelemetry) ToJSON() (string, error) {
+	data, err := json.MarshalIndent(t, "", "  ")
+	if err != nil {
+		return "", err
+	}
+	return string(data), nil
+}
+
+// TelemetryHistory stores historical telemetry data
+type TelemetryHistory struct {
+	samples []SystemTelemetry
+	maxSize int
+}
+
+// NewTelemetryHistory creates a new history tracker
+func NewTelemetryHistory(maxSize int) *TelemetryHistory {
+	return &TelemetryHistory{
+		samples: make([]SystemTelemetry, 0, maxSize),
+		maxSize: maxSize,
+	}
+}
+
+// Add a telemetry sample to history
+func (th *TelemetryHistory) Add(telemetry SystemTelemetry) {
+	th.samples = append(th.samples, telemetry)
+	
+	// Keep only the most recent samples
+	if len(th.samples) > th.maxSize {
+		th.samples = th.samples[1:]
+	}
+}
+
+// GetRecent returns the most recent N samples
+func (th *TelemetryHistory) GetRecent(count int) []SystemTelemetry {
+	if count > len(th.samples) {
+		count = len(th.samples)
+	}
+	
+	if count == 0 {
+		return []SystemTelemetry{}
+	}
+	
+	return th.samples[len(th.samples)-count:]
+}
+
+// GetTrends analyzes trends in the telemetry data
+func (th *TelemetryHistory) GetTrends() TelemetryTrends {
+	trends := TelemetryTrends{}
+	
+	if len(th.samples) < 2 {
+		return trends
+	}
+	
+	recent := th.samples[len(th.samples)-1]
+	previous := th.samples[len(th.samples)-2]
+	
+	trends.CPUTrend = recent.CPU.UsagePercent - previous.CPU.UsagePercent
+	trends.MemoryTrend = recent.Memory.UsagePercent - previous.Memory.UsagePercent
+	trends.LoadTrend = recent.CPU.LoadAvg1 - previous.CPU.LoadAvg1
+	
+	return trends
+}
+
+type TelemetryTrends struct {
+	CPUTrend    float64 `json:"cpu_trend"`
+	MemoryTrend float64 `json:"memory_trend"`
+	LoadTrend   float64 `json:"load_trend"`
+}
+
+// main function removed - see demo_llm_system.go for full system test

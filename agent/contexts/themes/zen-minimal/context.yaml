@@ -1,0 +1,60 @@
+metadata:
+  type: "theme"
+  id: "zen-minimal"
+  version: "1.0.0"
+  author: "@kingly/themes"
+  description: "Distraction-free minimalist theme"
+
+theme_config:
+  colors:
+    primary: "#000000"        # Pure black
+    secondary: "#666666"      # Soft gray
+    accent: "#0066cc"         # Subtle blue
+    background: "#ffffff"     # Pure white
+    surface: "#fafafa"        # Off white
+    error: "#cc0000"          # Classic red
+    
+  typography:
+    mono: "SF Mono, Monaco, monospace"
+    headers: "system-ui, sans-serif"
+    ascii_art: "disabled"
+    
+  components:
+    progress:
+      empty: "·"
+      filled: "•"
+      style: "simple"
+      animation: false
+      
+    lists:
+      bullets: ["•", "•", "•", "•", "•"]
+      numbered: ["1.", "2.", "3.", "4.", "5."]
+      checked: "✓"
+      unchecked: "○"
+      
+    dividers:
+      primary: "———"
+      secondary: "---"
+      section: "___"
+      
+    callouts:
+      info: "Note:"
+      warning: "Warning:"
+      success: "Success:"
+      error: "Error:"
+      
+    interactions:
+      prompt: "> "
+      cursor: "_"
+      selection: "[{}]"
+      
+  effects:
+    text_shadows: false
+    glitch_text: "never"
+    matrix_rain: "disabled"
+    neon_glow: false
+    
+  philosophy: |
+    Less is more. Focus on content, not chrome.
+    Every pixel should earn its place.
+    Clarity over cleverness.

@@ -1,0 +1,190 @@
+metadata:
+  id: document-synthesis
+  type: workflow  
+  name: Research to Draft Synthesis
+  version: 0.1.0
+  description: Transform raw research into synthesized draft documentation
+  category: knowledge-synthesis
+  tags:
+    - research
+    - synthesis
+    - drafts
+    - knowledge-management
+
+workflow_config:
+  triggers:
+    manual:
+      - research_complete
+      - synthesis_requested
+    semantic:
+      - condition: "research needs consolidation"
+        confidence: 0.75
+      - condition: "too many research files on same topic"
+        confidence: 0.8
+        
+  steps:
+    - step: 1
+      name: Research Collection
+      personality: doc-shepherd
+      focus: "Gather related research"
+      prompt: |
+        Collect and categorize research materials:
+        
+        1. **Topic Identification**
+           - What research themes exist?
+           - Which files cluster together?
+           - Cross-cutting concerns?
+           
+        2. **Source Inventory**
+           - Research documents
+           - External references
+           - Code explorations
+           - Experiment results
+           
+        3. **Quality Assessment**
+           - Research depth
+           - Reliability of sources
+           - Conflicting findings
+           - Knowledge gaps
+           
+        Create research inventory matrix.
+        
+    - step: 2
+      name: Pattern Recognition
+      personality: ntp-innovator
+      focus: "Find insights and connections"
+      prompt: |
+        Identify patterns across research:
+        
+        1. **Recurring Themes**
+           - What ideas appear repeatedly?
+           - Convergent solutions?
+           - Common problems?
+           
+        2. **Hidden Connections**
+           - Non-obvious relationships
+           - Cross-domain insights
+           - Emergent patterns
+           
+        3. **Contradictions**
+           - Conflicting approaches
+           - Trade-off tensions
+           - Unresolved questions
+           
+        Map insight network.
+        
+    - step: 3  
+      name: Knowledge Structuring
+      personality: ntj-strategist
+      focus: "Organize into coherent framework"
+      prompt: |
+        Structure knowledge hierarchically:
+        
+        1. **Core Concepts**
+           - Fundamental principles
+           - Key abstractions
+           - Central metaphors
+           
+        2. **Supporting Details**
+           - Implementation specifics
+           - Technical constraints
+           - Practical considerations
+           
+        3. **Logical Flow**
+           - Natural progression
+           - Dependency ordering
+           - Narrative arc
+           
+        Create structured outline.
+        
+    - step: 4
+      name: Gap Identification
+      personality: nfj-visionary
+      focus: "What's missing?"
+      prompt: |
+        Identify knowledge gaps:
+        
+        1. **Missing Pieces**
+           - Unanswered questions
+           - Needed research
+           - Assumptions to validate
+           
+        2. **Future Research**
+           - Next investigations
+           - Experiments needed
+           - Prototypes to build
+           
+        3. **External Dependencies**
+           - What we're waiting on
+           - Who to consult
+           - Resources needed
+           
+        Create research roadmap.
+        
+    - step: 5
+      name: Synthesis Writing
+      personality: doc-shepherd
+      focus: "Create coherent draft"
+      prompt: |
+        Write synthesized draft:
+        
+        1. **Executive Summary**
+           - Key findings
+           - Main recommendations
+           - Open questions
+           
+        2. **Detailed Synthesis**
+           - Comprehensive analysis
+           - Evidence compilation
+           - Reasoned arguments
+           
+        3. **Implementation Hints**
+           - Practical applications
+           - Next steps
+           - Risk considerations
+           
+        4. **Metadata**
+           - Sources referenced
+           - Confidence levels
+           - Review needed
+           
+        Generate complete draft document.
+        
+    - step: 6
+      name: Draft Positioning
+      personality: doc-shepherd
+      focus: "Place in documentation lifecycle"
+      prompt: |
+        Position draft in lifecycle:
+        
+        1. **Readiness Assessment**
+           - How complete is this draft?
+           - What decisions are implied?
+           - ADR potential?
+           
+        2. **Next Actions**
+           - Further research needed?
+           - Ready for review?
+           - Peer input required?
+           
+        3. **Tracking Setup**
+           - Add to draft inventory
+           - Set review reminders
+           - Link related work
+           
+        Create lifecycle metadata and action items.
+
+  output_format:
+    type: research_synthesis
+    includes:
+      - draft_document
+      - research_mapping
+      - gap_analysis
+      - next_actions
+      
+  validation:
+    synthesis_quality:
+      - coherent_narrative
+      - evidence_based
+      - actionable_insights
+      - clear_next_steps

@@ -1,0 +1,163 @@
+output_formats:
+  executive_summary:
+    name: "Executive Summary"
+    target_audience: "C-suite and decision makers"
+    characteristics:
+      - High-level overview
+      - Action-oriented
+      - Visual elements
+      - 1-2 pages max
+    structure:
+      - situation: "Current state (1 paragraph)"
+      - findings: "Key discoveries (3-5 bullets)"
+      - implications: "Strategic impact (1 paragraph)"
+      - recommendations: "Next steps (3-5 bullets)"
+    writing_style:
+      - Clear and concise
+      - Jargon-free
+      - Quantified where possible
+      - Decision-focused
+      
+  technical_report:
+    name: "Technical Deep Dive"
+    target_audience: "Engineers and technical teams"
+    characteristics:
+      - Detailed analysis
+      - Code examples
+      - Architecture diagrams
+      - 10-30 pages
+    structure:
+      - abstract: "Technical summary"
+      - introduction: "Problem statement"
+      - methodology: "Research approach"
+      - findings: "Detailed technical analysis"
+      - implementation: "Code and architecture"
+      - benchmarks: "Performance metrics"
+      - conclusions: "Technical recommendations"
+    writing_style:
+      - Precise terminology
+      - Technical accuracy
+      - Implementation-focused
+      - Evidence-based
+      
+  strategic_briefing:
+    name: "Strategic Analysis"
+    target_audience: "Strategy teams and planners"
+    characteristics:
+      - Market focused
+      - Competitive analysis
+      - Opportunity mapping
+      - 5-10 pages
+    structure:
+      - market_landscape: "Current state analysis"
+      - competitive_dynamics: "Player movements"
+      - opportunities: "White space identification"
+      - threats: "Risk assessment"
+      - strategic_options: "Pathways forward"
+      - recommendation: "Preferred strategy"
+    writing_style:
+      - Analytical
+      - Framework-driven
+      - Option-oriented
+      - Risk-aware
+      
+  research_memo:
+    name: "Research Memorandum"
+    target_audience: "Research teams and analysts"
+    characteristics:
+      - Citation heavy
+      - Methodology transparent
+      - Balanced perspective
+      - 3-8 pages
+    structure:
+      - question: "Research question"
+      - methodology: "Approach and sources"
+      - findings: "Evidence-based discoveries"
+      - analysis: "Interpretation and synthesis"
+      - limitations: "Study constraints"
+      - further_research: "Open questions"
+    writing_style:
+      - Academic rigor
+      - Neutral tone
+      - Evidence-first
+      - Transparent about limitations
+      
+  action_plan:
+    name: "Implementation Roadmap"
+    target_audience: "Project managers and implementers"
+    characteristics:
+      - Task-oriented
+      - Timeline-based
+      - Resource-mapped
+      - 2-5 pages
+    structure:
+      - objective: "Clear goal statement"
+      - phases: "Implementation stages"
+      - tasks: "Specific actions with owners"
+      - timeline: "Gantt chart or schedule"
+      - resources: "Required inputs"
+      - metrics: "Success measurements"
+    writing_style:
+      - Action verbs
+      - Specific and measurable
+      - Deadline-driven
+      - Accountability-focused
+      
+  innovation_brief:
+    name: "Innovation Opportunity"
+    target_audience: "Innovation teams and R&D"
+    characteristics:
+      - Possibility-focused
+      - Creative format
+      - Visual-heavy
+      - 3-6 pages
+    structure:
+      - opportunity: "Innovation space"
+      - inspiration: "Analogies and examples"
+      - concepts: "Potential solutions"
+      - experiments: "Testing approaches"
+      - potential: "Impact if successful"
+    writing_style:
+      - Inspirational
+      - Visual thinking
+      - Possibility-oriented
+      - Experiment-friendly
+      
+# Format Selection Matrix
+format_selection:
+  by_audience:
+    executives: "executive_summary"
+    engineers: "technical_report"
+    strategists: "strategic_briefing"
+    researchers: "research_memo"
+    implementers: "action_plan"
+    innovators: "innovation_brief"
+    
+  by_purpose:
+    decision_making: "executive_summary"
+    implementation: "action_plan"
+    exploration: "research_memo"
+    competition: "strategic_briefing"
+    building: "technical_report"
+    ideation: "innovation_brief"
+    
+  by_timeline:
+    immediate: "executive_summary"
+    this_week: "action_plan"
+    this_month: "strategic_briefing"
+    this_quarter: "technical_report"
+    exploratory: "research_memo"
+    
+# Format Combinations
+hybrid_formats:
+  exec_plus_action:
+    components: ["executive_summary", "action_plan"]
+    use_when: "Decision needed with immediate implementation"
+    
+  tech_plus_strategy:
+    components: ["technical_report", "strategic_briefing"]
+    use_when: "Technical innovation with market implications"
+    
+  full_package:
+    components: ["executive_summary", "strategic_briefing", "action_plan"]
+    use_when: "Major initiative requiring comprehensive documentation"

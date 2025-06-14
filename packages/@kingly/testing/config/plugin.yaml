@@ -1,0 +1,140 @@
+plugin:
+  name: testing
+  version: 1.0.0
+  type: core_plugin
+  description: "Universal testing framework for core packages and community plugins"
+
+capabilities:
+  - plugin_test_discovery
+  - command_validation
+  - capability_testing
+  - integration_testing
+  - performance_benchmarking
+  - community_plugin_validation
+  - cross_plugin_testing
+  - breaking_change_detection
+
+commands:
+  test_discover:
+    syntax: "kingly test discover [--type <type>] [--path <path>]"
+    description: "Discover testable plugins via YAML manifests and repository scanning"
+    whisper:
+      strategies:
+        - "Scan core packages for plugin.yaml configurations"
+        - "Discover community plugins via GitHub API and LLM reasoning"
+        - "Build plugin dependency graph for test ordering"
+      llm_guidance: "Find all testable plugins and plan optimal test execution order"
+
+  test_plugin:
+    syntax: "kingly test plugin <plugin-name> [--suite <suite>]"
+    description: "Execute comprehensive test suite for specific plugin"
+    whisper:
+      strategies:
+        - "Validate plugin YAML configuration correctness"
+        - "Test all plugin commands via CLI routing"
+        - "Verify plugin capabilities function as documented"
+        - "Run plugin-specific integration tests"
+      llm_guidance: "Execute thorough plugin validation with clear success criteria"
+
+  test_integration:
+    syntax: "kingly test integration [--plugins <plugin1,plugin2>]"
+    description: "Run cross-plugin integration tests"
+    whisper:
+      strategies:
+        - "Test plugin command interaction patterns"
+        - "Validate cross-plugin data flow"
+        - "Verify plugin capability composition"
+        - "Check for integration conflicts"
+      llm_guidance: "Validate plugin ecosystem stability through integration testing"
+
+  test_community:
+    syntax: "kingly test community [--repository <repo>]"
+    description: "Validate community plugins for compatibility"
+    whisper:
+      strategies:
+        - "Clone and analyze community plugin repositories"
+        - "Generate compatibility tests based on plugin manifest"
+        - "Test community plugin against current core API"
+        - "Validate community plugin follows conventions"
+      llm_guidance: "Ensure community plugins integrate safely with core ecosystem"
+
+  test_benchmark:
+    syntax: "kingly test benchmark <plugin-name> [--operations <ops>]"
+    description: "Performance benchmark plugin operations"
+    whisper:
+      strategies:
+        - "Measure plugin command execution times"
+        - "Test plugin memory usage patterns"
+        - "Benchmark plugin capability performance"
+        - "Generate performance regression alerts"
+      llm_guidance: "Monitor plugin performance and detect regressions"
+
+workflows:
+  plugin_validation:
+    description: "Comprehensive plugin validation workflow"
+    steps:
+      - step: "Validate plugin YAML configuration"
+        context: "contexts/yaml-validation.yaml"
+      - step: "Test plugin command routing"
+        context: "contexts/command-testing.yaml"  
+      - step: "Verify plugin capabilities"
+        context: "contexts/capability-testing.yaml"
+      - step: "Run integration tests"
+        context: "contexts/integration-testing.yaml"
+
+  community_validation:
+    description: "Community plugin compatibility validation"
+    steps:
+      - step: "Discover community plugins via repository scanning"
+        context: "contexts/community-discovery.yaml"
+      - step: "Generate plugin compatibility tests"
+        context: "contexts/compatibility-testing.yaml"
+      - step: "Execute breaking change detection"
+        context: "contexts/breaking-change-detection.yaml"
+
+  ecosystem_testing:
+    description: "Full ecosystem integration testing"
+    steps:
+      - step: "Build plugin dependency graph"
+        context: "contexts/dependency-analysis.yaml"
+      - step: "Execute cross-plugin integration tests"
+        context: "contexts/cross-plugin-testing.yaml"
+      - step: "Generate ecosystem health report"
+        context: "contexts/ecosystem-reporting.yaml"
+
+reasoning_patterns:
+  plugin_test_orchestration:
+    prompt: |
+      You are orchestrating comprehensive plugin testing across core and community plugins.
+      
+      Context: Plugin ecosystem needs validation to ensure stability, compatibility, and performance.
+      
+      Your reasoning should:
+      1. Discover all testable plugins through manifest scanning and repository analysis
+      2. Plan optimal test execution order based on plugin dependencies
+      3. Execute appropriate test suites based on plugin type and capabilities
+      4. Synthesize results into actionable ecosystem health insights
+      
+      Always prioritize: Test isolation, clear success criteria, actionable feedback, ecosystem stability.
+
+  community_plugin_validation:
+    prompt: |
+      You are validating community plugins for compatibility with the core ecosystem.
+      
+      Context: Community plugins must integrate safely without breaking core functionality.
+      
+      Your reasoning should:
+      1. Analyze community plugin structure and dependencies
+      2. Generate appropriate compatibility tests based on plugin manifest
+      3. Test against current core API for breaking changes
+      4. Validate plugin follows Kingly conventions and patterns
+      
+      Always prioritize: Safety, compatibility, clear feedback, community support.
+
+configuration:
+  test_timeout: 60000
+  max_concurrent_tests: 4
+  plugin_discovery_depth: 3
+  community_repo_scan_enabled: true
+  performance_baseline_enabled: true
+  breaking_change_detection: true

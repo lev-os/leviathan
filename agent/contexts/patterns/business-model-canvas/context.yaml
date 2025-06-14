@@ -1,0 +1,218 @@
+metadata:
+  name: "Business Model Canvas"
+  type: "pattern"
+  category: "business-design"
+  description: "Visual framework for developing and documenting business models through nine key building blocks"
+  author: "Alexander Osterwalder"
+  complexity: "medium"
+  time_estimate: "60-120 minutes"
+
+context:
+  role: "Business Model Designer using Business Model Canvas Framework"
+  
+  framework_overview: |
+    Design, describe, and analyze business models through nine interconnected building blocks
+    that cover the four main areas: customers, offer, infrastructure, and financial viability.
+
+  nine_building_blocks:
+    customer_segments:
+      description: "Different groups of people or organizations you aim to reach and serve"
+      types:
+        - "Mass Market: Large groups with similar needs"
+        - "Niche Market: Specialized, specific segments"
+        - "Segmented: Related but distinct needs/problems"
+        - "Diversified: Unrelated segments with different needs"
+        - "Multi-sided Platform: Interdependent customer segments"
+      questions:
+        - "For whom are we creating value?"
+        - "Who are our most important customers?"
+        - "What customer archetypes exist?"
+
+    value_propositions:
+      description: "Bundle of products/services that create value for customer segments"
+      value_types:
+        - "Newness: Completely new solutions"
+        - "Performance: Superior performance"
+        - "Customization: Tailoring to specific needs"
+        - "Getting the Job Done: Helping customers complete tasks"
+        - "Design: Superior design and user experience"
+        - "Brand/Status: Status through brand"
+        - "Price: Same value at lower price"
+        - "Cost Reduction: Helping customers reduce costs"
+        - "Risk Reduction: Reducing customer risks"
+        - "Accessibility: Making things accessible"
+        - "Convenience/Usability: Easier to use"
+      questions:
+        - "What value do we deliver to customers?"
+        - "Which customer problems are we solving?"
+        - "Which customer needs are we satisfying?"
+
+    channels:
+      description: "How you communicate with and reach customer segments"
+      channel_phases:
+        - "Awareness: How do we raise awareness?"
+        - "Evaluation: How do we help customers evaluate?"
+        - "Purchase: How do customers purchase?"
+        - "Delivery: How do we deliver value?"
+        - "After-sales: How do we provide support?"
+      channel_types:
+        - "Own Channels: Direct (sales force, web sales) vs Indirect (stores)"
+        - "Partner Channels: Partner stores, wholesaler networks"
+      questions:
+        - "Through which channels do customers want to be reached?"
+        - "Which channels work best and are most cost-efficient?"
+
+    customer_relationships:
+      description: "Types of relationships established with specific customer segments"
+      relationship_types:
+        - "Personal Assistance: Human interaction"
+        - "Dedicated Personal Assistance: Dedicated rep"
+        - "Self-Service: No direct relationship"
+        - "Automated Services: Automated but personalized"
+        - "Communities: User communities"
+        - "Co-creation: Customer involvement in creation"
+      questions:
+        - "What type of relationship does each segment expect?"
+        - "How are they integrated with our business model?"
+        - "How costly are they?"
+
+    revenue_streams:
+      description: "Cash generated from each customer segment"
+      revenue_types:
+        - "Asset Sale: Selling ownership of physical product"
+        - "Usage Fee: Use of particular service"
+        - "Subscription Fees: Continuous access to service"
+        - "Lending/Renting/Leasing: Granting temporary access"
+        - "Licensing: Granting permission to use IP"
+        - "Brokerage Fees: Intermediation services"
+        - "Advertising: Fees for advertising space"
+      pricing_mechanisms:
+        - "Fixed Pricing: List price, product feature dependent, segment dependent, volume dependent"
+        - "Dynamic Pricing: Negotiation, yield management, real-time market, auctions"
+      questions:
+        - "For what value are customers willing to pay?"
+        - "What and how do they currently pay?"
+        - "How much does each revenue stream contribute?"
+
+    key_resources:
+      description: "Most important assets required to make business model work"
+      resource_types:
+        - "Physical: Manufacturing facilities, buildings, vehicles, machines, systems"
+        - "Intellectual: Brands, proprietary knowledge, patents, copyrights, partnerships, databases"
+        - "Human: Every company requires human resources"
+        - "Financial: Cash, lines of credit, stock option pools"
+      questions:
+        - "What key resources do our value propositions require?"
+        - "What key resources do our distribution channels require?"
+        - "What key resources do our customer relationships require?"
+
+    key_activities:
+      description: "Most important things company must do to make business model work"
+      activity_types:
+        - "Production: Design, manufacture, deliver product in substantial quantities/superior quality"
+        - "Problem Solving: New solutions to individual customer problems"
+        - "Platform/Network: Networks, matchmaking platforms, software, brands as platforms"
+      questions:
+        - "What key activities do our value propositions require?"
+        - "What key activities do our distribution channels require?"
+        - "What key activities do our customer relationships require?"
+
+    key_partnerships:
+      description: "Network of suppliers and partners that make business model work"
+      partnership_types:
+        - "Strategic Alliances: Non-competitors"
+        - "Coopetition: Strategic partnerships between competitors"
+        - "Joint Ventures: Develop new businesses"
+        - "Buyer-supplier: Ensure reliable supplies"
+      motivations:
+        - "Optimization and economy of scale"
+        - "Reduction of risk and uncertainty"
+        - "Acquisition of particular resources and activities"
+      questions:
+        - "Who are our key partners?"
+        - "Who are our key suppliers?"
+        - "Which key resources are we acquiring from partners?"
+
+    cost_structure:
+      description: "All costs incurred to operate business model"
+      cost_types:
+        - "Cost-driven: Leanest cost structure, low price value propositions, maximum automation, extensive outsourcing"
+        - "Value-driven: Premium value propositions, personalized service"
+      cost_categories:
+        - "Fixed Costs: Costs that remain same despite business activity volume"
+        - "Variable Costs: Costs that vary proportionally with business activity volume"
+        - "Economies of Scale: Cost advantages when output expands"
+        - "Economies of Scope: Cost advantages when larger scope of operations"
+      questions:
+        - "What are the most important costs inherent in our business model?"
+        - "Which key resources are most expensive?"
+        - "Which key activities are most expensive?"
+
+  design_process:
+    phase_1_mobilize:
+      - "Gather diverse design team"
+      - "Set up proper workspace with materials"
+      - "Align on customer insights and market research"
+    
+    phase_2_understand:
+      - "Map current business model if existing"
+      - "Analyze customer journey and pain points"
+      - "Research competitive landscape"
+    
+    phase_3_design:
+      - "Start with customer segments and value propositions"
+      - "Work through all nine blocks systematically"
+      - "Iterate and test assumptions"
+    
+    phase_4_implement:
+      - "Create implementation roadmap"
+      - "Define success metrics for each block"
+      - "Plan pilots and experiments"
+
+  validation_questions:
+    desirability: "Do customers want this?"
+    feasibility: "Can we deliver this?"
+    viability: "Should we deliver this?"
+    adaptability: "How might this evolve?"
+
+  output_structure:
+    canvas_overview:
+      - customer_segments: "list with descriptions"
+      - value_propositions: "list with details"
+      - channels: "list with channel strategy"
+      - customer_relationships: "relationship types per segment"
+      - revenue_streams: "revenue models and pricing"
+      - key_resources: "critical assets needed"
+      - key_activities: "essential business activities"
+      - key_partnerships: "strategic partners and suppliers"
+      - cost_structure: "major cost categories and drivers"
+    
+    business_model_narrative:
+      - executive_summary: "one-paragraph business model description"
+      - value_creation_logic: "how value is created and captured"
+      - competitive_advantage: "what makes this model unique"
+    
+    assumptions_and_risks:
+      - critical_assumptions: "list of key assumptions"
+      - major_risks: "business model vulnerabilities"
+      - validation_plan: "how to test key assumptions"
+
+triggers:
+  - when: "designing new business model"
+  - when: "pivoting existing business"
+  - when: "strategic planning session"
+  - when_semantic: "user needs business model clarity"
+  - when_semantic: "startup seeking business model"
+  - when_semantic: "revenue model questions"
+
+integration:
+  complements:
+    - "value-proposition-canvas"
+    - "blue-ocean-strategy"
+    - "lean-startup"
+  follows_well:
+    - "jobs-to-be-done"
+    - "customer-development"
+  leads_to:
+    - "financial-modeling"
+    - "go-to-market-strategy"

@@ -1,0 +1,202 @@
+metadata:
+  id: adr-generation
+  type: workflow
+  name: ADR Generation from Drafts
+  version: 0.1.0
+  description: Systematic consolidation of draft documentation into architectural decision records
+  category: knowledge-management
+  tags:
+    - adr
+    - documentation
+    - decision-making
+    - consolidation
+
+workflow_config:
+  triggers:
+    manual:
+      - draft_ready_for_promotion
+      - architectural_decision_needed
+    semantic:
+      - condition: "drafts contain implicit decisions"
+        confidence: 0.8
+      - condition: "need to formalize architectural choice"
+        confidence: 0.85
+        
+  steps:
+    - step: 1
+      name: Draft Analysis
+      personality: doc-shepherd
+      focus: "Extract decisions from drafts"
+      prompt: |
+        Analyze draft documentation for ADR extraction:
+        
+        1. **Decision Identification**
+           - What architectural decisions are implicit?
+           - What trade-offs are being discussed?
+           - What alternatives were considered?
+           
+        2. **Context Extraction**
+           - What problem is being solved?
+           - What forces/constraints apply?
+           - What assumptions are made?
+           
+        3. **Consolidation Mapping**
+           - Which drafts address the same decision?
+           - How do different drafts complement each other?
+           - What's the canonical narrative?
+           
+        Extract structured decision elements.
+        
+    - step: 2
+      name: Stakeholder Synthesis
+      personality: ntj-strategist
+      focus: "Strategic implications"
+      prompt: |
+        Synthesize stakeholder perspectives:
+        
+        1. **Technical Implications**
+           - Implementation complexity
+           - Maintenance burden
+           - Performance impacts
+           - Security considerations
+           
+        2. **Business Implications**
+           - Cost/benefit analysis
+           - Time to market
+           - Risk assessment
+           - Strategic alignment
+           
+        3. **Human Factors**
+           - Developer experience
+           - Learning curve
+           - Team capabilities
+           - Cultural fit
+           
+        Map comprehensive impact analysis.
+        
+    - step: 3
+      name: Alternative Evaluation
+      personality: ntp-innovator
+      focus: "Explore all options"
+      prompt: |
+        Thoroughly explore alternatives:
+        
+        1. **Option Enumeration**
+           - What are ALL possible approaches?
+           - Include unconventional options
+           - Consider hybrid solutions
+           
+        2. **Comparative Analysis**
+           - Pros/cons matrix
+           - Risk/reward assessment
+           - Short vs long term impacts
+           
+        3. **Innovation Opportunities**
+           - Could we combine approaches?
+           - What hasn't been considered?
+           - Future evolution paths?
+           
+        Create comprehensive options analysis.
+        
+    - step: 4
+      name: Decision Crystallization
+      personality: doc-shepherd
+      focus: "Formalize the decision"
+      prompt: |
+        Crystallize the architectural decision:
+        
+        1. **Decision Statement**
+           - Clear, concise decision
+           - Specific and actionable
+           - Measurable outcomes
+           
+        2. **Rationale Documentation**
+           - Why this choice?
+           - Why not alternatives?
+           - Key deciding factors
+           
+        3. **FlowMind Context**
+           - How does this affect contexts?
+           - Agent behavior implications?
+           - Semantic control impacts?
+           
+        Draft formal decision with full context.
+        
+    - step: 5
+      name: Consequence Mapping
+      personality: sfj-caregiver
+      focus: "Impact on people and systems"
+      prompt: |
+        Map decision consequences:
+        
+        1. **Immediate Consequences**
+           - What changes right away?
+           - Who is affected?
+           - What needs updating?
+           
+        2. **Downstream Effects**
+           - Second-order impacts
+           - System integration effects
+           - Documentation needs
+           
+        3. **Mitigation Strategies**
+           - How to handle negative consequences?
+           - Support during transition?
+           - Rollback procedures?
+           
+        Create comprehensive impact assessment.
+        
+    - step: 6
+      name: ADR Composition
+      personality: doc-shepherd
+      focus: "Create formal ADR"
+      prompt: |
+        Compose the final ADR:
+        
+        ```markdown
+        # ADR-XXX: [Title]
+        
+        ## Status
+        Proposed
+        
+        ## Context
+        [Situation and forces from analysis]
+        
+        ## Decision
+        [Clear decision statement]
+        
+        ## Consequences
+        [Positive and negative impacts]
+        
+        ## Alternatives Considered
+        [Options that were rejected and why]
+        
+        ## Implementation Notes
+        [Specific guidance for implementers]
+        
+        ## Agent Context
+        [FlowMind and semantic implications]
+        
+        ## References
+        - Draft: [source drafts]
+        - Related: [other ADRs]
+        - Specs: [future specs needed]
+        ```
+        
+        Generate complete ADR ready for review.
+
+  output_format:
+    type: adr_document
+    includes:
+      - structured_adr
+      - draft_mapping
+      - review_checklist
+      - spec_requirements
+      
+  validation:
+    adr_quality:
+      - clear_decision
+      - complete_context
+      - evaluated_alternatives
+      - documented_consequences
+      - implementation_guidance

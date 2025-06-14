@@ -1,0 +1,93 @@
+metadata:
+  type: workflow
+  id: reality-check
+  name: "Reality Check: Business Decision Analysis"
+  version: 1.0.0
+  description: "Comprehensive business decision analysis using multi-agent perspectives"
+
+workflow_config:
+  philosophy: "Deep reality testing through multi-dimensional agent analysis"
+  
+  real_world_scenario: |
+    Complex business decisions require analysis from multiple perspectives to 
+    ensure all factors are considered. This workflow systematically examines
+    decisions through visionary, strategic, empathetic, practical, and 
+    leadership lenses to provide comprehensive analysis.
+  
+  triggers:
+    automatic: []
+    manual: ["reality check", "business decision", "product launch", "strategic analysis"]
+  
+  complexity_factors:
+    - market_timing_uncertainty
+    - competitive_landscape_shifts  
+    - technical_readiness_assessment
+    - resource_allocation_constraints
+    - stakeholder_alignment_challenges
+    - regulatory_compliance_risks
+    - customer_adoption_predictions
+  
+  steps:
+    - agent: "nfj-visionary"
+      name: "future_implications_analysis"
+      description: "Long-term vision, market evolution, and transformational impact assessment"
+      complexity_level: "high"
+      context_requirements:
+        - industry_trends_analysis
+        - customer_behavior_predictions
+        - technology_adoption_cycles
+        - transformational_impact_assessment
+      
+    - agent: "ntj-strategist" 
+      name: "strategic_business_planning"
+      description: "Market positioning, competitive advantage, and execution strategy"
+      complexity_level: "very_high"
+      context_requirements:
+        - competitive_analysis
+        - market_positioning_matrix
+        - resource_allocation_models
+        - risk_mitigation_strategies
+        - roi_projections_scenarios
+      
+    - agent: "sfj-caregiver"
+      name: "stakeholder_impact_assessment"
+      description: "Team dynamics, customer relationships, and organizational harmony"
+      complexity_level: "high"
+      context_requirements:
+        - team_capacity_analysis
+        - customer_relationship_impact
+        - change_management_planning
+        - communication_strategies
+      
+    - agent: "stp-adapter"
+      name: "practical_execution_planning"
+      description: "Implementation roadmap, technical feasibility, and operational readiness"
+      complexity_level: "very_high" 
+      context_requirements:
+        - technical_feasibility_assessment
+        - implementation_timeline_analysis
+        - operational_readiness_evaluation
+        - resource_optimization_planning
+      
+    - agent: "stj-leader"
+      name: "executive_decision_framework"
+      description: "Final decision synthesis with accountability and governance"
+      complexity_level: "extreme"
+      context_requirements:
+        - decision_criteria_matrix
+        - accountability_framework
+        - governance_structure
+        - risk_management_protocol
+
+  success_metrics:
+    decision_quality:
+      - "comprehensive_analysis_coverage"
+      - "multi_perspective_synthesis"
+      - "practical_implementation_viability"
+      - "stakeholder_impact_consideration"
+    
+    process_validation:
+      - "all_complexity_factors_addressed"
+      - "context_requirements_satisfied"
+      - "agent_perspective_diversity"
+      - "decision_framework_completion"

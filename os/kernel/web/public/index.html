@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM-First Configuration System</title>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #444;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+
+        .header .status {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #e5e7eb;
+            font-weight: 400;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-top: 0.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 200px;
+            margin-top: 1rem;
+        }
+
+        .decisions-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .decision-item {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .decision-item.critical { border-left-color: #ef4444; }
+        .decision-item.high { border-left-color: #f97316; }
+        .decision-item.medium { border-left-color: #eab308; }
+        .decision-item.low { border-left-color: #22c55e; }
+
+        .decision-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 0.25rem;
+        }
+
+        .decision-reasoning {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .decision-meta {
+            font-size: 0.8rem;
+            color: #6b7280;
+            display: flex;
+            justify-content: between;
+        }
+
+        .actions-list {
+            margin-top: 0.5rem;
+        }
+
+        .action-item {
+            font-size: 0.8rem;
+            color: #a3a3a3;
+            margin-left: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .config-changes {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .config-item {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 6px;
+            border-left: 3px solid #22c55e;
+        }
+
+        .controls {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+        }
+
+        .btn.danger {
+            background: #ef4444;
+        }
+
+        .btn.danger:hover {
+            background: #dc2626;
+        }
+
+        .connection-status {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .connected {
+            background: #22c55e;
+            color: white;
+        }
+
+        .disconnected {
+            background: #ef4444;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🧠 LLM-First Configuration System</h1>
+        <div class="status">
+            <div class="status-dot"></div>
+            <span>AI Monitoring Active</span>
+            <span id="uptime">Uptime: --:--:--</span>
+        </div>
+    </div>
+
+    <div id="connectionStatus" class="connection-status disconnected">
+        Connecting...
+    </div>
+
+    <div class="dashboard">
+        <!-- System Metrics -->
+        <div class="card">
+            <h2>📊 System Telemetry</h2>
+            <div class="metrics-grid">
+                <div class="metric">
+                    <span id="cpuUsage" class="metric-value">--%</span>
+                    <div class="metric-label">CPU Usage</div>
+                </div>
+                <div class="metric">
+                    <span id="memoryUsage" class="metric-value">--%</span>
+                    <div class="metric-label">Memory</div>
+                </div>
+                <div class="metric">
+                    <span id="loadAvg" class="metric-value">--</span>
+                    <div class="metric-label">Load Avg</div>
+                </div>
+                <div class="metric">
+                    <span id="connections" class="metric-value">--</span>
+                    <div class="metric-label">Connections</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="systemChart"></canvas>
+            </div>
+        </div>
+
+        <!-- AI Decisions -->
+        <div class="card">
+            <h2>🤖 AI Decisions</h2>
+            <div class="decisions-list" id="decisionsList">
+                <div style="text-align: center; color: #6b7280; padding: 2rem;">
+                    Waiting for AI decisions...
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration Changes -->
+        <div class="card">
+            <h2>⚙️ Configuration Changes</h2>
+            <div class="config-changes" id="configChanges">
+                <div style="text-align: center; color: #6b7280; padding: 2rem;">
+                    No configuration changes yet...
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Impact -->
+        <div class="card">
+            <h2>📈 Performance Impact</h2>
+            <div class="chart-container">
+                <canvas id="impactChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn" onclick="triggerStressTest()">
+                🔥 Trigger Stress Test
+            </button>
+            <button class="btn" onclick="clearData()">
+                🗑️ Clear Data
+            </button>
+            <button class="btn" onclick="exportData()">
+                📥 Export Data
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize WebSocket connection
+        const socket = io();
+        let systemChart, impactChart;
+        let telemetryData = [];
+        let decisionData = [];
+        let configData = [];
+
+        // Connection status
+        socket.on('connect', () => {
+            document.getElementById('connectionStatus').textContent = 'Connected';
+            document.getElementById('connectionStatus').className = 'connection-status connected';
+        });
+
+        socket.on('disconnect', () => {
+            document.getElementById('connectionStatus').textContent = 'Disconnected';
+            document.getElementById('connectionStatus').className = 'connection-status disconnected';
+        });
+
+        // Initialize charts
+        function initializeCharts() {
+            // System metrics chart
+            const systemCtx = document.getElementById('systemChart').getContext('2d');
+            systemChart = new Chart(systemCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'CPU %',
+                        data: [],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4
+                    }, {
+                        label: 'Memory %',
+                        data: [],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#9ca3af' }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#9ca3af' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#e5e7eb' }
+                        }
+                    }
+                }
+            });
+
+            // Performance impact chart
+            const impactCtx = document.getElementById('impactChart').getContext('2d');
+            impactChart = new Chart(impactCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Before AI', 'After AI'],
+                    datasets: [{
+                        label: 'Avg CPU %',
+                        data: [0, 0],
+                        backgroundColor: ['rgba(239, 68, 68, 0.7)', 'rgba(34, 197, 94, 0.7)']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#9ca3af' }
+                        },
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            ticks: { color: '#9ca3af' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#e5e7eb' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Handle incoming telemetry
+        socket.on('telemetry', (data) => {
+            telemetryData.push(data);
+            if (telemetryData.length > 50) {
+                telemetryData = telemetryData.slice(-50);
+            }
+            updateMetrics(data);
+            updateCharts();
+        });
+
+        // Handle AI decisions
+        socket.on('decision', (decision) => {
+            decisionData.push(decision);
+            if (decisionData.length > 20) {
+                decisionData = decisionData.slice(-20);
+            }
+            addDecisionToList(decision);
+        });
+
+        // Handle configuration changes
+        socket.on('configuration', (config) => {
+            configData.push(config);
+            if (configData.length > 20) {
+                configData = configData.slice(-20);
+            }
+            addConfigToList(config);
+        });
+
+        // Update metrics display
+        function updateMetrics(data) {
+            document.getElementById('cpuUsage').textContent = `${data.cpu.usage_percent.toFixed(1)}%`;
+            document.getElementById('memoryUsage').textContent = `${data.memory.usage_percent.toFixed(1)}%`;
+            document.getElementById('loadAvg').textContent = data.cpu.load_avg_1m.toFixed(2);
+            document.getElementById('connections').textContent = data.network.active_connections;
+        }
+
+        // Update charts
+        function updateCharts() {
+            if (telemetryData.length === 0) return;
+
+            const labels = telemetryData.map(d => new Date(d.timestamp).toLocaleTimeString());
+            const cpuData = telemetryData.map(d => d.cpu.usage_percent);
+            const memData = telemetryData.map(d => d.memory.usage_percent);
+
+            systemChart.data.labels = labels;
+            systemChart.data.datasets[0].data = cpuData;
+            systemChart.data.datasets[1].data = memData;
+            systemChart.update('none');
+        }
+
+        // Add decision to list
+        function addDecisionToList(decision) {
+            const list = document.getElementById('decisionsList');
+            
+            // Remove placeholder if exists
+            if (list.children.length === 1 && list.children[0].textContent.includes('Waiting')) {
+                list.innerHTML = '';
+            }
+
+            const item = document.createElement('div');
+            item.className = `decision-item ${decision.priority}`;
+            item.innerHTML = `
+                <div class="decision-category">${decision.category}</div>
+                <div class="decision-reasoning">${decision.reasoning}</div>
+                <div class="decision-meta">
+                    <span>Priority: ${decision.priority}</span>
+                    <span>Confidence: ${(decision.confidence * 100).toFixed(0)}%</span>
+                </div>
+                <div class="actions-list">
+                    ${decision.actions.map(action => 
+                        `<div class="action-item">→ ${action.description}</div>`
+                    ).join('')}
+                </div>
+            `;
+            
+            list.insertBefore(item, list.firstChild);
+            
+            // Keep only last 10 decisions visible
+            while (list.children.length > 10) {
+                list.removeChild(list.lastChild);
+            }
+        }
+
+        // Add config to list
+        function addConfigToList(config) {
+            const list = document.getElementById('configChanges');
+            
+            // Remove placeholder if exists
+            if (list.children.length === 1 && list.children[0].textContent.includes('No configuration')) {
+                list.innerHTML = '';
+            }
+
+            const item = document.createElement('div');
+            item.className = 'config-item';
+            item.innerHTML = `
+                <div><strong>${config.action}</strong> on ${config.target}</div>
+                <div style="font-size: 0.8rem; color: #9ca3af; margin-top: 0.25rem;">
+                    ${new Date(config.applied_at).toLocaleString()}
+                </div>
+            `;
+            
+            list.insertBefore(item, list.firstChild);
+            
+            // Keep only last 10 configs visible
+            while (list.children.length > 10) {
+                list.removeChild(list.lastChild);
+            }
+        }
+
+        // Control functions
+        function triggerStressTest() {
+            fetch('/api/control/stress-test', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ duration: 30, intensity: 'medium' })
+            });
+        }
+
+        function clearData() {
+            telemetryData = [];
+            decisionData = [];
+            configData = [];
+            document.getElementById('decisionsList').innerHTML = '<div style="text-align: center; color: #6b7280; padding: 2rem;">Waiting for AI decisions...</div>';
+            document.getElementById('configChanges').innerHTML = '<div style="text-align: center; color: #6b7280; padding: 2rem;">No configuration changes yet...</div>';
+            updateCharts();
+        }
+
+        function exportData() {
+            const data = {
+                telemetry: telemetryData,
+                decisions: decisionData,
+                configurations: configData,
+                exported_at: new Date()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `llm-config-data-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCharts();
+            
+            // Update uptime periodically
+            setInterval(() => {
+                fetch('/api/health')
+                    .then(res => res.json())
+                    .then(data => {
+                        const uptime = Math.floor(data.uptime);
+                        const hours = Math.floor(uptime / 3600);
+                        const minutes = Math.floor((uptime % 3600) / 60);
+                        const seconds = uptime % 60;
+                        document.getElementById('uptime').textContent = 
+                            `Uptime: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+plugin:
+  name: universal-validation
+  version: 1.0.0
+  type: core_plugin
+  description: "Universal validation framework with mathematical consciousness validation, expert consensus, systematic opposition, and cognitive parliament"
+
+capabilities:
+  - mathematical_validation
+  - consciousness_detection
+  - expert_consensus_analysis
+  - systematic_opposition
+  - cognitive_parliament
+  - breakthrough_bubbling
+  - cross_project_validation
+  - 3d_visualization
+
+commands:
+  validate_init:
+    syntax: "kingly validate init <project> <domain> [frameworks...]"
+    description: "Initialize validation project with domain-specific contexts"
+    whisper:
+      strategies:
+        - "Set up validation environment with appropriate domain contexts"
+        - "Configure frameworks based on validation requirements"
+        - "Establish baseline metrics and thresholds"
+      llm_guidance: "Choose optimal validation frameworks based on project domain and complexity requirements"
+
+  validate_run:
+    syntax: "kingly validate run <project> --target <target>"
+    description: "Execute comprehensive validation using configured frameworks"
+    whisper:
+      strategies:
+        - "Apply mathematical validation with domain-specific metrics"
+        - "Coordinate expert consensus analysis across multiple perspectives"
+        - "Generate systematic opposition challenges to test robustness"
+        - "Facilitate cognitive parliament deliberation for democratic validation"
+      llm_guidance: "Orchestrate validation frameworks to provide comprehensive assessment with confidence tracking"
+
+  validate_results:
+    syntax: "kingly validate results <project> [--format <format>]"
+    description: "Display validation results with confidence analysis"
+    whisper:
+      strategies:
+        - "Synthesize multi-framework results into actionable insights"
+        - "Highlight confidence levels and uncertainty areas"
+        - "Provide specific recommendations for improvement"
+      llm_guidance: "Present validation results with clear confidence levels and actionable next steps"
+
+  validate_visualize:
+    syntax: "kingly validate visualize <project> --type <type>"
+    description: "Generate 3D interactive visualizations of validation results"
+    whisper:
+      strategies:
+        - "Create consciousness manifold landscapes for consciousness validation"
+        - "Generate validation topology maps for complex systems"
+        - "Build interactive parameter exploration interfaces"
+      llm_guidance: "Select optimal visualization type based on validation results and user needs"
+
+  validate_bubble:
+    syntax: "kingly validate bubble <source> <targets...>"
+    description: "Propagate validation patterns across projects"
+    whisper:
+      strategies:
+        - "Extract successful validation patterns from source project"
+        - "Adapt patterns for different domain contexts"
+        - "Track pattern effectiveness across propagation targets"
+      llm_guidance: "Identify transferable validation insights and adapt them contextually for target projects"
+
+workflows:
+  mathematical_validation:
+    description: "Rigorous quantitative assessment using consciousness mathematics"
+    steps:
+      - step: "Configure domain-specific mathematical frameworks"
+        context: "contexts/mathematical-validation.yaml"
+      - step: "Execute statistical analysis with confidence tracking"
+        context: "contexts/statistical-analysis.yaml"
+      - step: "Generate quantitative recommendations"
+        context: "contexts/quantitative-synthesis.yaml"
+
+  expert_consensus:
+    description: "Multi-expert analysis with domain specialists"
+    steps:
+      - step: "Assemble expert panel based on domain requirements"
+        context: "contexts/expert-assembly.yaml"
+      - step: "Conduct parallel expert analysis"
+        context: "contexts/expert-analysis.yaml"
+      - step: "Synthesize consensus with dissent management"
+        context: "contexts/consensus-building.yaml"
+
+  systematic_opposition:
+    description: "Devil's advocate challenge generation for robustness testing"
+    steps:
+      - step: "Generate comprehensive challenge categories"
+        context: "contexts/challenge-generation.yaml"
+      - step: "Apply systematic stress testing"
+        context: "contexts/stress-testing.yaml"
+      - step: "Track confidence degradation patterns"
+        context: "contexts/robustness-analysis.yaml"
+
+  cognitive_parliament:
+    description: "Democratic deliberation with 8-member cognitive parliament"
+    steps:
+      - step: "Assemble diverse cognitive parliament"
+        context: "contexts/parliament-assembly.yaml"
+      - step: "Conduct structured deliberations"
+        context: "contexts/deliberation-process.yaml"
+      - step: "Execute democratic voting with minority protection"
+        context: "contexts/democratic-resolution.yaml"
+
+reasoning_patterns:
+  validation_orchestration:
+    prompt: |
+      You are orchestrating a comprehensive validation using multiple frameworks.
+      
+      Context: Universal validation requires balancing mathematical rigor, expert consensus, systematic challenges, and democratic deliberation.
+      
+      Your reasoning should:
+      1. Select optimal framework combinations based on target complexity
+      2. Configure domain-specific parameters and thresholds
+      3. Coordinate parallel framework execution with confidence tracking
+      4. Synthesize results into actionable recommendations
+      
+      Always prioritize: Transparency, confidence levels, actionable insights, and user sovereignty in validation decisions.
+
+  breakthrough_identification:
+    prompt: |
+      You are identifying breakthrough validation patterns for cross-project propagation.
+      
+      Context: Successful validation insights should be abstracted and adapted for broader application.
+      
+      Your reasoning should:
+      1. Extract core validation principles from specific successes
+      2. Identify transferable pattern elements and context dependencies
+      3. Adapt patterns for different domains while preserving effectiveness
+      4. Track propagation success and refinement opportunities
+      
+      Always prioritize: Pattern generalizability, context sensitivity, effectiveness tracking, and continuous improvement.
+
+configuration:
+  default_domain: "general"
+  confidence_threshold: 0.7
+  framework_timeout: 120000
+  visualization_enabled: true
+  breakthrough_tracking: true

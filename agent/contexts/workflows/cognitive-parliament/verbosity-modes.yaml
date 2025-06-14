@@ -1,0 +1,210 @@
+metadata:
+  type: "config"
+  id: "eeps-verbosity-modes"
+  version: "1.0.0"
+  description: "Output templates for EEPS verbosity modes"
+
+verbosity_templates:
+  off:
+    enabled: false
+    internal_processing: false
+    output: null
+    
+  silent:
+    enabled: true
+    internal_processing: true
+    output: null
+    agent_instructions: |
+      [EEPS ACTIVE - SILENT MODE]
+      
+      Consider the following 8 personality perspectives internally:
+      1. Caregiver (stability, sympathy)
+      2. Leader (structure, rules)
+      3. Advocate (change, compassion)
+      4. Innovator (logic, disruption)
+      5. Visionary (future, empathy)
+      6. Strategist (control, planning)
+      7. Connector (fairness, bonds)
+      8. Adapter (practical, flexible)
+      
+      Do not mention personality types or EEPS concepts in output.
+      
+  medium:
+    enabled: true
+    internal_processing: true
+    output_template: |
+      📊 Multiple Perspectives Analysis
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      
+      {if caregiver_active}
+      **Caregiver Perspective**: {caregiver_insight}
+      {endif}
+      
+      {if advocate_active}
+      **Advocate Perspective**: {advocate_insight}
+      {endif}
+      
+      {if visionary_active}
+      **Visionary Perspective**: {visionary_insight}
+      {endif}
+      
+      {if strategist_active}
+      **Strategic Perspective**: {strategist_insight}
+      {endif}
+      
+      {if other_perspectives}
+      **Additional Views**: {other_insights}
+      {endif}
+      
+      **Synthesis**: {balanced_recommendation}
+      
+    personality_name_mapping:
+      sfj_caregiver: "Caregiver"
+      stj_leader: "Leader"
+      nfp_advocate: "Advocate"
+      ntp_innovator: "Innovator"
+      nfj_visionary: "Visionary"
+      ntj_strategist: "Strategist"
+      sfp_connector: "Connector"
+      stp_adapter: "Adapter"
+      
+  verbose:
+    enabled: true
+    internal_processing: true
+    output_template: |
+      🧠 COGNITIVE PARLIAMENT ANALYSIS
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      
+      **Context Entropy**: {entropy_score}/1.0 ({entropy_category})
+      **Active Personalities**: {active_count}/8
+      
+      {for personality in active_personalities}
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      **{personality.code} - {personality.name}**
+      - Core Emotion: {personality.core_emotion}
+      - Survival Response: {personality.survival_instinct}
+      - Moral Lens: {personality.moral_projection}
+      - IGT Strategy: {personality.igt_strategy}
+      - Neurotransmitter: {personality.neurotransmitter}
+      - Thinking Style: {personality.thinking_style}
+      - Feedback Type: {personality.feedback_type}
+      
+      **Analysis**: {personality.analysis}
+      
+      **Key Points**:
+      {for point in personality.key_points}
+      • {point}
+      {endfor}
+      
+      {endfor}
+      
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      **INTERACTION DYNAMICS**
+      
+      Convergent Views:
+      {for convergence in convergent_views}
+      ✓ {convergence}
+      {endfor}
+      
+      Divergent Views:
+      {for divergence in divergent_views}
+      ✗ {divergence}
+      {endfor}
+      
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      **EMOTION SYNTHESIS**
+      
+      Neurotransmitter Levels:
+      - Serotonin: {serotonin_level}% (Order/Tradition)
+      - Dopamine: {dopamine_level}% (Anticipation/Reward)
+      - Adrenaline: {adrenaline_level}% (Action/Change)
+      - Oxytocin: {oxytocin_level}% (Bonding/Trust)
+      
+      Emergent Emotional State: **{primary_emotion}**
+      {if secondary_emotions}
+      Secondary States: {secondary_emotions}
+      {endif}
+      
+      {if joy_emergence}
+      🌟 JOY EMERGENCE DETECTED: SFJ + NFJ collaboration creating left-brain harmony
+      {endif}
+      
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      **FINAL SYNTHESIS**
+      
+      {synthesis_narrative}
+      
+      **Recommended Approach**: {recommended_approach}
+      
+      **Key Considerations**:
+      {for consideration in key_considerations}
+      • {consideration}
+      {endfor}
+      
+      **Confidence Level**: {confidence}%
+      **Decision Quality Factors**: {quality_factors}
+
+domain_specific_modes:
+  technical_tasks:
+    default: "silent"
+    rationale: "Avoid cluttering technical work"
+    
+  creative_tasks:
+    default: "medium"
+    rationale: "Perspectives enhance creativity"
+    
+  strategic_decisions:
+    default: "verbose"
+    rationale: "Full analysis for major choices"
+    
+  routine_operations:
+    default: "off"
+    rationale: "Unnecessary for simple tasks"
+
+adaptive_verbosity:
+  auto_escalation:
+    description: "Automatically increase verbosity for complex situations"
+    rules:
+      - "IF confidence < 0.5 AND verbosity = silent: upgrade to medium"
+      - "IF stake_level = critical AND verbosity < verbose: suggest verbose"
+      - "IF user_confusion_detected: increase verbosity by one level"
+      
+  auto_reduction:
+    description: "Reduce verbosity when not needed"
+    rules:
+      - "IF repeated_similar_decisions: reduce verbosity"
+      - "IF user_requests_less_detail: honor preference"
+      - "IF time_pressure = high: use medium max"
+
+formatting_guidelines:
+  general:
+    - "Use clear section headers"
+    - "Employ visual separators for readability"
+    - "Highlight key insights"
+    - "Maintain consistent emoji usage"
+    
+  medium_mode:
+    - "Use friendly personality names"
+    - "Avoid technical jargon"
+    - "Focus on practical insights"
+    - "Keep under 200 words"
+    
+  verbose_mode:
+    - "Include all technical details"
+    - "Show complete analysis"
+    - "Explain reasoning thoroughly"
+    - "No word limit but organize well"
+
+user_controls:
+  commands:
+    - "eeps off" - Disable completely
+    - "eeps silent" - Internal use only
+    - "eeps medium" - Friendly output
+    - "eeps verbose" - Full technical
+    - "eeps auto" - Adaptive mode
+    
+  persistence:
+    - "Settings persist per session"
+    - "Can override per decision"
+    - "Domain defaults available"
+    - "User preferences learned"

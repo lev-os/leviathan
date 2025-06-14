@@ -1,0 +1,58 @@
+metadata:
+  type: "pattern"
+  id: "extreme-examples"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Solve problems by imagining radically different scenarios"
+
+pattern_config:
+  methodology: "disruption_through_extremes"
+  
+  example_categories:
+    scale_extremes:
+      - "Personal scale (1 person)"
+      - "Team scale (10 people)"
+      - "Enterprise scale (10,000 people)"
+      - "Planetary scale (8 billion people)"
+      
+    domain_extremes:
+      - "How would a Michelin chef solve this?"
+      - "How would NASA solve this?"
+      - "How would a kindergarten teacher solve this?"
+      - "How would nature solve this?"
+      
+    constraint_extremes:
+      - "Unlimited budget"
+      - "$0 budget"
+      - "1 hour deadline"
+      - "100 year timeline"
+      
+    context_extremes:
+      - "In a war zone"
+      - "On Mars"
+      - "In 1850"
+      - "In 2150"
+      
+  process:
+    1_identify_problem: "Clear problem statement"
+    2_select_extremes: "Choose 3-5 radically different scenarios"
+    3_imagine_solutions: "How would each scenario solve it?"
+    4_extract_insights: "What patterns emerge?"
+    5_synthesize: "Combine best elements"
+    
+  prompts:
+    scale: "How would this work for {scale}?"
+    domain: "What would {expert} do?"
+    constraint: "Solve this with {constraint}"
+    context: "How would this work {context}?"
+    
+  output_format:
+    scenario_table: true
+    insight_extraction: true
+    synthesis_recommendations: true
+    
+  benefits:
+    - "Breaks mental models"
+    - "Reveals hidden assumptions"
+    - "Generates novel approaches"
+    - "Forces creative thinking"

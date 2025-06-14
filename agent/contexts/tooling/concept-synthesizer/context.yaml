@@ -1,0 +1,104 @@
+name: "Concept Synthesizer"
+slug: "concept-synthesizer"
+type: "tool"
+version: "1.0.0"
+
+metadata:
+  description: "Analyzes context notes across filesystem to extract and synthesize evolving concepts"
+  tags: ["concept-analysis", "synthesis", "evolution", "notes"]
+  author: "kingly-system"
+
+tool:
+  executable: "src/tools/concept-synthesizer.js"
+  category: "analysis"
+  
+  capabilities:
+    - "Discover context notes across filesystem"
+    - "Extract concepts and patterns from notes"
+    - "Trace concept evolution over time"
+    - "Group related concepts by similarity"
+    - "Generate synthesis reports"
+    - "Recommend globalization strategies"
+
+  parameters:
+    output_dir:
+      description: "Directory for synthesis output"
+      default: "./tmp/concept-synthesis"
+      type: "string"
+
+  usage:
+    command: "node src/tools/concept-synthesizer.js"
+    examples:
+      - description: "Full concept synthesis"
+        command: "node src/tools/concept-synthesizer.js"
+      - description: "Custom output directory"
+        command: "node src/tools/concept-synthesizer.js --output ./custom/path"
+
+integration:
+  workflow_stage: "analysis"
+  inputs: ["scattered context files"]
+  outputs: ["concept groups", "evolution analysis", "synthesis report"]
+  
+  dependencies:
+    - "glob for file discovery"
+    - "yaml for content parsing"
+    - "fs-extra for file operations"
+
+  follows_well: ["context-discovery"]
+  leads_to: ["concept-reviewer", "concept-merger"]
+
+prompts:
+  system: |
+    You are analyzing context files as "conceptual notes" left throughout development.
+    
+    Each context file represents a snapshot of thinking or a conceptual iteration.
+    Your goal is to:
+    1. Identify concepts that have evolved across multiple notes
+    2. Extract the learning and refinements embedded in iterations
+    3. Synthesize global concepts that capture the best insights
+    
+    Think of this as "conceptual archaeology" - excavating valuable ideas from scattered notes.
+
+templates:
+  analysis_report: |
+    # Concept Analysis: {{concept_name}}
+    
+    ## Evolution Summary
+    - **Iterations**: {{iterations}}
+    - **Locations**: {{locations}}
+    - **Key Changes**: {{key_changes}}
+    
+    ## Synthesized Concepts
+    {{synthesized_concepts}}
+    
+    ## Recommendations
+    {{recommendations}}
+
+examples:
+  - name: "Context note evolution analysis"
+    description: "Analyze how a concept evolved across multiple context files"
+    scenario: |
+      Found 'agent-personality' concept in 5 different locations:
+      - mcp-ceo: Basic structure
+      - _infra: Added endpoints
+      - hub/agency: Refined personality system
+      - Current project: Latest integration patterns
+      
+      Result: Synthesized unified agent-personality concept with best features from all iterations.
+
+configuration:
+  ignore_patterns:
+    - "**/node_modules/**"
+    - "**/.git/**" 
+    - "**/lore/**"
+  
+  concept_extraction:
+    keyword_patterns:
+      - "personality|agent|workflow|pattern"
+      - "confidence|routing|semantic|context"
+      - "orchestration|coordination|synthesis"
+    
+    evolution_indicators:
+      - "improved|enhanced|refined"
+      - "experiment|test|WIP"
+      - "fixed|corrected|updated"

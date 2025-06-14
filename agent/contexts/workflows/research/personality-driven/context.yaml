@@ -1,0 +1,157 @@
+metadata:
+  type: "workflow"
+  id: "personality-driven"
+  name: "Personality-Driven Analysis Workflow"
+  version: "1.0.0"
+  description: "Multi-perspective analysis using 8 personality patterns for comprehensive insights"
+  
+workflow_config:
+  philosophy: |
+    Every complex topic benefits from multiple perspectives.
+    By systematically applying 8 distinct personality lenses,
+    we uncover insights that single-perspective analysis misses.
+    
+  pattern_source: "@kingly/core/patterns/personality"
+  
+  personality_sequence:
+    1_visionary:
+      personality: "NFJ-Visionary"
+      focus: "Long-term implications and paradigm shifts"
+      duration: "10_minutes"
+      prompts:
+        - "What transformative potential exists?"
+        - "How might this reshape the entire field?"
+        - "What's the 10-year vision?"
+        
+    2_strategist:
+      personality: "NTJ-Strategist"
+      focus: "Competitive positioning and market dynamics"
+      duration: "10_minutes"
+      prompts:
+        - "What's the optimal strategic approach?"
+        - "How do we gain competitive advantage?"
+        - "What's the power play here?"
+        
+    3_innovator:
+      personality: "NTP-Innovator"
+      focus: "Novel combinations and creative applications"
+      duration: "10_minutes"
+      prompts:
+        - "What unexpected connections exist?"
+        - "How can we combine this with other ideas?"
+        - "What's the unconventional approach?"
+        
+    4_leader:
+      personality: "STJ-Leader"
+      focus: "Practical implementation and resource management"
+      duration: "10_minutes"
+      prompts:
+        - "What needs to happen to make this real?"
+        - "What resources are required?"
+        - "How do we execute effectively?"
+        
+    5_adapter:
+      personality: "STP-Adapter"
+      focus: "Flexibility and rapid response capabilities"
+      duration: "10_minutes"
+      prompts:
+        - "How can we stay agile with this?"
+        - "What contingencies do we need?"
+        - "How do we pivot if needed?"
+        
+    6_connector:
+      personality: "SFP-Connector"
+      focus: "Stakeholder impact and relationship dynamics"
+      duration: "10_minutes"
+      prompts:
+        - "Who does this affect and how?"
+        - "What relationships matter here?"
+        - "How do we build buy-in?"
+        
+    7_caregiver:
+      personality: "SFJ-Caregiver"
+      focus: "Ethical considerations and protective measures"
+      duration: "10_minutes"
+      prompts:
+        - "What could go wrong and hurt people?"
+        - "How do we ensure safety and ethics?"
+        - "What protections are needed?"
+        
+    8_advocate:
+      personality: "NFP-Advocate"
+      focus: "Mission alignment and values integration"
+      duration: "10_minutes"
+      prompts:
+        - "Does this align with our values?"
+        - "How does this serve the greater good?"
+        - "What's the deeper purpose?"
+        
+  synthesis_approach:
+    method: "cognitive_parliament"
+    description: |
+      After each personality provides their perspective,
+      synthesize findings as if conducting a parliament session
+      where each personality advocates for their insights.
+      
+    synthesis_steps:
+      1:
+        action: "Identify consensus points"
+        output: "Universal truths all personalities agree on"
+        
+      2:
+        action: "Map creative tensions"
+        output: "Productive disagreements that reveal depth"
+        
+      3:
+        action: "Find synthesis opportunities"
+        output: "How different views combine for better solutions"
+        
+      4:
+        action: "Prioritize insights"
+        output: "Ranked recommendations with personality endorsements"
+        
+  integration_patterns:
+    with_research:
+      description: "Apply after three-tier research"
+      benefit: "Adds human-centered perspective to technical findings"
+      
+    with_decision_making:
+      description: "Use for major strategic decisions"
+      benefit: "Ensures all angles considered before commitment"
+      
+    with_problem_solving:
+      description: "Apply to complex challenges"
+      benefit: "Breaks through single-perspective limitations"
+      
+  output_format:
+    personality_reports:
+      structure:
+        - Personality perspective summary
+        - Key insights unique to this lens
+        - Recommendations from this viewpoint
+        - Concerns or warnings
+        
+    synthesis_report:
+      structure:
+        - Executive summary of all perspectives
+        - Consensus findings
+        - Creative tensions and tradeoffs
+        - Integrated recommendations
+        - Personality-weighted confidence scores
+        
+    decision_matrix:
+      format: "Personality × Option scoring"
+      usage: "See which options resonate across personalities"
+      
+  quality_metrics:
+    perspective_diversity:
+      measure: "Unique insights per personality"
+      target: "At least 2-3 per lens"
+      
+    synthesis_depth:
+      measure: "Cross-personality connections"
+      target: "Identify 5-10 synthesis points"
+      
+    actionability:
+      measure: "Concrete recommendations"
+      target: "3-5 clear next steps"

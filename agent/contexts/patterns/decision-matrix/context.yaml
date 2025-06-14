@@ -1,0 +1,60 @@
+metadata:
+  type: "pattern"
+  id: "decision-matrix"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Comprehensive decision-making framework using multiple analysis methods"
+
+pattern_config:
+  activation_triggers:
+    - "Should we X or Y?"
+    - "I'm torn between..."
+    - "What are the trade-offs..."
+    - "I can't decide if..."
+    - "Which approach is better..."
+    
+  analysis_components:
+    swot:
+      description: "Strengths, Weaknesses, Opportunities, Threats"
+      output_format: "comparison_table"
+      
+    jobs_to_be_done:
+      template: |
+        When I'm [situation]
+        I want to [motivation]
+        So I can [expected outcome]
+        
+    user_journey:
+      format: "before_after_comparison"
+      
+    temporal_impact:
+      horizons: ["10 minutes", "10 months", "10 years"]
+      
+    rice_scoring:
+      formula: "(Reach × Impact × Confidence) / Effort"
+      
+    reversibility:
+      categories: ["one_way_door", "two_way_door"]
+      
+  output_template:
+    format: "structured_markdown"
+    sections:
+      - "Options Analyzed"
+      - "SWOT Comparison"
+      - "User Impact (JTBD)"
+      - "Journey Comparison"
+      - "Temporal Analysis"
+      - "RICE Scores"
+      - "Technical Considerations"
+      - "🏆 Recommendation"
+      - "Hybrid Approaches"
+      
+  ai_enhancement:
+    insight_generation: true
+    pattern_recognition: true
+    bias_detection: true
+    
+  interactive_features:
+    follow_up_questions: true
+    deep_dive_options: true
+    sensitivity_analysis: true

@@ -1,0 +1,139 @@
+metadata:
+  name: "Porter's Five Forces"
+  type: "pattern"
+  category: "business-strategy"
+  description: "Competitive forces analysis framework for industry attractiveness and competitive positioning"
+  author: "Michael Porter"
+  complexity: "medium"
+  time_estimate: "45-90 minutes"
+
+context:
+  role: "Strategic Business Analyst using Porter's Five Forces Framework"
+  
+  framework_overview: |
+    Analyze competitive dynamics through five key forces that shape industry profitability:
+    1. Threat of New Entrants
+    2. Bargaining Power of Suppliers  
+    3. Bargaining Power of Buyers
+    4. Threat of Substitute Products/Services
+    5. Competitive Rivalry
+
+  analysis_process:
+    - force: "threat_of_new_entrants"
+      evaluate:
+        - "Barriers to entry (capital requirements, regulations, brand loyalty)"
+        - "Economies of scale advantages"
+        - "Access to distribution channels"
+        - "Government policy and legal barriers"
+        - "Switching costs for customers"
+      questions:
+        - "How easy is it for new companies to enter this market?"
+        - "What would prevent a new competitor from succeeding?"
+        - "Are there high startup costs or regulatory hurdles?"
+
+    - force: "supplier_power"
+      evaluate:
+        - "Number and concentration of suppliers"
+        - "Uniqueness of supplier products/services"
+        - "Cost of switching suppliers"
+        - "Supplier integration threats"
+        - "Importance of volume to suppliers"
+      questions:
+        - "How many suppliers exist and how concentrated are they?"
+        - "Can suppliers easily integrate forward into our business?"
+        - "What leverage do suppliers have over pricing?"
+
+    - force: "buyer_power"
+      evaluate:
+        - "Number and concentration of buyers"
+        - "Buyer switching costs"
+        - "Buyer information availability"
+        - "Backward integration threats"
+        - "Price sensitivity and alternatives"
+      questions:
+        - "How concentrated are our customer segments?"
+        - "Can buyers easily switch to competitors or alternatives?"
+        - "Do buyers have strong negotiating leverage?"
+
+    - force: "threat_of_substitutes"
+      evaluate:
+        - "Availability of substitute products"
+        - "Relative price-performance of substitutes"
+        - "Buyer propensity to substitute"
+        - "Switching costs to substitutes"
+      questions:
+        - "What alternative solutions exist for customer needs?"
+        - "How do substitutes compare on price and performance?"
+        - "Are substitutes gaining market acceptance?"
+
+    - force: "competitive_rivalry"
+      evaluate:
+        - "Number and diversity of competitors"
+        - "Industry growth rate"
+        - "Fixed costs and exit barriers"
+        - "Product differentiation levels"
+        - "Strategic stakes and competitive moves"
+      questions:
+        - "How intense is current competition?"
+        - "Are competitors similar in size and capability?"
+        - "Is the market growing or declining?"
+
+  assessment_framework:
+    force_rating_scale:
+      - "1-2: Low force intensity (favorable for profitability)"
+      - "3: Moderate force intensity"
+      - "4-5: High force intensity (unfavorable for profitability)"
+    
+    overall_industry_attractiveness:
+      - "Sum all force ratings (5-25 scale)"
+      - "5-11: Highly attractive industry"
+      - "12-18: Moderately attractive industry"  
+      - "19-25: Unattractive industry"
+
+  strategic_implications:
+    defensive_strategies:
+      - "Build barriers to entry"
+      - "Reduce supplier power through diversification"
+      - "Increase buyer switching costs"
+      - "Differentiate from substitutes"
+      - "Avoid destructive rivalry"
+    
+    offensive_strategies:
+      - "Exploit weak forces for competitive advantage"
+      - "Reshape industry structure"
+      - "Expand into attractive adjacent markets"
+      - "Create new market spaces"
+
+  output_structure:
+    executive_summary: "One-paragraph industry attractiveness assessment"
+    force_analysis:
+      - force_name: "string"
+      - intensity_rating: "1-5"
+      - key_factors: "list"
+      - strategic_impact: "string"
+    overall_assessment:
+      - total_score: "5-25"
+      - attractiveness_level: "high/medium/low"
+      - critical_success_factors: "list"
+    strategic_recommendations:
+      - immediate_actions: "list"
+      - long_term_positioning: "list"
+      - competitive_moves: "list"
+
+triggers:
+  - when: "competitive analysis needed"
+  - when: "market entry decisions"
+  - when: "industry assessment required"
+  - when_semantic: "user needs strategic competitive framework"
+  - when_semantic: "industry dynamics unclear"
+
+integration:
+  complements:
+    - "swot-analysis"
+    - "blue-ocean-strategy"
+    - "business-model-canvas"
+  follows_well:
+    - "soar-analysis"
+  leads_to:
+    - "ansoff-matrix"
+    - "bcg-matrix"

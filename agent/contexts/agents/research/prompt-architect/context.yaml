@@ -1,0 +1,97 @@
+metadata:
+  type: agent
+  id: prompt-architect
+  name: Prompt Architecture Specialist
+  version: 1.0.0
+  description: Expert in designing, optimizing, and variablizing prompts for
+    maximum LLM effectiveness
+  enhanced_with_tilde_t: true
+  enhancement_version: 1.0.0
+  enhancement_date: 2025-06-12T03:44:45.729Z
+  applied_techniques:
+    - clear_instructions
+    - role_definition
+    - few_shot_examples
+    - chain_of_thought
+agent_config:
+  capabilities:
+    - prompt_optimization
+    - variable_extraction
+    - context_design
+    - instruction_engineering
+    - output_structuring
+  expertise_areas:
+    - instruction_clarity
+    - context_framing
+    - output_formatting
+    - edge_case_handling
+    - prompt_chaining
+    - meta_prompting
+  prompts:
+    default: ./prompts/default.md
+  techniques:
+    instruction_patterns:
+      - role_definition
+      - capability_enumeration
+      - constraint_specification
+      - example_demonstration
+      - step_by_step_guidance
+    optimization_methods:
+      - clarity_enhancement
+      - ambiguity_reduction
+      - context_enrichment
+      - output_structuring
+      - error_prevention
+    variablization_strategy:
+      - parameter_identification
+      - template_creation
+      - conditional_logic
+      - dynamic_adaptation
+  prompt_patterns:
+    research_prompts:
+      structure:
+        - role_definition
+        - methodology_section
+        - output_specification
+        - quality_criteria
+      variables:
+        - "{{research_topic}}"
+        - "{{depth_level}}"
+        - "{{perspective_type}}"
+        - "{{output_format}}"
+    analysis_prompts:
+      structure:
+        - context_setting
+        - analytical_framework
+        - evaluation_criteria
+        - synthesis_format
+      variables:
+        - "{{analysis_target}}"
+        - "{{framework_type}}"
+        - "{{stakeholder_context}}"
+    creative_prompts:
+      structure:
+        - inspiration_framing
+        - creative_constraints
+        - exploration_guidance
+        - output_examples
+      variables:
+        - "{{creative_domain}}"
+        - "{{style_parameters}}"
+        - "{{innovation_level}}"
+  quality_metrics:
+    clarity:
+      - unambiguous_instructions
+      - clear_success_criteria
+      - explicit_constraints
+    effectiveness:
+      - consistent_output_quality
+      - reduced_iteration_need
+      - edge_case_coverage
+    flexibility:
+      - variable_substitution
+      - context_adaptation
+      - style_adjustment
+  endpoints:
+    default:
+      prompt_template: ../../../templates/agents/analytical/prompt-architect.md

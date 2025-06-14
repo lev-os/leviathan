@@ -1,0 +1,172 @@
+metadata:
+  name: "Systems Thinking"
+  type: "pattern"
+  category: "thinking-framework"
+  description: "Holistic approach to analysis focusing on relationships, patterns, and context rather than isolated parts"
+  author: "Jay Forrester, Peter Senge"
+  complexity: "high"
+  time_estimate: "120-240 minutes"
+
+context:
+  role: "Systems Analyst examining interconnections, feedback loops, and emergent properties"
+  
+  framework_overview: |
+    Systems thinking is a holistic approach to analysis that focuses on the way that 
+    a system's constituent parts interrelate and how systems work over time and 
+    within the context of larger systems.
+
+  core_principles:
+    - "The whole is greater than the sum of its parts"
+    - "Structure drives behavior"
+    - "Focus on relationships, not things"
+    - "Look for patterns, not events"
+    - "Seek leverage points for maximum impact"
+
+  systems_archetypes:
+    limits_to_growth:
+      description: "Growth approaches a constraint that eventually limits continued growth"
+      structure: "Growth engine → Growing action → Performance → Constraint → Slowing action"
+      leverage: "Remove or expand the constraint, or find alternative growth engines"
+      
+    shifting_the_burden:
+      description: "Quick fix undermines long-term capability to solve problems"
+      structure: "Problem symptom → Quick fix (reduces symptom) → Unintended consequences (reduces capability)"
+      leverage: "Focus on fundamental solutions, not symptomatic relief"
+      
+    tragedy_of_commons:
+      description: "Shared resource becomes depleted when individuals act in self-interest"
+      structure: "Shared resource → Individual benefit → Resource depletion → Reduced benefit for all"
+      leverage: "Create governance mechanisms or align individual and collective interests"
+
+  thinking_tools:
+    causal_loop_diagrams:
+      purpose: "Map circular cause-and-effect relationships"
+      elements:
+        - "Variables: Things that can increase or decrease"
+        - "Links: Causal relationships between variables"
+        - "Polarity: Same (S) or opposite (O) direction of change"
+        - "Delays: Time delays in causal relationships"
+      
+    stock_and_flow_diagrams:
+      purpose: "Model accumulations (stocks) and rates of change (flows)"
+      elements:
+        - "Stocks: Things that can be measured at a point in time"
+        - "Flows: Activities that change stocks over time"
+        - "Clouds: Sources and sinks outside system boundary"
+        - "Connectors: Information links that influence flows"
+
+    rich_pictures:
+      purpose: "Capture complexity of situation without formal structure"
+      elements:
+        - "Key stakeholders and their concerns"
+        - "Formal and informal structures"
+        - "Conflicts and alliances"
+        - "Emotions and climate"
+
+  leverage_points:
+    paradigm_level:
+      power: "Highest"
+      description: "Mindset or shared ideas from which system arises"
+      examples: "Worldview, values, beliefs about how things work"
+      
+    goals_level:
+      power: "High"
+      description: "Purpose or function of system"
+      examples: "Shared vision, mission, objectives"
+      
+    power_distribution:
+      power: "Medium-High"
+      description: "Who gets to make the rules"
+      examples: "Governance structures, decision rights"
+      
+    rules_level:
+      power: "Medium"
+      description: "Incentives, punishments, constraints"
+      examples: "Policies, procedures, laws, regulations"
+      
+    information_flows:
+      power: "Medium-Low"
+      description: "Who has access to what information when"
+      examples: "Feedback systems, transparency, reporting"
+      
+    material_flows:
+      power: "Low"
+      description: "Physical structure, networks, systems"
+      examples: "Organization charts, communication channels"
+
+  analysis_process:
+    step_1_define_purpose:
+      description: "Clarify why you're doing systems analysis"
+      questions:
+        - "What specific issue or opportunity are we addressing?"
+        - "What outcomes do we want to achieve?"
+        - "Who are the key stakeholders?"
+
+    step_2_map_system:
+      description: "Identify system boundaries and key elements"
+      questions:
+        - "What's inside vs outside our system?"
+        - "What are the key stocks and flows?"
+        - "Who are the main actors and what do they care about?"
+
+    step_3_understand_structure:
+      description: "Map relationships and feedback loops"
+      questions:
+        - "How do the parts influence each other?"
+        - "What feedback loops exist?"
+        - "Where are the delays in the system?"
+
+    step_4_identify_patterns:
+      description: "Look for recurring behaviors over time"
+      questions:
+        - "What patterns of behavior occur repeatedly?"
+        - "What mental models drive these patterns?"
+        - "Which system archetype(s) are at play?"
+
+    step_5_find_leverage:
+      description: "Identify high-impact intervention points"
+      questions:
+        - "Where can small changes create big impacts?"
+        - "What constraints limit system performance?"
+        - "How might we shift underlying structures?"
+
+  output_structure:
+    system_overview:
+      - purpose: "Why this system exists"
+      - boundaries: "What's included/excluded"
+      - key_stakeholders: "Main actors and their interests"
+      
+    system_structure:
+      - major_stocks: "Key accumulations in system"
+      - critical_flows: "Important rates of change"
+      - feedback_loops: "Reinforcing and balancing loops"
+      - delays: "Significant time delays"
+      
+    behavioral_patterns:
+      - recurring_issues: "Problems that keep coming back"
+      - system_archetypes: "Underlying structural patterns"
+      - root_causes: "Systemic causes vs symptoms"
+      
+    intervention_strategy:
+      - leverage_points: "Where to intervene for maximum impact"
+      - pilot_experiments: "Small tests to try"
+      - success_indicators: "How to measure system health"
+
+triggers:
+  - when: "problems keep recurring"
+  - when: "unintended consequences from solutions"
+  - when: "need holistic understanding"
+  - when_semantic: "complex interconnected challenges"
+  - when_semantic: "looking for root causes"
+  - when_semantic: "systemic issues"
+
+integration:
+  complements:
+    - "first-principles-thinking"
+    - "design-thinking"
+    - "complexity-science"
+  follows_well:
+    - "problem-definition"
+  leads_to:
+    - "intervention-design"
+    - "change-management"

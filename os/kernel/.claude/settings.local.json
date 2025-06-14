@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "mcp__perplexity-ask__perplexity_ask",
+      "Bash(go run:*)",
+      "Bash(chmod:*)",
+      "Bash(ls:*)",
+      "Bash(curl:*)",
+      "mcp__desktop-commander__search_files",
+      "mcp__desktop-commander__execute_command",
+      "mcp__desktop-commander__read_output",
+      "mcp__desktop-commander__list_directory",
+      "mcp__desktop-commander__get_file_info",
+      "Bash(go build:*)",
+      "Bash(docker build:*)",
+      "Bash(DRY_RUN=true ./leviathan-system)",
+      "Bash(open:*)",
+      "Bash(docker-compose down:*)",
+      "Bash(docker-compose up:*)",
+      "Bash(go mod:*)",
+      "Bash(go test:*)",
+      "Bash(docker logs:*)",
+      "mcp__desktop-commander__create_directory",
+      "mcp__desktop-commander__write_file",
+      "Bash(grep:*)",
+      "Bash(docker exec:*)",
+      "Bash(brew install:*)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": []
+  }
+}

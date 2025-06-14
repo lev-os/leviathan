@@ -1,0 +1,88 @@
+name: "Dynamic Agent Synthesis Workflow"
+description: "Create specialized agents on-demand, capture them, and enhance the system"
+version: "1.0"
+
+parameters:
+  - name: "task_description"
+    type: "string"
+    required: true
+    description: "The specific task requiring a specialized agent"
+  - name: "domain_expertise"
+    type: "string"
+    required: true
+    description: "Domain of expertise needed (marketing, technical, creative, etc.)"
+  - name: "urgency_level"
+    type: "string"
+    enum: ["quick", "standard", "comprehensive"]
+    default: "standard"
+
+workflow:
+  phase_1_agent_synthesis:
+    description: "Dynamically create specialized agent for the task"
+    
+    analyze_requirements:
+      action: "extract agent specifications from task"
+      extract:
+        - core_expertise_needed
+        - personality_traits_required
+        - output_format_preferences
+        - decision_making_style
+        - creative_vs_analytical_balance
+        
+    generate_agent_prompt:
+      action: "create specialized system prompt"
+      components:
+        - persona_definition
+        - expertise_framework
+        - evaluation_criteria
+        - creative_techniques
+        - decision_philosophy
+        - brand_voice_guidelines
+        
+  phase_2_agent_deployment:
+    description: "Save agent and execute task"
+    
+    save_to_synths:
+      path: "~/.claude/synths/${agent_name}.md"
+      content: "${generated_agent_prompt}"
+      
+    activate_agent:
+      action: "switch to specialized agent persona"
+      
+    execute_task:
+      action: "perform the requested task using agent capabilities"
+      
+  phase_3_enhancement_analysis:
+    description: "Analyze performance and recommend improvements"
+    
+    performance_evaluation:
+      criteria:
+        - task_completion_quality
+        - creative_output_level
+        - decision_accuracy
+        - user_satisfaction
+        - reusability_potential
+        
+    enhancement_recommendations:
+      options:
+        - add_deep_research_module
+        - link_to_existing_workflow
+        - convert_to_reusable_pattern
+        - evolve_to_full_agent_system
+        - integrate_with_external_apis
+        
+  phase_4_system_integration:
+    description: "Integrate learnings back into the system"
+    
+    update_agent_templates:
+      action: "enhance base agent templates with learnings"
+      
+    create_workflow_patterns:
+      action: "extract reusable workflow patterns"
+      save_to: "~/.claude/templates/"
+      
+    update_feature_directives:
+      action: "add new capabilities to AGENTS.md"
+      
+    document_patterns:
+      action: "capture successful patterns for future use"

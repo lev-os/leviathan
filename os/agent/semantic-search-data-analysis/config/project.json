@@ -1,0 +1,12 @@
+{
+  "name": "data-analysis",
+  "framework": "python",
+  "description": "Python project with stdlib and package documentation",
+  "collections": {
+    "framework_docs": "project-data-analysis-framework-docs",
+    "requirements": "project-data-analysis-requirements",
+    "local_principles": "project-data-analysis-local-principles"
+  },
+  "created_at": "2024-06-14",
+  "version": "1.0.0"
+}
