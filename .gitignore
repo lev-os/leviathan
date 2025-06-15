@@ -50,3 +50,18 @@ dist/
 
 # turbo
 .turbo
+
+# IGNORE NESTED GIT REPOSITORIES to prevent embedded repo warnings
+**/.git/
+# Keep our main .git repo
+!/.git/
+
+# Ignore vector database storage (large, can be regenerated)
+**/qdrant_storage/
+
+# Additional Python/AI project ignores
+**/__pycache__/
+**/.venv/
+**/venv/
+**/*.pyc
+**/.pytest_cache/
