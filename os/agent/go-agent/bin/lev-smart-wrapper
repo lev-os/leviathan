@@ -1,0 +1,65 @@
+#!/bin/bash
+# Leviathan Smart Wrapper - Drop-in replacement with Go/JS hybrid execution
+# This script provides transparent fallback between Go (fast) and JS (complete) implementations
+
+# Configuration
+LEV_GO_PATH="$HOME/digital/leviathan/os/agent/go-agent/bin/lev-go"
+LEV_JS_PATH="$HOME/digital/leviathan/agent/bin/lev"
+export LEVIATHAN_AGENT_PATH="$HOME/digital/leviathan/agent"
+
+# Function to check if Go binary is available and working
+check_go_binary() {
+    if [ -x "$LEV_GO_PATH" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Function to determine if we should use Go or JS for this command
+should_use_go() {
+    local command="$1"
+    
+    case "$command" in
+        "find"|"help")
+            # Go implementation is ready for these commands
+            return 0
+            ;;
+        *)
+            # Default to JS for other commands
+            return 1
+            ;;
+    esac
+}
+
+# Main execution logic
+main() {
+    # If no arguments, delegate to JS
+    if [ $# -eq 0 ]; then
+        exec "$LEV_JS_PATH" "$@"
+        return $?
+    fi
+    
+    local first_arg="$1"
+    
+    # Check if we should try Go implementation
+    if check_go_binary && should_use_go "$first_arg"; then
+        # Try Go implementation first
+        "$LEV_GO_PATH" "$@"
+        local go_exit_code=$?
+        
+        # Exit code 127 means "not implemented, fallback to JS"
+        if [ $go_exit_code -eq 127 ]; then
+            echo "⚠️  Falling back to JS implementation..." >&2
+            exec "$LEV_JS_PATH" "$@"
+        else
+            exit $go_exit_code
+        fi
+    else
+        # Use JS implementation directly
+        exec "$LEV_JS_PATH" "$@"
+    fi
+}
+
+# Execute main function
+main "$@"

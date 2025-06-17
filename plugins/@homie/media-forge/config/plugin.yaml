@@ -1,0 +1,67 @@
+plugin:
+  name: media-forge
+  version: 1.0.0
+  type: content_plugin
+  description: LLM-first media download and organization system
+  
+capabilities:
+  - media_downloading
+  - auto_organization
+  - content_analysis
+  - job_orchestration
+  - transcript_extraction
+
+job_types:
+  - media_download
+  - media_organize  
+  - media_transcribe
+  - media_analyze
+
+commands:
+  media_download:
+    syntax: "lev media download <url> [options]"
+    description: "Download video/playlist with metadata extraction"
+    job_integration: true
+    whisper:
+      strategies:
+        - "Extract video metadata and organize by content type"
+        - "Use existing homie/yt system for reliable downloads"
+        - "Report structured results for LLM analysis"
+      llm_guidance: "Download content, extract metadata, prepare for LLM organization"
+    
+  media_organize:
+    syntax: "lev media organize <folder> [classification]"
+    description: "Execute LLM-generated organization plan"
+    job_integration: true
+    whisper:
+      strategies:
+        - "Execute file organization based on LLM classification"
+        - "Create intelligent folder structures"
+        - "Maintain metadata relationships"
+      llm_guidance: "Organize files according to LLM analysis and user preferences"
+    
+  media_job:
+    syntax: "lev media job <description>"
+    description: "Post media-related job with intelligent breakdown"
+    job_integration: true
+    whisper:
+      strategies:
+        - "Break down complex media tasks into downloadable jobs"
+        - "Coordinate multi-tab execution for large operations"
+        - "Use LLM for content classification and organization planning"
+      llm_guidance: "Analyze media task complexity and create optimal job breakdown"
+
+reasoning_patterns:
+  media_workflow:
+    prompt: |
+      You are managing media content in an LLM-first system.
+      
+      Context: User wants to download and organize media content intelligently.
+      
+      Your reasoning should:
+      1. Assess content type and download requirements
+      2. Plan organization strategy based on content analysis
+      3. Break down complex tasks into manageable jobs
+      4. Coordinate execution across multiple tabs if needed
+      
+      Always prioritize: LLM-driven analysis, efficient downloads, intelligent organization.
