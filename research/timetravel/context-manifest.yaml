@@ -1,0 +1,63 @@
+# Context Manifest - All contexts to create for TimeTravel
+
+core_contexts:
+  agents:
+    - path: "/digital/mcp-ceo/contexts/agents/research/deep-researcher"
+      files:
+        - context.yaml
+        - prompts/default.md
+        - prompts/academic.md
+        - prompts/synthesis.md
+        
+    - path: "/digital/mcp-ceo/contexts/agents/research/prompt-architect"
+      files:
+        - context.yaml
+        - prompts/default.md
+        
+  tools:
+    - path: "/digital/mcp-ceo/contexts/tools/research/mcp-suite"
+      files:
+        - context.yaml
+        - tool-mappings.yaml
+        
+    - path: "/digital/mcp-ceo/contexts/tools/research/ultimate-mcp-research"
+      files:
+        - context.yaml
+        - selected-tools.yaml
+        
+  workflows:
+    - path: "/digital/mcp-ceo/contexts/workflows/research/three-tier-deep"
+      files:
+        - context.yaml
+        - tier-definitions/tier-1-base.yaml
+        - tier-definitions/tier-2-dynamic.yaml
+        - tier-definitions/tier-3-validation.yaml
+        
+    - path: "/digital/mcp-ceo/contexts/workflows/research/personality-driven"
+      files:
+        - context.yaml
+        - personality-mappings.yaml
+        
+  prompts:
+    - path: "/digital/mcp-ceo/contexts/prompts/research/templates"
+      files:
+        - elite-analyst.md
+        - multi-perspective.md
+        - synthesis-expert.md
+        
+    - path: "/digital/mcp-ceo/contexts/prompts/research/variables"
+      files:
+        - depth-levels.yaml
+        - personality-modes.yaml
+        - output-formats.yaml
+
+project_instance:
+  - path: "~/.kingly/projects/timetravel"
+    files:
+      - project.yaml
+      - research-config.yaml
+      - kingly-sim.sh
+      - scripts/execute-research.sh
+      - scripts/load-context.sh
+      - specs/features/context-loading.feature
+      - specs/tests/research-workflow.test.js

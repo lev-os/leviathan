@@ -1,0 +1,155 @@
+metadata:
+  name: "Weekly AI Landscape Research Scan"
+  type: "research_workflow"
+  version: "1.0.0"
+  description: "Comprehensive weekly scan of AI developments relevant to Kingly/FlowMind"
+  
+schedule:
+  frequency: "weekly"
+  day: "monday"
+  time: "09:00"
+  timezone: "UTC"
+
+topics:
+  - name: "Subquadratic Architectures"
+    keywords:
+      - "LoLCATs"
+      - "Hyena operators"
+      - "linear attention"
+      - "transformer alternatives"
+      - "subquadratic attention"
+    sources:
+      primary: "arxiv"
+      secondary: ["tech news", "github"]
+    depth: "comprehensive"
+    
+  - name: "World Models & Memory"
+    keywords:
+      - "world models"
+      - "infinite context"
+      - "persistent memory"
+      - "continual learning"
+      - "memory compression"
+    sources:
+      primary: "academic"
+      secondary: ["industry", "patents"]
+    depth: "comprehensive"
+    
+  - name: "Reasoning Models"
+    keywords:
+      - "DeepSeek R1"
+      - "OpenAI o1"
+      - "chain of thought"
+      - "reasoning models"
+      - "step by step AI"
+    sources:
+      primary: "industry"
+      secondary: ["benchmarks", "cost analysis"]
+    depth: "standard"
+    
+  - name: "China AI Developments"
+    keywords:
+      - "DeepSeek"
+      - "China AI"
+      - "efficiency innovations"
+      - "training cost reduction"
+    sources:
+      primary: "news"
+      secondary: ["technical papers", "github"]
+    depth: "standard"
+    
+  - name: "Multimodal Integration"
+    keywords:
+      - "multimodal models"
+      - "vision language"
+      - "embodied AI"
+      - "sensory integration"
+    sources:
+      primary: "academic"
+      secondary: ["products", "demos"]
+    depth: "quick"
+
+research_phases:
+  1_scanning:
+    duration: "2 hours"
+    tools:
+      - perplexity_sonar
+    actions:
+      - "Scan each topic for major developments"
+      - "Identify breaking news or announcements"
+      - "Flag significant papers or releases"
+    output: "scan_results.md"
+    
+  2_deep_dive:
+    duration: "4 hours"
+    tools:
+      - perplexity_deep_research
+      - elicit
+    actions:
+      - "Deep dive on 2-3 most significant findings"
+      - "Academic validation of claims"
+      - "Technical implementation details"
+    output: "deep_analysis.md"
+    
+  3_validation:
+    duration: "1 hour"
+    tools:
+      - deepseek
+    actions:
+      - "Fact check key claims"
+      - "Verify benchmarks and statistics"
+      - "Cross-reference sources"
+    output: "validated_facts.md"
+    
+  4_synthesis:
+    duration: "2 hours"
+    tools:
+      - claude_3.5
+    actions:
+      - "Synthesize findings across topics"
+      - "Identify patterns and connections"
+      - "Generate strategic implications"
+    output: "weekly_synthesis.md"
+    
+  5_recommendations:
+    duration: "1 hour"
+    tools:
+      - claude_3.5
+    actions:
+      - "Prioritize threats and opportunities"
+      - "Suggest immediate actions"
+      - "Update long-term strategy"
+    output: "action_items.md"
+
+output_structure:
+  weekly_report:
+    sections:
+      - executive_summary
+      - key_developments
+      - deep_dives
+      - strategic_implications
+      - action_items
+      - appendix_raw_data
+    
+  formats:
+    - markdown
+    - pdf
+    - notion_page
+    
+  distribution:
+    - internal_team
+    - advisory_board
+    - investor_updates
+
+quality_checks:
+  - source_diversity: "min 5 sources per topic"
+  - recency: "80% sources from past week"
+  - validation_rate: "100% key claims verified"
+  - actionability: "min 3 concrete actions"
+
+cost_controls:
+  max_api_cost: "$30"
+  optimization:
+    - "Cache common queries"
+    - "Reuse previous validations"
+    - "Batch similar searches"

@@ -1,0 +1,14 @@
+Command: node ~/ks template status
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+📊 Template System Status:
+
+   Global Templates: 4 available
+   Local Overrides: 0 active
+   Last Evolution: Never
+   Effectiveness: N/A

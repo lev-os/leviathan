@@ -1,0 +1,6 @@
+# Trending Topics for Research
+# Updated by daily trend monitoring
+
+subquadratic attention mechanisms
+LLM efficiency breakthroughs
+multimodal reasoning advances

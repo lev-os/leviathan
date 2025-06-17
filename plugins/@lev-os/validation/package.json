@@ -1,0 +1,38 @@
+{
+  "name": "@lev-os/validation",
+  "version": "0.1.0",
+  "description": "Universal validation framework with mathematical consciousness validation for Leviathan core (sponsored by Kingly Agency)",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./mathematical": "./src/mathematical-validator.js",
+    "./expert-consensus": "./src/expert-consensus-validator.js",
+    "./opposition": "./src/opposition-validator.js",
+    "./parliament": "./src/parliament-validator.js",
+    "./visualization": "./src/visualization-validator.js",
+    "./breakthrough": "./src/breakthrough-bubbler.js"
+  },
+  "dependencies": {
+    "@lev-os/debug": "workspace:*",
+    "yaml": "^2.3.4"
+  },
+  "peerDependencies": {
+    "@lev-os/core": "workspace:*"
+  },
+  "keywords": [
+    "leviathan", 
+    "validation", 
+    "consciousness", 
+    "mathematical-validation", 
+    "expert-consensus",
+    "systematic-opposition",
+    "cognitive-parliament",
+    "breakthrough-bubbling"
+  ],
+  "author": "Leviathan Team (sponsored by Kingly Agency)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

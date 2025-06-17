@@ -1,0 +1,106 @@
+2025-06-10 18:31:34 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Initializing Ultimate MCP Server...
+2025-06-10 18:31:34 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Registering core tools...
+2025-06-10 18:31:34 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Calling register_all_tools to register only the BASE toolset...
+2025-06-10 18:31:34 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Registering base toolset: generate_completion, chat_completion, multi_completion, get_provider_status, list_models, read_file, read_multiple_files, write_file, edit_file, create_directory, list_directory, directory_tree, move_file, search_files, get_file_info, list_allowed_directories, get_unique_filepath, estimate_cost, compare_models, recommend_model, run_ripgrep, run_awk, run_sed, run_jq, marqo_fused_search, search, download, download_site_pdfs, collect_documentation, run_macro, autopilot, manage_database, execute_sql, explore_database, access_audit_log, convert_document, chunk_document, clean_and_format_text_as_markdown, batch_format_texts, optimize_markdown_formatting, generate_qa_pairs, summarize_document, ocr_image, enhance_ocr_text, analyze_pdf_structure, extract_tables, process_document_batch, execute_python, repl_python
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registering tools based on configuration...
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Tool filtering enabled: including only 49 specified tools
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: generate_completion
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: chat_completion
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: multi_completion
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: get_provider_status
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: list_models
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: estimate_cost
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: compare_models
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: recommend_model
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: read_file
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: read_multiple_files
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: write_file
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: edit_file
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: create_directory
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: list_directory
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: directory_tree
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: move_file
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: search_files
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: get_file_info
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: list_allowed_directories
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: get_unique_filepath
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_ripgrep
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_awk
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_sed
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_jq
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: execute_python
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: repl_python
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: search
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: download
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: download_site_pdfs
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: collect_documentation
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_macro
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: autopilot
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: convert_document
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: chunk_document
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: clean_and_format_text_as_markdown
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: batch_format_texts
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: optimize_markdown_formatting
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: generate_qa_pairs
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: summarize_document
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: ocr_image
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: enhance_ocr_text
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: analyze_pdf_structure
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: process_document_batch
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: extract_tables
+2025-06-10 18:31:34 - ultimate_mcp_server.tools:268 - INFO - Completed tool registration. Registered 44 tools.
+2025-06-10 18:31:34 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Wrote 95 tool names to tools_list.json for context estimator
+2025-06-10 18:31:34 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Ultimate MCP Server 'Ultimate MCP Server' initialized
+2025-06-10 19:21:17 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Initializing Ultimate MCP Server...
+2025-06-10 19:21:17 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Registering core tools...
+2025-06-10 19:21:17 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Calling register_all_tools to register only the BASE toolset...
+2025-06-10 19:21:17 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Registering base toolset: generate_completion, chat_completion, multi_completion, get_provider_status, list_models, read_file, read_multiple_files, write_file, edit_file, create_directory, list_directory, directory_tree, move_file, search_files, get_file_info, list_allowed_directories, get_unique_filepath, estimate_cost, compare_models, recommend_model, run_ripgrep, run_awk, run_sed, run_jq, marqo_fused_search, search, download, download_site_pdfs, collect_documentation, run_macro, autopilot, manage_database, execute_sql, explore_database, access_audit_log, convert_document, chunk_document, clean_and_format_text_as_markdown, batch_format_texts, optimize_markdown_formatting, generate_qa_pairs, summarize_document, ocr_image, enhance_ocr_text, analyze_pdf_structure, extract_tables, process_document_batch, execute_python, repl_python
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registering tools based on configuration...
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Tool filtering enabled: including only 49 specified tools
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: generate_completion
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: chat_completion
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: multi_completion
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: get_provider_status
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: list_models
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: estimate_cost
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: compare_models
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: recommend_model
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: read_file
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: read_multiple_files
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: write_file
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: edit_file
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: create_directory
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: list_directory
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: directory_tree
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: move_file
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: search_files
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: get_file_info
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: list_allowed_directories
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: get_unique_filepath
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_ripgrep
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_awk
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_sed
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_jq
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: execute_python
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: repl_python
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: search
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: download
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: download_site_pdfs
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: collect_documentation
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: run_macro
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: autopilot
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: convert_document
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: chunk_document
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: clean_and_format_text_as_markdown
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: batch_format_texts
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: optimize_markdown_formatting
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: generate_qa_pairs
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: summarize_document
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: ocr_image
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: enhance_ocr_text
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: analyze_pdf_structure
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: process_document_batch
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Registered tool function: extract_tables
+2025-06-10 19:21:17 - ultimate_mcp_server.tools:268 - INFO - Completed tool registration. Registered 44 tools.
+2025-06-10 19:21:17 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Wrote 95 tool names to tools_list.json for context estimator
+2025-06-10 19:21:17 - ultimate_mcp_server.Ultimate MCP Server:268 - INFO - Ultimate MCP Server 'Ultimate MCP Server' initialized

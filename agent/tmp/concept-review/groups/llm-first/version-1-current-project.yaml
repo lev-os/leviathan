@@ -1,0 +1,53 @@
+name: llm-first
+evolution_info:
+  iteration: 1
+  location: current-project
+  changes:
+    - type: added
+      field: extends
+      value: global://llm-first
+    - type: added
+      field: merge_strategy
+      value: local_precedence
+    - type: added
+      field: boundary_assessment
+      value:
+        overlap_threshold: 0.7
+        split_threshold: 10
+        natural_boundary: true
+    - type: added
+      field: project_context
+      value:
+        specializations: []
+        local_patterns: []
+    - type: modified
+      field: generated
+      from: '2025-06-12T02:41:34.916Z'
+      to: '2025-06-12T03:46:33.179Z'
+    - type: modified
+      field: behavior
+      from:
+        reasoning_first: true
+        emergent_structure: true
+      to:
+        reasoning_first: true
+        emergent_structure: true
+        llm_validation: enabled
+version: 1.0.0
+generated: '2025-06-12T03:46:33.179Z'
+intelligence_level: expert
+extends: global://llm-first
+merge_strategy: local_precedence
+pattern_type: behavioral
+applies_to: universal_context
+boundary_assessment:
+  overlap_threshold: 0.7
+  split_threshold: 10
+  natural_boundary: true
+behavior:
+  reasoning_first: true
+  emergent_structure: true
+  llm_validation: enabled
+project_context:
+  specializations: []
+  local_patterns: []

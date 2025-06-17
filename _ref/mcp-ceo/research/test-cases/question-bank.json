@@ -1,0 +1,295 @@
+{
+  "test_cases": {
+    "multi_expert_validation": {
+      "description": "20-step CEO-level strategic analysis",
+      "questions": [
+        {
+          "id": "MEV-001",
+          "title": "LLM-First vs Hardcoded Logic at Scale",
+          "question": "In the context of a 20-step, multi-expert validation workflow orchestrating over a million agents, how should a CEO define the optimal balance between LLM-first reasoning and hardcoded, deterministic logic to maximize reliability, maintainability, and adaptability?",
+          "constraints": [
+            "Workflow must support rapid adaptation to new regulations and markets",
+            "System must operate with 99.99% reliability, with sub-100ms step latency",
+            "All critical errors must be explainable",
+            "Component upgrades should not require full redeployment"
+          ],
+          "stakeholders": ["Product engineering", "Legal/compliance", "Business operations", "Third-party app creators"],
+          "difficulty": 5,
+          "expected_personalities": ["Systems Illuminator", "Sovereignty Architect", "Resilience Guardian"]
+        },
+        {
+          "id": "MEV-002",
+          "title": "App Store Distribution & Platform Sovereignty",
+          "question": "For a company distributing AI agents/services via third-party app stores while striving to retain platform sovereignty and user data control, what multi-disciplinary safeguards and strategies should be implemented in the workflow to ensure legal and technical independence?",
+          "constraints": [
+            "Must comply with jurisdiction-specific privacy laws without duplicating logic",
+            "Must allow seamless service continuity in event of deplatforming",
+            "Agents must be updatable without violating app store policies"
+          ],
+          "stakeholders": ["End users", "Third-party developers", "Regulators", "App store operators"],
+          "difficulty": 5,
+          "expected_personalities": ["Sovereignty Architect", "Cortisol Guardian", "Harmony Weaver"]
+        },
+        {
+          "id": "MEV-003",
+          "title": "Legal Liability & Monetization in Million-Agent Orchestration",
+          "question": "Within a highly distributed, monetized agent ecosystem orchestrating millions of concurrent workflows, how should CEO-level strategy address attribution of legal liability for errors while designing robust monetization models?",
+          "constraints": [
+            "Must automatically log agent actions for auditability",
+            "Support multiple monetization models with accurate micro-action tracking",
+            "Liability assignments must withstand cross-jurisdictional challenges"
+          ],
+          "stakeholders": ["Platform operator", "Agent creators", "Validation experts", "Insurers", "Regulators"],
+          "difficulty": 5,
+          "expected_personalities": ["Abundance Amplifier", "Systems Illuminator", "Action Catalyst"]
+        }
+      ]
+    },
+    "comprehensive_decision": {
+      "description": "20-step ultimate synthesis workflow",
+      "questions": [
+        {
+          "id": "CD-001",
+          "title": "Kingly Agent to OS Integration Architecture",
+          "question": "How would you architect a Kingly agent-to-Kingly OS integration that supports dynamically hot-swappable LPUs, prompt chains, and memory modules with complete backwards compatibility and zero downtime?",
+          "constraints": [
+            "Real-time monitoring and logging for all state",
+            "Support future upgrades without system rebuild",
+            "Handle heterogeneous enterprise models",
+            "Custom hardware accelerator support"
+          ],
+          "stakeholders": ["System architects", "DevOps", "Agent developers", "End users"],
+          "difficulty": 5,
+          "expected_personalities": ["Systems Illuminator", "Flow Creator", "Resilience Guardian"]
+        },
+        {
+          "id": "CD-002",
+          "title": "Performance Optimization for Hallucination-Prone Agent Chains",
+          "question": "Design a modular optimization framework for high-throughput multi-agent chains prone to LLM hallucinations, minimizing latency while dynamically mitigating accuracy risks.",
+          "constraints": [
+            "Minimize latency across agent hops",
+            "Quantify and mitigate hallucination risks with live feedback",
+            "Preserve critical context for traceability",
+            "Runtime tuning without sacrificing throughput"
+          ],
+          "stakeholders": ["ML engineers", "Quality assurance", "Business analysts", "Compliance"],
+          "difficulty": 5,
+          "expected_personalities": ["Resilience Guardian", "Systems Illuminator", "Flow Creator"]
+        },
+        {
+          "id": "CD-003",
+          "title": "Enterprise Integration for Non-Agent-Ready Organizations",
+          "question": "Design a 20-step workflow for integrating agent-driven automation into an enterprise with deep legacy infrastructure and siloed workflows that is not agent-ready.",
+          "constraints": [
+            "Data silos and regulatory restrictions",
+            "Resistance to cross-functional change",
+            "Cannot disrupt business continuity",
+            "Must show measurable compound impact"
+          ],
+          "stakeholders": ["C-suite", "IT leadership", "Department heads", "Change management"],
+          "difficulty": 5,
+          "expected_personalities": ["Harmony Weaver", "Action Catalyst", "Cortisol Guardian"]
+        }
+      ]
+    },
+    "scamper_innovation": {
+      "description": "14-step creative framework",
+      "questions": [
+        {
+          "id": "SI-001",
+          "title": "Cross-Platform Agent Packaging Innovation",
+          "question": "Using SCAMPER methodology, how can we revolutionize agent packaging and sharing across platforms while maintaining security, versioning, and dependency management?",
+          "constraints": [
+            "Support air-gapped environments",
+            "Handle complex dependency graphs",
+            "Enable rollback and version pinning",
+            "Work across mobile, desktop, cloud"
+          ],
+          "stakeholders": ["Developers", "Security teams", "Platform maintainers"],
+          "difficulty": 4,
+          "expected_personalities": ["Flow Creator", "Abundance Amplifier", "Systems Illuminator"]
+        },
+        {
+          "id": "SI-002",
+          "title": "Privacy-Preserving Federated Learning",
+          "question": "Apply SCAMPER to design a breakthrough approach for privacy-preserving federated learning across millions of agents without sacrificing model quality or training speed.",
+          "constraints": [
+            "No raw data leaves local agents",
+            "Support heterogeneous compute resources",
+            "Maintain differential privacy guarantees",
+            "Scale to millions of participants"
+          ],
+          "stakeholders": ["Privacy advocates", "ML researchers", "Agent operators"],
+          "difficulty": 4,
+          "expected_personalities": ["Sovereignty Architect", "Systems Illuminator", "Flow Creator"]
+        }
+      ]
+    },
+    "temporal_decision": {
+      "description": "12-step time-based analysis",
+      "questions": [
+        {
+          "id": "TD-001",
+          "title": "Agent Platform Release Timing",
+          "question": "Using 10-10-10 analysis, when should Kingly release its agent platform considering current AI regulation uncertainty, competitor movements, and technology maturity?",
+          "constraints": [
+            "EU AI Act implementation pending",
+            "Major competitors launching Q2 2025",
+            "Core features 80% complete",
+            "Bootstrap philosophy must be maintained"
+          ],
+          "stakeholders": ["Investors", "Early adopters", "Regulatory bodies"],
+          "difficulty": 3,
+          "expected_personalities": ["Action Catalyst", "Cortisol Guardian", "Abundance Amplifier"]
+        }
+      ]
+    },
+    "swot_strategic": {
+      "description": "10-step strategic analysis",
+      "questions": [
+        {
+          "id": "SS-001",
+          "title": "Agent Marketplace Positioning",
+          "question": "Conduct a SWOT analysis for launching a decentralized agent marketplace competing with centralized platforms while maintaining sovereignty principles.",
+          "constraints": [
+            "No central servers",
+            "Must support micropayments",
+            "Compete with VC-funded platforms",
+            "Maintain open source ethos"
+          ],
+          "stakeholders": ["Agent creators", "Users", "Open source community"],
+          "difficulty": 3,
+          "expected_personalities": ["Abundance Amplifier", "Sovereignty Architect", "Systems Illuminator"]
+        }
+      ]
+    },
+    "reverse_brainstorming": {
+      "description": "10-step problem finding",
+      "questions": [
+        {
+          "id": "RB-001",
+          "title": "Agent Chain Failure Modes",
+          "question": "Using reverse brainstorming, identify all the ways a complex agent chain could catastrophically fail and design preemptive safeguards.",
+          "constraints": [
+            "Consider cascading failures",
+            "Include human factors",
+            "Address malicious actors",
+            "Cover edge cases"
+          ],
+          "stakeholders": ["Security teams", "QA", "Risk management"],
+          "difficulty": 3,
+          "expected_personalities": ["Resilience Guardian", "Systems Illuminator", "Cortisol Guardian"]
+        }
+      ]
+    },
+    "deep_analysis": {
+      "description": "10-step root cause analysis",
+      "questions": [
+        {
+          "id": "DA-001",
+          "title": "Performance Bottleneck Investigation",
+          "question": "Analyze why agent response times degrade exponentially when handling more than 1000 concurrent requests despite having sufficient compute resources.",
+          "constraints": [
+            "System has 10x provisioned capacity",
+            "Individual agents perform well",
+            "Problem only appears at scale",
+            "Intermittent reproduction"
+          ],
+          "stakeholders": ["DevOps", "Performance engineers", "Customer success"],
+          "difficulty": 4,
+          "expected_personalities": ["Systems Illuminator", "Flow Creator", "Resilience Guardian"]
+        }
+      ]
+    },
+    "brainstorming": {
+      "description": "5-step idea generation",
+      "questions": [
+        {
+          "id": "BS-001",
+          "title": "Quick Agent Debugging Tools",
+          "question": "Brainstorm innovative approaches for debugging agent conversations in production without violating user privacy.",
+          "constraints": [
+            "No PII exposure",
+            "Real-time capability needed",
+            "Must handle encrypted flows",
+            "Minimal performance impact"
+          ],
+          "stakeholders": ["Developers", "Privacy officers", "Support teams"],
+          "difficulty": 2,
+          "expected_personalities": ["Flow Creator", "Systems Illuminator", "Sovereignty Architect"]
+        }
+      ]
+    },
+    "problem_solving": {
+      "description": "5-step direct solutions",
+      "questions": [
+        {
+          "id": "PS-001",
+          "title": "Immediate Scale Fix",
+          "question": "A critical agent service is failing under load during a product launch. Design an immediate fix that can be deployed in under 30 minutes.",
+          "constraints": [
+            "No architecture changes allowed",
+            "Must preserve state",
+            "Cannot lose any requests",
+            "Limited to config changes"
+          ],
+          "stakeholders": ["Ops team", "Product managers", "Customers"],
+          "difficulty": 2,
+          "expected_personalities": ["Action Catalyst", "Resilience Guardian", "Flow Creator"]
+        }
+      ]
+    },
+    "bootstrap_assessment": {
+      "description": "Bootstrap from minimal resources",
+      "questions": [
+        {
+          "id": "BA-001",
+          "title": "Raspberry Pi to Global Scale",
+          "question": "Design a complete bootstrap path for Kingly from a single Raspberry Pi to supporting millions of agents globally while maintaining sovereignty.",
+          "constraints": [
+            "Start with Pi + network only",
+            "No VC funding",
+            "Maintain user data ownership",
+            "Achieve profitability at each scale"
+          ],
+          "stakeholders": ["Founders", "Early users", "Community"],
+          "difficulty": 4,
+          "expected_personalities": ["Abundance Amplifier", "Sovereignty Architect", "Action Catalyst"]
+        }
+      ]
+    }
+  },
+  "nuclear_stress_tests": {
+    "description": "EXTREME: 46-context simultaneous stress tests",
+    "reference": "See nuclear-stress-tests.json for complete apocalyptic scenarios",
+    "categories": [
+      "nuclear_everything (46 contexts)",
+      "evolutionary_pressure (dynamic adaptation)", 
+      "recursive_chaos (self-modifying)",
+      "contradiction_matrix (maximum conflict)",
+      "synthesis_impossibilities (transcendence)"
+    ],
+    "warning": "These tests may cause beautiful system failures"
+  },
+  "metadata": {
+    "total_questions": 24,
+    "standard_questions": 14,
+    "nuclear_questions": 10,
+    "difficulty_distribution": {
+      "1": 0,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "7-15": 10
+    },
+    "coverage": {
+      "kingly_specific": 8,
+      "industry_general": 6,
+      "technical": 10,
+      "business": 4,
+      "nuclear_chaos": 10,
+      "total_contexts_tested": 46
+    }
+  }
+}

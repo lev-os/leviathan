@@ -1,0 +1,20 @@
+# Diff: context.yaml vs context.yaml
+
+## File 1: digital/kingly/core/mcp-mvp/contexts/types/task/context.yaml
+## File 2: digital/kingly/core/agent/contexts/types/task/context.yaml
+
+```diff
+Files are identical.
+
+```
+
+## Analysis:
+- [ ] Reviewed differences
+- [ ] Identified unique content in file 1
+- [ ] Identified unique content in file 2
+- [ ] Determined preferred version
+- [ ] Noted consolidation strategy
+
+## Decision:
+**Preferred:** TBD
+**Reason:** TBD

@@ -1,5 +1,5 @@
 {
-  "name": "@acme/api",
+  "name": "@lev-os/api",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -19,20 +19,20 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@acme/auth": "workspace:*",
-    "@acme/db": "workspace:*",
-    "@acme/validators": "workspace:*",
+    "@lev-os/auth": "workspace:*",
+    "@lev-os/db": "workspace:*",
+    "@lev-os/validators": "workspace:*",
     "@trpc/server": "catalog:",
     "superjson": "2.2.2",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@lev-os/eslint-config": "workspace:*",
+    "@lev-os/prettier-config": "workspace:*",
+    "@lev-os/tsconfig": "workspace:*",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@lev-os/prettier-config"
 }

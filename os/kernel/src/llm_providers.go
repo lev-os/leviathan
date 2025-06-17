@@ -135,20 +135,28 @@ func (r *LLMRouter) loadDefaultProviders() {
 			"Content-Type": "application/json",
 		},
 	}
-}// Load default routing rules for intelligent provider selection
+}
+
+// Load default routing rules for intelligent provider selection
 func (r *LLMRouter) loadDefaultRoutingRules() {
 	r.routingRules = []RoutingRule{
 		{
 			Condition:   "urgent == true",
-			Provider:    "fast_local", 
+			Provider:    "phi3_local", 
 			Priority:    1,
-			Description: "Use fast local LLM for urgent requests",
+			Description: "Use local Phi-3-mini for urgent OS-native requests",
 		},
 		{
 			Condition:   "task_type == theory_generation",
+			Provider:    "phi3_local",
+			Priority:    1,
+			Description: "Use local Phi-3-mini for fast theory generation",
+		},
+		{
+			Condition:   "task_type == theory_generation && max_tokens > 300",
 			Provider:    "smart_cloud",
 			Priority:    2,
-			Description: "Use Claude for creative theory generation",
+			Description: "Use Claude for complex theory generation",
 		},
 		{
 			Condition:   "task_type == script_generation",
@@ -176,8 +184,8 @@ func (r *LLMRouter) loadDefaultRoutingRules() {
 		},
 	}
 	
-	// Fallback chain: fast_local -> smart_cloud -> code_generator
-	r.fallbackChain = []string{"fast_local", "smart_cloud", "code_generator"}
+	// Fallback chain: phi3_local -> fast_local -> smart_cloud -> code_generator
+	r.fallbackChain = []string{"phi3_local", "fast_local", "smart_cloud", "code_generator"}
 }
 
 // Route request to optimal provider
@@ -284,31 +292,54 @@ func (r *LLMRouter) callProvider(provider LLMProvider, request LLMRequest) (*LLM
 
 // Call Ollama local LLM
 func (r *LLMRouter) callOllama(provider LLMProvider, request LLMRequest) (*LLMResponse, error) {
-	// Ollama API request format
-	ollamaRequest := map[string]interface{}{
-		"model":  provider.Model,
-		"prompt": request.Prompt,
-		"stream": false,
-		"options": map[string]interface{}{
-			"temperature": provider.Temperature,
-			"num_predict": provider.MaxTokens,
-		},
+	start := time.Now()
+	
+	// Detect if this is llama.cpp server (phi3_local) or real Ollama
+	isLlamaCpp := strings.Contains(provider.Name, "phi3") || strings.Contains(provider.Endpoint, "11434")
+	
+	var jsonData []byte
+	var endpoint string
+	var err error
+	
+	if isLlamaCpp {
+		// llama.cpp server completion API format
+		llamaRequest := map[string]interface{}{
+			"prompt":      request.Prompt,
+			"max_tokens":  request.MaxTokens,
+			"temperature": request.Temperature,
+			"stream":      false,
+		}
+		endpoint = provider.Endpoint + "/completion"
+		jsonData, err = json.Marshal(llamaRequest)
+	} else {
+		// Standard Ollama API format
+		ollamaRequest := map[string]interface{}{
+			"model":  provider.Model,
+			"prompt": request.Prompt,
+			"stream": false,
+			"options": map[string]interface{}{
+				"temperature": provider.Temperature,
+				"num_predict": provider.MaxTokens,
+			},
+		}
+		endpoint = provider.Endpoint + "/api/generate"
+		jsonData, err = json.Marshal(ollamaRequest)
 	}
 	
-	jsonData, err := json.Marshal(ollamaRequest)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal Ollama request: %v", err)
+		return nil, fmt.Errorf("failed to marshal request: %v", err)
 	}
 	
 	// Create HTTP request
 	ctx, cancel := context.WithTimeout(context.Background(), provider.Timeout)
 	defer cancel()
 	
-	req, err := http.NewRequestWithContext(ctx, "POST", provider.Endpoint, bytes.NewBuffer(jsonData))
+	req, err := http.NewRequestWithContext(ctx, "POST", endpoint, bytes.NewBuffer(jsonData))
 	if err != nil {
-		return nil, fmt.Errorf("failed to create Ollama request: %v", err)
+		return nil, fmt.Errorf("failed to create request: %v", err)
 	}
 	
+	req.Header.Set("Content-Type", "application/json")
 	for key, value := range provider.Headers {
 		req.Header.Set(key, value)
 	}
@@ -316,30 +347,55 @@ func (r *LLMRouter) callOllama(provider LLMProvider, request LLMRequest) (*LLMRe
 	// Make request
 	resp, err := r.httpClient.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("Ollama request failed: %v", err)
+		return nil, fmt.Errorf("request failed: %v", err)
 	}
 	defer resp.Body.Close()
 	
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
-		return nil, fmt.Errorf("Ollama API error %d: %s", resp.StatusCode, string(body))
+		return nil, fmt.Errorf("API error %d: %s", resp.StatusCode, string(body))
 	}
 	
-	// Parse response
-	var ollamaResponse map[string]interface{}
-	if err := json.NewDecoder(resp.Body).Decode(&ollamaResponse); err != nil {
-		return nil, fmt.Errorf("failed to decode Ollama response: %v", err)
+	// Parse response based on provider type
+	var content string
+	if isLlamaCpp {
+		// llama.cpp response format
+		var llamaResponse map[string]interface{}
+		if err := json.NewDecoder(resp.Body).Decode(&llamaResponse); err != nil {
+			return nil, fmt.Errorf("failed to decode llama.cpp response: %v", err)
+		}
+		
+		if contentField, ok := llamaResponse["content"].(string); ok {
+			content = contentField
+		} else {
+			return nil, fmt.Errorf("invalid llama.cpp response format - no content field")
+		}
+	} else {
+		// Standard Ollama response format
+		var ollamaResponse map[string]interface{}
+		if err := json.NewDecoder(resp.Body).Decode(&ollamaResponse); err != nil {
+			return nil, fmt.Errorf("failed to decode Ollama response: %v", err)
+		}
+		
+		if responseField, ok := ollamaResponse["response"].(string); ok {
+			content = responseField
+		} else {
+			return nil, fmt.Errorf("invalid Ollama response format - no response field")
+		}
 	}
 	
-	content, ok := ollamaResponse["response"].(string)
-	if !ok {
-		return nil, fmt.Errorf("invalid Ollama response format")
+	// Clean up content (remove any system tokens)
+	content = strings.TrimSpace(content)
+	if strings.HasPrefix(content, "\n<|assistant|>") {
+		content = strings.TrimPrefix(content, "\n<|assistant|>")
 	}
+	content = strings.TrimSpace(content)
 	
 	return &LLMResponse{
 		Content:  content,
 		Provider: provider.Name,
 		Model:    provider.Model,
+		Duration: time.Since(start),
 	}, nil
 }
 

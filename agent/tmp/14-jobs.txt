@@ -1,0 +1,18 @@
+Command: node ~/ks jobs
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+💼 JOB STATUS OVERVIEW
+==================================================
+📋 PENDING JOBS (1):
+   1. job-2025-06-12-jklg2q - analysis
+      From: mcp-mvp | Est: 15min
+      Instructions: test job posting
+      Accept: load --accept-job job-2025-06-12-jklg2q
+
+✅ COMPLETED JOBS (1):
+   - job-2025-06-12-ssntls (completed 2025-06-12T03:23:21.531Z)

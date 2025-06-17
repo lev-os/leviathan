@@ -1,0 +1,40 @@
+undefined:
+  decision: pending
+  rationale: ''
+  selectedFeatures: {}
+  customMerge: null
+claude-test-workspace:
+  decision: pending
+  rationale: ''
+  selectedFeatures: {}
+  customMerge: null
+Dynamic Agent Synthesis Workflow:
+  decision: pending
+  rationale: ''
+  selectedFeatures: {}
+  customMerge: null
+llm-first:
+  decision: pending
+  rationale: ''
+  selectedFeatures: {}
+  customMerge: null
+quantum-constitutional-system:
+  decision: pending
+  rationale: ''
+  selectedFeatures: {}
+  customMerge: null
+hybrid-platform-setup:
+  decision: pending
+  rationale: ''
+  selectedFeatures: {}
+  customMerge: null
+Infrastructure Verification Status:
+  decision: pending
+  rationale: ''
+  selectedFeatures: {}
+  customMerge: null
+External Toolchain Integration:
+  decision: pending
+  rationale: ''
+  selectedFeatures: {}
+  customMerge: null

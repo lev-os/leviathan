@@ -1,0 +1,14 @@
+Command: node ~/ks find "test intent"
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+❌ No exact match for "test intent"
+
+💡 Suggestions:
+   1. 2h - Comprehensive Analysis Of Needs, Opportunities, Improvements, Strengths, And Exceptions
+   2. 2e - Assess Decision Reversibility To Calibrate Appropriate Caution Level
+   3. 3n - Transform Architectural Decisions Into Behavior Driven Development Specifications

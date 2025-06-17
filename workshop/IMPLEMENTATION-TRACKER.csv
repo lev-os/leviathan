@@ -1,0 +1,37 @@
+Phase,Task_ID,Task_Name,Description,Timeline,Dependencies,Status,Priority,Assignee,Notes,Deliverable
+Phase_1,P1T1,Move docs/workshop,Move docs/workshop/ directory to workshop/docs/,30min,,pending,high,,Simple directory move preserving all content,workshop/docs/ directory
+Phase_1,P1T2,Create intake structure,Create intake/ directory with evaluation and integration subdirectories,15min,P1T1,pending,high,,Directory scaffolding for all tiers,intake/ directory structure
+Phase_1,P1T3,Create workflows directory,Create intake/workflows/ with CLI script placeholders,10min,P1T2,pending,high,,Prepare for CLI implementation,intake/workflows/ structure
+Phase_1,P1T4,Rename agent-bundles,Rename agent-bundles/ to bundles/ for consistency,5min,,pending,medium,,Clean naming convention,bundles/ directory
+Phase_1,P1T5,Update package.json,Create package.json with @kingly/workshop-intelligence config,20min,P1T3,pending,high,,Package configuration with CLI commands,package.json file
+Phase_1,P1T6,Update master plan,Update MASTER-PLAN.md with corrected structure,10min,P1T2,completed,high,,Corrected documentation,Updated MASTER-PLAN.md
+Phase_1,P1T7,Create tracker overview,Create PLANS-AND-TRACKERS-README.md explaining all files,15min,P1T6,pending,medium,,Documentation for tracking system,PLANS-AND-TRACKERS-README.md
+
+Phase_2,P2T1,Create evaluation framework,Build intake/evaluation/framework.md with scoring criteria,2hours,P1T2,pending,high,,Comprehensive evaluation system,framework.md
+Phase_2,P2T2,Create evaluation templates,Build templates for each tier (Tier 1-8),3hours,P2T1,pending,high,,Standardized evaluation forms,8 tier templates
+Phase_2,P2T3,Implement decision matrix,Create decision-matrix.yaml with automation logic,1hour,P2T1,pending,high,,Automated tier assignment,decision-matrix.yaml
+Phase_2,P2T4,Build tier integration patterns,Create integration approaches for each tier,4hours,P2T2,pending,high,,Tier-specific integration guides,8 tier integration directories
+Phase_2,P2T5,Implement evaluate CLI,Build evaluate-tool.js CLI command,4hours,P2T3,pending,high,,kingly tool evaluate command,evaluate-tool.js
+Phase_2,P2T6,Implement integration CLI,Build integration-pipeline.js CLI command,3hours,P2T4,pending,high,,kingly tool integrate command,integration-pipeline.js
+Phase_2,P2T7,Implement classification CLI,Build tier-classification.js CLI command,2hours,P2T3,pending,medium,,kingly tool classify command,tier-classification.js
+Phase_2,P2T8,Test with sample tools,Test evaluation framework with ACI and Perplexity,2hours,P2T5,pending,high,,Validate framework works,Test results documented
+
+Phase_3,P3T1,Classify ultimate_mcp_server,Run through intake process and validate Tier 1,30min,P2T8,pending,high,,Validate framework accuracy,Updated TRACKER.csv entry
+Phase_3,P3T2,Classify claude-task-master,Run through intake process and validate Tier 1,30min,P3T1,pending,high,,Validate framework accuracy,Updated TRACKER.csv entry
+Phase_3,P3T3,Classify graphiti,Run through intake process and validate Tier 2,30min,P3T2,pending,high,,Validate framework accuracy,Updated TRACKER.csv entry
+Phase_3,P3T4,Classify agent-cli,Run through intake process and validate Tier 2,30min,P3T3,pending,high,,Validate framework accuracy,Updated TRACKER.csv entry
+Phase_3,P3T5,Classify remaining 39 tools,Batch process all remaining tools through intake,6hours,P3T4,pending,medium,,Complete tool classification,Fully updated TRACKER.csv
+Phase_3,P3T6,Validate semantic assignments,Review all tier assignments for consistency,2hours,P3T5,pending,medium,,Quality assurance check,Validated TRACKER.csv
+Phase_3,P3T7,Generate integration roadmap,Create prioritized integration plan based on classifications,3hours,P3T6,pending,high,,Strategic implementation plan,Integration roadmap document
+Phase_3,P3T8,Document lessons learned,Capture insights from classification process,1hour,P3T7,pending,low,,Process improvement,Lessons learned document
+
+Phase_4,P4T1,Evaluate ACI tool,Run ACI through complete intake process,1hour,P2T8,pending,high,,Real-world framework test,ACI evaluation report
+Phase_4,P4T2,Evaluate Perplexity integration,Run Perplexity integration through intake process,1hour,P4T1,pending,high,,Real-world framework test,Perplexity evaluation report
+Phase_4,P4T3,Create integration examples,Build example integrations for top-tier tools,4hours,P3T7,pending,medium,,Practical implementation guides,Integration examples
+Phase_4,P4T4,Performance optimization,Optimize CLI commands and evaluation speed,2hours,P4T3,pending,low,,System efficiency improvement,Optimized CLI tools
+Phase_4,P4T5,Documentation completion,Complete all documentation and user guides,3hours,P4T4,pending,medium,,Comprehensive documentation,Complete docs
+Phase_4,P4T6,Package publication,Prepare @kingly/workshop-intelligence for publication,2hours,P4T5,pending,low,,Package distribution,Published package
+
+Ongoing,ON1,Monitor new tools,Watch for new tools to evaluate,ongoing,P2T8,pending,low,,Continuous improvement,Updated evaluations
+Ongoing,ON2,Update tier classifications,Re-evaluate tools as they evolve,monthly,P3T8,pending,low,,Keep classifications current,Updated TRACKER.csv
+Ongoing,ON3,Refine evaluation criteria,Improve evaluation framework based on experience,quarterly,P4T6,pending,low,,Framework evolution,Updated framework

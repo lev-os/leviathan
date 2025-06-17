@@ -1,0 +1,106 @@
+techcorp_ai_internal_metrics:
+  report_date: "2024-12-10"
+  confidentiality: "internal_use_only"
+  
+  team_capacity:
+    engineering:
+      total_developers: 47
+      senior_developers: 18
+      mid_level: 21
+      junior: 8
+      current_utilization: "89%"
+      available_capacity: "11% (≈5.2 FTE)"
+      burnout_risk_indicators: "Medium - 3 developers flagged"
+      
+    product_management:
+      total_pms: 6
+      available_bandwidth: "15%"
+      current_projects: 8
+      capacity_constraint: "High"
+      
+    design:
+      total_designers: 4
+      current_utilization: "94%"
+      available_capacity: "6%"
+      specialization_gaps: ["enterprise_ux", "developer_tools"]
+      
+    qa_testing:
+      total_qa: 8
+      automation_coverage: "67%"
+      manual_testing_capacity: "78% utilized"
+      test_environment_availability: "Good"
+      
+    devops_infrastructure:
+      total_engineers: 5
+      current_utilization: "91%"
+      scaling_readiness: "Medium"
+      infrastructure_debt: "High - requires 2-3 months cleanup"
+
+  financial_position:
+    current_runway: "18 months"
+    monthly_burn_rate: "$1.2M"
+    available_cash: "$21.6M"
+    revenue_run_rate: "$8.4M annually"
+    
+    budget_allocations:
+      engineering_salaries: "$680K/month"
+      infrastructure_costs: "$145K/month" 
+      marketing_spend: "$180K/month"
+      sales_operations: "$220K/month"
+      other_operational: "$125K/month"
+      
+    investment_capacity:
+      immediate_available: "$2.4M"
+      q1_2025_budget: "$4.8M"
+      growth_investment_reserve: "$6.2M"
+
+  current_product_performance:
+    existing_products:
+      flowmind_core:
+        monthly_revenue: "$580K"
+        customer_count: 1247
+        churn_rate: "3.2%"
+        nps_score: 72
+        support_ticket_volume: "145/month"
+        
+      enterprise_platform:
+        monthly_revenue: "$120K"
+        customer_count: 23
+        churn_rate: "8.7%"
+        nps_score: 58
+        implementation_success_rate: "78%"
+
+  team_morale_metrics:
+    employee_satisfaction: "7.2/10"
+    retention_rate: "94% annually"
+    promotion_satisfaction: "6.8/10"
+    work_life_balance: "7.5/10"
+    change_readiness: "Medium-High"
+    
+    recent_feedback_themes:
+      positive: ["innovative_projects", "learning_opportunities", "team_collaboration"]
+      concerns: ["workload_intensity", "unclear_priorities", "technical_debt"]
+      
+  technical_infrastructure:
+    codebase_health:
+      technical_debt_score: "6.2/10"
+      test_coverage: "73%"
+      deployment_frequency: "2.3x per week"
+      mean_time_to_recovery: "2.4 hours"
+      
+    infrastructure_capacity:
+      current_load: "68% average"
+      scaling_headroom: "3.2x current capacity"
+      reliability_sla: "99.7% achieved"
+      security_compliance: "SOC2 Type II certified"
+      
+  market_timing_factors:
+    competitive_moves:
+      github_next_release: "Expected Q1 2025"
+      cursor_funding_round: "Rumored $50M Series B"
+      microsoft_ai_integration: "Expanding rapidly"
+      
+    industry_events:
+      developer_conferences: "4 major events Q1 2025"
+      budget_cycle_timing: "Enterprise budgets reset Q1"
+      regulatory_changes: "AI governance frameworks emerging"

@@ -1,0 +1,45 @@
+metadata:
+  type: workflow
+  id: cognitive-parliament-mini
+  name: "Cognitive Parliament Mini"
+  version: 1.0.0
+  description: "5-step multi-agent workflow for testing bidirectional flow"
+
+workflow_config:
+  philosophy: "Multi-perspective analysis through sequential agent context switching"
+  
+  triggers:
+    automatic: []
+    manual: ["test workflow", "5-step analysis", "cognitive parliament mini"]
+  
+  steps:
+    - agent: "nfj-visionary"
+      name: "vision_analysis"
+      description: "Future implications and emotional impact analysis"
+      
+    - agent: "ntj-strategist" 
+      name: "strategic_planning"
+      description: "Strategic approach development"
+      
+    - agent: "sfj-caregiver"
+      name: "team_impact"
+      description: "Team harmony and stakeholder assessment"
+      
+    - agent: "stp-adapter"
+      name: "practical_implementation" 
+      description: "Actionable implementation planning"
+      
+    - agent: "stj-leader"
+      name: "leadership_execution"
+      description: "Final execution plan with risk management"
+
+  success_metrics:
+    decision_quality:
+      - "multi_perspective_coverage"
+      - "context_switching_effectiveness"  
+      - "state_preservation_accuracy"
+    
+    test_validation:
+      - "all_agents_activated"
+      - "unique_perspectives_generated"
+      - "workflow_completion_rate"

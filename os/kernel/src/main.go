@@ -73,7 +73,16 @@ func NewLLMConfigurationSystem(webAPIURL string, dryRun bool) *LLMConfigurationS
 	// Initialize LLM router with multiple providers
 	llmRouter := NewLLMRouter()
 	
-	// Configure providers from environment variables
+	// Configure local Phi-3-mini provider (llama.cpp server)
+	llmRouter.AddProvider(LLMProvider{
+		Name:     "phi3_local",
+		Type:     "ollama", // Use ollama-compatible API format
+		Endpoint: "http://localhost:11434",
+		Model:    "phi-3-mini-q4",
+		APIKey:   "",
+	})
+	
+	// Configure providers from environment variables  
 	if ollamaURL := os.Getenv("OLLAMA_URL"); ollamaURL != "" {
 		llmRouter.AddProvider(LLMProvider{
 			Name:     "ollama_local",

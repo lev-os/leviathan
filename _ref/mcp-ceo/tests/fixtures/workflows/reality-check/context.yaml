@@ -1,0 +1,105 @@
+metadata:
+  type: workflow
+  id: reality-check
+  name: "Reality Check: AI Product Launch Decision"
+  version: 1.0.0
+  description: "Comprehensive business decision analysis using sophisticated context assembly and real-world complexity"
+
+workflow_config:
+  philosophy: "Deep reality testing through multi-dimensional agent analysis with sophisticated prompt recipes"
+  
+  real_world_scenario: |
+    TechCorp AI is considering launching their revolutionary "FlowMind Assistant" - 
+    an AI agent orchestration platform that competes directly with Claude Code, 
+    Cursor, and Windsurf. The decision has complex technical, business, competitive, 
+    and strategic implications across multiple stakeholders and timeframes.
+  
+  triggers:
+    automatic: []
+    manual: ["reality check", "business decision", "ai product launch", "sophisticated analysis"]
+  
+  complexity_factors:
+    - market_timing_uncertainty
+    - competitive_landscape_shifts  
+    - technical_readiness_assessment
+    - resource_allocation_constraints
+    - stakeholder_alignment_challenges
+    - regulatory_compliance_risks
+    - customer_adoption_predictions
+  
+  steps:
+    - agent: "nfj-visionary"
+      name: "future_implications_analysis"
+      description: "Long-term vision, market evolution, and transformational impact assessment"
+      complexity_level: "high"
+      context_requirements:
+        - industry_trends_2024_2025
+        - ai_market_competitive_analysis
+        - customer_behavior_predictions
+        - technology_adoption_cycles
+      
+    - agent: "ntj-strategist" 
+      name: "strategic_business_planning"
+      description: "Market positioning, competitive advantage, and execution strategy"
+      complexity_level: "very_high"
+      context_requirements:
+        - competitor_product_analysis
+        - market_positioning_matrix
+        - resource_allocation_models
+        - risk_mitigation_strategies
+        - roi_projections_scenarios
+      
+    - agent: "sfj-caregiver"
+      name: "stakeholder_impact_assessment"
+      description: "Team dynamics, customer relationships, and organizational harmony"
+      complexity_level: "high"
+      context_requirements:
+        - team_capacity_analysis
+        - customer_support_readiness
+        - change_management_planning
+        - communication_strategies
+      
+    - agent: "stp-adapter"
+      name: "practical_execution_planning"
+      description: "Implementation roadmap, technical feasibility, and operational readiness"
+      complexity_level: "very_high" 
+      context_requirements:
+        - technical_architecture_assessment
+        - development_timeline_analysis
+        - infrastructure_scaling_plans
+        - quality_assurance_protocols
+        - deployment_risk_assessment
+      
+    - agent: "stj-leader"
+      name: "executive_decision_framework"
+      description: "Final decision synthesis with risk management and accountability"
+      complexity_level: "extreme"
+      context_requirements:
+        - decision_criteria_matrix
+        - risk_tolerance_assessment
+        - stakeholder_approval_process
+        - contingency_planning
+        - success_metrics_definition
+        - governance_framework
+
+  success_metrics:
+    decision_quality:
+      - "comprehensive_analysis_coverage"
+      - "sophisticated_prompt_utilization"
+      - "context_assembly_complexity"
+      - "real_world_scenario_fidelity"
+    
+    test_validation:
+      - "all_complexity_factors_addressed"
+      - "context_requirements_satisfied"
+      - "prompt_recipe_effectiveness"
+      - "bidirectional_flow_sophistication"
+
+  prompt_sophistication_targets:
+    - "Multi-layered context assembly (>5 context types per step)"
+    - "Real business data and constraints"
+    - "Industry-specific terminology and frameworks"
+    - "Quantitative analysis requirements"
+    - "Stakeholder perspective integration"
+    - "Risk assessment methodologies"
+    - "Decision framework utilization"

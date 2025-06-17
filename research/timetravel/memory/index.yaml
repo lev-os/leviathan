@@ -1,0 +1,34 @@
+# TimeTravel Memory Index
+metadata:
+  created: "2025-01-06T12:00:00Z"
+  version: "1.0.0"
+  description: "Central index for TimeTravel research memories"
+  
+indexing_strategy:
+  primary_key: "id"
+  sort_fields:
+    - timestamp: "desc"
+    - relevance: "desc"
+  search_fields:
+    - topic
+    - tags
+    - keywords
+    
+memory_stats:
+  total_entries: 0
+  last_updated: "2025-01-06T12:00:00Z"
+  categories:
+    technical: 0
+    strategic: 0
+    competitive: 0
+    innovative: 0
+    
+entries: []
+
+# Entry format:
+# - id: "unique_identifier"
+#   topic: "Research topic"
+#   timestamp: "ISO 8601 timestamp"
+#   relevance: 0.0-1.0
+#   tags: ["tag1", "tag2"]
+#   file: "filename.yaml"

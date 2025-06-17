@@ -1,0 +1,26 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Security files
+*.pem
+*.key
+*.cert
+
+# Session data
+sessions/
+execution-log.md
+
+# Output files
+outputs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo

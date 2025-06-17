@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Semantic Computing Revolution - Interactive Book</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="book-title">
+            <h2>The Semantic Computing Revolution</h2>
+            <p class="subtitle">Building Intelligence-First Systems with MCP-CEO</p>
+        </div>
+        
+        <div class="toc">
+            <div class="part">
+                <h3>Part I: The Paradigm Shift</h3>
+                <ul>
+                    <li><a href="#preface" class="active">Preface</a></li>
+                    <li><a href="#chapter-1">1. Beyond Software</a></li>
+                    <li><a href="#chapter-2">2. Constitutional Framework</a></li>
+                    <li><a href="#chapter-3">3. LLM-First Architecture</a></li>
+                </ul>
+            </div>
+            
+            <div class="part">
+                <h3>Part II: Architectural Foundations</h3>
+                <ul>
+                    <li><a href="#chapter-4">4. Protocol-Based Discovery</a></li>
+                    <li><a href="#chapter-5">5. Dynamic Context Assembly</a></li>
+                    <li><a href="#chapter-6">6. The Personality System</a></li>
+                </ul>
+            </div>
+            
+            <div class="part">
+                <h3>Part III: The FlowMind Revolution</h3>
+                <ul>
+                    <li><a href="#chapter-7">7. Introduction to FlowMind</a></li>
+                    <li><a href="#chapter-8">8. Building with FlowMind</a></li>
+                    <li><a href="#chapter-9">9. Human-in-the-Loop</a></li>
+                </ul>
+            </div>
+            
+            <div class="part">
+                <h3>Part VI: Real-World Applications</h3>
+                <ul>
+                    <li><a href="#chapter-16">16. Enterprise Transformation</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="nav-controls">
+            <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+            <button id="font-size" aria-label="Adjust font size">Aa</button>
+        </div>
+    </nav>
+    
+    <main class="content">
+        <div class="chapter-nav">
+            <button id="prev-chapter" aria-label="Previous chapter">←</button>
+            <span class="chapter-indicator">Preface</span>
+            <button id="next-chapter" aria-label="Next chapter">→</button>
+        </div>
+        
+        <article id="chapter-content">
+            <!-- Content will be loaded here -->
+        </article>
+        
+        <div class="interactive-features">
+            <div class="code-playground" id="playground" style="display: none;">
+                <h3>Try It Yourself</h3>
+                <div class="editor-container">
+                    <textarea id="code-editor" placeholder="# Enter your FlowMind workflow here"></textarea>
+                    <button id="run-code">Run</button>
+                </div>
+                <div class="output" id="code-output"></div>
+            </div>
+            
+            <div class="annotations" id="annotations">
+                <button id="toggle-annotations">📝 Notes</button>
+                <div class="annotation-panel" style="display: none;">
+                    <textarea placeholder="Add your notes for this section..."></textarea>
+                    <button id="save-note">Save Note</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="progress-bar">
+            <div class="progress" id="reading-progress"></div>
+        </div>
+        <p>&copy; 2024 The MCP-CEO Community | <a href="https://github.com/mcp-ceo/book">GitHub</a></p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

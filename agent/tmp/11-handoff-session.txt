@@ -1,0 +1,14 @@
+Command: node ~/ks handoff --session "2025-06-12-session-13b4z1" --files "tmp/" --decisions "whisper audit completed"
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+{
+  "agent": "ceo",
+  "session": "2025-06-12-session-13b4z1",
+  "error": "Cannot read properties of undefined (reading 'map')",
+  "instructions": "Handoff failed. Check session exists and files are accessible"
+}

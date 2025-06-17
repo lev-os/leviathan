@@ -1,0 +1,10 @@
+Command: node ~/ks lookup --all
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+🔍 Comprehensive intelligence lookup (context: current-conversation, scope: workspace+cross-references)...
+✅ Comprehensive lookup completed (placeholder implementation)

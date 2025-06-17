@@ -1,0 +1,278 @@
+/* Complex CSS for PDF Generation Testing */
+/* Dark Purple to Black Gradient Theme with Light Gray Text */
+
+/* Base Document Styling */
+@page {
+    size: letter;
+    margin: 1in 1.25in;
+    @top-center {
+        content: "Semantic Control Flow Patent";
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 10pt;
+        color: #a0a0a0;
+    }
+    @bottom-center {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 9pt;
+        color: #808080;
+    }
+}
+
+/* Body with Gradient Background */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #d0d0d0;
+    background: linear-gradient(135deg, #1a0033 0%, #000000 100%);
+    margin: 0;
+    padding: 2em;
+    min-height: 100vh;
+}
+
+/* Dark Container with Subtle Border */
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(128, 0, 255, 0.3);
+    border-radius: 8px;
+    padding: 2em;
+    margin: 1em 0;
+    box-shadow: 0 4px 20px rgba(128, 0, 255, 0.2);
+}
+
+/* Headings with Purple Gradient Text */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 300;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    background: linear-gradient(90deg, #9d4edd 0%, #c77dff 50%, #e0aaff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+h1 {
+    font-size: 28pt;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid rgba(157, 78, 221, 0.3);
+}
+
+h2 {
+    font-size: 20pt;
+    letter-spacing: 1px;
+    margin-top: 2em;
+}
+
+h3 {
+    font-size: 16pt;
+    font-style: italic;
+}
+
+/* Paragraphs and Text */
+p {
+    margin: 1em 0;
+    text-align: justify;
+    text-indent: 1.5em;
+}
+
+/* Links with Hover Effect */
+a {
+    color: #e0aaff;
+    text-decoration: none;
+    border-bottom: 1px dotted #9d4edd;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #c77dff;
+    border-bottom-color: #e0aaff;
+    text-shadow: 0 0 10px rgba(224, 170, 255, 0.5);
+}
+
+/* Code Blocks with Dark Theme */
+pre {
+    background: linear-gradient(135deg, #0d0015 0%, #000000 100%);
+    border: 1px solid #3c096c;
+    border-radius: 6px;
+    padding: 1.5em;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+code {
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 10pt;
+    color: #e0aaff;
+    background: rgba(60, 9, 108, 0.2);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: #f0f0f0;
+}
+
+/* Tables with Purple Accents */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 15px rgba(128, 0, 255, 0.2);
+}
+
+th {
+    background: linear-gradient(90deg, #3c096c 0%, #10002b 100%);
+    color: #e0aaff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11pt;
+    padding: 1em;
+    text-align: left;
+    border-bottom: 2px solid #7209b7;
+}
+
+td {
+    padding: 0.8em 1em;
+    border-bottom: 1px solid rgba(114, 9, 183, 0.2);
+    color: #d0d0d0;
+}
+
+tr:hover {
+    background: rgba(114, 9, 183, 0.1);
+}
+
+/* Blockquotes with Gradient Border */
+blockquote {
+    margin: 2em 0;
+    padding: 1em 2em;
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(180deg, #9d4edd 0%, #3c096c 100%) 1;
+    background: rgba(60, 9, 108, 0.1);
+    font-style: italic;
+    color: #e0e0e0;
+}
+
+/* Lists with Custom Bullets */
+ul, ol {
+    margin: 1em 0;
+    padding-left: 2em;
+    color: #d0d0d0;
+}
+
+ul li::marker {
+    color: #9d4edd;
+}
+
+ol li::marker {
+    color: #c77dff;
+    font-weight: bold;
+}
+
+/* Highlighted Text */
+mark {
+    background: linear-gradient(90deg, rgba(157, 78, 221, 0.3) 0%, rgba(199, 125, 255, 0.3) 100%);
+    color: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Print-Specific Adjustments */
+@media print {
+    body {
+        background: white;
+        color: #333;
+    }
+    
+    .container {
+        background: rgba(26, 0, 51, 0.05);
+        border-color: #9d4edd;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: #3c096c;
+        background: none;
+        -webkit-text-fill-color: #3c096c;
+        text-fill-color: #3c096c;
+    }
+    
+    pre {
+        background: #f5f0ff;
+        border-color: #9d4edd;
+    }
+    
+    code {
+        color: #3c096c;
+        background: rgba(157, 78, 221, 0.1);
+    }
+    
+    a {
+        color: #7209b7;
+    }
+    
+    table {
+        background: white;
+    }
+    
+    th {
+        background: #3c096c;
+        color: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    td {
+        border-bottom-color: #e0aaff;
+    }
+}
+
+/* Special Effects */
+.glow {
+    text-shadow: 0 0 20px rgba(224, 170, 255, 0.8);
+}
+
+.gradient-box {
+    background: linear-gradient(135deg, #3c096c 0%, #10002b 50%, #000000 100%);
+    padding: 2em;
+    border-radius: 10px;
+    border: 2px solid #9d4edd;
+    margin: 2em 0;
+}
+
+/* Fancy Divider */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #9d4edd 25%, #c77dff 50%, #9d4edd 75%, transparent 100%);
+    margin: 3em 0;
+}
+
+/* Page Break Control */
+.page-break {
+    page-break-after: always;
+}
+
+/* Animation (for screen viewing) */
+@media screen {
+    h1 {
+        animation: pulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0% { opacity: 0.8; }
+        50% { opacity: 1; }
+        100% { opacity: 0.8; }
+    }
+}

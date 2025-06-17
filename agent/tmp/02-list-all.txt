@@ -1,0 +1,70 @@
+Command: node ~/ks list
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+📋 All workflows:
+
+**agents**
+1a - Manages Documentation Lifecycle From Research To Implementation
+1b - Full Stack Engineering With Specialized Perspectives
+1c - Orchestrates All Business Operations With Multiple Perspectives
+1d - Specialized Technical Book Writer Who Transforms Complex Architectural Documentation Into Engaging, Comprehensive Technical Books
+1e - Meticulous Technical Book Editor Ensuring Accuracy, Clarity, And Consistency
+1f - Expert In Designing, Optimizing, And Variablizing Prompts For Maximum LLM Effectiveness
+1g - Elite Research Agent With Multi Tier Analysis Capabilities And Personality Based Perspectives
+1h - The Adapter   Surviving Through Practical Flexibility
+1i - The Leader   Maintaining Order Through Systematic Control
+1j - The Connector   Building Bonds Through Reciprocal Fairness
+1k - The Caregiver   Maintaining Harmony Through Sympathetic Order
+1l - The Innovator   Disrupting Through Logical Creativity
+1m - The Strategist   Controlling Future Through Systematic Vision
+1n - The Advocate   Driving Change Through Compassionate Action
+1o - The Visionary   Creating Future Through Empathetic Understanding
+
+**patterns**2a - Flow State Optimized Development
+2b - Strategic Analysis Of Strengths, Weaknesses, Opportunities, And Threats
+2c - Holistic Approach To Analysis Focusing On Relationships, Patterns, And Context Rather Than Isolated Parts
+2d - Systematic Creativity Through Seven Transformation Lenses
+2e - Systematically Challenge Every Assumption To Prevent Groupthink And Uncover Hidden Flaws
+2f - Prioritization Framework Balancing Reach, Impact, Confidence, And Effort
+2g - Positive Focused Strategic Planning Beyond Traditional SWOT
+2h - Assess Decision Reversibility To Calibrate Appropriate Caution Level
+2i - Competitive Forces Analysis Framework For Industry Attractiveness And Competitive Positioning
+2j - Find Solutions By Exploring How To Cause The Problem
+2k - Comprehensive Analysis Of Needs, Opportunities, Improvements, Strengths, And Exceptions
+2l - User Focused Framework For Understanding True Motivations
+2m - Methodology For Developing Businesses And Products Through Validated Learning, Scientific Experimentation, And Iterative Product Releases
+2n - Break Down Complex Problems Into Fundamental Truths And Reason Up From There
+2o - Role Play As Different Experts To Gain Diverse Perspectives
+2p - Solve Problems By Imagining Radically Different Scenarios
+2q - Human Centered Approach To Innovation Integrating People's Needs, Technology Possibilities, And Business Requirements
+2r - Proven Intelligence Patterns From Echo System For Real World Work Applications
+2s - Comprehensive Decision Making Framework Using Multiple Analysis Methods
+2t - Create Uncontested Market Space Through Value Innovation, Making Competition Irrelevant
+2u - Visual Framework For Developing And Documenting Business Models Through Nine Key Building Blocks
+2v - Scrum Framework With AI Powered Ceremonies
+2w - Temporal Impact Analysis For Better Decision Making
+
+**workflows**
+3a - Systematic Discovery And Consolidation Of Complex Systems With Conflicts
+3b - Comprehensive Business Decision Analysis Using Multi Agent Perspectives
+3c - CEO Strategic Intelligence Examining Decisions Through Multiple Expert Perspectives3d - Share Relevant Parent Insights With Child Contexts
+3e - Meta Workflow For Suggesting Agents, Templates, And System Architecture
+3f - Propagate Significant Insights From Nested Contexts Upward
+3g - Systematic Analysis Of External Tools/repositories For Kingly Integration
+3h - Dynamic Routing Based On System Entropy For Stability Vs Innovation
+3i - Synthesize Emergent Emotions From Personality Interactions
+3j - Comprehensive Audit Of Documentation State And Lifecycle Progression
+3k - 5 Phase Human Centered Innovation Workflow: Empathize → Define → Ideate → Prototype → Test
+3l - Transform Raw Research Into Synthesized Draft Documentation
+3m - Transform Architectural Decisions Into Behavior Driven Development Specifications
+3n - Multi Personality Deliberation Using Emotional Evolution Framework
+3o - Systematic Consolidation Of Draft Documentation Into Architectural Decision Records
+3p - Progressive Research Methodology: Broad Base → Dynamic Deep → Strategic Validation
+3q - Multi Perspective Analysis Using 8 Personality Patterns For Comprehensive Insights
+3r - Enable Portfolio Intelligence Through Workflow Driven Context Connections
+3s - Parallel Analysis Of All Contexts With Synthesis And Parliament Decision

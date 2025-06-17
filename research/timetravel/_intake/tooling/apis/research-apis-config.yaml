@@ -1,0 +1,152 @@
+metadata:
+  name: "Research APIs Configuration"
+  version: "1.0.0"
+  description: "Configuration for all research APIs used in TimeTravel project"
+
+apis:
+  perplexity_sonar:
+    name: "Perplexity Sonar API"
+    status: "active"
+    access_method: "MCP"
+    mcp_tool: "perplexity_ask"
+    capabilities:
+      - real_time_search
+      - citations
+      - web_wide_coverage
+    pricing:
+      searches: "$5/1000"
+      input_tokens: "$1/1M"
+      output_tokens: "$1/1M"
+    use_cases:
+      - quick_searches
+      - fact_checking
+      - current_events
+      
+  perplexity_deep_research:
+    name: "Perplexity Sonar Deep Research"
+    status: "planned"
+    access_method: "API"
+    endpoint: "https://api.perplexity.ai/deep-research"
+    capabilities:
+      - multi_step_research
+      - source_evaluation
+      - comprehensive_reports
+      - "30+ searches per query"
+    pricing:
+      per_session: "$0.15"
+    use_cases:
+      - weekly_landscape_scans
+      - technology_deep_dives
+      - competitive_analysis
+      
+  elicit:
+    name: "Elicit Research Assistant"
+    status: "planned"
+    access_method: "API"
+    endpoint: "https://api.elicit.org/v1"
+    capabilities:
+      - academic_papers
+      - "125M+ paper database"
+      - data_extraction
+      - synthesis
+    pricing:
+      tier: "researcher"
+      monthly: "$20"
+    use_cases:
+      - arxiv_monitoring
+      - research_validation
+      - literature_reviews
+      
+  deepseek:
+    name: "DeepSeek API"
+    status: "planned"
+    access_method: "API"
+    endpoint: "https://api.deepseek.com/v1"
+    capabilities:
+      - cost_effective_search
+      - open_source_model
+      - real_time_processing
+    pricing:
+      "90%_cheaper": true
+      per_1k_tokens: "$0.001"
+    use_cases:
+      - high_volume_verification
+      - cost_sensitive_research
+      - fact_checking
+      
+  claude_sonnet:
+    name: "Claude 3.5 Sonnet"
+    status: "available"
+    access_method: "Direct"
+    current_context: true
+    capabilities:
+      - superior_reasoning
+      - nuance_understanding
+      - synthesis
+      - meta_analysis
+    pricing:
+      input: "$3/1M tokens"
+      output: "$15/1M tokens"
+    use_cases:
+      - final_synthesis
+      - strategic_analysis
+      - report_generation
+
+orchestration:
+  research_flow:
+    1_discovery:
+      primary: "perplexity_sonar"
+      fallback: "deepseek"
+      
+    2_deep_research:
+      primary: "perplexity_deep_research"
+      academic: "elicit"
+      
+    3_validation:
+      primary: "deepseek"
+      fallback: "perplexity_sonar"
+      
+    4_synthesis:
+      primary: "claude_sonnet"
+      fallback: "local_llm"
+
+rate_limits:
+  perplexity_sonar:
+    per_minute: 60
+    per_day: 10000
+    
+  elicit:
+    per_minute: 10
+    per_day: 1000
+    
+  deepseek:
+    per_minute: 100
+    per_day: 50000
+
+api_keys:
+  storage: "environment_variables"
+  required:
+    - PERPLEXITY_API_KEY
+    - ELICIT_API_KEY
+    - DEEPSEEK_API_KEY
+  optional:
+    - ANTHROPIC_API_KEY
+
+monitoring:
+  track:
+    - api_costs
+    - response_times
+    - error_rates
+    - result_quality
+    
+  alerts:
+    cost_threshold: "$5/day"
+    error_threshold: "5%"
+    
+  reports:
+    frequency: "weekly"
+    metrics:
+      - total_searches
+      - cost_per_insight
+      - api_performance
+      - quality_scores

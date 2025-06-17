@@ -1,0 +1,78 @@
+# Migration Ignore Patterns
+# Directories and files to exclude from migration tracking and processing
+apps/
+
+# Temporary and cache directories
+agent/_intake/
+agent/diffs/
+agent/cache/
+agent/tmp/
+agent/logs/
+node_modules/
+.cache/
+dist/
+build/
+
+# Development artifacts
+*.log
+*.tmp
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Git artifacts
+.git/
+*.orig
+
+# Test artifacts and coverage
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# Package manager artifacts
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Legacy backup directories
+_ref/
+backup/
+archive/
+
+# Research and experimental directories
+research/
+experimental/
+prototypes/
+
+# Documentation drafts and work-in-progress
+drafts/
+wip/
+*.draft.*
+
+# Binary and media files that don't need text processing
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.pdf
+*.zip
+*.tar.gz
+
+# Migration-specific temporary files
+*.migration-backup
+*.pre-migration
+migration-*.tmp

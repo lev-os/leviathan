@@ -1,0 +1,183 @@
+/* Book styling for PDF generation */
+
+/* Page setup */
+@page {
+    size: A4;
+    margin: 25mm 20mm 25mm 20mm;
+}
+
+/* Typography */
+body {
+    font-family: 'Charter', 'Georgia', serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #2c3e50;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Headers */
+h1 {
+    font-family: 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-size: 28pt;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 0;
+    margin-bottom: 24pt;
+    page-break-before: always;
+    text-align: left;
+}
+
+h2 {
+    font-family: 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-size: 20pt;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 18pt;
+    margin-bottom: 12pt;
+    text-align: left;
+}
+
+h3 {
+    font-family: 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #34495e;
+    margin-top: 12pt;
+    margin-bottom: 8pt;
+    text-align: left;
+}
+
+h4 {
+    font-family: 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: #34495e;
+    margin-top: 10pt;
+    margin-bottom: 6pt;
+    font-style: italic;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 8pt;
+    text-indent: 0;
+}
+
+/* Block quotes */
+blockquote {
+    margin: 12pt 0;
+    padding: 8pt 16pt;
+    border-left: 4px solid #3498db;
+    background-color: #f8f9fa;
+    font-style: italic;
+    page-break-inside: avoid;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+/* Code blocks */
+pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12pt;
+    font-family: 'SF Mono', 'Consolas', monospace;
+    font-size: 9pt;
+    overflow-x: auto;
+    page-break-inside: avoid;
+    margin: 12pt 0;
+}
+
+code {
+    font-family: 'SF Mono', 'Consolas', monospace;
+    font-size: 9pt;
+    background-color: #f4f4f4;
+    padding: 2pt 4pt;
+    border-radius: 2px;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Lists */
+ul, ol {
+    margin: 8pt 0;
+    padding-left: 24pt;
+}
+
+li {
+    margin-bottom: 4pt;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12pt 0;
+    page-break-inside: avoid;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8pt;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: 600;
+}
+
+/* Links (for digital version) */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Horizontal rules */
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 24pt 0;
+    page-break-after: avoid;
+}
+
+/* Page breaks */
+.page-break {
+    page-break-after: always;
+}
+
+/* Special formatting */
+.yaml-example {
+    background-color: #fef9e7;
+    border-left: 4px solid #f39c12;
+}
+
+.important-note {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    padding: 12pt;
+    margin: 12pt 0;
+    border-radius: 4px;
+}
+
+.key-insight {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 12pt;
+    margin: 12pt 0;
+    border-radius: 4px;
+}
+
+/* Chapter numbers */
+.chapter-number {
+    font-size: 48pt;
+    font-weight: 300;
+    color: #e0e0e0;
+    margin-bottom: -12pt;
+}

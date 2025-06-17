@@ -1,11 +1,13 @@
 {
-  "name": "@kingly/core",
+  "name": "@lev/core",
   "version": "1.0.0",
-  "description": "Kingly core monorepo with LLM-first plugin architecture",
+  "description": "Leviathan core monorepo with LLM-first plugin architecture (sponsored by Kingly Agency)",
   "type": "module",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "plugins/@lev-os/*",
+    "agent"
   ],
   "scripts": {
     "build": "pnpm -r build",
@@ -24,7 +26,7 @@
     "pnpm": ">=8.0.0"
   },
   "packageManager": "pnpm@8.15.0",
-  "keywords": ["kingly", "llm-first", "plugin", "architecture"],
-  "author": "Kingly Core Team",
+  "keywords": ["leviathan", "llm-first", "plugin", "architecture"],
+  "author": "Leviathan Team (sponsored by Kingly Agency)",
   "license": "MIT"
 }

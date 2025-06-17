@@ -1,0 +1,88 @@
+# {{PROJECT_NAME}}: AI Agent Instructions
+
+## Quick Intelligence Access
+- **Context Type:** {{CONTEXT_TYPE}}
+- **Intelligence Triggers:** {{INTELLIGENCE_TRIGGERS}}
+- **Cross-References:** {{CROSS_REFERENCES}}
+
+## Agent Workflow Integration
+
+### Primary Workflows
+{{AGENT_WORKFLOWS}}
+
+### Session Handoff Points
+{{SESSION_HANDOFF_POINTS}}
+
+### Intelligence Commands
+```bash
+# Comprehensive intelligence access
+kingly-semantic lookup --all --context="{{DEFAULT_CONTEXT}}"
+
+# Situational analysis with auto-save
+kingly-semantic power --context="{{ANALYSIS_CONTEXT}}" --auto-save=true
+
+# Pattern-specific queries
+kingly-semantic intelligence query --pattern="{{DEFAULT_PATTERN}}" --scope="{{QUERY_SCOPE}}"
+```
+
+## Implementation Context
+
+### Current Status: {{IMPLEMENTATION_STATUS}}
+{{IMPLEMENTATION_DETAILS}}
+
+### Next Steps
+{{NEXT_IMPLEMENTATION_STEPS}}
+
+### Existing Foundation
+{{EXISTING_FOUNDATION}}
+
+### Key Files for Implementation
+{{KEY_IMPLEMENTATION_FILES}}
+
+## Agent Implementation Guidelines
+
+### LLM-First Development Approach
+{{LLM_FIRST_GUIDELINES}}
+
+### Code Implementation Strategy
+{{IMPLEMENTATION_STRATEGY}}
+
+### File Organization Pattern
+{{FILE_ORGANIZATION}}
+
+### Testing Strategy
+{{TESTING_STRATEGY}}
+
+## Error Handling & Monitoring
+
+### Expected Error Scenarios
+{{ERROR_SCENARIOS}}
+
+### Monitoring Points
+{{MONITORING_POINTS}}
+
+### Performance Targets
+{{PERFORMANCE_TARGETS}}
+
+## Security & Privacy Considerations
+
+### Privacy Controls
+{{PRIVACY_CONTROLS}}
+
+### Security Requirements
+{{SECURITY_REQUIREMENTS}}
+
+---
+
+**Implementation Note:** {{IMPLEMENTATION_NOTE}}
+
+**Agent Success Criteria:** {{SUCCESS_CRITERIA}}
+
+## Human Documentation
+
+{{HUMAN_DOCUMENTATION}}
+
+---
+*AI-Optimized Documentation via Kingly Templates v{{TEMPLATE_VERSION}}*  
+*Workspace: {{WORKSPACE_NAME}} | Intelligence Level: {{INTELLIGENCE_LEVEL}}*  
+*Last Updated: {{LAST_UPDATE_DATE}} | Effectiveness: {{TEMPLATE_EFFECTIVENESS}}%*

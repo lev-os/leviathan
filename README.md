@@ -1,6 +1,6 @@
-# Kingly Core Technology
+# Leviathan Core Technology
 
-The foundational AI agent system and shared packages that power all Kingly ventures.
+The foundational AI agent system and shared packages that power the Leviathan ecosystem, sponsored by [Kingly Agency](https://kinglyagency.com).
 
 ## 🧠 Components
 
@@ -11,12 +11,12 @@ The LLM-first agent system with confidence-based task routing
 - YAML-based agent definitions
 - Hot-reload development support
 
-### `/packages`
-Published as @kingly/* npm packages
-- **@kingly/protocol** - MCP kernel protocol implementation
-- **@kingly/ai-core** - LLM integrations and reasoning
-- **@kingly/memory** - Unified memory system interface
-- **@kingly/agent** - Agent creation framework
+### `/plugins`
+Published as @lev-os/* npm packages
+- **@lev-os/protocol** - MCP kernel protocol implementation
+- **@lev-os/ai-core** - LLM integrations and reasoning
+- **@lev-os/memory** - Unified memory system interface
+- **@lev-os/agent** - Agent creation framework
 
 ### `/memory-systems`
 Unified memory architecture connecting multiple backends:
@@ -38,7 +38,7 @@ Experimental OS features and prototypes
 pnpm install
 
 # Run the agent system
-cd agent && node kingly.js
+cd agent && node leviathan.js
 
 # Run tests
 pnpm test
@@ -108,4 +108,4 @@ npm publish
 5. **Observable**: Built-in monitoring and debugging
 
 ---
-*The engine that powers 100+ AI ventures*
+*The Leviathan ecosystem: Linux of AI - sponsored by [Kingly Agency](https://kinglyagency.com)*

@@ -26,7 +26,8 @@
       "Bash(grep:*)",
       "Bash(docker exec:*)",
       "Bash(brew install:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(pkill:*)"
     ],
     "deny": []
   }

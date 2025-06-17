@@ -1,0 +1,214 @@
+# WORKSHOP INTELLIGENCE SEMANTIC TIER MAPPING
+# Maps numerical tiers (1-8) to semantic names with clear criteria
+
+tier_classification:
+  tier_1:
+    semantic_name: "PRODUCTION-READY"
+    description: "Battle-tested tools ready for immediate production integration"
+    characteristics:
+      - battle_tested_in_production: true
+      - comprehensive_documentation: true
+      - active_maintenance: true
+      - clear_api_patterns: true
+      - performance_benchmarks: true
+    integration_approach: "Direct integration with minimal adaptation"
+    timeline_weeks: "1-2"
+    examples:
+      - "Ultimate MCP Server (70+ tools)"
+      - "Claude Task Master"
+      - "NextLevel Research Methodology"
+    
+  tier_2:
+    semantic_name: "ADVANCED-STABLE"
+    description: "Proven architecture requiring structured adaptation"
+    characteristics:
+      - proven_architecture: true
+      - good_documentation: true
+      - active_development: true
+      - requires_adaptation: true
+      - may_need_wrappers: true
+    integration_approach: "Structured adaptation with clear patterns"
+    timeline_weeks: "2-4"
+    examples:
+      - "Graphiti Memory System"
+      - "CrewAI Framework"
+      - "MCP Agent Patterns"
+    
+  tier_3:
+    semantic_name: "EMERGING-VIABLE"
+    description: "Solid foundation with growing adoption"
+    characteristics:
+      - solid_technical_foundation: true
+      - growing_community: true
+      - documentation_incomplete: true
+      - api_may_evolve: true
+      - requires_testing: true
+    integration_approach: "Careful evaluation with pilot implementation"
+    timeline_weeks: "3-6"
+    examples:
+      - "Multi-Agent RAG Systems"
+      - "Swarm Patterns"
+      - "AutoGen Integration"
+    
+  tier_4:
+    semantic_name: "RESEARCH-READY"
+    description: "Interesting approach with limited production usage"
+    characteristics:
+      - interesting_technical_approach: true
+      - limited_production_usage: true
+      - academic_documentation: true
+      - substantial_development_effort: true
+      - risk_of_abandonment: true
+    integration_approach: "Research project with uncertain timeline"
+    timeline_weeks: "4-8"
+    examples:
+      - "TensorZero MLOps"
+      - "Anthropic Cookbook"
+      - "AgenticMemory Framework"
+    
+  tier_5:
+    semantic_name: "EXPERIMENTAL-PROMISING"
+    description: "Novel approach in early adoption stage"
+    characteristics:
+      - novel_cutting_edge: true
+      - early_adoption_stage: true
+      - limited_documentation: true
+      - high_api_change_risk: true
+      - requires_deep_expertise: true
+    integration_approach: "Experimental only, not for production"
+    timeline_weeks: "6-12"
+    examples:
+      - "Advanced Voice Synthesis"
+      - "Vision Processing Frameworks"
+      - "Experimental ML Architectures"
+    
+  tier_6:
+    semantic_name: "PROTOTYPE-STAGE"
+    description: "Working proof-of-concept requiring refinement"
+    characteristics:
+      - working_proof_of_concept: true
+      - not_production_ready: true
+      - minimal_documentation: true
+      - breaking_changes_likely: true
+      - may_require_forking: true
+    integration_approach: "Research and development only"
+    timeline_weeks: "8-16"
+    examples:
+      - "MCP Quantum Server"
+      - "Custom Architecture Prototypes"
+      - "Academic Research Implementations"
+    
+  tier_7:
+    semantic_name: "CONCEPT-PROOF"
+    description: "Academic implementation for pattern extraction"
+    characteristics:
+      - academic_research_focus: true
+      - not_production_intended: true
+      - academic_documentation: true
+      - likely_abandoned_post_research: true
+      - requires_recreation: true
+    integration_approach: "Pattern extraction and reimplementation"
+    timeline_weeks: "12+"
+    examples:
+      - "Research Paper Implementations"
+      - "Academic Proof-of-Concepts"
+      - "Theoretical Framework Demos"
+    
+  tier_8:
+    semantic_name: "EXPLORATORY"
+    description: "Early ideas for concept evaluation only"
+    characteristics:
+      - early_ideas_stage: true
+      - no_clear_production_path: true
+      - code_snippets_or_demos: true
+      - high_incompleteness_risk: true
+      - concept_value_only: true
+    integration_approach: "Concept evaluation only"
+    timeline_weeks: "Research only"
+    examples:
+      - "Incomplete Implementations"
+      - "Code Snippet Collections"
+      - "Speculative System Designs"
+
+# Evaluation scoring criteria for tier assignment
+scoring_criteria:
+  llm_first_compliance:
+    weight: 0.4
+    tier_mapping:
+      tier_1_2: 0.8  # Built with or easily compatible with LLM-first
+      tier_3_4: 0.6  # Can be adapted with moderate effort
+      tier_5_6: 0.4  # Requires significant wrapper development
+      tier_7_8: 0.2  # Traditional architecture, major adaptation needed
+      
+  sovereignty_alignment:
+    weight: 0.3
+    tier_mapping:
+      tier_1_2: 0.7  # Self-contained or minimal dependencies
+      tier_3_4: 0.5  # Some vendor dependencies but alternatives exist
+      tier_5_6: 0.3  # Heavy dependencies or vendor lock-in
+      tier_7_8: 0.1  # Cloud-only or proprietary dependencies
+      
+  integration_complexity:
+    weight: 0.2
+    tier_mapping:
+      tier_1_2: 0.8  # Direct integration or simple adaptation
+      tier_3_4: 0.6  # Moderate development effort
+      tier_5_6: 0.4  # Significant development and testing
+      tier_7_8: 0.2  # Research-level effort or recreation needed
+      
+  strategic_value:
+    weight: 0.1
+    tier_mapping:
+      high: 0.8     # Revolutionary capability or massive productivity
+      medium: 0.6   # Strong advantage or significant value
+      low: 0.4      # Useful enhancement or specialized capability
+      minimal: 0.2  # Marginal value or niche use case
+
+# Decision automation logic
+decision_matrix:
+  adopt_immediately:
+    condition: "weighted_score >= 0.8 AND llm_first_compliance >= 0.8"
+    applicable_tiers: ["PRODUCTION-READY", "ADVANCED-STABLE"]
+    action: "Begin integration within 1-4 weeks"
+    
+  adapt_and_integrate:
+    condition: "weighted_score >= 0.6 AND strategic_value >= 0.6"
+    applicable_tiers: ["EMERGING-VIABLE", "RESEARCH-READY"]
+    action: "Structured adaptation over 4-12 weeks"
+    
+  research_evaluation:
+    condition: "weighted_score >= 0.4 OR strategic_value >= 0.8"
+    applicable_tiers: ["EXPERIMENTAL-PROMISING", "PROTOTYPE-STAGE"]
+    action: "Research project, 12+ weeks or research-only"
+    
+  pattern_extraction:
+    condition: "strategic_value >= 0.6 AND integration_complexity < 0.4"
+    applicable_tiers: ["CONCEPT-PROOF"]
+    action: "Extract patterns for reimplementation"
+    
+  reject_or_monitor:
+    condition: "weighted_score < 0.4 AND llm_first_compliance < 0.4"
+    applicable_tiers: ["EXPLORATORY"]
+    action: "Document for reference, monitor for evolution"
+
+# Usage guidelines
+usage_guidelines:
+  tool_evaluation_process:
+    step_1: "Score tool against four criteria (LLM-first, sovereignty, complexity, value)"
+    step_2: "Calculate weighted score using criteria weights"
+    step_3: "Apply decision matrix to determine action"
+    step_4: "Assign semantic tier based on characteristics"
+    step_5: "Document decision rationale and timeline"
+    
+  tier_assignment_validation:
+    check_characteristics: "Verify tool matches tier characteristic checklist"
+    validate_timeline: "Confirm timeline aligns with integration complexity"
+    review_examples: "Compare with existing tools in same tier"
+    document_rationale: "Record specific reasons for tier assignment"
+    
+  integration_planning:
+    production_ready: "Immediate integration, minimal risk"
+    advanced_stable: "Planned adaptation, moderate risk"
+    emerging_viable: "Pilot project, managed risk"
+    research_ready: "Research allocation, high risk"
+    experimental_plus: "Innovation budget, very high risk"

@@ -1,0 +1,20 @@
+Command: node ~/ks combos "creative problem solving"
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+🎯 Primary: undefined - Solve Problems By Imagining Radically Different Scenarios
+📋 Category: patterns
+
+🔗 Combo Suggestions:
+   1. undefined (category, strength: 60%)
+      same category: patterns
+   2. undefined (category, strength: 60%)
+      same category: patterns
+   3. undefined (category, strength: 60%)
+      same category: patterns
+
+💡 Start with: Solve Problems By Imagining Radically Different Scenarios, then consider: , 

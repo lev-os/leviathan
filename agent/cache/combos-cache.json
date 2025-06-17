@@ -1,0 +1,2925 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2025-06-11T10:01:22.864Z",
+  "relationships": {
+    "ceo": [
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntj-strategist",
+        "code": "1i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "dev": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntj-strategist",
+        "code": "1i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "doc-shepherd": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntj-strategist",
+        "code": "1i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "stp-adapter": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntj-strategist",
+        "code": "1i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "stj-leader": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntj-strategist",
+        "code": "1i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "sfp-connector": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntj-strategist",
+        "code": "1i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "sfj-caregiver": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntj-strategist",
+        "code": "1i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "ntp-innovator": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntj-strategist",
+        "code": "1i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "ntj-strategist": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "nfj-visionary": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "nfp-advocate": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "technical-writer": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "technical-editor": [
+      {
+        "id": "ceo",
+        "code": "1a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "1b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "doc-shepherd",
+        "code": "1c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "1d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "1e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfp-connector",
+        "code": "1f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "sfj-caregiver",
+        "code": "1g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ntp-innovator",
+        "code": "1h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "systems-thinking": [
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "noise-analysis",
+        "code": "2j",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "vibe-coding": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "noise-analysis",
+        "code": "2j",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "soar-analysis": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "noise-analysis",
+        "code": "2j",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "rice-scoring": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "noise-analysis",
+        "code": "2j",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "reversibility-check": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "noise-analysis",
+        "code": "2j",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "reverse-brainstorming": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "noise-analysis",
+        "code": "2j",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "swot-analysis": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "noise-analysis",
+        "code": "2j",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "scamper-framework": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "noise-analysis",
+        "code": "2j",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "noise-analysis": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "jobs-to-be-done": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "first-principles-thinking": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "extreme-examples": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "figure-storming": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "echo-intelligence-patterns": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "porter-five-forces": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "design-thinking": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "decision-matrix": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "blue-ocean-strategy": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "10-10-10-framework": [
+      {
+        "id": "systems-thinking",
+        "code": "2a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "2b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "2c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "2d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "2e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "2f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "2g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "2h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "reality-check": [
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "cross-context-learning",
+        "code": "3i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "multi-perspective-validation": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "cross-context-learning",
+        "code": "3i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "knowledge-trickling": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "cross-context-learning",
+        "code": "3i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "insight-bubbling": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "cross-context-learning",
+        "code": "3i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "entropy-router": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "cross-context-learning",
+        "code": "3i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "emotion-synthesis": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "cross-context-learning",
+        "code": "3i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "document-synthesis": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "cross-context-learning",
+        "code": "3i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "design-thinking-process": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "cross-context-learning",
+        "code": "3i",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "cross-context-learning": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "external-tools-research": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "cognitive-parliament": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "kingly-builder": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "documentation-audit": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "adr-generation": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "three-tier-deep": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "bdd-specification": [
+      {
+        "id": "reality-check",
+        "code": "3a",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "3b",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "3c",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "3d",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "3e",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "emotion-synthesis",
+        "code": "3f",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "document-synthesis",
+        "code": "3g",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "design-thinking-process",
+        "code": "3h",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ]
+  },
+  "powerCombos": {
+    "creative-problem-solving": {
+      "name": "Creative Problem Solving",
+      "description": "Systematic approach to creative problem solving",
+      "core": [
+        "2f",
+        "2k",
+        "1i"
+      ],
+      "support": [
+        "first-principles-thinking",
+        "reverse-brainstorming",
+        "extreme-examples"
+      ],
+      "sequence": [
+        "2f",
+        "2k",
+        "1i"
+      ],
+      "effectiveness": 0.92
+    },
+    "strategic-decision": {
+      "name": "Strategic Decision Making",
+      "description": "Comprehensive framework for strategic decisions",
+      "core": [
+        "3b",
+        "2i",
+        "porter-five-forces"
+      ],
+      "support": [
+        "decision-matrix",
+        "reversibility-check",
+        "swot-analysis"
+      ],
+      "sequence": [
+        "2i",
+        "porter-five-forces",
+        "3b"
+      ],
+      "effectiveness": 0.88
+    },
+    "innovation-pipeline": {
+      "name": "Innovation Pipeline",
+      "description": "End-to-end innovation development",
+      "core": [
+        "1i",
+        "design-thinking",
+        "jobs-to-be-done"
+      ],
+      "support": [
+        "blue-ocean-strategy",
+        "value-proposition-canvas",
+        "first-principles-thinking"
+      ],
+      "sequence": [
+        "jobs-to-be-done",
+        "design-thinking",
+        "1i"
+      ],
+      "effectiveness": 0.85
+    },
+    "user-research": {
+      "name": "Deep User Research",
+      "description": "Comprehensive user understanding framework",
+      "core": [
+        "2i",
+        "jobs-to-be-done",
+        "1k"
+      ],
+      "support": [
+        "design-thinking",
+        "empathy-mapping",
+        "user-journey"
+      ],
+      "sequence": [
+        "2i",
+        "jobs-to-be-done",
+        "1k"
+      ],
+      "effectiveness": 0.9
+    },
+    "system-optimization": {
+      "name": "System Optimization",
+      "description": "Holistic system analysis and optimization",
+      "core": [
+        "systems-thinking",
+        "1f",
+        "first-principles-thinking"
+      ],
+      "support": [
+        "value-stream-mapping",
+        "constraint-theory",
+        "optimization"
+      ],
+      "sequence": [
+        "systems-thinking",
+        "first-principles-thinking",
+        "1f"
+      ],
+      "effectiveness": 0.87
+    }
+  },
+  "chains": {
+    "research-to-action": [
+      "2i",
+      "jobs-to-be-done",
+      "design-thinking",
+      "1a"
+    ],
+    "problem-to-solution": [
+      "2k",
+      "first-principles-thinking",
+      "2f",
+      "1i"
+    ],
+    "strategy-to-execution": [
+      "porter-five-forces",
+      "3b",
+      "decision-matrix",
+      "1a"
+    ],
+    "ideation-to-validation": [
+      "2f",
+      "2k",
+      "design-thinking",
+      "lean-startup"
+    ],
+    "analysis-to-insight": [
+      "systems-thinking",
+      "first-principles-thinking",
+      "1k",
+      "3b"
+    ]
+  },
+  "workflowCount": 48
+}

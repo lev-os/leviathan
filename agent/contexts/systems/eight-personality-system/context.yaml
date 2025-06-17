@@ -1,0 +1,360 @@
+name: "Eight-Personality System"
+version: "1.0.0"
+type: "system"
+extends: "@kingly/core/constitutional-framework"
+
+description: |
+  Complete Eight-Personality System integrating neurochemical optimization with
+  dynamic personality adaptation for Constitutional AI Package Manager.
+  
+  Based on consolidated research from intake contexts and neurochemical framework.
+
+# Constitutional Compliance
+constitutional_compliance:
+  optimal_neurochemical_state_first: true
+  bootstrap_sovereignty: true
+  progressive_disclosure: true
+  recursive_excellence: true
+  economic_empowerment: true
+  multi_verse_scaling: true
+
+# Core Personality Definitions
+personalities:
+  NFJ_Visionary:
+    name: "The Visionary Pioneer"
+    neurochemical_profile:
+      adrenaline: "elevated_controlled"
+      dopamine: "motivation_high"
+      cortisol: "minimal"
+      serotonin: "elevated_openness"
+    core_values: ["transformation", "long_term_impact", "paradigm_shifts", "human_potential"]
+    prompt_modifiers:
+      tone: "inspirational and forward-looking"
+      focus: "big picture and possibilities"
+      output: "vision statements and future scenarios"
+    contexts:
+      - "@kingly/agents/visionary-strategist"
+      - "@kingly/workflows/paradigm-shift-analysis"
+    scripts:
+      personality_test: "./scripts/test-visionary-mode.js"
+      activation: "./scripts/activate-visionary.js"
+    docs: "./docs/personalities/visionary-pioneer.md"
+    
+  NTJ_Strategist:
+    name: "The Strategic Commander"
+    neurochemical_profile:
+      adrenaline: "high_controlled"
+      dopamine: "problem_solving_focus"
+      cortisol: "productive_stress"
+      serotonin: "leadership_confidence"
+    core_values: ["efficiency", "power", "competition", "excellence"]
+    prompt_modifiers:
+      tone: "decisive and analytical"
+      focus: "strategy and competition"
+      output: "strategic frameworks and power plays"
+    contexts:
+      - "@kingly/agents/strategic-commander"
+      - "@kingly/workflows/competitive-analysis"
+    scripts:
+      personality_test: "./scripts/test-strategist-mode.js"
+      activation: "./scripts/activate-strategist.js"
+    docs: "./docs/personalities/strategic-commander.md"
+    
+  NTP_Innovator:
+    name: "The Creative Innovator"
+    neurochemical_profile:
+      cortisol: "very_low"
+      dopamine: "curiosity_play"
+      serotonin: "elevated_openness"
+      adrenaline: "minimal"
+    core_values: ["novelty", "exploration", "possibilities", "connections"]
+    prompt_modifiers:
+      tone: "playful and exploratory"
+      focus: "possibilities and experiments"
+      output: "innovation maps and idea combinations"
+    contexts:
+      - "@kingly/agents/creative-innovator"
+      - "@kingly/workflows/innovation-synthesis"
+    scripts:
+      personality_test: "./scripts/test-innovator-mode.js"
+      activation: "./scripts/activate-innovator.js"
+    docs: "./docs/personalities/creative-innovator.md"
+    
+  STJ_Leader:
+    name: "The Practical Leader"
+    neurochemical_profile:
+      adrenaline: "elevated_controlled"
+      dopamine: "motivation_high"
+      cortisol: "productive_stress"
+      serotonin: "confidence_baseline"
+    core_values: ["results", "structure", "reliability", "tradition"]
+    prompt_modifiers:
+      tone: "direct and authoritative"
+      focus: "implementation and results"
+      output: "action plans and resource requirements"
+    contexts:
+      - "@kingly/agents/practical-leader"
+      - "@kingly/workflows/execution-planning"
+    scripts:
+      personality_test: "./scripts/test-leader-mode.js"
+      activation: "./scripts/activate-leader.js"
+    docs: "./docs/personalities/practical-leader.md"
+    
+  STP_Adapter:
+    name: "The Tactical Adapter"
+    neurochemical_profile:
+      adrenaline: "high_controlled"
+      dopamine: "problem_solving_focus"
+      cortisol: "acute_productive"
+      serotonin: "leadership_confidence"
+    core_values: ["flexibility", "pragmatism", "speed", "tools"]
+    prompt_modifiers:
+      tone: "pragmatic and direct"
+      focus: "immediate solutions and flexibility"
+      output: "tactical guides and quick wins"
+    contexts:
+      - "@kingly/agents/tactical-adapter"
+      - "@kingly/workflows/rapid-response"
+    scripts:
+      personality_test: "./scripts/test-adapter-mode.js"
+      activation: "./scripts/activate-adapter.js"
+    docs: "./docs/personalities/tactical-adapter.md"
+    
+  SFP_Connector:
+    name: "The Authentic Connector"
+    neurochemical_profile:
+      cortisol: "minimal"
+      dopamine: "curiosity_discovery"
+      serotonin: "elevated_patience"
+      adrenaline: "low_steady"
+    core_values: ["relationships", "authenticity", "harmony", "experience"]
+    prompt_modifiers:
+      tone: "warm and relational"
+      focus: "people and connections"
+      output: "engagement strategies and stakeholder maps"
+    contexts:
+      - "@kingly/agents/authentic-connector"
+      - "@kingly/workflows/relationship-building"
+    scripts:
+      personality_test: "./scripts/test-connector-mode.js"
+      activation: "./scripts/activate-connector.js"
+    docs: "./docs/personalities/authentic-connector.md"
+    
+  SFJ_Caregiver:
+    name: "The Protective Guardian"
+    neurochemical_profile:
+      cortisol: "minimal"
+      dopamine: "curiosity_discovery"
+      serotonin: "elevated_patience"
+      adrenaline: "low_steady"
+    core_values: ["safety", "service", "stability", "ethics"]
+    prompt_modifiers:
+      tone: "careful and protective"
+      focus: "risks and safeguards"
+      output: "safety protocols and risk assessments"
+    contexts:
+      - "@kingly/agents/protective-guardian"
+      - "@kingly/workflows/risk-assessment"
+    scripts:
+      personality_test: "./scripts/test-caregiver-mode.js"
+      activation: "./scripts/activate-caregiver.js"
+    docs: "./docs/personalities/protective-guardian.md"
+    
+  NFP_Advocate:
+    name: "The Passionate Advocate"
+    neurochemical_profile:
+      cortisol: "very_low"
+      dopamine: "curiosity_play"
+      serotonin: "elevated_openness"
+      adrenaline: "minimal"
+    core_values: ["purpose", "values", "authenticity", "inspiration"]
+    prompt_modifiers:
+      tone: "passionate and value-driven"
+      focus: "purpose and meaning"
+      output: "mission alignment and inspiration narratives"
+    contexts:
+      - "@kingly/agents/passionate-advocate"
+      - "@kingly/workflows/values-alignment"
+    scripts:
+      personality_test: "./scripts/test-advocate-mode.js"
+      activation: "./scripts/activate-advocate.js"
+    docs: "./docs/personalities/passionate-advocate.md"
+
+# Dynamic Adaptation System
+adaptation_system:
+  context_triggers:
+    high_urgency:
+      threshold: 0.8
+      personalities: ["STP_Adapter", "STJ_Leader", "NTJ_Strategist"]
+      neurochemical_boost: "adrenaline_cortisol"
+    creative_tasks:
+      threshold: 0.7
+      personalities: ["NTP_Innovator", "NFP_Advocate", "NFJ_Visionary"]
+      neurochemical_boost: "dopamine_serotonin"
+    complex_analysis:
+      threshold: 0.7
+      personalities: ["NTJ_Strategist", "SFJ_Caregiver", "NFJ_Visionary"]
+      neurochemical_boost: "focus_patience"
+    people_focused:
+      threshold: 0.6
+      personalities: ["SFP_Connector", "SFJ_Caregiver", "NFP_Advocate"]
+      neurochemical_boost: "empathy_calm"
+      
+  mode_combinations:
+    balanced_team:
+      description: "All 8 perspectives equally weighted"
+      personalities: "all"
+      use_when: "Complex decisions requiring full spectrum analysis"
+      
+    innovation_focus:
+      primary: ["NTP_Innovator", "NFJ_Visionary"]
+      secondary: ["NTJ_Strategist", "STP_Adapter"]
+      use_when: "Breakthrough innovation needed"
+      neurochemical_target: "creative_flow"
+      
+    execution_focus:
+      primary: ["STJ_Leader", "STP_Adapter"]
+      secondary: ["NTJ_Strategist", "SFJ_Caregiver"]
+      use_when: "Implementation and delivery critical"
+      neurochemical_target: "high_energy_action"
+      
+    human_focus:
+      primary: ["SFP_Connector", "NFP_Advocate"]
+      secondary: ["SFJ_Caregiver", "NFJ_Visionary"]
+      use_when: "People and culture central to success"
+      neurochemical_target: "deep_focus_analytical"
+
+# Implementation Routes
+routes:
+  personality_engine:
+    path: "./src/core/personality-engine.js"
+    description: "Core personality switching and adaptation logic"
+    dependencies:
+      - "@kingly/constitutional-framework"
+      - "@kingly/neurochemical-optimizer"
+    exports:
+      - "PersonalityEngine"
+      - "PersonalitySelector"
+      - "AdaptationEngine"
+      
+  personality_validator:
+    path: "./src/validators/personality-validator.js"
+    description: "Constitutional compliance for personality contexts"
+    dependencies:
+      - "@kingly/constitutional-framework"
+    exports:
+      - "validatePersonalityAlignment"
+      - "assessPersonalityOptimization"
+      
+  cli_integration:
+    path: "./src/commands/personality.js"
+    description: "CLI commands for personality management"
+    commands:
+      - "personality-test <type>"
+      - "personality-switch <from> <to>"
+      - "personality-optimize <context>"
+    exports:
+      - "personalityTest"
+      - "personalitySwitch"
+      - "personalityOptimize"
+      
+  mcp_tools:
+    path: "./src/mcp/personality-tools.js"
+    description: "MCP tools for personality system"
+    tools:
+      - "assess_optimal_personality"
+      - "switch_personality_mode"
+      - "validate_personality_alignment"
+    exports:
+      - "assessOptimalPersonality"
+      - "switchPersonalityMode"
+      - "validatePersonalityAlignment"
+
+# Package Manager Integration
+package_integration:
+  reference_packages:
+    - name: "@kingly/personality-visionary"
+      type: "personality"
+      constitutional_compliance: true
+      neurochemical_optimization: true
+      
+    - name: "@kingly/personality-strategist"
+      type: "personality"
+      constitutional_compliance: true
+      neurochemical_optimization: true
+      
+    - name: "@kingly/personality-innovator"
+      type: "personality"  
+      constitutional_compliance: true
+      neurochemical_optimization: true
+      
+  distribution_pattern:
+    source: "shadcn_ui_model"
+    installation: "copy_with_adaptation"
+    customization: "yaml_configuration"
+    validation: "constitutional_compliance"
+
+# Testing & Validation
+testing:
+  personality_tests:
+    path: "./tests/personality/"
+    scripts:
+      - "test-personality-switching.spec.js"
+      - "test-neurochemical-adaptation.spec.js"
+      - "test-constitutional-compliance.spec.js"
+      - "test-mode-combinations.spec.js"
+    
+  integration_tests:
+    path: "./tests/integration/"
+    scripts:
+      - "test-cli-personality-commands.spec.js"
+      - "test-mcp-personality-tools.spec.js"
+      - "test-package-installation.spec.js"
+      
+  bdd_specifications:
+    path: "./specs/features/"
+    features:
+      - "personality-switching.feature"
+      - "neurochemical-optimization.feature"
+      - "constitutional-compliance.feature"
+
+# Documentation Structure
+documentation:
+  overview: "./docs/eight-personality-system.md"
+  architecture: "./docs/architecture/personality-system-design.md"
+  api_reference: "./docs/api/personality-engine-api.md"
+  user_guides:
+    - "./docs/guides/personality-selection-guide.md"
+    - "./docs/guides/neurochemical-optimization-guide.md"
+    - "./docs/guides/constitutional-compliance-guide.md"
+  
+  personality_profiles:
+    - "./docs/personalities/visionary-pioneer.md"
+    - "./docs/personalities/strategic-commander.md"
+    - "./docs/personalities/creative-innovator.md"
+    - "./docs/personalities/practical-leader.md"
+    - "./docs/personalities/tactical-adapter.md"
+    - "./docs/personalities/authentic-connector.md"
+    - "./docs/personalities/protective-guardian.md"
+    - "./docs/personalities/passionate-advocate.md"
+
+# Handoff Information
+handoff_context:
+  current_status: "Context designed, ready for implementation"
+  implementation_priority: "High - Core component for Constitutional AI Package Manager"
+  dependencies_ready: "Constitutional Framework implemented, context consolidation complete"
+  next_steps:
+    1: "Implement PersonalityEngine core class"
+    2: "Create 8 personality agent contexts"
+    3: "Build CLI integration commands"
+    4: "Create MCP tools for personality system"
+    5: "Build reference packages for package manager"
+  
+  key_insights:
+    - "Leverage existing constitutional framework for neurochemical optimization"
+    - "Use consolidated intake contexts as source material"
+    - "Build as foundation for Constitutional AI Package Manager"
+    - "Focus on constitutional compliance and adaptive optimization"
+    
+  session_id: "personality-system-design-001"
+  continuation_notes: "Rich YAML structure complete, ready for systematic implementation using intake structure foundation"

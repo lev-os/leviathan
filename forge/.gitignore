@@ -1,0 +1,11 @@
+# Default: Ignore all subdirectories in forge/
+# Remove lines below for projects you want to track
+
+mcp-manager/
+sunny-mvp-electron/
+
+# Explicitly ignore common patterns
+*.log
+.DS_Store
+node_modules/
+.env*

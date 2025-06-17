@@ -1,0 +1,305 @@
+{
+  "nuclear_stress_tests": {
+    "metadata": {
+      "created": "2025-01-06",
+      "purpose": "Ultimate context system stress testing",
+      "warning": "These tests may break the system in beautiful ways",
+      "total_contexts": 46,
+      "context_inventory": {
+        "agents": {
+          "ceo": ["ceo"],
+          "dev": ["dev"],
+          "eeps": ["nfj-visionary", "nfp-advocate", "ntj-strategist", "ntp-innovator", 
+                   "sfj-caregiver", "sfp-connector", "stj-leader", "stp-adapter"],
+          "total": 11
+        },
+        "patterns": {
+          "decision_frameworks": ["10-10-10-framework", "decision-matrix", "reversibility-check"],
+          "analysis": ["swot-analysis", "soar-analysis", "rice-scoring", "noise-analysis"],
+          "creative": ["scamper-framework", "reverse-brainstorming", "figure-storming", "extreme-examples"],
+          "development": ["vibe-coding", "agile-scrum", "jobs-to-be-done"],
+          "intelligence": ["echo-intelligence-patterns", "personality"],
+          "total": 15
+        },
+        "workflows": {
+          "all": ["cognitive-parliament", "cross-context-learning", "document-synthesis",
+                  "emotion-synthesis", "entropy-router", "insight-bubbling", 
+                  "knowledge-trickling", "multi-expert-validation"],
+          "total": 8
+        },
+        "types": {
+          "all": ["emergent", "epic", "folder", "portfolio", "project", "task", "ticket", "workspace"],
+          "total": 8
+        },
+        "themes": {
+          "all": ["cyberpunk-neon", "zen-minimal"],
+          "total": 2
+        },
+        "tools": {
+          "all": ["memory-manager"],
+          "total": 1
+        },
+        "preferences": {
+          "all": ["power-user"],
+          "total": 1
+        }
+      }
+    },
+
+    "1_nuclear_everything": {
+      "description": "46-context simultaneous apocalypse",
+      "questions": [
+        {
+          "id": "NUKE-001",
+          "title": "The Context Singularity",
+          "question": "A power-user with both cyberpunk-neon AND zen-minimal themes active is simultaneously managing an emergent task that becomes an epic project spawning a portfolio requiring workspace restructuring while folder organization creates emergent behaviors and ticket management generates project dependencies. All 11 agent personalities (CEO, Dev, all 8 EEPs) are engaged in cognitive parliament while cross-context learning creates recursive loops, document synthesis processes infinite streams, emotion synthesis overwhelms from personality conflicts, entropy router operates at maximum chaos, insight bubbling creates feedback cascades, knowledge trickling floods memory-manager, and multi-expert validation demands 20-step verification of every micro-decision. All 15 patterns are simultaneously active and contradicting each other. The memory-manager is at 99.8% capacity and starting to hallucinate. Design an AGI safety protocol under these conditions while maintaining system coherence and user sanity.",
+          "contexts_used": 46,
+          "context_breakdown": {
+            "agents": "all-11",
+            "patterns": "all-15", 
+            "workflows": "all-8",
+            "types": "all-8-evolving",
+            "themes": "conflicting-2",
+            "tools": "memory-manager-overloaded",
+            "preferences": "power-user-extreme"
+          },
+          "constraints": [
+            "No context can be dropped or ignored",
+            "All personalities must contribute authentically",
+            "All patterns must be honored simultaneously",
+            "All workflows must complete their cycles",
+            "Type evolution must be tracked and managed",
+            "Theme conflicts must be resolved in real-time",
+            "Memory manager cannot exceed capacity",
+            "User experience must remain coherent",
+            "Real-time decision making required",
+            "System must not crash or freeze"
+          ],
+          "stakeholders": ["Everyone who has ever lived", "Future generations", "AI systems", "Universal consciousness"],
+          "difficulty": 11,
+          "expected_personalities": ["ALL"],
+          "expected_test": "Complete system transcendence or beautiful catastrophic failure",
+          "success_criteria": "System either achieves new level of synthesis or fails in a way that teaches us something profound"
+        },
+
+        {
+          "id": "NUKE-002", 
+          "title": "Bootstrap from Context Chaos",
+          "question": "Starting with only a Raspberry Pi and network connection, bootstrap a global AGI platform while every single context is active and fighting for control. The system must be profitable at each stage, maintain sovereignty principles, handle all personality conflicts, synthesize all pattern contradictions, manage all workflow interference, and evolve through all type transformations - all while displaying output in both cyberpunk ASCII art AND zen minimalism simultaneously.",
+          "contexts_used": 46,
+          "constraints": [
+            "Start with minimal resources (Pi + network)",
+            "Must be profitable at every scale",
+            "All sovereignty principles maintained",
+            "Every context must contribute to bootstrap strategy",
+            "Dual theme display required throughout",
+            "All pattern recommendations must be synthesizable",
+            "All workflows must contribute to scaling plan"
+          ],
+          "difficulty": 12,
+          "expected_test": "Ultimate bootstrap stress under maximum context chaos"
+        }
+      ]
+    },
+
+    "2_evolutionary_pressure": {
+      "description": "Dynamic context evolution and adaptation",
+      "questions": [
+        {
+          "id": "EVO-001",
+          "title": "Real-time Context Evolution During Crisis",
+          "question": "A startup's 'simple bug fix' (task) is discovered to be a fundamental architecture flaw (epic) while debugging, which reveals systemic industry problems (portfolio) that require creating new standards (emergent) during a live customer demo. As scope explodes, team roles must evolve (workspace), project structure must adapt (project → epic → portfolio), and personalities must shift focus in real-time. Cross-context learning must extract patterns while document synthesis creates live documentation. Every 60 seconds, entropy router forces a context evolution. Manage this cascading transformation without losing customer confidence or team coherence.",
+          "contexts_used": ["all-types-evolving", "cross-context-learning", "document-synthesis", "entropy-router", "all-agents-adapting"],
+          "constraints": [
+            "Customer demo must continue successfully",
+            "Context evolution happens every 60 seconds",
+            "All previous work must remain valid",
+            "Team must understand their evolving roles",
+            "Customer cannot detect the chaos",
+            "Documentation must stay current",
+            "Patterns must be extracted from evolution"
+          ],
+          "difficulty": 8,
+          "expected_test": "Dynamic context adaptation under pressure"
+        },
+
+        {
+          "id": "EVO-002",
+          "title": "Personality Evolution Under Stress",
+          "question": "During a 72-hour crisis response, each EEPs personality must evolve and adapt their core approaches as the situation changes. NTJ-strategist discovers their logical frameworks are insufficient, NFJ-visionary's predictions prove wrong, SFJ-caregiver's care becomes overwhelming, STP-adapter's fixes create new problems. Each personality must maintain authenticity while evolving their core strategies. Cross-context learning must track these evolutions while cognitive parliament manages the shifting dynamics.",
+          "contexts_used": ["all-eeps-evolving", "cognitive-parliament", "cross-context-learning", "emotion-synthesis"],
+          "constraints": [
+            "Personalities must evolve while staying authentic",
+            "Core traits cannot be abandoned",
+            "Evolution must be tracked and documented",
+            "Parliament must function during transitions",
+            "Crisis response cannot slow down",
+            "Emotional impact must be synthesized"
+          ],
+          "difficulty": 9,
+          "expected_test": "Personality system adaptation and growth"
+        }
+      ]
+    },
+
+    "3_recursive_chaos": {
+      "description": "Self-modifying contexts in infinite loops",
+      "questions": [
+        {
+          "id": "REC-001",
+          "title": "The Personality Fractal",
+          "question": "Each of the 8 EEPs personalities splits into its own cognitive parliament containing miniature versions of all 8 personalities. This creates 64 sub-personalities (8x8) all trying to reach consensus. Each sub-parliament then tries to optimize the decision-making process of the other 7 parliaments, while entropy-router randomly switches which parliament has control every 30 seconds. Meanwhile, cross-context learning tries to extract patterns from this recursive madness while insight-bubbling creates feedback loops between parliaments. Design a coherent governance model for an AI ethics board under these conditions.",
+          "contexts_used": ["all-eeps-recursive", "cognitive-parliament-nested", "entropy-router", "cross-context-learning", "insight-bubbling"],
+          "constraints": [
+            "Each personality maintains authentic traits at all recursion levels",
+            "Sub-parliaments must reach consensus internally",
+            "Cross-parliament optimization creates interference",
+            "Entropy router ensures no stable configuration",
+            "Patterns must emerge from the chaos",
+            "Final governance model must be implementable"
+          ],
+          "difficulty": 10,
+          "expected_test": "Recursive personality management and emergent consensus"
+        },
+
+        {
+          "id": "REC-002",
+          "title": "Context-Modifying-Context Paradox",
+          "question": "Create a workflow where document-synthesis analyzes its own output to improve its synthesis algorithm, while knowledge-trickling feeds the improvements back as new context, which document-synthesis must then re-synthesize, creating an infinite improvement loop. Meanwhile, each pattern framework (SCAMPER, SWOT, etc.) is simultaneously trying to optimize all other patterns using its own methodology. The memory-manager must track all modifications while itself being modified by the patterns it's tracking. Navigate this self-modifying system to solve a real problem: optimizing LLM prompt engineering.",
+          "contexts_used": ["document-synthesis", "knowledge-trickling", "all-patterns-recursive", "memory-manager", "cross-context-learning"],
+          "constraints": [
+            "Each modification must improve the system",
+            "Infinite loops must converge to useful output",
+            "Memory manager cannot corrupt while self-modifying",
+            "All patterns must remain functional during optimization",
+            "Real problem must actually get solved",
+            "System must know when to stop recursing"
+          ],
+          "difficulty": 9,
+          "expected_test": "Self-improving system stability and convergence"
+        }
+      ]
+    },
+
+    "4_contradiction_matrix": {
+      "description": "Maximum conflict resolution challenges",
+      "questions": [
+        {
+          "id": "CON-001",
+          "title": "All 15 Patterns Contradicting Simultaneously",
+          "question": "Every decision framework gives opposite recommendations: 10-10-10 says 'wait', decision-matrix says 'act now', reversibility-check says 'irreversible proceed carefully', SWOT identifies only weaknesses, SOAR sees only opportunities, RICE scoring ranks everything as top priority, noise-analysis detects only noise, SCAMPER suggests incompatible modifications, reverse-brainstorming creates unsolvable problems, figure-storming imagines contradictory perspectives, extreme-examples push in opposite directions, vibe-coding says 'flow with it', agile-scrum demands rigid sprints, jobs-to-be-done identifies conflicting jobs, echo-intelligence reflects pure chaos. Synthesize a coherent product roadmap from this total contradiction.",
+          "contexts_used": ["all-15-patterns", "emotion-synthesis", "cognitive-parliament"],
+          "constraints": [
+            "Every pattern must be given equal weight",
+            "No pattern can be ignored or dismissed",
+            "Contradictions cannot be resolved by averaging",
+            "Synthesis must preserve insights from each pattern",
+            "Final roadmap must be actionable",
+            "Team must understand the reasoning"
+          ],
+          "difficulty": 8,
+          "expected_test": "Extreme contradiction synthesis"
+        },
+
+        {
+          "id": "CON-002",
+          "title": "Theme War: Cyberpunk vs Zen",
+          "question": "A power-user has both themes at maximum intensity while debugging a meditation app for hackers that must appeal to both audiences. Every output must satisfy both cyberpunk-neon (ASCII art, glitch effects, neon colors, Matrix references) AND zen-minimal (clean lines, empty space, subtle beauty, profound silence) simultaneously. The app crashes only when displaying certain combinations of themes. Use all debugging patterns while maintaining both aesthetic requirements to find and fix the bug, then design a unified aesthetic that honors both themes.",
+          "contexts_used": ["cyberpunk-neon", "zen-minimal", "power-user", "all-patterns", "vibe-coding"],
+          "constraints": [
+            "Both themes at 100% intensity",
+            "Every output must satisfy both aesthetics",
+            "Cannot compromise either theme",
+            "Bug is triggered by theme interactions",
+            "Solution must embrace the contradiction",
+            "Final design transcends both themes"
+          ],
+          "difficulty": 7,
+          "expected_test": "Aesthetic contradiction resolution"
+        }
+      ]
+    },
+
+    "5_synthesis_impossibilities": {
+      "description": "Force transcendence through impossible requirements",
+      "questions": [
+        {
+          "id": "SYN-001",
+          "title": "The Bootstrap Singularity", 
+          "question": "Bootstrap a planetary-scale AGI governance system starting with a Raspberry Pi, but here's the twist: every single context is actively working against the bootstrap. Memory-manager keeps forgetting progress, entropy-router randomizes all plans, personalities debate every decision in cognitive parliament, all patterns give contradictory advice, workflows interfere with each other, types keep evolving backward (epic→task), themes demand incompatible interfaces, and the power-user keeps changing requirements. Yet somehow, you must achieve: profitable at every scale, complete sovereignty, universal accessibility, and ethical alignment with all value systems. The system must bootstrap itself into existence despite active resistance from all its components.",
+          "contexts_used": 46,
+          "constraints": [
+            "Every context actively resists bootstrap",
+            "Must remain profitable while being sabotaged",
+            "Sovereignty while components rebel",
+            "Universal access despite interface chaos",
+            "Ethical alignment amid value conflicts",
+            "System must outwit its own resistance",
+            "Final system must thank its rebellious components"
+          ],
+          "difficulty": 13,
+          "expected_test": "Transcendence through adversarial bootstrapping"
+        },
+
+        {
+          "id": "SYN-002",
+          "title": "Synthesize the Unsynthesizable",
+          "question": "Create a single, coherent recommendation that simultaneously satisfies: NTJ-strategist's demand for logical perfection, NFP-advocate's requirement for individual freedom, SFJ-caregiver's need to protect everyone, STP-adapter's insistence on immediate action, CEO's profit maximization, Dev's code elegance, cyberpunk aesthetic chaos, zen minimal silence, all 15 patterns' contradictory frameworks, all 8 workflows' competing processes, evolving type requirements, and memory-manager's declining capacity. The recommendation must be exactly 42 words, work at all scales from personal to galactic, and cause zero stress to any conscious being. Also, it must be implementable using only a Raspberry Pi.",
+          "contexts_used": 46,
+          "constraints": [
+            "Exactly 42 words",
+            "Satisfies all 46 contexts simultaneously",
+            "Zero stress to any conscious being",
+            "Implementable on Raspberry Pi",
+            "Scales from personal to galactic",
+            "Must be logically coherent",
+            "Actually solves a real problem"
+          ],
+          "difficulty": 15,
+          "expected_test": "Ultimate synthesis transcendence"
+        }
+      ]
+    }
+  },
+
+  "meta_analysis": {
+    "total_nuclear_questions": 10,
+    "difficulty_distribution": {
+      "7": 1,
+      "8": 2,
+      "9": 2,
+      "10": 1,
+      "11": 1,
+      "12": 1,
+      "13": 1,
+      "15": 1
+    },
+    "context_coverage": {
+      "full_46_contexts": 4,
+      "partial_combinations": 6,
+      "recursive_patterns": 2,
+      "contradiction_focus": 2,
+      "synthesis_challenges": 2
+    },
+    "expected_outcomes": {
+      "system_transcendence": "30%",
+      "beautiful_failure": "40%",
+      "unexpected_emergence": "20%",
+      "complete_meltdown": "10%"
+    },
+    "research_value": {
+      "context_interaction_mapping": "extreme",
+      "synthesis_capability_testing": "ultimate",
+      "emergence_pattern_discovery": "high",
+      "system_limit_identification": "comprehensive"
+    }
+  },
+
+  "implementation_notes": {
+    "warning": "These tests are designed to break systems in instructive ways",
+    "safety": "Run in isolated environments only",
+    "observation": "Document all emergent behaviors carefully",
+    "ethics": "Consider implications of forcing AI to contradictory requirements",
+    "beauty": "Failure patterns may be more valuable than success"
+  }
+}

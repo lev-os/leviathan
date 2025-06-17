@@ -1,0 +1,66 @@
+metadata:
+  type: "project"
+  id: "timetravel"
+  name: "AI Future Research"
+  description: "Positioning Kingly/FlowMind for the future of AI through systematic research"
+  version: "1.0.0"
+  
+project_config:
+  imports:
+    - "@kingly/core/agents/research/deep-researcher"
+    - "@kingly/core/workflows/research/three-tier-deep"
+    - "@kingly/core/patterns/personality"
+    - "@kingly/core/patterns/extreme-examples"
+    - "@kingly/core/tools/research/mcp-suite"
+    
+  research_domains:
+    primary_topics:
+      - subquadratic_architectures
+      - world_models
+      - reasoning_evolution
+      - efficiency_innovations
+      
+    secondary_topics:
+      - multimodal_integration
+      - embodied_ai
+      - regulatory_landscape
+      - market_dynamics
+      
+  personality_focus:
+    primary: 
+      - sovereignty_architect  # Independence and self-reliance focus
+      - abundance_amplifier    # 10x opportunity identification
+      - visionary_pioneer      # Paradigm shift recognition
+      
+    secondary:
+      - cortisol_guardian      # Risk assessment and threat analysis
+      - strategic_commander    # Competitive positioning insights
+      - empathetic_connector   # User impact and adoption factors
+      - practical_builder      # Implementation requirements
+      - systems_thinker        # Interconnections and emergent properties
+
+  research_schedule:
+    weekly_deep_research: 
+      day: "Tuesday"
+      duration: "2_hours"
+      workflow: "@kingly/core/workflows/research/three-tier-deep"
+      
+    trend_monitoring:
+      frequency: "daily"
+      duration: "15_minutes"
+      sources: ["academic", "industry", "social"]
+      
+    strategic_synthesis:
+      frequency: "monthly"
+      duration: "4_hours"
+      output: "strategic_positioning_report"
+
+  output_configuration:
+    reports_directory: "./outputs/reports"
+    memory_directory: "./memory"
+    research_log: "./outputs/research-log.md"
+    
+    report_templates:
+      weekly: "three_tier_analysis"
+      monthly: "strategic_synthesis"
+      quarterly: "positioning_update"

@@ -1,0 +1,18 @@
+Command: node ~/ks post-job --instructions "test job posting" --type "analysis" --minutes 15
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+💼 JOB POSTED SUCCESSFULLY
+==================================================
+Job ID: job-2025-06-12-jklg2q
+Posted to: mcp-mvp
+Type: analysis
+Instructions: test job posting
+Estimated: 15 minutes
+
+📋 Other tabs can accept with:
+   load --accept-job job-2025-06-12-jklg2q

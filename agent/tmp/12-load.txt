@@ -1,0 +1,20 @@
+Command: node ~/ks load
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+🎯 CEO INTELLIGENCE LOADED
+==================================================
+Agent: ceo
+Workspace: mcp-mvp
+Session: 2025-06-12-session-l3vcwk
+Intelligence: [session-management, workflow-discovery, context-restoration]
+==================================================
+✅ Session context restored
+📝 Session context loaded. Continue with: development workflow
+
+🔄 Next Action: Remember session ID: 2025-06-12-session-l3vcwk - use in next load
+📋 Multi-Tab: Each Claude Code tab gets unique session ID. Use ping/handoff to coordinate.

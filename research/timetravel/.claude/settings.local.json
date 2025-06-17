@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./kingly-sim.sh:*)",
+      "mcp__brave-search__brave_web_search",
+      "mcp__perplexity-ask__perplexity_ask",
+      "mcp__desktop-commander__write_file",
+      "mcp__desktop-commander__read_multiple_files",
+      "mcp__desktop-commander__create_directory",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(source:*)",
+      "Bash(./kingly checkpoint \"TimeTravel MVP complete, executing AI futures research\")",
+      "Bash(~/mvp/bin/kingly checkpoint \"TimeTravel MVP complete, executing AI futures research\")",
+      "Bash(~/mvp/bin/kingly checkpoint \"2025-06-13-session-43k8o2\")",
+      "Bash(npm run research:*)",
+      "mcp__desktop-commander__read_file",
+      "mcp__desktop-commander__edit_block",
+      "mcp__desktop-commander__execute_command",
+      "mcp__desktop-commander__list_directory",
+      "mcp__desktop-commander__search_code",
+      "Bash(mv:*)",
+      "Bash(chmod:*)"
+    ],
+    "deny": []
+  }
+}

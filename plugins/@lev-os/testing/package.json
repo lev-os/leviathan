@@ -1,0 +1,29 @@
+{
+  "name": "@lev-os/testing",
+  "version": "0.1.0",
+  "description": "Universal testing framework for Leviathan core packages and community plugins (sponsored by Kingly Agency)",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node src/test.js",
+    "test:plugins": "node src/test-plugins.js",
+    "test:discovery": "node src/test-discovery.js",
+    "test:integration": "node src/test-integration.js",
+    "test:community": "node src/test-community.js"
+  },
+  "dependencies": {
+    "@lev-os/debug": "workspace:*",
+    "js-yaml": "^4.1.0",
+    "glob": "^11.0.0",
+    "fs-extra": "^11.2.0"
+  },
+  "keywords": [
+    "testing",
+    "plugins",
+    "leviathan",
+    "validation",
+    "framework"
+  ],
+  "author": "Leviathan Team (sponsored by Kingly Agency)",
+  "license": "MIT"
+}

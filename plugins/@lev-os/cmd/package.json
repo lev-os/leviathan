@@ -1,0 +1,25 @@
+{
+  "name": "@lev-os/cmd",
+  "version": "0.1.0", 
+  "description": "Ultra-lightweight process management and git worktree operations (sponsored by Kingly Agency)",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./process-manager": "./src/process-manager.js",
+    "./job-integration": "./src/job-integration.js",
+    "./worktree-manager": "./src/worktree-manager.js"
+  },
+  "dependencies": {
+    "execa": "^8.0.1",
+    "ps-tree": "^1.2.0",
+    "tree-kill": "^1.2.2"
+  },
+  "peerDependencies": {
+    "@lev-os/debug": "workspace:*",
+    "@lev-os/core": "workspace:*"
+  },
+  "keywords": ["leviathan", "process", "command", "git", "worktree"],
+  "author": "Leviathan Team (sponsored by Kingly Agency)",
+  "license": "MIT"
+}

@@ -1,0 +1,13 @@
+Command: node ~/ks categories
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+📂 Available categories:
+
+   agents: 15 workflows
+   patterns: 23 workflows
+   workflows: 19 workflows

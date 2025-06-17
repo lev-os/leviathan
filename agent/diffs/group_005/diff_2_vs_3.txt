@@ -1,0 +1,20 @@
+# Diff: base-agent.yaml vs base-agent.yaml
+
+## File 1: digital/kingly/core/agent/contexts/agents/base-agent.yaml
+## File 2: digital/kingly/core/mcp-mvp/contexts/agents/base-agent.yaml
+
+```diff
+Files are identical.
+
+```
+
+## Analysis:
+- [ ] Reviewed differences
+- [ ] Identified unique content in file 1
+- [ ] Identified unique content in file 2
+- [ ] Determined preferred version
+- [ ] Noted consolidation strategy
+
+## Decision:
+**Preferred:** TBD
+**Reason:** TBD

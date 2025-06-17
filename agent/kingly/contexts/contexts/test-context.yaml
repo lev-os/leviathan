@@ -1,0 +1,32 @@
+# test-context Context
+extends: global://test-context
+merge_strategy: local_precedence
+
+name: test-context
+version: 1.0.0
+generated: 2025-06-12T03:47:00.000Z
+intelligence_level: expert
+
+# Functional Context Definition
+responsibilities:
+  - test_automation
+  - validation_logic
+  - boundary_testing
+
+intelligence:
+  boundary_score: 0.9
+  complexity_threshold: 6
+  merge_eligibility: true
+  
+behavior:
+  absorb_intelligence: true
+  find_natural_boundary: true
+  context_aware: true
+
+# Project-specific specializations  
+local_context:
+  project_optimizations: ["mcp-testing", "fractal-validation"]
+  domain_knowledge: ["typescript", "yaml-processing"]
+  specific_patterns: ["intelligent-merge", "boundary-analysis"]
+
+# Test context for promotion validation

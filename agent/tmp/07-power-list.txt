@@ -1,0 +1,17 @@
+Command: node ~/ks power
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+⚡ Available Power Combos:
+
+   1. creative-problem-solving
+   2. strategic-decision
+   3. innovation-pipeline
+   4. user-research
+   5. system-optimization
+
+Usage: kingly-semantic power <scenario>

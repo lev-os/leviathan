@@ -1,0 +1,219 @@
+metadata:
+  name: "Strategic Research Workflow"
+  type: "workflow"
+  version: "1.0.0"
+  description: "Multi-horizon strategic research with 5-perspective analysis"
+  
+workflow_config:
+  philosophy: "Strategic intelligence across time horizons with multi-perspective validation"
+  
+  horizons:
+    six_months:
+      focus: "Immediate threats and tactical opportunities"
+      depth: "comprehensive"
+      personalities: ["cortisol_guardian", "practical_builder"]
+      output_priority: "actionable_insights"
+      
+    one_year:
+      focus: "Architecture evolution and market positioning"
+      depth: "comprehensive"
+      personalities: ["abundance_amplifier", "strategic_commander"]
+      output_priority: "strategic_positioning"
+      
+    two_years:
+      focus: "Technology paradigm shifts and competitive moats"
+      depth: "deep"
+      personalities: ["sovereignty_architect", "visionary_pioneer"]
+      output_priority: "defensive_strategies"
+      
+    five_years:
+      focus: "Fundamental paradigm changes and long-term vision"
+      depth: "deep"
+      personalities: ["visionary_pioneer", "systems_thinker"]
+      output_priority: "transformation_roadmap"
+
+  research_perspectives:
+    technical_implementation:
+      tools: ["perplexity_sonar", "github_search"]
+      focus: "Architecture, code, implementation details"
+      validation: "code_availability"
+      
+    academic_research:
+      tools: ["elicit", "arxiv_search", "semantic_scholar"]
+      focus: "Papers, theories, methodologies"
+      validation: "peer_review_status"
+      
+    market_industry:
+      tools: ["perplexity_sonar", "company_research"]
+      focus: "Companies, products, adoption patterns"
+      validation: "market_data"
+      
+    user_impact:
+      tools: ["perplexity_sonar", "social_sentiment"]
+      focus: "Use cases, problems solved, user friction"
+      validation: "adoption_metrics"
+      
+    future_implications:
+      tools: ["deepseek", "trend_analysis"]
+      focus: "Trajectories, scenarios, strategic risks"
+      validation: "expert_consensus"
+
+  execution_phases:
+    1_horizon_scoping:
+      duration: "15_minutes"
+      action: "Determine appropriate horizon and scope"
+      tools: ["context_analysis"]
+      output: "research_scope.md"
+      
+    2_perspective_research:
+      duration: "90_minutes"
+      action: "Execute 5 parallel research perspectives"
+      tools: ["multi_perspective_orchestrator"]
+      parallel: true
+      output: "perspective_analyses/"
+      
+    3_cross_validation:
+      duration: "30_minutes"
+      action: "Validate findings across perspectives"
+      tools: ["deepseek", "fact_checker"]
+      output: "validated_findings.md"
+      
+    4_strategic_synthesis:
+      duration: "45_minutes"
+      action: "Synthesize insights for strategic implications"
+      personalities: ["strategic_commander", "systems_thinker"]
+      output: "strategic_synthesis.md"
+      
+    5_actionable_recommendations:
+      duration: "30_minutes"
+      action: "Generate horizon-specific recommendations"
+      focus: "implementation_ready"
+      output: "action_items.md"
+
+research_templates:
+  technology_assessment:
+    variables:
+      - technology_name
+      - time_horizon
+      - competitive_context
+    queries:
+      technical_depth: |
+        Strategic technical analysis of {technology_name} for {time_horizon}:
+        - Core architecture innovations and limitations
+        - Performance benchmarks vs current solutions
+        - Implementation complexity and requirements
+        - Technical barriers to adoption
+        
+      competitive_landscape: |
+        {technology_name} competitive positioning analysis:
+        - Major players and their strategic approaches
+        - Open source vs proprietary dynamics
+        - Cost structures and pricing models
+        - Market adoption barriers and accelerators
+        
+      strategic_implications: |
+        Strategic implications of {technology_name} for Kingly/FlowMind:
+        - Integration opportunities and challenges
+        - Competitive threats and defensive strategies
+        - Partnership and investment opportunities
+        - Long-term positioning implications
+
+  competitive_intelligence:
+    variables:
+      - competitor_name
+      - analysis_scope
+      - time_horizon
+    queries:
+      capability_analysis: |
+        Comprehensive capability analysis of {competitor_name}:
+        - Current product capabilities and limitations
+        - Recent developments and roadmap signals
+        - Technical architecture and approaches
+        - Competitive advantages and weaknesses
+        
+      strategic_positioning: |
+        Strategic positioning analysis of {competitor_name}:
+        - Target market and user segments
+        - Go-to-market strategy and pricing
+        - Partnership and integration strategies
+        - Funding and investment backing
+        
+      threat_assessment: |
+        Threat assessment of {competitor_name} to Kingly/FlowMind:
+        - Direct competitive overlap areas
+        - Potential disruption scenarios
+        - Defensive strategies and responses
+        - Opportunity for differentiation
+
+cost_optimization:
+  budget_allocation:
+    discovery: "30%"  # Quick scans and monitoring
+    deep_research: "40%"  # Comprehensive analysis
+    validation: "20%"  # Fact checking and verification
+    synthesis: "10%"  # Final analysis and recommendations
+    
+  api_usage_tiers:
+    quick_scan:
+      - perplexity_sonar
+      - github_search
+      cost_estimate: "$5-10"
+      
+    comprehensive:
+      - perplexity_deep_research
+      - elicit
+      - academic_apis
+      cost_estimate: "$15-25"
+      
+    validation:
+      - deepseek
+      - fact_checking_apis
+      cost_estimate: "$2-5"
+      
+    synthesis:
+      - claude_3.5
+      - advanced_reasoning
+      cost_estimate: "$5-15"
+
+quality_assurance:
+  validation_requirements:
+    source_diversity: "minimum 5 sources per perspective"
+    recency_threshold: "80% sources from past 3 months"
+    expert_validation: "100% technical claims verified"
+    competitive_intelligence: "All claims cross-referenced"
+    
+  confidence_scoring:
+    technical_accuracy: "0-1 scale based on source quality"
+    market_validity: "0-1 scale based on data availability"
+    strategic_relevance: "0-1 scale based on impact assessment"
+    implementation_feasibility: "0-1 scale based on complexity"
+    
+  output_standards:
+    executive_summary: "2-3 paragraphs maximum"
+    key_findings: "Maximum 5 bullet points"
+    recommendations: "Minimum 3 actionable items"
+    confidence_rating: "Overall confidence score with breakdown"
+
+integration_points:
+  with_existing_workflows:
+    three_tier_research:
+      tier_1_integration: "Use strategic scoping for stream selection"
+      tier_2_integration: "Apply strategic perspectives to deep dives"
+      tier_3_integration: "Add competitive validation layer"
+      
+    personality_system:
+      strategic_modes: "Map personalities to strategic roles"
+      horizon_specialization: "Assign personalities to time horizons"
+      synthesis_roles: "Use complementary personalities for validation"
+      
+  with_mcp_ecosystem:
+    tool_exposure:
+      - strategic_research
+      - competitive_analysis
+      - horizon_planning
+      - multi_perspective_synthesis
+      
+    resource_providers:
+      - strategic_intelligence
+      - competitive_reports
+      - horizon_forecasts
+      - research_memory

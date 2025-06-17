@@ -1,6 +1,9 @@
-name: "Dynamic Agent Synthesis Workflow"
-description: "Create specialized agents on-demand, capture them, and enhance the system"
-version: "1.0"
+metadata:
+  id: "synth"
+  type: "workflow"
+  name: "Dynamic Agent Synthesis Workflow"
+  description: "Create specialized agents on-demand, capture them, and enhance the system"
+  version: "1.0"
 
 parameters:
   - name: "task_description"

@@ -1,0 +1,97 @@
+metadata:
+  type: workflow
+  id: cognitive-parliament-mini
+  version: 1.0.0
+  description: "5-step multi-agent workflow for testing bidirectional flow"
+  author: "@mcp-ceo/testing"
+
+workflow_config:
+  philosophy: "Test complete bidirectional flow with agent context switching across 5 distinct personality perspectives"
+  
+  # Enable verbose logging for testing
+  logging:
+    enabled: true
+    level: debug
+    session_persistence: true
+  
+  # 5-step workflow with different agents
+  steps:
+    - name: "vision_analysis"
+      agent: "nfj-visionary"
+      description: "Analyze future implications and emotional impact"
+      focus: "long_term_consequences"
+      context_injection: |
+        You are analyzing the challenge through your unique NFJ visionary lens.
+        Focus on future implications, emotional patterns, and transformative possibilities.
+      
+    - name: "strategic_planning"  
+      agent: "ntj-strategist"
+      description: "Develop strategic approach and timeline"
+      focus: "market_positioning"
+      context_injection: |
+        Build on the visionary insights from step 1. Apply strategic thinking 
+        to create actionable plans with clear timelines and success metrics.
+        
+    - name: "team_impact_assessment"
+      agent: "sfj-caregiver" 
+      description: "Assess team harmony and stakeholder needs"
+      focus: "harmony_optimization"
+      context_injection: |
+        Consider the strategic plans from step 2. Analyze how these decisions 
+        will affect team morale, stakeholder relationships, and organizational health.
+      
+    - name: "practical_implementation"
+      agent: "stp-adapter"
+      description: "Create actionable implementation steps"
+      focus: "execution_reality"
+      context_injection: |
+        Take the strategic vision and team considerations from previous steps.
+        Design practical, immediate actions that can be implemented today.
+        
+    - name: "leadership_execution"
+      agent: "stj-leader"
+      description: "Finalize execution plan with risk management"
+      focus: "systematic_execution"
+      context_injection: |
+        Synthesize all previous perspectives into a comprehensive execution plan.
+        Add risk management, accountability structures, and success tracking.
+
+  # Test validation criteria
+  success_metrics:
+    - name: "context_switching_verified"
+      description: "Each step uses different agent context"
+      validation: "step_agents_unique"
+      
+    - name: "state_preservation"
+      description: "Previous step insights preserved in next step"
+      validation: "previous_results_referenced"
+      
+    - name: "perspective_diversity" 
+      description: "Each agent provides unique viewpoint"
+      validation: "response_content_differs"
+      
+    - name: "workflow_completion"
+      description: "All 5 steps execute successfully"
+      validation: "all_steps_completed"
+
+  # Expected execution flow for testing
+  test_scenarios:
+    - name: "product_launch_decision"
+      challenge: "Should we launch our new AI product next month or wait until Q2?"
+      expected_steps: 5
+      expected_duration: "2-5 minutes"
+      
+    - name: "team_restructure_decision"
+      challenge: "How should we reorganize our engineering team for better efficiency?"
+      expected_steps: 5
+      expected_duration: "2-5 minutes"
+
+  # Integration with existing MCP tools
+  mcp_integration:
+    tool_name: "execute_workflow"
+    parameters:
+      - workflowId: "cognitive-parliament-mini"
+      - challenge: "{user_challenge}"
+      - step: "{current_step}"
+      - sessionId: "{session_uuid}"
+      - previousResults: "{previous_step_output}"

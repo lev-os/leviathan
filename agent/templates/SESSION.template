@@ -1,0 +1,167 @@
+# Session Handoff: {{SESSION_ID}}
+
+**Date:** {{HANDOFF_DATE}}  
+**Time:** {{HANDOFF_TIME}}  
+**Workspace:** {{WORKSPACE_NAME}}  
+**Session Type:** {{SESSION_TYPE}}  
+**Duration:** {{SESSION_DURATION}}  
+**Intelligence Level:** {{INTELLIGENCE_LEVEL}}
+
+## Session Context
+
+### Primary Focus
+{{PRIMARY_FOCUS}}
+
+### Key Achievements
+{{KEY_ACHIEVEMENTS}}
+
+### Current Status
+{{CURRENT_STATUS}}
+
+### Active Files
+{{ACTIVE_FILES}}
+
+## Decisions Made
+
+### Architecture Decisions
+{{ARCHITECTURE_DECISIONS}}
+
+### Implementation Decisions  
+{{IMPLEMENTATION_DECISIONS}}
+
+### Technical Decisions
+{{TECHNICAL_DECISIONS}}
+
+## Blockers & Challenges
+
+### Current Blockers
+{{CURRENT_BLOCKERS}}
+
+### Technical Challenges
+{{TECHNICAL_CHALLENGES}}
+
+### Resource Limitations
+{{RESOURCE_LIMITATIONS}}
+
+## Next Actions
+
+### Immediate Priorities
+{{IMMEDIATE_PRIORITIES}}
+
+### Medium-term Goals
+{{MEDIUM_TERM_GOALS}}
+
+### Dependencies
+{{DEPENDENCIES}}
+
+## Context for Next Session
+
+### Essential Context
+{{ESSENTIAL_CONTEXT}}
+
+### File State
+{{FILE_STATE}}
+
+### Environment Setup
+{{ENVIRONMENT_SETUP}}
+
+### Required Knowledge
+{{REQUIRED_KNOWLEDGE}}
+
+## Intelligence Contributions
+
+### Breakthrough Insights
+{{BREAKTHROUGH_INSIGHTS}}
+
+### Pattern Recognition
+{{PATTERN_RECOGNITION}}
+
+### Cross-Workspace Relevance
+{{CROSS_WORKSPACE_RELEVANCE}}
+
+### Propagation Recommendations
+{{PROPAGATION_RECOMMENDATIONS}}
+
+## Session Metrics
+
+### Performance Metrics
+{{PERFORMANCE_METRICS}}
+
+### Intelligence Quality
+{{INTELLIGENCE_QUALITY}}
+
+### Efficiency Indicators
+{{EFFICIENCY_INDICATORS}}
+
+## Restoration Instructions
+
+### Context Restoration Commands
+```bash
+# Load this session context
+kingly-semantic load --handoff="{{HANDOFF_PATH}}" --restore-level="{{RESTORE_LEVEL}}"
+
+# Restore file states
+{{FILE_RESTORATION_COMMANDS}}
+
+# Rebuild environment context
+{{ENVIRONMENT_RESTORATION_COMMANDS}}
+
+# Restore intelligence state
+kingly-semantic intelligence load --session="{{SESSION_ID}}" --context="{{SESSION_CONTEXT}}"
+```
+
+### Validation Checklist
+{{VALIDATION_CHECKLIST}}
+
+### Expected Restoration Time
+{{RESTORATION_TIME_ESTIMATE}}
+
+## Cross-Workspace Intelligence
+
+### Related Sessions
+{{RELATED_SESSIONS}}
+
+### Cross-Workspace Patterns
+{{CROSS_WORKSPACE_PATTERNS}}
+
+### Intelligence Routing
+{{INTELLIGENCE_ROUTING}}
+
+### Network Contributions
+{{NETWORK_CONTRIBUTIONS}}
+
+## Metadata
+
+### Session Variables
+```yaml
+session_id: {{SESSION_ID}}
+workspace: {{WORKSPACE_NAME}}
+intelligence_level: {{INTELLIGENCE_LEVEL}}
+context_type: {{CONTEXT_TYPE}}
+significance_score: {{SIGNIFICANCE_SCORE}}
+cross_workspace_relevance: {{CROSS_WORKSPACE_RELEVANCE_SCORE}}
+template_version: {{TEMPLATE_VERSION}}
+```
+
+### Intelligence Fingerprint
+```yaml
+patterns_identified: {{PATTERNS_IDENTIFIED}}
+insights_generated: {{INSIGHTS_GENERATED}}
+cross_references: {{CROSS_REFERENCES}}
+evolution_contributions: {{EVOLUTION_CONTRIBUTIONS}}
+network_impact: {{NETWORK_IMPACT}}
+```
+
+### Quality Metrics
+```yaml
+context_completeness: {{CONTEXT_COMPLETENESS}}%
+restoration_confidence: {{RESTORATION_CONFIDENCE}}%
+intelligence_value: {{INTELLIGENCE_VALUE}}%
+cross_workspace_applicability: {{CROSS_WORKSPACE_APPLICABILITY}}%
+template_effectiveness: {{TEMPLATE_EFFECTIVENESS}}%
+```
+
+---
+*Session Template v{{TEMPLATE_VERSION}} | Generated: {{GENERATION_DATE}}*  
+*Handoff Quality: {{HANDOFF_QUALITY}} | Intelligence Network Impact: {{NETWORK_IMPACT}}*  
+*Restoration Confidence: {{RESTORATION_CONFIDENCE}}% | Cross-Workspace Relevance: {{CROSS_WORKSPACE_RELEVANCE_SCORE}}*

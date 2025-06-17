@@ -1,0 +1,3850 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2025-06-13T08:28:31.907Z",
+  "relationships": {
+    "doc-shepherd": [
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "stj-leader",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "ceo": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "stj-leader",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "dev": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "stj-leader",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "prompt-architect": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "stj-leader",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "deep-researcher": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "stj-leader",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "technical-writer": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "stj-leader",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "technical-editor": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "stj-leader",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "stp-adapter": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stj-leader",
+        "code": "stj-leader",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "stj-leader": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "sfp-connector": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "sfj-caregiver": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "nfp-advocate": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "ntj-strategist": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "ntp-innovator": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "nfj-visionary": [
+      {
+        "id": "doc-shepherd",
+        "code": "doc-shepherd",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "ceo",
+        "code": "ceo",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "dev",
+        "code": "dev",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "prompt-architect",
+        "code": "prompt-architect",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "deep-researcher",
+        "code": "deep-researcher",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-writer",
+        "code": "technical-writer",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "technical-editor",
+        "code": "technical-editor",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      },
+      {
+        "id": "stp-adapter",
+        "code": "stp-adapter",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: agents"
+      }
+    ],
+    "systematic-opposition": [
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "reverse-brainstorming",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "systems-thinking": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "reverse-brainstorming",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "swot-analysis": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "reverse-brainstorming",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "vibe-coding": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "reverse-brainstorming",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "rice-scoring": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "reverse-brainstorming",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "soar-analysis": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "reverse-brainstorming",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "reversibility-check": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "reverse-brainstorming",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "scamper-framework": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reverse-brainstorming",
+        "code": "reverse-brainstorming",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "reverse-brainstorming": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "porter-five-forces": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "jobs-to-be-done": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "noise-analysis": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "extreme-examples": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "figure-storming": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "first-principles-thinking": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "echo-intelligence-patterns": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "decision-matrix": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "design-thinking": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "blue-ocean-strategy": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "10-10-10-framework": [
+      {
+        "id": "systematic-opposition",
+        "code": "systematic-opposition",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "systems-thinking",
+        "code": "systems-thinking",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "swot-analysis",
+        "code": "swot-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "vibe-coding",
+        "code": "vibe-coding",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "rice-scoring",
+        "code": "rice-scoring",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "soar-analysis",
+        "code": "soar-analysis",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "reversibility-check",
+        "code": "reversibility-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      },
+      {
+        "id": "scamper-framework",
+        "code": "scamper-framework",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: patterns"
+      }
+    ],
+    "power-user-prefs": [],
+    "zen-minimal": [
+      {
+        "id": "cyberpunk-neon",
+        "code": "cyberpunk-neon",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: themes"
+      }
+    ],
+    "cyberpunk-neon": [
+      {
+        "id": "zen-minimal",
+        "code": "zen-minimal",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: themes"
+      }
+    ],
+    "memory-manager": [
+      {
+        "id": "graphiti",
+        "code": "graphiti",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "ultimate-mcp-research",
+        "code": "ultimate-mcp-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "mcp-suite",
+        "code": "mcp-suite",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "discord",
+        "code": "discord",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      }
+    ],
+    "graphiti": [
+      {
+        "id": "memory-manager",
+        "code": "memory-manager",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "ultimate-mcp-research",
+        "code": "ultimate-mcp-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "mcp-suite",
+        "code": "mcp-suite",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "discord",
+        "code": "discord",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      }
+    ],
+    "ultimate-mcp-research": [
+      {
+        "id": "memory-manager",
+        "code": "memory-manager",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "graphiti",
+        "code": "graphiti",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "mcp-suite",
+        "code": "mcp-suite",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "discord",
+        "code": "discord",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      }
+    ],
+    "mcp-suite": [
+      {
+        "id": "memory-manager",
+        "code": "memory-manager",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "graphiti",
+        "code": "graphiti",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "ultimate-mcp-research",
+        "code": "ultimate-mcp-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "discord",
+        "code": "discord",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      }
+    ],
+    "discord": [
+      {
+        "id": "memory-manager",
+        "code": "memory-manager",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "graphiti",
+        "code": "graphiti",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "ultimate-mcp-research",
+        "code": "ultimate-mcp-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      },
+      {
+        "id": "mcp-suite",
+        "code": "mcp-suite",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: tools"
+      }
+    ],
+    "workspace-template": [
+      {
+        "id": "project-template",
+        "code": "project",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "task-template",
+        "code": "task",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "portfolio-template",
+        "code": "portfolio",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "folder-template",
+        "code": "folder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "ticket-template",
+        "code": "ticket",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "epic-template",
+        "code": "epic",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "emergent-template",
+        "code": "emergent",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      }
+    ],
+    "project-template": [
+      {
+        "id": "workspace-template",
+        "code": "workspace",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "task-template",
+        "code": "task",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "portfolio-template",
+        "code": "portfolio",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "folder-template",
+        "code": "folder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "ticket-template",
+        "code": "ticket",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "epic-template",
+        "code": "epic",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "emergent-template",
+        "code": "emergent",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      }
+    ],
+    "task-template": [
+      {
+        "id": "workspace-template",
+        "code": "workspace",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "project-template",
+        "code": "project",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "portfolio-template",
+        "code": "portfolio",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "folder-template",
+        "code": "folder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "ticket-template",
+        "code": "ticket",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "epic-template",
+        "code": "epic",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "emergent-template",
+        "code": "emergent",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      }
+    ],
+    "portfolio-template": [
+      {
+        "id": "workspace-template",
+        "code": "workspace",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "project-template",
+        "code": "project",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "task-template",
+        "code": "task",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "folder-template",
+        "code": "folder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "ticket-template",
+        "code": "ticket",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "epic-template",
+        "code": "epic",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "emergent-template",
+        "code": "emergent",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      }
+    ],
+    "folder-template": [
+      {
+        "id": "workspace-template",
+        "code": "workspace",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "project-template",
+        "code": "project",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "task-template",
+        "code": "task",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "portfolio-template",
+        "code": "portfolio",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "ticket-template",
+        "code": "ticket",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "epic-template",
+        "code": "epic",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "emergent-template",
+        "code": "emergent",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      }
+    ],
+    "ticket-template": [
+      {
+        "id": "workspace-template",
+        "code": "workspace",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "project-template",
+        "code": "project",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "task-template",
+        "code": "task",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "portfolio-template",
+        "code": "portfolio",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "folder-template",
+        "code": "folder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "epic-template",
+        "code": "epic",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "emergent-template",
+        "code": "emergent",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      }
+    ],
+    "epic-template": [
+      {
+        "id": "workspace-template",
+        "code": "workspace",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "project-template",
+        "code": "project",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "task-template",
+        "code": "task",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "portfolio-template",
+        "code": "portfolio",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "folder-template",
+        "code": "folder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "ticket-template",
+        "code": "ticket",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "emergent-template",
+        "code": "emergent",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      }
+    ],
+    "emergent-template": [
+      {
+        "id": "workspace-template",
+        "code": "workspace",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "project-template",
+        "code": "project",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "task-template",
+        "code": "task",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "portfolio-template",
+        "code": "portfolio",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "folder-template",
+        "code": "folder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "ticket-template",
+        "code": "ticket",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      },
+      {
+        "id": "epic-template",
+        "code": "epic",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: types"
+      }
+    ],
+    "system-archaeology-consolidation": [
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "documentation-audit",
+        "code": "documentation-audit",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "kingly-builder": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "documentation-audit",
+        "code": "documentation-audit",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "multi-perspective-validation": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "documentation-audit",
+        "code": "documentation-audit",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "insight-bubbling": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "documentation-audit",
+        "code": "documentation-audit",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "knowledge-trickling": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "documentation-audit",
+        "code": "documentation-audit",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "reality-check": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "documentation-audit",
+        "code": "documentation-audit",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "external-tools-research": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "documentation-audit",
+        "code": "documentation-audit",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "entropy-router": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "documentation-audit",
+        "code": "documentation-audit",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "documentation-audit": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "design-thinking-process": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "document-synthesis": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "emotion-synthesis": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "cognitive-parliament": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "adr-generation": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "cross-context-learning": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "three-tier-deep": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "bdd-specification": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "personality-driven": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ],
+    "comprehensive-context-analysis": [
+      {
+        "id": "system-archaeology-consolidation",
+        "code": "system-archaeology-consolidation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "kingly-builder",
+        "code": "kingly-builder",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "multi-perspective-validation",
+        "code": "multi-expert-validation",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "insight-bubbling",
+        "code": "insight-bubbling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "knowledge-trickling",
+        "code": "knowledge-trickling",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "reality-check",
+        "code": "reality-check",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "external-tools-research",
+        "code": "external-tools-research",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      },
+      {
+        "id": "entropy-router",
+        "code": "entropy-router",
+        "type": "category",
+        "strength": 0.6,
+        "reason": "same category: workflows"
+      }
+    ]
+  },
+  "powerCombos": {
+    "creative-problem-solving": {
+      "name": "Creative Problem Solving",
+      "description": "Systematic approach to creative problem solving",
+      "core": [
+        "2f",
+        "2k",
+        "1i"
+      ],
+      "support": [
+        "first-principles-thinking",
+        "reverse-brainstorming",
+        "extreme-examples"
+      ],
+      "sequence": [
+        "2f",
+        "2k",
+        "1i"
+      ],
+      "effectiveness": 0.92
+    },
+    "strategic-decision": {
+      "name": "Strategic Decision Making",
+      "description": "Comprehensive framework for strategic decisions",
+      "core": [
+        "3b",
+        "2i",
+        "porter-five-forces"
+      ],
+      "support": [
+        "decision-matrix",
+        "reversibility-check",
+        "swot-analysis"
+      ],
+      "sequence": [
+        "2i",
+        "porter-five-forces",
+        "3b"
+      ],
+      "effectiveness": 0.88
+    },
+    "innovation-pipeline": {
+      "name": "Innovation Pipeline",
+      "description": "End-to-end innovation development",
+      "core": [
+        "1i",
+        "design-thinking",
+        "jobs-to-be-done"
+      ],
+      "support": [
+        "blue-ocean-strategy",
+        "value-proposition-canvas",
+        "first-principles-thinking"
+      ],
+      "sequence": [
+        "jobs-to-be-done",
+        "design-thinking",
+        "1i"
+      ],
+      "effectiveness": 0.85
+    },
+    "user-research": {
+      "name": "Deep User Research",
+      "description": "Comprehensive user understanding framework",
+      "core": [
+        "2i",
+        "jobs-to-be-done",
+        "1k"
+      ],
+      "support": [
+        "design-thinking",
+        "empathy-mapping",
+        "user-journey"
+      ],
+      "sequence": [
+        "2i",
+        "jobs-to-be-done",
+        "1k"
+      ],
+      "effectiveness": 0.9
+    },
+    "system-optimization": {
+      "name": "System Optimization",
+      "description": "Holistic system analysis and optimization",
+      "core": [
+        "systems-thinking",
+        "1f",
+        "first-principles-thinking"
+      ],
+      "support": [
+        "value-stream-mapping",
+        "constraint-theory",
+        "optimization"
+      ],
+      "sequence": [
+        "systems-thinking",
+        "first-principles-thinking",
+        "1f"
+      ],
+      "effectiveness": 0.87
+    }
+  },
+  "chains": {
+    "research-to-action": [
+      "2i",
+      "jobs-to-be-done",
+      "design-thinking",
+      "1a"
+    ],
+    "problem-to-solution": [
+      "2k",
+      "first-principles-thinking",
+      "2f",
+      "1i"
+    ],
+    "strategy-to-execution": [
+      "porter-five-forces",
+      "3b",
+      "decision-matrix",
+      "1a"
+    ],
+    "ideation-to-validation": [
+      "2f",
+      "2k",
+      "design-thinking",
+      "lean-startup"
+    ],
+    "analysis-to-insight": [
+      "systems-thinking",
+      "first-principles-thinking",
+      "1k",
+      "3b"
+    ]
+  },
+  "workflowCount": 70
+}

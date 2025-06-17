@@ -1,0 +1,16 @@
+# Multi-Personality Analysis Context
+metadata:
+  type: "personality"
+  active_mode: "all"
+  personality: "Full Spectrum Analysis"
+  
+personality_config:
+  mode: "all"
+  sequence: ["visionary", "strategist", "innovator", "leader", "adapter", "connector", "caregiver", "advocate"]
+  synthesis: true
+  
+  output_format:
+    per_personality: true
+    synthesis_report: true
+    consensus_points: true
+    creative_tensions: true

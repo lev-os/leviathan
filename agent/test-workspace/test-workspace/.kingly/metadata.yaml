@@ -1,0 +1,39 @@
+# Kingly Intelligence Workspace Metadata
+# Auto-generated polyfill - non-destructive
+
+workspace:
+  id: "test-workspace"
+  instance_id: "inst-2f5livofqz"
+  semantic_slug: "test-workspace"
+  registered: "2025-06-12T01:49:17.507Z"
+  auto_registered: true
+
+project:
+  path: "/Users/jean-patricksmith/digital/kingly/core/mcp-mvp/test-workspace/test-workspace"
+  type: "Generic"
+  languages: []
+  file_count: 1
+  structure:
+    has_source: false
+    has_tests: false
+
+kingly:
+  version: "1.0.0"
+  created: "2025-06-12T01:49:17.507Z"
+  polyfill: true
+  non_destructive: true
+  
+session_management:
+  global_sessions: "~/.kingly/sessions"
+  local_sessions: "./.kingly/sessions"
+  handoffs_enabled: true
+  multi_tab_support: true
+
+intelligence:
+  semantic_lookup: true
+  workflow_discovery: true
+  context_restoration: true
+  project_awareness: true
+
+# This metadata enables Kingly Intelligence features in this workspace
+# without modifying existing project structure or configuration

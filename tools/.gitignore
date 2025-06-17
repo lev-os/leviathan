@@ -1,0 +1,14 @@
+# Default: Ignore all subdirectories in tools/
+# Remove lines below for projects you want to track
+
+memory-benchmark/
+neural-graffiti/
+perplexity-mcp/
+qdrant/
+research/
+
+# Explicitly ignore common patterns
+*.log
+.DS_Store
+node_modules/
+.env*

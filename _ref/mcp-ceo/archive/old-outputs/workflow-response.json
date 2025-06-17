@@ -1,0 +1,11 @@
+{
+  "workflow_request": {
+    "type": "simple_test",
+    "step": 2,
+    "session_id": "b8e06301-2904-4b3f-81ac-7db4d4f2f259",
+    "previous_results": {
+      "response": "As CORTISOL GUARDIAN: I sense the stress in scaling 100x - this fear of losing quality while growing rapidly is creating significant cortisol spikes. Let's breathe and break this down: the core challenge isn't just about numbers, it's about maintaining your startup's soul and service excellence while expanding. This matters because compromise on quality will create a cascade of stress - unhappy customers, team burnout, and reputation damage.\n\nAs SYSTEMS ILLUMINATOR: I see the elegant pattern here - you're not trying to scale customers, you're trying to scale value delivery systems. The challenge is designing systems that maintain quality invariants while handling 100x throughput. Success looks like: automated quality checks, self-healing processes, and customer delight metrics that improve with scale rather than degrade.\n\nUnified Analysis: Your real challenge is building anti-fragile systems that get stronger with growth, not weaker. Success means your 1000th customer gets better service than your 10th, through compound learning and system refinement."
+    }
+  }
+}
+EOF < /dev/null

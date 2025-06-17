@@ -1,0 +1,23 @@
+{
+  "name": "@lev-os/debug",
+  "version": "0.1.0",
+  "description": "Universal debugging, logging, and monitoring for Leviathan core (sponsored by Kingly Agency)",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./logger": "./src/logger.js",
+    "./tracer": "./src/tracer.js",
+    "./monitor": "./src/monitor.js"
+  },
+  "dependencies": {
+    "winston": "^3.11.0",
+    "uuid": "^9.0.1"
+  },
+  "peerDependencies": {
+    "@lev-os/core": "workspace:*"
+  },
+  "keywords": ["leviathan", "debug", "logging", "tracing", "monitoring"],
+  "author": "Leviathan Team (sponsored by Kingly Agency)",
+  "license": "MIT"
+}

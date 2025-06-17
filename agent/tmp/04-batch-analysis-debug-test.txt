@@ -1,0 +1,13 @@
+Command: node ~/ks batch "analysis,debug,test"
+Timestamp: $(date)
+
+Loading workflows from contexts...
+✅ Loaded 57 workflows
+📚 Loaded 43 embeddings from cache
+📚 Loaded combo cache
+🚀 ClaudeCodeAdapter initialized with combo intelligence
+🔄 Batch results for 3 queries:
+
+✅ "analysis": Not found
+✅ "debug": Not found
+✅ "test": Not found
