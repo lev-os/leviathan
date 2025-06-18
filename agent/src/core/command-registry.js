@@ -27,16 +27,16 @@ export class CommandRegistry {
     const commandsDir = path.join(__dirname, '..', 'commands');
     
     try {
-      console.log(`🔍 Looking for commands in: ${commandsDir}`);
+      // console.log(`🔍 Looking for commands in: ${commandsDir}`); // Debug - disabled
       const files = await fs.readdir(commandsDir);
       const commandFiles = files.filter(file => file.endsWith('.js'));
-      console.log(`📁 Found command files: ${commandFiles.join(', ')}`);
+      // console.log(`📁 Found command files: ${commandFiles.join(', ')}`); // Debug - disabled
 
       for (const file of commandFiles) {
         await this.loadCommand(file);
       }
 
-      console.log(`✅ Discovered ${this.commands.size} commands`);
+      // console.log(`✅ Discovered ${this.commands.size} commands`); // Debug - disabled
     } catch (error) {
       console.error(`Failed to discover commands: ${error.message}`);
       console.error(`Attempted path: ${commandsDir}`);
@@ -47,25 +47,25 @@ export class CommandRegistry {
   async loadCommand(filename) {
     try {
       const modulePath = path.join(__dirname, '..', 'commands', filename);
-      console.log(`📦 Loading command from: ${modulePath}`);
+      // console.log(`📦 Loading command from: ${modulePath}`); // Debug - disabled for clean output
       const module = await import(modulePath);
       
       // Extract command name from filename
       const commandName = path.basename(filename, '.js').replace('-', '_');
-      console.log(`🏷️  Command name: ${commandName}`);
+      // console.log(`🏷️  Command name: ${commandName}`); // Debug - disabled for clean output
       
       // Look for exported command function
       const camelCaseName = this.camelCase(commandName);
       const kebabCaseName = commandName.replace(/_/g, '-');
       const camelFromKebab = this.camelCase(kebabCaseName);
       
-      console.log(`🔍 Looking for function: ${camelCaseName}, ${camelFromKebab}, or default`);
-      console.log(`📋 Available exports:`, Object.keys(module));
+      // console.log(`🔍 Looking for function: ${camelCaseName}, ${camelFromKebab}, or default`); // Debug - disabled
+      // console.log(`📋 Available exports:`, Object.keys(module)); // Debug - disabled
       
       const commandFunction = module[camelCaseName] || module[camelFromKebab] || module.default;
       
       if (typeof commandFunction === 'function') {
-        console.log(`✅ Found command function: ${camelCaseName}`);
+        // console.log(`✅ Found command function: ${camelCaseName}`); // Debug - disabled
         
         // Register the direct function
         this.commands.set(commandName, {
@@ -78,9 +78,9 @@ export class CommandRegistry {
 
         // Auto-generate MCP tool if tool definition exists
         const toolName = camelFromKebab + 'Tool';
-        console.log(`🔧 Looking for MCP tool: ${toolName}`);
+        // console.log(`🔧 Looking for MCP tool: ${toolName}`); // Debug - disabled
         if (module[toolName]) {
-          console.log(`✅ Found MCP tool: ${toolName}`);
+          // console.log(`✅ Found MCP tool: ${toolName}`); // Debug - disabled
           this.mcpTools.set(commandName, module[toolName]);
         }
       } else {

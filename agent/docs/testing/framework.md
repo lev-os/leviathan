@@ -10,6 +10,7 @@
 - **Use actual binaries** - `./bin/lev` execution, not mocked functions
 - **All adapters in E2E** - CLI subprocess + MCP protocol + Claude Code integration
 - **Fast feedback loops** - Parallel plugin testing, optimized for iteration speed
+- **Code quality validation** - Verify file size, domain boundaries, and architectural compliance
 
 ## Simplified Test Architecture
 
@@ -38,6 +39,58 @@ npm run test:smoke        # Quick health check
 npm run test:core         # Core business logic only
 npm run test:adapters     # CLI + MCP adapter validation
 npm run test:dogfooding   # Real workflow BDD tests
+npm run test:quality      # Code quality and architectural compliance
+```
+
+## Code Quality Validation
+
+### File Size and Organization Testing
+```javascript
+// tests/quality/file-organization.test.js
+describe('Code Quality Standards', () => {
+  test('command files should be within size limits', async () => {
+    const commandFiles = await glob('src/commands/*.js');
+    
+    for (const file of commandFiles) {
+      const content = await fs.readFile(file, 'utf8');
+      const lineCount = content.split('\n').length;
+      
+      // 150-200 lines is sweet spot, 250+ is problematic
+      expect(lineCount).toBeLessThan(250);
+      if (lineCount > 200) {
+        console.warn(`File ${file} has ${lineCount} lines - consider helper extraction`);
+      }
+    }
+  });
+
+  test('should maintain domain separation', async () => {
+    const commandFiles = await glob('src/commands/*.js');
+    
+    for (const file of commandFiles) {
+      const content = await fs.readFile(file, 'utf8');
+      
+      // Commands shouldn't import from other command files
+      const crossDomainImports = content.match(/from ['"].\/[^h][^e][^l][^p]/g);
+      expect(crossDomainImports).toBeNull();
+    }
+  });
+
+  test('should follow helper extraction patterns', async () => {
+    const helperFiles = await glob('src/commands/helpers/*.js');
+    const commandFiles = await glob('src/commands/*.js');
+    
+    // If helpers exist, main commands should be reasonably sized
+    if (helperFiles.length > 0) {
+      for (const file of commandFiles) {
+        const content = await fs.readFile(file, 'utf8');
+        const lineCount = content.split('\n').length;
+        
+        // With helpers available, main files should be manageable
+        expect(lineCount).toBeLessThan(300);
+      }
+    }
+  });
+});
 ```
 
 ## Testing Framework Components

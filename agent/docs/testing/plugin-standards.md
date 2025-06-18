@@ -14,6 +14,48 @@ All plugins MUST include these test types:
 2. **MCP Adapter Compatibility** - Plugin commands available as MCP tools
 3. **Cross-plugin Integration** - Plugin works with @lev-os infrastructure
 4. **Error Handling** - Graceful failure and helpful error messages
+5. **Code Quality Validation** - File size, domain boundaries, architectural compliance
+
+## Plugin Coding Standards
+
+### File Organization Standards
+- **Domain Files**: 150-200 lines per command file (sweet spot)
+- **Function Length**: 100-150 lines before considering extraction
+- **Helper Files**: Extract complex utilities to `src/helpers/` when needed
+- **Single Domain**: One business domain per command file
+
+### Code Quality Requirements
+```javascript
+// tests/plugin.test.js - Add quality validation
+describe('Code Quality Standards', () => {
+  test('should maintain reasonable file sizes', async () => {
+    const commandFiles = await glob('src/commands/*.js');
+    
+    for (const file of commandFiles) {
+      const content = await fs.readFile(file, 'utf8');
+      const lineCount = content.split('\n').length;
+      
+      // Plugin commands should follow same standards as core
+      expect(lineCount).toBeLessThan(250);
+      if (lineCount > 200) {
+        console.warn(`Plugin file ${file} has ${lineCount} lines - consider helper extraction`);
+      }
+    }
+  });
+
+  test('should follow domain separation', async () => {
+    const commandFiles = await glob('src/commands/*.js');
+    
+    for (const file of commandFiles) {
+      const content = await fs.readFile(file, 'utf8');
+      
+      // No cross-domain imports between command files
+      const crossDomainImports = content.match(/from ['"].\/(?!helpers)/g);
+      expect(crossDomainImports).toBeNull();
+    }
+  });
+});
+```
 
 ### 📋 Plugin Test Structure
 

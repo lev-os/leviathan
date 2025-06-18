@@ -373,4 +373,158 @@ export class ClaudeFormatter {
     
     return output.trim();
   }
+
+  /**
+   * Format generic command result data
+   * @param {Object} data - Command result data
+   * @returns {string} Formatted output
+   */
+  formatCommandResult(data) {
+    // Handle workshop status/list data (has tools and either overview or filter)
+    if (data.tools && (data.overview || data.filter)) {
+      return this.formatWorkshopData(data);
+    }
+    
+    // Handle workshop tool info
+    if (data.tool) {
+      return this.formatWorkshopToolInfo(data);
+    }
+    
+    // Handle discovery results
+    if (data.discoveredTools || data.processes) {
+      return this.formatWorkshopDiscovery(data);
+    }
+    
+    // Handle intake results
+    if (data.assessment && data.pipeline) {
+      return this.formatWorkshopIntake(data);
+    }
+    
+    // Fallback: JSON stringify with nice formatting
+    return JSON.stringify(data, null, 2);
+  }
+
+  /**
+   * Format workshop status/list data
+   */
+  formatWorkshopData(data) {
+    const { overview, tools, filter, count } = data;
+    
+    // Handle workshop list format (has filter and count but no overview)
+    if (filter && count !== undefined) {
+      let output = `🛠️  WORKSHOP ITEMS - ${filter} (${count})\n\n`;
+      
+      if (tools && tools.length > 0) {
+        tools.forEach(tool => {
+          output += `  ${tool.name.padEnd(25)} TIER ${tool.tier} - ${tool.description}\n`;
+        });
+      } else {
+        output += `  No tools found for ${filter}\n`;
+      }
+      
+      return output.trim();
+    }
+    
+    // Handle workshop status format (has overview)
+    if (overview) {
+      let output = `🔧 WORKSHOP STATUS\n\n`;
+      output += `📊 OVERVIEW\n`;
+      output += `  Total Tools: ${overview.total_tools}\n`;
+      output += `  Total Plugins: ${overview.total_plugins}\n`;
+      output += `  Phase: ${overview.phase}\n`;
+      output += `  Active Development: ${overview.active_development ? '✅' : '❌'}\n\n`;
+      
+      output += `📋 TIER BREAKDOWN\n`;
+      output += `  Tier 1 (Essential): ${overview.tiers.tier_1}\n`;
+      output += `  Tier 2 (Standard): ${overview.tiers.tier_2}\n`;
+      output += `  Tier 3 (Advanced): ${overview.tiers.tier_3}\n\n`;
+      
+      if (tools && tools.length > 0) {
+        output += `🛠️  WORKSHOP ITEMS\n`;
+        tools.forEach(tool => {
+          output += `  ${tool.name.padEnd(25)} TIER ${tool.tier} - ${tool.description}\n`;
+        });
+      }
+      
+      return output.trim();
+    }
+    
+    // Fallback
+    return JSON.stringify(data, null, 2);
+  }
+
+  /**
+   * Format workshop tool info
+   */
+  formatWorkshopToolInfo(data) {
+    const { tool, integrationStatus, documentation } = data;
+    
+    let output = `🔧 TOOL: ${tool.name}\n\n`;
+    output += `📋 TIER: ${tool.tier}\n`;
+    output += `📝 DESCRIPTION: ${tool.description}\n`;
+    output += `🔗 INTEGRATION: ${integrationStatus}\n`;
+    output += `📚 DOCS: ${documentation}\n`;
+    
+    return output.trim();
+  }
+
+  /**
+   * Format workshop discovery results
+   */
+  formatWorkshopDiscovery(data) {
+    let output = `🔍 WORKSHOP DISCOVERY - ${data.system}\n\n`;
+    
+    if (data.discoveredTools && data.discoveredTools.length > 0) {
+      output += `🛠️  DISCOVERED TOOLS\n`;
+      data.discoveredTools.forEach(tool => {
+        output += `  ${tool.name.padEnd(20)} ${tool.type.padEnd(15)} ${tool.location}\n`;
+      });
+      output += '\n';
+    }
+    
+    if (data.processes && data.processes.length > 0) {
+      output += `⚡ ACTIVE PROCESSES\n`;
+      data.processes.forEach(proc => {
+        output += `  ${proc.name.padEnd(20)} ${proc.status} (PID: ${proc.pid})\n`;
+      });
+      output += '\n';
+    }
+    
+    if (data.plugins && data.plugins.length > 0) {
+      output += `🔌 PLUGINS\n`;
+      data.plugins.forEach(plugin => {
+        output += `  ${plugin.name.padEnd(25)} ${plugin.status}\n`;
+      });
+    }
+    
+    return output.trim();
+  }
+
+  /**
+   * Format workshop intake results
+   */
+  formatWorkshopIntake(data) {
+    const { repo, assessment, pipeline, nextSteps } = data;
+    
+    let output = `📥 WORKSHOP INTAKE ANALYSIS\n\n`;
+    output += `🔗 REPOSITORY: ${repo}\n`;
+    output += `📊 COMPLEXITY: ${assessment.complexity}\n`;
+    output += `🏷️  ESTIMATED TIER: ${assessment.estimatedTier}\n\n`;
+    
+    output += `📋 PIPELINE STATUS\n`;
+    pipeline.steps.forEach(step => {
+      const status = step.status === 'completed' ? '✅' : '⏳';
+      output += `  ${status} ${step.name}\n`;
+    });
+    output += '\n';
+    
+    if (nextSteps && nextSteps.length > 0) {
+      output += `🎯 NEXT STEPS\n`;
+      nextSteps.forEach((step, index) => {
+        output += `  ${index + 1}. ${step}\n`;
+      });
+    }
+    
+    return output.trim();
+  }
 }

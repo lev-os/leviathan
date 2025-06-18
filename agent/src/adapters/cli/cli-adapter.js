@@ -10,6 +10,7 @@ import { createCheckpoint, resumeSession, createFinalCheckpoint } from '../../co
 import { createSession, updateSessionActivity, detectWorkspace } from '../../core/sessions/session-manager.js';
 
 import { CommandRegistry } from './command-registry.js';
+import { commandRegistry as coreCommandRegistry } from '../../core/command-registry.js';
 import { ClaudeFormatter } from './formatters/claude-formatter.js';
 import { FindRouter } from './routers/find-router.js';
 import { CheckpointRouter } from './routers/checkpoint-router.js';
@@ -18,6 +19,7 @@ import { AgentRouter } from './routers/agent-router.js';
 export class CLIAdapter {
   constructor() {
     this.commandRegistry = new CommandRegistry();
+    this.coreCommandRegistry = coreCommandRegistry;
     this.formatter = new ClaudeFormatter();
     
     // Initialize specialized routers
@@ -45,7 +47,18 @@ export class CLIAdapter {
   async initialize() {
     if (this.initialized) return;
     
+    // Initialize both CLI registry and core command registry
     await this.commandRegistry.initialize();
+    
+    // Initialize core command registry with dependencies
+    const dependencies = {
+      workflowLoader: null, // TODO: inject proper dependencies
+      debugLogger: console,
+      semanticLookup: null,
+      // Add other dependencies as needed
+    };
+    await this.coreCommandRegistry.initialize(dependencies);
+    
     this.initialized = true;
   }
 
@@ -87,9 +100,24 @@ export class CLIAdapter {
         return this.handlePing(commandArgs);
         
       default:
-        // Check if command is registered by plugin
+        // Check if command is registered by plugin in CLI registry
         if (this.commandRegistry.hasCommand(command)) {
           return await this.commandRegistry.executeCommand(command, commandArgs);
+        }
+        
+        // Check if command is in core command registry (auto-bootstrap)
+        const coreCommands = this.coreCommandRegistry.listCommands();
+        if (coreCommands.includes(command)) {
+          try {
+            const result = await this.coreCommandRegistry.executeCommand(command, commandArgs);
+            return this.formatCoreCommandResult(result);
+          } catch (error) {
+            return {
+              success: false,
+              error: error.message,
+              formatted_response: `❌ Error executing ${command}: ${error.message}`
+            };
+          }
         }
         
         // Try natural language processing
@@ -302,6 +330,68 @@ export class CLIAdapter {
    */
   getFormatter() {
     return this.formatter;
+  }
+
+  /**
+   * Format result from core command registry execution
+   * @param {Object} result - Result from core command execution
+   * @returns {Object} Formatted CLI adapter result
+   */
+  formatCoreCommandResult(result) {
+    // Handle different result formats from core commands
+    if (typeof result === 'object' && result !== null) {
+      // If result already has formatted_response, use it
+      if (result.formatted_response) {
+        return {
+          success: result.success !== false,
+          data: result.data,
+          formatted_response: result.formatted_response
+        };
+      }
+      
+      // If result has success/data structure, format appropriately
+      if ('success' in result) {
+        let formatted_response;
+        
+        if (result.success && result.data) {
+          // Use formatter to create appropriate output based on data type
+          if (result.format === 'json') {
+            formatted_response = JSON.stringify(result.data, null, 2);
+          } else if (result.format === 'formatted') {
+            // Use Claude formatter for structured output
+            formatted_response = this.formatter.formatCommandResult(result.data);
+          } else {
+            // Default fallback
+            formatted_response = this.formatter.formatCommandResult(result.data);
+          }
+        } else if (!result.success) {
+          formatted_response = `❌ Command failed: ${result.error || 'Unknown error'}`;
+        } else {
+          formatted_response = '✅ Command completed successfully';
+        }
+        
+        return {
+          success: result.success,
+          data: result.data,
+          error: result.error,
+          formatted_response: formatted_response
+        };
+      }
+      
+      // Fallback: treat as data object
+      return {
+        success: true,
+        data: result,
+        formatted_response: this.formatter.formatCommandResult(result)
+      };
+    }
+    
+    // Handle primitive results (string, number, boolean)
+    return {
+      success: true,
+      data: result,
+      formatted_response: String(result)
+    };
   }
 }
 

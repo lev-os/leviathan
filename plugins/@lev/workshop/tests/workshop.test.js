@@ -10,7 +10,52 @@
  * - No mocking - test actual CLI adapter integration
  */
 
-import { describe, test, expect, runLevCommand, printSummary } from '../../../@lev-os/testing/src/simple-framework.js';
+import { describe, test, expect, printSummary } from '../../../@lev-os/testing/src/simple-framework.js';
+import { spawn } from 'child_process';
+
+// Custom runLevCommand for workshop plugin tests
+async function runLevCommand(args, options = {}) {
+  return new Promise((resolve) => {
+    const timeout = options.timeout || 30000;
+    const agentDir = '/Users/jean-patricksmith/digital/leviathan/agent';
+    const contextsPath = options.contextsPath || `${agentDir}/contexts`;
+    const command = `CONTEXTS_PATH="${contextsPath}" ${agentDir}/bin/lev ${args.join(' ')}`;
+    
+    const child = spawn('bash', ['-c', command], { 
+      stdio: 'pipe',
+      timeout: timeout
+    });
+    
+    let stdout = '';
+    let stderr = '';
+    
+    child.stdout.on('data', (data) => stdout += data.toString());
+    child.stderr.on('data', (data) => stderr += data.toString());
+    
+    child.on('close', (code) => {
+      const output = (stdout + stderr).trim();
+      
+      resolve({
+        success: code === 0,
+        code: code,
+        output: output,
+        stdout: stdout,
+        stderr: stderr
+      });
+    });
+    
+    setTimeout(() => {
+      child.kill();
+      resolve({
+        success: false,
+        code: -1,
+        output: 'Command timed out',
+        stdout: '',
+        stderr: 'Command timed out'
+      });
+    }, timeout);
+  });
+}
 
 describe('Workshop Plugin CLI Integration', () => {
   
@@ -191,8 +236,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   console.log('🧪 Workshop Plugin Integration Tests');
   console.log('Testing real CLI integration and workflows\n');
   
-  // Set working directory to agent for proper ./bin/lev access
-  process.chdir('../../../agent');
+  // Note: Using absolute paths in custom runLevCommand, no need to change directory
   
   // Run all test suites
   const testRunner = async () => {

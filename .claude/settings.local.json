@@ -21,7 +21,11 @@
       "Bash(node:*)",
       "Bash(node:*)",
       "Bash(CONTEXTS_PATH=\"./contexts\" ./bin/lev checkpoint --final \"feature complete and tested\")",
-      "Bash(npm run test:workflows:*)"
+      "Bash(npm run test:workflows:*)",
+      "Bash(./bin/lev:*)",
+      "mcp__perplexity-ask__perplexity_ask",
+      "Bash(/Users/jean-patricksmith/digital/leviathan/plugins/@lev/workshop/tests/workshop.test.js)",
+      "Bash(timeout:*)"
     ],
     "deny": []
   }

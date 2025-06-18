@@ -4,6 +4,20 @@
 
 **"Adapters Route, Core Computes"** - Extend hexagonal architecture with domain-based function separation to prevent god objects and enable easy testing.
 
+### 📏 Code Organization Standards
+
+**File Size Guidelines:**
+- **Sweet Spot**: 150-200 lines per file (optimal for human readability + agent parsing)
+- **Function Length**: 100-150 lines is when it gets problematic - keep cohesive logic together
+- **Domain Boundary**: One business domain per file
+- **Helper Extraction**: Complex utilities → separate helper files when needed
+
+**Human + Agent Optimization:**
+- **Pretty for Humans**: Well-organized, readable code structure with clear sections
+- **Agent Friendly**: Structured for AI comprehension and modification
+- **SRP Balance**: Follow Single Responsibility without obsessive micro-optimization
+- **Cohesive Functions**: If core function is large, keep main logic together rather than forced splitting
+
 ## 🏗️ Architecture Pattern
 
 ```
@@ -30,10 +44,14 @@
 ```
 src/
 ├── commands/                    # Domain business logic (pure functions)
-│   ├── workshop.js             # Workshop domain commands  
-│   ├── checkpoint.js           # Session management commands
-│   ├── discovery.js            # Context search commands
-│   └── agent.js                # Agent loading commands
+│   ├── workshop.js             # Workshop domain (150-200 lines)
+│   ├── session.js              # Session management domain
+│   ├── discovery.js            # Discovery/search domain 
+│   ├── agent.js                # Agent loading domain
+│   └── helpers/                # Domain utilities (when needed)
+│       ├── workshop-helpers.js # Complex workshop calculations
+│       ├── session-helpers.js  # Session management utilities
+│       └── validation-helpers.js # Cross-domain validation
 ├── core/                       # Shared services and utilities
 │   ├── command-registry.js     # Auto-discovery and routing
 │   ├── sessions/               # Session management services
@@ -42,6 +60,12 @@ src/
 │   ├── cli/                    # CLI argument parsing and formatting
 │   └── mcp/                    # MCP protocol translation
 ```
+
+### Domain Separation Rules
+- **Single Domain Per File**: Each command file handles one business domain
+- **No Cross-Domain Imports**: Commands don't import from other command files
+- **Helper Files**: Extract complex utilities but keep main logic cohesive
+- **Size Management**: Target 150-200 lines, use helpers for overflow
 
 ## 🔧 Core Command Pattern
 
@@ -85,6 +109,107 @@ export const workshopStatusTool = {
 ❌ **Formatting Logic** (CLI vs JSON output)  
 ❌ **Protocol Details** (MCP schemas, CLI parsing)  
 ❌ **Side Effects** (logging, state mutations)
+
+## 🎨 File Structure Templates (Human + Agent Optimized)
+
+### Domain Command File Pattern
+```javascript
+// src/commands/workshop.js (Target: 150-200 lines)
+/**
+ * Workshop Domain Commands
+ * Tools/plugin creation and management system
+ */
+
+import { logger } from '@lev-os/debug';
+
+// ======= CORE BUSINESS FUNCTIONS =======
+
+export async function workshopStatus(args, { workflowLoader, configManager }) {
+  // Main business logic (can be 100+ lines if cohesive)
+  // Keep core logic together - don't force artificial splitting
+  
+  const { tier = 1 } = args;
+  
+  // Validation
+  if (!workflowLoader) throw new Error('WorkflowLoader required');
+  
+  // Business logic execution
+  const data = await workflowLoader.getWorkshopData();
+  const filtered = data.tools.filter(tool => tool.tier <= tier);
+  
+  return { 
+    success: true, 
+    data: { tools: filtered, tier, total: data.tools.length } 
+  };
+}
+
+export async function workshopDiscover(args, dependencies) {
+  // Auto-discovery implementation
+  // Keep logic cohesive even if function grows
+}
+
+export async function workshopIntake(args, dependencies) {
+  // Complete assessment pipeline
+  // Extract helpers if complex calculations needed
+}
+
+// ======= METADATA FOR AUTO-DISCOVERY =======
+
+workshopStatus.description = "Show workshop status overview";
+workshopStatus.inputSchema = {
+  type: 'object',
+  properties: {
+    tier: { type: 'number', minimum: 1, maximum: 3 }
+  }
+};
+
+// ======= MCP TOOL EXPORTS =======
+
+export const workshopStatusTool = {
+  name: 'workshop_status',
+  description: workshopStatus.description,
+  inputSchema: workshopStatus.inputSchema,
+  handler: workshopStatus
+};
+```
+
+### Helper File Pattern (When Needed)
+```javascript
+// src/commands/helpers/workshop-helpers.js
+/**
+ * Workshop Domain Utilities
+ * Complex calculations and validations extracted from main domain
+ */
+
+export function validateWorkshopConfig(config) {
+  // Complex validation logic that would clutter main functions
+  if (!config.tools || !Array.isArray(config.tools)) {
+    throw new Error('Invalid workshop configuration');
+  }
+  
+  return config.tools.every(tool => 
+    tool.name && tool.tier && tool.tier >= 1 && tool.tier <= 3
+  );
+}
+
+export function calculateWorkshopMetrics(tools, options = {}) {
+  // Complex calculations extracted to keep main function clean
+  const { includeDeprecated = false } = options;
+  
+  const activeTools = includeDeprecated 
+    ? tools 
+    : tools.filter(t => !t.deprecated);
+    
+  return {
+    total: activeTools.length,
+    byTier: activeTools.reduce((acc, tool) => {
+      acc[tool.tier] = (acc[tool.tier] || 0) + 1;
+      return acc;
+    }, {}),
+    avgComplexity: activeTools.reduce((sum, t) => sum + t.complexity, 0) / activeTools.length
+  };
+}
+```
 
 ## 🔌 Adapter Implementation
 
@@ -278,16 +403,32 @@ lev prime --context="hexagonal-architecture" --load-constraints
 ## 📋 Development Checklist
 
 ### Before Writing Code
-- [ ] Identify the domain (workshop, checkpoint, discovery, etc.)
+- [ ] Identify the domain (workshop, session, discovery, agent)
 - [ ] Design pure function with dependency injection
 - [ ] Define clear input/output contracts
 - [ ] Plan unit tests for business logic
+- [ ] Estimate file size (target 150-200 lines)
+
+### File Organization
+- [ ] One domain per file
+- [ ] Keep main logic cohesive (100-150 lines before considering split)
+- [ ] Extract helpers only for complex calculations/validations
+- [ ] Use clear section headers (CORE FUNCTIONS, METADATA, MCP TOOLS)
+- [ ] No cross-domain imports between command files
 
 ### Core Command Implementation  
 - [ ] Function accepts (args, dependencies)
 - [ ] No I/O operations or side effects
 - [ ] Returns structured data
 - [ ] Includes metadata for auto-discovery
+- [ ] Readable by humans, parseable by agents
+
+### Code Quality Standards
+- [ ] Pretty formatting with clear sections
+- [ ] Function length appropriate (don't force artificial splitting)
+- [ ] SRP balance (not obsessive micro-optimization)
+- [ ] Domain boundaries respected
+- [ ] Helper files created when logic becomes complex
 
 ### Adapter Implementation
 - [ ] Routes through command registry only
@@ -300,5 +441,6 @@ lev prime --context="hexagonal-architecture" --load-constraints
 - [ ] Integration tests for adapter routing
 - [ ] Auto-bootstrap validation for MCP tools
 - [ ] E2E tests via actual CLI execution
+- [ ] File size validation (not exceeding reasonable limits)
 
 **Remember**: "Adapters Route, Core Computes" - This principle prevents god objects and enables the testing strategy that makes the architecture maintainable and extensible.

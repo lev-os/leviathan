@@ -18,6 +18,27 @@
 3. **Permission Boundaries** - Core vs Community plugins with clear access levels
 4. **Debuggability First** - Event logs, plugin inspector, hot reload
 5. **Simple APIs** - High-level abstractions hiding complexity
+6. **Code Quality Standards** - Consistent file organization and domain separation
+
+### 📏 **Plugin Development Standards**
+
+**File Organization:**
+- **Domain Separation**: One business domain per command file
+- **File Size**: 150-200 lines per file (optimal for readability + maintenance)
+- **Function Length**: 100-150 lines before considering helper extraction
+- **Helper Pattern**: Extract complex utilities to `src/helpers/` when needed
+
+**Code Quality Requirements:**
+- **Human + Agent Optimized**: Pretty for developers, structured for AI tools
+- **SRP Balance**: Follow Single Responsibility without obsessive micro-optimization
+- **Cohesive Functions**: Keep main logic together rather than forced artificial splitting
+- **No Cross-Domain Imports**: Commands don't import from other command files
+
+**Testing Standards:**
+- **Real CLI Integration**: Test via `lev plugin command` execution
+- **MCP Compatibility**: Verify commands appear as MCP tools automatically
+- **File Size Validation**: Automated checks for reasonable file sizes
+- **Domain Boundary Tests**: Validate proper separation of concerns
 
 ## 📋 **Architecture Design: Learning from ~/c Patterns**
 
