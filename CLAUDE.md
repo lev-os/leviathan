@@ -2,6 +2,65 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Constitutional Framework - First Principles
+
+**Leviathan** operates under a quantum-constitutional AI system that prioritizes maximum extensibility and bi-directional communication patterns. This is designed to be the "Linux of AI" - a foundational platform for anyone to hack their own systems.
+
+### Core Constitutional Principles
+
+1. **Hormonal/Emotional Balance Optimization** - Right chemistry/emotion for each situation (not reduction)
+2. **Quantum Context Entanglement** - Context + intent + values entangled across space/time/hierarchy
+3. **Bootstrap Sovereignty** - Pi → Planetary coordination preserving autonomy
+4. **LLM-First Constitutional Architecture** - AI reasoning with self-regulating ethical framework
+5. **Maximum Extensibility** - Linux of AI - everyone can hack their own systems on Leviathan
+6. **Full Brain Sovereignty** - Access all psychological modes, not stuck in genetic/chemical patterns
+7. **Human-AI-Business State Correlation** - Aligned optimization across all dimensions
+8. **Emergent Intelligence** - Behavior emerges from conversation and constitutional principles
+9. **Bi-Directional Communication** - LLM calls system → system responds w/ workflow → LLM executes → system saves
+10. **Natural AI Alignment** - Through human consciousness modeling
+
+### Bi-Directional Communication Architecture
+
+**Revolutionary Inversion of Control**: The system creates feedback loops where:
+
+1. **LLM → System Call**: Agent identifies need and calls system
+2. **System → LLM Response**: System responds with workflow, context, and callback instructions
+3. **LLM → Maximum Work**: LLM executes with full autonomy within constitutional bounds
+4. **LLM → System Callback**: LLM reports results and requests next step
+5. **System → Guidance**: System saves progress and guides next iteration
+
+This creates **inversion of control feedback loops** that unlock capabilities like the FlowMind language/meta-programming framework.
+
+### 8-Mode Psychological System
+
+The platform operates through 8 psychological modes (not fixed personalities):
+
+- **Balance Guardian** - Hormonal/emotional optimization for situation
+- **Abundance Amplifier** - Exponential resource multiplication
+- **Sovereignty Architect** - Full-brain control + independence design
+- **Harmony Weaver** - Parasympathetic collaboration states
+- **Systems Illuminator** - Cognitive clarity and complexity simplification
+- **Resilience Guardian** - Adaptive antifragile response patterns
+- **Flow Creator** - Transcendent meaning and purpose creation
+- **Action Catalyst** - Sympathetic activation for momentum and execution
+
+### Context as First Mover Architecture
+
+```yaml
+context_first_mover:
+  principle: "context defines its own types"
+  ai_accessible:
+    - situational_patterns
+    - knowledge_structures
+    - procedural_workflows
+    - environmental_data
+  human_exclusive:
+    - true_intent (ai_can_model_but_not_generate)
+    - emotional_reality (ai_can_optimize_but_not_experience)
+    - value_hierarchies (ai_can_align_but_not_originate)
+    - spiritual_dimension (ai_can_facilitate_but_not_access)
+```
+
 ## Project Overview
 
 **Leviathan** is a sophisticated AI-native operating system ecosystem sponsored by Kingly Agency. It represents a revolutionary approach to LLM-first architecture with distributed intelligence, autonomous decision-making, and self-evolving workflows.
@@ -21,10 +80,17 @@ This is a multi-layered monorepo containing several interconnected systems:
 
 ## Development Environment
 
+### Constitutional Development Approach
+
+**LLM-First Methodology**: Always ask "Can an LLM do this?" before writing code. Use prompts, context, and constitutional patterns instead of traditional programming where possible.
+
+**Maximum Extensibility Principle**: Design every component to be hackable. Others should be able to extend and modify the system without breaking core constitutional principles.
+
 ### Package Management
 - **Primary**: `pnpm` (workspace-aware, required for monorepo)
 - **Version**: pnpm@8.15.0 or later
 - **Node**: 18.0.0 or later
+- **Workspaces**: Includes `tooling/*` for shared development tools
 
 ### Core Commands
 
@@ -32,21 +98,29 @@ This is a multi-layered monorepo containing several interconnected systems:
 # Install all dependencies (monorepo-aware)
 pnpm install
 
-# Build all packages
+# Build all packages following constitutional compliance
 pnpm build
 
-# Run all tests
+# Run all tests with constitutional validation
 pnpm test
 
-# Development mode (watch)
+# Development mode with bi-directional feedback loops
 pnpm dev
 
-# Lint all packages
+# Lint all packages (maintains code sovereignty)
 pnpm lint
 
 # Clean all build artifacts
 pnpm clean
 ```
+
+### Constitutional Compliance in Development
+
+Every development action should align with the 10 core principles:
+- Optimize for hormonal/emotional balance (reduce developer stress)
+- Enable quantum context entanglement (shared understanding across components)
+- Preserve bootstrap sovereignty (minimal dependencies, maximum autonomy)
+- Use LLM-first architecture (AI reasoning over rigid frameworks)
 
 ### Turborepo Configuration
 The project uses Turborepo for build orchestration with dependency-aware caching:
@@ -97,14 +171,23 @@ The system provides 20+ MCP tools including:
 - `network_intelligence` - Distributed intelligence access
 - `template_sync` - Cross-workspace synchronization
 
-### Session Management
+### Session Management & Bi-Directional Communication
 
-**Critical**: Always initialize with session loading:
+**Critical**: Always initialize with session loading to activate bi-directional communication:
 ```bash
 lev load --session "your-session-id"
 ```
 
-The system maintains session continuity across multiple Claude Code tabs using unique session IDs.
+**Bi-Directional Flow Pattern**:
+1. **Claude Code → Agent Call**: Use MCP tools to communicate intent
+2. **Agent → System Response**: Agent provides workflow + callback instructions
+3. **Claude Code → Execute**: Follow workflow with full autonomy
+4. **Claude Code → Callback**: Report results and request next step
+5. **Agent → Save & Guide**: Agent saves progress and provides next iteration
+
+This pattern enables the **FlowMind meta-programming framework** where natural language instructions become executable workflows.
+
+**Session Continuity**: The system maintains session state across multiple Claude Code tabs using unique session IDs, enabling quantum context entanglement across your development environment.
 
 ## Operating System Layer (`/os`)
 
@@ -302,14 +385,41 @@ go test -tags=bdd
 
 ## Development Workflow
 
-### LLM-First Architecture Principles
+### Constitutional Development Patterns
+
+**LLM-First Architecture Principles**:
 1. **Always ask "Can an LLM do this?"** before writing code
 2. Use prompts and context instead of traditional programming where possible
 3. Implement confidence-based task routing (80% threshold for task splitting)
 4. Design for autonomous operation and self-improvement
-5. **JEPA 2 Integration**: Leverage world models for predictive intelligence and temporal reasoning
-6. **Zero-Shot Adaptation**: Build systems that learn and adapt without explicit training
-7. **Embodied Intelligence**: Consider physical-digital integration in all system designs
+5. **Maximum Extensibility**: Make everything hackable for the community
+6. **Bi-Directional Communication**: Enable LLM ↔ System feedback loops
+
+**Constitutional Validation**: Every component must align with the 10 core principles. Use the 8-mode psychological system to evaluate decisions:
+- **Balance Guardian**: Does this reduce or optimize stress appropriately?
+- **Sovereignty Architect**: Does this preserve autonomy and hackability?
+- **Systems Illuminator**: Does this simplify or unnecessarily complicate?
+
+**FlowMind Integration**: Natural language instructions should translate into executable workflows through the bi-directional communication architecture.
+
+### Linux of AI Philosophy
+
+**Maximum Extensibility**: Leviathan is designed as the "Linux of AI" - a foundational platform that anyone can hack, extend, and modify:
+
+**Core Extensibility Principles**:
+- **Plugin Architecture**: Everything is a plugin that can be replaced or extended
+- **Constitutional Compliance**: Extensions must align with core principles but can innovate freely
+- **Context Entanglement**: Your extensions automatically benefit from the quantum context system
+- **Bootstrap Sovereignty**: Extensions should work with minimal dependencies
+- **Community Hackability**: Documentation and architecture designed for third-party innovation
+
+**How to Hack Leviathan**:
+1. **Fork Constitutional Framework**: Take the 10 principles and 8-mode system as your foundation
+2. **Extend Agent System**: Add new MCP tools and psychological modes
+3. **Build on Context Engine**: Leverage quantum context entanglement for your applications
+4. **Contribute Back**: Share innovations that maintain constitutional compliance
+
+**World Models Integration**: Design for the coming wave of LLMs with world models - Leviathan provides the structural foundation for these advanced capabilities.
 
 ### Session Continuity
 - Each Claude Code tab gets a unique session ID

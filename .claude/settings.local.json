@@ -14,7 +14,14 @@
       "Bash(pnpm test:*)",
       "mcp__desktop-commander__execute_command",
       "Bash(./bin/lev find:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(CONTEXTS_PATH=\"./contexts\" ./bin/lev checkpoint --new \"working on authentication system\" 2>&1)",
+      "Bash(CONTEXTS_PATH=\"./contexts\" ./bin/lev checkpoint --new \"working on authentication system\")",
+      "Bash(echo:*)",
+      "Bash(node:*)",
+      "Bash(node:*)",
+      "Bash(CONTEXTS_PATH=\"./contexts\" ./bin/lev checkpoint --final \"feature complete and tested\")",
+      "Bash(npm run test:workflows:*)"
     ],
     "deny": []
   }

@@ -4,6 +4,10 @@
   "description": "Universal testing framework for Leviathan core packages and community plugins (sponsored by Kingly Agency)",
   "type": "module",
   "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./simple": "./src/simple-framework.js"
+  },
   "scripts": {
     "test": "node src/test.js",
     "test:plugins": "node src/test-plugins.js",

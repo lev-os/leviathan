@@ -1,0 +1,147 @@
+plugin:
+  name: workshop
+  version: 0.1.0
+  type: core_plugin
+  description: "Workshop tool and plugin creation system for the Leviathan ecosystem"
+  author: "Leviathan Agent System"
+
+capabilities:
+  - tool_management
+  - plugin_creation
+  - community_onboarding
+  - development_acceleration
+
+commands:
+  status:
+    syntax: "workshop status [--json]"
+    description: "Show workshop status overview with tool and plugin counts"
+    whisper:
+      strategies:
+        - "Show comprehensive status of workshop tools and plugins"
+        - "Display current tier breakdown and available functionality"
+        - "Include JSON output option for LLM consumption"
+      
+  list:
+    syntax: "workshop list [--tier=N] [--json]"
+    description: "List available workshop tools, optionally filtered by tier"
+    whisper:
+      strategies:
+        - "Show all available workshop tools"
+        - "Filter by tier (1=essential, 2=standard, 3=advanced)"
+        - "Support JSON output for programmatic access"
+        
+  info:
+    syntax: "workshop info <tool-name>"
+    description: "Get detailed information about a specific workshop tool"
+    whisper:
+      strategies:
+        - "Show comprehensive tool documentation and usage"
+        - "Include tier classification and dependencies"
+        - "Provide usage examples and integration guidance"
+        
+  onboard:
+    syntax: "workshop onboard"
+    description: "Get onboarding guide for community plugin development"
+    whisper:
+      strategies:
+        - "Provide comprehensive community onboarding guide"
+        - "Include plugin development standards and templates"
+        - "Show integration patterns and best practices"
+        
+  docs:
+    syntax: "workshop docs"
+    description: "Show documentation links and resources"
+    whisper:
+      strategies:
+        - "Provide links to documentation and resources"
+        - "Include plugin development guides"
+        - "Show community contribution guidelines"
+        
+  examples:
+    syntax: "workshop examples"
+    description: "Show example implementations and usage patterns"
+    whisper:
+      strategies:
+        - "Provide concrete implementation examples"
+        - "Show common usage patterns and templates"
+        - "Include integration examples with other plugins"
+
+  # Phase 2 placeholders (not yet implemented)
+  intake:
+    syntax: "workshop intake"
+    description: "Phase 3 placeholder - intake new tool ideas and specifications"
+    whisper:
+      strategies:
+        - "Show Phase 3 placeholder message"
+        - "Explain intake process for tool creation"
+        
+  classify:
+    syntax: "workshop classify"
+    description: "Phase 3 placeholder - classify tools by type and tier"
+    whisper:
+      strategies:
+        - "Show Phase 3 placeholder message"
+        - "Explain classification system for tools"
+        
+  create:
+    syntax: "workshop create"
+    description: "Phase 2 placeholder - create new tools and plugins"
+    whisper:
+      strategies:
+        - "Show Phase 2 placeholder message"
+        - "Explain future tool creation capabilities"
+
+workflows:
+  community_onboarding:
+    description: "Guide new community members through plugin development"
+    steps:
+      - "Run workshop onboard for comprehensive guide"
+      - "Use workshop docs to access documentation"
+      - "Try workshop examples for implementation patterns"
+      
+  tool_discovery:
+    description: "Discover and explore available workshop tools"
+    steps:
+      - "Run workshop status for overview"
+      - "Use workshop list to see all tools"
+      - "Get details with workshop info <tool-name>"
+      
+  development_workflow:
+    description: "Standard development workflow using workshop tools"
+    steps:
+      - "Start with workshop status to understand current state"
+      - "Use workshop list --tier=1 for essential tools"
+      - "Get specific tool info with workshop info <tool>"
+
+contexts:
+  - type: "tool_management"
+    relevance: "high"
+    keywords: ["workshop", "tool", "plugin", "create", "manage"]
+    
+  - type: "community_development"
+    relevance: "high"
+    keywords: ["onboard", "community", "contribute", "develop"]
+    
+  - type: "plugin_ecosystem"
+    relevance: "medium"
+    keywords: ["plugin", "ecosystem", "integration", "extension"]
+
+integration:
+  mcp_tools:
+    - "get_workflow"
+    - "session_ping"
+    - "intelligence_lookup"
+    
+  cli_adapter:
+    namespace: "workshop"
+    commands_auto_register: true
+    
+  plugin_dependencies:
+    - "@lev-os/debug"
+    - "@lev-os/testing"
+
+metadata:
+  implementation_status: "phase_1_testing"
+  testing_framework: "simplified_e2e"
+  documentation_level: "comprehensive"
+  community_ready: true

@@ -472,6 +472,34 @@ class KinglyAgentServer {
             },
           },
         },
+        {
+          name: 'workshop',
+          description: 'Workshop tool and plugin creation system for Leviathan ecosystem',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              command: {
+                type: 'string',
+                enum: ['status', 'list', 'info', 'onboard', 'docs', 'examples', 'intake', 'classify', 'create'],
+                description: 'Workshop command to execute',
+              },
+              args: {
+                type: 'array',
+                items: { type: 'string' },
+                description: 'Command arguments (e.g., tool name for info, tier for list)',
+              },
+              options: {
+                type: 'object',
+                properties: {
+                  json: { type: 'boolean', default: false },
+                  tier: { type: 'number', minimum: 1, maximum: 3 },
+                },
+                description: 'Command options',
+              },
+            },
+            required: ['command'],
+          },
+        },
       ],
     }));
 
@@ -531,6 +559,10 @@ class KinglyAgentServer {
           
           case 'network_status':
             return await this.handleNetworkStatus(request.params.arguments);
+          
+          // Workshop Plugin System
+          case 'workshop':
+            return await this.handleWorkshop(request.params.arguments);
           
           default:
             throw new McpError(
@@ -1225,6 +1257,282 @@ class KinglyAgentServer {
         },
       ],
     };
+  }
+
+  async handleWorkshop(args) {
+    const { command, args: commandArgs = [], options = {} } = args;
+    
+    // Mock workshop data for testing - in real implementation this would come from workshop plugin
+    const workshopData = {
+      overview: {
+        total_tools: 170,
+        total_plugins: 8,
+        tiers: {
+          tier_1: 45,
+          tier_2: 85,
+          tier_3: 40
+        },
+        active_development: true,
+        phase: "Phase 1 - Testing & Integration"
+      },
+      tools: [
+        { name: "checkpoint-manager", tier: 1, description: "Session checkpoint management" },
+        { name: "context-search", tier: 1, description: "Semantic context discovery" },
+        { name: "workflow-router", tier: 2, description: "Workflow routing and execution" },
+        { name: "intelligence-coordinator", tier: 2, description: "Cross-workspace intelligence" },
+        { name: "template-sync", tier: 3, description: "Template synchronization system" }
+      ]
+    };
+
+    try {
+      switch (command) {
+        case 'status':
+          const statusResult = {
+            success: true,
+            data: workshopData
+          };
+          
+          if (options.json) {
+            return {
+              content: [{ type: 'text', text: JSON.stringify(statusResult, null, 2) }]
+            };
+          }
+          
+          return {
+            content: [{
+              type: 'text',
+              text: `🛠️ **WORKSHOP STATUS**\\n\\n` +
+                   `**OVERVIEW**\\n` +
+                   `• Total Tools: ${workshopData.overview.total_tools}\\n` +
+                   `• Total Plugins: ${workshopData.overview.total_plugins}\\n` +
+                   `• Active Development: ${workshopData.overview.active_development ? 'Yes' : 'No'}\\n` +
+                   `• Current Phase: ${workshopData.overview.phase}\\n\\n` +
+                   `**TIER BREAKDOWN**\\n` +
+                   `• Tier 1 (Essential): ${workshopData.overview.tiers.tier_1} tools\\n` +
+                   `• Tier 2 (Standard): ${workshopData.overview.tiers.tier_2} tools\\n` +
+                   `• Tier 3 (Advanced): ${workshopData.overview.tiers.tier_3} tools\\n\\n` +
+                   `✅ Workshop system operational and ready for development`
+            }]
+          };
+
+        case 'list':
+          const tier = options.tier;
+          const filteredTools = tier ? 
+            workshopData.tools.filter(t => t.tier === tier) : 
+            workshopData.tools;
+          
+          const listResult = {
+            success: true,
+            data: {
+              tools: filteredTools,
+              filter: tier ? `Tier ${tier}` : 'All tiers',
+              count: filteredTools.length
+            }
+          };
+          
+          if (options.json) {
+            return {
+              content: [{ type: 'text', text: JSON.stringify(listResult, null, 2) }]
+            };
+          }
+          
+          return {
+            content: [{
+              type: 'text',
+              text: `🔧 **WORKSHOP TOOLS** ${tier ? `(Tier ${tier})` : ''}\\n\\n` +
+                   filteredTools.map(tool => 
+                     `• **${tool.name}** (Tier ${tool.tier})\\n  ${tool.description}`
+                   ).join('\\n\\n') +
+                   `\\n\\n📊 Showing ${filteredTools.length} tools`
+            }]
+          };
+
+        case 'info':
+          const toolName = commandArgs[0];
+          if (!toolName) {
+            return {
+              content: [{
+                type: 'text',
+                text: '❌ **Error**: Tool name is required\\n\\n**Usage:** workshop info <tool-name>'
+              }]
+            };
+          }
+          
+          const tool = workshopData.tools.find(t => t.name === toolName);
+          if (!tool) {
+            return {
+              content: [{
+                type: 'text',
+                text: `❌ **Error**: Tool not found: ${toolName}\\n\\n**Available tools:**\\n` +
+                     workshopData.tools.map(t => `• ${t.name}`).join('\\n')
+              }]
+            };
+          }
+          
+          return {
+            content: [{
+              type: 'text',
+              text: `🔧 **${tool.name}**\\n\\n` +
+                   `**Tier:** ${tool.tier}\\n` +
+                   `**Description:** ${tool.description}\\n\\n` +
+                   `**Integration Status:** Available for plugin development\\n` +
+                   `**Documentation:** See workshop docs for implementation details`
+            }]
+          };
+
+        case 'onboard':
+          return {
+            content: [{
+              type: 'text',
+              text: `🎓 **COMMUNITY ONBOARDING GUIDE**\\n\\n` +
+                   `Welcome to the Leviathan plugin ecosystem! Here's how to get started:\\n\\n` +
+                   `**1. Development Setup**\\n` +
+                   `• Follow hexagonal architecture patterns\\n` +
+                   `• Use @lev-os testing framework\\n` +
+                   `• Implement CLI adapter integration\\n\\n` +
+                   `**2. Plugin Standards**\\n` +
+                   `• Real CLI integration testing\\n` +
+                   `• JSON output for LLM consumption\\n` +
+                   `• Graceful error handling\\n\\n` +
+                   `**3. Next Steps**\\n` +
+                   `• Run 'workshop docs' for detailed documentation\\n` +
+                   `• Try 'workshop examples' for implementation patterns\\n` +
+                   `• Join the community development process\\n\\n` +
+                   `🚀 Ready to build the future of AI tooling!`
+            }]
+          };
+
+        case 'docs':
+          return {
+            content: [{
+              type: 'text',
+              text: `📚 **DOCUMENTATION LINKS**\\n\\n` +
+                   `**Core Documentation:**\\n` +
+                   `• Plugin Development Guide: /docs/plugin-development.md\\n` +
+                   `• Testing Standards: /docs/testing/plugin-standards.md\\n` +
+                   `• Hexagonal Architecture: /docs/testing/hexagonal-testing.md\\n\\n` +
+                   `**Community Resources:**\\n` +
+                   `• Contribution Guidelines: /CONTRIBUTING.md\\n` +
+                   `• Code of Conduct: /CODE_OF_CONDUCT.md\\n` +
+                   `• Plugin Examples: /plugins/@lev/workshop/\\n\\n` +
+                   `**Getting Help:**\\n` +
+                   `• GitHub Issues: github.com/leviathan/issues\\n` +
+                   `• Community Discord: discord.gg/leviathan\\n` +
+                   `• Documentation: docs.leviathan.dev`
+            }]
+          };
+
+        case 'examples':
+          return {
+            content: [{
+              type: 'text',
+              text: `💡 **IMPLEMENTATION EXAMPLES**\\n\\n` +
+                   `**Basic Plugin Structure:**\\n` +
+                   \`\`\`javascript\\n` +
+                   `export class YourPlugin {\\n` +
+                   `  constructor() {\\n` +
+                   `    this.namespace = 'your-plugin';\\n` +
+                   `  }\\n` +
+                   `}\\n` +
+                   \`\`\`\\n\\n` +
+                   `**CLI Integration:**\\n` +
+                   \`\`\`javascript\\n` +
+                   `await runLevCommand(['plugin', 'command']);\\n` +
+                   \`\`\`\\n\\n` +
+                   `**Testing Pattern:**\\n` +
+                   \`\`\`javascript\\n` +
+                   `test('should work via CLI', async () => {\\n` +
+                   `  const result = await runLevCommand(['plugin', 'test']);\\n` +
+                   `  expect(result.success).toBe(true);\\n` +
+                   `});\\n` +
+                   \`\`\`\\n\\n` +
+                   `🔗 See @lev/workshop plugin for complete reference implementation`
+            }]
+          };
+
+        case 'intake':
+          return {
+            content: [{
+              type: 'text',
+              text: `🚧 **Phase 3 Placeholder - Tool Intake System**\\n\\n` +
+                   `This feature will allow community members to submit new tool ideas and specifications.\\n\\n` +
+                   `**Planned Features:**\\n` +
+                   `• Tool specification templates\\n` +
+                   `• Community review process\\n` +
+                   `• Automated validation pipeline\\n` +
+                   `• Integration with development workflow\\n\\n` +
+                   `📅 **Status:** Coming in Phase 3\\n` +
+                   `🔄 **Current:** Focus on Phase 1 testing and integration`
+            }]
+          };
+
+        case 'classify':
+          return {
+            content: [{
+              type: 'text',
+              text: `🚧 **Phase 3 Placeholder - Tool Classification**\\n\\n` +
+                   `This feature will automatically classify tools by type, complexity, and tier.\\n\\n` +
+                   `**Classification System:**\\n` +
+                   `• Tier 1: Essential tools (< 1 minute to implement)\\n` +
+                   `• Tier 2: Standard tools (< 1 hour to implement)\\n` +
+                   `• Tier 3: Advanced tools (< 1 day to implement)\\n\\n` +
+                   `**Auto-Classification:**\\n` +
+                   `• Complexity analysis\\n` +
+                   `• Dependency mapping\\n` +
+                   `• Usage pattern recognition\\n\\n` +
+                   `📅 **Status:** Coming in Phase 3`
+            }]
+          };
+
+        case 'create':
+          return {
+            content: [{
+              type: 'text',
+              text: `🚧 **Phase 2 Placeholder - Tool Creation System**\\n\\n` +
+                   `This feature will provide automated tool and plugin creation capabilities.\\n\\n` +
+                   `**Planned Features:**\\n` +
+                   `• Interactive tool builder\\n` +
+                   `• Template-based generation\\n` +
+                   `• Automated testing setup\\n` +
+                   `• Integration with CI/CD pipeline\\n\\n` +
+                   `**Tool Types:**\\n` +
+                   `• CLI tools and utilities\\n` +
+                   `• Plugin extensions\\n` +
+                   `• Workflow automations\\n` +
+                   `• Integration adapters\\n\\n` +
+                   `📅 **Status:** Coming in Phase 2\\n` +
+                   `🎯 **Priority:** After Phase 1 testing completion`
+            }]
+          };
+
+        default:
+          return {
+            content: [{
+              type: 'text',
+              text: `❌ **Error**: Unknown workshop command: ${command}\\n\\n` +
+                   `**Available commands:**\\n` +
+                   `• status - Show workshop overview\\n` +
+                   `• list - List available tools\\n` +
+                   `• info <tool> - Get tool details\\n` +
+                   `• onboard - Community onboarding guide\\n` +
+                   `• docs - Documentation links\\n` +
+                   `• examples - Implementation examples\\n\\n` +
+                   `**Phase 2+ commands (placeholders):**\\n` +
+                   `• create - Tool creation system\\n` +
+                   `• intake - Tool idea submission\\n` +
+                   `• classify - Tool classification`
+            }]
+          };
+      }
+    } catch (error) {
+      return {
+        content: [{
+          type: 'text',
+          text: `❌ **Workshop Error**: ${error.message}\\n\\n` +
+               `Please check your command syntax and try again.`
+        }]
+      };
+    }
   }
 
   async run() {

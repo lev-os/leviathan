@@ -48,11 +48,9 @@ class MediaForgeExecutor:
                 cmd = [
                     sys.executable,
                     str(self.yt_path / "yt.py"),
-                    "download",
+                    "-d",  # download flag
                     url,
-                    "--quality", quality,
-                    "--subtitles",
-                    "--output-dir", output_dir
+                    "-o", output_dir  # output directory
                 ]
                 
                 result = subprocess.run(cmd, capture_output=True, text=True)

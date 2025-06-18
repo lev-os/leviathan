@@ -1,35 +1,52 @@
-# Claude CLI E2E Testing Suite
+# Claude Code E2E Testing Suite
 
 ## Overview
 
-This document describes the E2E testing suite for Claude Code + Kingly integration. The system allows Claude Code to spawn subprocesses and test the Kingly system, providing comprehensive validation of cross-session timeline continuity, session management, and response formatting.
+This document describes the E2E testing suite for Claude Code + Leviathan integration. The system allows Claude Code to spawn subprocesses and test the Leviathan agent system, providing comprehensive validation of cross-session timeline continuity, session management, and hexagonal architecture integration.
+
+**Part of Leviathan's simplified testing framework** following the "Fast Iteration → Lock Down When Working" philosophy.
 
 ## What We Built
 
 ### Claude Code CLI Integration
 - **Environment Detection** - System detects when running inside Claude Code via `CLAUDECODE=1` and `CLAUDE_CODE_ENTRYPOINT=cli`
-- **Subprocess Spawning** - Claude Code can spawn other Claude Code instances to test Kingly
+- **Subprocess Spawning** - Claude Code can spawn other Claude Code instances to test Leviathan
 - **Automated Testing** - Uses Claude Code flags for non-interactive execution
-- **E2E Validation** - Tests real user workflow (Claude Code → Kingly)
+- **E2E Validation** - Tests real user workflow (Claude Code → Leviathan CLI Adapter → Core SDK)
+- **Hexagonal Testing** - Validates complete architectural flow through all layers
 
 ### Test Infrastructure
 - **E2E Test Script** - `./test-e2e.sh` tests all checkpoint modes
-- **Cross-Session Timeline** - Validates timeline continuity across sessions
+- **Cross-Session Timeline** - Validates timeline continuity across sessions  
 - **Response Formatting** - Confirms clean markdown output (no JSON debug)
 - **Session Management** - Tests session creation, discovery, and progression
+- **Integration with Testing Framework** - Uses `@lev-os/testing` framework and `npm run test:e2e`
+- **Plugin Ecosystem Testing** - Validates plugin commands work through Claude Code
 
 ## How to Use
 
 ### 1. Run the Full E2E Test Suite
+
+#### Using Monorepo Test Orchestration
+```bash
+# Complete E2E validation (includes Claude Code integration)
+npm run test:e2e
+
+# Full system validation (all layers + plugins + E2E)
+npm run test:all
+```
+
+#### Legacy E2E Script (Direct Testing)
 ```bash
 ./test-e2e.sh
 ```
 
 This script tests:
-- **New checkpoint** - Creates fresh session
+- **New checkpoint** - Creates fresh session (CLI Adapter → Core SDK)
 - **Progress checkpoint** - Shows active development state  
 - **Resume checkpoint** - Tests cross-session timeline continuity
 - **Final checkpoint** - Session completion
+- **Plugin integration** - Tests workshop plugin commands via Claude Code
 
 ### 2. Claude Code CLI Flags
 
@@ -43,27 +60,43 @@ This script tests:
 
 #### Basic Usage Pattern
 ```bash
-# Have Claude Code run a Kingly command
-claude --print --dangerously-skip-permissions "Execute this bash command: CONTEXTS_PATH=\"./contexts\" ./bin/kingly checkpoint --new \"test session\""
+# Have Claude Code run a Leviathan command
+claude --print --dangerously-skip-permissions "Execute this bash command: ./bin/lev checkpoint --new \"test session\""
 
 # With JSON output for automation
-claude --print --dangerously-skip-permissions --output-format json "run: CONTEXTS_PATH=\"./contexts\" ./bin/kingly ping"
+claude --print --dangerously-skip-permissions --output-format json "run: ./bin/lev status"
+
+# Test plugin commands through Claude Code
+claude --print --dangerously-skip-permissions "./bin/lev workshop status"
 ```
 
 ### 3. Test Specific Functionality
 
 #### Test Cross-Session Timeline Continuity
 ```bash
-claude --print --dangerously-skip-permissions "CONTEXTS_PATH=\"./contexts\" ./bin/kingly checkpoint --resume"
+claude --print --dangerously-skip-permissions "./bin/lev checkpoint --resume"
 ```
 
 #### Test Session Management
 ```bash
-claude --print --dangerously-skip-permissions "CONTEXTS_PATH=\"./contexts\" ./bin/kingly checkpoint --new \"automated test session\""
+claude --print --dangerously-skip-permissions "./bin/lev checkpoint --new \"automated test session\""
+```
+
+#### Test Plugin Ecosystem via Claude Code
+```bash
+# Test workshop plugin
+claude --print --dangerously-skip-permissions "./bin/lev workshop status"
+
+# Test debug plugin  
+claude --print --dangerously-skip-permissions "./bin/lev debug info"
 ```
 
 #### Run Full Test Suite via Claude Code
 ```bash
+# Using new monorepo orchestration
+claude --print --dangerously-skip-permissions "npm run test:e2e"
+
+# Using legacy script
 claude --print --dangerously-skip-permissions "./test-e2e.sh"
 ```
 
@@ -71,17 +104,20 @@ claude --print --dangerously-skip-permissions "./test-e2e.sh"
 
 #### Test Individual Commands
 ```bash
-# Test new checkpoint
-claude --print --dangerously-skip-permissions "CONTEXTS_PATH=\"./contexts\" ./bin/kingly checkpoint --new \"e2e test\""
+# Test new checkpoint (CLI Adapter → Core SDK)
+claude --print --dangerously-skip-permissions "./bin/lev checkpoint --new \"e2e test\""
 
 # Test progress checkpoint
-claude --print --dangerously-skip-permissions "CONTEXTS_PATH=\"./contexts\" ./bin/kingly checkpoint --context \"testing in progress\""
+claude --print --dangerously-skip-permissions "./bin/lev checkpoint --context \"testing in progress\""
 
 # Test resume (cross-session timeline)
-claude --print --dangerously-skip-permissions "CONTEXTS_PATH=\"./contexts\" ./bin/kingly checkpoint --resume"
+claude --print --dangerously-skip-permissions "./bin/lev checkpoint --resume"
 
 # Test final checkpoint
-claude --print --dangerously-skip-permissions "CONTEXTS_PATH=\"./contexts\" ./bin/kingly checkpoint --final \"testing complete\""
+claude --print --dangerously-skip-permissions "./bin/lev checkpoint --final \"testing complete\""
+
+# Test plugin commands
+claude --print --dangerously-skip-permissions "./bin/lev workshop list --tier=1"
 ```
 
 ## What This Validates
@@ -105,10 +141,15 @@ claude --print --dangerously-skip-permissions "CONTEXTS_PATH=\"./contexts\" ./bi
 - Error handling and recovery suggestions
 
 ### ✅ CLI Integration
-- Claude Code successfully spawns and calls Kingly
+- Claude Code successfully spawns and calls Leviathan
 - Permission handling works correctly
 - Background operations complete without user intervention
 - JSON output for automation scenarios
+
+### ✅ Hexagonal Architecture Flow
+- **External Interface** (Claude Code) → **CLI Adapter** → **Core SDK**
+- Plugin commands work through adapter pattern
+- Complete architectural validation from external to core
 
 ## Current Test Results
 
@@ -126,26 +167,45 @@ Based on successful E2E test runs:
 ```bash
 #!/bin/bash
 
-# E2E test script for Claude Code + Kingly integration
+# E2E test script for Claude Code + Leviathan integration
 echo "Starting E2E tests..."
 
-# Test 1: New checkpoint
+# Test 1: New checkpoint (CLI Adapter → Core SDK)
 echo "Test 1: Creating new checkpoint"
-CONTEXTS_PATH="./contexts" ./bin/kingly checkpoint --new "e2e test - new checkpoint"
+./bin/lev checkpoint --new "e2e test - new checkpoint"
 
 # Test 2: Progress checkpoint  
 echo "Test 2: Creating progress checkpoint"
-CONTEXTS_PATH="./contexts" ./bin/kingly checkpoint --context "e2e test in progress"
+./bin/lev checkpoint --context "e2e test in progress"
 
 # Test 3: Resume checkpoint (cross-session timeline continuity)
 echo "Test 3: Testing resume with cross-session timeline"
-CONTEXTS_PATH="./contexts" ./bin/kingly checkpoint --resume
+./bin/lev checkpoint --resume
 
 # Test 4: Final checkpoint
 echo "Test 4: Creating final checkpoint"
-CONTEXTS_PATH="./contexts" ./bin/kingly checkpoint --final "e2e test complete"
+./bin/lev checkpoint --final "e2e test complete"
+
+# Test 5: Plugin integration
+echo "Test 5: Testing plugin commands"
+./bin/lev workshop status
 
 echo "E2E tests completed!"
+```
+
+### Integration with Testing Framework
+
+The E2E testing integrates with the new simplified testing framework:
+
+```bash
+# E2E tests run via npm scripts (includes Claude Code integration)
+npm run test:e2e
+
+# This combines:
+# - CLI adapter E2E tests
+# - Plugin integration tests  
+# - Cross-session timeline validation
+# - Claude Code subprocess execution
 ```
 
 ## Environment Detection
@@ -160,8 +220,8 @@ The global CLAUDE.md now includes:
 
 **E2E Testing Pattern:**
 ```bash
-# Spawn Claude Code subprocess to test Kingly
-claude "run kingly checkpoint --new 'e2e test scenario'"
+# Spawn Claude Code subprocess to test Leviathan
+claude "run lev checkpoint --new 'e2e test scenario'"
 ```
 ```
 
@@ -178,8 +238,8 @@ claude "run kingly checkpoint --new 'e2e test scenario'"
 - Avoid `--output-format json` unless automation requires structured data
 
 #### Session Not Found
-- Check that `CONTEXTS_PATH="./contexts"` is set correctly
-- Verify `.kingly/sessions/` directory exists and has proper permissions
+- Check that session directories exist with proper permissions
+- Verify session files are properly formatted JSON
 
 #### Timeline Continuity Not Working
 - Ensure multiple sessions exist in the same workspace
@@ -199,16 +259,17 @@ claude --print "echo 'Claude Code working'"
 # Check environment variables
 env | grep -i claude
 
-# Verify Kingly can run directly
-CONTEXTS_PATH="./contexts" ./bin/kingly status
+# Verify Leviathan can run directly
+./bin/lev status
 ```
 
 ## Benefits
 
 ### Real-World Testing
-- Tests actual user workflow (Claude Code → Kingly)
-- Validates integration points that matter
+- Tests actual user workflow (Claude Code → Leviathan CLI Adapter → Core SDK)
+- Validates hexagonal architecture integration points
 - Catches issues in real usage scenarios
+- Tests plugin ecosystem compatibility
 
 ### Automated Validation
 - No manual intervention required
@@ -229,4 +290,4 @@ CONTEXTS_PATH="./contexts" ./bin/kingly status
 - **Concurrent session testing** - Test multiple Claude Code instances
 - **CI/CD integration** - Automated testing in deployment pipeline
 
-This E2E testing suite provides comprehensive validation that the Claude Code + Kingly integration works seamlessly for real user scenarios.
+This E2E testing suite provides comprehensive validation that the Claude Code + Leviathan integration works seamlessly for real user scenarios, following the simplified testing framework principles and validating the complete hexagonal architecture flow.

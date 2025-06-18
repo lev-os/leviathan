@@ -1,0 +1,143 @@
+# Workshop Plugin Configuration
+# Tool integration and plugin creation system
+
+plugin:
+  name: workshop
+  version: 0.1.0
+  type: community_plugin
+  description: Tool integration and plugin creation system for Leviathan ecosystem
+  namespace: workshop
+
+capabilities:
+  - tool_integration
+  - plugin_creation
+  - community_onboarding
+  - tier_classification
+  - template_generation
+  - integration_automation
+
+commands:
+  status:
+    syntax: "lev workshop status [options]"
+    description: "Show tool/plugin counts by tier and integration status"
+    options:
+      - "--json: Output in JSON format"
+      - "--tier=X: Filter by specific tier"
+    
+  list:
+    syntax: "lev workshop list [options]"
+    description: "List tools by classification tier"
+    options:
+      - "--tier=X: Show tools in specific tier (1-8)"
+      - "--type=plugins|tools: Filter by type"
+      - "--json: Output in JSON format"
+    
+  info:
+    syntax: "lev workshop info <tool-name>"
+    description: "Show detailed information about a specific tool"
+    args:
+      - "tool-name: Name of tool to get information about"
+    
+  intake:
+    syntax: "lev workshop intake <repo-url>"
+    description: "Automated repository analysis and tier classification"
+    args:
+      - "repo-url: GitHub repository URL to analyze"
+    
+  classify:
+    syntax: "lev workshop classify <tool-name> [options]"
+    description: "Auto-assign tier based on existing criteria"
+    args:
+      - "tool-name: Name of tool to classify"
+    options:
+      - "--force: Override existing classification"
+    
+  integrate:
+    syntax: "lev workshop integrate <tool-name> [options]"
+    description: "Execute tier-appropriate integration pipeline"
+    args:
+      - "tool-name: Name of tool to integrate"
+    options:
+      - "--tier=X: Override auto-detected tier"
+      - "--dry-run: Show what would be done without executing"
+    
+  create:
+    syntax: "lev workshop create <type> <name> [options]"
+    description: "Generate plugin or tool templates"
+    args:
+      - "type: 'plugin' or 'tool'"
+      - "name: Name for the new plugin/tool"
+    options:
+      - "--template=X: Use specific template"
+      - "--worktree: Create in new git worktree"
+    
+  test:
+    syntax: "lev workshop test <plugin-name>"
+    description: "Run comprehensive plugin validation tests"
+    args:
+      - "plugin-name: Name of plugin to test"
+    
+  onboard:
+    syntax: "lev workshop onboard [step]"
+    description: "Interactive community onboarding guide"
+    args:
+      - "step: Specific onboarding step (optional)"
+    
+  docs:
+    syntax: "lev workshop docs <topic>"
+    description: "Show documentation for specific topics"
+    args:
+      - "topic: architecture|plugins|patterns|examples"
+    
+  tutorial:
+    syntax: "lev workshop tutorial <level>"
+    description: "Step-by-step plugin creation tutorials"
+    args:
+      - "level: basic|intermediate|advanced"
+    
+  examples:
+    syntax: "lev workshop examples [filter]"
+    description: "Show real working plugin examples"
+    args:
+      - "filter: Filter examples by type or complexity"
+
+configuration:
+  workshop_path: "../../workshop"
+  templates_path: "./templates"
+  output_format: "structured"
+  debug_enabled: true
+  integration_timeout: 30000
+
+tier_system:
+  tier_1:
+    name: "PRODUCTION-READY"
+    timeline_weeks: "1-2"
+    criteria: ["battle_tested", "comprehensive_docs", "active_maintenance"]
+  tier_2:
+    name: "ADVANCED-STABLE" 
+    timeline_weeks: "2-4"
+    criteria: ["proven_architecture", "good_docs", "requires_adaptation"]
+  tier_3:
+    name: "EMERGING-VIABLE"
+    timeline_weeks: "3-6"
+    criteria: ["solid_foundation", "growing_community", "incomplete_docs"]
+  tier_4:
+    name: "RESEARCH-READY"
+    timeline_weeks: "4-8"
+    criteria: ["proof_of_concept", "academic_backing", "needs_validation"]
+  tier_5:
+    name: "EXPERIMENTAL-PROMISING"
+    timeline_weeks: "6-12"
+    criteria: ["early_stage", "interesting_approach", "limited_testing"]
+  tier_6:
+    name: "PROTOTYPE-STAGE"
+    timeline_weeks: "8-16"
+    criteria: ["working_demo", "needs_refinement", "custom_architecture"]
+  tier_7:
+    name: "CONCEPT-PROOF"
+    timeline_weeks: "12+"
+    criteria: ["academic_implementation", "theoretical_framework", "research_only"]
+  tier_8:
+    name: "EXPLORATORY"
+    timeline_weeks: "research_only"
+    criteria: ["cutting_edge", "speculative", "experimental_ideas"]

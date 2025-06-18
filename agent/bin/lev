@@ -1,37 +1,10 @@
 #!/bin/bash
-# Leviathan Hybrid Command System - Dual Mode CLI
-# Supports explicit commands AND natural language with LLM whisper guidance
+# Leviathan Hexagonal Architecture CLI
+# Routes through new CLI adapter with core SDK and extensible plugin support
 
 # Set up environment
 LEV_AGENT_PATH="$HOME/digital/leviathan/agent"
 CONTEXTS_PATH="$LEV_AGENT_PATH/contexts"
-WHISPER_FILE="/tmp/lev-whisper.json"
 
-# Clean up any existing whisper file
-rm -f "$WHISPER_FILE" 2>/dev/null
-
-# Help system
-if [ "$1" = "help" ]; then
-  if [ -n "$2" ]; then
-    node "$LEV_AGENT_PATH/src/cli-help.js" "$2"
-  else
-    node "$LEV_AGENT_PATH/src/cli-help.js"
-  fi
-  exit 0
-fi
-
-# Route through hybrid router with contexts path
-RESULT=$(CONTEXTS_PATH="$CONTEXTS_PATH" node "$LEV_AGENT_PATH/src/cli-router.js" "$@" 2>/dev/null)
-EXIT_CODE=$?
-
-# Display formatted result
-echo "$RESULT" | node "$LEV_AGENT_PATH/src/cli-formatter.js" 2>/dev/null
-
-# Handle whisper guidance for LLM context (hidden from user, available via stderr)
-if [ -f "$WHISPER_FILE" ]; then
-  # Send whisper to stderr for LLM access while keeping stdout clean
-  cat "$WHISPER_FILE" >&2 2>/dev/null || true
-  rm -f "$WHISPER_FILE" 2>/dev/null
-fi
-
-exit $EXIT_CODE
+# Route through new CLI adapter
+CONTEXTS_PATH="$CONTEXTS_PATH" node "$LEV_AGENT_PATH/src/adapters/cli/cli-entry.js" "$@"
