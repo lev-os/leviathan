@@ -16,7 +16,7 @@ lev complete-job job-abc123 # Report completion with results
 ### LLM-First Media Integration Plan:
 
 #### Phase 1: Plugin as Job Executor
-Create `/lev/plugins/@homie/media-forge/` that integrates with existing job system:
+Create `/lev/plugins/@lev-os/media-forge/` that integrates with existing job system:
 
 **Plugin Structure:**
 ```yaml

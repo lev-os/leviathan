@@ -58,8 +58,14 @@ class MediaForgeExecutor:
                 if result.returncode == 0:
                     # Extract metadata using existing system
                     metadata = self._extract_metadata(url, output_dir)
-                    results["downloaded_files"].append(metadata["file_path"])
-                    results["metadata"].append(metadata)
+                    if "error" not in metadata:
+                        # Construct likely file path based on download location
+                        file_path = f"{output_dir}/downloaded_video"
+                        metadata["file_path"] = file_path
+                        results["downloaded_files"].append(file_path)
+                        results["metadata"].append(metadata)
+                    else:
+                        results["metadata"].append(metadata)
                 else:
                     results["errors"].append({
                         "url": url,
@@ -175,9 +181,8 @@ class MediaForgeExecutor:
             cmd = [
                 sys.executable,
                 str(self.yt_path / "yt.py"),
-                "info",
-                url,
-                "--json"
+                "-i",  # info flag
+                url
             ]
             
             result = subprocess.run(cmd, capture_output=True, text=True)

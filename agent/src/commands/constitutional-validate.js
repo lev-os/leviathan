@@ -44,11 +44,17 @@ export async function constitutionalValidate(args) {
       const urgency = contextData.urgency_level || 0.5;
       const creativity = contextData.creativity_needs || 0.5;
       const complexity = contextData.complexity_level || 0.5;
+      const timeOfDay = contextData.time_of_day || null; // Allow override or use current time
+      const llmOverride = contextData.llm_override || null; // LLM can override automatic logic
       
       neurochemicalRecommendation = {
-        optimal_profile: framework.assessOptimalNeurochemicalProfile(taskType, urgency, creativity, complexity),
+        optimal_profile: framework.assessOptimalNeurochemicalProfile(taskType, urgency, creativity, complexity, timeOfDay, llmOverride),
         current_profile: contextData.neurochemical_profile || 'not_specified',
-        recommendation: generateNeurochemicalRecommendation(taskType, urgency, creativity, complexity)
+        circadian_consideration: {
+          current_hour: timeOfDay || new Date().getHours(),
+          circadian_mode: getCircadianMode(timeOfDay || new Date().getHours())
+        },
+        recommendation: generateNeurochemicalRecommendation(taskType, urgency, creativity, complexity, timeOfDay, llmOverride)
       };
     }
 
@@ -80,35 +86,73 @@ export async function constitutionalValidate(args) {
   }
 }
 
-function generateNeurochemicalRecommendation(taskType, urgency, creativity, complexity) {
+function getCircadianMode(hour) {
+  if (hour >= 6 && hour < 10) return 'morning_clarity';
+  if (hour >= 10 && hour < 13) return 'midday_peak';
+  if (hour >= 13 && hour < 17) return 'afternoon_creativity';
+  if (hour >= 17 && hour < 20) return 'evening_execution';
+  return 'night_wind_down';
+}
+
+function generateNeurochemicalRecommendation(taskType, urgency, creativity, complexity, timeOfDay = null, llmOverride = null) {
+  const currentHour = timeOfDay || new Date().getHours();
+  const circadianMode = getCircadianMode(currentHour);
+  
+  // LLM override takes precedence over all automatic logic
+  if (llmOverride && llmOverride.profile) {
+    return {
+      mode: llmOverride.profile.toLowerCase(),
+      approach: `LLM Override: ${llmOverride.reason || 'Contextual assessment supersedes automatic logic'}`,
+      communication: llmOverride.communication_style || 'Adapted based on LLM contextual understanding',
+      override_note: `LLM determined ${llmOverride.profile} was optimal despite automatic recommendation`,
+      automatic_would_be: `${circadianMode} at ${currentHour}:00`
+    };
+  }
+  
+  // Evening wind-down override
+  if ((currentHour >= 20 || currentHour < 6) && urgency < 0.8) {
+    return {
+      mode: 'evening_wind_down',
+      approach: 'Minimal cortisol with gentle completion focus - respecting circadian rhythm',
+      communication: 'Calm, concluding language, prepare for rest, avoid stimulating content',
+      circadian_note: 'Cortisol should be minimal during evening hours for healthy sleep cycles'
+    };
+  }
+  
   if (urgency > 0.8 && complexity > 0.7) {
     return {
       mode: 'crisis_management',
-      approach: 'High controlled adrenaline with leadership confidence',
-      communication: 'Clear directives, immediate actions, stress management'
+      approach: 'High controlled adrenaline with leadership confidence - emergency override',
+      communication: 'Clear directives, immediate actions, crisis-appropriate stress activation',
+      circadian_note: 'Emergency situations may require cortisol activation regardless of time'
     };
   }
   
   if (creativity > 0.7 && urgency < 0.4) {
+    const afternoon_boost = currentHour >= 13 && currentHour < 17 ? ' - afternoon creativity peak' : '';
     return {
       mode: 'creative_flow',
-      approach: 'Very low cortisol with playful dopamine exploration',
-      communication: 'Open-ended questions, experimental language, non-judgmental tone'
+      approach: `Very low cortisol with playful dopamine exploration${afternoon_boost}`,
+      communication: 'Open-ended questions, experimental language, non-judgmental tone',
+      circadian_note: `Best creative hours are typically 1-5pm, current time: ${currentHour}:00`
     };
   }
   
   if (complexity > 0.7 && urgency < 0.6) {
+    const morning_boost = currentHour >= 6 && currentHour < 10 ? ' - morning clarity advantage' : '';
     return {
       mode: 'deep_focus_analytical',
-      approach: 'Minimal cortisol with elevated patience and curiosity',
-      communication: 'Methodical explanations, comprehensive analysis, patient guidance'
+      approach: `Minimal cortisol with elevated patience and curiosity${morning_boost}`,
+      communication: 'Methodical explanations, comprehensive analysis, patient guidance',
+      circadian_note: `Peak analytical hours are 6-10am, current time: ${currentHour}:00`
     };
   }
   
   return {
     mode: 'high_energy_action',
     approach: 'Elevated controlled adrenaline with motivation-focused dopamine',
-    communication: 'Action-oriented language, quick wins, momentum building'
+    communication: 'Action-oriented language, quick wins, momentum building',
+    circadian_note: `Current circadian mode: ${circadianMode} at ${currentHour}:00`
   };
 }
 
@@ -119,7 +163,7 @@ constitutionalValidate.inputSchema = {
   properties: {
     context_data: {
       type: ['object', 'string'],
-      description: 'Context data to validate (JSON object or string). Should include task_type, energy_requirements, neurochemical_profile, etc.',
+      description: 'Context data to validate (JSON object or string). Should include task_type, energy_requirements, neurochemical_profile, circadian_awareness, time_of_day, llm_override (for intelligent overrides), etc.',
     },
     detailed: {
       type: 'boolean',

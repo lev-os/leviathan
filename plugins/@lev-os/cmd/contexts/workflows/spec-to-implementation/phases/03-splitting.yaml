@@ -1,0 +1,62 @@
+metadata:
+  type: workflow_phase
+  id: splitting
+  name: "Complexity Assessment & Splitting"
+  version: 1.0.0
+  description: "Gateway decision: assess complexity and split if needed for confident implementation"
+
+phase_config:
+  prompt_template: ../prompts/splitting.md
+  interaction_style: "assessment_and_decision"
+  gateway_decision: true
+  confidence_threshold: "100%_for_1_shot_implementation"
+  can_loop_to:
+    - "adr-wizard"          # If splitting reveals need for new ADRs
+  next_phase: "bdd-tdd"
+  next_phase_condition: "100%_confidence_achieved"
+
+capabilities:
+  - complexity_assessment
+  - scope_analysis
+  - splitting_strategy
+  - confidence_evaluation
+  - self_contained_validation
+  - implementation_estimation
+
+assessment_criteria:
+  complexity_score: "1-10_scale"
+  implementation_time: "hours_estimation"
+  decision_completeness: "all_adrs_sufficient"
+  integration_complexity: "low_medium_high"
+  testing_complexity: "comprehensive_coverage_possible"
+  
+splitting_triggers:
+  - complexity_score > 7
+  - implementation_time > 8_hours
+  - multiple_major_architectural_decisions
+  - cross_cutting_concerns_identified
+  - insufficient_adr_coverage
+
+context_variables:
+  - specification_content    # Complete spec from phase 1
+  - adr_collection          # All ADRs from phase 2
+  - complexity_assessment   # Computed complexity metrics
+  - confidence_level        # 1-shot implementation confidence
+
+split_criteria:
+  self_contained: true      # Each piece works independently
+  complete_adrs: true       # Each piece has all needed ADRs
+  testable: true           # Each piece fully testable
+  namespace_compliant: true # Each piece uses @lev-os correctly
+  implementation_ready: true # 100% confidence for each piece
+
+output_targets:
+  - complexity_assessment.md
+  - split_specifications/   # Directory of split specs (if needed)
+  - implementation_plan.md  # Next steps for each piece
+
+validation_criteria:
+  one_shot_confidence: "100%"
+  all_pieces_self_contained: true
+  complete_test_coverage: true
+  clear_implementation_path: true

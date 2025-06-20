@@ -65,6 +65,18 @@ context_first_mover:
 
 **Leviathan** is a sophisticated AI-native operating system ecosystem sponsored by Kingly Agency. It represents a revolutionary approach to LLM-first architecture with distributed intelligence, autonomous decision-making, and self-evolving workflows.
 
+### Plugin Development Standards
+
+**CRITICAL**: All Leviathan plugins MUST follow standardized development patterns:
+
+- **Official Namespace**: `@lev-os/` (NOT @lev/ or @leviathan/)
+- **Master Development Guide**: `plugins/@lev-os/PLUGIN_DEVELOPMENT_GUIDE.md`
+- **Auto-Bootstrap Pattern**: Commands auto-discovered across CLI + MCP
+- **Constitutional Compliance**: Follow all 10 core constitutional principles
+- **Testing Requirements**: Use `@lev-os/testing` framework for validation
+
+**For Plugin Development**: Always start with `plugins/@lev-os/PLUGIN_DEVELOPMENT_GUIDE.md` - the single source of truth for all plugin creation.
+
 ## Architecture Overview
 
 This is a multi-layered monorepo containing several interconnected systems:
@@ -117,7 +129,7 @@ pnpm clean
 ### Constitutional Compliance in Development
 
 Every development action should align with the 10 core principles:
-- Optimize for hormonal/emotional balance (reduce developer stress)
+- Optimize for hormonal/emotional balance appropriate for development tasks
 - Enable quantum context entanglement (shared understanding across components)
 - Preserve bootstrap sovereignty (minimal dependencies, maximum autonomy)
 - Use LLM-first architecture (AI reasoning over rigid frameworks)
@@ -396,7 +408,7 @@ go test -tags=bdd
 6. **Bi-Directional Communication**: Enable LLM ↔ System feedback loops
 
 **Constitutional Validation**: Every component must align with the 10 core principles. Use the 8-mode psychological system to evaluate decisions:
-- **Balance Guardian**: Does this reduce or optimize stress appropriately?
+- **Balance Guardian**: Does this optimize neurochemical state appropriately for situation?
 - **Sovereignty Architect**: Does this preserve autonomy and hackability?
 - **Systems Illuminator**: Does this simplify or unnecessarily complicate?
 

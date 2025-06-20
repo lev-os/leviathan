@@ -1,0 +1,68 @@
+metadata:
+  type: workflow_phase
+  id: adr-wizard
+  name: "Architecture Decision Record Wizard"
+  version: 1.0.0
+  description: "Step-by-step wizard for creating architectural decisions"
+
+phase_config:
+  prompt_template: ../prompts/adr-wizard.md
+  interaction_style: "step_by_step_wizard"
+  wizard_pattern: "present_1_question_at_time_for_each_adr"
+  can_loop_to:
+    - "research-requirements"  # Can go back for more research
+    - "adr-wizard"            # Can iterate on ADRs
+  next_phase: "splitting"
+
+capabilities:
+  - architecture_decision_recording
+  - step_by_step_questioning
+  - decision_documentation
+  - trade_off_analysis
+  - alternative_evaluation
+  - constitutional_compliance
+
+decision_categories:
+  - architectural_patterns
+  - technology_choices
+  - integration_strategies
+  - testing_approaches
+  - performance_requirements
+  - security_considerations
+  - namespace_compliance
+
+context_variables:
+  - specification_content    # From previous phase
+  - identified_decisions    # Decisions that need to be made
+  - project_root           # Current working directory
+  - namespace             # @lev-os
+
+interaction_patterns:
+  one_question_per_adr: true
+  iterative_refinement: true
+  back_to_research: true    # Can return to research if gaps found
+  constitutional_validation: true
+
+adr_template:
+  format: "markdown"
+  sections:
+    - status
+    - context
+    - decision
+    - consequences
+    - alternatives_considered
+    - implementation_notes
+
+output_targets:
+  - adrs/architectural-pattern.md
+  - adrs/technology-choices.md  
+  - adrs/integration-strategy.md
+  - adrs/testing-approach.md
+  - adrs/performance-requirements.md
+  - adr-summary.md
+
+validation_criteria:
+  all_decisions_documented: true
+  constitutional_compliance: true
+  hexagonal_architecture: true
+  implementation_guidance: true

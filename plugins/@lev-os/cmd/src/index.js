@@ -5,6 +5,10 @@ export { processManager } from './process-manager.js';
 export { jobIntegration } from './job-integration.js';
 export { worktreeManager } from './worktree-manager.js';
 
+// Commands for hexagonal architecture
+export { worktreeWizard } from './commands/worktree-wizard.js';
+export { specImplement } from './commands/spec-implement.js';
+
 // Default cmd instance for quick imports
 import { processManager } from './process-manager.js';
 import { jobIntegration } from './job-integration.js';
@@ -22,7 +26,7 @@ export async function initializeCmd(config = {}) {
     processTimeout: parseInt(process.env.KINGLY_PROCESS_TIMEOUT) || 300000, // 5 minutes
     maxConcurrentProcesses: parseInt(process.env.KINGLY_MAX_PROCESSES) || 10,
     jobIntegrationEnabled: process.env.KINGLY_JOB_INTEGRATION !== 'false',
-    worktreeBasePath: process.env.KINGLY_WORKTREE_PATH || './.kingly-worktrees'
+    worktreeBasePath: process.env.KINGLY_WORKTREE_PATH || './.worktrees'
   };
   
   const finalConfig = { ...defaultConfig, ...config };

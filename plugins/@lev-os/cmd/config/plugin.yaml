@@ -9,6 +9,7 @@ capabilities:
   - git_worktree_operations  
   - job_system_integration
   - constitutional_validation
+  - specification_implementation_workflow
 
 commands:
   cmd_exec:
@@ -24,12 +25,38 @@ commands:
   cmd_worktree:
     syntax: "kingly cmd worktree <action> [args]"
     description: "Manage git worktrees for parallel development"
+    workflow_context: "./contexts/workflows/spec-to-implementation/context.yaml"
     whisper:
       strategies:
         - "Create isolated git worktrees for parallel development streams"
         - "Apply constitutional AI validation before worktree operations"
-        - "Coordinate context assignment across worktrees"
+        - "Enhanced: Use --spec=<file> --wizard for specification implementation workflow"
       llm_guidance: "Use worktree management for parallel development coordination"
+  
+  cmd_spec_implement:
+    syntax: "kingly cmd spec-implement [--spec=<file>] [--idea=\"<description>\"] [--research=\"<topic>\"] [--phase=<phase>] [--name=<worktree>] [--wizard]"
+    description: "Transform specifications into validated development environments through 5-phase workflow"
+    handler: "src/commands/spec-implement.js"
+    phases:
+      - "01-research-requirements: Research and requirement gathering"
+      - "02-adr-wizard: Architecture decision record creation"
+      - "03-splitting: Complexity assessment and splitting" 
+      - "04-bdd-tdd: Test specification generation"
+      - "05-environment: Development environment setup"
+    whisper:
+      entry_points:
+        - "Basic idea: --idea=\"AI workflow orchestration\" starts research phase"
+        - "Existing spec: --spec=\"_01-prime.md\" validates and enhances"
+        - "Research topic: --research=\"JEPA integration\" starts deep research"
+        - "Specific phase: --phase=\"adr\" jumps to architectural decisions"
+      workflow_guidance:
+        - "Phase 1-2 can loop for iterative research and ADR creation"
+        - "Phase 3 splitting is gateway - ensures 100% confidence for implementation"
+        - "Phase 4-5 generate complete test-driven development environment"
+      navigation:
+        - "Loose workflow allows back-navigation until splitting commits scope"
+        - "Each phase has dedicated system prompt and interaction style"
+      llm_guidance: "Use for specification-driven development with phase-specific workflows"
     
   cmd_jobs:
     syntax: "kingly cmd jobs [status|kill|list]"

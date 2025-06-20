@@ -18,25 +18,36 @@ export class ConstitutionalFramework {
       adrenaline: 'elevated_controlled',
       dopamine: 'motivation_high', 
       cortisol: 'productive_stress',
-      serotonin: 'confidence_baseline'
+      serotonin: 'confidence_baseline',
+      circadian_optimization: 'daytime_peak_performance'
     },
     DEEP_FOCUS_ANALYTICAL: {
       cortisol: 'minimal',
       dopamine: 'curiosity_discovery',
       serotonin: 'elevated_patience',
-      adrenaline: 'low_steady'
+      adrenaline: 'low_steady',
+      circadian_optimization: 'morning_clarity_mode'
     },
     CREATIVE_FLOW: {
       cortisol: 'very_low',
       dopamine: 'curiosity_play',
       serotonin: 'elevated_openness',
-      adrenaline: 'minimal'
+      adrenaline: 'minimal',
+      circadian_optimization: 'afternoon_innovation'
     },
     CRISIS_MANAGEMENT: {
       adrenaline: 'high_controlled',
       cortisol: 'acute_productive',
       dopamine: 'problem_solving_focus',
-      serotonin: 'leadership_confidence'
+      serotonin: 'leadership_confidence',
+      circadian_optimization: 'emergency_override'
+    },
+    EVENING_WIND_DOWN: {
+      cortisol: 'minimal_night_mode',
+      dopamine: 'gentle_completion',
+      serotonin: 'elevated_calm',
+      adrenaline: 'minimal',
+      circadian_optimization: 'evening_parasympathetic_shift'
     }
   };
 
@@ -98,13 +109,14 @@ export class ConstitutionalFramework {
   }
 
   assessSituationAwareness(contextData) {
-    // Check if context considers situational needs for brain chemistry
+    // Check if context considers situational needs for brain chemistry including circadian rhythms
     const indicators = [
-      contextData.task_type ? 0.3 : 0,
+      contextData.task_type ? 0.25 : 0,
       contextData.energy_requirements ? 0.2 : 0,
       contextData.stress_appropriateness ? 0.2 : 0,
       contextData.creativity_needs ? 0.15 : 0,
-      contextData.urgency_level ? 0.15 : 0
+      contextData.urgency_level ? 0.1 : 0,
+      contextData.circadian_awareness ? 0.1 : 0
     ];
     
     return indicators.reduce((sum, score) => sum + score, 0);
@@ -242,12 +254,41 @@ export class ConstitutionalFramework {
     };
   }
 
-  // Helper method to assess optimal neurochemical state for a given context
-  assessOptimalNeurochemicalProfile(taskType, urgency = 0.5, creativity = 0.5, complexity = 0.5) {
+  // Helper method to assess optimal neurochemical state for a given context with circadian awareness
+  assessOptimalNeurochemicalProfile(taskType, urgency = 0.5, creativity = 0.5, complexity = 0.5, timeOfDay = null, llmOverride = null) {
+    // LLM can override any automatic logic when it has contextual awareness
+    if (llmOverride && llmOverride.profile) {
+      return {
+        ...this.constructor.NEUROCHEMICAL_PROFILES[llmOverride.profile],
+        override_reason: llmOverride.reason || 'LLM contextual assessment',
+        original_recommendation: 'would_be_calculated_automatically'
+      };
+    }
+    
+    // Get current hour if not provided (0-23)
+    const currentHour = timeOfDay || new Date().getHours();
+    
+    // Evening wind-down override (after 8pm, before 6am) - unless LLM sees special context
+    if ((currentHour >= 20 || currentHour < 6) && urgency < 0.8) {
+      return this.constructor.NEUROCHEMICAL_PROFILES.EVENING_WIND_DOWN;
+    }
+    
+    // Crisis management overrides circadian rhythms
     if (urgency > 0.8 && complexity > 0.7) {
       return this.constructor.NEUROCHEMICAL_PROFILES.CRISIS_MANAGEMENT;
     }
     
+    // Morning hours (6am-10am): favor deep focus
+    if (currentHour >= 6 && currentHour < 10 && complexity > 0.6) {
+      return this.constructor.NEUROCHEMICAL_PROFILES.DEEP_FOCUS_ANALYTICAL;
+    }
+    
+    // Afternoon hours (1pm-5pm): favor creativity if needed
+    if (currentHour >= 13 && currentHour < 17 && creativity > 0.7 && urgency < 0.4) {
+      return this.constructor.NEUROCHEMICAL_PROFILES.CREATIVE_FLOW;
+    }
+    
+    // Standard logic with circadian consideration
     if (creativity > 0.7 && urgency < 0.4) {
       return this.constructor.NEUROCHEMICAL_PROFILES.CREATIVE_FLOW;
     }

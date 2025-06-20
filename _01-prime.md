@@ -1,4 +1,8 @@
-# 🤖 UNIVERSAL PRIME CONTEXT LOADING
+# @lev-os/prime: Universal Prime Context Loading
+
+**Package**: `@lev-os/prime`  
+**Type**: Core system plugin  
+**Purpose**: Universal LLM context loading and system orientation
 
 ## Mission: Universal LLM Context Loading
 

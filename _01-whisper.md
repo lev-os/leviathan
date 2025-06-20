@@ -1,4 +1,8 @@
-# _01-WHISPER: Tiered Specification & Implementation Insights
+# @lev-os/whisper: Tiered Specification & Implementation Insights
+
+**Package**: `@lev-os/whisper`  
+**Type**: Core system plugin  
+**Purpose**: Universal LLM guidance system with foreign LLM integration
 
 ## Core Insights from Implementation
 

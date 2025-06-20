@@ -34,12 +34,10 @@ measure_time() {
     local times=()
     
     for i in $(seq 1 $RUNS); do
-        # Measure real time in milliseconds
-        start_time=$(date +%s%3N)
-        $binary $args > /dev/null 2>&1
-        end_time=$(date +%s%3N)
-        
-        local execution_time=$((end_time - start_time))
+        # Measure real time using time command
+        execution_time=$(TIMEFORMAT='%3R'; time ( $binary $args > /dev/null 2>&1 ) 2>&1)
+        # Convert to milliseconds (multiply by 1000)
+        execution_time=$(echo "$execution_time * 1000" | bc | cut -d. -f1)
         times+=($execution_time)
         total_time=$((total_time + execution_time))
         

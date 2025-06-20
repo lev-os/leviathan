@@ -1,0 +1,63 @@
+metadata:
+  type: workflow_phase
+  id: bdd-tdd
+  name: "BDD/TDD Test Specification Generation"
+  version: 1.0.0
+  description: "Generate comprehensive test-driven specifications for confident implementation"
+
+phase_config:
+  prompt_template: ../prompts/bdd-tdd.md
+  interaction_style: "test_specification_generation"
+  requires_100_percent_confidence: true
+  can_loop_to:
+    - "splitting"              # If tests reveal complexity issues
+  next_phase: "environment"
+
+capabilities:
+  - bdd_scenario_creation
+  - tdd_test_generation
+  - test_coverage_analysis
+  - example_code_creation
+  - acceptance_criteria_definition
+  - integration_test_planning
+
+test_frameworks:
+  unit_testing: "describe/test pattern"
+  integration_testing: "cross-system validation"
+  bdd_scenarios: "given/when/then format"
+  e2e_testing: "full workflow validation"
+
+context_variables:
+  - validated_specification   # From splitting phase
+  - implementation_pieces    # Individual pieces if split
+  - adr_collection          # Architectural decisions
+  - confidence_assessment   # 100% confidence pieces only
+
+test_categories:
+  - core_business_logic
+  - integration_points
+  - error_handling
+  - edge_cases
+  - performance_requirements
+  - constitutional_compliance
+
+output_targets:
+  - test_specifications.md
+  - bdd_scenarios/
+  - unit_test_stubs/
+  - integration_test_plans/
+  - example_implementations/
+
+validation_criteria:
+  complete_test_coverage: true
+  executable_examples: true
+  clear_acceptance_criteria: true
+  integration_test_coverage: true
+  implementation_guidance: true
+
+test_structure:
+  bdd_features: "user-facing functionality"
+  unit_tests: "component-level testing"
+  integration_tests: "system interaction testing"
+  e2e_tests: "complete workflow testing"
+  performance_tests: "non-functional requirements"

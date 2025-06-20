@@ -13,7 +13,11 @@
       "mcp__desktop-commander__force_terminate",
       "mcp__perplexity-ask__perplexity_ask",
       "mcp__desktop-commander__read_file",
-      "mcp__desktop-commander__search_code"
+      "mcp__desktop-commander__search_code",
+      "Bash(go build:*)",
+      "Bash(go mod:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

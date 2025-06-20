@@ -1,67 +1,118 @@
 plugin:
   name: media-forge
-  version: 1.0.0
-  type: content_plugin
-  description: LLM-first media download and organization system
+  version: 2.0.0
+  type: multi_platform_content_plugin
+  description: LLM-first media system supporting 100+ platforms with authentication
   
 capabilities:
-  - media_downloading
-  - auto_organization
+  - multi_platform_downloading  # YouTube, Instagram, TikTok, Twitter, etc.
+  - authenticated_access        # Private content via browser cookies
+  - advanced_transcription     # YouTube captions + Whisper + Deepgram
   - content_analysis
   - job_orchestration
-  - transcript_extraction
+  - smart_organization
+
+platforms:
+  - youtube
+  - instagram  
+  - tiktok
+  - twitter
+  - vimeo
+  - facebook
+  - twitch
+  - reddit
+  - and_100_more  # via yt-dlp
 
 job_types:
-  - media_download
-  - media_organize  
-  - media_transcribe
-  - media_analyze
+  - media_download      # Multi-platform video downloads
+  - media_transcribe    # Enhanced transcription with fallbacks
+  - media_organize      # Intelligent organization by platform/content
+  - media_authenticate  # Handle login-protected content
+  - social_harvest      # Batch social media content collection
 
 commands:
   media_download:
     syntax: "lev media download <url> [options]"
-    description: "Download video/playlist with metadata extraction"
+    description: "Download from 100+ platforms with authentication support"
     job_integration: true
     whisper:
       strategies:
-        - "Extract video metadata and organize by content type"
-        - "Use existing homie/yt system for reliable downloads"
-        - "Report structured results for LLM analysis"
-      llm_guidance: "Download content, extract metadata, prepare for LLM organization"
+        - "Support any platform URL (Instagram, TikTok, Twitter, etc.)"
+        - "Use browser authentication for private content"
+        - "Extract platform-specific metadata for intelligent organization"
+        - "Handle rate limiting and platform restrictions"
+      llm_guidance: "Download content from any platform, handle authentication, organize by platform type"
     
-  media_organize:
-    syntax: "lev media organize <folder> [classification]"
-    description: "Execute LLM-generated organization plan"
+  media_transcribe:
+    syntax: "lev media transcribe <url> [options]"
+    description: "Multi-tier transcription: YouTube captions → Whisper → Deepgram"
     job_integration: true
     whisper:
       strategies:
-        - "Execute file organization based on LLM classification"
-        - "Create intelligent folder structures"
-        - "Maintain metadata relationships"
-      llm_guidance: "Organize files according to LLM analysis and user preferences"
+        - "Try fastest option first (YouTube captions)"
+        - "Fallback to Whisper for accuracy on any platform"
+        - "Use Deepgram for fastest commercial-grade transcription"
+        - "Support multiple languages and speaker detection"
+      llm_guidance: "Get transcripts using best available method for platform and content type"
     
-  media_job:
-    syntax: "lev media job <description>"
-    description: "Post media-related job with intelligent breakdown"
+  media_authenticate:
+    syntax: "lev media auth <platform> [browser]"
+    description: "Setup authentication for private content access"
     job_integration: true
     whisper:
       strategies:
-        - "Break down complex media tasks into downloadable jobs"
-        - "Coordinate multi-tab execution for large operations"
-        - "Use LLM for content classification and organization planning"
-      llm_guidance: "Analyze media task complexity and create optimal job breakdown"
+        - "Extract cookies from user's browser (Chrome, Safari, Brave)"
+        - "Enable access to private Instagram stories, Twitter spaces"
+        - "Handle platform-specific authentication flows"
+      llm_guidance: "Setup authentication to access private/premium content"
+    
+  social_harvest:
+    syntax: "lev social harvest <platform> <criteria>"
+    description: "Intelligent batch collection from social platforms"
+    job_integration: true
+    whisper:
+      strategies:
+        - "Collect content based on hashtags, users, or topics"
+        - "Respect platform rate limits and terms of service"
+        - "Organize by content type and engagement metrics"
+        - "Filter by quality, duration, and relevance"
+      llm_guidance: "Harvest social content intelligently with LLM-driven filtering"
+
+authentication:
+  supported_browsers:
+    - chrome
+    - brave  
+    - safari
+    - firefox
+    - edge
+  private_content_support:
+    - instagram_stories
+    - twitter_spaces
+    - patreon_content
+    - member_only_videos
+
+transcription:
+  tier_1: "YouTube captions (fastest, free, YouTube-only)"
+  tier_2: "Whisper (best accuracy, free, all platforms)"
+  tier_3: "Deepgram (fastest paid, commercial-grade, all platforms)"
+  features:
+    - multi_language_support
+    - speaker_detection
+    - smart_formatting
+    - timestamp_alignment
 
 reasoning_patterns:
-  media_workflow:
+  multi_platform_workflow:
     prompt: |
-      You are managing media content in an LLM-first system.
+      You are managing multi-platform media content in an LLM-first system.
       
-      Context: User wants to download and organize media content intelligently.
+      Context: User wants to download and organize content from various social platforms.
       
       Your reasoning should:
-      1. Assess content type and download requirements
-      2. Plan organization strategy based on content analysis
-      3. Break down complex tasks into manageable jobs
-      4. Coordinate execution across multiple tabs if needed
+      1. Identify platform type and authentication requirements
+      2. Choose optimal transcription method based on platform and content
+      3. Plan organization strategy considering platform-specific characteristics
+      4. Handle rate limiting and platform restrictions intelligently
+      5. Respect terms of service and ethical content collection
       
-      Always prioritize: LLM-driven analysis, efficient downloads, intelligent organization.
+      Always prioritize: Platform compatibility, authentication handling, intelligent organization.

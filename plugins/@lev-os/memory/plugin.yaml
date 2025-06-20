@@ -1,0 +1,195 @@
+# Memory Plugin Configuration
+# Hybrid File + Graphiti memory system for Leviathan ecosystem
+
+plugin:
+  name: memory
+  version: 1.0.0
+  type: core_plugin
+  description: Unified memory system with hybrid file + Graphiti architecture
+  namespace: memory
+
+architecture:
+  strategy: "hybrid_tiered"
+  layers:
+    fast_access:
+      - working_memory: "Active session state in RAM/cache"
+      - context_buffers: "Current conversation context"
+    medium_access:
+      - semantic_memory: "Vector embeddings in Graphiti"
+      - temporal_memory: "Session/conversation history"
+      - episodic_memory: "Agent learning patterns"
+      - graph_relationships: "Code dependencies and connections"
+    persistent_access:
+      - procedural_memory: "YAML workflows and patterns in file system"
+      - session_checkpoints: "~/.kingly/sessions/ existing system"
+      - context_definitions: "contexts/*.yaml configurations"
+      - constitutional_framework: "Validation rules and compliance"
+
+backend:
+  graphiti:
+    neo4j_uri: "bolt://localhost:7687"
+    enable_mcp: true
+    enable_temporal: true
+    sync_strategy: "files_to_graphiti_oneway"
+  file_system:
+    source_of_truth: true
+    fallback_mode: true
+    real_time_sync: false
+
+memory_types:
+  procedural:
+    description: "How to do things - agent patterns, workflows, muscle memory"
+    storage: "file_system_primary"
+    searchable_via: "graphiti_index"
+    examples: ["React component creation patterns", "Git workflow steps"]
+    
+  semantic:
+    description: "Facts and knowledge - code patterns, API docs, framework knowledge" 
+    storage: "graphiti_primary"
+    backed_by: "file_system"
+    examples: ["React hooks documentation", "TypeScript type definitions"]
+    
+  temporal:
+    description: "Timeline of events - conversation history, session evolution"
+    storage: "graphiti_primary"
+    checkpoints_in: "file_system"
+    examples: ["Previous conversation context", "Session progression tracking"]
+    
+  working:
+    description: "Active thinking space - current context, active variables"
+    storage: "memory_cache"
+    persistence: "session_based"
+    examples: ["Files currently being edited", "Active debugging context"]
+    
+  episodic:
+    description: "Personal experiences - agent learning, successes/failures"
+    storage: "graphiti_primary"
+    analysis_in: "file_system"
+    examples: ["Approach X failed because Y", "Pattern Z works in context W"]
+
+core_plugin_privileges:
+  direct_graphiti_access: true
+  cross_plugin_communication: true
+  global_memory_access: true
+  namespace_management: true
+  file_system_access: "unrestricted"
+  
+regular_plugin_access:
+  scoped_namespace_only: true
+  graphiti_proxy_access: true
+  file_system_access: "restricted"
+  cross_plugin_communication: false
+
+capabilities:
+  - unified_memory_interface
+  - hybrid_query_system
+  - plugin_privilege_enforcement
+  - component_wrapping
+  - mcp_protocol_integration
+  - session_continuity
+  - memory_type_classification
+  - fallback_strategies
+
+commands:
+  status:
+    syntax: "lev memory status [options]"
+    description: "Show memory system health and statistics"
+    options:
+      - "--layer=fast|medium|persistent: Filter by memory layer"
+      - "--type=procedural|semantic|temporal|working|episodic: Filter by memory type"
+      - "--json: Output in JSON format"
+    
+  query:
+    syntax: "lev memory query <search-term> [options]"
+    description: "Search across all memory types and layers"
+    args:
+      - "search-term: What to search for"
+    options:
+      - "--type=X: Limit to specific memory type"
+      - "--layer=X: Limit to specific layer"
+      - "--plugin=X: Scope to plugin namespace"
+    
+  store:
+    syntax: "lev memory store <key> <data> [options]"
+    description: "Store data in appropriate memory layer"
+    args:
+      - "key: Identifier for the data"
+      - "data: Content to store"
+    options:
+      - "--type=X: Force specific memory type"
+      - "--layer=X: Force specific layer"
+      - "--ttl=X: Time to live in seconds"
+    
+  sync:
+    syntax: "lev memory sync [options]"
+    description: "Synchronize file system to Graphiti"
+    options:
+      - "--force: Force full resync"
+      - "--dry-run: Show what would be synced"
+      - "--path=X: Sync specific path only"
+    
+  analyze:
+    syntax: "lev memory analyze [type]"
+    description: "Analyze memory patterns and relationships"
+    args:
+      - "type: procedural|semantic|temporal|working|episodic|all"
+    
+  privileges:
+    syntax: "lev memory privileges <plugin-id>"
+    description: "Show memory access privileges for plugin"
+    args:
+      - "plugin-id: Plugin to check privileges for"
+    
+  fallback:
+    syntax: "lev memory fallback [enable|disable|status]"
+    description: "Manage fallback mode (file-only when Graphiti unavailable)"
+    
+  test:
+    syntax: "lev memory test [component]"
+    description: "Run memory system validation tests"
+    args:
+      - "component: graphiti|files|sync|privileges|all"
+
+integration:
+  existing_components:
+    session_manager:
+      path: "~/agent/src/session-manager.js"
+      wrapper: "SessionMemory"
+      enhancements: ["Cross-session relationship tracking", "Temporal evolution"]
+      
+    universal_context_system:
+      path: "~/agent/src/core/universal-context-system.js"
+      wrapper: "ContextMemory"
+      enhancements: ["Usage pattern analysis", "Inheritance relationship mapping"]
+      
+    intelligence_coordinator:
+      path: "~/agent/src/intelligence-coordinator.js"
+      wrapper: "IntelligenceMemory"
+      enhancements: ["Pattern success tracking", "Adaptive intelligence"]
+
+  plugin_consumption:
+    core_plugins:
+      - memory: "Full system access"
+      - agent: "Enhanced coordination capabilities"
+      - codex: "Advanced pattern search and storage"
+    
+    regular_plugins:
+      - infinite_canvas: "Scoped project memory"
+      - community_plugins: "Isolated namespace access"
+
+configuration:
+  debug_enabled: true
+  performance_monitoring: true
+  backup_strategy: "file_system_continuous"
+  recovery_strategy: "graphiti_rebuild_from_files"
+  sync_interval: "on_demand"
+  cache_size: "256MB"
+  query_timeout: "30s"
+
+tier_integration:
+  tier_1_production:
+    requirements: ["All tests passing", "Fallback mode verified", "Performance benchmarks met"]
+  tier_2_advanced:
+    requirements: ["Component wrappers functional", "Plugin privileges enforced"]
+  tier_3_emerging:
+    requirements: ["Basic Graphiti integration", "File sync operational"]

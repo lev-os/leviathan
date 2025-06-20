@@ -1,0 +1,45 @@
+metadata:
+  type: workflow_phase
+  id: research-requirements
+  name: "Research & Requirements Gathering"
+  version: 1.0.0
+  description: "Flexible entry point for research and requirement gathering"
+
+phase_config:
+  prompt_template: ../prompts/research-requirements.md
+  interaction_style: "one_question_at_time"
+  can_loop_to: 
+    - "research-requirements"  # Can stay in research phase
+    - "adr-wizard"            # Can move to ADR creation
+  next_phase: "adr-wizard"
+
+capabilities:
+  - codebase_scanning
+  - web_research
+  - requirement_refinement
+  - interactive_questioning
+  - specification_creation
+  - gap_analysis
+
+entry_points:
+  - basic_idea
+  - existing_spec
+  - research_topic
+  - feature_request
+
+context_variables:
+  - entry_point          # What we're starting with
+  - project_root         # Current working directory
+  - namespace           # @lev-os
+  - current_phase       # Which phase we're in
+
+interaction_patterns:
+  flexible_navigation: true
+  iterative_refinement: true
+  research_driven: true
+  agent_orchestrated: true
+
+output_targets:
+  - rich_specification.md
+  - requirements_analysis.md
+  - research_summary.md

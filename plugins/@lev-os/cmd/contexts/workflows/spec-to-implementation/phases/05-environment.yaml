@@ -1,0 +1,79 @@
+metadata:
+  type: workflow_phase
+  id: environment
+  name: "Development Environment Setup"
+  version: 1.0.0
+  description: "Create ready-to-code development environment with complete context"
+
+phase_config:
+  prompt_template: ../prompts/environment.md
+  interaction_style: "environment_generation"
+  final_phase: true
+  requires_complete_test_specs: true
+
+capabilities:
+  - plugin_structure_generation
+  - worktree_creation
+  - dependency_setup
+  - configuration_generation
+  - documentation_creation
+  - development_tooling_setup
+
+environment_components:
+  - plugin_directory_structure
+  - package_json_configuration
+  - plugin_yaml_configuration
+  - development_dependencies
+  - test_framework_setup
+  - documentation_templates
+
+context_variables:
+  - test_specifications      # Complete BDD/TDD from previous phase
+  - validated_specification  # Core spec content
+  - adr_collection          # All architectural decisions
+  - implementation_plan     # Development guidance
+
+plugin_structure:
+  base_path: "plugins/@lev-os/{{plugin_name}}"
+  directories:
+    - "src/"
+    - "src/commands/"
+    - "src/core/"
+    - "contexts/"
+    - "contexts/workflows/"
+    - "contexts/agents/"
+    - "tests/"
+    - "tests/unit/"
+    - "tests/integration/"
+    - "tests/e2e/"
+    - "docs/"
+    - "docs/architecture/"
+    - "docs/examples/"
+
+required_files:
+  - "package.json"
+  - "config/plugin.yaml"
+  - "src/index.js"
+  - "README.md"
+  - "SPEC.md"
+  - "ADRs/"
+  - "TESTS.md"
+
+development_tools:
+  - testing_framework
+  - linting_configuration
+  - build_scripts
+  - development_dependencies
+
+output_targets:
+  - complete_plugin_structure/
+  - ready_development_environment/
+  - implementation_checklist.md
+  - getting_started_guide.md
+
+validation_criteria:
+  structure_complete: true
+  dependencies_installed: true
+  tests_runnable: true
+  documentation_complete: true
+  development_ready: true
