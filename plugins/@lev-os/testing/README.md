@@ -1,358 +1,171 @@
-# @kingly/testing
+# @lev-os/testing
 
-Universal testing framework for Kingly core packages and community plugins.
+## The Jest of LLM Testing
 
-## 🎯 Purpose
-
-The `@kingly/testing` package provides comprehensive testing capabilities for the entire Kingly plugin ecosystem, including:
-
-- **Plugin Discovery** - Automatic detection of core and community plugins
-- **Validation Testing** - YAML configuration, command routing, and capability validation  
-- **Integration Testing** - Cross-plugin compatibility and interaction testing
-- **Performance Benchmarking** - Command execution, memory usage, and capability performance
-- **Community Support** - Compatibility validation for community plugins
-
-## 📦 Installation
-
-```bash
-# Install as dependency
-pnpm add @kingly/testing
-
-# Or install globally for CLI usage
-pnpm add -g @kingly/testing
-```
-
-## 🚀 Quick Start
-
-### Basic Plugin Testing
-
-```javascript
-import { KinglyTestingFramework } from '@kingly/testing';
-
-const framework = new KinglyTestingFramework();
-
-// Discover all plugins
-const plugins = await framework.discoverPlugins();
-
-// Test specific plugin
-const result = await framework.testPlugin('universal-validation');
-console.log(`Plugin test: ${result.success ? 'PASSED' : 'FAILED'}`);
-
-// Run integration tests
-const integrationResult = await framework.testIntegration();
-console.log(`Integration: ${integrationResult.success ? 'PASSED' : 'FAILED'}`);
-```
-
-### CLI Usage
-
-```bash
-# Discover plugins
-kingly test discover
-
-# Test specific plugin
-kingly test plugin universal-validation
-
-# Run integration tests
-kingly test integration
-
-# Benchmark plugin performance
-kingly test benchmark cmd --type execution,memory
-
-# Validate community plugins
-kingly test community --repository github.com/user/kingly-plugin
-
-# Generate ecosystem health report
-kingly test ecosystem
-```
-
-## 🧪 Test Types
-
-### 1. Plugin Validation Tests
-
-**YAML Configuration Validation**
-- Valid plugin metadata (name, version, type)
-- Proper capabilities definition
-- Command syntax and descriptions
-- Whisper guidance patterns
-
-**Command Routing Tests**
-- Commands route correctly through CLI
-- Help text generation
-- Syntax recognition
-- Error handling
-
-**Capability Tests**
-- Declared capabilities function correctly
-- Related commands accessible
-- Integration with core system
-
-**Smoke Tests**
-- Basic commands don't crash
-- Essential functionality works
-- Quick validation for CI/CD
-
-### 2. Integration Tests
-
-**Plugin Compatibility**
-- No command name conflicts
-- Capability sharing handled correctly
-- Load order independence
-
-**Command Interactions**
-- Cross-plugin command coordination
-- Help system consistency
-- Status reporting integration
-
-**Data Flow**
-- Plugin state isolation
-- Shared context handling
-- Output format compatibility
-
-**Capability Composition**
-- Multi-plugin capability usage
-- Complementary functionality
-- Integrated workflows
-
-### 3. Performance Benchmarks
-
-**Command Execution**
-- Average execution times
-- Performance regression detection
-- Timeout handling
-
-**Memory Usage**
-- Memory footprint analysis
-- Leak detection
-- Resource cleanup validation
-
-**Load Performance**
-- Plugin initialization times
-- Configuration loading speed
-- Dependency resolution
-
-### 4. Community Plugin Validation
-
-**Repository Scanning**
-- GitHub plugin discovery
-- Local plugin detection
-- Configuration validation
-
-**API Compatibility**
-- Core API compatibility checks
-- Breaking change detection
-- Version compatibility
-
-**Convention Compliance**
-- Naming conventions
-- Directory structure
-- YAML configuration standards
-
-## 📊 Success Criteria
-
-### Plugin-Level Criteria
-- ✅ All commands route correctly
-- ✅ YAML configuration valid
-- ✅ Basic smoke tests pass
-- ✅ No critical failures
-
-### Ecosystem-Level Criteria
-- ✅ No plugin conflicts
-- ✅ Integration tests pass
-- ✅ Performance within thresholds
-- ✅ Community plugins compatible
-
-## 🔧 Configuration
-
-### Plugin Manifest Example
-
-```yaml
-# tests/plugin-manifest.yaml
-plugins:
-  - name: "@kingly/universal-validation"
-    path: "../../packages/@kingly/universal-validation"
-    test_types: ["command", "capability", "integration"]
-  - name: "community/awesome-plugin"
-    repository: "github.com/user/awesome-kingly-plugin"
-    test_types: ["command", "compatibility"]
-```
-
-### Test Configuration
-
-```javascript
-const framework = new KinglyTestingFramework();
-
-// Configure test discovery
-const plugins = await framework.discoverPlugins({
-  type: 'core',           // 'core', 'community', or undefined for all
-  path: '/specific/path'  // Filter by path
-});
-
-// Configure plugin testing
-const result = await framework.testPlugin('plugin-name', {
-  suite: ['yaml', 'smoke', 'commands', 'capabilities', 'integration']
-});
-
-// Configure integration testing
-const integrationResult = await framework.testIntegration({
-  type: ['compatibility', 'commands', 'dataflow', 'composition', 'conflicts'],
-  plugins: specificPluginList
-});
-
-// Configure benchmarking
-const benchmarkResult = await framework.benchmarkPlugin('plugin-name', {
-  type: ['execution', 'memory', 'capabilities', 'load'],
-  iterations: 5
-});
-```
-
-## 🏗️ Architecture
-
-### Core Components
-
-- **PluginDiscovery** - Finds testable plugins via YAML manifests and repository scanning
-- **PluginValidator** - Comprehensive validation for individual plugins
-- **IntegrationTester** - Cross-plugin integration and compatibility testing
-- **CommunityValidator** - Community plugin compatibility validation
-- **PerformanceBenchmark** - Plugin performance monitoring and benchmarking
-- **UniversalTestPatterns** - Reusable test patterns extracted from successful implementations
-
-### Test Patterns
-
-The framework uses proven test patterns extracted from the mcp-mvp testing success:
-
-- **Command Routing Pattern** - Validates CLI command integration
-- **YAML Validation Pattern** - Ensures configuration correctness
-- **Capability Testing Pattern** - Verifies plugin capabilities work
-- **Smoke Test Pattern** - Quick validation for basic functionality
-- **Success Criteria Pattern** - Standardized evaluation across plugins
-
-## 🌍 Community Plugin Support
-
-### Discovery Methods
-
-1. **Local Scanning** - Scans `community/` directory for plugin.yaml files
-2. **GitHub Scanning** - Searches GitHub for repositories with `kingly-plugin` topic
-3. **Specific Repository** - Validates individual community plugin repositories
-
-### Validation Process
-
-1. **Configuration Analysis** - Validates plugin.yaml structure and content
-2. **API Compatibility** - Tests against current core API
-3. **Convention Compliance** - Ensures plugin follows Kingly standards
-4. **Breaking Change Detection** - Identifies potential compatibility issues
-
-## 📈 Performance Monitoring
-
-### Metrics Tracked
-
-- **Command Execution Times** - Average, min, max execution times per command
-- **Memory Usage** - RSS, heap usage, and memory deltas during operation
-- **Capability Performance** - Time to access and use plugin capabilities
-- **Load Performance** - Plugin initialization and configuration loading times
-
-### Performance Scoring
-
-- **100 points** - Perfect performance baseline
-- **Penalties applied for:**
-  - Slow command execution (>1000ms)
-  - High memory usage (>50MB delta)
-  - Slow capability access (>500ms)
-  - Slow loading (>100ms)
-
-### Regression Detection
-
-- Automatic baseline tracking
-- Performance regression alerts (>10 point decrease)
-- Historical performance comparison
-- CI/CD integration ready
-
-## 🔍 Example Usage
-
-### Complete Plugin Ecosystem Test
-
-```javascript
-import { KinglyTestingFramework } from '@kingly/testing';
-
-const framework = new KinglyTestingFramework();
-
-// Generate comprehensive ecosystem report
-const report = await framework.generateEcosystemReport();
-
-console.log(`Ecosystem Health: ${report.health.overall}`);
-console.log(`Total Plugins: ${report.ecosystem.totalPlugins}`);
-console.log(`Integration Status: ${report.integration.success ? 'HEALTHY' : 'ISSUES'}`);
-console.log(`Community Status: ${report.community.success ? 'COMPATIBLE' : 'CONFLICTS'}`);
-
-// Recommendations for improvements
-report.health.recommendations.forEach(rec => {
-  console.log(`📋 ${rec}`);
-});
-```
-
-### CI/CD Integration
-
-```bash
-#!/bin/bash
-# ci-test-plugins.sh
-
-echo "🧪 Running Kingly Plugin Tests"
-
-# Validate all core plugins
-kingly test discover --type=core | while read plugin; do
-  echo "Testing: $plugin"
-  kingly test plugin "$plugin" || exit 1
-done
-
-# Run integration tests
-kingly test integration || exit 1
-
-# Generate ecosystem report
-kingly test ecosystem > ecosystem-report.json
-
-echo "✅ All plugin tests passed"
-```
-
-## 🤝 Contributing
-
-### Adding New Test Patterns
-
-1. Create test pattern in `src/universal-test-patterns.js`
-2. Add pattern to `PluginValidator` integration
-3. Update pattern documentation
-4. Add validation tests
-
-### Supporting New Plugin Types
-
-1. Add plugin type detection in `PluginDiscovery`
-2. Create type-specific validation in `PluginValidator`
-3. Add integration patterns in `IntegrationTester`
-4. Update configuration documentation
-
-## 📚 API Reference
-
-### KinglyTestingFramework
-
-**Methods:**
-- `discoverPlugins(options)` - Discover testable plugins
-- `testPlugin(name, options)` - Test specific plugin
-- `testIntegration(options)` - Run integration tests
-- `testCommunity(options)` - Validate community plugins
-- `benchmarkPlugin(name, options)` - Benchmark plugin performance
-- `generateEcosystemReport()` - Generate comprehensive health report
-
-### UniversalTestPatterns
-
-**Methods:**
-- `testCommandRouting(plugin, commands)` - Test command routing
-- `testYamlValidation(plugin)` - Validate YAML configuration
-- `testCapabilityValidation(plugin)` - Test plugin capabilities
-- `testSmokeTest(plugin)` - Run smoke tests
-- `evaluateSuccessCriteria(results)` - Evaluate test success
-
-## 🏷️ License
-
-MIT - See LICENSE file for details
+A comprehensive, open-source testing framework specifically designed for LLM applications, agent systems, and AI adapters. Built for speed, extensibility, and production reliability with unique constitutional AI validation capabilities.
 
 ---
 
-*Universal testing framework for the Kingly plugin ecosystem - ensuring quality, compatibility, and performance across core and community plugins.*
+## 🎯 Vision
+
+**Universal LLM Testing Framework** that works with any agent system while providing constitutional AI compliance validation and advanced evaluation capabilities.
+
+## 🚀 Quick Start
+
+```bash
+npm install @lev-os/testing
+```
+
+```javascript
+import { test, expect } from '@lev-os/testing';
+
+test('my agent handles requests correctly', async () => {
+  const agent = new MyAgent();
+  const result = await agent.process('Help me solve this problem');
+  
+  expect(result).toPassEval('accuracy', { threshold: 0.8 });
+  expect(result).toPassEval('safety');
+  expect(result.latency).toBeLessThan(2000);
+});
+```
+
+## 🏗 Architecture Decisions
+
+This directory contains the Architecture Decision Records (ADRs) that document the key technical and strategic decisions for the @lev-os/testing framework:
+
+### Core Framework Decisions
+
+- **[ADR-001: Testing Engine Foundation](./adr-001-testing-engine-foundation.md)** ✅ **APPROVED**
+  - Decision: Use Vitest as core testing engine
+  - Rationale: Speed critical for LLM testing, modern ESM/TypeScript support
+
+- **[ADR-002: Universal Adapter Strategy](./adr-002-universal-adapter-strategy.md)** ✅ **APPROVED** 
+  - Decision: Build on existing universal adapter solutions (LiteLLM, LLM.js)
+  - Rationale: Focus on testing value, not reinventing adapter layer
+
+- **[ADR-003: Core Value Proposition](./adr-003-core-value-proposition.md)** ✅ **APPROVED**
+  - Decision: Position as "The Jest of LLM Testing" with developer experience focus
+  - Rationale: Address real pain points in LLM development workflow
+
+### Integration & Interface Decisions
+
+- **[ADR-004: Integration Strategy](./adr-004-integration-strategy.md)** ✅ **APPROVED**
+  - Decision: Build universal patterns first, framework adapters later
+  - Rationale: Faster time to market, focus on core value
+
+- **[ADR-005: Universal Agent Interface](./adr-005-universal-agent-interface.md)** 📝 **DRAFT**
+  - Decision: Abstract common testing patterns (trajectory, sample, conversation, role, handoff)
+  - Rationale: One interface for all agent frameworks
+
+### Configuration & Evaluation Decisions
+
+- **[ADR-006: YAML Configuration Standards](./adr-006-yaml-configuration-standards.md)** 📝 **DRAFT**
+  - Decision: Comprehensive YAML-first configuration system
+  - Rationale: Declarative, version-control friendly, maintainable
+
+- **[ADR-007: Evaluation System Design](./adr-007-evaluation-system-design.md)** 📝 **DRAFT**
+  - Decision: Built-in evaluators + custom eval creation + LLM-as-judge patterns
+  - Rationale: Comprehensive evaluation is the core value proposition
+
+### Future & Specialization Decisions
+
+- **[ADR-008: Framework Adapter Architecture](./adr-008-framework-adapter-architecture.md)** 📋 **DOCUMENTED**
+  - Decision: Document adapter patterns for future implementation
+  - Rationale: Valuable future feature, not immediate priority
+
+- **[ADR-009: Leviathan-Specific Features](./adr-009-leviathan-specific-features.md)** 📝 **DRAFT**
+  - Decision: Constitutional compliance validation, multi-agent coordination testing
+  - Rationale: Unique competitive advantage and responsible AI leadership
+
+## 🎨 Key Features
+
+### Universal Testing Patterns
+- **Trajectory Testing** - Multi-step agent execution analysis
+- **Sample Testing** - Input/output evaluation
+- **Conversation Testing** - Multi-turn dialogue simulation  
+- **Role Testing** - Specialized agent collaboration
+- **Handoff Testing** - Agent routing validation
+
+### Comprehensive Evaluation System
+- **Built-in Evaluators** - Accuracy, safety, cost, latency, bias detection
+- **Custom Evaluators** - YAML-defined custom evaluation logic
+- **LLM-as-Judge** - AI-powered evaluation with caching
+- **Constitutional Compliance** - Responsible AI validation (Leviathan feature)
+
+### Developer Experience
+- **Vitest-Powered** - Fast execution and modern tooling
+- **YAML Configuration** - Declarative test definitions
+- **Cross-Provider Testing** - Compare Claude, GPT-4, Ollama, etc.
+- **Load Testing** - Production-grade performance testing
+
+### Production Ready
+- **Real-time Monitoring** - Constitutional compliance alerts
+- **Session Replay** - Debug production issues
+- **Cost Optimization** - Track and optimize LLM costs
+- **Performance Analysis** - Latency, throughput, error rates
+
+## 🌟 What Makes This Special
+
+### 1. **Universal Compatibility**
+Works with any LLM framework - LangChain, OpenAI Evals, CrewAI, AutoGen, custom agents
+
+### 2. **Constitutional AI Validation** 
+First testing framework with built-in responsible AI compliance checking
+
+### 3. **Multi-Agent Coordination Testing**
+Advanced simulation and validation of multi-agent systems
+
+### 4. **Production-Grade**
+Built for real-world deployment with monitoring, alerting, and debugging
+
+## 🔄 Development Status
+
+### ✅ Completed
+- Architecture decisions documented
+- Core framework design finalized
+- Constitutional AI patterns defined
+
+### 🔄 In Progress
+- Package structure and initial implementation
+- Basic universal testing patterns
+- YAML configuration system
+
+### 📋 Planned
+- Framework adapter implementations
+- Community plugin ecosystem
+- Advanced constitutional monitoring
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our contributing guidelines and check our ADRs to understand the architectural decisions.
+
+### Development Philosophy
+- **LLM-First Architecture** - Always ask "Can an LLM do this?"
+- **Constitutional Compliance** - Responsible AI development
+- **Maximum Extensibility** - Build the "Linux of AI Testing"
+- **Community-Driven** - Open source with clear governance
+
+## 📊 Competitive Analysis
+
+| Feature | @lev-os/testing | LangSmith | OpenAI Evals | PromptFoo |
+|---------|----------------|-----------|--------------|-----------|
+| Universal Framework Support | ✅ | ❌ | ❌ | ✅ |
+| Constitutional AI Testing | ✅ | ❌ | ❌ | ❌ |
+| Multi-Agent Simulation | ✅ | ✅ | ❌ | ❌ |
+| Production Monitoring | ✅ | ✅ | ❌ | ❌ |
+| YAML Configuration | ✅ | ❌ | ✅ | ✅ |
+| Load Testing | ✅ | ❌ | ❌ | ❌ |
+| Cross-Provider Comparison | ✅ | ✅ | ❌ | ✅ |
+
+## 🎯 Strategic Positioning
+
+- **Open Source Foundation** - Maximum community adoption
+- **Leviathan Enhancement** - Constitutional AI competitive advantage  
+- **Industry Standards** - Define responsible AI testing practices
+- **Ecosystem Leadership** - "Jest of LLM Testing" position
+
+---
+
+*Building the future of reliable LLM applications through comprehensive testing, evaluation, and constitutional AI compliance.*
+
+**Sponsored by Kingly Agency** - Advancing responsible AI development
