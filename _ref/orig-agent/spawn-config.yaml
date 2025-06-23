@@ -1,0 +1,119 @@
+# Spawn Manager Configuration
+# All settings can be overridden via environment variables: KINGLY_SPAWN_*
+
+spawn:
+  # Docker configuration
+  docker:
+    # Base image for Claude Code containers
+    image: "${KINGLY_SPAWN_IMAGE:-node:20-alpine}"
+    
+    # Claude Code installation
+    claude_code:
+      package: "@anthropic-ai/claude-code"
+      version: "${KINGLY_CLAUDE_VERSION:-latest}"
+    
+    # Resource limits
+    resources:
+      memory: "${KINGLY_SPAWN_MEMORY:-2g}"
+      cpu_shares: "${KINGLY_SPAWN_CPU:-1024}"
+      
+    # Volume mounts
+    volumes:
+      workspace: "/workspace"
+      output: "/workspace/output"
+      
+  # Execution settings
+  execution:
+    # Maximum spawn lifetime
+    timeout_seconds: "${KINGLY_SPAWN_TIMEOUT:-300}"
+    
+    # Startup grace period
+    startup_timeout: "${KINGLY_SPAWN_STARTUP:-30}"
+    
+    # Result polling
+    polling:
+      interval_ms: "${KINGLY_POLL_INTERVAL:-1000}"
+      max_attempts: "${KINGLY_POLL_ATTEMPTS:-300}"
+    
+  # File paths
+  paths:
+    # Where to write context files
+    context_dir: "${KINGLY_CONTEXT_DIR:-./.kingly/spawns/contexts}"
+    
+    # Where to read results
+    results_dir: "${KINGLY_RESULTS_DIR:-./.kingly/spawns/results}"
+    
+    # Log storage
+    logs_dir: "${KINGLY_LOGS_DIR:-./.kingly/spawns/logs}"
+    
+  # Context schema
+  context:
+    # Required fields in context JSON
+    schema:
+      version: "1.0"
+      required_fields:
+        - spawnId
+        - task
+        - mcp
+      
+    # MCP tools available to spawned instances
+    mcp_tools:
+      - create_task
+      - assess_task_confidence
+      - split_task
+      - get_task
+      - update_task
+      
+  # Networking
+  network:
+    # Network mode for containers
+    mode: "${KINGLY_NETWORK_MODE:-bridge}"
+    
+    # Enable network access
+    enable_external: "${KINGLY_ENABLE_NETWORK:-false}"
+    
+  # Error handling
+  errors:
+    # Retry failed spawns
+    retry_enabled: "${KINGLY_RETRY_ENABLED:-true}"
+    retry_count: "${KINGLY_RETRY_COUNT:-3}"
+    retry_delay_ms: "${KINGLY_RETRY_DELAY:-5000}"
+    
+    # Cleanup on failure
+    cleanup_on_error: "${KINGLY_CLEANUP_ON_ERROR:-true}"
+    
+  # Parallel execution
+  parallel:
+    # Maximum concurrent spawns
+    max_concurrent: "${KINGLY_MAX_SPAWNS:-10}"
+    
+    # Queue overflow behavior
+    queue_strategy: "${KINGLY_QUEUE_STRATEGY:-reject}" # reject | wait
+    
+# Environment-specific overrides
+environments:
+  development:
+    docker:
+      resources:
+        memory: "1g"
+    execution:
+      timeout_seconds: 60
+    parallel:
+      max_concurrent: 3
+      
+  production:
+    docker:
+      resources:
+        memory: "4g"
+    execution:
+      timeout_seconds: 600
+    parallel:
+      max_concurrent: 20
+      
+  testing:
+    docker:
+      image: "kingly-test:latest"
+    execution:
+      timeout_seconds: 30
+    errors:
+      retry_enabled: false

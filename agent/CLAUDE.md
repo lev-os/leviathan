@@ -55,7 +55,7 @@ Model Context Protocol server that maps core functions to MCP tools:
 - **@lev-os/debug**: Universal logging, event tracing, performance monitoring
 - **@lev-os/testing**: Plugin validation, compatibility testing, performance benchmarking  
 - **@lev-os/cmd**: Process management, git worktree operations, job integration
-- **@lev/workshop**: Tool/plugin creation system (in development)
+- **@lev-os/workshop**: Tool/plugin creation system (in development)
 
 **Extension Benefits:**
 - Plugins register commands with CLI adapter using namespace pattern

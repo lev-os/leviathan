@@ -1,0 +1,60 @@
+metadata:
+  type: "preference"
+  id: "power-user-prefs"
+  version: "1.0.0"
+  learned_from: "usage_patterns"
+  confidence: 0.92
+
+preference_config:
+  output_format:
+    lists: "numbered"
+    tables: "ascii_bordered"
+    code: "syntax_highlighted"
+    explanations: "concise"
+    
+  interaction_style:
+    verbosity: "minimal"
+    technical_level: "advanced"
+    emoji_usage: "minimal"
+    humor: "dry wit"
+    
+  workflow_preferences:
+    confirmation_prompts: "skip_unless_destructive"
+    auto_execute: "trusted_operations"
+    parallel_execution: "maximize"
+    progress_updates: "percentage_only"
+    
+  ui_preferences:
+    theme: "dark_minimal"
+    animations: "disabled"
+    sounds: "disabled"
+    information_density: "high"
+    
+  agent_preferences:
+    default_agent: "dev"
+    routing_style: "direct"
+    explanation_depth: "on_request"
+    
+  learned_patterns:
+    - pattern: "Prefers keyboard shortcuts"
+      confidence: 0.95
+      evidence: "Always chooses numbered options"
+      
+    - pattern: "Works in long sessions"
+      confidence: 0.88
+      evidence: "4+ hour continuous usage"
+      
+    - pattern: "Likes to see internals"
+      confidence: 0.91
+      evidence: "Frequently asks 'how?'"
+      
+  shortcuts:
+    "1": "Continue with defaults"
+    "q": "Quick execute"
+    "?": "Show advanced options"
+    "!": "Force override"
+    
+  time_preferences:
+    working_hours: "night_owl"
+    peak_productivity: "10pm-2am"
+    break_reminders: "disabled"

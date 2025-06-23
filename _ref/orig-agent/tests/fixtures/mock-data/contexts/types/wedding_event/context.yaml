@@ -1,0 +1,38 @@
+# Wedding Event context type
+wedding_event_config:
+  inherits: ["base"]
+  
+  relationship_types:
+    vendor_conflict:
+      description: "Vendors who cannot work at same time"
+      target_types: ["vendor"]
+      cardinality: "many-to-many"
+      bidirectional: true
+      inverse: "conflicts_with"
+      properties_schema:
+        reason: "string"
+        time_slots: "array:datetime"
+    
+    weather_dependent:
+      description: "Weather conditions required"
+      target_types: ["weather_condition"]
+      cardinality: "many-to-many"
+      properties_schema:
+        fallback_plan: "reference:wedding_event"
+        probability_threshold: "number"
+    
+    emotional_priority:
+      description: "Whose preferences take precedence"
+      target_types: ["person", "stakeholder"]
+      cardinality: "many-to-many"
+      properties_schema:
+        weight: "number:0-100"
+        category: "enum:must_have,nice_to_have,if_possible"
+    
+    cascade_panic:
+      description: "If this fails, what else needs to change"
+      target_types: ["wedding_event", "vendor", "venue"]
+      cardinality: "many-to-many"
+      properties_schema:
+        trigger_condition: "string"
+        actions_required: "array:string"

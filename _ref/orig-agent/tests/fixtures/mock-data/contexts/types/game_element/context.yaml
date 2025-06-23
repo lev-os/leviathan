@@ -1,0 +1,40 @@
+# Game Development Element context type
+game_element_config:
+  inherits: ["base"]
+  
+  relationship_types:
+    narrative_continuity:
+      description: "Story sequence dependencies"
+      target_types: ["quest", "dialogue", "cutscene"]
+      cardinality: "many-to-many"
+      properties_schema:
+        sequence_type: "enum:required,optional,branching"
+        narrative_impact: "array:string"
+    
+    balance_impact:
+      description: "Gameplay balance relationships"
+      target_types: ["weapon", "enemy", "ability", "item"]
+      cardinality: "many-to-many"
+      properties_schema:
+        balance_factor: "number:-1,1"
+        affected_metrics: "array:string"
+        playtesting_notes: "string"
+    
+    unlocks:
+      description: "Progression gating mechanism"
+      target_types: ["*"]
+      cardinality: "many-to-many"
+      bidirectional: true
+      inverse: "unlocked_by"
+      properties_schema:
+        unlock_condition: "string"
+        unlock_type: "enum:immediate,gradual,conditional"
+    
+    art_pipeline:
+      description: "Asset creation workflow"
+      target_types: ["concept_art", "model", "texture", "animation"]
+      cardinality: "many-to-many"
+      properties_schema:
+        pipeline_stage: "enum:concept,modeling,texturing,rigging,animation"
+        approval_status: "enum:pending,approved,revision_needed"
+        iteration_count: "integer"

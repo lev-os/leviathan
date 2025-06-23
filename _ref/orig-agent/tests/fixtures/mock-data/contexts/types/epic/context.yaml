@@ -1,0 +1,31 @@
+# Agile Epic context type
+epic_config:
+  inherits: ["base"]
+  
+  structure_config:
+    storage_pattern: "hierarchical"
+    path_template: "epics/{name}/"
+    
+  relationship_types:
+    # Epic-specific relationships
+    blocks:
+      description: "This epic must complete before target epic can begin"
+      target_types: ["epic", "story"]
+      cardinality: "many-to-many"
+      bidirectional: true
+      inverse: "blocked_by"
+      properties_schema:
+        reason: "string"
+        severity: "enum:critical,high,medium,low"
+    
+    contains_stories:
+      description: "Stories that implement this epic"
+      target_types: ["story"]
+      cardinality: "one-to-many"
+      bidirectional: true
+      inverse: "belongs_to_epic"
+    
+    depends_on_infrastructure:
+      description: "Technical dependencies"
+      target_types: ["project", "service", "api"]
+      cardinality: "many-to-many"

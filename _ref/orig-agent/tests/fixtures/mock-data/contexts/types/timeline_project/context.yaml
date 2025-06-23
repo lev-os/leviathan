@@ -1,0 +1,38 @@
+# Multiverse Timeline Project context type
+timeline_project_config:
+  inherits: ["base"]
+  
+  relationship_types:
+    probability_collapse:
+      description: "Choosing this collapses other timeline possibilities"
+      target_types: ["timeline_project", "decision_point"]
+      cardinality: "many-to-many"
+      properties_schema:
+        collapse_probability: "number:0-1"
+        quantum_state: "enum:superposition,collapsed,entangled"
+    
+    quantum_entangled:
+      description: "Projects that mirror each other across timelines"
+      target_types: ["timeline_project"]
+      cardinality: "many-to-many"
+      bidirectional: true
+      inverse: "quantum_entangled"  # Self-referential
+      properties_schema:
+        entanglement_strength: "number:0-1"
+        timeline_distance: "integer"
+    
+    causal_loop:
+      description: "Future event requires past action"
+      target_types: ["*"]
+      cardinality: "many-to-many"
+      properties_schema:
+        loop_type: "enum:bootstrap,predestination,grandfather"
+        temporal_distance: "duration"
+    
+    dimensional_bleed:
+      description: "Effects that cross timeline boundaries"
+      target_types: ["timeline_project", "bug", "feature"]
+      cardinality: "many-to-many"
+      properties_schema:
+        bleed_strength: "number:0-1"
+        affected_timelines: "array:string"

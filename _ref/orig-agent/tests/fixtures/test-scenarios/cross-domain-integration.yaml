@@ -1,0 +1,68 @@
+# Test scenario: Cross-domain integration (Research + Legal + Creative)
+test_scenario:
+  name: "Academic Paper Legal Review and Creative Adaptation"
+  description: "Test relationships across research, legal, and creative domains"
+  
+  operations:
+    - batch_operation:
+        creates:
+          - type: "research_paper"
+            config:
+              name: "AI Ethics in Healthcare"
+              authors: ["Dr. Smith", "Dr. Jones"]
+              journal: "Nature AI"
+          
+          - type: "legal_case"
+            config:
+              name: "Smith v. HealthAI Corp"
+              case_number: "2024-CV-1234"
+              jurisdiction: "Federal District Court"
+          
+          - type: "creative_work"
+            config:
+              name: "The Algorithm's Dilemma"
+              medium: "documentary_film"
+              creator: "Jane Director"
+        
+        relationships:
+          # Research paper cited in legal case
+          - source: "$creates[1]"  # Legal case
+            type: "cites"
+            target: "$creates[0]"  # Research paper
+            properties:
+              citation_type: "supporting"
+              page_references: ["p.45-47", "p.89"]
+          
+          # Creative work inspired by both
+          - source: "$creates[2]"  # Documentary
+            type: "inspired_by"
+            target: "$creates[0]"  # Research paper
+            properties:
+              inspiration_type: "thematic"
+              attribution_required: true
+          
+          - source: "$creates[2]"  # Documentary
+            type: "inspired_by"
+            target: "$creates[1]"  # Legal case
+            properties:
+              inspiration_type: "direct"
+              attribution_required: true
+          
+          # Legal case creates precedent
+          - source: "$creates[1]"
+            type: "precedent"
+            target: "future_ai_ethics_cases"
+            properties:
+              precedent_type: "binding"
+              legal_principle: "AI systems must demonstrate ethical safeguards"
+  
+  cross_domain_queries:
+    - query: "Find all creative works inspired by legal cases that cite research papers"
+      expected_path: ["creative_work", "inspired_by", "legal_case", "cites", "research_paper"]
+    
+    - query: "Track influence flow from research to public understanding"
+      expected_flow:
+        - "research_paper" → "legal_case" (via citation)
+        - "legal_case" → "precedent" (establishes principle)
+        - "research_paper" + "legal_case" → "creative_work" (via inspiration)
+        - "creative_work" → "public_awareness" (via distribution)

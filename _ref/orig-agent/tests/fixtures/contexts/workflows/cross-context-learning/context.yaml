@@ -1,0 +1,154 @@
+metadata:
+  type: "workflow"
+  id: "cross-context-learning"
+  version: "1.0.0"
+  description: "Enable portfolio intelligence through workflow-driven context connections"
+
+workflow_config:
+  philosophy: "Every breakthrough should benefit everything relevant"
+  
+  triggers:
+    breakthrough_moments:
+      - "high_confidence_success"
+      - "unexpected_solution_works"
+      - "pattern_breakthrough"
+      - "efficiency_improvement"
+    pattern_detection:
+      - "similar_challenges_across_contexts"
+      - "transferable_approach_identified"
+      - "universal_pattern_emerges"
+      
+  steps:
+    1_capture_breakthrough:
+      prompt: |
+        A breakthrough occurred in {source_context}:
+        Challenge: {original_challenge}
+        Solution: {solution_approach}
+        Outcome: {success_metrics}
+        
+        What made this breakthrough significant?
+        What principles or patterns are involved?
+      output: "breakthrough_analysis + core_principles"
+      
+    2_identify_pattern_type:
+      prompt: |
+        Breakthrough: {breakthrough_description}
+        
+        What type of pattern is this?
+        - Communication pattern
+        - Problem-solving approach
+        - Coordination strategy  
+        - Decision-making framework
+        - Resource optimization
+        - Other: {specify}
+        
+        How generalizable is this pattern?
+      output: "pattern_classification + generalizability_score"
+      
+    3_find_similar_contexts:
+      action: "search_all_contexts"
+      criteria:
+        - similar_challenges
+        - similar_stakeholder_dynamics
+        - similar_resource_constraints
+        - similar_outcome_goals
+      algorithms:
+        - semantic_similarity
+        - tag_overlap
+        - pattern_matching
+        - llm_relevance_scoring
+        
+    4_test_cross_applicability:
+      prompt: |
+        Original context: {source_context}
+        Breakthrough: {breakthrough_pattern}
+        
+        Target context: {target_context}
+        Current challenges: {target_challenges}
+        
+        Could this breakthrough pattern help here?
+        How would it need to be adapted?
+        What's the likelihood of success?
+      per_target: true
+      threshold: 0.65
+      
+    5_create_portfolio_insight:
+      action: "create_cross_context_memory"
+      format:
+        type: "portfolio_insight"
+        pattern_name: "descriptive name"
+        source_breakthrough: "original context + details"
+        applicable_contexts: "list with adaptations"
+        core_principle: "the transferable essence"
+        adaptation_guidance: "how to modify for different contexts"
+        success_indicators: "how to know if it's working"
+        
+    6_gentle_cross_pollination:
+      action: "whisper_to_relevant_contexts"
+      message: |
+        💡 Portfolio insight available:
+        Pattern: "{pattern_name}"
+        From: {source_context}
+        
+        This approach to "{core_challenge}" might help with your "{target_challenge}"
+        
+        Key principle: {core_principle}
+      options: ["Explore", "Adapt", "Not Relevant", "Save for Later"]
+      
+  examples:
+    dating_to_business:
+      breakthrough: "Listening before suggesting solutions"
+      source: "contexts/personal/dating/relationship-building"
+      applicable_to:
+        - "contexts/work/client-relationships"
+        - "contexts/team/conflict-resolution"
+        - "contexts/sales/discovery-calls"
+      adaptation: "Listen to client needs before proposing solutions"
+      
+    coding_to_writing:
+      breakthrough: "Break complex problems into smaller functions"
+      source: "contexts/projects/software/architecture"
+      applicable_to:
+        - "contexts/writing/article-structure"
+        - "contexts/planning/project-breakdown"
+        - "contexts/learning/skill-development"
+      adaptation: "Break complex articles into focused sections"
+      
+  configuration:
+    learning_aggressiveness:
+      conservative: "Only obvious pattern transfers"
+      moderate: "Explore potential transfers"
+      aggressive: "Test creative cross-domain applications"
+      
+    portfolio_scope:
+      personal_only: "Within personal contexts"
+      professional_only: "Within work contexts"
+      full_portfolio: "Across all life contexts"
+      
+    privacy_controls:
+      share_patterns_not_details: true
+      anonymize_personal_context: true
+      respect_context_boundaries: true
+      
+  success_metrics:
+    breakthrough_propagation:
+      - insights_successfully_transferred
+      - contexts_improved_by_cross_learning
+      - time_to_solution_reduced
+      
+    portfolio_intelligence:
+      - cross_domain_pattern_emergence
+      - multiplicative_value_creation
+      - universal_coordination_principles
+      
+  learning:
+    pattern_library:
+      - successful_cross_transfers
+      - failed_transfer_attempts
+      - adaptation_strategies
+      - universal_vs_context_specific_patterns
+      
+    optimization:
+      - improve_relevance_detection
+      - refine_adaptation_guidance
+      - learn_user_transfer_preferences

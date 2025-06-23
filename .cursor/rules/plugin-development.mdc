@@ -1,0 +1,115 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Leviathan Plugin Development Standards
+
+## Namespace Requirements
+**MANDATORY**: All plugins use `@lev-os/` namespace
+```
+✅ CORRECT: @lev-os/my-plugin
+❌ WRONG: @lev/my-plugin, @leviathan/my-plugin
+```
+
+## Plugin Structure
+```
+plugins/@lev-os/your-plugin/
+├── config/
+│   └── plugin.yaml         # YAML-first configuration
+├── src/
+│   ├── commands/          # Auto-discovered commands
+│   │   └── main.js        # Command implementations
+│   └── index.js           # Plugin entry point
+├── tests/
+│   ├── integration.test.js # CLI + MCP tests
+│   └── unit.test.js       # Business logic tests
+├── README.md
+└── package.json
+```
+
+## Command Pattern
+```javascript
+// src/commands/feature.js
+export async function feature(args, dependencies) {
+  const { workflowLoader, debugLogger } = dependencies;
+  
+  // Subcommand routing (if needed)
+  const [subcommand, ...subArgs] = args;
+  switch (subcommand) {
+    case 'analyze':
+      return await featureAnalyze(parseArgs(subArgs), dependencies);
+    default:
+      throw new Error(`Unknown subcommand: ${subcommand}`);
+  }
+}
+
+// Metadata for auto-discovery
+feature.description = "Feature command with subcommands";
+feature.inputSchema = {
+  type: 'object',
+  properties: {
+    subcommand: { type: 'string', enum: ['analyze', 'process'] },
+    args: { type: 'array', items: { type: 'string' } }
+  },
+  required: ['subcommand']
+};
+
+// MCP tool export (REQUIRED)
+export const featureTool = {
+  name: 'feature',
+  description: feature.description,
+  inputSchema: feature.inputSchema,
+  handler: feature
+};
+```
+
+## Plugin Configuration (config/plugin.yaml)
+```yaml
+name: example-plugin
+namespace: "@lev-os"
+version: "1.0.0"
+description: "Example plugin demonstrating standards"
+
+type: "command-plugin"
+capabilities:
+  - "cli-integration"
+  - "mcp-tools"
+  - "auto-bootstrap"
+
+commands:
+  - name: "example"
+    description: "Main plugin command"
+    primary: true
+
+dependencies:
+  core:
+    - "@lev-os/debug"
+  optional:
+    - "@lev-os/testing"
+
+config:
+  auto_bootstrap: true
+  cross_adapter_support: true
+```
+
+## Testing Requirements
+```javascript
+import { runLevCommand, callMCPTool } from '@lev-os/testing';
+
+describe('Plugin Integration', () => {
+  test('CLI and MCP produce identical results', async () => {
+    const cliResult = await runLevCommand(['example', 'status']);
+    const mcpResult = await callMCPTool('example', { subcommand: 'status' });
+    
+    expect(cliResult.data).toEqual(mcpResult.data);
+  });
+});
+```
+
+## Best Practices
+- Keep commands focused (100-150 lines max)
+- Use dependency injection for all services
+- Follow auto-bootstrap pattern
+- Ensure bi-directional MCP compatibility
+- Document with examples in README.md

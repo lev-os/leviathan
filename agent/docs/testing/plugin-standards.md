@@ -193,7 +193,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
 ## Workshop Plugin Example
 
-The **@lev/workshop plugin** serves as the reference implementation for plugin testing standards.
+The **@lev-os/workshop plugin** serves as the reference implementation for plugin testing standards.
 
 ### Key Features Demonstrated
 
@@ -389,7 +389,7 @@ npm run test:plugins
 
 # Tests all plugins in parallel:
 # @lev-os/debug, @lev-os/testing, @lev-os/cmd
-# @lev/workshop, @namespace/community-plugin
+# @lev-os/workshop, @namespace/community-plugin
 ```
 
 ### Plugin Discovery
@@ -404,7 +404,7 @@ npm run test:discover
 📁 Discovered test files:
    - plugins/@lev-os/debug/tests/debug.test.js
    - plugins/@lev-os/testing/tests/testing.test.js
-   - plugins/@lev/workshop/tests/workshop.test.js
+   - plugins/@lev-os/workshop/tests/workshop.test.js
 ```
 
 ## Troubleshooting Guide

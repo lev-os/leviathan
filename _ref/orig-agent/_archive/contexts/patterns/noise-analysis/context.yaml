@@ -1,0 +1,80 @@
+metadata:
+  type: "pattern"
+  id: "noise-analysis"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Comprehensive analysis of Needs, Opportunities, Improvements, Strengths, and Exceptions"
+
+pattern_config:
+  methodology: "holistic_assessment"
+  
+  analysis_dimensions:
+    needs:
+      description: "What gaps exist?"
+      prompts:
+        - "Unmet requirements"
+        - "Missing capabilities"
+        - "Resource gaps"
+        - "Skill deficiencies"
+      action: "Address critical gaps"
+      
+    opportunities:
+      description: "What possibilities emerge?"
+      prompts:
+        - "Untapped potential"
+        - "Market openings"
+        - "Synergy possibilities"
+        - "Growth areas"
+      action: "Capitalize on potential"
+      
+    improvements:
+      description: "What can be enhanced?"
+      prompts:
+        - "Process optimizations"
+        - "Quality enhancements"
+        - "Efficiency gains"
+        - "Experience upgrades"
+      action: "Iterate and refine"
+      
+    strengths:
+      description: "What works well?"
+      prompts:
+        - "Competitive advantages"
+        - "Core capabilities"
+        - "Success patterns"
+        - "Reliable assets"
+      action: "Leverage and protect"
+      
+    exceptions:
+      description: "What unusual cases matter?"
+      prompts:
+        - "Edge cases"
+        - "Outlier scenarios"
+        - "Special situations"
+        - "Non-standard uses"
+      action: "Accommodate thoughtfully"
+      
+  process:
+    1_comprehensive_scan: "Examine all five dimensions"
+    2_prioritize_findings: "Rank by impact and urgency"
+    3_find_connections: "Link related items across dimensions"
+    4_balance_actions: "Distribute effort appropriately"
+    5_handle_exceptions: "Design for edge cases"
+    
+  unique_value:
+    - "Exceptions dimension catches overlooked scenarios"
+    - "Balanced view across multiple perspectives"
+    - "Action-oriented for each dimension"
+    - "Helps avoid blind spots"
+    
+  cross_dimensional_insights:
+    need_opportunity: "Gaps that create market openings"
+    strength_improvement: "Good things that could be better"
+    exception_need: "Edge cases revealing hidden requirements"
+    
+  output_format:
+    dimensional_matrix: true
+    priority_heatmap: true
+    action_plan: true
+    exception_handling: true
+    balanced_scorecard: true

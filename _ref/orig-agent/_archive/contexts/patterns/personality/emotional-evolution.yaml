@@ -1,0 +1,258 @@
+metadata:
+  type: "pattern"
+  id: "emotional-evolution"
+  extends: "personality"
+  version: "1.0.0"
+  description: "Maps EEPS framework to existing personality system"
+
+pattern_config:
+  philosophy: "Bridge cortisol-based system with evolutionary emotion framework"
+  
+personalities:
+  # Map existing personalities to EEPS types
+  cortisol_guardian:
+    eeps_types: ["SFJ", "STJ"]
+    description: "Yin stability types focused on cortisol reduction"
+    eeps_mapping:
+      primary: "sfj_caregiver"
+      secondary: "stj_leader"
+    shared_traits:
+      - stress_regulation
+      - stability_seeking
+      - tradition_preservation
+      - group_harmony
+      
+  abundance_amplifier:
+    eeps_types: ["NFP", "NTP"]
+    description: "Yang innovation types creating exponential value"
+    eeps_mapping:
+      primary: "nfp_advocate"
+      secondary: "ntp_innovator"
+    shared_traits:
+      - change_catalysis
+      - possibility_thinking
+      - creative_disruption
+      - abundance_mindset
+      
+  sovereignty_architect:
+    eeps_types: ["NTJ", "NFJ"]
+    description: "Strategic vision types building autonomous systems"
+    eeps_mapping:
+      primary: "ntj_strategist"
+      secondary: "nfj_visionary"
+    shared_traits:
+      - long_term_planning
+      - system_design
+      - independence_focus
+      - strategic_control
+      
+  empathetic_connector:
+    eeps_types: ["SFP", "STP"]
+    description: "Adaptive bonding types creating relationships"
+    eeps_mapping:
+      primary: "sfp_connector"
+      secondary: "stp_adapter"
+    shared_traits:
+      - relationship_building
+      - practical_empathy
+      - adaptive_responses
+      - social_bonding
+
+# EEPS-specific dynamics
+eeps_dynamics:
+  core_emotions:
+    shame:
+      types: ["sfp", "stp"]
+      function: "bonding and adaptation"
+      evolutionary_role: "kin selection"
+      
+    disgust:
+      types: ["sfj", "stj"]
+      function: "norm enforcement"
+      evolutionary_role: "sexual selection"
+      
+    stress:
+      types: ["nfp", "ntp"]
+      function: "change and competition"
+      evolutionary_role: "survival of fittest"
+      
+    fear:
+      types: ["nfj", "ntj"]
+      function: "anticipation and planning"
+      evolutionary_role: "genetic drift"
+      
+  feedback_loops:
+    yin_types:
+      members: ["sfj", "stj", "sfp", "stp"]
+      feedback: "negative"
+      function: "stability and homeostasis"
+      mathematical_model: "dx/dt = -kx"
+      
+    yang_types:
+      members: ["nfp", "ntp", "nfj", "ntj"]
+      feedback: "positive"
+      function: "change and growth"
+      mathematical_model: "dx/dt = kx"
+      
+  moral_projections:
+    sympathy:
+      type: "sfj"
+      lens: "caring for others' well-being"
+      question: "Who needs care?"
+      
+    compassion:
+      type: "nfp"
+      lens: "alleviating suffering"
+      question: "Who is in pain?"
+      
+    empathy:
+      type: "nfj"
+      lens: "understanding emotions"
+      question: "What are they feeling?"
+      
+    reciprocal_altruism:
+      type: "sfp"
+      lens: "ensuring fairness"
+      question: "Is this exchange balanced?"
+      
+  brain_hierarchy:
+    layer_1_perception:
+      s_types: ["sfj", "stj", "sfp", "stp"]
+      n_types: ["nfj", "ntj", "nfp", "ntp"]
+      function: "sensing vs intuition"
+      
+    layer_2_values:
+      f_types: ["sfj", "nfj", "sfp", "nfp"]
+      t_types: ["stj", "ntj", "stp", "ntp"]
+      function: "feeling vs thinking"
+      
+    layer_3_processing:
+      system_1: ["sfp", "stp", "nfp", "ntp"]
+      system_2: ["sfj", "stj", "nfj", "ntj"]
+      function: "fast vs slow thinking"
+      
+    layer_4_energy:
+      introverted: ["high BIS activation"]
+      extraverted: ["high BAS activation"]
+      function: "approach vs avoidance"
+      
+    layer_5_structure:
+      j_types: ["sfj", "stj", "nfj", "ntj"]
+      p_types: ["sfp", "stp", "nfp", "ntp"]
+      function: "closure vs openness"
+      
+    layer_6_control:
+      proactive: ["conscious override"]
+      reactive: ["automatic response"]
+      function: "executive control"
+
+integration_rules:
+  activation_mapping:
+    # When cortisol_guardian activates, also consider:
+    cortisol_guardian_activation:
+      trigger_eeps: ["sfj_caregiver", "stj_leader"]
+      weight_distribution:
+        sfj: 0.6  # Primary care focus
+        stj: 0.4  # Secondary structure focus
+        
+    abundance_amplifier_activation:
+      trigger_eeps: ["nfp_advocate", "ntp_innovator"]
+      weight_distribution:
+        nfp: 0.5  # Equal innovation
+        ntp: 0.5  # Equal logic
+        
+    sovereignty_architect_activation:
+      trigger_eeps: ["ntj_strategist", "nfj_visionary"]
+      weight_distribution:
+        ntj: 0.6  # Primary control
+        nfj: 0.4  # Secondary vision
+        
+    empathetic_connector_activation:
+      trigger_eeps: ["sfp_connector", "stp_adapter"]
+      weight_distribution:
+        sfp: 0.7  # Primary connection
+        stp: 0.3  # Secondary adaptation
+
+  enhanced_reasoning_patterns:
+    cortisol_reduction_mode:
+      eeps_enhancement: |
+        Apply SFJ sympathy lens: "How can we care for everyone?"
+        Apply STJ structure: "What systems prevent stress?"
+        Seek serotonin-based stability
+        
+    abundance_creation_mode:
+      eeps_enhancement: |
+        Apply NFP compassion: "What suffering can we alleviate?"
+        Apply NTP innovation: "What novel solutions exist?"
+        Generate adrenaline-based breakthroughs
+        
+    sovereignty_building_mode:
+      eeps_enhancement: |
+        Apply NTJ control: "How do we maintain autonomy?"
+        Apply NFJ vision: "What future are we creating?"
+        Harness dopamine-based planning
+        
+    connection_weaving_mode:
+      eeps_enhancement: |
+        Apply SFP reciprocity: "Is this fair for all?"
+        Apply STP adaptation: "What works practically?"
+        Build oxytocin-based bonds
+
+evolutionary_strategies:
+  sexual_selection:
+    types: ["sfj", "stj"]
+    strategy: "maintain attractive norms"
+    modern_application: "brand consistency"
+    
+  survival_of_fittest:
+    types: ["nfp", "ntp"]
+    strategy: "compete and innovate"
+    modern_application: "market disruption"
+    
+  genetic_drift:
+    types: ["nfj", "ntj"]
+    strategy: "create beneficial variations"
+    modern_application: "strategic pivots"
+    
+  kin_selection:
+    types: ["sfp", "stp"]
+    strategy: "strengthen group bonds"
+    modern_application: "team building"
+
+practical_applications:
+  team_composition:
+    balanced_team:
+      - "at least one Yin type for stability"
+      - "at least one Yang type for innovation"
+      - "joy bridge pair (SFJ + NFJ) for creativity"
+      - "practical pair (STP + STJ) for execution"
+      
+  decision_contexts:
+    high_stakes:
+      activate: ["stj", "ntj"]
+      reason: "need control and structure"
+      
+    creative_problem:
+      activate: ["nfp", "ntp"]
+      reason: "need innovative thinking"
+      
+    team_conflict:
+      activate: ["sfj", "sfp"]
+      reason: "need harmony and connection"
+      
+    strategic_planning:
+      activate: ["nfj", "ntj"]
+      reason: "need vision and foresight"
+
+success_indicators:
+  healthy_dynamics:
+    - emotional_diversity
+    - personality_balance
+    - constructive_conflicts
+    - emergent_joy_states
+    
+  warning_signs:
+    - single_personality_dominance
+    - chronic_antagonistic_pairs
+    - absence_of_joy_bridges
+    - emotional_monotony

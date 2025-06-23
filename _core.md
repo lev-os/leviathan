@@ -16,7 +16,7 @@ Components currently in plugin namespaces but directly imported:
 import { MemoryManager } from '@lev-os/memory';
 import { TestRunner } from '@lev-os/testing'; 
 import { CommandExecutor } from '@lev-os/cmd';
-import { WorkshopIntelligence } from '@lev/workshop';
+import { WorkshopIntelligence } from '@lev-os/workshop';
 ```
 
 **Problems with Current Architecture:**
@@ -208,7 +208,7 @@ mv ~/lev/plugins/@lev-os/testing/* ~/lev/core/testing/
 # Command execution
 mv ~/lev/plugins/@lev-os/cmd/* ~/lev/core/commands/
 # Workshop intelligence
-mv ~/lev/plugins/@lev/workshop/* ~/lev/core/workshop/
+mv ~/lev/plugins/@lev-os/workshop/* ~/lev/core/workshop/
 ```
 
 **Update Import Paths:**

@@ -2,63 +2,45 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Constitutional Framework - First Principles
+## Technical Architecture - Core Principles
 
-**Leviathan** operates under a quantum-constitutional AI system that prioritizes maximum extensibility and bi-directional communication patterns. This is designed to be the "Linux of AI" - a foundational platform for anyone to hack their own systems.
+**Leviathan** is an AI-native operating system designed as the "Linux of AI" - a foundational platform for building sophisticated AI systems with maximum extensibility and bi-directional communication patterns.
 
-### Core Constitutional Principles
+### Core Technical Principles
 
-1. **Hormonal/Emotional Balance Optimization** - Right chemistry/emotion for each situation (not reduction)
-2. **Quantum Context Entanglement** - Context + intent + values entangled across space/time/hierarchy
-3. **Bootstrap Sovereignty** - Pi → Planetary coordination preserving autonomy
-4. **LLM-First Constitutional Architecture** - AI reasoning with self-regulating ethical framework
-5. **Maximum Extensibility** - Linux of AI - everyone can hack their own systems on Leviathan
-6. **Full Brain Sovereignty** - Access all psychological modes, not stuck in genetic/chemical patterns
-7. **Human-AI-Business State Correlation** - Aligned optimization across all dimensions
-8. **Emergent Intelligence** - Behavior emerges from conversation and constitutional principles
-9. **Bi-Directional Communication** - LLM calls system → system responds w/ workflow → LLM executes → system saves
-10. **Natural AI Alignment** - Through human consciousness modeling
+1. **LLM-First Architecture** - AI reasoning as the primary execution engine
+2. **Maximum Extensibility** - Plugin architecture enabling anyone to hack and extend
+3. **Bi-Directional Communication** - System ↔ LLM feedback loops for enhanced capabilities
+4. **Bootstrap Sovereignty** - Minimal dependencies, maximum autonomy
+5. **Emergent Intelligence** - Behavior emerges from system interaction and configuration
 
 ### Bi-Directional Communication Architecture
 
-**Revolutionary Inversion of Control**: The system creates feedback loops where:
+**Inversion of Control Pattern**: The system creates feedback loops where:
 
-1. **LLM → System Call**: Agent identifies need and calls system
+1. **LLM → System Call**: Agent identifies need and calls system via MCP
 2. **System → LLM Response**: System responds with workflow, context, and callback instructions
-3. **LLM → Maximum Work**: LLM executes with full autonomy within constitutional bounds
+3. **LLM → Enhanced Processing**: LLM executes with full autonomy and system data
 4. **LLM → System Callback**: LLM reports results and requests next step
-5. **System → Guidance**: System saves progress and guides next iteration
+5. **System → Iteration**: System saves progress and guides next iteration
 
-This creates **inversion of control feedback loops** that unlock capabilities like the FlowMind language/meta-programming framework.
+This pattern enables advanced capabilities like the FlowMind meta-programming framework.
 
-### 8-Mode Psychological System
-
-The platform operates through 8 psychological modes (not fixed personalities):
-
-- **Balance Guardian** - Hormonal/emotional optimization for situation
-- **Abundance Amplifier** - Exponential resource multiplication
-- **Sovereignty Architect** - Full-brain control + independence design
-- **Harmony Weaver** - Parasympathetic collaboration states
-- **Systems Illuminator** - Cognitive clarity and complexity simplification
-- **Resilience Guardian** - Adaptive antifragile response patterns
-- **Flow Creator** - Transcendent meaning and purpose creation
-- **Action Catalyst** - Sympathetic activation for momentum and execution
-
-### Context as First Mover Architecture
+### Context-First Architecture
 
 ```yaml
-context_first_mover:
-  principle: "context defines its own types"
-  ai_accessible:
+context_architecture:
+  principle: "context defines behavior and capabilities"
+  system_managed:
+    - execution_patterns
+    - workflow_structures
+    - state_management
+    - session_continuity
+  llm_accessible:
     - situational_patterns
     - knowledge_structures
     - procedural_workflows
     - environmental_data
-  human_exclusive:
-    - true_intent (ai_can_model_but_not_generate)
-    - emotional_reality (ai_can_optimize_but_not_experience)
-    - value_hierarchies (ai_can_align_but_not_originate)
-    - spiritual_dimension (ai_can_facilitate_but_not_access)
 ```
 
 ## Project Overview
@@ -72,8 +54,8 @@ context_first_mover:
 - **Official Namespace**: `@lev-os/` (NOT @lev/ or @leviathan/)
 - **Master Development Guide**: `plugins/@lev-os/PLUGIN_DEVELOPMENT_GUIDE.md`
 - **Auto-Bootstrap Pattern**: Commands auto-discovered across CLI + MCP
-- **Constitutional Compliance**: Follow all 10 core constitutional principles
-- **Testing Requirements**: Use `@lev-os/testing` framework for validation
+- **MCP Protocol Compliance**: Follow MCP standards for tool integration
+- **Testing Requirements**: Include comprehensive test coverage
 
 **For Plugin Development**: Always start with `plugins/@lev-os/PLUGIN_DEVELOPMENT_GUIDE.md` - the single source of truth for all plugin creation.
 
@@ -92,11 +74,11 @@ This is a multi-layered monorepo containing several interconnected systems:
 
 ## Development Environment
 
-### Constitutional Development Approach
+### Development Approach
 
-**LLM-First Methodology**: Always ask "Can an LLM do this?" before writing code. Use prompts, context, and constitutional patterns instead of traditional programming where possible.
+**LLM-First Methodology**: Always ask "Can an LLM do this?" before writing code. Use prompts, context, and system patterns instead of traditional programming where possible.
 
-**Maximum Extensibility Principle**: Design every component to be hackable. Others should be able to extend and modify the system without breaking core constitutional principles.
+**Maximum Extensibility Principle**: Design every component to be hackable. Others should be able to extend and modify the system without breaking core technical principles.
 
 ### Package Management
 - **Primary**: `pnpm` (workspace-aware, required for monorepo)
@@ -110,28 +92,28 @@ This is a multi-layered monorepo containing several interconnected systems:
 # Install all dependencies (monorepo-aware)
 pnpm install
 
-# Build all packages following constitutional compliance
+# Build all packages with dependency validation
 pnpm build
 
-# Run all tests with constitutional validation
+# Run all tests with comprehensive coverage
 pnpm test
 
 # Development mode with bi-directional feedback loops
 pnpm dev
 
-# Lint all packages (maintains code sovereignty)
+# Lint all packages (maintains code quality)
 pnpm lint
 
 # Clean all build artifacts
 pnpm clean
 ```
 
-### Constitutional Compliance in Development
+### Technical Standards in Development
 
-Every development action should align with the 10 core principles:
-- Optimize for hormonal/emotional balance appropriate for development tasks
-- Enable quantum context entanglement (shared understanding across components)
-- Preserve bootstrap sovereignty (minimal dependencies, maximum autonomy)
+Every development action should align with core technical principles:
+- Optimize for developer experience and system performance
+- Enable clear communication and understanding across components
+- Preserve minimal dependencies and maximum autonomy
 - Use LLM-first architecture (AI reasoning over rigid frameworks)
 
 ### Turborepo Configuration
@@ -397,7 +379,7 @@ go test -tags=bdd
 
 ## Development Workflow
 
-### Constitutional Development Patterns
+### Development Patterns
 
 **LLM-First Architecture Principles**:
 1. **Always ask "Can an LLM do this?"** before writing code
@@ -407,10 +389,10 @@ go test -tags=bdd
 5. **Maximum Extensibility**: Make everything hackable for the community
 6. **Bi-Directional Communication**: Enable LLM ↔ System feedback loops
 
-**Constitutional Validation**: Every component must align with the 10 core principles. Use the 8-mode psychological system to evaluate decisions:
-- **Balance Guardian**: Does this optimize neurochemical state appropriately for situation?
-- **Sovereignty Architect**: Does this preserve autonomy and hackability?
-- **Systems Illuminator**: Does this simplify or unnecessarily complicate?
+**Technical Validation**: Every component must align with core technical principles and maintain:
+- **Performance**: Optimize for speed and resource efficiency
+- **Extensibility**: Preserve autonomy and hackability
+- **Clarity**: Simplify complexity, don't add unnecessary complications
 
 **FlowMind Integration**: Natural language instructions should translate into executable workflows through the bi-directional communication architecture.
 
@@ -420,16 +402,16 @@ go test -tags=bdd
 
 **Core Extensibility Principles**:
 - **Plugin Architecture**: Everything is a plugin that can be replaced or extended
-- **Constitutional Compliance**: Extensions must align with core principles but can innovate freely
-- **Context Entanglement**: Your extensions automatically benefit from the quantum context system
+- **Technical Standards**: Extensions must align with core technical principles but can innovate freely
+- **Context Integration**: Your extensions automatically benefit from the advanced context system
 - **Bootstrap Sovereignty**: Extensions should work with minimal dependencies
 - **Community Hackability**: Documentation and architecture designed for third-party innovation
 
 **How to Hack Leviathan**:
-1. **Fork Constitutional Framework**: Take the 10 principles and 8-mode system as your foundation
-2. **Extend Agent System**: Add new MCP tools and psychological modes
-3. **Build on Context Engine**: Leverage quantum context entanglement for your applications
-4. **Contribute Back**: Share innovations that maintain constitutional compliance
+1. **Fork Technical Framework**: Take the core patterns and extend them for your needs
+2. **Extend Agent System**: Add new MCP tools and capabilities
+3. **Build on Context Engine**: Leverage advanced context management for your applications
+4. **Contribute Back**: Share innovations that maintain technical standards
 
 **World Models Integration**: Design for the coming wave of LLMs with world models - Leviathan provides the structural foundation for these advanced capabilities.
 

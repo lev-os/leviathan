@@ -1,0 +1,91 @@
+# Test scenario: Setting up an Agile sprint with relationships
+test_scenario:
+  name: "Agile Sprint Setup"
+  description: "Test creating a sprint with epics, stories, and dependencies"
+  
+  setup:
+    - create_context:
+        type: "workspace"
+        config:
+          name: "Product Development"
+          description: "Main product workspace"
+    
+    - create_context:
+        type: "portfolio"
+        config:
+          name: "Q1 2024 Initiatives"
+        parent: "$workspace"
+    
+    - create_context:
+        type: "epic"
+        config:
+          name: "User Authentication"
+          story_points: 100
+        parent: "$portfolio"
+    
+    - create_context:
+        type: "epic"
+        config:
+          name: "Payment Processing"
+          story_points: 80
+        parent: "$portfolio"
+  
+  operations:
+    - batch_operation:
+        creates:
+          - type: "sprint"
+            config:
+              name: "Sprint 23"
+              duration: "2 weeks"
+          
+          - type: "story"
+            config:
+              name: "OAuth Integration"
+              story_points: 13
+          
+          - type: "story"
+            config:
+              name: "JWT Token Management"
+              story_points: 8
+          
+          - type: "task"
+            config:
+              name: "Research OAuth Providers"
+              estimated_hours: 4
+        
+        relationships:
+          - source: "$creates[0]"  # Sprint
+            type: "contains"
+            target: "$creates[1]"  # OAuth Story
+          
+          - source: "$creates[0]"  # Sprint
+            type: "contains"
+            target: "$creates[2]"  # JWT Story
+          
+          - source: "$creates[1]"  # OAuth Story
+            type: "blocks"
+            target: "$creates[2]"  # JWT Story
+            properties:
+              reason: "JWT implementation depends on OAuth provider selection"
+              severity: "high"
+          
+          - source: "$creates[3]"  # Research Task
+            type: "belongs_to"
+            target: "$creates[1]"  # OAuth Story
+  
+  validations:
+    - check_relationship:
+        source: "OAuth Integration"
+        type: "blocks"
+        target: "JWT Token Management"
+        exists: true
+    
+    - check_inheritance:
+        context: "Research OAuth Providers"
+        inherits_from: ["OAuth Integration", "Sprint 23", "Q1 2024 Initiatives"]
+    
+    - query_graph:
+        start: "Sprint 23"
+        follow: ["contains", "blocks"]
+        depth: 2
+        expected_nodes: 4

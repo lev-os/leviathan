@@ -1,0 +1,31 @@
+# Clean Task Structure Example
+
+metadata:
+  id: "workflow-001"
+  title: "Implement Enhanced Workflows System"
+  type: "feature"
+  created: "2025-05-27T07:00:00Z"
+  updated: "2025-05-27T07:00:00Z"
+
+ownership:
+  owner: "ceo"
+  executors: ["dev"]
+
+business_context:
+  goal: "Create workflow template library and multi-agent execution patterns"
+  business_value: "Enables complex multi-agent workflows for better task execution"
+  acceptance_criteria:
+    - "YAML workflow definitions can be loaded"
+    - "Agent capabilities drive workflow routing"
+    - "Workflows integrate with enhanced task system"
+
+status:
+  current: "split_required"  # Properly assessed!
+  progress: 0
+  blocked_by: "complexity_too_high"
+
+dependencies:
+  depends_on: ["project-hierarchy"]
+  blocks: ["web-gui"]
+
+# THAT'S IT - Clean, focused, 30 lines!

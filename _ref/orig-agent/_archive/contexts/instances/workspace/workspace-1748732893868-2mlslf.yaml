@@ -1,0 +1,75 @@
+type: workspace
+id: workspace-1748732893868-2mlslf
+template: workspace-template
+version: 1.0.0
+name: claude-test-workspace
+path: /tmp/claude-test
+description: Workspace created by Claude directly
+capabilities:
+  - project_management
+  - resource_isolation
+  - billing_boundary
+  - git_integration
+  - agent_assignment
+  - workflow_access
+behaviorRules:
+  - trigger: workspace_created
+    action: setup_default_structure
+  - trigger: project_created
+    condition: project_count > 10
+    action: suggest_organization_strategy
+  - trigger: billing_limit_approaching
+    condition: usage > 0.8 * billing_limit
+    action: notify_stakeholders
+  - trigger: agent_needed
+    condition: no_active_agent
+    action: spawn_default_agent
+memoryConfig:
+  isolation: strict
+  shares_with: []
+  retention: project_lifetime
+contextConfig:
+  capabilities:
+    - project_management
+    - resource_isolation
+    - billing_boundary
+    - git_integration
+    - agent_assignment
+    - workflow_access
+  allowed_children:
+    - project
+    - folder
+    - agent
+    - shared_resources
+  agent_integration:
+    default_agent: contexts/agents/ceo
+    available_agents:
+      - contexts/agents/ceo
+      - contexts/agents/dev
+  workflow_integration:
+    available_workflows:
+      - contexts/workflows/multi-expert-validation
+      - contexts/workflows/document-synthesis
+  behavior_rules:
+    - trigger: workspace_created
+      action: setup_default_structure
+    - trigger: project_created
+      condition: project_count > 10
+      action: suggest_organization_strategy
+    - trigger: billing_limit_approaching
+      condition: usage > 0.8 * billing_limit
+      action: notify_stakeholders
+    - trigger: agent_needed
+      condition: no_active_agent
+      action: spawn_default_agent
+  memory_config:
+    isolation: strict
+    shares_with: []
+    retention: project_lifetime
+  security_config:
+    access_control: role_based
+    audit_logging: true
+    git_integration: ssh_keys
+created: '2025-05-31T23:08:13.868Z'
+updated: '2025-05-31T23:08:13.869Z'
+inheritedFrom: workspace-template

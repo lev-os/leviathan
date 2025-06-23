@@ -33,7 +33,9 @@
       "mcp__brave-search__brave_web_search",
       "mcp__desktop-commander__create_directory",
       "Bash(git for-each-ref:*)",
-      "Bash(npm run test:constitutional:*)"
+      "Bash(npm run test:constitutional:*)",
+      "mcp__desktop-commander__create_directory",
+      "mcp__desktop-commander__write_file"
     ],
     "deny": []
   }

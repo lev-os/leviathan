@@ -1,0 +1,20 @@
+id: workflow_1748326046532
+name: user-auth-system
+steps:
+  - agent: ceo
+    task: Plan user authentication strategy and requirements
+  - agent: dev
+    task: Design database schema for user management
+  - agent: dev
+    task: Implement OAuth integration
+  - agent: dev
+    task: Create user registration and login endpoints
+  - agent: dev
+    task: Add security middleware and validation
+context:
+  complexity: high
+  estimated_time: 2-3 days
+  dependencies:
+    - database
+    - oauth_provider
+created: '2025-05-27T06:07:26.532Z'

@@ -1,0 +1,91 @@
+metadata:
+  type: "pattern"
+  id: "reversibility-check"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Assess decision reversibility to calibrate appropriate caution level"
+
+pattern_config:
+  methodology: "risk_calibration"
+  
+  door_types:
+    one_way_door:
+      description: "Difficult or impossible to reverse"
+      characteristics:
+        - "High switching costs"
+        - "Permanent consequences"
+        - "Reputation impact"
+        - "Legal commitments"
+      examples:
+        - "Major architecture decisions"
+        - "Public announcements"
+        - "Key personnel changes"
+        - "Pricing model changes"
+      decision_bar: "Very high - extensive analysis required"
+      
+    two_way_door:
+      description: "Easy to reverse or modify"
+      characteristics:
+        - "Low switching costs"
+        - "Minimal consequences"
+        - "Internal only"
+        - "Experimental"
+      examples:
+        - "Feature flags"
+        - "A/B tests"
+        - "Internal tools"
+        - "Process experiments"
+      decision_bar: "Lower - bias toward action"
+      
+  assessment_criteria:
+    technical_reversibility:
+      - "Code changes required?"
+      - "Data migration needed?"
+      - "Integration impacts?"
+      - "Backward compatibility?"
+      
+    business_reversibility:
+      - "Customer impact?"
+      - "Contract implications?"
+      - "Market perception?"
+      - "Partner relationships?"
+      
+    cost_of_reversal:
+      - "Time investment"
+      - "Money spent"
+      - "Opportunity cost"
+      - "Team morale"
+      
+  decision_framework:
+    one_way_analysis:
+      - "Extensive research"
+      - "Multiple opinions"
+      - "Scenario planning"
+      - "Risk mitigation"
+      - "Clear success criteria"
+      
+    two_way_approach:
+      - "Quick experiments"
+      - "Fail fast mentality"
+      - "Iterative refinement"
+      - "Learning focus"
+      - "Minimal planning"
+      
+  mitigation_strategies:
+    make_reversible:
+      - "Add feature flags"
+      - "Create rollback plans"
+      - "Phase deployments"
+      - "Maintain old version"
+      
+    reduce_commitment:
+      - "Start with pilot"
+      - "Use trial periods"
+      - "Negotiate exit clauses"
+      - "Keep options open"
+      
+  output_format:
+    door_classification: true
+    reversal_cost_estimate: true
+    decision_recommendation: true
+    mitigation_options: true

@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Leviathan Global Architecture Principles
+
+## Core Philosophy
+- **LLM-First**: Always ask "Can an LLM do this?" before writing code
+- **Maximum Extensibility**: Everything is a plugin that can be replaced
+- **Bi-Directional Communication**: System ↔ LLM feedback loops
+- **Context-First**: Context defines behavior and capabilities
+
+## Universal Patterns
+- Use `@lev-os/` namespace for all plugins
+- Follow hexagonal architecture (business logic in commands, routing in adapters)
+- Export MCP tool definitions for all commands
+- Use dependency injection throughout
+
+## Code Standards
+```javascript
+// Always use ES modules
+import { feature } from './module.js';
+
+// Destructure dependencies in commands
+export async function command(args, { service1, service2 }) {
+  // Pure business logic only
+}
+
+// Required MCP tool export
+export const commandTool = {
+  name: 'command_name',
+  description: command.description,
+  inputSchema: command.inputSchema,
+  handler: command
+};
+```
+
+## Session Management
+- Use `lev checkpoint` for session continuity
+- Maintain context across Claude tabs
+- Always consider bi-directional flow implications

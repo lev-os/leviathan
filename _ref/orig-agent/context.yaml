@@ -1,0 +1,62 @@
+metadata:
+  type: "root"
+  id: "kingly-root"
+  version: "1.0.0"
+  name: "Kingly Root Context"
+  description: "Universal context root defining all available types"
+
+root_config:
+  # Define all available context types
+  available_types:
+    # Organizational types
+    - "workspace"
+    - "project" 
+    - "task"
+    - "folder"
+    - "emergent"
+    
+    # System types
+    - "agent"
+    - "workflow"
+    - "pattern"
+    - "tool"
+    - "theme"
+    - "preference"
+    
+  # Base inheritance all contexts get
+  universal_inheritance:
+    capabilities:
+      - "meta_operations"
+      - "context_assembly"
+      - "memory_access"
+      - "workflow_invocation"
+      
+    memory_config:
+      type: "shared_root"
+      isolation_boundary: "workspace"
+      
+    behavior_rules:
+      - trigger: "context_created"
+        action: "register_with_root"
+        
+      - trigger: "context_destroyed" 
+        action: "cleanup_references"
+        
+  # LLM-first configuration
+  llm_integration:
+    conversation_mode: true
+    bidirectional_callbacks: true
+    direct_adapter_pattern: true
+    
+  # Core architecture principles
+  architecture:
+    pattern: "hexagonal"
+    approach: "llm_first"
+    scaling: "universal_context"
+    execution: "bi_directional"
+    
+  philosophy: |
+    Everything is a context.
+    Behavior emerges from YAML rules.
+    LLM drives, we respond.
+    Conversation over framework.

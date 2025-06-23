@@ -1,0 +1,85 @@
+metadata:
+  type: "pattern"
+  id: "scamper-framework"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Systematic creativity through seven transformation lenses"
+
+pattern_config:
+  methodology: "structured_innovation"
+  
+  transformations:
+    substitute:
+      prompt: "What can be swapped out?"
+      questions:
+        - "What else instead?"
+        - "Other ingredients/components?"
+        - "Other processes?"
+        - "Other power sources?"
+        
+    combine:
+      prompt: "What can be merged?"
+      questions:
+        - "What can be combined?"
+        - "Can we merge purposes?"
+        - "What about mixing ideas?"
+        - "Combine with other systems?"
+        
+    adapt:
+      prompt: "What can be adjusted?"
+      questions:
+        - "What else is like this?"
+        - "What could we copy?"
+        - "What to emulate?"
+        - "Past solutions to adapt?"
+        
+    modify:
+      prompt: "What can be emphasized?"
+      questions:
+        - "Make bigger/smaller?"
+        - "Exaggerate features?"
+        - "Add extra value?"
+        - "Change meaning?"
+        
+    put_to_another_use:
+      prompt: "New applications?"
+      questions:
+        - "Other uses as-is?"
+        - "New uses if modified?"
+        - "Other markets?"
+        - "Recycling potential?"
+        
+    eliminate:
+      prompt: "What to remove?"
+      questions:
+        - "What's not necessary?"
+        - "Can we simplify?"
+        - "Remove complexity?"
+        - "Streamline function?"
+        
+    reverse:
+      prompt: "What to invert?"
+      questions:
+        - "Opposites?"
+        - "Turn inside out?"
+        - "Reverse roles?"
+        - "Do the unexpected?"
+        
+  process:
+    1_define_subject: "Clear focus area"
+    2_apply_each_lens: "Work through S.C.A.M.P.E.R."
+    3_generate_ideas: "Multiple per transformation"
+    4_combine_ideas: "Mix transformations"
+    5_evaluate: "Select best concepts"
+    
+  output_format:
+    idea_matrix: true
+    transformation_log: true
+    concept_sketches: true
+    implementation_hints: true
+    
+  ai_features:
+    auto_prompting: true
+    idea_expansion: true
+    feasibility_hints: true
+    combination_suggestions: true

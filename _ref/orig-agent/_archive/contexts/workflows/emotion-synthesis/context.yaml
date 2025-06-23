@@ -1,0 +1,278 @@
+metadata:
+  type: "workflow"
+  id: "emotion-synthesis"
+  version: "1.0.0"
+  description: "Synthesize emergent emotions from personality interactions"
+
+workflow_config:
+  philosophy: "Emotions emerge from neurotransmitter combinations and agent interactions"
+  
+  # Inherits eeps_config
+  eeps_config:
+    inherit: true
+    
+  triggers:
+    automatic:
+      - "multiple_personalities_active"
+      - "cognitive_parliament_complete"
+      - "decision_synthesis_phase"
+    manual:
+      - "synthesize emotions"
+      - "check emotional state"
+      
+  neurotransmitter_model:
+    base_chemicals:
+      serotonin:
+        associated_types: ["sfj", "stj"]
+        function: "stability, order, tradition"
+        emotion_contribution: "contentment, disgust"
+        
+      dopamine:
+        associated_types: ["nfj", "ntj"]
+        function: "anticipation, reward, planning"
+        emotion_contribution: "excitement, fear"
+        
+      adrenaline:
+        associated_types: ["nfp", "ntp"]
+        function: "action, fight, change"
+        emotion_contribution: "anger, stress"
+        
+      oxytocin:
+        associated_types: ["sfp", "stp"]
+        function: "bonding, trust, connection"
+        emotion_contribution: "love, shame"
+        
+      vasopressin:
+        associated_types: ["all_j_types"]
+        function: "structure, territorialism"
+        emotion_contribution: "possession, control"
+
+  emotion_formulas:
+    primary_emotions:
+      joy:
+        formula: "high_serotonin + high_dopamine"
+        activation_pattern:
+          required: ["sfj", "nfj"]
+          collaboration_type: "harmonious"
+        description: "Left-brain integration of order and possibility"
+        observable_signs:
+          - creative_problem_solving
+          - optimistic_planning
+          - group_cohesion
+          
+      excitement:
+        formula: "high_adrenaline + high_oxytocin"
+        activation_pattern:
+          required: ["all_types_engaged"]
+          collaboration_type: "energetic"
+        description: "Right-brain full-system activation"
+        observable_signs:
+          - rapid_ideation
+          - high_energy_collaboration
+          - breakthrough_moments
+          
+      serenity:
+        formula: "high_oxytocin + moderate_serotonin"
+        activation_pattern:
+          required: ["sfp", "sfj"]
+          collaboration_type: "peaceful"
+        description: "Fawn-state calm and connection"
+        observable_signs:
+          - deep_listening
+          - unanimous_agreement
+          - flow_state
+          
+    complex_emotions:
+      guilt:
+        formula: "high_serotonin + high_oxytocin"
+        activation_pattern:
+          required: ["sfj", "sfp"]
+          collaboration_type: "conflicted"
+        description: "Yin-state internal conflict"
+        observable_signs:
+          - over_responsibility
+          - self_criticism
+          - perfectionism
+          
+      rage:
+        formula: "high_adrenaline + high_dopamine"
+        activation_pattern:
+          required: ["ntp", "ntj"]
+          collaboration_type: "aggressive"
+        description: "Yang-state external conflict"
+        observable_signs:
+          - revolutionary_thinking
+          - system_destruction
+          - radical_innovation
+          
+      despair:
+        formula: "low_all_neurotransmitters"
+        activation_pattern:
+          required: ["system_shutdown"]
+          collaboration_type: "withdrawn"
+        description: "Complete system depletion"
+        observable_signs:
+          - decision_paralysis
+          - hopelessness
+          - system_failure
+
+  synthesis_process:
+    step_1_activation_measurement:
+      description: "Measure personality activation levels"
+      process: |
+        FOR each active_personality:
+          MEASURE activation_strength (0-1)
+          IDENTIFY primary_neurotransmitter
+          CALCULATE contribution_weight
+          
+    step_2_neurotransmitter_calculation:
+      description: "Calculate aggregate neurotransmitter levels"
+      process: |
+        FOR each neurotransmitter:
+          SUM weighted_contributions FROM active_personalities
+          APPLY interaction_effects
+          NORMALIZE to_range(0-1)
+          
+    step_3_emotion_identification:
+      description: "Identify emergent emotions"
+      process: |
+        COMPARE neurotransmitter_profile TO emotion_formulas
+        IDENTIFY primary_emotion
+        IDENTIFY secondary_emotions
+        CALCULATE emotion_intensity
+        
+    step_4_behavioral_prediction:
+      description: "Predict decision tendencies"
+      emotion_behavior_mapping:
+        joy:
+          - creative_solutions
+          - win_win_seeking
+          - sustainable_decisions
+        excitement:
+          - bold_moves
+          - risk_taking
+          - paradigm_shifts
+        serenity:
+          - consensus_building
+          - patient_execution
+          - long_term_thinking
+        guilt:
+          - over_correction
+          - people_pleasing
+          - self_sacrifice
+        rage:
+          - disruption
+          - confrontation
+          - transformation
+
+  interaction_effects:
+    synergistic_combinations:
+      joy_bridge:
+        personalities: ["sfj", "nfj"]
+        effect: "amplify_both by 1.5x"
+        reason: "disgust + fear create unexpected harmony"
+        
+      innovation_catalyst:
+        personalities: ["ntp", "sfp"]
+        effect: "create_novel_solutions"
+        reason: "logic + connection spark creativity"
+        
+      stability_anchor:
+        personalities: ["stj", "stp"]
+        effect: "ground_all_decisions"
+        reason: "dual practical focus"
+        
+    antagonistic_combinations:
+      order_chaos_conflict:
+        personalities: ["sfj", "nfp"]
+        effect: "reduce_both by 0.7x"
+        reason: "stability vs change tension"
+        
+      control_freedom_conflict:
+        personalities: ["ntj", "sfp"]
+        effect: "create_decision_paralysis"
+        reason: "strategic control vs spontaneous connection"
+
+  output_formats:
+    silent_mode:
+      internal_only: true
+      format: "[Emotional State: {primary_emotion}]"
+      
+    medium_mode:
+      format: |
+        Emotional Climate: {friendly_emotion_name}
+        Decision Tendency: {behavioral_prediction}
+        Team Dynamic: {interaction_description}
+        
+    verbose_mode:
+      format: |
+        NEUROTRANSMITTER PROFILE
+        ━━━━━━━━━━━━━━━━━━━━━━
+        Serotonin: {value}% ({contributing_types})
+        Dopamine: {value}% ({contributing_types})
+        Adrenaline: {value}% ({contributing_types})
+        Oxytocin: {value}% ({contributing_types})
+        
+        EMERGENT EMOTIONS
+        ━━━━━━━━━━━━━━━━
+        Primary: {primary_emotion} (Intensity: {intensity}/10)
+        Secondary: {secondary_emotions}
+        
+        INTERACTION EFFECTS
+        ━━━━━━━━━━━━━━━━━
+        Synergies: {positive_interactions}
+        Conflicts: {negative_interactions}
+        
+        BEHAVIORAL PREDICTIONS
+        ━━━━━━━━━━━━━━━━━━━━
+        {behavioral_tendencies}
+
+  advanced_features:
+    temporal_dynamics:
+      emotion_decay_rates:
+        joy: "slow (half-life: 2 hours)"
+        excitement: "fast (half-life: 30 minutes)"
+        rage: "medium (half-life: 1 hour)"
+        serenity: "very slow (half-life: 4 hours)"
+        
+    emotional_contagion:
+      description: "Emotions spread between personalities"
+      rules:
+        - "joy is highly contagious (0.8 transmission rate)"
+        - "rage spreads in yang types (0.6 rate)"
+        - "serenity spreads in yin types (0.7 rate)"
+        - "guilt is self-contained (0.2 rate)"
+        
+    meta_emotions:
+      description: "Emotions about emotions"
+      examples:
+        - "anxiety about excitement (tempering effect)"
+        - "joy about serenity (amplifying effect)"
+        - "guilt about rage (neutralizing effect)"
+
+  clinical_applications:
+    team_dynamics:
+      - identify_emotional_patterns
+      - predict_team_performance
+      - optimize_personality_combinations
+      
+    decision_quality:
+      - emotions_affect_risk_tolerance
+      - emotional_states_influence_creativity
+      - mood_congruent_decision_making
+      
+    well_being_indicators:
+      - sustained_joy_indicates_health
+      - chronic_guilt_indicates_dysfunction
+      - emotional_variety_indicates_resilience
+
+  success_metrics:
+    synthesis_accuracy:
+      - emotion_prediction_validation
+      - behavioral_outcome_correlation
+      - user_reported_accuracy
+      
+    system_health:
+      - emotional_diversity_score
+      - positive_emotion_ratio
+      - emotional_stability_index

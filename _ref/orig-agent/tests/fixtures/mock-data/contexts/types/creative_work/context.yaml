@@ -1,0 +1,42 @@
+# Creative Work context type
+creative_work_config:
+  inherits: ["base"]
+  
+  relationship_types:
+    inspired_by:
+      description: "Creative inspiration source"
+      target_types: ["creative_work", "artist", "movement", "event"]
+      cardinality: "many-to-many"
+      properties_schema:
+        inspiration_type: "enum:direct,thematic,stylistic,oppositional"
+        attribution_required: "boolean"
+    
+    iteration_of:
+      description: "Version or revision relationship"
+      target_types: ["creative_work"]
+      cardinality: "many-to-one"
+      bidirectional: true
+      inverse: "has_iterations"
+      properties_schema:
+        version_number: "string"
+        major_changes: "array:string"
+        iteration_date: "datetime"
+    
+    remixes:
+      description: "Creative transformation of existing work"
+      target_types: ["creative_work"]
+      cardinality: "many-to-many"
+      properties_schema:
+        remix_type: "enum:sampling,cover,parody,mashup"
+        transformation_degree: "number:0-1"
+        license_status: "string"
+    
+    branches_from:
+      description: "Alternative creative direction from same source"
+      target_types: ["creative_work"]
+      cardinality: "many-to-one"
+      bidirectional: true
+      inverse: "has_branches"
+      properties_schema:
+        branch_point: "string"
+        divergence_reason: "string"

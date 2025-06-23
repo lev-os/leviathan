@@ -1,0 +1,61 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Agent System JavaScript Development
+
+## MCP Server Architecture
+When working on the agent MCP server:
+- Maintain strict hexagonal architecture separation
+- Commands contain pure business logic only
+- Adapters handle routing and I/O only
+- Use command registry for auto-discovery
+
+## Command Development Pattern
+```javascript
+// agent/src/commands/example.js
+export async function example(args, dependencies) {
+  const { semanticLookup, workflowLoader, ceoBinding } = dependencies;
+  
+  // Pure business logic - no I/O, no formatting
+  const result = await processLogic(args);
+  
+  return {
+    success: true,
+    data: result,
+    format: args.format || 'structured'
+  };
+}
+
+// Required metadata
+example.description = "Clear, concise description";
+example.inputSchema = {
+  type: 'object',
+  properties: { /* JSON Schema */ },
+  required: ['field1']
+};
+
+// MCP tool export (mandatory)
+export const exampleTool = {
+  name: 'example',
+  description: example.description,
+  inputSchema: example.inputSchema,
+  handler: example
+};
+```
+
+## Adapter Pattern
+```javascript
+// Adapters only route - no business logic
+async handleCommand(args) {
+  const result = await this.coreCommandRegistry.executeCommand(command, args);
+  return this.formatResult(result);
+}
+```
+
+## Testing Requirements
+- Test both CLI and MCP interfaces
+- Ensure identical results across adapters
+- Use real LLM evaluation, never mock semantic understanding
+- Include session management in integration tests

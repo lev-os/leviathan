@@ -1,0 +1,92 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# FlowMind Bi-Directional Workflow Patterns (In Development)
+
+## Core Concept
+FlowMind is a pattern from `_ref/mcp-ceo` that we're implementing across agent/ and plugins/. It represents the future of bi-directional MCP communication where **THE LLM IS THE RUNTIME**.
+
+## Constitutional Principles to Implement
+1. **LLM as Runtime**: The LLM executes, FlowMind contexts configure its behavior
+2. **Everything is a Context**: Agents, workflows, patterns - all are contexts
+3. **Bi-Directional Flow**: Context switching creates emergent intelligence
+4. **YAML is Truth**: 1:1 mapping between YAML and runtime properties
+
+## Bi-Directional Pattern to Implement
+```javascript
+// This is the pattern we're building towards:
+// Step 1: LLM calls MCP → "Execute workflow step 1"
+// Step 2: MCP loads context → "You are NFJ-Visionary. Analyze..."
+// Step 3: LLM reasons with MAXIMUM POWER as NFJ-Visionary
+// Step 4: LLM callback → "Here are my visionary insights..."
+// Step 5: MCP loads NEW context → "You are STP-Adapter. Pragmatize..."
+// [CYCLE CONTINUES - Each context switch = new LLM capabilities]
+```
+
+## Current Implementation in Agent
+```javascript
+// agent/src/commands/workflow-execute.js pattern
+export async function workflowExecute(args, dependencies) {
+  const { workflow, chain, progress, callback } = args;
+  
+  // This is where we'll implement FlowMind patterns
+  // Currently uses basic workflow loading
+  // TODO: Implement full bi-directional context switching
+  
+  return {
+    type: 'workflow_execution',
+    workflow: workflow,
+    chain_enabled: chain,
+    progress_tracking: progress,
+    callback_handler: callback,
+    // Future: contextInjection for LLM configuration
+    callbackInstruction: 'Execute workflow and report progress'
+  };
+}
+```
+
+## Mastra-Inspired Patterns to Adopt
+```javascript
+// Future workflow builder pattern
+class WorkflowBuilder {
+  step(name, handler) {
+    // Each step = context switch = new LLM personality
+    return this;
+  }
+  
+  then(handler) {
+    // Sequential execution with state preservation
+    return this;
+  }
+  
+  after(branches) {
+    // Parallel branch merging
+    return this;
+  }
+  
+  suspend(condition) {
+    // Human-in-the-loop via MCP
+    return this;
+  }
+  
+  resume(sessionId) {
+    // Continue from suspension point
+    return this;
+  }
+}
+```
+
+## Implementation Guidelines
+When implementing FlowMind patterns:
+1. **Don't Mock LLM Reasoning**: Always use real semantic evaluation
+2. **Preserve YAML Structure**: Don't normalize or flatten contexts
+3. **Enable Context Switching**: Design for maximum personality changes
+4. **Use Semantic Conditions**: Let LLM evaluate "when user seems frustrated"
+
+## Reference Implementation
+Study `_ref/mcp-ceo/src/flowmind.js` for the complete pattern, but remember:
+- We're adapting, not copying directly
+- Focus on bi-directional MCP integration
+- Maintain compatibility with existing agent architecture

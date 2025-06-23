@@ -1,0 +1,91 @@
+metadata:
+  type: "pattern"
+  id: "vibe-coding"
+  version: "1.0.0"
+  author: "@community/flow-masters"
+  description: "Flow state optimized development"
+  
+pattern_config:
+  philosophy: "Code when inspired, rest when not"
+  
+  environment:
+    music:
+      genres: ["lofi", "synthwave", "nature sounds", "binaural beats"]
+      bpm_range: "60-90"
+      
+    lighting:
+      recommendations: ["dim", "warm colors", "bias lighting"]
+      avoid: ["harsh overhead", "blue light after 8pm"]
+      
+    workspace:
+      - "Comfortable seating"
+      - "Multiple monitors"
+      - "Plants nearby"
+      - "Water within reach"
+      
+  flow_triggers:
+    pre_session:
+      - "Clear all notifications"
+      - "Set 'deep work' status"
+      - "Start focus playlist"
+      - "Review session goal"
+      
+    warm_up:
+      duration: "15 minutes"
+      activities:
+        - "Review existing code"
+        - "Write comments"
+        - "Refactor small pieces"
+        - "Run tests"
+        
+  session_structure:
+    pomodoro_variant:
+      work_block: "50 minutes"
+      break_block: "10 minutes"
+      long_break: "30 minutes after 3 blocks"
+      
+    flexibility:
+      extend_if: "in deep flow"
+      break_early_if: "focus dropping"
+      
+  ai_assistance:
+    mode: "collaborative"
+    
+    whispers:
+      - trigger: "every 30 minutes"
+        message: "Flow check: Still in the zone?"
+        
+      - trigger: "complexity spike"
+        message: "This is getting complex. Break it down?"
+        
+      - trigger: "2 hours continuous"
+        message: "You're on fire! But maybe hydrate? 💧"
+        
+    code_generation:
+      style: "suggestive not prescriptive"
+      comments: "encouraging and playful"
+      
+  post_session:
+    cool_down:
+      - "Commit with meaningful message"
+      - "Write session notes"
+      - "Celebrate progress"
+      - "Plan next session"
+      
+    reflection_prompts:
+      - "What felt good today?"
+      - "When was flow strongest?"
+      - "What broke concentration?"
+      
+  tools:
+    recommended:
+      - "Zen mode IDE"
+      - "Git flow"
+      - "Hot reload everything"
+      - "AI pair programmer"
+      
+  mantras:
+    - "Progress over perfection"
+    - "Flow over force"
+    - "Joy in the journey"
+    - "Code is poetry"

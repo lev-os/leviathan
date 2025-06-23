@@ -1,0 +1,271 @@
+metadata:
+  type: "workflow"
+  id: "document-synthesis"
+  version: "1.0.0"
+  description: "Recursive document analysis with overlapping shards for dense insight extraction"
+
+workflow_config:
+  philosophy: "Extract maximum insight density without losing critical content"
+  
+  triggers:
+    automatic:
+      - "document_size > 10000_words"
+      - "complex_document_structure_detected"
+      - "research_intensive_task"
+    manual:
+      - "user_requests_deep_analysis"
+      - "comprehensive_document_review"
+      
+  sharding_strategy:
+    overlapping_windows:
+      base_shard_size: 3000  # words per shard
+      overlap_percentage: 20  # 20% overlap between adjacent shards
+      context_window: 500     # additional context words for continuity
+      
+    adaptive_sizing:
+      # LLM determines optimal shard size based on content density
+      content_density_analysis:
+        high_density: "reduce_shard_size by 30%"  # Dense technical content
+        medium_density: "standard_shard_size"      # Normal prose
+        low_density: "increase_shard_size by 50%"  # Repetitive content
+        
+    structural_awareness:
+      # Respect document structure in sharding
+      preserve_boundaries:
+        - chapter_breaks
+        - section_headers
+        - paragraph_integrity
+        - code_blocks
+        - tables_and_figures
+        
+  recursive_analysis_levels:
+    level_1_shard_analysis:
+      description: "Extract insights from each shard independently"
+      process:
+        shard_prompt: |
+          Analyze this document section for key insights:
+          
+          CONTEXT: {previous_shard_summary}
+          CURRENT SECTION: {current_shard_content}
+          NEXT CONTEXT: {next_shard_preview}
+          
+          Extract:
+          1. **Core Insights** (3-5 key points)
+          2. **Supporting Evidence** (quotes, data, examples)
+          3. **Cross-References** (connections to other concepts)
+          4. **Critical Quotes** (exact text worth preserving)
+          5. **Methodology Notes** (if applicable)
+          6. **Significance Rating** (1-10 for each insight)
+          
+          Prioritize insight density - don't lose important details.
+          
+      output_format:
+        shard_insights:
+          insights: []
+          evidence: []
+          quotes: []
+          significance_scores: []
+          cross_references: []
+          
+    level_2_cluster_synthesis:
+      description: "Synthesize related shards into thematic clusters"
+      cluster_size: 5  # shards per cluster
+      overlap_analysis: true
+      
+      cluster_prompt: |
+        Synthesize insights from these related document sections:
+        
+        SHARD INSIGHTS: {cluster_shard_insights}
+        THEMATIC CONNECTIONS: {identified_patterns}
+        
+        Create:
+        1. **Thematic Summary** (core theme of this cluster)
+        2. **Insight Integration** (how insights connect and build)
+        3. **Evidence Synthesis** (supporting data and examples)
+        4. **Key Passages** (most important quotes to preserve)
+        5. **Cluster Significance** (importance to overall document)
+        
+        Resolve conflicts and identify emergent insights.
+        
+    level_3_document_synthesis:
+      description: "Synthesize all clusters into document-level insights"
+      
+      synthesis_prompt: |
+        Create comprehensive document synthesis from all clusters:
+        
+        CLUSTER SUMMARIES: {all_cluster_insights}
+        DOCUMENT METADATA: {title, author, context, purpose}
+        
+        Generate:
+        1. **Executive Summary** (document in 3-5 sentences)
+        2. **Top 10 Insights** (ranked by significance and novelty)
+        3. **Key Evidence** (most compelling supporting material)
+        4. **Critical Passages** (essential quotes to preserve)
+        5. **Methodology Assessment** (if research document)
+        6. **Cross-Document Connections** (links to other known content)
+        7. **Implementation Implications** (actionable insights)
+        8. **Knowledge Gaps** (what's missing or unclear)
+        
+        Optimize for insight density while preserving nuance.
+
+  verbosity_control:
+    user_modes:
+      get_it_all:
+        description: "Maximum insight extraction, longer output"
+        insight_threshold: 0.3  # Include insights with 30%+ significance
+        quote_preservation: "extensive"
+        evidence_detail: "comprehensive"
+        
+      balanced:
+        description: "High-value insights with good coverage"
+        insight_threshold: 0.5  # Include insights with 50%+ significance  
+        quote_preservation: "selective"
+        evidence_detail: "summary"
+        
+      executive:
+        description: "Only highest-impact insights"
+        insight_threshold: 0.8  # Include insights with 80%+ significance
+        quote_preservation: "minimal"
+        evidence_detail: "headlines"
+        
+    adaptive_llm_control:
+      content_density_adjustment:
+        when: "llm_detects_high_information_density"
+        action: "reduce_verbosity_threshold"
+        rationale: "Dense content requires more preservation"
+        
+      user_preference_learning:
+        track_usage_patterns: true
+        adapt_default_verbosity: true
+        learn_domain_preferences: true
+
+  advanced_features:
+    intelligent_highlighting:
+      significance_highlighting:
+        high_impact: "🔥 Critical insight"
+        medium_impact: "⭐ Important point"
+        supporting: "📌 Supporting detail"
+        
+      page_extraction:
+        when: "page_contains_breakthrough_insight"
+        action: "preserve_full_page_context"
+        format: "annotated_page_image + text"
+        
+    cross_document_connections:
+      semantic_linking:
+        find_related_content: true
+        identify_contradictions: true
+        discover_complementary_insights: true
+        
+      knowledge_graph_building:
+        create_concept_nodes: true
+        map_relationships: true
+        identify_knowledge_clusters: true
+
+  recursive_meta_language:
+    # Enable recursive processing for massive documents
+    mega_document_handling:
+      when: "document_size > 50000_words"
+      strategy: "hierarchical_recursive_sharding"
+      process: |
+        RECURSIVE_SHARDING:
+          IF document_size > threshold:
+            SPLIT into logical_sections
+            FOR each section:
+              APPLY document_synthesis_workflow RECURSIVELY
+              MERGE results INTO parent_synthesis
+          ELSE:
+            APPLY standard_sharding_process
+            
+    book_level_processing:
+      chapter_synthesis: "apply_workflow_per_chapter"
+      book_synthesis: "synthesize_all_chapter_outputs"
+      cross_chapter_connections: "identify_recurring_themes"
+      
+    research_paper_specialization:
+      abstract_analysis: "extract_research_claims"
+      methodology_evaluation: "assess_research_quality"
+      results_synthesis: "identify_key_findings"
+      implications_analysis: "determine_actionable_insights"
+
+  output_formats:
+    comprehensive_analysis:
+      format: |
+        # Document Synthesis Report: {document_title}
+        
+        ## Executive Summary
+        {three_sentence_summary}
+        
+        ## Top 10 Insights (Ranked by Significance)
+        1. **{insight_title}** (Significance: {score}/10)
+           - Core Point: {insight_description}
+           - Evidence: {supporting_evidence}
+           - Quote: "{critical_quote}"
+           - Page Reference: {page_numbers}
+           
+        ## Key Evidence & Support
+        {synthesized_evidence}
+        
+        ## Critical Passages
+        {highlighted_sections}
+        
+        ## Implementation Insights
+        {actionable_recommendations}
+        
+        ## Cross-References & Connections
+        {related_content_links}
+        
+        ## Knowledge Gaps & Questions
+        {identified_gaps}
+        
+        ## Methodology Assessment
+        {research_quality_evaluation}
+
+    rapid_insights:
+      format: |
+        📄 **{document_title}** - Rapid Synthesis
+        
+        🎯 **Core Thesis**: {main_argument}
+        
+        🔥 **Top 5 Insights**:
+        1. {insight_1}
+        2. {insight_2}  
+        3. {insight_3}
+        4. {insight_4}
+        5. {insight_5}
+        
+        💡 **Key Actionables**: {implementation_points}
+        🔗 **Connects To**: {cross_references}
+
+  configuration:
+    performance_tuning:
+      parallel_shard_processing: true
+      cache_intermediate_results: true
+      progressive_disclosure: true  # Show results as they complete
+      
+    quality_controls:
+      insight_deduplication: true
+      significance_calibration: true
+      quote_accuracy_validation: true
+      
+    learning_optimization:
+      track_insight_quality: true
+      learn_user_preferences: true
+      improve_sharding_strategy: true
+      optimize_recursion_depth: true
+
+  success_metrics:
+    insight_extraction:
+      - insights_per_1000_words
+      - user_rated_insight_quality
+      - cross_document_connection_discovery
+      
+    efficiency_gains:
+      - reading_time_reduction
+      - comprehension_improvement
+      - actionable_insight_ratio
+      
+    content_preservation:
+      - critical_detail_retention
+      - quote_accuracy_maintenance
+      - context_preservation_score

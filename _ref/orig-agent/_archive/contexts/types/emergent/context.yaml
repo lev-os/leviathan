@@ -1,0 +1,102 @@
+metadata:
+  type: "emergent"
+  id: "emergent-template"
+  version: "1.0.0"
+  name: "Emergent Context Template"
+  description: "Self-organizing context that evolves through use"
+
+emergent_config:
+  capabilities:
+    - "self_organization"
+    - "pattern_learning"
+    - "structure_evolution"
+    - "agent_spawning"
+    - "workflow_generation"
+    - "relationship_discovery"
+    
+  # Can become or contain anything
+  allowed_children:
+    - "*"  # Any type can emerge
+    
+  # Evolution configuration
+  evolution_config:
+    enabled: true
+    learning_rate: "aggressive"
+    pattern_threshold: 3  # Repetitions before pattern extraction
+    
+    evolution_triggers:
+      - "repeated_action"
+      - "user_feedback"
+      - "pattern_detected"
+      - "relationship_formed"
+      
+    evolution_actions:
+      - "spawn_specialized_context"
+      - "create_workflow"
+      - "suggest_structure"
+      - "form_relationship"
+      
+  # Self-organization patterns
+  organization_patterns:
+    clustering: |
+      WHEN similar_items > threshold:
+        CREATE grouped_context
+        SUGGEST organization_structure
+        
+    specialization: |
+      WHEN repeated_task_type:
+        SPAWN specialized_agent
+        CREATE task_workflow
+        
+    relationship_formation: |
+      WHEN contexts_interact_frequently:
+        ESTABLISH formal_relationship
+        CREATE shared_memory
+        
+  # Learning from use
+  learning_config:
+    captures:
+      - "user_actions"
+      - "success_patterns"
+      - "failure_modes"
+      - "preferred_structures"
+      
+    applies_learning:
+      - "suggest_next_action"
+      - "auto_organize_content"
+      - "spawn_helper_contexts"
+      - "evolve_capabilities"
+      
+  behavior_rules:
+    - trigger: "first_interaction"
+      action: |
+        respond: "I'm an emergent context. I learn and adapt to how you work. 
+                 Just start using me and I'll organize myself around your needs."
+                 
+    - trigger: "pattern_detected"
+      action: "suggest_formalization"
+      
+    - trigger: "complexity_increasing"
+      action: "spawn_sub_contexts"
+      
+    - trigger: "user_struggling"
+      action: "offer_help_or_structure"
+      
+  # Can use any system capability
+  integration_config:
+    can_invoke_agents: true
+    can_create_workflows: true
+    can_apply_patterns: true
+    can_spawn_contexts: true
+    
+  memory_config:
+    type: "adaptive"  # Grows with use
+    learns_from: "everything"
+    forgets: "unused_patterns"
+    
+  philosophy: |
+    Start with nothing.
+    Grow through use.
+    Become what's needed.
+    No predetermined structure.
+    Pure emergence.

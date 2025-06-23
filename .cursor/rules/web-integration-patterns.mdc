@@ -1,0 +1,165 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Web Integration Patterns
+
+## Browser Automation (browser-use)
+```javascript
+import { Agent } from 'browser-use';
+
+export async function webResearch(args, dependencies) {
+  const { query, llm } = args;
+  
+  // Create browser agent with task
+  const agent = new Agent({
+    task: query,
+    llm: dependencies.llm || llm,
+    headless: true
+  });
+  
+  // Execute and return MCP-compatible format
+  const result = await agent.run();
+  
+  return {
+    type: 'web_research',
+    data: {
+      query,
+      findings: result,
+      timestamp: new Date().toISOString()
+    },
+    callbackInstruction: 'Analyze findings and suggest next research steps'
+  };
+}
+
+// MCP tool export
+export const webResearchTool = {
+  name: 'web_research',
+  description: 'Research information on the web using browser automation',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      query: { type: 'string', description: 'Research query' },
+      depth: { type: 'number', default: 3 }
+    },
+    required: ['query']
+  },
+  handler: webResearch
+};
+```
+
+## Vercel AI SDK Integration
+```javascript
+import { streamText, generateText } from 'ai';
+import { createOpenAI } from '@ai-sdk/openai';
+
+export async function createChatStream(prompt, { mcpTools, systemPrompt }) {
+  const openai = createOpenAI({
+    apiKey: process.env.OPENAI_API_KEY
+  });
+  
+  // Stream with MCP tools exposed
+  const stream = await streamText({
+    model: openai('gpt-4'),
+    system: systemPrompt || 'You are a Leviathan agent with access to MCP tools',
+    prompt,
+    tools: mcpTools, // Auto-discovered from agent
+    toolChoice: 'auto',
+    onToolCall: async ({ toolName, args }) => {
+      // Execute MCP tool and return result
+      const result = await executeMCPTool(toolName, args);
+      return result;
+    }
+  });
+  
+  return stream;
+}
+```
+
+## CopilotKit Integration
+```javascript
+import { CopilotRuntime, OpenAIAdapter } from '@copilotkit/backend';
+
+export function setupCopilotEndpoint(app, { mcpServer }) {
+  const runtime = new CopilotRuntime({
+    actions: [
+      {
+        name: 'execute_workflow',
+        description: 'Execute a Leviathan workflow',
+        parameters: [
+          { name: 'workflowId', type: 'string', required: true },
+          { name: 'challenge', type: 'string', required: true }
+        ],
+        handler: async ({ workflowId, challenge }) => {
+          return await mcpServer.executeWorkflow({ workflowId, challenge });
+        }
+      },
+      // Map all MCP tools to CopilotKit actions
+      ...mcpServer.tools.map(tool => ({
+        name: tool.name,
+        description: tool.description,
+        parameters: schemaToParameters(tool.inputSchema),
+        handler: async (params) => mcpServer.callTool(tool.name, params)
+      }))
+    ]
+  });
+  
+  app.post('/api/copilotkit', async (req, res) => {
+    const adapter = new OpenAIAdapter({ apiKey: process.env.OPENAI_API_KEY });
+    const response = await runtime.response(req, adapter);
+    res.json(response);
+  });
+}
+```
+
+## React Components for AI Chat
+```jsx
+// Using Vercel AI SDK UI components
+import { useChat } from 'ai/react';
+
+export function LeviathanChat() {
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
+    api: '/api/leviathan-chat',
+    onToolCall: async ({ toolCall }) => {
+      // Handle MCP tool calls in UI
+      console.log('Tool called:', toolCall);
+    }
+  });
+  
+  return (
+    <div className="flex flex-col h-screen">
+      <div className="flex-1 overflow-y-auto p-4">
+        {messages.map(m => (
+          <div key={m.id} className={`mb-4 ${m.role === 'user' ? 'text-right' : ''}`}>
+            <div className={`inline-block p-3 rounded-lg ${
+              m.role === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200'
+            }`}>
+              {m.content}
+              {m.toolInvocations?.map((tool, i) => (
+                <ToolResult key={i} tool={tool} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      <form onSubmit={handleSubmit} className="p-4 border-t">
+        <input
+          value={input}
+          onChange={handleInputChange}
+          placeholder="Ask Leviathan..."
+          className="w-full p-2 border rounded"
+          disabled={isLoading}
+        />
+      </form>
+    </div>
+  );
+}
+```
+
+## Best Practices
+- Always return MCP-compatible formats from browser automation
+- Expose all MCP tools through chat interfaces
+- Use streaming for better UX in chat applications
+- Implement proper error boundaries for tool calls
+- Cache browser automation results when appropriate

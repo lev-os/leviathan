@@ -1,0 +1,49 @@
+{
+  "name": "@lev-os/eeps-system",
+  "version": "0.1.0",
+  "description": "Eight Essential Psychological States system for AI agent optimization",
+  "author": "Kingly Agency",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "ai",
+    "psychology",
+    "personality",
+    "optimization",
+    "leviathan",
+    "plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kingly-agency/leviathan.git",
+    "directory": "plugins/@lev-os/eeps-system"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "eslint": "^8.0.0"
+  },
+  "peerDependencies": {
+    "@lev-os/core": "^0.1.0"
+  }
+}

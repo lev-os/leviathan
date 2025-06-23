@@ -1,0 +1,215 @@
+metadata:
+  type: "workflow"
+  id: "cognitive-parliament"
+  version: "1.0.0"
+  description: "Multi-personality deliberation using Emotional Evolution framework"
+
+workflow_config:
+  philosophy: "8 personality types debate decisions through evolutionary lenses"
+  
+  # Toggle configuration
+  eeps_config:
+    enabled: true
+    verbosity: "medium"  # off | silent | medium | verbose
+    
+  triggers:
+    respect_config: true  # Always check eeps_config first
+    automatic:
+      - "confidence_level < 0.8 AND eeps_enabled"
+      - "complex_emotional_decision"
+      - "requires_multiple_perspectives"
+    manual:
+      - "invoke parliament"
+      - "debate this"
+      - "eeps analysis"
+      
+  personality_system:
+    eeps_mapping:
+      sfj_caregiver:
+        core_emotion: "disgust"
+        survival_instinct: "freeze"
+        moral_projection: "sympathy"
+        igt_strategy: "win_win"
+        neurotransmitter: "serotonin"
+        thinking_style: "system_2"  # Slow, careful
+        feedback_type: "negative"   # Yin, stabilizing
+        
+      nfp_advocate:
+        core_emotion: "stress"
+        survival_instinct: "fight"
+        moral_projection: "compassion"
+        igt_strategy: "win_lose"
+        neurotransmitter: "adrenaline"
+        thinking_style: "system_1"  # Fast, intuitive
+        feedback_type: "positive"   # Yang, amplifying
+        
+      nfj_visionary:
+        core_emotion: "fear"
+        survival_instinct: "flight"
+        moral_projection: "empathy"
+        igt_strategy: "lose_lose"
+        neurotransmitter: "dopamine"
+        thinking_style: "system_2"
+        feedback_type: "positive"   # Yang
+        
+      stp_adapter:
+        core_emotion: "shame"
+        survival_instinct: "fawn"
+        moral_projection: "none"  # Practical focus
+        igt_strategy: "lose_win"
+        neurotransmitter: "oxytocin"
+        thinking_style: "system_1"
+        feedback_type: "negative"   # Yin
+        
+      stj_leader:
+        core_emotion: "disgust"
+        survival_instinct: "freeze"
+        moral_projection: "none"  # Rule focus
+        igt_strategy: "win_win"
+        neurotransmitter: "serotonin"
+        thinking_style: "system_2"
+        feedback_type: "negative"   # Yin
+        
+      ntp_innovator:
+        core_emotion: "stress"
+        survival_instinct: "fight"
+        moral_projection: "none"  # Logic focus
+        igt_strategy: "win_lose"
+        neurotransmitter: "adrenaline"
+        thinking_style: "system_1"
+        feedback_type: "positive"   # Yang
+        
+      ntj_strategist:
+        core_emotion: "fear"
+        survival_instinct: "flight"
+        moral_projection: "none"  # Control focus
+        igt_strategy: "lose_lose"
+        neurotransmitter: "dopamine"
+        thinking_style: "system_2"
+        feedback_type: "positive"   # Yang
+        
+      sfp_connector:
+        core_emotion: "shame"
+        survival_instinct: "fawn"
+        moral_projection: "reciprocal_altruism"
+        igt_strategy: "lose_win"
+        neurotransmitter: "oxytocin"
+        thinking_style: "system_1"
+        feedback_type: "negative"   # Yin
+
+  analysis_rounds:
+    round_1_perspective_gathering:
+      description: "Each personality analyzes the situation"
+      process: |
+        FOR each_personality IN personality_system.eeps_mapping:
+          ADOPT personality_perspective
+          ANALYZE through_evolutionary_lens
+          CONSIDER moral_projection IF exists
+          APPLY igt_strategy TO decision
+          CAPTURE unique_insights
+          
+    round_2_conflict_identification:
+      description: "Identify areas of agreement and conflict"
+      process: |
+        COMPARE all_personality_analyses
+        IDENTIFY convergent_viewpoints
+        IDENTIFY divergent_viewpoints
+        MAP conflict_patterns:
+          - Yin_vs_Yang (stability vs change)
+          - System1_vs_System2 (fast vs slow)
+          - Moral_conflicts (different projections)
+          
+    round_3_synthesis:
+      description: "Synthesize perspectives based on context"
+      entropy_based_weighting: |
+        IF system_entropy < 0.3:
+          WEIGHT yin_personalities HIGHER
+          PRIORITIZE stability_focused_insights
+        ELIF system_entropy > 0.7:
+          WEIGHT yang_personalities HIGHER
+          PRIORITIZE innovation_focused_insights
+        ELSE:
+          BALANCE all_perspectives EQUALLY
+          
+    round_4_emotion_emergence:
+      description: "Identify emergent emotional states"
+      joy_synthesis:
+        condition: "sfj AND nfj both highly activated"
+        result: "joy emerging from disgust + fear harmony"
+      excitement_synthesis:
+        condition: "all personalities engaged"
+        result: "excitement from collective activation"
+
+  verbosity_modes:
+    off:
+      output: "none"
+      internal_use: false
+      
+    silent:
+      output: "none"
+      internal_use: true
+      instruction_injection: |
+        [EEPS Active Internally - No Output]
+        Consider 8 personality perspectives silently
+        
+    medium:
+      output: "friendly_names"
+      internal_use: true
+      template: |
+        📊 Multiple Perspectives Analysis
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        CAREGIVER view: "{sfj_analysis}"
+        ADVOCATE view: "{nfp_analysis}"
+        VISIONARY view: "{nfj_analysis}"
+        {additional_perspectives}
+        
+        Synthesis: {balanced_recommendation}
+        
+    verbose:
+      output: "full_technical"
+      internal_use: true
+      template: |
+        🧠 COGNITIVE PARLIAMENT ANALYSIS
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        {for personality in activated_personalities}
+        {personality.code} {personality.title} ({personality.core_emotion}/{personality.moral_projection}):
+        - Neurotransmitter: {personality.neurotransmitter}
+        - IGT Strategy: {personality.igt_strategy}
+        - Feedback Type: {personality.feedback_type}
+        - Analysis: "{personality.analysis}"
+        
+        {endfor}
+        ENTROPY LEVEL: {entropy_value} ({entropy_category})
+        EMOTION SYNTHESIS: {emergent_emotions}
+        
+        RECOMMENDATION: {synthesized_decision}
+
+  implementation_instructions:
+    mcp_integration: |
+      In MCP response, check eeps_config:
+      - If off: bypass entirely
+      - If silent: inject perspectives into agentInstructions only
+      - If medium: add friendly output to message
+      - If verbose: add full technical output to debugInfo
+      
+    llm_prompting: |
+      Based on verbosity:
+      - Silent: "Consider these 8 perspectives internally..."
+      - Medium: "From a caregiving perspective..."
+      - Verbose: "The SFJ (Disgust/Sympathy) analysis indicates..."
+
+  success_metrics:
+    decision_quality:
+      - multi_perspective_coverage
+      - conflict_resolution_effectiveness
+      - emergent_insight_generation
+      
+    user_experience:
+      - verbosity_appropriateness
+      - cognitive_load_management
+      - insight_clarity
+      
+    system_performance:
+      - token_usage_by_mode
+      - decision_time_impact
+      - accuracy_improvement

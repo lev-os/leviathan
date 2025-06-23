@@ -1,0 +1,42 @@
+metadata:
+  type: "folder"
+  id: "folder-template"
+  version: "1.0.0"
+  name: "Folder Template"
+  description: "Simple container with no imposed structure or rules"
+
+folder_config:
+  capabilities:
+    - "simple_storage"
+    - "nested_organization"
+    - "flexible_content"
+    
+  # Folders can contain anything
+  allowed_children:
+    - "*"  # Any context type
+    
+  # Minimal behavior - just storage
+  minimal_mode: true
+  no_enforced_structure: true
+  
+  behavior_rules:
+    - trigger: "folder_created"
+      action: "nothing"  # Just exist
+      
+    - trigger: "content_added"
+      action: "update_modified_time"
+      
+  # No special integrations
+  agent_integration: null
+  workflow_integration: null
+  pattern_integration: null
+  
+  # Simple memory
+  memory_config:
+    type: "none"  # No memory needed
+    
+  # For users who just want folders
+  philosophy: |
+    Sometimes you just need a folder.
+    No rules. No structure. No AI.
+    Just a place to put things.

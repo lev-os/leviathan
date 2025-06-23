@@ -1,0 +1,93 @@
+metadata:
+  type: "epic"
+  id: "epic-template"
+  version: "1.0.0"
+  name: "Epic Template"
+  description: "Large business initiative spanning multiple sprints"
+
+epic_config:
+  capabilities:
+    - "feature_orchestration"
+    - "sprint_coordination"
+    - "stakeholder_management"
+    - "ticket_breakdown"
+    - "progress_tracking"
+    - "business_value_measurement"
+    
+  # Epic structure configuration  
+  structure_config:
+    storage_pattern: "hierarchical"
+    parent_required: "portfolio"
+    path_template: "epics/{name}"
+    contains: ["ticket", "folder"]
+    
+  # Epics can contain these types
+  allowed_children:
+    - "ticket"
+    - "folder"
+    - "document"
+    
+  # Pattern integration for epic management
+  pattern_integration:
+    decision_patterns:
+      - "contexts/patterns/swot-analysis"
+      - "contexts/patterns/rice-scoring"
+      - "contexts/patterns/jobs-to-be-done"
+    
+    auto_apply_patterns:
+      - trigger: "epic_planning"
+        pattern: "contexts/patterns/jobs-to-be-done"
+      - trigger: "priority_conflict"
+        pattern: "contexts/patterns/rice-scoring"
+        
+  # Workflow integration for epics
+  workflow_integration:
+    epic_workflows:
+      - "contexts/workflows/document-synthesis"
+      - "contexts/workflows/cross-context-learning"
+      - "contexts/workflows/insight-bubbling"
+      
+  # Agent assignment per epic phase
+  agent_assignment:
+    planning: "contexts/agents/ceo"        # CEO for strategy
+    implementation: "contexts/agents/dev"   # Dev for execution
+    delivery: "contexts/agents/dev"         # Dev for delivery
+    
+  behavior_rules:
+    - trigger: "epic_created"
+      action: "create_default_ticket_structure"
+      
+    - trigger: "ticket_completed"
+      action: "update_epic_progress"
+      
+    - trigger: "progress > 0.9"
+      action: "prepare_delivery_checklist"
+      
+    - trigger: "deadline_approaching"
+      condition: "days_remaining < 7"
+      action: "escalate_to_stakeholders"
+      
+    - trigger: "scope_change_requested"
+      action: "evaluate_impact_and_notify"
+      
+  progress_tracking:
+    metrics:
+      - "ticket_completion_rate"
+      - "business_value_delivered"
+      - "stakeholder_satisfaction"
+      - "technical_debt_incurred"
+      
+  memory_config:
+    shares_with: ["parent_portfolio", "assigned_teams"]
+    retention: "epic_lifetime + 180_days"
+    capture_insights: true
+    
+  # Agile/Epic specific
+  agile_config:
+    sizing_method: "story_points"
+    acceptance_criteria_required: true
+    definition_of_done:
+      - "all_tickets_completed"
+      - "acceptance_criteria_met"
+      - "stakeholder_approval"
+      - "production_deployed"

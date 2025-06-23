@@ -1,0 +1,38 @@
+# Research Paper context type
+research_paper_config:
+  inherits: ["base"]
+  
+  relationship_types:
+    cites:
+      description: "Academic citation reference"
+      target_types: ["research_paper", "dataset", "method"]
+      cardinality: "many-to-many"
+      properties_schema:
+        citation_type: "enum:supporting,contradicting,extending,methodology"
+        page_references: "array:string"
+    
+    contradicts:
+      description: "Findings that disagree with this paper"
+      target_types: ["research_paper", "hypothesis"]
+      cardinality: "many-to-many"
+      bidirectional: true
+      inverse: "contradicted_by"
+      properties_schema:
+        contradiction_strength: "enum:minor,moderate,fundamental"
+        specific_claims: "array:string"
+    
+    validates:
+      description: "Provides evidence supporting claims"
+      target_types: ["hypothesis", "theory", "research_paper"]
+      cardinality: "many-to-many"
+      properties_schema:
+        validation_strength: "number:0-1"
+        methodology: "string"
+    
+    retracts:
+      description: "Formal retraction or correction"
+      target_types: ["research_paper", "claim"]
+      cardinality: "many-to-many"
+      properties_schema:
+        retraction_reason: "string"
+        retraction_date: "datetime"

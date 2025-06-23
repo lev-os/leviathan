@@ -1,0 +1,35 @@
+# Claude Code Agent Container
+# Runs Claude Code in agent mode for isolated task execution
+
+FROM node:20-alpine
+
+# Install dependencies
+RUN apk add --no-cache \
+    git \
+    python3 \
+    make \
+    g++ \
+    bash \
+    jq
+
+# Create workspace
+WORKDIR /workspace
+
+# Install Claude Code globally
+RUN npm install -g @anthropic-ai/claude-code
+
+# Create directories
+RUN mkdir -p /workspace/context \
+    /workspace/results \
+    /workspace/agents
+
+# Add agent runner script
+COPY agent-runner.sh /usr/local/bin/claude-agent
+RUN chmod +x /usr/local/bin/claude-agent
+
+# Install yq for YAML parsing
+RUN wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 && \
+    chmod +x /usr/local/bin/yq
+
+# Default command
+CMD ["claude-agent"]

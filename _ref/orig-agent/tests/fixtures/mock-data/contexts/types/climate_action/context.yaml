@@ -1,0 +1,41 @@
+# Climate Action context type
+climate_action_config:
+  inherits: ["base"]
+  
+  relationship_types:
+    carbon_offset:
+      description: "Project compensates for emissions elsewhere"
+      target_types: ["climate_action", "emission_source"]
+      cardinality: "many-to-many"
+      properties_schema:
+        offset_amount: "number"
+        offset_unit: "enum:tons_co2,kg_methane"
+        verification_standard: "string"
+    
+    watershed_impact:
+      description: "Upstream actions affect downstream areas"
+      target_types: ["climate_action", "region", "ecosystem"]
+      cardinality: "many-to-many"
+      properties_schema:
+        impact_type: "enum:water_quality,flow_rate,temperature,biodiversity"
+        impact_magnitude: "number:-1,1"
+        lag_time: "duration"
+    
+    tipping_point:
+      description: "Action that triggers irreversible changes"
+      target_types: ["climate_action", "ecosystem_state"]
+      cardinality: "many-to-many"
+      properties_schema:
+        threshold_value: "number"
+        threshold_metric: "string"
+        cascade_effects: "array:string"
+    
+    political_commitment:
+      description: "Conditional commitments between entities"
+      target_types: ["country", "organization", "climate_action"]
+      cardinality: "many-to-many"
+      bidirectional: true
+      inverse: "contingent_on"
+      properties_schema:
+        commitment_level: "enum:binding,voluntary,aspirational"
+        conditions: "array:string"

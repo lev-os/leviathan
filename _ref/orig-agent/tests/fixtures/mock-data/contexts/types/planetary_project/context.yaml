@@ -1,0 +1,41 @@
+# Multi-Planetary Project context type
+planetary_project_config:
+  inherits: ["base"]
+  
+  relationship_types:
+    light_delay:
+      description: "Communication delay between planetary bodies"
+      target_types: ["planetary_project", "communication", "approval"]
+      cardinality: "many-to-many"
+      properties_schema:
+        delay_minutes: "number"
+        distance_au: "number"
+        relay_stations: "array:string"
+    
+    gravity_dependent:
+      description: "Design constraints based on gravitational environment"
+      target_types: ["equipment", "structure", "process"]
+      cardinality: "many-to-many"
+      properties_schema:
+        min_gravity: "number"
+        max_gravity: "number"
+        gravity_unit: "enum:earth_g,mars_g,moon_g"
+    
+    resource_shipping:
+      description: "Interplanetary supply chain dependencies"
+      target_types: ["resource", "planetary_project"]
+      cardinality: "many-to-many"
+      properties_schema:
+        shipping_window: "duration"
+        transit_time: "duration"
+        launch_windows: "array:datetime"
+        cargo_capacity: "number"
+    
+    political_jurisdiction:
+      description: "Governance and legal authority chains"
+      target_types: ["space_agency", "colony", "station"]
+      cardinality: "many-to-many"
+      properties_schema:
+        jurisdiction_type: "enum:territorial,functional,emergency"
+        treaty_basis: "string"
+        dispute_resolution: "string"

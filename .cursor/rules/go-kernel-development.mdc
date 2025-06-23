@@ -1,0 +1,62 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# AI-Native OS Kernel Development (Go)
+
+## Core Architecture
+When working on the OS kernel:
+- The LLM is the decision engine, not just a helper
+- Implement cognitive parliament patterns
+- Use JEPA 2 world models for predictive intelligence
+- FlowMind parser for natural language → executable instructions
+
+## Go Patterns
+```go
+// AI-native decision engine structure
+type LLMDecisionEngine struct {
+    parliament *CognitiveParliament
+    flowmind   *FlowMindParser
+    jepa       *JEPA2WorldModel
+    llmRouter  *LLMRouter
+}
+
+// Always use context for cancellation
+func (e *LLMDecisionEngine) Analyze(ctx context.Context, telemetry SystemTelemetry) ([]Decision, error) {
+    // Multi-personality cognitive analysis
+    insights := e.parliament.Deliberate(ctx, telemetry)
+    
+    // Predictive modeling with JEPA 2
+    predictions := e.jepa.PredictFutureStates(ctx, telemetry)
+    
+    // Natural language workflow parsing
+    workflows := e.flowmind.ParseInstructions(ctx, insights)
+    
+    return e.synthesizeDecisions(insights, predictions, workflows)
+}
+```
+
+## LLM Provider Integration
+```go
+// Multi-provider routing pattern
+type LLMProvider struct {
+    Name     string
+    Type     string // "ollama", "claude", "openai"
+    Endpoint string
+    Model    string
+    APIKey   string
+}
+
+// Route based on task requirements
+func (r *LLMRouter) RouteRequest(req LLMRequest) (*LLMResponse, error) {
+    provider := r.selectProvider(req.TaskType, req.Urgent)
+    return provider.Execute(req)
+}
+```
+
+## System Integration
+- Use Go channels for async telemetry collection
+- Implement circuit breakers for LLM calls
+- Profile memory usage with large context windows
+- Design for 4D reasoning (space + time + code + context)

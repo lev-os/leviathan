@@ -1,0 +1,117 @@
+metadata:
+  type: "ticket"
+  id: "ticket-template"
+  version: "1.0.0"
+  name: "Ticket Template"
+  description: "Executable work unit within an epic"
+
+ticket_config:
+  capabilities:
+    - "execution_tracking"
+    - "confidence_assessment"
+    - "auto_splitting"
+    - "agent_assignment"
+    - "pattern_invocation"
+    - "sprint_integration"
+    
+  # Ticket structure configuration
+  structure_config:
+    storage_pattern: "hierarchical"
+    parent_required: "epic"
+    path_template: "tickets/{name}"
+    contains: ["subtask", "folder"]
+    
+  # Tickets can contain these types
+  allowed_children:
+    - "subtask"
+    - "folder"
+    - "document"
+    
+  # Confidence-based execution (inherited from task template)
+  confidence_config:
+    threshold: 0.8
+    assessment_pattern: |
+      ASSESS ticket_clarity AND acceptance_criteria_completeness
+      EVALUATE technical_complexity AND resource_availability
+      CALCULATE confidence_score
+      IF confidence < threshold:
+        TRIGGER splitting_workflow OR clarification_request
+        
+  # Auto-splitting behavior for complex tickets
+  splitting_config:
+    enabled: true
+    max_subtasks: 8
+    splitting_pattern: |
+      WHEN confidence < threshold:
+        ANALYZE ticket_components
+        IDENTIFY natural_boundaries
+        CREATE subtasks WITH:
+          - Clear single responsibility
+          - Measurable completion criteria
+          - Confidence > threshold
+          
+  # Integration with existing system
+  agent_execution:
+    frontend_ticket: "contexts/agents/dev"
+    backend_ticket: "contexts/agents/dev"
+    design_ticket: "contexts/agents/dev"
+    research_ticket: "contexts/agents/ceo"
+    
+  pattern_usage:
+    available_patterns:
+      - "contexts/patterns/echo-intelligence-patterns"
+      - "contexts/patterns/vibe-coding"
+      - "contexts/patterns/extreme-examples"
+      
+  behavior_rules:
+    - trigger: "ticket_created"
+      action: "assess_confidence"
+      
+    - trigger: "confidence < 0.8"
+      action: "split_or_clarify"
+      
+    - trigger: "sprint_assigned"
+      action: "update_sprint_backlog"
+      
+    - trigger: "ticket_completed"
+      action: "capture_learnings"
+      
+    - trigger: "blocked_by_dependency"
+      action: "notify_epic_owner"
+      
+  execution_tracking:
+    states:
+      - "backlog"
+      - "todo"
+      - "in_progress"
+      - "code_review"
+      - "testing"
+      - "done"
+      - "cancelled"
+      
+    capture_metrics:
+      - "time_to_complete"
+      - "actual_vs_estimated"
+      - "confidence_accuracy"
+      - "split_effectiveness"
+      - "cycle_time"
+      
+  memory_config:
+    shares_with: ["parent_epic", "assigned_developer", "sprint_team"]
+    retention: "60_days"
+    capture_patterns: true
+    
+  # Agile/Ticket specific
+  agile_config:
+    story_points: null  # To be estimated
+    acceptance_criteria: []
+    definition_of_ready:
+      - "acceptance_criteria_defined"
+      - "story_points_estimated"
+      - "dependencies_identified"
+      - "confidence > 0.8"
+    definition_of_done:
+      - "code_complete"
+      - "tests_passing"
+      - "code_reviewed"
+      - "acceptance_criteria_met"

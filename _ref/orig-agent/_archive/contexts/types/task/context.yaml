@@ -1,0 +1,91 @@
+metadata:
+  type: "task"
+  id: "task-template"
+  version: "1.0.0"
+  name: "Task Template"
+  description: "Executable work unit with confidence tracking and auto-splitting"
+
+task_config:
+  capabilities:
+    - "execution_tracking"
+    - "confidence_assessment"
+    - "auto_splitting"
+    - "agent_assignment"
+    - "pattern_invocation"
+    - "workflow_execution"
+    
+  # Tasks can contain subtasks
+  allowed_children:
+    - "task"  # Subtasks only
+    
+  # Confidence-based execution
+  confidence_config:
+    threshold: 0.8            # Below this, split or clarify
+    assessment_pattern: |
+      ASSESS task_clarity AND requirements_completeness
+      EVALUATE technical_complexity AND resource_availability
+      CALCULATE confidence_score
+      IF confidence < threshold:
+        TRIGGER splitting_workflow OR clarification_request
+        
+  # Auto-splitting behavior
+  splitting_config:
+    enabled: true
+    max_subtasks: 10
+    splitting_pattern: |
+      WHEN confidence < threshold:
+        ANALYZE task_components
+        IDENTIFY natural_boundaries
+        CREATE subtasks WITH:
+          - Clear single responsibility
+          - Measurable completion criteria
+          - Confidence > threshold
+          
+  # Integration with existing system
+  agent_execution:
+    # Agent assigned based on task type
+    technical_task: "contexts/agents/dev"
+    business_task: "contexts/agents/ceo"
+    creative_task: "contexts/agents/dev"  # Dev has creative modes
+    
+  pattern_usage:
+    # Tasks can invoke patterns for decisions
+    available_patterns:
+      - "contexts/patterns/echo-intelligence-patterns"
+      - "contexts/patterns/vibe-coding"
+      - "contexts/patterns/extreme-examples"
+      
+  behavior_rules:
+    - trigger: "task_created"
+      action: "assess_confidence"
+      
+    - trigger: "confidence < 0.8"
+      action: "split_or_clarify"
+      
+    - trigger: "all_subtasks_complete"
+      action: "mark_parent_complete"
+      
+    - trigger: "blocked_by_external"
+      action: "notify_stakeholders"
+      
+    - trigger: "task_completed"
+      action: "capture_learnings"
+      
+  execution_tracking:
+    states:
+      - "pending"
+      - "in_progress"
+      - "blocked"
+      - "completed"
+      - "cancelled"
+      
+    capture_metrics:
+      - "time_to_complete"
+      - "actual_vs_estimated"
+      - "confidence_accuracy"
+      - "split_effectiveness"
+      
+  memory_config:
+    shares_with: ["parent_project", "assigned_agent"]
+    retention: "30_days"
+    capture_patterns: true  # Learn from task patterns

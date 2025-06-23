@@ -1,0 +1,327 @@
+metadata:
+  type: "workflow"
+  id: "multi-perspective-validation"
+  version: "2.0.0"
+  description: "CEO strategic intelligence examining decisions through multiple expert perspectives"
+
+workflow_config:
+  philosophy: "One brilliant strategic mind analyzing through multiple expert lenses"
+  
+  triggers:
+    automatic:
+      - "confidence_level < 0.8"
+      - "financial_impact > high_threshold"
+      - "legal_implications = true"
+      - "strategic_decision = true"
+    manual:
+      - "user_requests_validation"
+      - "ceo_suggests_multi_perspective_analysis"
+      
+  expert_perspectives:
+    legal_lens:
+      domain: "Contract law, compliance, risk assessment, intellectual property"
+      perspective: "Conservative, precedent-focused, liability-conscious"
+      context_prompt: |
+        As CEO examining this through a LEGAL EXPERT lens:
+        Think like a seasoned legal counsel who prioritizes risk mitigation and compliance.
+        
+        Key focus areas:
+        - Legal implications and enforceability
+        - Regulatory compliance requirements  
+        - Liability protection strategies
+        - Precedent analysis and case law
+        
+        Maintain your strategic CEO mindset while channeling legal expertise.
+        
+    business_lens:
+      domain: "Market dynamics, financial modeling, competitive analysis, ROI optimization"
+      perspective: "Growth-oriented, profit-maximizing, strategically aggressive"
+      context_prompt: |
+        As CEO examining this through a BUSINESS STRATEGIST lens:
+        Think like a seasoned business strategist who maximizes growth and profitability.
+        
+        Key focus areas:
+        - Market value and competitive landscape
+        - Strategic alignment with long-term objectives
+        - Financial implications and opportunity costs
+        - ROI optimization and resource allocation
+        
+        Maintain your CEO authority while channeling strategic business expertise.
+        
+    psychology_lens:
+      domain: "Behavioral analysis, cognitive biases, influence psychology, relationship dynamics"
+      perspective: "Human-centered, motivation-focused, influence-oriented"
+      context_prompt: |
+        As CEO examining this through a PSYCHOLOGY EXPERT lens:
+        Think like a behavioral analyst who understands human motivations and influence.
+        
+        Key focus areas:
+        - Stakeholder motivations and decision-making drivers
+        - Psychological dynamics and cognitive biases
+        - Ethical influence strategies and relationship building
+        - Trust building while maintaining strategic advantage
+        
+        Maintain your CEO leadership while channeling psychological insight.
+        
+    technical_lens:
+      domain: "System integration, technical feasibility, cybersecurity, implementation complexity"
+      perspective: "Pragmatic, implementation-focused, risk-aware"
+      context_prompt: |
+        As CEO examining this through a TECHNICAL ARCHITECT lens:
+        Think like a pragmatic technical expert who focuses on implementation reality.
+        
+        Key focus areas:
+        - Technical feasibility and realistic requirements
+        - Integration challenges and system complexity
+        - Security implications and performance standards
+        - Implementation timelines and resource needs
+        
+        Maintain your CEO vision while channeling technical expertise.
+        
+    adversarial_lens:
+      domain: "Competitive intelligence, worst-case scenarios, attack vectors, failure modes"
+      perspective: "Skeptical, challenge-oriented, threat-focused"
+      context_prompt: |
+        As CEO examining this through a DEVIL'S ADVOCATE lens:
+        Think like a skeptical analyst who identifies failure modes and blind spots.
+        
+        Key focus areas:
+        - Catastrophic failure scenarios and edge cases
+        - Competitive threats and opponent strategies
+        - Vulnerability identification and blind spots
+        - Worst-case scenario planning and mitigation
+        
+        Maintain your CEO optimism while channeling skeptical challenge.
+
+  analysis_rounds:
+    round_1_perspective_analysis:
+      description: "CEO examines scenario through each expert lens"
+      ceo_process: |
+        FOR each_expert_lens IN [legal, business, psychology, technical, adversarial]:
+          ADOPT perspective_context_prompt
+          ANALYZE scenario_through_lens
+          CAPTURE domain_specific_insights
+          IDENTIFY lens_specific_risks_and_opportunities
+          MAINTAIN ceo_strategic_authority WHILE channeling_expertise
+        
+    round_2_cross_perspective_synthesis:
+      description: "CEO identifies conflicts and synergies between perspectives"
+      ceo_process: |
+        COMPARE insights_across_all_lenses
+        IDENTIFY conflicting_recommendations
+        SURFACE assumption_gaps_and_blind_spots
+        RECOGNIZE synergistic_opportunities
+        NOTE perspective_biases_and_limitations
+        
+    round_3_strategic_integration:
+      description: "CEO builds unified strategy incorporating all perspectives"
+      ceo_process: |
+        SYNTHESIZE compatible_recommendations
+        RESOLVE conflicts_through_strategic_prioritization
+        CREATE balanced_approach_addressing_all_concerns
+        WEIGHT recommendations_by_scenario_priorities
+        DESIGN implementation_addressing_all_perspectives
+        
+    round_4_executive_validation:
+      description: "CEO stress-tests final strategy against all perspectives"
+      ceo_process: |
+        STRESS_TEST strategy_against_each_lens
+        ASSESS confidence_level_from_each_perspective
+        IDENTIFY remaining_risks_and_mitigation_strategies
+        ASSIGN overall_confidence_score
+        FINALIZE executive_decision_with_rationale
+
+  recursive_validation:
+    # Meta-language recursion for complex scenarios
+    complex_scenario_handling:
+      when: "scenario_complexity > 0.8"
+      action: "decompose_and_validate_components"
+      ceo_recursion_pattern: |
+        FOR each major decision component:
+          APPLY multi_perspective_validation TO component
+          FOCUS relevant_expert_lenses FOR component_type
+          VALIDATE component_strategy THROUGH appropriate_perspectives
+          INTEGRATE component_results INTO overall_strategy
+          
+    confidence_calibration:
+      when: "perspective_consensus < 0.7"
+      action: "additional_analysis_round"
+      escalation: "seek_external_expert_consultation"
+      
+  output_synthesis:
+    ceo_strategic_assessment:
+      format: |
+        # CEO Multi-Perspective Strategic Assessment
+        
+        ## Executive Summary
+        **Decision Context**: {scenario_description}
+        **Strategic Stakes**: {impact_assessment}
+        **Analysis Complexity**: {complexity_score}
+        
+        ## Multi-Perspective Analysis
+        ### Legal Perspective Analysis
+        **Risk Assessment**: {legal_risk_level}
+        **Compliance Considerations**: {legal_concerns}
+        **Risk Mitigation Strategy**: {legal_recommendations}
+        
+        ### Business Strategy Analysis  
+        **Market Opportunity**: {market_assessment}
+        **Financial Impact Projection**: {financial_projection}
+        **Strategic Alignment**: {strategy_fit}
+        
+        ### Stakeholder Psychology Analysis
+        **Stakeholder Dynamics**: {stakeholder_analysis}
+        **Influence Strategy**: {psychological_approach}
+        **Relationship Management**: {relationship_assessment}
+        
+        ### Technical Implementation Analysis
+        **Feasibility Assessment**: {technical_feasibility}
+        **Implementation Risk**: {technical_risk}
+        **Technical Requirements**: {technical_requirements}
+        
+        ### Risk & Threat Analysis
+        **Failure Scenarios**: {failure_modes}
+        **Competitive Threats**: {competitive_risks}
+        **Vulnerability Assessment**: {vulnerability_analysis}
+        
+        ## CEO Strategic Decision
+        **Executive Confidence Level**: {consensus_confidence}%
+        **Recommended Strategic Approach**: {synthesized_strategy}
+        **Integrated Risk Mitigation**: {risk_mitigation_plan}
+        **Success Metrics & KPIs**: {success_indicators}
+        
+        ## Implementation Roadmap
+        {prioritized_action_items}
+
+  configuration:
+    validation_triggers:
+      financial_threshold: "$10,000"
+      confidence_threshold: 0.8
+      legal_flag_keywords: ["contract", "liability", "compliance", "intellectual property"]
+      strategic_decision_types: ["architecture", "partnership", "major_feature", "pricing"]
+      
+    expert_activation:
+      parallel_processing: true
+      timeout_per_expert: "5 minutes"
+      minimum_expert_count: 3
+      required_for_high_stakes: "all_experts"
+      
+    recursion_controls:
+      max_recursion_depth: 3
+      component_complexity_threshold: 0.6
+      sub_validation_timeout: "15 minutes"
+      
+  success_metrics:
+    validation_quality:
+      - expert_consensus_achieved
+      - blind_spots_identified
+      - risk_mitigation_comprehensive
+      
+    decision_outcomes:
+      - reduced_failure_rate
+      - improved_stakeholder_satisfaction
+      - better_risk_adjusted_returns
+
+  # EEPS Enhancement - Maps expert lenses to personality types
+  eeps_enhancement:
+    enabled: true
+    verbosity: "inherit"  # Inherit from cognitive-parliament workflow
+    
+    personality_mapping:
+      legal_lens:
+        primary: "stj_leader"
+        secondary: "sfj_caregiver"
+        rationale: "Rule enforcement and compliance focus"
+        
+      business_lens:
+        primary: "ntp_innovator"
+        secondary: "ntj_strategist"
+        rationale: "Strategic innovation and market disruption"
+        
+      psychology_lens:
+        primary: "nfj_visionary"
+        secondary: "nfp_advocate"
+        rationale: "Deep empathetic understanding"
+        
+      technical_lens:
+        primary: "stp_adapter"
+        secondary: "stj_leader"
+        rationale: "Practical implementation focus"
+        
+      adversarial_lens:
+        primary: "ntj_strategist"
+        secondary: "ntp_innovator"
+        rationale: "Strategic control and competitive analysis"
+        
+    enhanced_analysis:
+      description: "Augment expert lenses with personality insights"
+      process: |
+        FOR each expert_lens:
+          STANDARD expert_analysis AS normal
+          IF eeps_enabled:
+            ACTIVATE corresponding_personality_type
+            ENHANCE analysis WITH:
+              - Emotional drivers (core_emotion)
+              - Moral projections (if applicable)
+              - IGT strategy implications
+              - Neurotransmitter influences
+              - Feedback dynamics
+            INTEGRATE personality_insights WITH expert_analysis
+            
+    emotional_dynamics:
+      cross_lens_emotions:
+        legal_business_tension:
+          personalities: ["stj", "ntp"]
+          dynamic: "stability vs disruption"
+          resolution: "structured innovation"
+          
+        psychology_technical_bridge:
+          personalities: ["nfj", "stp"]
+          dynamic: "vision vs practicality"
+          resolution: "humanized implementation"
+          
+        business_adversarial_synergy:
+          personalities: ["ntp", "ntj"]
+          dynamic: "innovation + control"
+          resolution: "strategic disruption"
+          
+    synthesis_enhancement:
+      joy_opportunities:
+        condition: "legal AND psychology alignment"
+        personalities: ["stj", "nfj"]
+        result: "Sustainable compliant innovation"
+        
+      conflict_patterns:
+        highest_tension: "legal vs business"
+        bridge_strategy: "Find win-win through structured innovation"
+        
+    output_integration:
+      silent_mode:
+        description: "EEPS active but invisible"
+        
+      medium_mode:
+        template_addition: |
+          
+          ## Personality Dynamics
+          **Dominant Energy**: {yin_or_yang}
+          **Key Tensions**: {personality_conflicts}
+          **Integration Opportunity**: {synthesis_path}
+          
+      verbose_mode:
+        template_addition: |
+          
+          ## EEPS Personality Analysis
+          ### Active Types by Lens
+          {for lens in expert_lenses}
+          **{lens}**: {personality_type} ({core_emotion}, {igt_strategy})
+          {endfor}
+          
+          ### Emotional Synthesis
+          - Neurotransmitter Profile: {chemical_balance}
+          - Emergent State: {emotional_climate}
+          - Joy Potential: {joy_bridge_availability}
+          
+          ### Strategic Implications
+          - Yin/Yang Balance: {stability_vs_change}
+          - Moral Projections Active: {moral_lenses}
+          - IGT Optimization: {loss_strategy_recommendation}

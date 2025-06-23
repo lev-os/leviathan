@@ -1,0 +1,40 @@
+# Legal Case context type
+legal_case_config:
+  inherits: ["base"]
+  
+  relationship_types:
+    precedent:
+      description: "Case establishes legal precedent for another"
+      target_types: ["legal_case"]
+      cardinality: "many-to-many"
+      properties_schema:
+        precedent_type: "enum:binding,persuasive,distinguishable"
+        legal_principle: "string"
+        jurisdiction: "string"
+    
+    supersedes:
+      description: "This ruling overrides previous ruling"
+      target_types: ["legal_case", "statute", "regulation"]
+      cardinality: "many-to-many"
+      properties_schema:
+        effective_date: "datetime"
+        scope: "enum:full,partial,conditional"
+    
+    conflict_of_interest:
+      description: "Parties that cannot work together"
+      target_types: ["lawyer", "judge", "party"]
+      cardinality: "many-to-many"
+      bidirectional: true
+      inverse: "has_conflict_with"
+      properties_schema:
+        conflict_type: "string"
+        disclosure_date: "datetime"
+    
+    statute_limitations:
+      description: "Time-based constraints on legal actions"
+      target_types: ["claim", "filing"]
+      cardinality: "many-to-many"
+      properties_schema:
+        limitation_period: "duration"
+        tolling_conditions: "array:string"
+        expiration_date: "datetime"

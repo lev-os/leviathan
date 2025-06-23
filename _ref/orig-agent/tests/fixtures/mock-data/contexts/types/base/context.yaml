@@ -1,0 +1,28 @@
+# Universal base context all contexts inherit from
+base_config:
+  metadata:
+    version: "1.0.0"
+    type: "base"
+    description: "Universal base context all contexts inherit from"
+  
+  # Universal relationships ALL contexts can have
+  universal_relationships:
+    relates_to:
+      description: "Generic relationship to any other context"
+      target_types: ["*"]  # Any context type
+      cardinality: "many-to-many"
+    
+    tagged_with:
+      description: "Folksonomy tagging"
+      target_types: ["tag"]
+      cardinality: "many-to-many"
+    
+    owned_by:
+      description: "Ownership/responsibility"
+      target_types: ["user", "agent", "team"]
+      cardinality: "many-to-one"
+    
+    derived_from:
+      description: "Inheritance/inspiration relationship"
+      target_types: ["*"]
+      cardinality: "many-to-many"

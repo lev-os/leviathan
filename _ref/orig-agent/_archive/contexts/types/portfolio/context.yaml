@@ -1,0 +1,76 @@
+metadata:
+  type: "portfolio"
+  id: "portfolio-template"
+  version: "1.0.0"
+  name: "Portfolio Template"
+  description: "Strategic business portfolio with multiple initiatives"
+
+portfolio_config:
+  capabilities:
+    - "strategic_planning"
+    - "budget_management"
+    - "stakeholder_coordination"
+    - "epic_prioritization"
+    - "roi_tracking"
+    - "resource_allocation"
+    
+  # Portfolio structure configuration
+  structure_config:
+    storage_pattern: "hierarchical"
+    path_template: "{name}"
+    contains: ["epic", "folder", "agent"]
+    
+  # Portfolio can contain these types
+  allowed_children:
+    - "epic"
+    - "folder"
+    - "agent"
+    - "shared_resources"
+    
+  # Integration with existing system
+  agent_integration:
+    default_agent: "contexts/agents/ceo"  # CEO manages portfolio strategy
+    available_agents:
+      - "contexts/agents/ceo"
+      - "contexts/agents/dev"
+      
+  workflow_integration:
+    # Portfolio-level workflows
+    available_workflows:
+      - "contexts/workflows/multi-expert-validation"  # For strategic decisions
+      - "contexts/workflows/document-synthesis"       # For portfolio analysis
+      
+  behavior_rules:
+    - trigger: "portfolio_created"
+      action: "setup_default_structure"
+      
+    - trigger: "epic_created"
+      condition: "epic_count > 10"
+      action: "suggest_portfolio_restructuring"
+      
+    - trigger: "budget_limit_approaching"
+      condition: "spend > 0.8 * budget_limit"
+      action: "notify_stakeholders"
+      
+    - trigger: "strategic_review"
+      condition: "quarterly_review"
+      action: "evaluate_epic_performance"
+      
+  memory_config:
+    isolation: "strict"          # Don't leak across portfolios
+    shares_with: []             # Explicit sharing only
+    retention: "portfolio_lifetime"
+    
+  security_config:
+    access_control: "role_based"
+    audit_logging: true
+    
+  # Agile/Business specific
+  agile_config:
+    methodology: "scaled_agile"
+    planning_horizon: "quarterly"
+    success_metrics:
+      - "business_value_delivered"
+      - "time_to_market"
+      - "stakeholder_satisfaction"
+      - "roi_achievement"

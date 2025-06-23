@@ -1,0 +1,81 @@
+# Test scenario: Wedding planning with vendor conflicts
+test_scenario:
+  name: "Wedding Vendor Conflict Management"
+  description: "Test complex event planning with time conflicts and dependencies"
+  
+  setup:
+    - create_context:
+        type: "workspace"
+        config:
+          name: "Smith-Jones Wedding 2024"
+          description: "June wedding planning"
+    
+    - create_context:
+        type: "wedding_event"
+        config:
+          name: "Ceremony"
+          date: "2024-06-15T14:00:00Z"
+          duration: "1 hour"
+        parent: "$workspace"
+  
+  operations:
+    - batch_operation:
+        creates:
+          - type: "vendor"
+            config:
+              name: "Elite Photography"
+              service: "photography"
+              rate: 5000
+          
+          - type: "vendor"
+            config:
+              name: "Cinematic Moments"
+              service: "videography"
+              rate: 4000
+          
+          - type: "vendor"
+            config:
+              name: "String Quartet Harmony"
+              service: "ceremony_music"
+              rate: 1500
+          
+          - type: "weather_condition"
+            config:
+              name: "Outdoor Ceremony Weather"
+              ideal: "sunny, 70-75F"
+        
+        relationships:
+          - source: "$creates[0]"  # Photography
+            type: "vendor_conflict"
+            target: "$creates[1]"  # Videography
+            properties:
+              reason: "Both need exclusive angles during ceremony"
+              time_slots: ["2024-06-15T14:00:00Z", "2024-06-15T14:30:00Z"]
+          
+          - source: "$ceremony"
+            type: "weather_dependent"
+            target: "$creates[3]"  # Weather condition
+            properties:
+              fallback_plan: "indoor-ceremony-backup"
+              probability_threshold: 0.7
+          
+          - source: "$creates[2]"  # String Quartet
+            type: "weather_dependent"
+            target: "$creates[3]"  # Weather condition
+            properties:
+              reason: "Instruments sensitive to temperature/humidity"
+  
+  conflict_resolution:
+    - test_conflict_detection:
+        check_conflicts_for: "2024-06-15T14:00:00Z"
+        expected_conflicts:
+          - parties: ["Elite Photography", "Cinematic Moments"]
+            type: "vendor_conflict"
+    
+    - test_cascade_effects:
+        trigger: "weather_alert"
+        condition: "rain_probability > 0.7"
+        expected_cascades:
+          - move_ceremony_indoor
+          - notify_string_quartet
+          - adjust_photography_locations

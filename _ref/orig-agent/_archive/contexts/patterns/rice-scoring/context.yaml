@@ -1,0 +1,88 @@
+metadata:
+  type: "pattern"
+  id: "rice-scoring"
+  version: "1.0.0"
+  author: "@kingly/patterns"
+  description: "Prioritization framework balancing Reach, Impact, Confidence, and Effort"
+
+pattern_config:
+  methodology: "quantitative_prioritization"
+  
+  scoring_components:
+    reach:
+      description: "How many users/people affected per time period?"
+      scale: "actual numbers or estimates"
+      timeframe: "per quarter/month"
+      examples:
+        - "500 users/month"
+        - "All enterprise customers"
+        - "10% of user base"
+        
+    impact:
+      description: "How much impact when reached?"
+      scale:
+        3: "Massive - game changing"
+        2: "High - very positive"
+        1: "Medium - positive"
+        0.5: "Low - minimal"
+        0.25: "Minimal - barely noticeable"
+      considerations:
+        - "User satisfaction"
+        - "Revenue impact"
+        - "Strategic value"
+        
+    confidence:
+      description: "How confident in estimates?"
+      scale:
+        1.0: "100% - Very confident"
+        0.8: "80% - Confident"
+        0.5: "50% - Medium confidence"
+        0.2: "20% - Moonshot"
+      factors:
+        - "Data quality"
+        - "Past experience"
+        - "Unknowns"
+        
+    effort:
+      description: "Person-months of work"
+      measurement: "Total across all people"
+      includes:
+        - "Planning"
+        - "Design"
+        - "Development"
+        - "Testing"
+        - "Launch"
+        
+  calculation:
+    formula: "(Reach × Impact × Confidence) / Effort"
+    interpretation:
+      high_score: "High value, low effort"
+      low_score: "Low value, high effort"
+      
+  process:
+    1_list_initiatives: "All potential projects"
+    2_estimate_reach: "Users/impact per period"
+    3_assess_impact: "Value when reached"
+    4_gauge_confidence: "Certainty level"
+    5_calculate_effort: "Total person-months"
+    6_compute_scores: "Apply formula"
+    7_rank_results: "Sort by score"
+    
+  best_practices:
+    - "Use consistent time periods"
+    - "Be honest about confidence"
+    - "Include all effort types"
+    - "Revisit scores regularly"
+    - "Document assumptions"
+    
+  variations:
+    ice_scoring: "Impact × Confidence × Ease"
+    pie_scoring: "Potential × Importance × Ease"
+    weighted_rice: "Add strategic multipliers"
+    
+  output_format:
+    scoring_table: true
+    ranked_list: true
+    effort_timeline: true
+    quick_wins: true
+    strategic_initiatives: true

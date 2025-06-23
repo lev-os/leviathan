@@ -1,0 +1,43 @@
+# Confidence Thresholds Configuration
+# All values are between 0.0 and 1.0
+
+thresholds:
+  # When to use Perplexity for research
+  research_threshold: 0.7  # Below 70% triggers research
+  
+  # When to split vs execute
+  execution_threshold: 0.8  # 80%+ can execute directly
+  
+  # Target confidence for auto-splitting
+  target_confidence: 0.95  # Keep splitting until 95%
+  
+  # Emergency thresholds
+  critical_low: 0.3  # Below 30% requires immediate research
+  
+# Research settings
+research:
+  # Research provider (perplexity-mcp, perplexity-api, mock)
+  provider: "perplexity-mcp"
+  
+  # Run research in background?
+  background: false
+  
+  # Max research attempts before proceeding
+  max_attempts: 3
+  
+  # Confidence boost from successful research
+  research_boost: 0.15
+  
+  # Timeout for research requests (ms)
+  timeout: 30000
+  
+  # Research prompts by confidence level
+  prompts:
+    critical: "URGENT: Need comprehensive research on {task}. Include implementation approaches, risks, and best practices."
+    low: "Research {task}. Focus on implementation patterns, common pitfalls, and proven solutions."
+    medium: "Quick research on {task}. Verify approach and identify any critical considerations."
+
+# Environment variable overrides
+# KINGLY_CONFIDENCE_RESEARCH=${threshold}
+# KINGLY_CONFIDENCE_EXECUTION=${threshold}
+# KINGLY_CONFIDENCE_TARGET=${threshold}

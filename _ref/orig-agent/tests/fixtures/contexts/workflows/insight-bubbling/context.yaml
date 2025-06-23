@@ -1,0 +1,107 @@
+metadata:
+  type: "workflow"
+  id: "insight-bubbling"
+  version: "1.0.0"
+  description: "Propagate significant insights from nested contexts upward"
+
+workflow_config:
+  philosophy: "Let valuable insights flow where they can help"
+  
+  triggers:
+    automatic:
+      - "breakthrough_detected"
+      - "pattern_confidence > 0.9"
+      - "success_rate > 85%"
+      - "repeated_success >= 3"
+    manual:
+      - "user_requests_bubble"
+      - "agent_suggests_sharing"
+      
+  steps:
+    1_evaluate_significance:
+      prompt: |
+        Analyze this insight from {source_context}:
+        "{insight_content}"
+        
+        Is this significant beyond the current context?
+        Consider: novelty, transferability, impact potential
+      threshold: 0.7
+      output: "significance_score + reasoning"
+      
+    2_identify_target_contexts:
+      action: "traverse_context_hierarchy"
+      scope:
+        - parent_contexts
+        - sibling_contexts  
+        - related_contexts_by_tags
+        - user_active_contexts
+      filters:
+        - exclude_if_already_has_insight
+        - prioritize_by_relevance
+        
+    3_test_relevance_per_context:
+      prompt: |
+        Context: {target_context}
+        Insight: {insight_content}
+        
+        Would this insight be valuable in this context?
+        How would it need to be adapted?
+        What's the relevance score (0-1)?
+      per_target: true
+      threshold: 0.6
+      
+    4_create_adaptations:
+      prompt: |
+        Adapt this insight for {target_context}:
+        Original: {insight_content}
+        Context: {target_context_description}
+        
+        How should this insight be modified to fit this context?
+        What examples would make it clear?
+      output: "adapted_insight + examples"
+      
+    5_propagate_insight:
+      action: "create_shared_memory_reference"
+      format:
+        type: "cross_context_insight"
+        source: "path/to/source/context"
+        original_insight: "full content"
+        adapted_for_context: "context-specific adaptation"
+        relevance_score: "0.0-1.0"
+        propagation_date: "timestamp"
+        
+    6_gentle_notification:
+      action: "whisper_to_target_context"
+      message: |
+        💡 Insight from {source_context} might be relevant:
+        "{adapted_insight}"
+        
+        Want to explore this connection?
+      options: ["Accept", "Decline", "Modify", "Learn More"]
+      
+  configuration:
+    propagation_scope:
+      conservative: "Only parent contexts"
+      moderate: "Parent + sibling contexts"
+      aggressive: "All related contexts"
+      
+    user_control:
+      auto_propagate: "boolean"
+      require_confirmation: "boolean"
+      privacy_boundaries: "list of contexts to never share with"
+      
+    quality_filters:
+      min_significance: 0.7
+      min_relevance: 0.6
+      max_propagations_per_insight: 5
+      
+  learning:
+    track_metrics:
+      - propagation_success_rate
+      - user_acceptance_rate
+      - cross_context_value_created
+    
+    improve_over_time:
+      - refine_relevance_detection
+      - learn_user_sharing_preferences
+      - optimize_adaptation_quality

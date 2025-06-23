@@ -118,14 +118,14 @@ export class MCPAdapter {
 
 ### Plugin Registration Pattern
 ```javascript
-// plugins/@lev/workshop/src/index.js
+// plugins/@lev-os/workshop/src/index.js
 export class WorkshopPlugin {
   async register(commandRegistry) {
     // Register all workshop commands
     commandRegistry.register('workshop:discover', this.discover.bind(this), {
       description: 'Auto-discover workshop structure and processes',
       namespace: 'workshop',
-      plugin: '@lev/workshop',
+      plugin: '@lev-os/workshop',
       args: [
         { name: 'system', type: 'string', description: 'System to discover' }
       ]
@@ -134,7 +134,7 @@ export class WorkshopPlugin {
     commandRegistry.register('workshop:intake', this.intake.bind(this), {
       description: 'Run complete assessment pipeline',
       namespace: 'workshop',
-      plugin: '@lev/workshop',
+      plugin: '@lev-os/workshop',
       args: [
         { name: 'repo', type: 'string', description: 'Repository URL' }
       ]
