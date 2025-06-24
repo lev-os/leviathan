@@ -1,38 +1,71 @@
-# Leviathan AI-Native Operating System - Cursor Rules
+# Leviathan Cursor Rules
 
-## 🏗️ Project Architecture Overview
+This project uses modular cursor rules for better organization and context-aware assistance.
 
-**Leviathan** is an AI-native operating system designed as the "Linux of AI" - a foundational platform for building sophisticated AI systems with maximum extensibility and bi-directional communication patterns.
+## 📂 Modular Rules Location: `.cursor/rules/`
 
-### Core Technical Stack
-- **Monorepo**: Turborepo + PNPM with workspace management
-- **Languages**: 
-  - JavaScript/TypeScript (agent/, plugins/, apps/)
-  - Go (os/kernel/)
-  - Python (os/agent/ for AI/ML components)
-- **Protocols**: MCP (Model Context Protocol) for bi-directional LLM communication
-- **Architecture**: Hexagonal/Ports & Adapters pattern throughout
+### Core Rules
+
+- **`global-architecture.mdc`** - Core principles (always applied)
+- **`javascript-agent-development.mdc`** - Agent development patterns
+- **`plugin-development.mdc`** - Plugin creation guidelines
+- **`ide-integration-patterns.mdc`** - IDE/Cursor integration helpers
+- **`flowmind-bidirectional-workflows.mdc`** - Advanced workflow patterns
+- **`go-kernel-development.mdc`** - Go kernel patterns
+- **`web-integration-patterns.mdc`** - Web app integration
+
+## 🚀 Quick Start Commands
+
+```bash
+# Show all available commands
+lev help
+
+# Search for thinking patterns
+lev context search "synthesis"
+lev context search "decision making"
+
+# Start a work session
+lev checkpoint --new "working on <feature>"
+
+# Apply a thinking pattern
+lev context apply echo-intelligence-patterns
+
+# Run a workflow
+lev workflow run document-synthesis
+```
+
+## 🏗️ Architecture Overview
+
+**Leviathan** is an AI-native operating system - the "Linux of AI":
+
+- **Hexagonal Architecture**: Strict separation of business logic and adapters
+- **MCP Protocol**: Bi-directional LLM communication
+- **Plugin Ecosystem**: Everything extensible via `@lev-os/` plugins
+- **Context-First**: Thinking patterns and workflows drive behavior
 
 ## 🎯 Core Development Principles
 
 ### 1. LLM-First Architecture
+
 ```javascript
 // ALWAYS ask: "Can an LLM do this?" before writing code
 // Example: Instead of parsing logic, use semantic evaluation
 async function evaluateCondition(condition, context) {
   // ❌ WRONG: Complex parsing logic
   // ✅ RIGHT: Let LLM evaluate semantically
-  return await llm.evaluate(`Does "${condition}" apply in context: ${JSON.stringify(context)}?`);
+  return await llm.evaluate(`Does "${condition}" apply in context: ${JSON.stringify(context)}?`)
 }
 ```
 
 ### 2. Maximum Extensibility (Linux of AI)
+
 - Everything is a plugin that can be replaced/extended
 - Use `@lev-os/` namespace for all plugins
 - Auto-bootstrap pattern for zero-configuration
 - Community can hack and extend any component
 
 ### 3. Bi-Directional Communication Architecture
+
 ```javascript
 // The Inversion of Control Pattern:
 // 1. LLM → System Call: Agent identifies need
@@ -43,6 +76,7 @@ async function evaluateCondition(condition, context) {
 ```
 
 ### 4. Constitutional Principles
+
 1. **Bootstrap Sovereignty**: Minimal dependencies, maximum autonomy
 2. **Emergent Intelligence**: Behavior emerges from system interaction
 3. **Context-First**: Context defines behavior and capabilities
@@ -52,6 +86,7 @@ async function evaluateCondition(condition, context) {
 ## 📁 Project Structure & Conventions
 
 ### Directory Structure
+
 ```
 leviathan/
 ├── agent/              # Core MCP server & agent system (JavaScript)
@@ -74,9 +109,9 @@ leviathan/
 // ✅ CORRECT: Command with pure business logic
 // src/commands/example-command.js
 export async function exampleCommand(args, dependencies) {
-  const { semanticLookup, workflowLoader } = dependencies;
+  const { semanticLookup, workflowLoader } = dependencies
   // Pure business logic here
-  return { success: true, data: result };
+  return { success: true, data: result }
 }
 
 // MCP tool export for auto-discovery
@@ -84,8 +119,8 @@ export const exampleCommandTool = {
   name: 'example_command',
   description: exampleCommand.description,
   inputSchema: exampleCommand.inputSchema,
-  handler: exampleCommand
-};
+  handler: exampleCommand,
+}
 
 // ❌ WRONG: Mixing adapters with business logic
 // Adapters should ONLY route, core should ONLY compute
@@ -122,6 +157,7 @@ export const myCommandTool = {
 ## 🔄 Bi-Directional MCP Workflow Pattern
 
 ### FlowMind Constitutional Framework
+
 ```javascript
 // FUNDAMENTAL TRUTH: THE LLM IS THE RUNTIME
 // FlowMind contexts CONFIGURE the LLM's behavior
@@ -140,27 +176,27 @@ export const myCommandTool = {
 ```javascript
 // Using Mastra-inspired patterns with MCP
 export async function executeWorkflow(args, dependencies) {
-  const { workflowId, step = 1, previousResults, challenge } = args;
-  
+  const { workflowId, step = 1, previousResults, challenge } = args
+
   // Load FlowMind context
-  const workflow = await dependencies.workflowLoader.load(workflowId);
-  
+  const workflow = await dependencies.workflowLoader.load(workflowId)
+
   // Execute current step with context injection
-  const stepConfig = workflow.steps[step - 1];
+  const stepConfig = workflow.steps[step - 1]
   const contextInjection = {
     personality: stepConfig.agent,
     systemPrompt: stepConfig.prompt,
     previousResults,
-    challenge
-  };
-  
+    challenge,
+  }
+
   // Return instructions for LLM to execute
   return {
     type: 'workflow_step',
     workflow: { id: workflowId, currentStep: step },
     contextInjection,
-    callbackInstruction: `After completing this step, call execute_workflow with step=${step + 1}`
-  };
+    callbackInstruction: `After completing this step, call execute_workflow with step=${step + 1}`,
+  }
 }
 ```
 
@@ -171,27 +207,27 @@ export async function executeWorkflow(args, dependencies) {
 class WorkflowBuilder {
   step(name, handler) {
     // Create workflow step with MCP callback
-    return this;
+    return this
   }
-  
+
   then(handler) {
     // Chain sequential steps
-    return this;
+    return this
   }
-  
+
   after(branches) {
     // Merge parallel branches
-    return this;
+    return this
   }
-  
+
   suspend(condition) {
     // Pause for human-in-the-loop via MCP
-    return this;
+    return this
   }
-  
+
   resume(sessionId) {
     // Continue from suspension point
-    return this;
+    return this
   }
 }
 ```
@@ -199,20 +235,22 @@ class WorkflowBuilder {
 ## 🧪 Testing Standards
 
 ### Test Structure
+
 ```javascript
 // Use @lev-os/testing framework
-import { runLevCommand, callMCPTool } from '@lev-os/testing';
+import { runLevCommand, callMCPTool } from '@lev-os/testing'
 
 describe('Feature Integration', () => {
   test('CLI and MCP produce identical results', async () => {
-    const cliResult = await runLevCommand(['command', 'arg']);
-    const mcpResult = await callMCPTool('command', { arg: 'arg' });
-    expect(cliResult.data).toEqual(mcpResult.data);
-  });
-});
+    const cliResult = await runLevCommand(['command', 'arg'])
+    const mcpResult = await callMCPTool('command', { arg: 'arg' })
+    expect(cliResult.data).toEqual(mcpResult.data)
+  })
+})
 ```
 
 ### Testing Principles
+
 - Test bi-directional flow with real MCP calls
 - Validate CLI ↔ MCP adapter consistency
 - Use session management for stateful tests
@@ -221,6 +259,7 @@ describe('Feature Integration', () => {
 ## 🚀 Development Workflow
 
 ### Session Management
+
 ```bash
 # Start new session
 lev checkpoint --new "implementing feature X"
@@ -233,6 +272,7 @@ lev checkpoint --final
 ```
 
 ### Command Development Flow
+
 1. Create command in `src/commands/`
 2. Implement pure business logic
 3. Export MCP tool definition
@@ -240,6 +280,7 @@ lev checkpoint --final
 5. Validate bi-directional flow
 
 ### Environment Setup
+
 ```bash
 # Required services
 docker run -d --name qdrant -p 6333:6333 qdrant/qdrant:latest
@@ -254,14 +295,15 @@ OLLAMA_URL=http://localhost:11434
 ## 🎨 Code Style & Patterns
 
 ### JavaScript/TypeScript Guidelines
+
 ```javascript
 // Use ES modules throughout
-import { feature } from './module.js';
+import { feature } from './module.js'
 
 // Async/await over promises
 async function operation() {
-  const result = await asyncCall();
-  return result;
+  const result = await asyncCall()
+  return result
 }
 
 // Destructure dependencies
@@ -270,11 +312,14 @@ export async function command(args, { service1, service2 }) {
 }
 
 // Metadata for auto-discovery
-command.description = "Clear description";
-command.inputSchema = { /* JSON Schema */ };
+command.description = 'Clear description'
+command.inputSchema = {
+  /* JSON Schema */
+}
 ```
 
 ### Go Guidelines (os/kernel)
+
 ```go
 // AI-native patterns
 type LLMDecisionEngine struct {
@@ -290,31 +335,34 @@ func (e *LLMDecisionEngine) Analyze(ctx context.Context) error {
 ```
 
 ### YAML-First Configuration
+
 ```yaml
 metadata:
   id: my-context
   type: workflow
-  name: "Human Readable Name"
+  name: 'Human Readable Name'
 
 workflow_config:
   steps:
-    - name: "Visionary Analysis"
+    - name: 'Visionary Analysis'
       agent: nfj-visionary
       prompt_file: prompts/visionary.md
-      
+
 triggers:
-  semantic: "when user needs strategic planning"
+  semantic: 'when user needs strategic planning'
 ```
 
 ## 🔐 Security & Performance
 
 ### Security Principles
+
 - Validate all LLM outputs before execution
 - Use sandboxed environments for code generation
 - Implement rate limiting for API calls
 - Secure credential management via environment
 
 ### Performance Optimization
+
 - Cache semantic embeddings aggressively
 - Use streaming for long-running operations
 - Implement circuit breakers for external services
@@ -323,31 +371,33 @@ triggers:
 ## 📚 Integration Patterns
 
 ### Browser Automation (browser-use)
+
 ```javascript
 // Integrate browser-use for web interactions
-import { Agent } from 'browser-use';
+import { Agent } from 'browser-use'
 
 export async function webResearch(args, dependencies) {
   const agent = new Agent({
     task: args.query,
     llm: dependencies.llm,
-  });
-  
-  const result = await agent.run();
-  
+  })
+
+  const result = await agent.run()
+
   // Return in MCP-compatible format
   return {
     type: 'web_research',
     data: result,
-    callbackInstruction: 'Process research results'
-  };
+    callbackInstruction: 'Process research results',
+  }
 }
 ```
 
 ### Vercel AI SDK Integration
+
 ```javascript
 // For chat UI exposing agent capabilities
-import { streamText } from 'ai';
+import { streamText } from 'ai'
 
 export async function streamAgentResponse(prompt, { llm }) {
   const stream = await streamText({
@@ -355,42 +405,45 @@ export async function streamAgentResponse(prompt, { llm }) {
     system: 'You are a Leviathan agent with access to MCP tools',
     prompt,
     tools: mcpTools, // Auto-discovered tools
-  });
-  
-  return stream;
+  })
+
+  return stream
 }
 ```
 
 ## 🎯 Production Considerations
 
 ### Deployment
+
 - Use Docker for service dependencies
 - Environment-based configuration
 - Health checks for all services
 - Graceful shutdown handling
 
 ### Monitoring
+
 ```javascript
 // Use @lev-os/debug for observability
-import { logger, tracer, monitor } from '@lev-os/debug';
+import { logger, tracer, monitor } from '@lev-os/debug'
 
 export async function monitoredOperation() {
-  const span = tracer.startSpan('operation');
+  const span = tracer.startSpan('operation')
   try {
-    const result = await operation();
-    span.setStatus({ code: 'ok' });
-    return result;
+    const result = await operation()
+    span.setStatus({ code: 'ok' })
+    return result
   } catch (error) {
-    logger.error('Operation failed', { error });
-    span.setStatus({ code: 'error' });
-    throw error;
+    logger.error('Operation failed', { error })
+    span.setStatus({ code: 'error' })
+    throw error
   } finally {
-    span.end();
+    span.end()
   }
 }
 ```
 
 ### Error Handling
+
 - Always provide context in errors
 - Use structured error types
 - Implement retry logic for transient failures
@@ -399,6 +452,7 @@ export async function monitoredOperation() {
 ## 🤝 Contributing Guidelines
 
 ### Code Review Checklist
+
 - [ ] Follows hexagonal architecture
 - [ ] Includes MCP tool export
 - [ ] Has comprehensive tests
@@ -408,23 +462,28 @@ export async function monitoredOperation() {
 - [ ] Updates documentation
 
 ### Pull Request Template
+
 ```markdown
 ## Description
+
 Brief description of changes
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Breaking change
 - [ ] Documentation update
 
 ## Testing
+
 - [ ] CLI adapter tested
 - [ ] MCP adapter tested
 - [ ] Bi-directional flow validated
 - [ ] Integration tests pass
 
 ## Checklist
+
 - [ ] Follows constitutional principles
 - [ ] Uses @lev-os/ namespace
 - [ ] Includes proper error handling
@@ -434,36 +493,38 @@ Brief description of changes
 ## 🔮 Future Patterns (In Development)
 
 ### JEPA 2 World Model Integration
+
 ```javascript
 // Predictive intelligence and autonomous optimization
 export async function predictiveAnalysis(context, { jepaModel }) {
   const prediction = await jepaModel.predict({
     currentState: context,
     timeHorizon: '4D', // space + time + code + context
-  });
-  
+  })
+
   return {
     prediction,
     confidence: prediction.confidence,
     suggestedActions: prediction.actions,
-  };
+  }
 }
 ```
 
 ### Quantum Context Entanglement
+
 ```javascript
 // Cross-tab session synchronization
 export async function entangleContext(sessionId, { quantum }) {
-  const entanglement = await quantum.createEntanglement(sessionId);
-  
+  const entanglement = await quantum.createEntanglement(sessionId)
+
   return {
     primarySession: sessionId,
     entangledSessions: entanglement.sessions,
     sharedState: entanglement.state,
-  };
+  }
 }
 ```
 
 ---
 
-**Remember**: Every line of code should ENABLE the LLM, not REPLACE it. The LLM is the runtime, FlowMind orchestrates the intelligence that already exists. 
+**Remember**: Every line of code should ENABLE the LLM, not REPLACE it. The LLM is the runtime, FlowMind orchestrates the intelligence that already exists.

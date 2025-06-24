@@ -1,0 +1,2352 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.880 --> 00:00:02.550 align:start position:0%
+ 
+What's<00:00:01.199><c> up</c><00:00:01.360><c> everyone?</c><00:00:01.839><c> Welcome</c><00:00:02.080><c> back</c><00:00:02.240><c> with</c><00:00:02.399><c> me</c>
+
+00:00:02.550 --> 00:00:02.560 align:start position:0%
+What's up everyone? Welcome back with me
+ 
+
+00:00:02.560 --> 00:00:04.470 align:start position:0%
+What's up everyone? Welcome back with me
+Nathan.<00:00:03.040><c> In</c><00:00:03.280><c> this</c><00:00:03.439><c> video,</c><00:00:03.840><c> I</c><00:00:04.000><c> want</c><00:00:04.160><c> to</c><00:00:04.319><c> show</c>
+
+00:00:04.470 --> 00:00:04.480 align:start position:0%
+Nathan. In this video, I want to show
+ 
+
+00:00:04.480 --> 00:00:06.230 align:start position:0%
+Nathan. In this video, I want to show
+you<00:00:04.640><c> how</c><00:00:04.799><c> to</c><00:00:04.960><c> use</c><00:00:05.120><c> the</c><00:00:05.279><c> memory</c><00:00:05.600><c> bank</c><00:00:05.920><c> feature</c>
+
+00:00:06.230 --> 00:00:06.240 align:start position:0%
+you how to use the memory bank feature
+ 
+
+00:00:06.240 --> 00:00:08.070 align:start position:0%
+you how to use the memory bank feature
+to<00:00:06.480><c> make</c><00:00:06.640><c> your</c><00:00:06.799><c> AI</c><00:00:07.120><c> coding</c><00:00:07.440><c> agent</c><00:00:07.839><c> more</c>
+
+00:00:08.070 --> 00:00:08.080 align:start position:0%
+to make your AI coding agent more
+ 
+
+00:00:08.080 --> 00:00:10.950 align:start position:0%
+to make your AI coding agent more
+efficient<00:00:08.559><c> and</c><00:00:08.800><c> have</c><00:00:09.040><c> less</c><00:00:09.519><c> errors.</c><00:00:10.480><c> So,</c><00:00:10.719><c> the</c>
+
+00:00:10.950 --> 00:00:10.960 align:start position:0%
+efficient and have less errors. So, the
+ 
+
+00:00:10.960 --> 00:00:13.030 align:start position:0%
+efficient and have less errors. So, the
+memory<00:00:11.360><c> bank</c><00:00:11.679><c> feature</c><00:00:12.080><c> was</c><00:00:12.320><c> introduced</c><00:00:12.719><c> by</c>
+
+00:00:13.030 --> 00:00:13.040 align:start position:0%
+memory bank feature was introduced by
+ 
+
+00:00:13.040 --> 00:00:15.749 align:start position:0%
+memory bank feature was introduced by
+Klein,<00:00:13.519><c> the</c><00:00:13.759><c> AI</c><00:00:14.160><c> coding</c><00:00:14.559><c> extension,</c><00:00:15.280><c> as</c><00:00:15.440><c> a</c><00:00:15.679><c> way</c>
+
+00:00:15.749 --> 00:00:15.759 align:start position:0%
+Klein, the AI coding extension, as a way
+ 
+
+00:00:15.759 --> 00:00:17.990 align:start position:0%
+Klein, the AI coding extension, as a way
+to<00:00:16.000><c> make</c><00:00:16.160><c> AI</c><00:00:16.640><c> perform</c><00:00:16.960><c> more</c><00:00:17.279><c> effective</c><00:00:17.680><c> and</c>
+
+00:00:17.990 --> 00:00:18.000 align:start position:0%
+to make AI perform more effective and
+ 
+
+00:00:18.000 --> 00:00:19.990 align:start position:0%
+to make AI perform more effective and
+efficient.<00:00:18.640><c> The</c><00:00:18.880><c> problem</c><00:00:19.039><c> with</c><00:00:19.279><c> AI</c><00:00:19.680><c> coding</c>
+
+00:00:19.990 --> 00:00:20.000 align:start position:0%
+efficient. The problem with AI coding
+ 
+
+00:00:20.000 --> 00:00:21.990 align:start position:0%
+efficient. The problem with AI coding
+agents<00:00:20.320><c> like</c><00:00:20.560><c> client</c><00:00:20.880><c> or</c><00:00:21.119><c> cursor</c><00:00:21.600><c> is</c><00:00:21.840><c> that</c>
+
+00:00:21.990 --> 00:00:22.000 align:start position:0%
+agents like client or cursor is that
+ 
+
+00:00:22.000 --> 00:00:23.910 align:start position:0%
+agents like client or cursor is that
+they<00:00:22.240><c> have</c><00:00:22.400><c> memory</c><00:00:22.800><c> loss.</c><00:00:23.519><c> They</c><00:00:23.760><c> will</c>
+
+00:00:23.910 --> 00:00:23.920 align:start position:0%
+they have memory loss. They will
+ 
+
+00:00:23.920 --> 00:00:26.310 align:start position:0%
+they have memory loss. They will
+eventually<00:00:24.400><c> forget</c><00:00:24.880><c> past</c><00:00:25.199><c> conversations</c><00:00:26.000><c> and</c>
+
+00:00:26.310 --> 00:00:26.320 align:start position:0%
+eventually forget past conversations and
+ 
+
+00:00:26.320 --> 00:00:28.390 align:start position:0%
+eventually forget past conversations and
+lose<00:00:26.640><c> context</c><00:00:27.119><c> because</c><00:00:27.359><c> of</c><00:00:27.519><c> their</c><00:00:27.840><c> limited</c>
+
+00:00:28.390 --> 00:00:28.400 align:start position:0%
+lose context because of their limited
+ 
+
+00:00:28.400 --> 00:00:30.310 align:start position:0%
+lose context because of their limited
+context<00:00:28.880><c> window.</c><00:00:29.439><c> This</c><00:00:29.679><c> means</c><00:00:29.920><c> when</c><00:00:30.160><c> you</c>
+
+00:00:30.310 --> 00:00:30.320 align:start position:0%
+context window. This means when you
+ 
+
+00:00:30.320 --> 00:00:32.069 align:start position:0%
+context window. This means when you
+start<00:00:30.480><c> a</c><00:00:30.640><c> session,</c><00:00:31.199><c> you</c><00:00:31.359><c> either</c><00:00:31.679><c> have</c><00:00:31.840><c> to</c>
+
+00:00:32.069 --> 00:00:32.079 align:start position:0%
+start a session, you either have to
+ 
+
+00:00:32.079 --> 00:00:34.069 align:start position:0%
+start a session, you either have to
+repeat<00:00:32.399><c> explaining</c><00:00:32.960><c> your</c><00:00:33.200><c> project</c><00:00:33.680><c> or</c><00:00:33.920><c> the</c>
+
+00:00:34.069 --> 00:00:34.079 align:start position:0%
+repeat explaining your project or the
+ 
+
+00:00:34.079 --> 00:00:36.229 align:start position:0%
+repeat explaining your project or the
+agent<00:00:34.480><c> has</c><00:00:34.640><c> to</c><00:00:34.800><c> analyze</c><00:00:35.200><c> your</c><00:00:35.440><c> code</c><00:00:35.680><c> base</c><00:00:36.000><c> to</c>
+
+00:00:36.229 --> 00:00:36.239 align:start position:0%
+agent has to analyze your code base to
+ 
+
+00:00:36.239 --> 00:00:38.630 align:start position:0%
+agent has to analyze your code base to
+regain<00:00:36.719><c> context.</c><00:00:37.520><c> To</c><00:00:37.760><c> solve</c><00:00:37.920><c> this</c><00:00:38.160><c> memory</c>
+
+00:00:38.630 --> 00:00:38.640 align:start position:0%
+regain context. To solve this memory
+ 
+
+00:00:38.640 --> 00:00:40.950 align:start position:0%
+regain context. To solve this memory
+problem,<00:00:39.280><c> client</c><00:00:39.680><c> proposed</c><00:00:40.079><c> the</c><00:00:40.239><c> memory</c><00:00:40.640><c> bank</c>
+
+00:00:40.950 --> 00:00:40.960 align:start position:0%
+problem, client proposed the memory bank
+ 
+
+00:00:40.960 --> 00:00:43.190 align:start position:0%
+problem, client proposed the memory bank
+feature.<00:00:41.600><c> It</c><00:00:41.760><c> stores</c><00:00:42.079><c> structured</c><00:00:42.640><c> files</c><00:00:42.960><c> to</c>
+
+00:00:43.190 --> 00:00:43.200 align:start position:0%
+feature. It stores structured files to
+ 
+
+00:00:43.200 --> 00:00:45.510 align:start position:0%
+feature. It stores structured files to
+help<00:00:43.360><c> the</c><00:00:43.600><c> AI</c><00:00:44.079><c> retain</c><00:00:44.559><c> context</c><00:00:45.120><c> across</c>
+
+00:00:45.510 --> 00:00:45.520 align:start position:0%
+help the AI retain context across
+ 
+
+00:00:45.520 --> 00:00:47.830 align:start position:0%
+help the AI retain context across
+multiple<00:00:45.920><c> sessions.</c><00:00:46.800><c> This</c><00:00:47.039><c> way,</c><00:00:47.360><c> you</c><00:00:47.600><c> don't</c>
+
+00:00:47.830 --> 00:00:47.840 align:start position:0%
+multiple sessions. This way, you don't
+ 
+
+00:00:47.840 --> 00:00:49.590 align:start position:0%
+multiple sessions. This way, you don't
+have<00:00:48.000><c> to</c><00:00:48.160><c> keep</c><00:00:48.399><c> explaining</c><00:00:48.879><c> things.</c><00:00:49.440><c> The</c>
+
+00:00:49.590 --> 00:00:49.600 align:start position:0%
+have to keep explaining things. The
+ 
+
+00:00:49.600 --> 00:00:51.510 align:start position:0%
+have to keep explaining things. The
+context<00:00:50.000><c> window</c><00:00:50.399><c> doesn't</c><00:00:50.640><c> get</c><00:00:50.800><c> filled</c><00:00:51.120><c> up,</c>
+
+00:00:51.510 --> 00:00:51.520 align:start position:0%
+context window doesn't get filled up,
+ 
+
+00:00:51.520 --> 00:00:53.350 align:start position:0%
+context window doesn't get filled up,
+which<00:00:51.840><c> reduces</c><00:00:52.239><c> or</c><00:00:52.559><c> even</c><00:00:52.719><c> eliminates</c>
+
+00:00:53.350 --> 00:00:53.360 align:start position:0%
+which reduces or even eliminates
+ 
+
+00:00:53.360 --> 00:00:56.069 align:start position:0%
+which reduces or even eliminates
+hallucinations.<00:00:54.559><c> Basically,</c><00:00:55.280><c> memory</c><00:00:55.680><c> bank</c>
+
+00:00:56.069 --> 00:00:56.079 align:start position:0%
+hallucinations. Basically, memory bank
+ 
+
+00:00:56.079 --> 00:00:58.069 align:start position:0%
+hallucinations. Basically, memory bank
+is<00:00:56.239><c> a</c><00:00:56.480><c> set</c><00:00:56.640><c> of</c><00:00:56.800><c> custom</c><00:00:57.199><c> rules</c><00:00:57.440><c> that</c><00:00:57.680><c> instructs</c>
+
+00:00:58.069 --> 00:00:58.079 align:start position:0%
+is a set of custom rules that instructs
+ 
+
+00:00:58.079 --> 00:01:00.229 align:start position:0%
+is a set of custom rules that instructs
+your<00:00:58.320><c> AI</c><00:00:58.719><c> coder</c><00:00:59.120><c> to</c><00:00:59.359><c> maintain</c><00:00:59.760><c> specific</c>
+
+00:01:00.229 --> 00:01:00.239 align:start position:0%
+your AI coder to maintain specific
+ 
+
+00:01:00.239 --> 00:01:02.709 align:start position:0%
+your AI coder to maintain specific
+markdown<00:01:00.719><c> files</c><00:01:01.039><c> as</c><00:01:01.359><c> documentation.</c><00:01:02.480><c> These</c>
+
+00:01:02.709 --> 00:01:02.719 align:start position:0%
+markdown files as documentation. These
+ 
+
+00:01:02.719 --> 00:01:04.630 align:start position:0%
+markdown files as documentation. These
+markdown<00:01:03.199><c> files</c><00:01:03.520><c> will</c><00:01:03.760><c> record</c><00:01:04.159><c> important</c>
+
+00:01:04.630 --> 00:01:04.640 align:start position:0%
+markdown files will record important
+ 
+
+00:01:04.640 --> 00:01:06.550 align:start position:0%
+markdown files will record important
+information<00:01:05.040><c> about</c><00:01:05.360><c> your</c><00:01:05.600><c> project,</c><00:01:06.159><c> such</c><00:01:06.400><c> as</c>
+
+00:01:06.550 --> 00:01:06.560 align:start position:0%
+information about your project, such as
+ 
+
+00:01:06.560 --> 00:01:08.630 align:start position:0%
+information about your project, such as
+describing<00:01:07.040><c> the</c><00:01:07.360><c> project</c><00:01:07.680><c> details,</c><00:01:08.400><c> the</c>
+
+00:01:08.630 --> 00:01:08.640 align:start position:0%
+describing the project details, the
+ 
+
+00:01:08.640 --> 00:01:10.469 align:start position:0%
+describing the project details, the
+system<00:01:08.880><c> architecture</c><00:01:09.439><c> and</c><00:01:09.680><c> technology</c><00:01:10.159><c> stack</c>
+
+00:01:10.469 --> 00:01:10.479 align:start position:0%
+system architecture and technology stack
+ 
+
+00:01:10.479 --> 00:01:12.710 align:start position:0%
+system architecture and technology stack
+you<00:01:10.640><c> use</c><00:01:10.799><c> in</c><00:01:11.040><c> the</c><00:01:11.200><c> project,</c><00:01:11.840><c> keeping</c><00:01:12.240><c> track</c><00:01:12.479><c> of</c>
+
+00:01:12.710 --> 00:01:12.720 align:start position:0%
+you use in the project, keeping track of
+ 
+
+00:01:12.720 --> 00:01:14.710 align:start position:0%
+you use in the project, keeping track of
+the<00:01:12.880><c> tasks</c><00:01:13.360><c> you're</c><00:01:13.520><c> trying</c><00:01:13.680><c> to</c><00:01:13.840><c> do</c><00:01:14.159><c> and</c><00:01:14.400><c> any</c>
+
+00:01:14.710 --> 00:01:14.720 align:start position:0%
+the tasks you're trying to do and any
+ 
+
+00:01:14.720 --> 00:01:16.950 align:start position:0%
+the tasks you're trying to do and any
+other<00:01:15.040><c> relevant</c><00:01:15.600><c> information.</c><00:01:16.560><c> When</c><00:01:16.799><c> you</c>
+
+00:01:16.950 --> 00:01:16.960 align:start position:0%
+other relevant information. When you
+ 
+
+00:01:16.960 --> 00:01:19.030 align:start position:0%
+other relevant information. When you
+start<00:01:17.119><c> a</c><00:01:17.280><c> new</c><00:01:17.439><c> session,</c><00:01:18.080><c> the</c><00:01:18.320><c> AI</c><00:01:18.720><c> will</c><00:01:18.880><c> look</c>
+
+00:01:19.030 --> 00:01:19.040 align:start position:0%
+start a new session, the AI will look
+ 
+
+00:01:19.040 --> 00:01:20.789 align:start position:0%
+start a new session, the AI will look
+into<00:01:19.200><c> the</c><00:01:19.360><c> memory</c><00:01:19.680><c> bank</c><00:01:20.000><c> files</c><00:01:20.240><c> to</c><00:01:20.479><c> understand</c>
+
+00:01:20.789 --> 00:01:20.799 align:start position:0%
+into the memory bank files to understand
+ 
+
+00:01:20.799 --> 00:01:22.710 align:start position:0%
+into the memory bank files to understand
+your<00:01:21.040><c> project,</c><00:01:21.759><c> so</c><00:01:22.000><c> you</c><00:01:22.159><c> don't</c><00:01:22.320><c> have</c><00:01:22.479><c> to</c>
+
+00:01:22.710 --> 00:01:22.720 align:start position:0%
+your project, so you don't have to
+ 
+
+00:01:22.720 --> 00:01:25.109 align:start position:0%
+your project, so you don't have to
+repeat<00:01:23.040><c> explaining</c><00:01:23.600><c> your</c><00:01:23.840><c> project</c><00:01:24.159><c> details.</c>
+
+00:01:25.109 --> 00:01:25.119 align:start position:0%
+repeat explaining your project details.
+ 
+
+00:01:25.119 --> 00:01:27.109 align:start position:0%
+repeat explaining your project details.
+The<00:01:25.280><c> memory</c><00:01:25.600><c> bank</c><00:01:25.840><c> can</c><00:01:26.080><c> also</c><00:01:26.240><c> be</c><00:01:26.400><c> updated</c><00:01:26.799><c> when</c>
+
+00:01:27.109 --> 00:01:27.119 align:start position:0%
+The memory bank can also be updated when
+ 
+
+00:01:27.119 --> 00:01:28.950 align:start position:0%
+The memory bank can also be updated when
+specific<00:01:27.600><c> milestones</c><00:01:28.080><c> in</c><00:01:28.320><c> your</c><00:01:28.479><c> project</c><00:01:28.720><c> is</c>
+
+00:01:28.950 --> 00:01:28.960 align:start position:0%
+specific milestones in your project is
+ 
+
+00:01:28.960 --> 00:01:30.870 align:start position:0%
+specific milestones in your project is
+achieved,<00:01:29.439><c> so</c><00:01:29.680><c> it</c><00:01:29.840><c> will</c><00:01:30.000><c> always</c><00:01:30.320><c> be</c><00:01:30.560><c> up</c><00:01:30.720><c> to</c>
+
+00:01:30.870 --> 00:01:30.880 align:start position:0%
+achieved, so it will always be up to
+ 
+
+00:01:30.880 --> 00:01:33.270 align:start position:0%
+achieved, so it will always be up to
+date.<00:01:31.439><c> In</c><00:01:31.759><c> essence,</c><00:01:32.320><c> memory</c><00:01:32.720><c> bank</c><00:01:33.040><c> will</c>
+
+00:01:33.270 --> 00:01:33.280 align:start position:0%
+date. In essence, memory bank will
+ 
+
+00:01:33.280 --> 00:01:35.270 align:start position:0%
+date. In essence, memory bank will
+maintain<00:01:33.600><c> six</c><00:01:33.920><c> files</c><00:01:34.400><c> related</c><00:01:34.799><c> to</c><00:01:35.040><c> your</c>
+
+00:01:35.270 --> 00:01:35.280 align:start position:0%
+maintain six files related to your
+ 
+
+00:01:35.280 --> 00:01:37.350 align:start position:0%
+maintain six files related to your
+project.<00:01:36.000><c> The</c><00:01:36.240><c> first</c><00:01:36.400><c> file</c><00:01:36.640><c> is</c><00:01:36.799><c> the</c><00:01:37.040><c> project</c>
+
+00:01:37.350 --> 00:01:37.360 align:start position:0%
+project. The first file is the project
+ 
+
+00:01:37.360 --> 00:01:39.270 align:start position:0%
+project. The first file is the project
+brief,<00:01:37.759><c> which</c><00:01:38.000><c> is</c><00:01:38.159><c> the</c><00:01:38.400><c> foundation</c><00:01:38.880><c> document</c>
+
+00:01:39.270 --> 00:01:39.280 align:start position:0%
+brief, which is the foundation document
+ 
+
+00:01:39.280 --> 00:01:41.590 align:start position:0%
+brief, which is the foundation document
+that<00:01:39.520><c> shapes</c><00:01:39.840><c> all</c><00:01:40.000><c> other</c><00:01:40.320><c> files.</c><00:01:41.040><c> This</c><00:01:41.360><c> file</c>
+
+00:01:41.590 --> 00:01:41.600 align:start position:0%
+that shapes all other files. This file
+ 
+
+00:01:41.600 --> 00:01:43.510 align:start position:0%
+that shapes all other files. This file
+creates<00:01:41.920><c> a</c><00:01:42.000><c> highlevel</c><00:01:42.640><c> overview</c><00:01:43.040><c> of</c><00:01:43.280><c> what</c>
+
+00:01:43.510 --> 00:01:43.520 align:start position:0%
+creates a highlevel overview of what
+ 
+
+00:01:43.520 --> 00:01:45.510 align:start position:0%
+creates a highlevel overview of what
+you're<00:01:43.759><c> building</c><00:01:44.479><c> as</c><00:01:44.720><c> well</c><00:01:44.880><c> as</c><00:01:45.119><c> core</c>
+
+00:01:45.510 --> 00:01:45.520 align:start position:0%
+you're building as well as core
+ 
+
+00:01:45.520 --> 00:01:47.350 align:start position:0%
+you're building as well as core
+requirements<00:01:46.079><c> and</c><00:01:46.320><c> goals.</c><00:01:46.880><c> There</c><00:01:47.040><c> is</c><00:01:47.200><c> an</c>
+
+00:01:47.350 --> 00:01:47.360 align:start position:0%
+requirements and goals. There is an
+ 
+
+00:01:47.360 --> 00:01:49.510 align:start position:0%
+requirements and goals. There is an
+example<00:01:47.759><c> added</c><00:01:48.159><c> here,</c><00:01:48.479><c> but</c><00:01:48.799><c> usually</c><00:01:49.200><c> a</c>
+
+00:01:49.510 --> 00:01:49.520 align:start position:0%
+example added here, but usually a
+ 
+
+00:01:49.520 --> 00:01:51.590 align:start position:0%
+example added here, but usually a
+project<00:01:49.840><c> brief</c><00:01:50.240><c> is</c><00:01:50.479><c> much</c><00:01:50.799><c> more</c><00:01:50.960><c> detailed</c><00:01:51.360><c> than</c>
+
+00:01:51.590 --> 00:01:51.600 align:start position:0%
+project brief is much more detailed than
+ 
+
+00:01:51.600 --> 00:01:53.830 align:start position:0%
+project brief is much more detailed than
+this.<00:01:52.320><c> Next,</c><00:01:52.720><c> you</c><00:01:52.960><c> will</c><00:01:53.119><c> have</c><00:01:53.280><c> the</c><00:01:53.520><c> product</c>
+
+00:01:53.830 --> 00:01:53.840 align:start position:0%
+this. Next, you will have the product
+ 
+
+00:01:53.840 --> 00:01:56.389 align:start position:0%
+this. Next, you will have the product
+context,<00:01:54.640><c> which</c><00:01:54.960><c> explains</c><00:01:55.520><c> why</c><00:01:55.759><c> the</c><00:01:56.079><c> project</c>
+
+00:01:56.389 --> 00:01:56.399 align:start position:0%
+context, which explains why the project
+ 
+
+00:01:56.399 --> 00:01:58.469 align:start position:0%
+context, which explains why the project
+exists,<00:01:57.040><c> describes</c><00:01:57.520><c> the</c><00:01:57.840><c> problems</c><00:01:58.240><c> being</c>
+
+00:01:58.469 --> 00:01:58.479 align:start position:0%
+exists, describes the problems being
+ 
+
+00:01:58.479 --> 00:02:00.230 align:start position:0%
+exists, describes the problems being
+solved,<00:01:58.880><c> and</c><00:01:59.119><c> outlines</c><00:01:59.520><c> how</c><00:01:59.680><c> the</c><00:02:00.000><c> product</c>
+
+00:02:00.230 --> 00:02:00.240 align:start position:0%
+solved, and outlines how the product
+ 
+
+00:02:00.240 --> 00:02:02.149 align:start position:0%
+solved, and outlines how the product
+should<00:02:00.560><c> work.</c><00:02:01.040><c> Then</c><00:02:01.280><c> there's</c><00:02:01.600><c> the</c><00:02:01.759><c> active</c>
+
+00:02:02.149 --> 00:02:02.159 align:start position:0%
+should work. Then there's the active
+ 
+
+00:02:02.159 --> 00:02:04.469 align:start position:0%
+should work. Then there's the active
+context<00:02:02.880><c> which</c><00:02:03.200><c> lists</c><00:02:03.600><c> the</c><00:02:03.840><c> most</c><00:02:04.000><c> frequently</c>
+
+00:02:04.469 --> 00:02:04.479 align:start position:0%
+context which lists the most frequently
+ 
+
+00:02:04.479 --> 00:02:06.789 align:start position:0%
+context which lists the most frequently
+updated<00:02:04.960><c> files,</c><00:02:05.680><c> contains</c><00:02:06.159><c> current</c><00:02:06.479><c> work</c>
+
+00:02:06.789 --> 00:02:06.799 align:start position:0%
+updated files, contains current work
+ 
+
+00:02:06.799 --> 00:02:09.350 align:start position:0%
+updated files, contains current work
+focus<00:02:07.280><c> and</c><00:02:07.520><c> recent</c><00:02:07.920><c> changes,</c><00:02:08.640><c> tracks</c><00:02:09.039><c> active</c>
+
+00:02:09.350 --> 00:02:09.360 align:start position:0%
+focus and recent changes, tracks active
+ 
+
+00:02:09.360 --> 00:02:11.910 align:start position:0%
+focus and recent changes, tracks active
+decisions<00:02:09.840><c> and</c><00:02:10.080><c> considerations</c><00:02:11.280><c> and</c><00:02:11.599><c> stores</c>
+
+00:02:11.910 --> 00:02:11.920 align:start position:0%
+decisions and considerations and stores
+ 
+
+00:02:11.920 --> 00:02:14.390 align:start position:0%
+decisions and considerations and stores
+important<00:02:12.480><c> patterns</c><00:02:12.959><c> and</c><00:02:13.200><c> learnings.</c><00:02:14.080><c> After</c>
+
+00:02:14.390 --> 00:02:14.400 align:start position:0%
+important patterns and learnings. After
+ 
+
+00:02:14.400 --> 00:02:16.550 align:start position:0%
+important patterns and learnings. After
+that,<00:02:14.640><c> there's</c><00:02:14.959><c> the</c><00:02:15.200><c> system</c><00:02:15.440><c> patterns</c><00:02:16.239><c> which</c>
+
+00:02:16.550 --> 00:02:16.560 align:start position:0%
+that, there's the system patterns which
+ 
+
+00:02:16.560 --> 00:02:18.630 align:start position:0%
+that, there's the system patterns which
+documents<00:02:17.120><c> the</c><00:02:17.360><c> system</c><00:02:17.599><c> architecture,</c>
+
+00:02:18.630 --> 00:02:18.640 align:start position:0%
+documents the system architecture,
+ 
+
+00:02:18.640 --> 00:02:21.110 align:start position:0%
+documents the system architecture,
+records<00:02:19.040><c> key</c><00:02:19.280><c> technical</c><00:02:19.760><c> decisions,</c><00:02:20.640><c> listes</c>
+
+00:02:21.110 --> 00:02:21.120 align:start position:0%
+records key technical decisions, listes
+ 
+
+00:02:21.120 --> 00:02:23.190 align:start position:0%
+records key technical decisions, listes
+design<00:02:21.440><c> patterns</c><00:02:21.840><c> in</c><00:02:22.080><c> use,</c><00:02:22.480><c> and</c><00:02:22.720><c> explains</c>
+
+00:02:23.190 --> 00:02:23.200 align:start position:0%
+design patterns in use, and explains
+ 
+
+00:02:23.200 --> 00:02:25.589 align:start position:0%
+design patterns in use, and explains
+component<00:02:23.840><c> relationships.</c><00:02:24.959><c> And</c><00:02:25.120><c> then</c><00:02:25.440><c> the</c>
+
+00:02:25.589 --> 00:02:25.599 align:start position:0%
+component relationships. And then the
+ 
+
+00:02:25.599 --> 00:02:27.830 align:start position:0%
+component relationships. And then the
+tech<00:02:25.920><c> context</c><00:02:26.640><c> lists</c><00:02:27.120><c> technologies</c><00:02:27.599><c> and</c>
+
+00:02:27.830 --> 00:02:27.840 align:start position:0%
+tech context lists technologies and
+ 
+
+00:02:27.840 --> 00:02:29.910 align:start position:0%
+tech context lists technologies and
+frameworks<00:02:28.400><c> used,</c><00:02:28.800><c> describes</c><00:02:29.360><c> development</c>
+
+00:02:29.910 --> 00:02:29.920 align:start position:0%
+frameworks used, describes development
+ 
+
+00:02:29.920 --> 00:02:32.390 align:start position:0%
+frameworks used, describes development
+setup,<00:02:30.560><c> notes</c><00:02:30.879><c> technical</c><00:02:31.360><c> constraints,</c><00:02:32.160><c> and</c>
+
+00:02:32.390 --> 00:02:32.400 align:start position:0%
+setup, notes technical constraints, and
+ 
+
+00:02:32.400 --> 00:02:34.070 align:start position:0%
+setup, notes technical constraints, and
+records<00:02:32.879><c> dependencies</c><00:02:33.519><c> and</c><00:02:33.760><c> tool</c>
+
+00:02:34.070 --> 00:02:34.080 align:start position:0%
+records dependencies and tool
+ 
+
+00:02:34.080 --> 00:02:36.150 align:start position:0%
+records dependencies and tool
+configurations.<00:02:35.280><c> And</c><00:02:35.440><c> finally,</c><00:02:35.920><c> the</c>
+
+00:02:36.150 --> 00:02:36.160 align:start position:0%
+configurations. And finally, the
+ 
+
+00:02:36.160 --> 00:02:38.229 align:start position:0%
+configurations. And finally, the
+progress<00:02:36.560><c> file</c><00:02:36.959><c> tracks</c><00:02:37.360><c> what</c><00:02:37.599><c> works</c><00:02:37.920><c> and</c>
+
+00:02:38.229 --> 00:02:38.239 align:start position:0%
+progress file tracks what works and
+ 
+
+00:02:38.239 --> 00:02:40.229 align:start position:0%
+progress file tracks what works and
+what's<00:02:38.400><c> left</c><00:02:38.640><c> to</c><00:02:38.879><c> build.</c><00:02:39.280><c> It</c><00:02:39.519><c> also</c><00:02:39.760><c> records</c>
+
+00:02:40.229 --> 00:02:40.239 align:start position:0%
+what's left to build. It also records
+ 
+
+00:02:40.239 --> 00:02:42.470 align:start position:0%
+what's left to build. It also records
+current<00:02:40.560><c> status</c><00:02:40.959><c> of</c><00:02:41.200><c> features,</c><00:02:41.840><c> list</c><00:02:42.239><c> known</c>
+
+00:02:42.470 --> 00:02:42.480 align:start position:0%
+current status of features, list known
+ 
+
+00:02:42.480 --> 00:02:44.550 align:start position:0%
+current status of features, list known
+issues<00:02:42.800><c> and</c><00:02:43.040><c> limitations,</c><00:02:43.920><c> and</c><00:02:44.160><c> documents</c>
+
+00:02:44.550 --> 00:02:44.560 align:start position:0%
+issues and limitations, and documents
+ 
+
+00:02:44.560 --> 00:02:47.270 align:start position:0%
+issues and limitations, and documents
+the<00:02:44.800><c> evolution</c><00:02:45.360><c> of</c><00:02:45.680><c> project</c><00:02:46.080><c> decisions.</c><00:02:46.959><c> When</c>
+
+00:02:47.270 --> 00:02:47.280 align:start position:0%
+the evolution of project decisions. When
+ 
+
+00:02:47.280 --> 00:02:48.949 align:start position:0%
+the evolution of project decisions. When
+needed,<00:02:47.680><c> the</c><00:02:47.840><c> AI</c><00:02:48.239><c> can</c><00:02:48.400><c> also</c><00:02:48.640><c> create</c>
+
+00:02:48.949 --> 00:02:48.959 align:start position:0%
+needed, the AI can also create
+ 
+
+00:02:48.959 --> 00:02:50.790 align:start position:0%
+needed, the AI can also create
+additional<00:02:49.519><c> files</c><00:02:49.840><c> to</c><00:02:50.080><c> organize</c><00:02:50.480><c> other</c>
+
+00:02:50.790 --> 00:02:50.800 align:start position:0%
+additional files to organize other
+ 
+
+00:02:50.800 --> 00:02:52.949 align:start position:0%
+additional files to organize other
+relevant<00:02:51.200><c> information</c><00:02:52.080><c> such</c><00:02:52.239><c> as</c><00:02:52.480><c> complex</c>
+
+00:02:52.949 --> 00:02:52.959 align:start position:0%
+relevant information such as complex
+ 
+
+00:02:52.959 --> 00:02:55.110 align:start position:0%
+relevant information such as complex
+feature<00:02:53.360><c> documentation,</c><00:02:54.400><c> integration</c>
+
+00:02:55.110 --> 00:02:55.120 align:start position:0%
+feature documentation, integration
+ 
+
+00:02:55.120 --> 00:02:58.070 align:start position:0%
+feature documentation, integration
+specifications,<00:02:56.480><c> API</c><00:02:56.959><c> documentation,</c>
+
+00:02:58.070 --> 00:02:58.080 align:start position:0%
+specifications, API documentation,
+ 
+
+00:02:58.080 --> 00:03:00.229 align:start position:0%
+specifications, API documentation,
+testing<00:02:58.480><c> strategies,</c><00:02:59.440><c> and</c><00:02:59.680><c> deployment</c>
+
+00:03:00.229 --> 00:03:00.239 align:start position:0%
+testing strategies, and deployment
+ 
+
+00:03:00.239 --> 00:03:02.070 align:start position:0%
+testing strategies, and deployment
+procedures.<00:03:01.200><c> And</c><00:03:01.360><c> that</c><00:03:01.519><c> will</c><00:03:01.680><c> be</c><00:03:01.840><c> everything</c>
+
+00:03:02.070 --> 00:03:02.080 align:start position:0%
+procedures. And that will be everything
+ 
+
+00:03:02.080 --> 00:03:04.149 align:start position:0%
+procedures. And that will be everything
+you<00:03:02.319><c> need</c><00:03:02.480><c> to</c><00:03:02.560><c> know</c><00:03:02.720><c> about</c><00:03:02.959><c> memory</c><00:03:03.440><c> bank.</c>
+
+00:03:04.149 --> 00:03:04.159 align:start position:0%
+you need to know about memory bank.
+ 
+
+00:03:04.159 --> 00:03:06.149 align:start position:0%
+you need to know about memory bank.
+Next,<00:03:04.640><c> let</c><00:03:04.879><c> me</c><00:03:05.040><c> show</c><00:03:05.200><c> you</c><00:03:05.440><c> how</c><00:03:05.599><c> to</c><00:03:05.760><c> create</c><00:03:06.000><c> a</c>
+
+00:03:06.149 --> 00:03:06.159 align:start position:0%
+Next, let me show you how to create a
+ 
+
+00:03:06.159 --> 00:03:08.470 align:start position:0%
+Next, let me show you how to create a
+memory<00:03:06.480><c> bank</c><00:03:06.800><c> for</c><00:03:07.040><c> existing</c><00:03:07.599><c> projects,</c><00:03:08.159><c> both</c>
+
+00:03:08.470 --> 00:03:08.480 align:start position:0%
+memory bank for existing projects, both
+ 
+
+00:03:08.480 --> 00:03:10.790 align:start position:0%
+memory bank for existing projects, both
+in<00:03:08.720><c> client</c><00:03:08.959><c> and</c><00:03:09.200><c> cursor.</c><00:03:10.080><c> Now,</c><00:03:10.319><c> before</c><00:03:10.560><c> we</c><00:03:10.720><c> get</c>
+
+00:03:10.790 --> 00:03:10.800 align:start position:0%
+in client and cursor. Now, before we get
+ 
+
+00:03:10.800 --> 00:03:12.390 align:start position:0%
+in client and cursor. Now, before we get
+into<00:03:11.040><c> the</c><00:03:11.200><c> exciting</c><00:03:11.599><c> part,</c><00:03:12.000><c> please</c><00:03:12.239><c> don't</c>
+
+00:03:12.390 --> 00:03:12.400 align:start position:0%
+into the exciting part, please don't
+ 
+
+00:03:12.400 --> 00:03:13.910 align:start position:0%
+into the exciting part, please don't
+forget<00:03:12.720><c> to</c><00:03:12.959><c> subscribe</c><00:03:13.280><c> to</c><00:03:13.440><c> my</c><00:03:13.680><c> YouTube</c>
+
+00:03:13.910 --> 00:03:13.920 align:start position:0%
+forget to subscribe to my YouTube
+ 
+
+00:03:13.920 --> 00:03:15.509 align:start position:0%
+forget to subscribe to my YouTube
+channel.<00:03:14.400><c> Just</c><00:03:14.640><c> click</c><00:03:14.800><c> on</c><00:03:14.959><c> the</c><00:03:15.200><c> subscribe</c>
+
+00:03:15.509 --> 00:03:15.519 align:start position:0%
+channel. Just click on the subscribe
+ 
+
+00:03:15.519 --> 00:03:17.270 align:start position:0%
+channel. Just click on the subscribe
+button<00:03:15.760><c> down</c><00:03:16.000><c> below</c><00:03:16.400><c> and</c><00:03:16.720><c> please</c><00:03:16.879><c> help</c><00:03:17.120><c> me</c>
+
+00:03:17.270 --> 00:03:17.280 align:start position:0%
+button down below and please help me
+ 
+
+00:03:17.280 --> 00:03:19.589 align:start position:0%
+button down below and please help me
+reach<00:03:17.680><c> 100,000</c><00:03:18.400><c> subscribers</c><00:03:18.959><c> by</c><00:03:19.200><c> the</c><00:03:19.360><c> end</c><00:03:19.519><c> of</c>
+
+00:03:19.589 --> 00:03:19.599 align:start position:0%
+reach 100,000 subscribers by the end of
+ 
+
+00:03:19.599 --> 00:03:21.509 align:start position:0%
+reach 100,000 subscribers by the end of
+this<00:03:19.840><c> year</c><00:03:20.159><c> as</c><00:03:20.400><c> it</c><00:03:20.560><c> will</c><00:03:20.720><c> mean</c><00:03:20.800><c> a</c><00:03:21.040><c> lot</c><00:03:21.120><c> to</c><00:03:21.280><c> me</c>
+
+00:03:21.509 --> 00:03:21.519 align:start position:0%
+this year as it will mean a lot to me
+ 
+
+00:03:21.519 --> 00:03:23.190 align:start position:0%
+this year as it will mean a lot to me
+making<00:03:21.760><c> me</c><00:03:21.920><c> feel</c><00:03:22.159><c> more</c><00:03:22.400><c> excited</c><00:03:22.720><c> to</c><00:03:22.959><c> create</c>
+
+00:03:23.190 --> 00:03:23.200 align:start position:0%
+making me feel more excited to create
+ 
+
+00:03:23.200 --> 00:03:26.390 align:start position:0%
+making me feel more excited to create
+useful<00:03:23.680><c> videos</c><00:03:24.080><c> just</c><00:03:24.319><c> like</c><00:03:24.560><c> this</c><00:03:24.800><c> one.</c><00:03:25.840><c> Okay,</c>
+
+00:03:26.390 --> 00:03:26.400 align:start position:0%
+useful videos just like this one. Okay,
+ 
+
+00:03:26.400 --> 00:03:29.190 align:start position:0%
+useful videos just like this one. Okay,
+so<00:03:26.720><c> here</c><00:03:26.959><c> I</c><00:03:27.200><c> have</c><00:03:27.440><c> client</c><00:03:27.840><c> open</c><00:03:28.159><c> in</c><00:03:28.400><c> VS</c><00:03:28.800><c> Code</c>
+
+00:03:29.190 --> 00:03:29.200 align:start position:0%
+so here I have client open in VS Code
+ 
+
+00:03:29.200 --> 00:03:31.350 align:start position:0%
+so here I have client open in VS Code
+and<00:03:29.440><c> I</c><00:03:29.599><c> have</c><00:03:29.760><c> a</c><00:03:29.920><c> web</c><00:03:30.239><c> application</c><00:03:30.799><c> project</c>
+
+00:03:31.350 --> 00:03:31.360 align:start position:0%
+and I have a web application project
+ 
+
+00:03:31.360 --> 00:03:33.830 align:start position:0%
+and I have a web application project
+created<00:03:31.760><c> using</c><00:03:32.000><c> Nex.js</c><00:03:32.799><c> on</c><00:03:32.959><c> the</c><00:03:33.120><c> left</c><00:03:33.280><c> side.</c>
+
+00:03:33.830 --> 00:03:33.840 align:start position:0%
+created using Nex.js on the left side.
+ 
+
+00:03:33.840 --> 00:03:35.910 align:start position:0%
+created using Nex.js on the left side.
+In<00:03:34.080><c> this</c><00:03:34.239><c> demo,</c><00:03:34.720><c> we</c><00:03:34.959><c> will</c><00:03:35.120><c> try</c><00:03:35.280><c> to</c><00:03:35.519><c> create</c><00:03:35.680><c> a</c>
+
+00:03:35.910 --> 00:03:35.920 align:start position:0%
+In this demo, we will try to create a
+ 
+
+00:03:35.920 --> 00:03:38.309 align:start position:0%
+In this demo, we will try to create a
+memory<00:03:36.239><c> bank</c><00:03:36.560><c> for</c><00:03:36.799><c> this</c><00:03:37.040><c> project.</c><00:03:37.680><c> So</c><00:03:38.000><c> the</c>
+
+00:03:38.309 --> 00:03:38.319 align:start position:0%
+memory bank for this project. So the
+ 
+
+00:03:38.319 --> 00:03:39.990 align:start position:0%
+memory bank for this project. So the
+first<00:03:38.480><c> thing</c><00:03:38.560><c> we</c><00:03:38.799><c> need</c><00:03:38.959><c> to</c><00:03:39.120><c> do</c><00:03:39.280><c> is</c><00:03:39.440><c> to</c><00:03:39.599><c> open</c><00:03:39.760><c> the</c>
+
+00:03:39.990 --> 00:03:40.000 align:start position:0%
+first thing we need to do is to open the
+ 
+
+00:03:40.000 --> 00:03:41.990 align:start position:0%
+first thing we need to do is to open the
+client<00:03:40.319><c> window</c><00:03:40.879><c> and</c><00:03:41.120><c> then</c><00:03:41.360><c> click</c><00:03:41.599><c> on</c><00:03:41.760><c> the</c>
+
+00:03:41.990 --> 00:03:42.000 align:start position:0%
+client window and then click on the
+ 
+
+00:03:42.000 --> 00:03:44.309 align:start position:0%
+client window and then click on the
+scale<00:03:42.480><c> icon</c><00:03:42.879><c> on</c><00:03:43.120><c> the</c><00:03:43.280><c> bottom</c><00:03:43.599><c> left</c><00:03:43.920><c> corner</c>
+
+00:03:44.309 --> 00:03:44.319 align:start position:0%
+scale icon on the bottom left corner
+ 
+
+00:03:44.319 --> 00:03:46.710 align:start position:0%
+scale icon on the bottom left corner
+over<00:03:44.640><c> here.</c><00:03:45.280><c> This</c><00:03:45.519><c> will</c><00:03:45.680><c> open</c><00:03:46.080><c> client</c><00:03:46.400><c> rules</c>
+
+00:03:46.710 --> 00:03:46.720 align:start position:0%
+over here. This will open client rules
+ 
+
+00:03:46.720 --> 00:03:49.110 align:start position:0%
+over here. This will open client rules
+and<00:03:46.879><c> workflow</c><00:03:47.440><c> settings.</c><00:03:48.239><c> In</c><00:03:48.400><c> this</c><00:03:48.640><c> settings,</c>
+
+00:03:49.110 --> 00:03:49.120 align:start position:0%
+and workflow settings. In this settings,
+ 
+
+00:03:49.120 --> 00:03:51.190 align:start position:0%
+and workflow settings. In this settings,
+you<00:03:49.360><c> can</c><00:03:49.440><c> create</c><00:03:49.760><c> custom</c><00:03:50.080><c> rules</c><00:03:50.400><c> globally</c><00:03:50.879><c> or</c>
+
+00:03:51.190 --> 00:03:51.200 align:start position:0%
+you can create custom rules globally or
+ 
+
+00:03:51.200 --> 00:03:53.509 align:start position:0%
+you can create custom rules globally or
+specific<00:03:51.760><c> for</c><00:03:51.920><c> the</c><00:03:52.080><c> current</c><00:03:52.400><c> workspace.</c><00:03:53.280><c> We</c>
+
+00:03:53.509 --> 00:03:53.519 align:start position:0%
+specific for the current workspace. We
+ 
+
+00:03:53.519 --> 00:03:55.350 align:start position:0%
+specific for the current workspace. We
+will<00:03:53.680><c> create</c><00:03:53.920><c> one</c><00:03:54.159><c> globally</c><00:03:54.640><c> for</c><00:03:54.879><c> now</c><00:03:55.120><c> and</c>
+
+00:03:55.350 --> 00:03:55.360 align:start position:0%
+will create one globally for now and
+ 
+
+00:03:55.360 --> 00:04:01.110 align:start position:0%
+will create one globally for now and
+name<00:03:55.599><c> this</c><00:03:56.080><c> as</c><00:03:56.560><c> memory-bang-les.</c>
+
+00:04:01.110 --> 00:04:01.120 align:start position:0%
+ 
+ 
+
+00:04:01.120 --> 00:04:03.190 align:start position:0%
+ 
+And<00:04:01.280><c> then</c><00:04:01.519><c> in</c><00:04:01.760><c> this</c><00:04:02.000><c> file,</c><00:04:02.480><c> we</c><00:04:02.720><c> need</c><00:04:02.799><c> to</c><00:04:03.040><c> add</c>
+
+00:04:03.190 --> 00:04:03.200 align:start position:0%
+And then in this file, we need to add
+ 
+
+00:04:03.200 --> 00:04:05.030 align:start position:0%
+And then in this file, we need to add
+the<00:04:03.360><c> custom</c><00:04:03.760><c> instructions</c><00:04:04.319><c> provided</c><00:04:04.720><c> by</c>
+
+00:04:05.030 --> 00:04:05.040 align:start position:0%
+the custom instructions provided by
+ 
+
+00:04:05.040 --> 00:04:07.830 align:start position:0%
+the custom instructions provided by
+client.<00:04:05.599><c> So</c><00:04:05.840><c> go</c><00:04:06.080><c> back</c><00:04:06.239><c> to</c><00:04:06.480><c> client</c><00:04:06.879><c> website</c><00:04:07.439><c> and</c>
+
+00:04:07.830 --> 00:04:07.840 align:start position:0%
+client. So go back to client website and
+ 
+
+00:04:07.840 --> 00:04:10.470 align:start position:0%
+client. So go back to client website and
+scroll<00:04:08.080><c> to</c><00:04:08.239><c> the</c><00:04:08.480><c> top</c><00:04:08.640><c> over</c><00:04:09.040><c> here</c><00:04:09.840><c> and</c><00:04:10.159><c> here's</c>
+
+00:04:10.470 --> 00:04:10.480 align:start position:0%
+scroll to the top over here and here's
+ 
+
+00:04:10.480 --> 00:04:12.149 align:start position:0%
+scroll to the top over here and here's
+the<00:04:10.720><c> client</c><00:04:11.040><c> memory</c><00:04:11.439><c> bank</c><00:04:11.760><c> custom</c>
+
+00:04:12.149 --> 00:04:12.159 align:start position:0%
+the client memory bank custom
+ 
+
+00:04:12.159 --> 00:04:15.190 align:start position:0%
+the client memory bank custom
+instructions.<00:04:13.200><c> Now</c><00:04:13.519><c> click</c><00:04:13.840><c> the</c><00:04:14.000><c> copy</c><00:04:14.560><c> icon</c>
+
+00:04:15.190 --> 00:04:15.200 align:start position:0%
+instructions. Now click the copy icon
+ 
+
+00:04:15.200 --> 00:04:18.150 align:start position:0%
+instructions. Now click the copy icon
+and<00:04:15.439><c> then</c><00:04:15.760><c> paste</c><00:04:16.079><c> it</c><00:04:16.239><c> to</c><00:04:16.400><c> the</c><00:04:16.560><c> rules</c><00:04:16.959><c> file</c><00:04:17.919><c> and</c>
+
+00:04:18.150 --> 00:04:18.160 align:start position:0%
+and then paste it to the rules file and
+ 
+
+00:04:18.160 --> 00:04:21.670 align:start position:0%
+and then paste it to the rules file and
+then<00:04:18.479><c> save</c><00:04:18.880><c> this</c><00:04:19.199><c> change.</c><00:04:20.400><c> Next</c><00:04:21.040><c> create</c><00:04:21.359><c> a</c><00:04:21.519><c> new</c>
+
+00:04:21.670 --> 00:04:21.680 align:start position:0%
+then save this change. Next create a new
+ 
+
+00:04:21.680 --> 00:04:23.909 align:start position:0%
+then save this change. Next create a new
+folder<00:04:22.000><c> in</c><00:04:22.160><c> your</c><00:04:22.400><c> project</c><00:04:22.800><c> folder</c><00:04:23.360><c> and</c><00:04:23.680><c> name</c>
+
+00:04:23.909 --> 00:04:23.919 align:start position:0%
+folder in your project folder and name
+ 
+
+00:04:23.919 --> 00:04:27.110 align:start position:0%
+folder in your project folder and name
+it<00:04:24.240><c> as</c><00:04:24.720><c> memory-bang.</c>
+
+00:04:27.110 --> 00:04:27.120 align:start position:0%
+it as memory-bang.
+ 
+
+00:04:27.120 --> 00:04:28.950 align:start position:0%
+it as memory-bang.
+This<00:04:27.280><c> is</c><00:04:27.360><c> where</c><00:04:27.600><c> all</c><00:04:27.759><c> memory</c><00:04:28.160><c> bank</c><00:04:28.479><c> files</c><00:04:28.800><c> will</c>
+
+00:04:28.950 --> 00:04:28.960 align:start position:0%
+This is where all memory bank files will
+ 
+
+00:04:28.960 --> 00:04:31.590 align:start position:0%
+This is where all memory bank files will
+be<00:04:29.120><c> created.</c><00:04:29.919><c> Now</c><00:04:30.320><c> we</c><00:04:30.560><c> can</c><00:04:30.720><c> ask</c><00:04:31.040><c> client</c><00:04:31.360><c> to</c>
+
+00:04:31.590 --> 00:04:31.600 align:start position:0%
+be created. Now we can ask client to
+ 
+
+00:04:31.600 --> 00:04:34.070 align:start position:0%
+be created. Now we can ask client to
+initialize<00:04:32.080><c> the</c><00:04:32.240><c> memory</c><00:04:32.639><c> bank</c><00:04:32.960><c> for</c><00:04:33.199><c> us.</c><00:04:33.840><c> So</c>
+
+00:04:34.070 --> 00:04:34.080 align:start position:0%
+initialize the memory bank for us. So
+ 
+
+00:04:34.080 --> 00:04:36.070 align:start position:0%
+initialize the memory bank for us. So
+here<00:04:34.320><c> in</c><00:04:34.479><c> the</c><00:04:34.639><c> chat</c><00:04:34.880><c> box</c><00:04:35.440><c> just</c><00:04:35.680><c> type</c>
+
+00:04:36.070 --> 00:04:36.080 align:start position:0%
+here in the chat box just type
+ 
+
+00:04:36.080 --> 00:04:38.790 align:start position:0%
+here in the chat box just type
+initialize<00:04:36.800><c> memory</c><00:04:37.199><c> bank</c><00:04:37.840><c> and</c><00:04:38.160><c> client</c><00:04:38.560><c> will</c>
+
+00:04:38.790 --> 00:04:38.800 align:start position:0%
+initialize memory bank and client will
+ 
+
+00:04:38.800 --> 00:04:40.950 align:start position:0%
+initialize memory bank and client will
+do<00:04:38.960><c> the</c><00:04:39.199><c> job.</c><00:04:39.840><c> Now</c><00:04:40.080><c> one</c><00:04:40.240><c> thing</c><00:04:40.400><c> to</c><00:04:40.560><c> note</c><00:04:40.800><c> is</c>
+
+00:04:40.950 --> 00:04:40.960 align:start position:0%
+do the job. Now one thing to note is
+ 
+
+00:04:40.960 --> 00:04:43.030 align:start position:0%
+do the job. Now one thing to note is
+that<00:04:41.199><c> you</c><00:04:41.360><c> need</c><00:04:41.520><c> to</c><00:04:41.680><c> use</c><00:04:41.840><c> a</c><00:04:42.000><c> capable</c><00:04:42.479><c> model</c>
+
+00:04:43.030 --> 00:04:43.040 align:start position:0%
+that you need to use a capable model
+ 
+
+00:04:43.040 --> 00:04:44.790 align:start position:0%
+that you need to use a capable model
+because<00:04:43.360><c> client</c><00:04:43.759><c> will</c><00:04:43.919><c> scan</c><00:04:44.240><c> your</c><00:04:44.479><c> entire</c>
+
+00:04:44.790 --> 00:04:44.800 align:start position:0%
+because client will scan your entire
+ 
+
+00:04:44.800 --> 00:04:47.189 align:start position:0%
+because client will scan your entire
+project<00:04:45.199><c> for</c><00:04:45.520><c> creating</c><00:04:45.840><c> the</c><00:04:46.080><c> memory</c><00:04:46.400><c> bank.</c><00:04:46.960><c> So</c>
+
+00:04:47.189 --> 00:04:47.199 align:start position:0%
+project for creating the memory bank. So
+ 
+
+00:04:47.199 --> 00:04:50.310 align:start position:0%
+project for creating the memory bank. So
+top<00:04:47.520><c> models</c><00:04:47.919><c> like</c><00:04:48.160><c> cloud</c><00:04:48.560><c> set</c><00:04:49.120><c> Gemini</c><00:04:49.759><c> pro</c><00:04:50.080><c> or</c>
+
+00:04:50.310 --> 00:04:50.320 align:start position:0%
+top models like cloud set Gemini pro or
+ 
+
+00:04:50.320 --> 00:04:52.629 align:start position:0%
+top models like cloud set Gemini pro or
+flash<00:04:50.880><c> are</c><00:04:51.120><c> probably</c><00:04:51.759><c> recommended</c><00:04:52.320><c> to</c>
+
+00:04:52.629 --> 00:04:52.639 align:start position:0%
+flash are probably recommended to
+ 
+
+00:04:52.639 --> 00:04:54.870 align:start position:0%
+flash are probably recommended to
+generate<00:04:52.960><c> the</c><00:04:53.120><c> memory</c><00:04:53.520><c> bank</c><00:04:53.919><c> correctly.</c><00:04:54.639><c> Here</c>
+
+00:04:54.870 --> 00:04:54.880 align:start position:0%
+generate the memory bank correctly. Here
+ 
+
+00:04:54.880 --> 00:04:57.270 align:start position:0%
+generate the memory bank correctly. Here
+I'm<00:04:55.199><c> using</c><00:04:55.440><c> cloud</c><00:04:55.759><c> for</c><00:04:56.000><c> set.</c><00:04:56.800><c> You</c><00:04:56.960><c> can</c><00:04:57.040><c> choose</c>
+
+00:04:57.270 --> 00:04:57.280 align:start position:0%
+I'm using cloud for set. You can choose
+ 
+
+00:04:57.280 --> 00:05:00.310 align:start position:0%
+I'm using cloud for set. You can choose
+any<00:04:57.520><c> model</c><00:04:57.919><c> equal</c><00:04:58.320><c> to</c><00:04:58.479><c> cloud</c><00:04:58.880><c> sonet</c><00:04:59.280><c> 3</c><00:04:59.520><c> or</c><00:04:59.759><c> 4</c><00:05:00.080><c> to</c>
+
+00:05:00.310 --> 00:05:00.320 align:start position:0%
+any model equal to cloud sonet 3 or 4 to
+ 
+
+00:05:00.320 --> 00:05:03.189 align:start position:0%
+any model equal to cloud sonet 3 or 4 to
+do<00:05:00.479><c> this.</c><00:05:01.360><c> Okay,</c><00:05:01.759><c> let's</c><00:05:02.080><c> press</c><00:05:02.320><c> enter</c><00:05:02.639><c> now</c><00:05:02.960><c> and</c>
+
+00:05:03.189 --> 00:05:03.199 align:start position:0%
+do this. Okay, let's press enter now and
+ 
+
+00:05:03.199 --> 00:05:05.430 align:start position:0%
+do this. Okay, let's press enter now and
+let<00:05:03.520><c> client</c><00:05:03.919><c> process</c><00:05:04.320><c> the</c><00:05:04.560><c> request</c><00:05:04.960><c> for</c><00:05:05.199><c> a</c>
+
+00:05:05.430 --> 00:05:05.440 align:start position:0%
+let client process the request for a
+ 
+
+00:05:05.440 --> 00:05:07.990 align:start position:0%
+let client process the request for a
+moment.<00:05:06.320><c> And</c><00:05:06.560><c> now</c><00:05:06.720><c> it</c><00:05:06.960><c> asks</c><00:05:07.199><c> us</c><00:05:07.360><c> to</c><00:05:07.600><c> read</c><00:05:07.759><c> the</c>
+
+00:05:07.990 --> 00:05:08.000 align:start position:0%
+moment. And now it asks us to read the
+ 
+
+00:05:08.000 --> 00:05:10.469 align:start position:0%
+moment. And now it asks us to read the
+files<00:05:08.479><c> in</c><00:05:08.720><c> our</c><00:05:08.960><c> project.</c><00:05:09.680><c> So</c><00:05:09.840><c> we</c><00:05:10.080><c> will</c><00:05:10.240><c> just</c>
+
+00:05:10.469 --> 00:05:10.479 align:start position:0%
+files in our project. So we will just
+ 
+
+00:05:10.479 --> 00:05:13.510 align:start position:0%
+files in our project. So we will just
+allow<00:05:10.800><c> it</c><00:05:12.080><c> and</c><00:05:12.320><c> then</c><00:05:12.560><c> it</c><00:05:12.800><c> will</c><00:05:12.960><c> read</c><00:05:13.120><c> a</c><00:05:13.360><c> bunch</c>
+
+00:05:13.510 --> 00:05:13.520 align:start position:0%
+allow it and then it will read a bunch
+ 
+
+00:05:13.520 --> 00:05:17.510 align:start position:0%
+allow it and then it will read a bunch
+more<00:05:13.759><c> files</c><00:05:14.160><c> to</c><00:05:14.320><c> get</c><00:05:14.479><c> the</c><00:05:14.720><c> project</c><00:05:15.120><c> overview</c>
+
+00:05:17.510 --> 00:05:17.520 align:start position:0%
+more files to get the project overview
+ 
+
+00:05:17.520 --> 00:05:19.749 align:start position:0%
+more files to get the project overview
+and<00:05:17.840><c> then</c><00:05:18.080><c> after</c><00:05:18.479><c> understanding</c><00:05:18.960><c> the</c><00:05:19.280><c> project</c>
+
+00:05:19.749 --> 00:05:19.759 align:start position:0%
+and then after understanding the project
+ 
+
+00:05:19.759 --> 00:05:21.670 align:start position:0%
+and then after understanding the project
+it<00:05:20.000><c> will</c><00:05:20.160><c> start</c><00:05:20.479><c> creating</c><00:05:20.880><c> the</c><00:05:21.120><c> necessary</c>
+
+00:05:21.670 --> 00:05:21.680 align:start position:0%
+it will start creating the necessary
+ 
+
+00:05:21.680 --> 00:05:24.550 align:start position:0%
+it will start creating the necessary
+files<00:05:22.080><c> in</c><00:05:22.240><c> the</c><00:05:22.400><c> memory</c><00:05:22.800><c> bank</c><00:05:23.199><c> folder.</c><00:05:24.160><c> It</c><00:05:24.320><c> will</c>
+
+00:05:24.550 --> 00:05:24.560 align:start position:0%
+files in the memory bank folder. It will
+ 
+
+00:05:24.560 --> 00:05:26.550 align:start position:0%
+files in the memory bank folder. It will
+follow<00:05:24.800><c> the</c><00:05:24.960><c> custom</c><00:05:25.280><c> instructions</c><00:05:25.919><c> we</c><00:05:26.160><c> put</c><00:05:26.320><c> in</c>
+
+00:05:26.550 --> 00:05:26.560 align:start position:0%
+follow the custom instructions we put in
+ 
+
+00:05:26.560 --> 00:05:29.029 align:start position:0%
+follow the custom instructions we put in
+client<00:05:26.960><c> previously.</c>
+
+00:05:29.029 --> 00:05:29.039 align:start position:0%
+client previously.
+ 
+
+00:05:29.039 --> 00:05:31.749 align:start position:0%
+client previously.
+So<00:05:29.440><c> let</c><00:05:29.759><c> client</c><00:05:30.160><c> finish</c><00:05:30.479><c> this</c><00:05:30.800><c> process.</c><00:05:31.600><c> I</c>
+
+00:05:31.749 --> 00:05:31.759 align:start position:0%
+So let client finish this process. I
+ 
+
+00:05:31.759 --> 00:05:34.950 align:start position:0%
+So let client finish this process. I
+will<00:05:31.919><c> skip</c><00:05:32.240><c> a</c><00:05:32.400><c> little</c><00:05:32.560><c> to</c><00:05:32.800><c> the</c><00:05:33.039><c> end.</c>
+
+00:05:34.950 --> 00:05:34.960 align:start position:0%
+will skip a little to the end.
+ 
+
+00:05:34.960 --> 00:05:37.670 align:start position:0%
+will skip a little to the end.
+And<00:05:35.280><c> here</c><00:05:35.600><c> the</c><00:05:35.840><c> request</c><00:05:36.240><c> is</c><00:05:36.560><c> done</c><00:05:36.960><c> and</c><00:05:37.280><c> client</c>
+
+00:05:37.670 --> 00:05:37.680 align:start position:0%
+And here the request is done and client
+ 
+
+00:05:37.680 --> 00:05:39.909 align:start position:0%
+And here the request is done and client
+reports<00:05:38.160><c> that</c><00:05:38.400><c> it</c><00:05:38.639><c> has</c><00:05:38.800><c> created</c><00:05:39.280><c> the</c><00:05:39.600><c> core</c>
+
+00:05:39.909 --> 00:05:39.919 align:start position:0%
+reports that it has created the core
+ 
+
+00:05:39.919 --> 00:05:42.629 align:start position:0%
+reports that it has created the core
+files.<00:05:40.960><c> So</c><00:05:41.199><c> let's</c><00:05:41.520><c> open</c><00:05:41.759><c> the</c><00:05:42.000><c> memory</c><00:05:42.320><c> bank</c>
+
+00:05:42.629 --> 00:05:42.639 align:start position:0%
+files. So let's open the memory bank
+ 
+
+00:05:42.639 --> 00:05:45.189 align:start position:0%
+files. So let's open the memory bank
+folder.<00:05:43.520><c> Also</c><00:05:44.080><c> keep</c><00:05:44.320><c> in</c><00:05:44.560><c> mind</c><00:05:44.639><c> that</c><00:05:44.880><c> you</c><00:05:45.120><c> need</c>
+
+00:05:45.189 --> 00:05:45.199 align:start position:0%
+folder. Also keep in mind that you need
+ 
+
+00:05:45.199 --> 00:05:46.870 align:start position:0%
+folder. Also keep in mind that you need
+to<00:05:45.360><c> review</c><00:05:45.600><c> the</c><00:05:45.840><c> generated</c><00:05:46.240><c> files</c><00:05:46.560><c> after</c>
+
+00:05:46.870 --> 00:05:46.880 align:start position:0%
+to review the generated files after
+ 
+
+00:05:46.880 --> 00:05:49.350 align:start position:0%
+to review the generated files after
+initialization<00:05:48.160><c> and</c><00:05:48.400><c> correct</c><00:05:48.720><c> them</c><00:05:48.960><c> if</c><00:05:49.199><c> you</c>
+
+00:05:49.350 --> 00:05:49.360 align:start position:0%
+initialization and correct them if you
+ 
+
+00:05:49.360 --> 00:05:52.310 align:start position:0%
+initialization and correct them if you
+see<00:05:49.520><c> any</c><00:05:49.840><c> misunderstandings.</c><00:05:50.960><c> Any</c><00:05:51.680><c> wrong</c><00:05:52.000><c> or</c>
+
+00:05:52.310 --> 00:05:52.320 align:start position:0%
+see any misunderstandings. Any wrong or
+ 
+
+00:05:52.320 --> 00:05:54.390 align:start position:0%
+see any misunderstandings. Any wrong or
+missing<00:05:52.800><c> information</c><00:05:53.520><c> put</c><00:05:53.759><c> in</c><00:05:53.919><c> the</c><00:05:54.080><c> memory</c>
+
+00:05:54.390 --> 00:05:54.400 align:start position:0%
+missing information put in the memory
+ 
+
+00:05:54.400 --> 00:05:56.629 align:start position:0%
+missing information put in the memory
+bank<00:05:54.800><c> will</c><00:05:55.120><c> influence</c><00:05:55.759><c> all</c><00:05:56.080><c> future</c>
+
+00:05:56.629 --> 00:05:56.639 align:start position:0%
+bank will influence all future
+ 
+
+00:05:56.639 --> 00:05:58.950 align:start position:0%
+bank will influence all future
+interactions<00:05:57.280><c> with</c><00:05:57.440><c> the</c><00:05:57.600><c> AI</c><00:05:58.000><c> coding</c><00:05:58.320><c> agent.</c>
+
+00:05:58.950 --> 00:05:58.960 align:start position:0%
+interactions with the AI coding agent.
+ 
+
+00:05:58.960 --> 00:06:00.550 align:start position:0%
+interactions with the AI coding agent.
+If<00:05:59.120><c> you</c><00:05:59.280><c> got</c><00:05:59.520><c> wrong</c><00:05:59.840><c> information</c><00:06:00.160><c> in</c><00:06:00.400><c> the</c>
+
+00:06:00.550 --> 00:06:00.560 align:start position:0%
+If you got wrong information in the
+ 
+
+00:06:00.560 --> 00:06:02.710 align:start position:0%
+If you got wrong information in the
+memory<00:06:00.880><c> bank,</c><00:06:01.360><c> it</c><00:06:01.600><c> will</c><00:06:01.680><c> severely</c><00:06:02.240><c> limit</c><00:06:02.560><c> the</c>
+
+00:06:02.710 --> 00:06:02.720 align:start position:0%
+memory bank, it will severely limit the
+ 
+
+00:06:02.720 --> 00:06:05.029 align:start position:0%
+memory bank, it will severely limit the
+AI<00:06:03.199><c> ability</c><00:06:03.600><c> to</c><00:06:03.840><c> assist</c><00:06:04.160><c> you.</c><00:06:04.560><c> And</c><00:06:04.720><c> that's</c><00:06:04.960><c> how</c>
+
+00:06:05.029 --> 00:06:05.039 align:start position:0%
+AI ability to assist you. And that's how
+ 
+
+00:06:05.039 --> 00:06:06.870 align:start position:0%
+AI ability to assist you. And that's how
+you<00:06:05.280><c> use</c><00:06:05.440><c> the</c><00:06:05.600><c> memory</c><00:06:06.000><c> bank</c><00:06:06.240><c> feature</c><00:06:06.639><c> in</c>
+
+00:06:06.870 --> 00:06:06.880 align:start position:0%
+you use the memory bank feature in
+ 
+
+00:06:06.880 --> 00:06:09.670 align:start position:0%
+you use the memory bank feature in
+client.<00:06:07.520><c> Now</c><00:06:07.759><c> let's</c><00:06:08.080><c> open</c><00:06:08.319><c> a</c><00:06:08.560><c> new</c><00:06:08.720><c> session</c><00:06:09.440><c> and</c>
+
+00:06:09.670 --> 00:06:09.680 align:start position:0%
+client. Now let's open a new session and
+ 
+
+00:06:09.680 --> 00:06:11.830 align:start position:0%
+client. Now let's open a new session and
+suppose<00:06:10.080><c> I'm</c><00:06:10.319><c> a</c><00:06:10.560><c> new</c><00:06:10.800><c> developer</c><00:06:11.360><c> working</c><00:06:11.680><c> on</c>
+
+00:06:11.830 --> 00:06:11.840 align:start position:0%
+suppose I'm a new developer working on
+ 
+
+00:06:11.840 --> 00:06:14.550 align:start position:0%
+suppose I'm a new developer working on
+this<00:06:12.160><c> project.</c><00:06:12.800><c> I</c><00:06:13.039><c> can</c><00:06:13.199><c> just</c><00:06:13.440><c> ask</c><00:06:13.759><c> client</c><00:06:14.319><c> what</c>
+
+00:06:14.550 --> 00:06:14.560 align:start position:0%
+this project. I can just ask client what
+ 
+
+00:06:14.560 --> 00:06:17.110 align:start position:0%
+this project. I can just ask client what
+is<00:06:14.800><c> this</c><00:06:15.039><c> project</c><00:06:15.520><c> about</c><00:06:16.400><c> and</c><00:06:16.639><c> then</c><00:06:16.800><c> press</c>
+
+00:06:17.110 --> 00:06:17.120 align:start position:0%
+is this project about and then press
+ 
+
+00:06:17.120 --> 00:06:19.990 align:start position:0%
+is this project about and then press
+enter.<00:06:18.319><c> And</c><00:06:18.560><c> here</c><00:06:18.800><c> we</c><00:06:19.039><c> can</c><00:06:19.120><c> see</c><00:06:19.280><c> that</c><00:06:19.520><c> client</c>
+
+00:06:19.990 --> 00:06:20.000 align:start position:0%
+enter. And here we can see that client
+ 
+
+00:06:20.000 --> 00:06:22.150 align:start position:0%
+enter. And here we can see that client
+wants<00:06:20.240><c> to</c><00:06:20.400><c> read</c><00:06:20.639><c> the</c><00:06:20.800><c> memory</c><00:06:21.120><c> bank</c><00:06:21.520><c> files</c><00:06:21.919><c> in</c>
+
+00:06:22.150 --> 00:06:22.160 align:start position:0%
+wants to read the memory bank files in
+ 
+
+00:06:22.160 --> 00:06:24.870 align:start position:0%
+wants to read the memory bank files in
+order<00:06:22.319><c> to</c><00:06:22.560><c> fetch</c><00:06:22.880><c> the</c><00:06:23.120><c> project</c><00:06:23.520><c> overview.</c><00:06:24.639><c> As</c>
+
+00:06:24.870 --> 00:06:24.880 align:start position:0%
+order to fetch the project overview. As
+ 
+
+00:06:24.880 --> 00:06:27.110 align:start position:0%
+order to fetch the project overview. As
+we<00:06:25.120><c> keep</c><00:06:25.280><c> this</c><00:06:25.440><c> memory</c><00:06:25.840><c> bank</c><00:06:26.080><c> file</c><00:06:26.400><c> updated,</c>
+
+00:06:27.110 --> 00:06:27.120 align:start position:0%
+we keep this memory bank file updated,
+ 
+
+00:06:27.120 --> 00:06:28.550 align:start position:0%
+we keep this memory bank file updated,
+client<00:06:27.440><c> will</c><00:06:27.680><c> know</c><00:06:27.840><c> when</c><00:06:28.080><c> there</c><00:06:28.240><c> is</c><00:06:28.400><c> a</c>
+
+00:06:28.550 --> 00:06:28.560 align:start position:0%
+client will know when there is a
+ 
+
+00:06:28.560 --> 00:06:30.390 align:start position:0%
+client will know when there is a
+significant<00:06:29.039><c> update</c><00:06:29.520><c> completed</c><00:06:29.919><c> in</c><00:06:30.160><c> the</c>
+
+00:06:30.390 --> 00:06:30.400 align:start position:0%
+significant update completed in the
+ 
+
+00:06:30.400 --> 00:06:32.230 align:start position:0%
+significant update completed in the
+project<00:06:31.039><c> and</c><00:06:31.280><c> it</c><00:06:31.440><c> will</c><00:06:31.680><c> improve</c><00:06:32.000><c> your</c>
+
+00:06:32.230 --> 00:06:32.240 align:start position:0%
+project and it will improve your
+ 
+
+00:06:32.240 --> 00:06:35.189 align:start position:0%
+project and it will improve your
+productivity<00:06:32.960><c> with</c><00:06:33.199><c> the</c><00:06:33.440><c> project</c><00:06:33.919><c> as</c><00:06:34.160><c> well.</c>
+
+00:06:35.189 --> 00:06:35.199 align:start position:0%
+productivity with the project as well.
+ 
+
+00:06:35.199 --> 00:06:37.510 align:start position:0%
+productivity with the project as well.
+And<00:06:35.440><c> here</c><00:06:35.759><c> we</c><00:06:36.000><c> can</c><00:06:36.160><c> see</c><00:06:36.319><c> that</c><00:06:36.560><c> client</c><00:06:36.960><c> responds</c>
+
+00:06:37.510 --> 00:06:37.520 align:start position:0%
+And here we can see that client responds
+ 
+
+00:06:37.520 --> 00:06:40.070 align:start position:0%
+And here we can see that client responds
+with<00:06:37.759><c> the</c><00:06:37.919><c> project</c><00:06:38.240><c> overview,</c><00:06:39.039><c> the</c><00:06:39.199><c> tax</c><00:06:39.600><c> stack</c>
+
+00:06:40.070 --> 00:06:40.080 align:start position:0%
+with the project overview, the tax stack
+ 
+
+00:06:40.080 --> 00:06:42.790 align:start position:0%
+with the project overview, the tax stack
+and<00:06:40.319><c> the</c><00:06:40.560><c> current</c><00:06:40.880><c> status</c><00:06:41.280><c> of</c><00:06:41.520><c> the</c><00:06:41.759><c> project</c>
+
+00:06:42.790 --> 00:06:42.800 align:start position:0%
+and the current status of the project
+ 
+
+00:06:42.800 --> 00:06:45.189 align:start position:0%
+and the current status of the project
+which<00:06:43.120><c> will</c><00:06:43.360><c> be</c><00:06:43.520><c> very</c><00:06:43.840><c> useful</c><00:06:44.319><c> for</c><00:06:44.639><c> people</c><00:06:44.880><c> new</c>
+
+00:06:45.189 --> 00:06:45.199 align:start position:0%
+which will be very useful for people new
+ 
+
+00:06:45.199 --> 00:06:47.749 align:start position:0%
+which will be very useful for people new
+to<00:06:45.360><c> this</c><00:06:45.680><c> project.</c>
+
+00:06:47.749 --> 00:06:47.759 align:start position:0%
+to this project.
+ 
+
+00:06:47.759 --> 00:06:50.230 align:start position:0%
+to this project.
+Okay,<00:06:48.400><c> now</c><00:06:48.639><c> we</c><00:06:48.880><c> will</c><00:06:49.120><c> see</c><00:06:49.280><c> how</c><00:06:49.520><c> to</c><00:06:49.680><c> create</c><00:06:50.000><c> the</c>
+
+00:06:50.230 --> 00:06:50.240 align:start position:0%
+Okay, now we will see how to create the
+ 
+
+00:06:50.240 --> 00:06:53.189 align:start position:0%
+Okay, now we will see how to create the
+same<00:06:50.560><c> memory</c><00:06:50.960><c> bank</c><00:06:51.360><c> feature</c><00:06:51.759><c> in</c><00:06:52.080><c> cursor.</c><00:06:52.880><c> Here</c>
+
+00:06:53.189 --> 00:06:53.199 align:start position:0%
+same memory bank feature in cursor. Here
+ 
+
+00:06:53.199 --> 00:06:55.029 align:start position:0%
+same memory bank feature in cursor. Here
+I<00:06:53.520><c> already</c><00:06:53.759><c> have</c><00:06:54.000><c> cursor</c><00:06:54.479><c> with</c><00:06:54.639><c> another</c>
+
+00:06:55.029 --> 00:06:55.039 align:start position:0%
+I already have cursor with another
+ 
+
+00:06:55.039 --> 00:06:57.270 align:start position:0%
+I already have cursor with another
+project<00:06:55.360><c> of</c><00:06:55.600><c> mine</c><00:06:55.919><c> already</c><00:06:56.400><c> open.</c><00:06:56.960><c> So</c><00:06:57.120><c> in</c>
+
+00:06:57.270 --> 00:06:57.280 align:start position:0%
+project of mine already open. So in
+ 
+
+00:06:57.280 --> 00:06:59.749 align:start position:0%
+project of mine already open. So in
+cursor<00:06:57.840><c> the</c><00:06:58.080><c> steps</c><00:06:58.400><c> are</c><00:06:58.639><c> quite</c><00:06:58.960><c> similar.</c>
+
+00:06:59.749 --> 00:06:59.759 align:start position:0%
+cursor the steps are quite similar.
+ 
+
+00:06:59.759 --> 00:07:01.350 align:start position:0%
+cursor the steps are quite similar.
+First<00:07:00.080><c> you</c><00:07:00.319><c> need</c><00:07:00.479><c> to</c><00:07:00.639><c> create</c><00:07:00.800><c> a</c><00:07:01.039><c> custom</c>
+
+00:07:01.350 --> 00:07:01.360 align:start position:0%
+First you need to create a custom
+ 
+
+00:07:01.360 --> 00:07:03.350 align:start position:0%
+First you need to create a custom
+instruction<00:07:02.080><c> telling</c><00:07:02.479><c> cursor</c><00:07:02.960><c> about</c><00:07:03.199><c> the</c>
+
+00:07:03.350 --> 00:07:03.360 align:start position:0%
+instruction telling cursor about the
+ 
+
+00:07:03.360 --> 00:07:05.749 align:start position:0%
+instruction telling cursor about the
+memory<00:07:03.759><c> bank</c><00:07:04.080><c> and</c><00:07:04.319><c> how</c><00:07:04.560><c> to</c><00:07:04.720><c> use</c><00:07:04.880><c> it.</c><00:07:05.440><c> You</c><00:07:05.680><c> can</c>
+
+00:07:05.749 --> 00:07:05.759 align:start position:0%
+memory bank and how to use it. You can
+ 
+
+00:07:05.759 --> 00:07:07.749 align:start position:0%
+memory bank and how to use it. You can
+find<00:07:05.919><c> the</c><00:07:06.160><c> instructions</c><00:07:06.639><c> for</c><00:07:06.960><c> cursor</c><00:07:07.360><c> in</c><00:07:07.599><c> this</c>
+
+00:07:07.749 --> 00:07:07.759 align:start position:0%
+find the instructions for cursor in this
+ 
+
+00:07:07.759 --> 00:07:09.909 align:start position:0%
+find the instructions for cursor in this
+GitHub<00:07:08.240><c> Giz.</c><00:07:08.720><c> I</c><00:07:08.960><c> will</c><00:07:09.120><c> link</c><00:07:09.360><c> this</c><00:07:09.599><c> in</c><00:07:09.759><c> the</c>
+
+00:07:09.909 --> 00:07:09.919 align:start position:0%
+GitHub Giz. I will link this in the
+ 
+
+00:07:09.919 --> 00:07:12.150 align:start position:0%
+GitHub Giz. I will link this in the
+description<00:07:10.319><c> below.</c><00:07:11.199><c> So</c><00:07:11.520><c> this</c><00:07:11.680><c> cursor</c>
+
+00:07:12.150 --> 00:07:12.160 align:start position:0%
+description below. So this cursor
+ 
+
+00:07:12.160 --> 00:07:14.150 align:start position:0%
+description below. So this cursor
+instruction<00:07:12.560><c> is</c><00:07:12.800><c> very</c><00:07:13.039><c> similar</c><00:07:13.360><c> to</c><00:07:13.520><c> client</c>
+
+00:07:14.150 --> 00:07:14.160 align:start position:0%
+instruction is very similar to client
+ 
+
+00:07:14.160 --> 00:07:16.870 align:start position:0%
+instruction is very similar to client
+and<00:07:14.400><c> we</c><00:07:14.639><c> can</c><00:07:14.800><c> copy</c><00:07:15.199><c> this</c><00:07:15.520><c> by</c><00:07:15.759><c> clicking</c><00:07:16.240><c> the</c><00:07:16.560><c> row</c>
+
+00:07:16.870 --> 00:07:16.880 align:start position:0%
+and we can copy this by clicking the row
+ 
+
+00:07:16.880 --> 00:07:19.029 align:start position:0%
+and we can copy this by clicking the row
+button<00:07:17.199><c> on</c><00:07:17.440><c> the</c><00:07:17.520><c> top</c><00:07:17.759><c> right</c><00:07:18.000><c> corner</c><00:07:18.319><c> over</c><00:07:18.639><c> here</c>
+
+00:07:19.029 --> 00:07:19.039 align:start position:0%
+button on the top right corner over here
+ 
+
+00:07:19.039 --> 00:07:20.950 align:start position:0%
+button on the top right corner over here
+and<00:07:19.280><c> then</c><00:07:19.520><c> select</c><00:07:19.840><c> all</c><00:07:20.080><c> the</c><00:07:20.319><c> text</c><00:07:20.639><c> with</c>
+
+00:07:20.950 --> 00:07:20.960 align:start position:0%
+and then select all the text with
+ 
+
+00:07:20.960 --> 00:07:23.909 align:start position:0%
+and then select all the text with
+command<00:07:21.360><c> A</c><00:07:21.599><c> or</c><00:07:21.919><c> control</c><00:07:22.319><c> A</c><00:07:22.560><c> for</c><00:07:22.880><c> Windows.</c><00:07:23.599><c> Copy</c>
+
+00:07:23.909 --> 00:07:23.919 align:start position:0%
+command A or control A for Windows. Copy
+ 
+
+00:07:23.919 --> 00:07:26.950 align:start position:0%
+command A or control A for Windows. Copy
+this<00:07:24.160><c> text</c><00:07:25.120><c> and</c><00:07:25.360><c> then</c><00:07:25.599><c> go</c><00:07:25.759><c> back</c><00:07:25.919><c> to</c><00:07:26.080><c> cursor</c><00:07:26.720><c> and</c>
+
+00:07:26.950 --> 00:07:26.960 align:start position:0%
+this text and then go back to cursor and
+ 
+
+00:07:26.960 --> 00:07:28.790 align:start position:0%
+this text and then go back to cursor and
+open<00:07:27.280><c> cursor</c><00:07:27.759><c> settings</c><00:07:28.080><c> on</c><00:07:28.240><c> the</c><00:07:28.400><c> top</c><00:07:28.560><c> right</c>
+
+00:07:28.790 --> 00:07:28.800 align:start position:0%
+open cursor settings on the top right
+ 
+
+00:07:28.800 --> 00:07:31.990 align:start position:0%
+open cursor settings on the top right
+corner.<00:07:30.160><c> Uh</c><00:07:30.479><c> let</c><00:07:30.639><c> me</c><00:07:30.800><c> close</c><00:07:31.039><c> the</c><00:07:31.199><c> side</c><00:07:31.520><c> windows</c>
+
+00:07:31.990 --> 00:07:32.000 align:start position:0%
+corner. Uh let me close the side windows
+ 
+
+00:07:32.000 --> 00:07:34.790 align:start position:0%
+corner. Uh let me close the side windows
+first<00:07:32.880><c> and</c><00:07:33.039><c> then</c><00:07:33.280><c> open</c><00:07:33.520><c> the</c><00:07:33.759><c> rules</c><00:07:34.080><c> tab</c><00:07:34.400><c> on</c><00:07:34.560><c> the</c>
+
+00:07:34.790 --> 00:07:34.800 align:start position:0%
+first and then open the rules tab on the
+ 
+
+00:07:34.800 --> 00:07:37.350 align:start position:0%
+first and then open the rules tab on the
+left<00:07:34.960><c> side.</c><00:07:35.919><c> Here</c><00:07:36.160><c> you</c><00:07:36.400><c> can</c><00:07:36.560><c> add</c><00:07:36.800><c> user</c><00:07:37.120><c> rules</c>
+
+00:07:37.350 --> 00:07:37.360 align:start position:0%
+left side. Here you can add user rules
+ 
+
+00:07:37.360 --> 00:07:39.749 align:start position:0%
+left side. Here you can add user rules
+or<00:07:37.599><c> project</c><00:07:38.000><c> rules.</c><00:07:38.720><c> User</c><00:07:39.120><c> rules</c><00:07:39.440><c> will</c><00:07:39.599><c> be</c>
+
+00:07:39.749 --> 00:07:39.759 align:start position:0%
+or project rules. User rules will be
+ 
+
+00:07:39.759 --> 00:07:41.990 align:start position:0%
+or project rules. User rules will be
+applied<00:07:40.080><c> globally</c><00:07:40.720><c> while</c><00:07:41.039><c> project</c><00:07:41.360><c> rules</c><00:07:41.759><c> is</c>
+
+00:07:41.990 --> 00:07:42.000 align:start position:0%
+applied globally while project rules is
+ 
+
+00:07:42.000 --> 00:07:44.629 align:start position:0%
+applied globally while project rules is
+specific<00:07:42.560><c> for</c><00:07:42.800><c> the</c><00:07:42.960><c> currently</c><00:07:43.440><c> open</c><00:07:43.840><c> project.</c>
+
+00:07:44.629 --> 00:07:44.639 align:start position:0%
+specific for the currently open project.
+ 
+
+00:07:44.639 --> 00:07:46.790 align:start position:0%
+specific for the currently open project.
+I<00:07:44.880><c> will</c><00:07:44.960><c> set</c><00:07:45.120><c> the</c><00:07:45.360><c> memory</c><00:07:45.680><c> bank</c><00:07:45.919><c> as</c><00:07:46.160><c> user</c><00:07:46.479><c> rules</c>
+
+00:07:46.790 --> 00:07:46.800 align:start position:0%
+I will set the memory bank as user rules
+ 
+
+00:07:46.800 --> 00:07:49.110 align:start position:0%
+I will set the memory bank as user rules
+here.<00:07:47.199><c> So</c><00:07:47.440><c> let's</c><00:07:47.599><c> create</c><00:07:47.840><c> a</c><00:07:48.080><c> new</c><00:07:48.240><c> one</c><00:07:48.720><c> and</c><00:07:48.880><c> then</c>
+
+00:07:49.110 --> 00:07:49.120 align:start position:0%
+here. So let's create a new one and then
+ 
+
+00:07:49.120 --> 00:07:51.670 align:start position:0%
+here. So let's create a new one and then
+paste<00:07:49.440><c> the</c><00:07:49.599><c> rules</c><00:07:49.840><c> we</c><00:07:50.080><c> copied</c><00:07:50.639><c> before</c><00:07:51.440><c> and</c>
+
+00:07:51.670 --> 00:07:51.680 align:start position:0%
+paste the rules we copied before and
+ 
+
+00:07:51.680 --> 00:07:54.309 align:start position:0%
+paste the rules we copied before and
+then<00:07:51.919><c> save</c><00:07:52.240><c> this</c><00:07:52.479><c> change.</c><00:07:53.599><c> With</c><00:07:53.840><c> the</c><00:07:54.000><c> rules</c>
+
+00:07:54.309 --> 00:07:54.319 align:start position:0%
+then save this change. With the rules
+ 
+
+00:07:54.319 --> 00:07:56.629 align:start position:0%
+then save this change. With the rules
+set,<00:07:54.800><c> we</c><00:07:55.039><c> can</c><00:07:55.199><c> close</c><00:07:55.440><c> the</c><00:07:55.680><c> settings</c><00:07:56.000><c> window</c>
+
+00:07:56.629 --> 00:07:56.639 align:start position:0%
+set, we can close the settings window
+ 
+
+00:07:56.639 --> 00:07:58.309 align:start position:0%
+set, we can close the settings window
+and<00:07:56.960><c> go</c><00:07:57.120><c> back</c><00:07:57.280><c> to</c><00:07:57.440><c> the</c><00:07:57.599><c> main</c><00:07:57.840><c> cursor</c>
+
+00:07:58.309 --> 00:07:58.319 align:start position:0%
+and go back to the main cursor
+ 
+
+00:07:58.319 --> 00:08:00.550 align:start position:0%
+and go back to the main cursor
+interface.<00:07:59.280><c> Here</c><00:07:59.680><c> we</c><00:07:59.840><c> can</c><00:08:00.000><c> create</c><00:08:00.160><c> a</c><00:08:00.400><c> new</c>
+
+00:08:00.550 --> 00:08:00.560 align:start position:0%
+interface. Here we can create a new
+ 
+
+00:08:00.560 --> 00:08:02.869 align:start position:0%
+interface. Here we can create a new
+folder<00:08:00.879><c> named</c><00:08:01.199><c> memory-bang</c><00:08:02.479><c> just</c><00:08:02.720><c> like</c>
+
+00:08:02.869 --> 00:08:02.879 align:start position:0%
+folder named memory-bang just like
+ 
+
+00:08:02.879 --> 00:08:05.670 align:start position:0%
+folder named memory-bang just like
+before
+
+00:08:05.670 --> 00:08:05.680 align:start position:0%
+before
+ 
+
+00:08:05.680 --> 00:08:07.830 align:start position:0%
+before
+and<00:08:05.919><c> then</c><00:08:06.160><c> ask</c><00:08:06.400><c> cursor</c><00:08:06.879><c> to</c><00:08:07.120><c> initialize</c><00:08:07.599><c> the</c>
+
+00:08:07.830 --> 00:08:07.840 align:start position:0%
+and then ask cursor to initialize the
+ 
+
+00:08:07.840 --> 00:08:11.029 align:start position:0%
+and then ask cursor to initialize the
+memory<00:08:08.240><c> bank</c><00:08:08.560><c> for</c><00:08:08.800><c> us.</c><00:08:10.240><c> Make</c><00:08:10.479><c> sure</c><00:08:10.639><c> you're</c><00:08:10.879><c> in</c>
+
+00:08:11.029 --> 00:08:11.039 align:start position:0%
+memory bank for us. Make sure you're in
+ 
+
+00:08:11.039 --> 00:08:13.430 align:start position:0%
+memory bank for us. Make sure you're in
+agent<00:08:11.440><c> mode</c><00:08:11.759><c> and</c><00:08:12.000><c> use</c><00:08:12.319><c> advanced</c><00:08:12.879><c> models</c><00:08:13.199><c> like</c>
+
+00:08:13.430 --> 00:08:13.440 align:start position:0%
+agent mode and use advanced models like
+ 
+
+00:08:13.440 --> 00:08:16.309 align:start position:0%
+agent mode and use advanced models like
+sonnet<00:08:14.720><c> and</c><00:08:14.960><c> then</c><00:08:15.199><c> send</c><00:08:15.440><c> the</c><00:08:15.680><c> request</c><00:08:16.160><c> to</c>
+
+00:08:16.309 --> 00:08:16.319 align:start position:0%
+sonnet and then send the request to
+ 
+
+00:08:16.319 --> 00:08:19.430 align:start position:0%
+sonnet and then send the request to
+cursor.<00:08:17.280><c> Let</c><00:08:17.599><c> cursor</c><00:08:18.000><c> work</c><00:08:18.240><c> for</c><00:08:18.479><c> a</c><00:08:18.639><c> moment.</c><00:08:19.280><c> It</c>
+
+00:08:19.430 --> 00:08:19.440 align:start position:0%
+cursor. Let cursor work for a moment. It
+ 
+
+00:08:19.440 --> 00:08:22.230 align:start position:0%
+cursor. Let cursor work for a moment. It
+will<00:08:19.680><c> read</c><00:08:19.919><c> the</c><00:08:20.080><c> project</c><00:08:20.560><c> files</c><00:08:21.759><c> and</c><00:08:22.000><c> then</c>
+
+00:08:22.230 --> 00:08:22.240 align:start position:0%
+will read the project files and then
+ 
+
+00:08:22.240 --> 00:08:24.070 align:start position:0%
+will read the project files and then
+after<00:08:22.479><c> it</c><00:08:22.720><c> gain</c><00:08:22.960><c> an</c><00:08:23.199><c> understanding</c><00:08:23.680><c> of</c><00:08:23.840><c> the</c>
+
+00:08:24.070 --> 00:08:24.080 align:start position:0%
+after it gain an understanding of the
+ 
+
+00:08:24.080 --> 00:08:26.309 align:start position:0%
+after it gain an understanding of the
+project,<00:08:24.879><c> it</c><00:08:25.120><c> will</c><00:08:25.360><c> start</c><00:08:25.680><c> creating</c><00:08:26.080><c> the</c>
+
+00:08:26.309 --> 00:08:26.319 align:start position:0%
+project, it will start creating the
+ 
+
+00:08:26.319 --> 00:08:28.790 align:start position:0%
+project, it will start creating the
+memory<00:08:26.720><c> bank</c><00:08:27.039><c> files.</c><00:08:28.080><c> This</c><00:08:28.319><c> is</c><00:08:28.479><c> pretty</c>
+
+00:08:28.790 --> 00:08:28.800 align:start position:0%
+memory bank files. This is pretty
+ 
+
+00:08:28.800 --> 00:08:31.189 align:start position:0%
+memory bank files. This is pretty
+similar<00:08:29.039><c> to</c><00:08:29.280><c> client</c><00:08:29.680><c> before.</c><00:08:30.319><c> So</c><00:08:30.479><c> I</c><00:08:30.720><c> will</c><00:08:30.879><c> skip</c>
+
+00:08:31.189 --> 00:08:31.199 align:start position:0%
+similar to client before. So I will skip
+ 
+
+00:08:31.199 --> 00:08:33.029 align:start position:0%
+similar to client before. So I will skip
+a<00:08:31.360><c> bit</c><00:08:31.520><c> to</c><00:08:31.759><c> when</c><00:08:32.080><c> this</c><00:08:32.240><c> generation</c><00:08:32.800><c> is</c>
+
+00:08:33.029 --> 00:08:33.039 align:start position:0%
+a bit to when this generation is
+ 
+
+00:08:33.039 --> 00:08:34.790 align:start position:0%
+a bit to when this generation is
+finished.
+
+00:08:34.790 --> 00:08:34.800 align:start position:0%
+finished.
+ 
+
+00:08:34.800 --> 00:08:36.709 align:start position:0%
+finished.
+Okay.<00:08:35.279><c> So</c><00:08:35.519><c> here</c><00:08:35.680><c> we</c><00:08:35.919><c> can</c><00:08:36.000><c> see</c><00:08:36.159><c> that</c><00:08:36.320><c> cursor</c>
+
+00:08:36.709 --> 00:08:36.719 align:start position:0%
+Okay. So here we can see that cursor
+ 
+
+00:08:36.719 --> 00:08:38.709 align:start position:0%
+Okay. So here we can see that cursor
+generated<00:08:37.200><c> the</c><00:08:37.360><c> same</c><00:08:37.519><c> memory</c><00:08:37.919><c> bank</c><00:08:38.240><c> files</c>
+
+00:08:38.709 --> 00:08:38.719 align:start position:0%
+generated the same memory bank files
+ 
+
+00:08:38.719 --> 00:08:40.949 align:start position:0%
+generated the same memory bank files
+just<00:08:38.959><c> like</c><00:08:39.279><c> client</c><00:08:39.839><c> but</c><00:08:40.080><c> it</c><00:08:40.240><c> added</c><00:08:40.560><c> one</c><00:08:40.719><c> more</c>
+
+00:08:40.949 --> 00:08:40.959 align:start position:0%
+just like client but it added one more
+ 
+
+00:08:40.959 --> 00:08:44.149 align:start position:0%
+just like client but it added one more
+file<00:08:41.360><c> which</c><00:08:41.599><c> is</c><00:08:41.760><c> the</c><00:08:42.240><c> cursor</c><00:08:42.640><c> rules</c><00:08:43.039><c> file.</c><00:08:43.919><c> The</c>
+
+00:08:44.149 --> 00:08:44.159 align:start position:0%
+file which is the cursor rules file. The
+ 
+
+00:08:44.159 --> 00:08:46.310 align:start position:0%
+file which is the cursor rules file. The
+cursor<00:08:44.560><c> rules</c><00:08:44.880><c> file</c><00:08:45.120><c> is</c><00:08:45.279><c> a</c><00:08:45.519><c> project</c><00:08:45.839><c> specific</c>
+
+00:08:46.310 --> 00:08:46.320 align:start position:0%
+cursor rules file is a project specific
+ 
+
+00:08:46.320 --> 00:08:48.470 align:start position:0%
+cursor rules file is a project specific
+file<00:08:46.640><c> that</c><00:08:46.959><c> records</c><00:08:47.279><c> the</c><00:08:47.519><c> patterns</c><00:08:47.920><c> and</c><00:08:48.160><c> code</c>
+
+00:08:48.470 --> 00:08:48.480 align:start position:0%
+file that records the patterns and code
+ 
+
+00:08:48.480 --> 00:08:50.310 align:start position:0%
+file that records the patterns and code
+intelligence<00:08:49.200><c> that</c><00:08:49.440><c> will</c><00:08:49.680><c> be</c><00:08:49.839><c> followed</c><00:08:50.080><c> by</c>
+
+00:08:50.310 --> 00:08:50.320 align:start position:0%
+intelligence that will be followed by
+ 
+
+00:08:50.320 --> 00:08:52.949 align:start position:0%
+intelligence that will be followed by
+cursor<00:08:50.959><c> whenever</c><00:08:51.440><c> it</c><00:08:51.760><c> creates</c><00:08:52.080><c> or</c><00:08:52.320><c> edit</c><00:08:52.640><c> files</c>
+
+00:08:52.949 --> 00:08:52.959 align:start position:0%
+cursor whenever it creates or edit files
+ 
+
+00:08:52.959 --> 00:08:55.350 align:start position:0%
+cursor whenever it creates or edit files
+in<00:08:53.200><c> this</c><00:08:53.440><c> project.</c><00:08:54.399><c> Some</c><00:08:54.720><c> example</c><00:08:55.120><c> of</c>
+
+00:08:55.350 --> 00:08:55.360 align:start position:0%
+in this project. Some example of
+ 
+
+00:08:55.360 --> 00:08:57.110 align:start position:0%
+in this project. Some example of
+information<00:08:55.839><c> included</c><00:08:56.240><c> in</c><00:08:56.480><c> this</c><00:08:56.640><c> file</c>
+
+00:08:57.110 --> 00:08:57.120 align:start position:0%
+information included in this file
+ 
+
+00:08:57.120 --> 00:08:58.949 align:start position:0%
+information included in this file
+includes<00:08:57.519><c> the</c><00:08:57.760><c> naming</c><00:08:58.080><c> convention</c><00:08:58.640><c> for</c>
+
+00:08:58.949 --> 00:08:58.959 align:start position:0%
+includes the naming convention for
+ 
+
+00:08:58.959 --> 00:09:01.509 align:start position:0%
+includes the naming convention for
+files,<00:08:59.600><c> classes</c><00:09:00.160><c> and</c><00:09:00.399><c> functions</c><00:09:00.959><c> used</c><00:09:01.279><c> in</c>
+
+00:09:01.509 --> 00:09:01.519 align:start position:0%
+files, classes and functions used in
+ 
+
+00:09:01.519 --> 00:09:04.150 align:start position:0%
+files, classes and functions used in
+this<00:09:01.760><c> project.</c><00:09:02.640><c> But</c><00:09:02.880><c> in</c><00:09:03.120><c> essence,</c><00:09:03.519><c> the</c><00:09:03.760><c> memory</c>
+
+00:09:04.150 --> 00:09:04.160 align:start position:0%
+this project. But in essence, the memory
+ 
+
+00:09:04.160 --> 00:09:06.230 align:start position:0%
+this project. But in essence, the memory
+bank<00:09:04.480><c> files</c><00:09:04.800><c> created</c><00:09:05.120><c> here</c><00:09:05.360><c> is</c><00:09:05.680><c> the</c><00:09:05.839><c> same</c><00:09:06.000><c> as</c>
+
+00:09:06.230 --> 00:09:06.240 align:start position:0%
+bank files created here is the same as
+ 
+
+00:09:06.240 --> 00:09:08.150 align:start position:0%
+bank files created here is the same as
+in<00:09:06.480><c> client.</c><00:09:06.959><c> It</c><00:09:07.200><c> will</c><00:09:07.360><c> always</c><00:09:07.600><c> be</c><00:09:07.760><c> maintained</c>
+
+00:09:08.150 --> 00:09:08.160 align:start position:0%
+in client. It will always be maintained
+ 
+
+00:09:08.160 --> 00:09:10.070 align:start position:0%
+in client. It will always be maintained
+by<00:09:08.399><c> cursor</c><00:09:08.959><c> and</c><00:09:09.200><c> it</c><00:09:09.360><c> will</c><00:09:09.519><c> be</c><00:09:09.600><c> updated</c>
+
+00:09:10.070 --> 00:09:10.080 align:start position:0%
+by cursor and it will be updated
+ 
+
+00:09:10.080 --> 00:09:11.590 align:start position:0%
+by cursor and it will be updated
+automatically<00:09:10.800><c> when</c><00:09:11.120><c> there</c><00:09:11.279><c> is</c><00:09:11.440><c> a</c>
+
+00:09:11.590 --> 00:09:11.600 align:start position:0%
+automatically when there is a
+ 
+
+00:09:11.600 --> 00:09:14.150 align:start position:0%
+automatically when there is a
+significant<00:09:12.160><c> change</c><00:09:12.480><c> in</c><00:09:12.800><c> the</c><00:09:13.040><c> project.</c><00:09:13.920><c> So</c>
+
+00:09:14.150 --> 00:09:14.160 align:start position:0%
+significant change in the project. So
+ 
+
+00:09:14.160 --> 00:09:16.230 align:start position:0%
+significant change in the project. So
+overall<00:09:14.800><c> that's</c><00:09:15.040><c> how</c><00:09:15.279><c> you</c><00:09:15.440><c> can</c><00:09:15.600><c> initialize</c>
+
+00:09:16.230 --> 00:09:16.240 align:start position:0%
+overall that's how you can initialize
+ 
+
+00:09:16.240 --> 00:09:18.710 align:start position:0%
+overall that's how you can initialize
+and<00:09:16.480><c> use</c><00:09:16.720><c> memory</c><00:09:17.120><c> bank</c><00:09:17.519><c> feature</c><00:09:17.839><c> in</c><00:09:18.080><c> AI</c><00:09:18.560><c> code</c>
+
+00:09:18.710 --> 00:09:18.720 align:start position:0%
+and use memory bank feature in AI code
+ 
+
+00:09:18.720 --> 00:09:21.190 align:start position:0%
+and use memory bank feature in AI code
+editors.<00:09:19.600><c> The</c><00:09:19.839><c> memory</c><00:09:20.160><c> bank</c><00:09:20.480><c> feature</c><00:09:20.880><c> allows</c>
+
+00:09:21.190 --> 00:09:21.200 align:start position:0%
+editors. The memory bank feature allows
+ 
+
+00:09:21.200 --> 00:09:22.870 align:start position:0%
+editors. The memory bank feature allows
+you<00:09:21.360><c> to</c><00:09:21.600><c> create</c><00:09:21.839><c> and</c><00:09:22.160><c> store</c><00:09:22.399><c> important</c>
+
+00:09:22.870 --> 00:09:22.880 align:start position:0%
+you to create and store important
+ 
+
+00:09:22.880 --> 00:09:25.030 align:start position:0%
+you to create and store important
+project<00:09:23.200><c> details</c><00:09:23.680><c> for</c><00:09:23.920><c> your</c><00:09:24.080><c> project</c><00:09:24.640><c> so</c><00:09:24.880><c> that</c>
+
+00:09:25.030 --> 00:09:25.040 align:start position:0%
+project details for your project so that
+ 
+
+00:09:25.040 --> 00:09:27.590 align:start position:0%
+project details for your project so that
+the<00:09:25.279><c> AI</c><00:09:25.680><c> can</c><00:09:25.920><c> work</c><00:09:26.160><c> more</c><00:09:26.480><c> efficiently.</c><00:09:27.360><c> Will</c>
+
+00:09:27.590 --> 00:09:27.600 align:start position:0%
+the AI can work more efficiently. Will
+ 
+
+00:09:27.600 --> 00:09:30.070 align:start position:0%
+the AI can work more efficiently. Will
+this<00:09:28.000><c> increase</c><00:09:28.399><c> token</c><00:09:28.800><c> usage</c><00:09:29.279><c> and</c><00:09:29.600><c> cost</c><00:09:29.839><c> more</c>
+
+00:09:30.070 --> 00:09:30.080 align:start position:0%
+this increase token usage and cost more
+ 
+
+00:09:30.080 --> 00:09:32.470 align:start position:0%
+this increase token usage and cost more
+money?<00:09:30.800><c> Well,</c><00:09:31.120><c> using</c><00:09:31.440><c> memory</c><00:09:31.839><c> bank</c><00:09:32.160><c> will</c>
+
+00:09:32.470 --> 00:09:32.480 align:start position:0%
+money? Well, using memory bank will
+ 
+
+00:09:32.480 --> 00:09:35.110 align:start position:0%
+money? Well, using memory bank will
+increase<00:09:32.720><c> token</c><00:09:33.120><c> usage</c><00:09:33.680><c> as</c><00:09:33.920><c> the</c><00:09:34.160><c> AI</c><00:09:34.560><c> loads</c><00:09:34.880><c> all</c>
+
+00:09:35.110 --> 00:09:35.120 align:start position:0%
+increase token usage as the AI loads all
+ 
+
+00:09:35.120 --> 00:09:37.030 align:start position:0%
+increase token usage as the AI loads all
+memory<00:09:35.440><c> bank</c><00:09:35.760><c> files</c><00:09:36.000><c> at</c><00:09:36.240><c> the</c><00:09:36.399><c> beginning.</c><00:09:36.880><c> But</c>
+
+00:09:37.030 --> 00:09:37.040 align:start position:0%
+memory bank files at the beginning. But
+ 
+
+00:09:37.040 --> 00:09:38.630 align:start position:0%
+memory bank files at the beginning. But
+because<00:09:37.279><c> of</c><00:09:37.440><c> the</c><00:09:37.600><c> context</c><00:09:38.080><c> provided</c><00:09:38.480><c> by</c>
+
+00:09:38.630 --> 00:09:38.640 align:start position:0%
+because of the context provided by
+ 
+
+00:09:38.640 --> 00:09:40.949 align:start position:0%
+because of the context provided by
+memory<00:09:39.040><c> bank,</c><00:09:39.440><c> the</c><00:09:39.600><c> AI</c><00:09:40.000><c> coding</c><00:09:40.320><c> agent</c><00:09:40.720><c> will</c>
+
+00:09:40.949 --> 00:09:40.959 align:start position:0%
+memory bank, the AI coding agent will
+ 
+
+00:09:40.959 --> 00:09:42.550 align:start position:0%
+memory bank, the AI coding agent will
+have<00:09:41.200><c> consistent</c><00:09:41.680><c> understanding</c><00:09:42.080><c> of</c><00:09:42.320><c> your</c>
+
+00:09:42.550 --> 00:09:42.560 align:start position:0%
+have consistent understanding of your
+ 
+
+00:09:42.560 --> 00:09:44.710 align:start position:0%
+have consistent understanding of your
+project<00:09:43.200><c> making</c><00:09:43.440><c> it</c><00:09:43.680><c> more</c><00:09:43.920><c> productive</c><00:09:44.480><c> and</c>
+
+00:09:44.710 --> 00:09:44.720 align:start position:0%
+project making it more productive and
+ 
+
+00:09:44.720 --> 00:09:46.630 align:start position:0%
+project making it more productive and
+have<00:09:44.959><c> less</c><00:09:45.360><c> errors.</c><00:09:45.920><c> This</c><00:09:46.240><c> increased</c>
+
+00:09:46.630 --> 00:09:46.640 align:start position:0%
+have less errors. This increased
+ 
+
+00:09:46.640 --> 00:09:48.470 align:start position:0%
+have less errors. This increased
+productivity<00:09:47.360><c> may</c><00:09:47.600><c> decrease</c><00:09:47.920><c> your</c><00:09:48.080><c> overall</c>
+
+00:09:48.470 --> 00:09:48.480 align:start position:0%
+productivity may decrease your overall
+ 
+
+00:09:48.480 --> 00:09:50.949 align:start position:0%
+productivity may decrease your overall
+interactions<00:09:49.120><c> and</c><00:09:49.360><c> usage</c><00:09:49.680><c> of</c><00:09:49.839><c> AI</c><00:09:50.399><c> to</c><00:09:50.640><c> achieve</c>
+
+00:09:50.949 --> 00:09:50.959 align:start position:0%
+interactions and usage of AI to achieve
+ 
+
+00:09:50.959 --> 00:09:53.190 align:start position:0%
+interactions and usage of AI to achieve
+the<00:09:51.200><c> desired</c><00:09:51.600><c> outcome.</c><00:09:52.320><c> Which</c><00:09:52.480><c> means</c><00:09:52.800><c> memory</c>
+
+00:09:53.190 --> 00:09:53.200 align:start position:0%
+the desired outcome. Which means memory
+ 
+
+00:09:53.200 --> 00:09:55.110 align:start position:0%
+the desired outcome. Which means memory
+bank<00:09:53.519><c> has</c><00:09:53.680><c> the</c><00:09:53.839><c> potential</c><00:09:54.240><c> to</c><00:09:54.399><c> save</c><00:09:54.640><c> you</c><00:09:54.880><c> money</c>
+
+00:09:55.110 --> 00:09:55.120 align:start position:0%
+bank has the potential to save you money
+ 
+
+00:09:55.120 --> 00:09:57.269 align:start position:0%
+bank has the potential to save you money
+in<00:09:55.360><c> the</c><00:09:55.519><c> long</c><00:09:55.680><c> run.</c><00:09:56.240><c> And</c><00:09:56.399><c> if</c><00:09:56.640><c> we</c><00:09:56.800><c> go</c><00:09:56.959><c> back</c><00:09:57.040><c> to</c>
+
+00:09:57.269 --> 00:09:57.279 align:start position:0%
+in the long run. And if we go back to
+ 
+
+00:09:57.279 --> 00:09:59.190 align:start position:0%
+in the long run. And if we go back to
+client,<00:09:57.920><c> you</c><00:09:58.160><c> can</c><00:09:58.240><c> see</c><00:09:58.399><c> here</c><00:09:58.560><c> that</c><00:09:58.800><c> loading</c>
+
+00:09:59.190 --> 00:09:59.200 align:start position:0%
+client, you can see here that loading
+ 
+
+00:09:59.200 --> 00:10:01.030 align:start position:0%
+client, you can see here that loading
+all<00:09:59.360><c> the</c><00:09:59.519><c> memory</c><00:09:59.839><c> bank</c><00:10:00.160><c> files</c><00:10:00.480><c> using</c><00:10:00.720><c> cloud</c>
+
+00:10:01.030 --> 00:10:01.040 align:start position:0%
+all the memory bank files using cloud
+ 
+
+00:10:01.040 --> 00:10:03.990 align:start position:0%
+all the memory bank files using cloud
+for<00:10:01.279><c> set</c><00:10:01.680><c> costes</c><00:10:02.080><c> about</c><00:10:02.480><c> 7</c><00:10:02.800><c> cents.</c><00:10:03.440><c> So</c><00:10:03.600><c> for</c><00:10:03.839><c> the</c>
+
+00:10:03.990 --> 00:10:04.000 align:start position:0%
+for set costes about 7 cents. So for the
+ 
+
+00:10:04.000 --> 00:10:06.230 align:start position:0%
+for set costes about 7 cents. So for the
+cost<00:10:04.160><c> of</c><00:10:04.480><c> 7</c><00:10:04.720><c> cents,</c><00:10:05.200><c> you</c><00:10:05.360><c> can</c><00:10:05.519><c> load</c><00:10:05.839><c> all</c><00:10:06.000><c> the</c>
+
+00:10:06.230 --> 00:10:06.240 align:start position:0%
+cost of 7 cents, you can load all the
+ 
+
+00:10:06.240 --> 00:10:08.070 align:start position:0%
+cost of 7 cents, you can load all the
+relevant<00:10:06.720><c> informations</c><00:10:07.200><c> on</c><00:10:07.440><c> your</c><00:10:07.600><c> project</c>
+
+00:10:08.070 --> 00:10:08.080 align:start position:0%
+relevant informations on your project
+ 
+
+00:10:08.080 --> 00:10:10.389 align:start position:0%
+relevant informations on your project
+and<00:10:08.399><c> make</c><00:10:08.640><c> client</c><00:10:09.040><c> more</c><00:10:09.279><c> effective.</c><00:10:09.920><c> In</c><00:10:10.160><c> my</c>
+
+00:10:10.389 --> 00:10:10.399 align:start position:0%
+and make client more effective. In my
+ 
+
+00:10:10.399 --> 00:10:12.389 align:start position:0%
+and make client more effective. In my
+opinion,<00:10:10.800><c> it's</c><00:10:11.040><c> a</c><00:10:11.200><c> very</c><00:10:11.440><c> good</c><00:10:11.600><c> trade-off,</c><00:10:12.240><c> but</c>
+
+00:10:12.389 --> 00:10:12.399 align:start position:0%
+opinion, it's a very good trade-off, but
+ 
+
+00:10:12.399 --> 00:10:14.310 align:start position:0%
+opinion, it's a very good trade-off, but
+you<00:10:12.640><c> need</c><00:10:12.720><c> to</c><00:10:12.880><c> try</c><00:10:13.040><c> it</c><00:10:13.279><c> out</c><00:10:13.440><c> in</c><00:10:13.680><c> your</c><00:10:13.839><c> project</c>
+
+00:10:14.310 --> 00:10:14.320 align:start position:0%
+you need to try it out in your project
+ 
+
+00:10:14.320 --> 00:10:17.269 align:start position:0%
+you need to try it out in your project
+as<00:10:14.560><c> it</c><00:10:14.800><c> may</c><00:10:14.959><c> produce</c><00:10:15.360><c> a</c><00:10:15.600><c> different</c><00:10:16.000><c> result.</c>
+
+00:10:17.269 --> 00:10:17.279 align:start position:0%
+as it may produce a different result.
+ 
+
+00:10:17.279 --> 00:10:18.949 align:start position:0%
+as it may produce a different result.
+And<00:10:17.519><c> that</c><00:10:17.760><c> brings</c><00:10:18.000><c> us</c><00:10:18.160><c> to</c><00:10:18.240><c> the</c><00:10:18.480><c> end</c><00:10:18.560><c> of</c><00:10:18.720><c> this</c>
+
+00:10:18.949 --> 00:10:18.959 align:start position:0%
+And that brings us to the end of this
+ 
+
+00:10:18.959 --> 00:10:21.030 align:start position:0%
+And that brings us to the end of this
+tutorial.<00:10:19.920><c> So,</c><00:10:20.240><c> what</c><00:10:20.480><c> do</c><00:10:20.560><c> you</c><00:10:20.720><c> think</c><00:10:20.880><c> about</c>
+
+00:10:21.030 --> 00:10:21.040 align:start position:0%
+tutorial. So, what do you think about
+ 
+
+00:10:21.040 --> 00:10:23.269 align:start position:0%
+tutorial. So, what do you think about
+the<00:10:21.200><c> memory</c><00:10:21.680><c> bank</c><00:10:22.000><c> feature?</c><00:10:22.640><c> I</c><00:10:22.880><c> encourage</c><00:10:23.200><c> you</c>
+
+00:10:23.269 --> 00:10:23.279 align:start position:0%
+the memory bank feature? I encourage you
+ 
+
+00:10:23.279 --> 00:10:24.949 align:start position:0%
+the memory bank feature? I encourage you
+to<00:10:23.440><c> try</c><00:10:23.600><c> it</c><00:10:23.760><c> out</c><00:10:23.839><c> for</c><00:10:24.079><c> yourself</c><00:10:24.399><c> and</c><00:10:24.640><c> let</c><00:10:24.800><c> me</c>
+
+00:10:24.949 --> 00:10:24.959 align:start position:0%
+to try it out for yourself and let me
+ 
+
+00:10:24.959 --> 00:10:27.030 align:start position:0%
+to try it out for yourself and let me
+know<00:10:25.120><c> about</c><00:10:25.360><c> your</c><00:10:25.600><c> experiences.</c><00:10:26.560><c> I</c><00:10:26.800><c> hope</c><00:10:26.880><c> you</c>
+
+00:10:27.030 --> 00:10:27.040 align:start position:0%
+know about your experiences. I hope you
+ 
+
+00:10:27.040 --> 00:10:28.630 align:start position:0%
+know about your experiences. I hope you
+all<00:10:27.200><c> enjoy</c><00:10:27.440><c> today's</c><00:10:27.839><c> video</c><00:10:28.000><c> and</c><00:10:28.240><c> get</c><00:10:28.399><c> some</c>
+
+00:10:28.630 --> 00:10:28.640 align:start position:0%
+all enjoy today's video and get some
+ 
+
+00:10:28.640 --> 00:10:29.910 align:start position:0%
+all enjoy today's video and get some
+value<00:10:28.800><c> out</c><00:10:28.959><c> of</c><00:10:29.040><c> it.</c><00:10:29.360><c> Let</c><00:10:29.519><c> me</c><00:10:29.600><c> know</c><00:10:29.680><c> your</c>
+
+00:10:29.910 --> 00:10:29.920 align:start position:0%
+value out of it. Let me know your
+ 
+
+00:10:29.920 --> 00:10:31.509 align:start position:0%
+value out of it. Let me know your
+thoughts<00:10:30.160><c> in</c><00:10:30.320><c> the</c><00:10:30.480><c> comments</c><00:10:30.720><c> below.</c><00:10:31.200><c> I</c><00:10:31.360><c> will</c>
+
+00:10:31.509 --> 00:10:31.519 align:start position:0%
+thoughts in the comments below. I will
+ 
+
+00:10:31.519 --> 00:10:33.350 align:start position:0%
+thoughts in the comments below. I will
+join<00:10:31.680><c> the</c><00:10:31.839><c> conversation</c><00:10:32.320><c> and</c><00:10:32.640><c> reply</c><00:10:32.959><c> as</c><00:10:33.120><c> often</c>
+
+00:10:33.350 --> 00:10:33.360 align:start position:0%
+join the conversation and reply as often
+ 
+
+00:10:33.360 --> 00:10:35.030 align:start position:0%
+join the conversation and reply as often
+as<00:10:33.519><c> I</c><00:10:33.680><c> can.</c><00:10:34.000><c> If</c><00:10:34.240><c> you're</c><00:10:34.320><c> new</c><00:10:34.480><c> to</c><00:10:34.560><c> the</c><00:10:34.720><c> channel,</c>
+
+00:10:35.030 --> 00:10:35.040 align:start position:0%
+as I can. If you're new to the channel,
+ 
+
+00:10:35.040 --> 00:10:36.710 align:start position:0%
+as I can. If you're new to the channel,
+Coen<00:10:35.440><c> Nathan</c><00:10:35.680><c> is</c><00:10:35.760><c> a</c><00:10:35.920><c> channel</c><00:10:36.079><c> dedicated</c><00:10:36.480><c> to</c>
+
+00:10:36.710 --> 00:10:36.720 align:start position:0%
+Coen Nathan is a channel dedicated to
+ 
+
+00:10:36.720 --> 00:10:38.550 align:start position:0%
+Coen Nathan is a channel dedicated to
+simplify<00:10:37.279><c> complex</c><00:10:37.600><c> stack</c><00:10:37.920><c> topics</c><00:10:38.240><c> so</c><00:10:38.480><c> that</c>
+
+00:10:38.550 --> 00:10:38.560 align:start position:0%
+simplify complex stack topics so that
+ 
+
+00:10:38.560 --> 00:10:40.230 align:start position:0%
+simplify complex stack topics so that
+you<00:10:38.720><c> can</c><00:10:38.800><c> master</c><00:10:39.200><c> them</c><00:10:39.440><c> easily.</c><00:10:40.000><c> Make</c><00:10:40.160><c> sure</c>
+
+00:10:40.230 --> 00:10:40.240 align:start position:0%
+you can master them easily. Make sure
+ 
+
+00:10:40.240 --> 00:10:41.590 align:start position:0%
+you can master them easily. Make sure
+you<00:10:40.480><c> subscribe</c><00:10:40.720><c> if</c><00:10:40.959><c> that's</c><00:10:41.200><c> something</c><00:10:41.360><c> you</c>
+
+00:10:41.590 --> 00:10:41.600 align:start position:0%
+you subscribe if that's something you
+ 
+
+00:10:41.600 --> 00:10:43.190 align:start position:0%
+you subscribe if that's something you
+find<00:10:41.839><c> interesting.</c><00:10:42.560><c> Make</c><00:10:42.720><c> sure</c><00:10:42.800><c> you</c><00:10:42.959><c> like</c>
+
+00:10:43.190 --> 00:10:43.200 align:start position:0%
+find interesting. Make sure you like
+ 
+
+00:10:43.200 --> 00:10:44.790 align:start position:0%
+find interesting. Make sure you like
+this<00:10:43.360><c> video,</c><00:10:43.680><c> turn</c><00:10:43.920><c> on</c><00:10:44.079><c> the</c><00:10:44.240><c> notification</c>
+
+00:10:44.790 --> 00:10:44.800 align:start position:0%
+this video, turn on the notification
+ 
+
+00:10:44.800 --> 00:10:46.550 align:start position:0%
+this video, turn on the notification
+bell,<00:10:45.279><c> all</c><00:10:45.440><c> the</c><00:10:45.600><c> good</c><00:10:45.760><c> stuff</c><00:10:46.000><c> as</c><00:10:46.160><c> it</c><00:10:46.320><c> helps</c>
+
+00:10:46.550 --> 00:10:46.560 align:start position:0%
+bell, all the good stuff as it helps
+ 
+
+00:10:46.560 --> 00:10:48.310 align:start position:0%
+bell, all the good stuff as it helps
+this<00:10:46.720><c> channel</c><00:10:46.959><c> to</c><00:10:47.200><c> grow.</c><00:10:47.760><c> With</c><00:10:47.920><c> that</c><00:10:48.160><c> being</c>
+
+00:10:48.310 --> 00:10:48.320 align:start position:0%
+this channel to grow. With that being
+ 
+
+00:10:48.320 --> 00:10:49.670 align:start position:0%
+this channel to grow. With that being
+said,<00:10:48.640><c> thanks</c><00:10:48.800><c> again</c><00:10:48.959><c> for</c><00:10:49.200><c> watching</c><00:10:49.360><c> until</c>
+
+00:10:49.670 --> 00:10:49.680 align:start position:0%
+said, thanks again for watching until
+ 
+
+00:10:49.680 --> 00:10:51.269 align:start position:0%
+said, thanks again for watching until
+the<00:10:49.839><c> end.</c><00:10:50.000><c> I</c><00:10:50.160><c> hope</c><00:10:50.320><c> you</c><00:10:50.480><c> have</c><00:10:50.560><c> a</c><00:10:50.720><c> wonderful</c><00:10:51.120><c> day</c>
+
+00:10:51.269 --> 00:10:51.279 align:start position:0%
+the end. I hope you have a wonderful day
+ 
+
+00:10:51.279 --> 00:10:52.949 align:start position:0%
+the end. I hope you have a wonderful day
+and<00:10:51.519><c> I'll</c><00:10:51.760><c> see</c><00:10:51.839><c> you</c><00:10:52.000><c> in</c><00:10:52.240><c> other</c><00:10:52.480><c> videos.</c>
+
+00:10:52.949 --> 00:10:52.959 align:start position:0%
+and I'll see you in other videos.
+ 
+
+00:10:52.959 --> 00:10:56.330 align:start position:0%
+and I'll see you in other videos.
+Bye-bye.
+
+00:10:56.330 --> 00:10:56.340 align:start position:0%
+ 
+ 
+
+00:10:56.340 --> 00:11:06.580 align:start position:0%
+ 
+[Music]
+

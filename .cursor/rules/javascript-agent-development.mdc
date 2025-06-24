@@ -12,6 +12,19 @@ When working on the agent MCP server:
 - Adapters handle routing and I/O only
 - Use command registry for auto-discovery
 
+## Hexagonal Architecture Clarification
+
+### Adapter Terminology
+- **Driver/Primary Adapters** (Inbound): CLI, MCP, IDEs - they DRIVE the system
+- **Driven/Secondary Adapters** (Outbound): Databases, APIs - the system DRIVES them
+- **Composite Adapters**: When one adapter uses another (e.g., Claude Code → MCP)
+
+### Your Role as an IDE
+You (Cursor) are a **driver adapter** that can:
+1. Execute CLI commands directly (`lev ...`)
+2. Use MCP if available
+3. Apply thinking patterns from contexts
+
 ## Command Development Pattern
 ```javascript
 // agent/src/commands/example.js

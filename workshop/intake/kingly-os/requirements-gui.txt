@@ -1,0 +1,25 @@
+# GUI Requirements for Kingly OS
+
+# Desktop GUI
+gooey>=1.0.8.1
+wxPython>=4.2.0  # Note: May have issues on macOS
+PySimpleGUI>=4.60.0  # Alternative that works better on macOS
+
+# Modern TUI with Web deployment
+textual>=0.47.0
+textual-web>=0.6.0
+
+# Web frameworks
+fastapi>=0.109.0
+uvicorn[standard]>=0.25.0
+python-multipart>=0.0.6
+python-dotenv>=1.0.0
+
+# For Python-Node.js communication
+httpx>=0.25.2
+websockets>=12.0
+
+# Optional enhanced features
+rich>=13.7.0  # Better terminal output
+typer>=0.9.0  # CLI framework
+click>=8.1.7  # Alternative CLI framework

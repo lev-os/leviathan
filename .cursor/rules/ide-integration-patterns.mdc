@@ -1,0 +1,190 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# IDE Integration Patterns
+
+## Quick Reference: Leviathan Commands in Cursor
+
+### Core Commands Available
+```bash
+# Context & Workflow Discovery
+lev context search "synthesis patterns"
+lev context apply echo-intelligence-patterns
+lev workflow run document-synthesis
+
+# Session Management  
+lev checkpoint --new "working on feature X"
+lev checkpoint --resume
+lev checkpoint --final
+
+# Plugin Commands (auto-discovered)
+lev workshop:discover
+lev workshop:intake <repo-url>
+```
+
+### Workflow Pattern: Multi-Turn Analysis
+
+When working on complex problems across multiple turns:
+
+```bash
+# Step 1: Start session
+mkdir -p tmp/
+lev checkpoint --new "analyzing <topic>"
+
+# Step 2: Save each turn
+echo "## Turn 1: Initial Analysis
+<your analysis>
+" > tmp/turn-1.md
+
+echo "## Turn 2: Deeper Exploration  
+<continued analysis>
+" > tmp/turn-2.md
+
+# Step 3: Synthesize
+lev workflow run document-synthesis --input "tmp/turn-*.md" --output tmp/synthesis.md
+
+# Step 4: Multi-perspective validation (optional)
+lev workflow run cognitive-parliament --input tmp/synthesis.md
+```
+
+### Power Combos
+
+For comprehensive analysis using multiple contexts:
+
+```bash
+# Parallel context application
+lev context apply echo-intelligence-patterns > tmp/echo-analysis.md &
+lev context apply first-principles-thinking > tmp/first-principles.md &
+lev context apply systems-thinking > tmp/systems-analysis.md &
+wait
+
+# Synthesize all perspectives
+lev workflow run document-synthesis --input "tmp/*-analysis.md"
+```
+
+## Architecture Context for IDEs
+
+### You (Cursor/VSCode/Claude Code) are a Driver Adapter
+
+In hexagonal architecture terms:
+- **You** are a **driver/primary adapter** - you DRIVE the Leviathan system
+- You interact with **driver ports** (CLI or MCP interfaces)
+- The **hexagon** (core business logic) is in `agent/src/commands/`
+- **Driven adapters** (databases, files) are used BY the system
+
+### Composite Adapter Pattern
+
+When Claude Code uses MCP to talk to Leviathan:
+```
+Claude Code (Composite Adapter) → MCP Protocol → Leviathan Agent
+```
+
+This is called a **Composite/Meta-Adapter** pattern - an adapter using another adapter.
+
+## Integration Options
+
+### 1. Direct CLI Integration (Available Now)
+```javascript
+// Execute Leviathan commands directly
+const { exec } = require('child_process');
+exec('lev context search "decision making"', (error, stdout) => {
+  console.log(stdout);
+});
+```
+
+### 2. MCP Integration (For MCP-enabled IDEs)
+```javascript
+// If your IDE supports MCP
+const tools = await mcpClient.listTools();
+// Auto-discovered: context_search, workflow_run, checkpoint, etc.
+
+const result = await mcpClient.callTool('context_search', {
+  query: 'decision making'
+});
+```
+
+### 3. Future Web API (Planned)
+```javascript
+// Coming soon
+const response = await fetch('/api/context/search?q=decision+making');
+const contexts = await response.json();
+```
+
+## Context Discovery Helpers
+
+### Find Thinking Patterns
+```bash
+# Browse available contexts
+ls ~/digital/leviathan/agent/contexts/
+
+# Search semantically
+lev context search "creative problem solving"
+lev context search "strategic planning"
+lev context search "synthesis"
+
+# See all workflows
+ls ~/digital/leviathan/agent/contexts/workflows/
+```
+
+### Quick Context Application
+```bash
+# Apply a specific thinking pattern
+lev context apply vibe-coding
+lev context apply echo-intelligence-patterns
+lev context apply design-thinking-process
+```
+
+## Memory and Learning
+
+The agent learns from your work:
+```bash
+# Store insights
+lev memory store "When analyzing X, always consider Y"
+
+# Retrieve relevant memories
+lev memory search "architecture patterns"
+```
+
+## Best Practices in IDEs
+
+1. **Use Semantic Search**: Natural language works well
+   ```bash
+   lev context search "help me think about this problem"
+   ```
+
+2. **Save Important Turns**: Capture thinking for synthesis
+   ```bash
+   echo "Key insight: ..." >> tmp/insights.md
+   ```
+
+3. **Leverage Workflows**: Use pre-built thinking patterns
+   ```bash
+   lev workflow list
+   lev workflow run <workflow-name>
+   ```
+
+4. **Session Continuity**: Checkpoint regularly
+   ```bash
+   lev checkpoint --new "starting analysis"
+   # ... work ...
+   lev checkpoint --resume
+   ```
+
+## Debugging Integration Issues
+
+```bash
+# Check if Leviathan is accessible
+which lev
+
+# Verify agent is running (if using MCP)
+lev status
+
+# Test basic command
+lev context search "test"
+
+# View command help
+lev help
+lev help context
+```

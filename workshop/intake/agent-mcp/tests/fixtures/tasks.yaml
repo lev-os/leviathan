@@ -1,0 +1,30 @@
+tasks:
+  TASK-001:
+    title: "Implement secure wallet manager"
+    goal: "Build a cryptocurrency wallet with multi-sig support"
+    status: "created"
+    created: "2025-01-15T10:00:00.000Z"
+    context_refs:
+      - id: "CTX-001-architecture"
+        purpose: "architecture"
+      - id: "CTX-001-implementation"
+        purpose: "implementation"
+    progress: 0
+    decision_logs: []
+  
+  TASK-002:
+    title: "Design user dashboard"
+    goal: "Create intuitive dashboard for portfolio management"
+    status: "in-progress"
+    created: "2025-01-15T11:30:00.000Z"
+    context_refs:
+      - id: "CTX-002-design"
+        purpose: "design"
+    progress: 45
+    decision_logs:
+      - time: "2025-01-15T12:00:00.000Z"
+        decision: "Use dark theme for better focus"
+        rationale: "Crypto users prefer dark themes for extended use"
+        context_ref: "CTX-002-design"
+
+_active: "TASK-001"

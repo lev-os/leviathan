@@ -1,0 +1,16 @@
+Analyze the emerging divide between enterprise AI platforms and sovereignty-focused solutions:
+1) What are the specific lock-in mechanisms in current enterprise AI platforms?
+2) How do performance characteristics differ between cloud-heavy vs local-first approaches?
+3) What are the actual costs (performance, complexity, dependency) of framework-heavy solutions?
+4) Where are enterprises hitting walls with vendor-dependent AI orchestration?
+5) What patterns emerge from teams who've migrated away from complex AI frameworks?
+
+Include specific case studies and performance benchmarks where available.
+
+OUTPUT_FORMAT:
+- Enterprise Platform
+- Lock-in Mechanisms
+- Performance Costs
+- Migration Stories
+- White Space Opportunities
+- Kingly Advantage Potential

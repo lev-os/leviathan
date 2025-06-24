@@ -1,0 +1,17 @@
+Research the underground AI sovereignty movement. What are hackers and privacy-focused developers actually building?
+1) Local-first AI orchestration projects that reject cloud dependencies
+2) Decentralized agent networks and peer-to-peer AI coordination
+3) Anti-surveillance AI tools and privacy-preserving agent architectures
+4) Open-source alternatives to enterprise AI platforms
+5) Mesh networks and edge AI coordination systems
+
+Focus on GitHub projects with <1000 stars but high technical innovation. Include homelab and raspberry pi AI orchestration projects.
+
+OUTPUT_FORMAT:
+- Project Name
+- Core Innovation
+- Technical Architecture
+- Sovereignty Score (1-10)
+- Performance Characteristics  
+- Community Size/Activity
+- Kingly Alignment Potential

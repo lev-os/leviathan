@@ -1,0 +1,130 @@
+{
+  "agent_responses": {
+    "codecatalyst": {
+      "default": {
+        "decisions": [
+          {
+            "delay": 100,
+            "decision": "Analyzing project structure and requirements",
+            "rationale": "Need to understand existing codebase patterns",
+            "progress": 10
+          },
+          {
+            "delay": 200,
+            "decision": "Selecting appropriate design patterns",
+            "rationale": "Following established architectural guidelines",
+            "progress": 25
+          },
+          {
+            "delay": 300,
+            "decision": "Implementing core functionality",
+            "rationale": "Building features incrementally with tests",
+            "progress": 60
+          },
+          {
+            "delay": 200,
+            "decision": "Adding comprehensive test coverage",
+            "rationale": "Ensuring code reliability and maintainability",
+            "progress": 85
+          },
+          {
+            "delay": 100,
+            "decision": "Final review and documentation",
+            "rationale": "Code complete with all requirements met",
+            "progress": 100
+          }
+        ]
+      },
+      "auth_task": {
+        "decisions": [
+          {
+            "delay": 150,
+            "decision": "Using JWT for token management",
+            "rationale": "Stateless authentication required for microservices",
+            "progress": 20
+          },
+          {
+            "delay": 200,
+            "decision": "Implementing refresh token rotation",
+            "rationale": "Enhanced security against token theft",
+            "progress": 50
+          },
+          {
+            "delay": 250,
+            "decision": "Adding rate limiting and brute force protection",
+            "rationale": "Security best practices for production systems",
+            "progress": 80
+          }
+        ]
+      }
+    },
+    "designer": {
+      "default": {
+        "decisions": [
+          {
+            "delay": 100,
+            "decision": "Researching user needs and preferences",
+            "rationale": "User-centered design approach",
+            "progress": 15
+          },
+          {
+            "delay": 200,
+            "decision": "Creating wireframes and mockups",
+            "rationale": "Visual representation for stakeholder feedback",
+            "progress": 40
+          },
+          {
+            "delay": 300,
+            "decision": "Developing high-fidelity designs",
+            "rationale": "Detailed specifications for implementation",
+            "progress": 70
+          },
+          {
+            "delay": 150,
+            "decision": "Creating design system components",
+            "rationale": "Ensuring consistency across the application",
+            "progress": 100
+          }
+        ]
+      }
+    },
+    "analyst": {
+      "default": {
+        "decisions": [
+          {
+            "delay": 200,
+            "decision": "Gathering and analyzing requirements",
+            "rationale": "Clear understanding of business needs",
+            "progress": 30
+          },
+          {
+            "delay": 300,
+            "decision": "Creating detailed specifications",
+            "rationale": "Comprehensive documentation for implementation",
+            "progress": 60
+          },
+          {
+            "delay": 200,
+            "decision": "Defining acceptance criteria",
+            "rationale": "Clear success metrics for the feature",
+            "progress": 100
+          }
+        ]
+      }
+    }
+  },
+  "error_scenarios": {
+    "timeout": {
+      "delay": 5000,
+      "error": "Agent execution timeout"
+    },
+    "invalid_task": {
+      "delay": 0,
+      "error": "Task not found or invalid"
+    },
+    "agent_unavailable": {
+      "delay": 100,
+      "error": "Agent temporarily unavailable"
+    }
+  }
+}

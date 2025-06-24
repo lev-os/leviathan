@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "notion-task-manager": {
+      "command": "node",
+      "args": ["/Users/jean-patricksmith/digital/aiforge/aiforge/notion-task-mcp/dist/index.js"],
+      "env": {
+        "NOTION_API_KEY": "your_notion_api_key_here",
+        "NOTION_DATABASE_ID": "your_notion_database_id_here"
+      }
+    }
+  }
+}

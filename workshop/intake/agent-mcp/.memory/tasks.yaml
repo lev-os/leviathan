@@ -1,0 +1,92 @@
+tasks:
+  TASK-001:
+    title: Setup project documentation and testing standards
+    goal: Establish static paths for coding guidelines and documentation approach
+      across all projects
+    status: created
+    created: 2025-05-23T14:30:00Z
+    context_refs: []
+    progress: 0
+    decision_logs: []
+    proposed_structure:
+      - .project/standards/coding-guidelines.md
+      - .project/standards/testing-approach.md
+      - .project/standards/documentation.md
+      - .project/templates/
+    notes: |
+      Each project needs standardized locations for:
+      - Coding guidelines (language-specific)
+      - Test requirements and patterns
+      - Documentation approach
+      - PR templates
+      - Architecture decision records
+  TASK-002:
+    title: Implement secure wallet manager
+    goal: Replace plaintext private key handling with secure wallet abstraction
+    status: ready
+    created: 2025-05-23T15:00:00Z
+    context_refs:
+      - id: CTX-002-architecture
+        purpose: architecture
+      - id: CTX-002-implementation
+        purpose: subtask
+    progress: 0
+    decision_logs: []
+  _active: TASK-002
+  TASK-670529-JAXG:
+    title: Test MCP Integration
+    goal: Testing direct CLI adapter functionality
+    status: created
+    created: 2025-05-24T17:11:10.529Z
+    context_refs: []
+    progress: 0
+    decision_logs: []
+  TASK-450489-X67O:
+    title: Integration test task
+    goal: Testing task creation via MCP
+    status: created
+    created: 2025-05-25T03:07:30.489Z
+    context_refs: []
+    progress: 0
+    decision_logs: []
+  TASK-450502-9B1T:
+    title: Agent handoff test
+    goal: Testing agent execution
+    status: created
+    created: 2025-05-25T03:07:30.502Z
+    context_refs: []
+    progress: 0
+    decision_logs: []
+  TASK-020892-OVDX:
+    title: Integration test task
+    goal: Testing task creation via MCP
+    status: created
+    created: 2025-05-25T03:50:20.892Z
+    context_refs: []
+    progress: 0
+    decision_logs: []
+  TASK-020903-6B4H:
+    title: Agent handoff test
+    goal: Testing agent execution
+    status: created
+    created: 2025-05-25T03:50:20.903Z
+    context_refs: []
+    progress: 0
+    decision_logs: []
+  TASK-092583-MH1X:
+    title: Integration test task
+    goal: Testing task creation via MCP
+    status: created
+    created: 2025-05-25T03:51:32.583Z
+    context_refs: []
+    progress: 0
+    decision_logs: []
+  TASK-092592-V0R8:
+    title: Agent handoff test
+    goal: Testing agent execution
+    status: created
+    created: 2025-05-25T03:51:32.592Z
+    context_refs: []
+    progress: 0
+    decision_logs: []
+_active: TASK-670529-JAXG

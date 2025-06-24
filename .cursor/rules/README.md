@@ -45,6 +45,14 @@ This directory contains conditional rules for the Leviathan project using Cursor
 - Vercel AI SDK and CopilotKit integration patterns
 - Chat UI components and streaming
 
+### 7. **ide-integration-patterns.mdc** (Reference)
+
+- IDE and agentic platform integration patterns
+- Workflow helpers for multi-turn analysis (save/synthesize)
+- Context discovery and application patterns
+- Hexagonal architecture clarifications for IDEs
+- Power combo patterns for comprehensive analysis
+
 ## Key Concepts
 
 ### Agent System

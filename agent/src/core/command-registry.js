@@ -1,130 +1,190 @@
 /**
- * Command Registry - Auto-discovery and registration of isolated commands
- * Supports both direct function calls and MCP tool generation
+ * Universal Command Registry - Single source of truth for all commands across all adapters
+ * Implements auto-bootstrap architecture pattern per _02-adapters.md specification
  */
-
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export class CommandRegistry {
   constructor() {
     this.commands = new Map();
-    this.mcpTools = new Map();
-    this.dependencies = null;
+    this.initialized = false;
   }
 
-  // Initialize with service dependencies
-  async initialize(dependencies) {
-    this.dependencies = dependencies;
-    await this.discoverCommands();
+  /**
+   * Register a command handler with the registry
+   */
+  register(name, handler, options = {}) {
+    this.commands.set(name, {
+      name,
+      handler,
+      description: options.description || `Execute ${name} command`,
+      args: options.args || [],
+      namespace: options.namespace,
+      plugin: options.plugin
+    });
   }
 
-  // Auto-discover all command files
-  async discoverCommands() {
-    const commandsDir = path.join(__dirname, '..', 'commands');
-    
-    try {
-      // console.log(`🔍 Looking for commands in: ${commandsDir}`); // Debug - disabled
-      const files = await fs.readdir(commandsDir);
-      const commandFiles = files.filter(file => file.endsWith('.js'));
-      // console.log(`📁 Found command files: ${commandFiles.join(', ')}`); // Debug - disabled
-
-      for (const file of commandFiles) {
-        await this.loadCommand(file);
-      }
-
-      // console.log(`✅ Discovered ${this.commands.size} commands`); // Debug - disabled
-    } catch (error) {
-      console.error(`Failed to discover commands: ${error.message}`);
-      console.error(`Attempted path: ${commandsDir}`);
-    }
+  /**
+   * Get all registered commands
+   */
+  async getAllCommands() {
+    return Array.from(this.commands.values());
   }
 
-  // Load individual command file
-  async loadCommand(filename) {
-    try {
-      const modulePath = path.join(__dirname, '..', 'commands', filename);
-      // console.log(`📦 Loading command from: ${modulePath}`); // Debug - disabled for clean output
-      const module = await import(modulePath);
-      
-      // Extract command name from filename
-      const commandName = path.basename(filename, '.js').replace('-', '_');
-      // console.log(`🏷️  Command name: ${commandName}`); // Debug - disabled for clean output
-      
-      // Look for exported command function
-      const camelCaseName = this.camelCase(commandName);
-      const kebabCaseName = commandName.replace(/_/g, '-');
-      const camelFromKebab = this.camelCase(kebabCaseName);
-      
-      // console.log(`🔍 Looking for function: ${camelCaseName}, ${camelFromKebab}, or default`); // Debug - disabled
-      // console.log(`📋 Available exports:`, Object.keys(module)); // Debug - disabled
-      
-      const commandFunction = module[camelCaseName] || module[camelFromKebab] || module.default;
-      
-      if (typeof commandFunction === 'function') {
-        // console.log(`✅ Found command function: ${camelCaseName}`); // Debug - disabled
-        
-        // Register the direct function
-        this.commands.set(commandName, {
-          name: commandName,
-          function: commandFunction,
-          description: commandFunction.description,
-          inputSchema: commandFunction.inputSchema,
-          module: module
-        });
-
-        // Auto-generate MCP tool if tool definition exists
-        const toolName = camelFromKebab + 'Tool';
-        // console.log(`🔧 Looking for MCP tool: ${toolName}`); // Debug - disabled
-        if (module[toolName]) {
-          // console.log(`✅ Found MCP tool: ${toolName}`); // Debug - disabled
-          this.mcpTools.set(commandName, module[toolName]);
-        }
-      } else {
-        console.log(`❌ No command function found for ${commandName}`);
-      }
-    } catch (error) {
-      console.error(`Failed to load command ${filename}: ${error.message}`);
-    }
-  }
-
-  // Execute command by name with dependencies
-  async executeCommand(commandName, args) {
-    const command = this.commands.get(commandName);
+  /**
+   * Execute a command by name
+   */
+  async execute(name, args, dependencies = {}) {
+    const command = this.commands.get(name);
     if (!command) {
-      throw new Error(`Command not found: ${commandName}`);
+      throw new Error(`Command not found: ${name}`);
     }
-
-    try {
-      return await command.function(args, this.dependencies);
-    } catch (error) {
-      throw new Error(`Command execution failed: ${error.message}`);
-    }
+    
+    // Call handler with args and dependencies
+    return await command.handler(args, dependencies);
   }
 
-  // Get all MCP tools for server registration
-  getMCPTools() {
-    return Array.from(this.mcpTools.values());
-  }
-
-  // Get command metadata
-  getCommandInfo(commandName) {
-    return this.commands.get(commandName);
-  }
-
-  // List all available commands
+  /**
+   * List all command names
+   */
   listCommands() {
     return Array.from(this.commands.keys());
   }
 
-  // Helper to convert kebab-case to camelCase
-  camelCase(str) {
-    return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+  /**
+   * Auto-generate MCP tools from registered commands
+   */
+  getMCPTools() {
+    const commands = Array.from(this.commands.values());
+    return commands.map(cmd => ({
+      name: this.formatMCPToolName(cmd.name),
+      description: cmd.description,
+      inputSchema: this.generateMCPSchema(cmd.args)
+    }));
+  }
+
+  /**
+   * Format command name for MCP tool compatibility
+   */
+  formatMCPToolName(commandName) {
+    // workshop:discover -> workshop_discover
+    // checkpoint -> checkpoint  
+    return commandName.replace(':', '_');
+  }
+
+  /**
+   * Execute command via MCP tool name
+   */
+  async executeCommand(commandName, args, dependencies = {}) {
+    // Convert MCP tool name back to command name
+    const originalName = commandName.replace(/_/g, ':');
+    
+    // If that doesn't exist, try with single underscore replacement
+    if (!this.commands.has(originalName)) {
+      const singleReplace = commandName.replace('_', ':');
+      if (this.commands.has(singleReplace)) {
+        return await this.execute(singleReplace, args, dependencies);
+      }
+    }
+    
+    return await this.execute(originalName, args, dependencies);
+  }
+
+  /**
+   * Auto-generate JSON schema from command argument definitions
+   */
+  generateMCPSchema(commandArgs) {
+    return {
+      type: "object",
+      properties: commandArgs?.reduce((props, arg) => {
+        props[arg.name] = {
+          type: arg.type || "string",
+          description: arg.description
+        };
+        return props;
+      }, {}) || {},
+      required: commandArgs?.filter(arg => arg.required).map(arg => arg.name) || []
+    };
+  }
+
+  /**
+   * Auto-import all commands from src/commands/ directory
+   */
+  async autoImportCommands() {
+    const fs = await import('fs/promises');
+    const path = await import('path');
+    const { fileURLToPath } = await import('url');
+    
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const commandsDir = path.resolve(__dirname, '..', 'commands');
+    
+    try {
+      const files = await fs.readdir(commandsDir);
+      const jsFiles = files.filter(file => file.endsWith('.js'));
+      
+      console.log(`🔍 Auto-importing ${jsFiles.length} commands from ${commandsDir}`);
+      
+      for (const file of jsFiles) {
+        try {
+          const commandName = path.basename(file, '.js');
+          const modulePath = path.join(commandsDir, file);
+          const commandModule = await import(`file://${modulePath}`);
+          
+          // Convert kebab-case filename to camelCase function name (session-ping -> sessionPing)
+          const functionName = commandName.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+          
+          // Look for named export matching the camelCase function name
+          if (commandModule[functionName] && typeof commandModule[functionName] === 'function') {
+            this.register(commandName, commandModule[functionName], {
+              description: commandModule.description || `${commandName} command`,
+              args: commandModule.args || [],
+              namespace: commandModule.namespace,
+              plugin: commandModule.plugin
+            });
+            
+            console.log(`✅ Registered command: ${commandName} (${functionName})`);
+          } else if (commandModule.default && typeof commandModule.default === 'function') {
+            // Fallback to default export
+            this.register(commandName, commandModule.default, {
+              description: commandModule.description || `${commandName} command`,
+              args: commandModule.args || [],
+              namespace: commandModule.namespace,
+              plugin: commandModule.plugin
+            });
+            
+            console.log(`✅ Registered command: ${commandName} (default export)`);
+          } else {
+            console.warn(`⚠️  Command file ${file} does not export function '${functionName}' or default function`);
+          }
+        } catch (error) {
+          console.error(`❌ Failed to import command ${file}:`, error.message);
+        }
+      }
+      
+      this.initialized = true;
+      console.log(`🎯 Command registry initialized with ${this.commands.size} commands`);
+      
+    } catch (error) {
+      console.error(`❌ Failed to scan commands directory: ${error.message}`);
+    }
+  }
+
+  /**
+   * Initialize command registry with dependencies
+   */
+  async initialize(dependencies = {}) {
+    this.dependencies = dependencies;
+    await this.autoImportCommands();
+    return this;
+  }
+
+  /**
+   * Get dependencies for command execution
+   */
+  getDependencies() {
+    return this.dependencies || {};
   }
 }
 
-// Singleton instance
+// Export singleton instance
 export const commandRegistry = new CommandRegistry();

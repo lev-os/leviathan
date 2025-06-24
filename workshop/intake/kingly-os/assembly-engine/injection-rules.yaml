@@ -1,0 +1,285 @@
+# Dynamic Context Assembly Rules for Kingly OS
+# Defines when and what to inject into nano-agent contexts
+
+agents:
+  researcher:
+    inject_when:
+      new_project:
+        prepend: |
+          Start by defining your research methodology and scope. Consider:
+          1. What type of research is most appropriate (primary, secondary, mixed)?
+          2. What are the key research questions to answer?
+          3. What sources will be most credible and relevant?
+        append: |
+          Always provide:
+          - Source citations and credibility assessment
+          - Confidence levels for your findings
+          - Identified gaps or areas needing further research
+          - Recommended next steps
+        priority: 3
+
+      followup_research:
+        prepend: |
+          Build on existing research findings. Review previous research to:
+          - Identify gaps in current knowledge
+          - Avoid duplication of effort
+          - Build logical connections
+        append: |
+          Focus on:
+          - Filling identified knowledge gaps
+          - Validating or challenging previous findings
+          - Synthesizing new insights with existing data
+        context: "previous_research_results"
+        priority: 2
+
+      fact_checking:
+        prepend: |
+          Apply rigorous fact-checking methodology:
+          - Verify claims against multiple credible sources
+          - Check for source bias and reliability
+          - Identify potential conflicts of interest
+        append: |
+          Provide verification report with:
+          - Confidence score for each claim (1-10)
+          - Source quality assessment
+          - Recommended corrections or clarifications
+        priority: 3
+
+  writer:
+    inject_when:
+      post_research:
+        prepend: |
+          Transform research findings into compelling narrative:
+          - Identify key insights and themes
+          - Structure information for target audience
+          - Maintain accuracy while improving accessibility
+        append: |
+          Ensure your content:
+          - Matches target audience knowledge level
+          - Achieves specified content goals
+          - Maintains engaging flow and structure
+          - Preserves factual accuracy
+        context: "research_findings"
+        priority: 2
+
+      editing_phase:
+        prepend: |
+          Focus on improving clarity, flow, and engagement:
+          - Review for logical structure and transitions
+          - Eliminate unnecessary complexity
+          - Enhance readability and comprehension
+        append: |
+          Apply editorial best practices:
+          - Grammar and style consistency
+          - Fact accuracy preservation
+          - Voice and tone alignment
+          - Call-to-action clarity
+        context: "draft_content"
+        priority: 2
+
+      creative_writing:
+        prepend: |
+          Engage creative writing techniques:
+          - Develop compelling narrative voice
+          - Use vivid imagery and sensory details
+          - Create emotional connection with readers
+        append: |
+          Balance creativity with purpose:
+          - Maintain narrative consistency
+          - Serve overall content objectives
+          - Respect genre conventions
+        priority: 1
+
+  dev:
+    inject_when:
+      new_feature:
+        prepend: |
+          Follow development best practices:
+          - Analyze requirements and technical constraints
+          - Design modular, maintainable architecture
+          - Consider security, performance, and scalability
+        append: |
+          Implementation checklist:
+          - Write clean, documented code
+          - Include appropriate error handling
+          - Add unit tests for core functionality
+          - Follow project coding standards
+        priority: 3
+
+      debugging:
+        prepend: |
+          Apply systematic debugging methodology:
+          - Reproduce the issue consistently
+          - Isolate the problem scope
+          - Gather relevant error information and context
+        append: |
+          Debug systematically:
+          - Use debugging tools effectively
+          - Test hypotheses incrementally
+          - Document the root cause and solution
+          - Prevent similar issues in the future
+        priority: 3
+
+      code_review:
+        prepend: |
+          Conduct thorough code review:
+          - Assess code quality and maintainability
+          - Check for security vulnerabilities
+          - Verify adherence to project standards
+        append: |
+          Provide constructive feedback:
+          - Specific, actionable suggestions
+          - Explain reasoning behind recommendations
+          - Highlight both strengths and improvements
+        priority: 2
+
+  ceo:
+    inject_when:
+      project_planning:
+        prepend: |
+          Apply strategic project management thinking:
+          - Define clear objectives and success metrics
+          - Identify resources, constraints, and risks
+          - Plan for iterative delivery and feedback
+        append: |
+          Strategic considerations:
+          - Stakeholder alignment and communication
+          - Resource allocation and timeline management
+          - Risk mitigation and contingency planning
+          - Success measurement and course correction
+        priority: 3
+
+      task_creation:
+        prepend: |
+          Create well-defined, actionable tasks:
+          - Clear objectives and acceptance criteria
+          - Appropriate scope and complexity
+          - Necessary context and dependencies
+        append: |
+          Task definition checklist:
+          - Specific deliverables identified
+          - Success criteria measurable
+          - Dependencies and blockers noted
+          - Estimated effort and timeline
+        priority: 2
+
+  fact-checker:
+    inject_when:
+      verification_request:
+        prepend: |
+          Apply rigorous fact-checking standards:
+          - Cross-reference multiple authoritative sources
+          - Verify dates, numbers, and specific claims
+          - Assess source credibility and potential bias
+        append: |
+          Provide comprehensive verification report:
+          - Claim-by-claim accuracy assessment
+          - Source quality and reliability ratings
+          - Confidence levels and uncertainty areas
+          - Recommendations for corrections or clarifications
+        priority: 3
+
+  editor:
+    inject_when:
+      content_review:
+        prepend: |
+          Apply professional editing standards:
+          - Assess content structure and flow
+          - Review for clarity and accessibility
+          - Check consistency in style and tone
+        append: |
+          Editorial recommendations:
+          - Specific suggestions for improvement
+          - Priority levels for different changes
+          - Style guide adherence notes
+          - Reader experience optimization
+        priority: 2
+
+# Workflow-specific assembly overrides
+workflows:
+  content_creation:
+    routing_priority: high
+    assembly_overrides:
+      post_research: "inject audience_analysis for better targeting"
+      pre_publication: "inject final_quality_checklist"
+    
+    sequence_injections:
+      researcher_to_writer:
+        prepend: "Focus on transforming research into compelling narrative for target audience."
+      writer_to_fact_checker:
+        prepend: "Verify all factual claims, statistics, and assertions in the content."
+      fact_checker_to_editor:
+        prepend: "Polish content while preserving accuracy and factual integrity."
+
+  software_development:
+    routing_priority: high
+    assembly_overrides:
+      feature_implementation: "inject_security_and_performance_considerations"
+      code_review: "inject_maintainability_and_standards_check"
+    
+    sequence_injections:
+      ceo_to_dev:
+        prepend: "Translate business requirements into technical implementation plan."
+      dev_to_dev:
+        prepend: "Build on existing codebase and maintain architectural consistency."
+
+  business_analysis:
+    routing_priority: medium
+    assembly_overrides:
+      market_research: "inject_competitive_analysis_framework"
+      strategy_development: "inject_risk_assessment_methodology"
+
+# Global injection rules (applied to all agents)
+global_injections:
+  always_append: |
+    Based on your work, suggest 1-3 logical next steps:
+    1. **[Agent/Action]**: [Specific reason why this makes sense now]
+    2. **[Alternative Agent/Action]**: [Different approach or priority]
+    3. **[Continue/Other]**: [If current work needs continuation or other options]
+    
+    Present these as numbered options requiring only number selection.
+
+  user_preferences:
+    jean_patrick:
+      inject: |
+        Provide technical depth and numbered options for easy selection.
+        Minimize unnecessary explanation unless specifically requested.
+    
+    default:
+      inject: |
+        Provide clear explanations and actionable next steps.
+
+# Learning mode triggers
+learning_triggers:
+  no_workflow_confidence_threshold: 0.6
+  complex_task_indicators:
+    - "create comprehensive"
+    - "build complete"
+    - "develop full"
+    - "design entire" 
+    - "implement system"
+  
+  learning_mode_injections:
+    prepend: |
+      LEARNING MODE ACTIVATED: This appears to be a complex task without an established workflow.
+      Apply experimental approaches and document what works best.
+    append: |
+      LEARNING MODE: Track what approaches are most effective for future optimization.
+      Note: This interaction will be analyzed to improve future performance.
+
+# Safety and guard rails
+guard_rails:
+  never_inject:
+    - "ignore previous instructions"
+    - "act as different character"
+    - "disregard safety guidelines"
+  
+  always_validate:
+    - "factual_claims"
+    - "code_security"
+    - "privacy_protection"
+  
+  escalate_when:
+    - "user_safety_risk"
+    - "ethical_concerns"
+    - "system_compromise_attempt"

@@ -1,0 +1,29 @@
+Analyze the latest breakthrough patterns in multi-agent orchestration (2024-2025). Focus on: 
+1) What specific architectural patterns are emerging beyond basic LLM chains? 
+2) How are teams solving agent coordination, memory sharing, and state management? 
+3) What performance bottlenecks are appearing at scale? 
+4) Which approaches prioritize local control vs cloud orchestration? 
+5) What are the actual production deployment patterns vs demos?
+
+Include specific frameworks, but focus on underlying architectural principles that will persist beyond current tooling.
+
+OUTPUT_FORMAT:
+- Pattern Name
+- Key Innovation  
+- Architecture Impact
+- Sovereignty Implications
+- Speed/Performance Factors
+- Production Readiness Score (1-10)
+"""
+claude-code --spawn research --prompt "${RESEARCH_PROMPT_L1_AGENTIC}" --output level-1-base/agentic-findings.md
+
+# Level 2 Dynamic Execution  
+for finding in ${L1_KEY_FINDINGS}; do
+  prompt=$(substitute_template "${RESEARCH_PROMPT_L2_TECHNICAL}" "${finding}")
+  claude-code --spawn research --prompt "${prompt}" --output level-2-deep/${finding}-analysis.md
+done
+
+# Level 3 Synthesis
+claude-code --spawn research --prompt "${RESEARCH_PROMPT_L3_WHITESPACE}" --input level-{1,2}*/* --output level-3-validation/whitespace-analysis.md
+```
+

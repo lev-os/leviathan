@@ -87,7 +87,7 @@ export class WorkshopPlugin {
         {
           description: commandHandler.description,
           namespace: this.namespace,
-          plugin: '@lev/workshop',
+          plugin: '@lev-os/workshop',
           args: commandHandler.args || [],
           options: commandHandler.options || []
         }
@@ -132,7 +132,7 @@ export class WorkshopPlugin {
    */
   getMetadata() {
     return {
-      name: '@lev/workshop',
+      name: '@lev-os/workshop',
       version: '0.1.0',
       namespace: this.namespace,
       description: 'Tool integration and plugin creation system for Leviathan ecosystem',

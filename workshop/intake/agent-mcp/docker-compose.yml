@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  notion-mcp:
+    build: .
+    environment:
+      - NOTION_API_KEY=${NOTION_API_KEY}
+      - NOTION_DATABASE_ID=${NOTION_DATABASE_ID}
+      - MEMORY_FILE_PATH=/app/data/.memory.json
+    volumes:
+      - memory-data:/app/data
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    networks:
+      - mcp-network
+    stdin_open: true
+    tty: true
+
+volumes:
+  memory-data:
+    driver: local
+
+networks:
+  mcp-network:
+    driver: bridge

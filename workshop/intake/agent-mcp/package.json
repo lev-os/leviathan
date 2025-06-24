@@ -1,0 +1,47 @@
+{
+  "name": "agent-mcp",
+  "version": "1.0.0",
+  "description": "AI Agent Task Management and Handoff MCP Server",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "test:integration": "jest tests/integration",
+    "test:e2e": "jest tests/e2e --runInBand",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "inspector": "npx @modelcontextprotocol/inspector node dist/index.js",
+    "cli": "tsx src/cli-adapter.ts",
+    "test:cli": "tsx src/cli-adapter.ts --help"
+  },
+  "keywords": [
+    "mcp",
+    "agent",
+    "task-management",
+    "ai",
+    "handoff"
+  ],
+  "author": "AIForge",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "dotenv": "^16.3.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.6",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.17.50",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.4",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

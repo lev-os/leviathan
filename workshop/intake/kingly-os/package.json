@@ -1,0 +1,27 @@
+{
+  "name": "kingly-os",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "test:watch": "node --test --watch tests/*.test.js",
+    "demo": "node demo.js",
+    "dev": "node --env-file=.env kingly-os.js",
+    "mcp": "node --env-file=.env mcp-server.js",
+    "local": "OLLAMA_MODEL=tinyllama node --env-file=.env demo.js",
+    "claude-adapter": "node demo-claude-adapter.js",
+    "install-ollama": "curl -fsSL https://ollama.ai/install.sh | sh"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "openai": "^4.67.3",
+    "@anthropic-ai/sdk": "^0.27.2",
+    "groq-sdk": "^0.7.0",
+    "express": "^4.19.2",
+    "ws": "^8.18.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0"
+  }
+}

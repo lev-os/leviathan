@@ -24,7 +24,7 @@
       "Bash(npm run test:workflows:*)",
       "Bash(./bin/lev:*)",
       "mcp__perplexity-ask__perplexity_ask",
-      "Bash(/Users/jean-patricksmith/digital/leviathan/plugins/@lev/workshop/tests/workshop.test.js)",
+      "Bash(/Users/jean-patricksmith/digital/leviathan/plugins/@lev-os/workshop/tests/workshop.test.js)",
       "Bash(timeout:*)",
       "Bash(git branch:*)",
       "Bash(cp:*)",
@@ -35,7 +35,12 @@
       "Bash(git for-each-ref:*)",
       "Bash(npm run test:constitutional:*)",
       "mcp__desktop-commander__create_directory",
-      "mcp__desktop-commander__write_file"
+      "mcp__desktop-commander__write_file",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:docs.mastra.ai)",
+      "Bash(npm run test:architectural:*)",
+      "Bash(mv:*)"
     ],
     "deny": []
   }

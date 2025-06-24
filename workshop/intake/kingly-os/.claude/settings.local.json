@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm test:*)",
+      "mcp__perplexity-ask__perplexity_ask",
+      "Bash(ls:*)",
+      "Bash(npm run demo:*)",
+      "Bash(npm run test:*)",
+      "Bash(conda activate:*)",
+      "Bash(conda list:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run:*)",
+      "Bash(chmod:*)",
+      "Bash(python:*)",
+      "mcp__desktop-commander__read_file"
+    ],
+    "deny": []
+  }
+}

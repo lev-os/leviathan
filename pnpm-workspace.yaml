@@ -1,2 +1,21 @@
 packages:
+  # Core packages (following Mastra model)
   - 'packages/*'
+  
+  # Agent system
+  - 'agent'
+  
+  # Operating system components
+  - 'os/agent'
+  
+  # Applications
+  - 'apps/*'
+  
+  # Tooling
+  - 'tooling/*'
+  
+  # True plugins (optional functionality)
+  - 'plugins/@homie/*'
+  
+  # Forge and experimental features
+  - 'forge/*'

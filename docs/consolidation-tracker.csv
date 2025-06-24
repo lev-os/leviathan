@@ -1,0 +1,56 @@
+Phase,Task_ID,Task_Name,Source_Files,Target_Location,Dependencies,Status,Priority,Estimated_Hours,Owner,Notes
+0,P0T01,Create consolidation infrastructure,N/A,docs/consolidation/,None,Completed,CRITICAL,2,Team,Setting up tracking and process docs
+0,P0T02,Document inventory - root _*.md files,"_01-whisper.md, _01-prime.md, _01-codex.md, _02-adapters.md, _03-jepa.md, _core.md, etc",docs/consolidation-inventory.md,P0T01,Pending,HIGH,3,Team,Full inventory of 18+ files
+0,P0T03,Document inventory - drafts/ folder,drafts/*.md and drafts/archive/*.md,docs/consolidation-inventory.md,P0T01,Pending,HIGH,2,Team,15+ draft documents including ADRs
+0,P0T04,Document inventory - _ref/ projects,"_ref/orig-agent/, _ref/mcp-ceo/",docs/consolidation-inventory.md,P0T01,Pending,HIGH,4,Team,Core principles and bi-directional flow
+0,P0T05,Document inventory - workshop/,workshop/ entire structure,docs/consolidation-inventory.md,P0T01,Pending,MEDIUM,3,Team,170+ tools and integration plans
+0,P0T06,Create dependency graph,All inventories,docs/consolidation-dependencies.md,P0T02-P0T05,Pending,HIGH,4,Team,Map concept relationships
+0,P0T07,Prioritize consolidation order,Dependency graph,docs/consolidation-phases/,P0T06,Pending,CRITICAL,2,Team,Define execution order
+0.5,P05T01,Extract FlowMind runtime concept,"_ref/mcp-ceo/CLAUDE.md lines 10-30, _ref/mcp-ceo/docs/adr/007-flowmind-*.md",docs/concepts/revolutionary/flowmind-runtime.md,P0T07,Pending,CRITICAL,3,Team,LLM IS the runtime breakthrough
+0.5,P05T02,Document semantic control patterns,_ref/mcp-ceo/docs/adr/007-flowmind-*.md lines 15-45,docs/concepts/revolutionary/semantic-control.md,P0T07,Pending,CRITICAL,2,Team,when_semantic patterns
+0.5,P05T03,Synthesize bi-directional evolution,"_01-whisper.md lines 359-717, _ref/mcp-ceo/docs/BIDIRECTIONAL-FLOW-DIAGRAM.md",docs/concepts/revolutionary/bidirectional-evolution.md,P0T07,Pending,CRITICAL,4,Team,From breadcrumbs to orchestration
+0.5,P05T04,Map galaxy-level intelligence,_01-whisper.md lines 534-628,docs/concepts/revolutionary/galaxy-intelligence.md,P0T07,Pending,HIGH,2,Team,Dual LLM architecture vision
+0.5,P05T05,Create patterns inventory,"Multiple sources - confidence routing, context inheritance, semantic conditions",docs/patterns/README.md,P0T07,Pending,HIGH,3,Team,Reusable pattern library
+1,P1T01,Core principles consolidation,_ref/orig-agent/CORE_PRINCIPLES.md,docs/architecture/01-llm-first-principles.md,P05T01,Pending,CRITICAL,3,Team,Foundation document
+1,P1T02,Bi-directional flow documentation,"_ref/mcp-ceo/docs/BIDIRECTIONAL-FLOW-DIAGRAM.md, _ref/mcp-ceo/README.md",docs/architecture/02-bidirectional-flow.md,P0T07,Pending,CRITICAL,4,Team,The missing secret
+1,P1T03,Whisper system current state,_01-whisper.md,docs/specs/whisper-system/current-spec.md,P0T07,Pending,HIGH,2,Team,Current implementation
+1,P1T04,Whisper to bi-directional evolution,"_01-whisper.md, drafts/whisper-bi-directional-plan.md",docs/specs/whisper-system/evolution-plan.md,P1T02,Pending,HIGH,4,Team,Migration strategy
+1,P1T05,Package architecture spec,"_core.md, workshop/intake/mastra-package-architecture-analysis.md",docs/architecture/06-package-architecture.md,P0T07,Pending,HIGH,3,Team,Core vs plugins
+1,P1T06,Memory architecture consolidation,"drafts/003-hybrid-memory-system-architecture.md, drafts/004-lev-os-memory-integration-architecture.md, drafts/005-graphiti-only-memory-architecture.md",docs/architecture/memory/,P0T07,Pending,HIGH,4,Team,Multiple memory ADRs
+1,P1T07,ADR migration - orig-agent,_ref/orig-agent/docs/architecture/,docs/adr/001-010-core-principles/,P1T01,Pending,HIGH,3,Team,Original ADRs
+1,P1T08,ADR migration - new decisions,"drafts/adr-*.md, memory ADRs",docs/adr/011-020-architecture-evolution/,P1T06,Pending,HIGH,3,Team,New architectural decisions
+1,P1T09,FlowMind documentation,_ref/mcp-ceo/docs/,docs/architecture/04-flowmind-language.md,P1T02,Pending,HIGH,3,Team,LLM as runtime
+1,P1T10,JEPA integration spec,_03-jepa.md,docs/specs/integrations/jepa-learning/,P0T07,Pending,MEDIUM,2,Team,Self-learning plugin
+1,P1T11,Prime context spec,_01-prime.md,docs/specs/constitutional/prime-context.md,P0T07,Pending,MEDIUM,2,Team,Universal context loading
+1,P1T12,Codex plugin migration,_01-codex.md,docs/specs/plugins/codex/,P0T07,Pending,MEDIUM,2,Team,Knowledge crystallization
+1,P1T13,Workshop intelligence plan,"workshop/WORKSHOP-INTELLIGENCE-MASTER-PLAN.md, workshop/index.md",docs/workshop/master-plan.md,P0T07,Pending,MEDIUM,3,Team,Tool evaluation framework
+1,P1T14,MCP orchestration layer,drafts/005-kingly-mcp-orchestration-layer.md,docs/architecture/mcp-orchestration.md,P1T02,Pending,HIGH,2,Team,MCP patterns
+1,P1T15,Coding standards,drafts/coding-guide.md,docs/guides/development/coding-standards.md,P0T07,Pending,MEDIUM,1,Team,Development guidelines
+1.5,P15T01,Bi-directional flow BDD specs,"_ref/mcp-ceo/tests/, working code analysis",docs/specs/bdd/bidirectional-flow/,P1T02,Pending,CRITICAL,4,Team,Extract behavior specifications
+1.5,P15T02,Whisper system TDD specs,_01-whisper.md behavior analysis,docs/specs/tdd/whisper-system/,P1T03,Pending,HIGH,3,Team,Test-driven whisper specs
+1.5,P15T03,Context switching behavior specs,_ref/mcp-ceo/src/ analysis,docs/specs/bdd/context-switching/,P1T02,Pending,HIGH,3,Team,Context switch specifications
+1.5,P15T04,Semantic condition evaluation specs,FlowMind examples from mcp-ceo,docs/specs/bdd/semantic-conditions/,P1T09,Pending,MEDIUM,2,Team,Natural language condition specs
+1.5,P15T05,Core functionality TDD specs,agent/tests/ analysis,docs/specs/tdd/core-functionality/,P1T01,Pending,HIGH,3,Team,Core system test specs
+2,P2T01,Bi-directional flow code analysis,_ref/mcp-ceo/src/,docs/implementation/bidirectional-flow/,P15T01,Pending,CRITICAL,6,Team,Extract working patterns
+2,P2T02,Test migration planning,_ref/mcp-ceo/tests/,docs/testing/bidirectional-tests/,P2T01,Pending,HIGH,3,Team,100% test coverage
+2,P2T03,Context assembly implementation,"agent/contexts/, _ref/mcp-ceo/contexts/",docs/implementation/context-assembly/,P2T01,Pending,HIGH,4,Team,Dynamic context system
+2,P2T04,Personality system extraction,_ref/mcp-ceo/ceo-config.yaml,docs/implementation/personality-system/,P2T01,Pending,HIGH,3,Team,8-personality EEPS
+2.5,P25T01,Quantum insights integration,_ref/orig-agent/drafts/vision-strategy/quantum-insights/ (6 files),docs/research/future-vision/quantum/,P1T01,Pending,MEDIUM,4,Team,Revolutionary feature concepts
+2.5,P25T02,Memory federation patterns,_ref/orig-agent/drafts/memory-systems/memory-federation/ (4 files),docs/architecture/memory/federation/,P1T06,Pending,HIGH,3,Team,Advanced memory patterns
+2.5,P25T03,Intelligence pattern extraction,_ref/orig-agent/drafts/intelligence/ (6 files),docs/research/intelligence-patterns/,P1T01,Pending,MEDIUM,4,Team,Meta-prompting and workflow DNA
+2.5,P25T04,MCP-CEO personality analysis,_ref/mcp-ceo/tmp/agents/*.md (8 files),docs/research/personality-analysis/eeps/,P2T04,Pending,MEDIUM,3,Team,Deep personality analysis
+2.5,P25T05,Pattern library from mcp-ceo,_ref/mcp-ceo/tmp/patterns/*.md (15+ files),docs/patterns/,P05T05,Pending,MEDIUM,4,Team,Analysis and thinking patterns
+2.5,P25T06,Semantic parser design docs,_ref/mcp-ceo/tmp/semantic-parser-design/,docs/research/flowmind/parser/,P1T09,Pending,LOW,2,Team,Parser architecture
+3,P3T01,Package structure implementation,Based on P1T05 spec,packages/,P1T05,Pending,HIGH,8,Team,Create core packages
+3,P3T02,Plugin migration,Current plugins/ to proper structure,plugins/ and packages/,P3T01,Pending,HIGH,6,Team,Separate core from optional
+3,P3T03,Import path updates,All source files,All source files,P3T02,Pending,HIGH,4,Team,Update to new structure
+3,P3T04,Mastra integration patterns,workshop/intake/mastra-*,docs/integration/mastra/,P3T01,Pending,MEDIUM,4,Team,Architecture alignment
+4,P4T01,Workshop tool classification,workshop/intake/,docs/workshop/evaluations/,P1T13,Pending,MEDIUM,12,Team,170+ tools evaluation
+4,P4T02,Tool tier documentation,Workshop tier analysis,docs/workshop/tiers/,P4T01,Pending,HIGH,3,Team,Document 8-tier classification
+4,P4T03,Priority tool deep dives,"Ultimate MCP, CrewAI, Graphiti analysis",docs/workshop/priority-tools/,P4T02,Pending,HIGH,6,Team,Tier 1-2 tool documentation
+4,P4T04,Integration readiness matrix,Tool evaluation results,docs/workshop/integration-matrix.md,P4T01,Pending,HIGH,2,Team,Tool readiness assessment
+4,P4T05,Tool integration roadmap,Based on classifications and matrix,docs/workshop/roadmap.md,P4T04,Pending,MEDIUM,3,Team,Phased integration plan
+5,P5T01,JEPA plugin implementation,Based on P1T10 spec,packages/@lev-os/jepa-learning/,P1T10,Pending,LOW,16,Team,Advanced learning features
+5,P5T02,Production documentation,All consolidated docs,docs/production/,P1-P4,Pending,MEDIUM,8,Team,User-facing docs
+5,P5T03,Example applications,Based on new architecture,examples/,P3T03,Pending,LOW,6,Team,Reference implementations
+5,P5T04,Performance optimization,Core systems,All packages,P3T03,Pending,MEDIUM,8,Team,Production readiness 
