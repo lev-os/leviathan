@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "mcp__fetch-mcp__fetch_youtube_transcript",
-      "Bash(yt-dlp:*)"
+      "Bash(yt-dlp:*)",
+      "mcp__desktop-commander__search_files"
     ],
     "deny": []
   }

@@ -40,7 +40,8 @@
       "WebFetch(domain:www.npmjs.com)",
       "WebFetch(domain:docs.mastra.ai)",
       "Bash(npm run test:architectural:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "mcp__desktop-commander__move_file"
     ],
     "deny": []
   }

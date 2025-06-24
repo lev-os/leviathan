@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Create a git worktree for hexagonal architecture refactor
-import { worktreeManager } from '../plugins/@lev-os/cmd/src/worktree-manager.js';
+import { worktreeManager } from '../packages/commands/src/worktree-manager.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 

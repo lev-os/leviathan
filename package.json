@@ -15,10 +15,10 @@
     "test": "npm run test:all",
     "test:all": "npm run test:agent && npm run test:plugins && npm run test:e2e",
     "test:agent": "cd agent && npm test",
-    "test:plugins": "node plugins/@lev-os/testing/src/test-runner.js plugins",
+    "test:plugins": "node packages/testing/src/test-runner.js plugins",
     "test:plugins:parallel": "npm run test:plugins",
     "test:e2e": "cd agent && npm run test:e2e",
-    "test:discover": "node plugins/@lev-os/testing/src/test-runner.js discover",
+    "test:discover": "node packages/testing/src/test-runner.js discover",
     "dev": "pnpm -r dev",
     "lint": "pnpm -r lint",
     "clean": "pnpm -r clean"
