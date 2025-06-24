@@ -4,7 +4,7 @@
 
 This document maps the dependencies between different documentation concepts to guide the consolidation order. Understanding these relationships is critical for maintaining conceptual integrity during the merge.
 
-## Core Dependency Tree
+## v1.0 Core Technical Dependency Tree (Pure Plumbing)
 
 ```
 ┌─────────────────────────────────────────┐
@@ -12,28 +12,58 @@ This document maps the dependencies between different documentation concepts to 
 │   "Can an LLM do this?"                 │
 └────────────┬────────────────────────────┘
              │
-             ├──► Bi-Directional Flow (mcp-ceo)
-             │    ├──► FlowMind (LLM as runtime)
-             │    ├──► Dynamic Context Assembly
-             │    └──► Personality System (8 EEPS)
+             ├──► Hexagonal Architecture
+             │    ├──► Adapters (CLI, MCP, API)
+             │    ├──► Core Business Logic
+             │    └──► Infrastructure Layer
              │
-             ├──► Constitutional AI Framework
-             │    ├──► Prime Context Loading
-             │    ├──► Values-Based Decisions
-             │    └──► Governance Patterns
+             ├──► Package vs Plugin Architecture
+             │    ├──► Core Packages (directly imported)
+             │    ├──► True Plugins (optional)
+             │    └──► Clean Import Patterns
              │
-             └──► Everything is Context/Agent
-                  ├──► Hexagonal Architecture
-                  ├──► Package vs Plugin Design
-                  └──► Workflow Orchestration
+             └──► Production Infrastructure
+                  ├──► MCP Server (production-ready)
+                  ├──► CLI Adapter (production-ready)
+                  ├──► Test Suite (100% coverage)
+                  ├──► Memory Interface (swappable backends)
+                  └──► Mastra Pattern Integration
+```
+
+## v2.0 Advanced Features (After v1.0 Complete)
+
+```
+v1.0 Stable Foundation
+         │
+         ├──► Bi-Directional Flow Research (mcp-ceo)
+         │    ├──► Dynamic Context Assembly
+         │    ├──► Callback/Handoff System
+         │    └──► FlowMind (LLM as runtime)
+         │
+         └──► Revolutionary Concepts
+              ├──► Whisper Evolution
+              ├──► Semantic Control Patterns
+              └──► Galaxy-Level Intelligence
+```
+
+## Optional Experimental Plugins (Not Core)
+
+```
+Experimental Overlays (Enable/Disable at Will)
+├──► Constitutional AI Plugin
+│    └──► Values-based filtering overlay
+├──► EEPS Personality Plugin
+│    └──► 8-personality context overlay
+└──► JEPA Learning Plugin
+     └──► Self-learning capabilities
 ```
 
 ## Critical Path Dependencies
 
-### 1. Foundation Layer (Must Complete First)
+### v1.0 Foundation (Must Complete First)
 
 ```
-Core Principles → Architecture Patterns → Implementation Specs
+Core Principles → Hexagonal Architecture → Package Structure → Production Infrastructure
 ```
 
 - **Core Principles** (CORE_PRINCIPLES.md)
@@ -42,27 +72,63 @@ Core Principles → Architecture Patterns → Implementation Specs
   - Defines: LLM-first philosophy
   - Critical for: Understanding system design
 
-- **Bi-Directional Flow** (BIDIRECTIONAL-FLOW-DIAGRAM.md)
-  - Blocks: Whisper evolution, MCP patterns
-  - Defines: Communication architecture
-  - Critical for: Context assembly, callbacks
+- **Hexagonal Architecture**
 
-### 2. Architecture Layer
-
-```
-Package Architecture ←→ Memory Design ←→ Plugin System
-```
+  - Blocks: All code organization
+  - Defines: Clean separation of concerns
+  - Critical for: Maintainable system
 
 - **Package vs Plugin** (\_core.md)
-
   - Blocks: Import patterns, project structure
-  - Influences: Memory backend design
-  - Critical for: Clean boundaries
+  - Defines: What's core vs optional
+  - Critical for: Clean dependencies
 
-- **Memory Architecture** (3 competing designs)
-  - Blocks: Data persistence patterns
-  - Influences: Context storage
-  - Requires: Architecture decision
+### v1.0 Infrastructure Requirements
+
+```
+MCP Server ←→ CLI Adapter ←→ Test Framework ←→ Memory Interface
+     ↓            ↓              ↓                    ↓
+Production   Production    100% Coverage      Swappable Backends
+```
+
+- **Production MCP Server**
+
+  - Current: Working in agent/
+  - Needs: Production hardening, full test coverage
+  - Critical for: Tool integration
+
+- **Production CLI Adapter**
+
+  - Current: Working commands
+  - Needs: Complete test coverage, error handling
+  - Critical for: User interface
+
+- **Memory Interface**
+  - Current: 3 competing designs
+  - Needs: Interface decision (not implementation)
+  - Critical for: Data persistence abstraction
+
+### v2.0 Research Dependencies (After v1.0)
+
+```
+v1.0 Complete → Bi-Directional Study → FlowMind Design → Implementation
+                         ↓
+                 Extract from mcp-ceo:
+                 - Working patterns
+                 - Test strategies
+                 - Context switching
+```
+
+- **Bi-Directional Flow** (BIDIRECTIONAL-FLOW-DIAGRAM.md)
+
+  - When: After v1.0 stable
+  - Purpose: Advanced communication patterns
+  - Not blocking: v1.0 production readiness
+
+- **FlowMind** (mcp-ceo research)
+  - When: After bi-directional understood
+  - Purpose: LLM as runtime concept
+  - Requires: Stable v1.0 foundation
 
 ### 3. Implementation Layer
 
@@ -114,21 +180,37 @@ Mastra Patterns → Memory Backends → Workflow Engine
 
 ## Blocking Dependencies
 
-### Hard Blocks (Must Resolve First)
+### v1.0 Hard Blocks (Must Resolve First)
 
-1. **Bi-Directional Flow Understanding**
-
-   - Blocks: Whisper evolution, MCP patterns, context assembly
-   - Resolution: Deep dive into mcp-ceo implementation
-
-2. **Package Architecture Decision**
+1. **Package Architecture Decision**
 
    - Blocks: All code organization, imports, structure
    - Resolution: Finalize \_core.md recommendations
+   - Remove: Experimental features from core
 
-3. **Memory Architecture Choice**
-   - Blocks: Data persistence, context storage
-   - Resolution: Compare 3 designs, make decision
+2. **Hexagonal Architecture Implementation**
+
+   - Blocks: Clean separation of concerns
+   - Resolution: Adapters route, core computes
+   - Critical: No business logic in adapters
+
+3. **Memory Interface Definition**
+   - Blocks: Data persistence abstraction
+   - Resolution: Define interface only, not backend choice
+   - Allows: Multiple backend implementations
+
+### v2.0 Dependencies (Not Blocking v1.0)
+
+1. **Bi-Directional Flow Understanding**
+
+   - When: After v1.0 stable
+   - Purpose: Advanced communication patterns
+   - Resolution: Deep dive into mcp-ceo implementation
+
+2. **FlowMind Architecture**
+   - When: After bi-directional understood
+   - Purpose: Revolutionary LLM runtime concept
+   - Requires: Stable v1.0 base
 
 ### Soft Dependencies (Can Parallel)
 
@@ -151,41 +233,45 @@ Mastra Patterns → Memory Backends → Workflow Engine
 
 ## Consolidation Order Recommendation
 
-### Phase 1A: Critical Foundation (Week 1)
+### v1.0 Phase 1: Technical Foundation (Weeks 1-2)
 
-1. Extract Core Principles from orig-agent
-2. Document Bi-Directional Flow from mcp-ceo
-3. Resolve Package vs Plugin architecture
+1. Extract Core Principles from orig-agent (LLM-first philosophy)
+2. Document Hexagonal Architecture patterns
+3. Finalize Package vs Plugin separation
+4. Define Memory Interface (not implementation)
+5. Document Production MCP/CLI requirements
+6. Extract Mastra integration patterns
 
-### Phase 1B: Architecture Decisions (Week 1-2)
+### v1.0 Phase 2: Infrastructure Documentation (Weeks 3-4)
 
-1. Memory architecture decision (choose from 3)
-2. FlowMind documentation
-3. Hexagonal architecture patterns
+1. Production MCP Server specifications
+2. CLI Adapter production requirements
+3. Test framework patterns (100% coverage goal)
+4. Current system analysis (what works, what needs fixing)
+5. Migration plan from plugins to packages
 
-### Phase 2A: Current State Documentation (Week 2)
+### v1.0 Phase 3: Implementation (Weeks 5-6)
 
-1. Whisper system current state
-2. Existing MCP patterns
-3. Current plugin system
+1. Package structure creation
+2. Move false plugins to core packages
+3. Extract experimental features to optional plugins
+4. Update all import paths
+5. Production hardening checklist
 
-### Phase 2B: Evolution Planning (Week 2-3)
+### v2.0 Phase 4: Research Only (Weeks 7-8)
 
-1. Whisper → Bi-directional migration
-2. Static → Dynamic context assembly
-3. Plugin → Package migration
+1. Study Bi-Directional Flow from mcp-ceo
+2. Extract FlowMind concepts
+3. Document revolutionary patterns
+4. Plan v2.0 architecture (no implementation yet)
 
-### Phase 3: Implementation Patterns (Week 3-4)
+### Parallel Work (Non-Blocking)
 
-1. Extract working code from mcp-ceo
-2. Document test patterns
-3. Create migration guides
-
-### Phase 4: Integration Planning (Week 4+)
-
-1. Workshop tool classification
-2. Mastra pattern integration
-3. Advanced feature specs (JEPA, etc.)
+1. Workshop tool classification (can start anytime)
+2. JEPA plugin design (optional feature)
+3. Constitutional AI extraction (to plugin)
+4. EEPS personality extraction (to plugin)
+5. Documentation cleanup
 
 ## Risk Mitigation Through Dependencies
 
@@ -203,15 +289,32 @@ Mastra Patterns → Memory Backends → Workflow Engine
 
 ## Success Validation
 
-### Dependency Resolution Checklist
+### v1.0 Success Checklist
 
-- [ ] Core principles documented and understood
-- [ ] Bi-directional flow patterns extracted
-- [ ] Package architecture finalized
-- [ ] Memory architecture chosen
-- [ ] Evolution paths clearly defined
-- [ ] No circular dependencies
-- [ ] All concepts have a home
+- [ ] Core principles (LLM-first) documented
+- [ ] Hexagonal architecture implemented
+- [ ] Package vs plugin separation complete
+- [ ] MCP server production-ready
+- [ ] CLI adapter production-ready
+- [ ] 100% test coverage achieved
+- [ ] Memory interface defined
+- [ ] NO experimental code in core
+- [ ] Mastra patterns integrated
+
+### v2.0 Readiness Checklist
+
+- [ ] v1.0 running stable in production
+- [ ] Bi-directional flow patterns researched
+- [ ] FlowMind concepts documented
+- [ ] Migration path from v1.0 to v2.0 clear
+- [ ] Revolutionary features understood
+
+### Plugin Extraction Checklist
+
+- [ ] Constitutional AI extracted to plugin
+- [ ] EEPS personalities extracted to plugin
+- [ ] JEPA design as optional plugin
+- [ ] All experimental features out of core
 
 ## Revolutionary Concepts Dependencies
 
@@ -220,7 +323,7 @@ Mastra Patterns → Memory Backends → Workflow Engine
 ```
 1. Whisper System → Bi-directional Flow → FlowMind Runtime
    └─ From static breadcrumbs to dynamic orchestration
-   
+
 2. LLM-First → Everything is Context → Semantic Control
    └─ Philosophy enabling revolutionary architecture
 
@@ -277,6 +380,7 @@ CEO Configuration (ceo-config.yaml)
 ## Critical Implementation Dependencies
 
 ### Bi-directional Flow Implementation
+
 ```
 mcp-ceo/src/
     ├─ bidirectional-flow.js (Core pattern)
@@ -288,6 +392,7 @@ mcp-ceo/src/
 ```
 
 ### Semantic Control Implementation
+
 ```
 ADR-007-flowmind-semantic-control-language.md
     ├─ Lines 15-45: when_semantic patterns
@@ -310,11 +415,39 @@ P05T05: Pattern Library ← Multiple sources synthesis
 ## Visual Summary
 
 ```
-Start → Foundation → Concepts → Architecture → Implementation → Integration → Advanced
-  ↓         ↓          ↓            ↓               ↓              ↓           ↓
-Phase 0   Phase 1   Phase 0.5    Phase 1-2      Phase 2-3      Phase 4     Phase 5
+v1.0: Start → Core Principles → Hex Architecture → Package Structure → Production Infrastructure → Testing
+        ↓           ↓                 ↓                    ↓                      ↓              ↓
+     Phase 0    Phase 1.1         Phase 1.2            Phase 1.3              Phase 2       Phase 3
+
+v2.0: v1.0 Complete → Bi-Directional Research → FlowMind Study → Advanced Features → Revolutionary Concepts
+           ↓                    ↓                      ↓                 ↓                    ↓
+      Production            Phase 4.1              Phase 4.2         Phase 5              Future
 ```
+
+## Key Distinctions
+
+### v1.0 = Production Technical Foundation
+
+- Pure technical plumbing
+- No experimental features
+- Battle-tested patterns
+- 100% test coverage
+- Clean architecture
+
+### v2.0 = Revolutionary Features (After v1.0)
+
+- Bi-directional flow
+- FlowMind (LLM as runtime)
+- Dynamic context assembly
+- Advanced orchestration
+
+### Plugins = Optional Experiments
+
+- Constitutional AI (overlay)
+- EEPS Personalities (overlay)
+- JEPA Learning (advanced feature)
+- Enable/disable without breaking core
 
 ---
 
-_This dependency graph ensures we consolidate documentation in the correct order, preserving conceptual integrity and avoiding rework. Updated to include revolutionary concepts and their specific line-number dependencies._
+_This dependency graph ensures v1.0 delivers a solid technical foundation before exploring v2.0 revolutionary features. All experimental concepts are extracted to optional plugins._

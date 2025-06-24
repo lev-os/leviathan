@@ -1,0 +1,127 @@
+{
+  "generated": "2025-06-19T22:26:11.319Z",
+  "summary": {
+    "tent_flex_osint_tools": 6,
+    "intake_osint_tools": 6,
+    "cyber_directories": 3,
+    "research_materials": 0
+  },
+  "findings": {
+    "tent_flex_osint": [
+      {
+        "name": "OSINT-Framework",
+        "path": "/Users/jean-patricksmith/digital/homie/tent-flex/repos/OSINT-Framework",
+        "description": "Comprehensive OSINT framework",
+        "type": "osint_framework",
+        "capabilities": [],
+        "priority": "high"
+      },
+      {
+        "name": "OSINTai",
+        "path": "/Users/jean-patricksmith/digital/homie/tent-flex/repos/OSINTai",
+        "description": "AI-powered OSINT tool",
+        "type": "ai_osint_tool",
+        "capabilities": [],
+        "priority": "high"
+      },
+      {
+        "name": "Photon",
+        "path": "/Users/jean-patricksmith/digital/homie/tent-flex/repos/Photon",
+        "description": "Fast web crawler for OSINT reconnaissance",
+        "type": "osint_tool",
+        "capabilities": [
+          "web_crawling",
+          "data_extraction",
+          "reconnaissance"
+        ],
+        "priority": "medium"
+      },
+      {
+        "name": "osint",
+        "path": "/Users/jean-patricksmith/digital/homie/tent-flex/repos/osint",
+        "description": "OSINT tool",
+        "type": "osint_tool",
+        "capabilities": [],
+        "priority": "medium"
+      },
+      {
+        "name": "osint-tools",
+        "path": "/Users/jean-patricksmith/digital/homie/tent-flex/repos/osint-tools",
+        "description": "OSINT tool",
+        "type": "osint_tool",
+        "capabilities": [],
+        "priority": "medium"
+      },
+      {
+        "name": "theharvester",
+        "path": "/Users/jean-patricksmith/digital/homie/tent-flex/repos/theharvester",
+        "description": "Email harvesting and information gathering tool",
+        "type": "osint_tool",
+        "capabilities": [
+          "email_harvesting",
+          "subdomain_enumeration",
+          "virtual_host_discovery"
+        ],
+        "priority": "medium"
+      }
+    ],
+    "intake_osint": [
+      {
+        "name": "OSINT-Framework",
+        "location": "intake",
+        "type": "osint_tool"
+      },
+      {
+        "name": "OSINTai",
+        "location": "intake",
+        "type": "osint_tool"
+      },
+      {
+        "name": "Photon",
+        "location": "intake",
+        "type": "osint_tool"
+      },
+      {
+        "name": "osint",
+        "location": "intake",
+        "type": "osint_tool"
+      },
+      {
+        "name": "osint-tools",
+        "location": "intake",
+        "type": "osint_tool"
+      },
+      {
+        "name": "theharvester",
+        "location": "intake",
+        "type": "osint_tool"
+      }
+    ],
+    "cyber_materials": [
+      {
+        "name": ".claude",
+        "path": "/Users/jean-patricksmith/digital/cyber/.claude",
+        "type": "cyber_directory"
+      },
+      {
+        "name": ".git",
+        "path": "/Users/jean-patricksmith/digital/cyber/.git",
+        "type": "cyber_directory"
+      },
+      {
+        "name": "josh-imessage",
+        "path": "/Users/jean-patricksmith/digital/cyber/josh-imessage",
+        "type": "cyber_directory"
+      }
+    ],
+    "research_materials": []
+  },
+  "recommendations": [
+    "Prioritize OSINT-Framework and OSINTai for immediate workshop intake",
+    "Integrate TheHarvester for email and domain intelligence",
+    "Use Photon for automated web reconnaissance workflows",
+    "Combine browser-use tools with OSINT for automated collection",
+    "Develop LLM-powered intelligence analysis using Kingly agents",
+    "Create secure OSINT workflow with data handling protocols"
+  ]
+}

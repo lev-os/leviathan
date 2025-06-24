@@ -24,6 +24,7 @@ This document defines the process for consolidating all Leviathan documentation 
 ### 3. Reference Projects (\_ref/) - EXPANDED
 
 #### orig-agent (30+ core files, 48 drafts files)
+
 - **Core**: Original concepts, core principles, ADRs
 - **drafts/vision-strategy/**: 13 files including quantum insights
 - **drafts/memory-systems/**: 11 files including federation patterns
@@ -35,6 +36,7 @@ This document defines the process for consolidating all Leviathan documentation 
 - **drafts/research/**: 5 files on emotional evolution
 
 #### mcp-ceo (20+ core files, 75 tmp files)
+
 - **Core**: Working bi-directional flow, FlowMind implementation
 - **tmp/**: 13 core analysis files, 6 feature analyses
 - **tmp/agents/**: 8 personality deep dives
@@ -77,6 +79,7 @@ This document defines the process for consolidating all Leviathan documentation 
 - Phase execution plan (including new phases 0.5, 1.5, 2.5) ✅
 
 **Completion Summary**:
+
 - Discovered 125+ additional files in orig-agent/drafts/ and mcp-ceo/tmp/
 - Identified 15 revolutionary concepts requiring synthesis
 - Mapped critical dependencies including FlowMind and semantic control
@@ -101,9 +104,26 @@ This document defines the process for consolidating all Leviathan documentation 
 - Concept dependency map
 - Synthesis methodology
 
-### Phase 1: Documentation Merge (Weeks 3-4)
+### Phase 1: v1.0 Technical Foundation Documentation (Weeks 1-2)
 
-**Goal**: Consolidate all documentation into unified structure
+**Goal**: Document core technical plumbing without experimental features
+
+**Focus Areas**:
+
+- LLM-first principles (from orig-agent)
+- Hexagonal architecture patterns
+- Package vs plugin separation
+- Memory interface design
+- Production MCP/CLI specifications
+- Test framework requirements (100% coverage)
+- Mastra integration patterns
+
+**NOT Included** (These are v2.0):
+
+- Bi-directional flow
+- FlowMind concepts
+- Constitutional AI
+- EEPS personalities
 
 **Target Structure** (EXPANDED):
 
@@ -186,49 +206,96 @@ docs/
 - Test coverage requirements
 - Validation framework
 
-### Phase 2: Code Pattern Extraction (Weeks 4-6)
+### Phase 2: v1.0 Infrastructure Implementation (Weeks 3-4)
 
-**Goal**: Extract and document working code patterns
+**Goal**: Document and implement production infrastructure
 
-**Key Extractions**:
+**Key Activities**:
 
-- Bi-directional flow implementation (mcp-ceo)
-- Test patterns (100% coverage examples)
-- Context assembly mechanisms
-- Personality system implementation
+- Production MCP server requirements
+- CLI adapter production specifications
+- Test framework patterns (from current agent/)
+- Current system analysis and gaps
+- Migration plan from false plugins to packages
 
-### Phase 3: Package Architecture (Weeks 7-8)
+**NOT Included** (These are v2.0):
 
-**Goal**: Implement proper package structure
+- Bi-directional flow code (research only)
+- FlowMind implementation
+- Personality system (extract to plugin)
 
-**Transformation**:
+### Phase 3: v1.0 Package Architecture Implementation (Weeks 5-6)
 
-- Move false plugins to core packages
-- Establish true plugin boundaries
-- Update all import paths
-- Align with Mastra patterns
+**Goal**: Create clean package structure for production
 
-### Phase 4: Workshop Integration (Weeks 9-12)
+**v1.0 Core Packages**:
+
+- @lev-os/core (LLM runtime, hexagonal architecture)
+- @lev-os/memory (interface only, swappable backends)
+- @lev-os/mcp (production server)
+- @lev-os/cli (production adapter)
+- @lev-os/testing (test framework)
+
+**Extract to Plugins**:
+
+- Constitutional AI → @homie/constitutional-ai
+- EEPS Personalities → @homie/eeps-personalities
+- JEPA Learning → @homie/jepa-learning
+
+### Phase 4: v2.0 Research & Planning (Weeks 7-8)
+
+**Goal**: Study advanced features for future implementation
+
+**Research Areas**:
+
+- Bi-directional flow patterns (from mcp-ceo)
+- FlowMind concepts (LLM as runtime)
+- Dynamic context assembly
+- Revolutionary architecture patterns
+
+**Deliverables**:
+
+- v2.0 architecture design
+- Migration path from v1.0 to v2.0
+- Feature roadmap
+- NO IMPLEMENTATION (research only)
+
+### Phase 5: Workshop Integration (Weeks 9-12)
 
 **Goal**: Systematic tool evaluation and integration
 
 **Activities**:
 
 - Apply 8-tier classification to all tools
+- Focus on Tier 1-2 tools for v1.0
 - Create integration roadmaps
-- Implement priority integrations
 - Document patterns and learnings
 
-### Phase 5: Advanced Features (Weeks 13-16)
+**v1.0 Priority Tools**:
 
-**Goal**: Implement cutting-edge capabilities
+- Ultimate MCP Server (70+ tools)
+- Production deployment tools
+- Testing frameworks
+- Monitoring solutions
 
-**Features**:
+### Phase 6: Production Readiness (Weeks 13-16)
 
-- JEPA 2 learning system
-- Advanced memory architectures
-- Production optimizations
-- Example applications
+**Goal**: Prepare v1.0 for production deployment
+
+**Activities**:
+
+- Performance optimization
+- Security hardening
+- Production documentation
+- Example applications (using v1.0 only)
+- Deployment automation
+
+**Success Criteria**:
+
+- 100% test coverage
+- Production MCP/CLI ready
+- Clean package architecture
+- NO experimental code in core
 
 ## Execution Process
 
@@ -376,12 +443,31 @@ When consolidating competing approaches:
 - [ ] Production ready
 - [ ] Examples working
 
+### v1.0 Success Criteria
+
+- Hexagonal architecture implemented
+- Package/plugin separation complete
+- MCP server production-ready
+- CLI adapter production-ready
+- 100% test coverage achieved
+- Memory interface defined
+- NO experimental code in core
+- Mastra patterns integrated
+
+### v2.0 Readiness Criteria
+
+- v1.0 running stable in production
+- Bi-directional flow researched
+- FlowMind concepts documented
+- Migration path from v1.0 to v2.0 clear
+- Plugin interfaces for experiments defined
+
 ### Overall Success
 
-- Ability to delete \_ref/ folder
-- New developer can understand system from docs/
-- Production-ready architecture
-- Clear path forward
+- Ability to delete \_ref/ folder (after extracting all value)
+- New developer can be productive with v1.0 immediately
+- Production-ready technical foundation
+- Clear evolution path to v2.0
 
 ## Risk Management
 

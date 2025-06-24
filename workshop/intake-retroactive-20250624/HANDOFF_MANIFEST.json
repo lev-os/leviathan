@@ -1,0 +1,87 @@
+{
+  "created": "2025-01-10T00:00:00Z",
+  "handoff_type": "retroactive_intake",
+  "source": {
+    "original_location": "/Users/jean-patricksmith/digital/homie",
+    "target_location": "/Users/jean-patricksmith/lev/workshop",
+    "analysis_date": "June 19, 2025",
+    "consolidation_date": "January 10, 2025"
+  },
+  "summary": {
+    "total_repositories_moved": 12,
+    "additional_repos_analyzed": 6,
+    "total_analysis_documents": 15,
+    "processing_scripts": 8,
+    "data_files": 8,
+    "classification_system": "8-tier semantic classification",
+    "integration_status": "Analysis complete, ready for workshop relocation"
+  },
+  "repositories": {
+    "tier_distribution": {
+      "tier-2-advanced": ["vjepa2", "mae", "LLaVA"],
+      "tier-3-emerging": ["SEAL", "vicreg", "swav", "vit-pytorch"],
+      "tier-4-research": ["ijepa", "LumenPallidium-jepa", "Sealing"],
+      "tier-5-experimental": ["dreamerv3", "Voyager"]
+    },
+    "analyzed_but_not_present": [
+      "AutoGPT",
+      "Skyvern",
+      "llama3",
+      "Gemma",
+      "DINO",
+      "DINOv2",
+      "SimCLR",
+      "SimMIM",
+      "BYOL-PyTorch",
+      "Avalanche",
+      "continual-learning-baselines",
+      "avalanche-rl"
+    ],
+    "additional_projects_noted": {
+      "mpup-labs": "Multi-project mono-repo - not moved but noted for future intake consideration",
+      "other": ["pickaxe", "empire-monorepo", "tent-flex", "what", "sites", "browser_auth", "yt"]
+    }
+  },
+  "analysis_completed": {
+    "tier_classification": true,
+    "integration_recommendations": true,
+    "workshop_tracking": true,
+    "cognitive_parliament_integration": true,
+    "external_tools_research": true,
+    "adrs_generated": true,
+    "synthesis_documents": true
+  },
+  "documentation_included": {
+    "synthesis": [
+      "WORKSHOP_INTAKE_SYNTHESIS.md",
+      "REPOSITORY_SYNTHESIS_ANALYSIS.md",
+      "SYSTEM_FEATURES_OVERVIEW.md",
+      "CUTTING_EDGE_AI_2025_COLLECTION.md",
+      "SEAL_JEPA_REPOSITORY_COLLECTION.md"
+    ],
+    "detailed_analysis": [
+      "DETAILED_REPOSITORY_ANALYSIS.md",
+      "INTEGRATION_ROADMAP.md",
+      "IMPLEMENTATION_ROADMAP.md",
+      "MVP_COMPLETION_SUMMARY.md",
+      "RESEARCH_PIPELINE.md",
+      "mastra-corrected-analysis.md",
+      "mastra-deep-intake-analysis.md",
+      "copilotkit-features-by-domain.md",
+      "copilotkit-implementation-roadmap.md"
+    ],
+    "adrs": 8
+  },
+  "next_steps": [
+    "Move entire handoff package to ~/lev/workshop/intake-retroactive",
+    "Update workshop tracking system with new repository locations",
+    "Run workshop intake verify command on consolidated repos",
+    "Generate cross-repository synthesis report",
+    "Consider running mpup-labs through intake process as separate initiative"
+  ],
+  "notes": {
+    "context": "This retroactive intake consolidates AI/ML repository analysis that was performed in the wrong directory but using the correct workshop intake processes",
+    "validation": "All analysis remains valid - only repository locations need updating",
+    "mpup_labs": "Identified as interesting candidate for future Leviathan intake process but kept separate as requested"
+  }
+}

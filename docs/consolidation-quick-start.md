@@ -13,24 +13,40 @@ We're consolidating ~250+ documents from 5 major sources into a unified `docs/` 
 
 ## Critical Path Items
 
-### The "Big 3" That Block Everything
+### v1.0 "Big 3" That Block Everything
 
-1. **Bi-Directional Flow** (from mcp-ceo)
-
-   - The "missing secret" for dynamic context
-   - Blocks: Whisper evolution, MCP patterns
-   - Location: `_ref/mcp-ceo/docs/`
-
-2. **Package Architecture** (from \_core.md)
+1. **Package Architecture** (from \_core.md) ⚡️ CRITICAL
 
    - Core packages vs optional plugins
-   - Blocks: All code organization
+   - Blocks: ALL code organization
+   - Must extract experimental features to plugins
    - Location: `_core.md` + workshop analyses
 
-3. **Memory Architecture** (3 competing designs)
-   - Need to choose one approach
-   - Blocks: Data persistence patterns
+2. **Hexagonal Architecture** ⚡️ CRITICAL
+
+   - Adapters route, core computes
+   - NO business logic in adapters
+   - Blocks: Clean code structure
+   - Location: `_ref/orig-agent/docs/`
+
+3. **Memory Interface** (not implementation) ⚡️ CRITICAL
+   - Define interface only
+   - Allow swappable backends
+   - Blocks: Data persistence abstraction
    - Location: `drafts/00[3-5]-*memory*.md`
+
+### v2.0 Research (NOT Blocking v1.0)
+
+1. **Bi-Directional Flow** (from mcp-ceo) 🔬 RESEARCH
+
+   - Revolutionary for v2.0
+   - Study after v1.0 stable
+   - Location: `_ref/mcp-ceo/docs/`
+
+2. **FlowMind** (LLM as runtime) 🔬 RESEARCH
+   - Game-changing concept
+   - Requires stable v1.0 first
+   - Location: `_ref/mcp-ceo/`
 
 ## Immediate Actions (Today)
 
@@ -53,62 +69,80 @@ cat docs/consolidation-inventory.md
 # Begin P0T02-P0T05 inventory tasks
 ```
 
-### 3. Deep Dive: Bi-Directional Flow (2 hours)
+### 3. Deep Dive: Package Architecture (2 hours)
 
 ```bash
-# This is THE critical concept
-cd _ref/mcp-ceo
-cat docs/BIDIRECTIONAL-FLOW-DIAGRAM.md
-cat README.md
-# Understand FlowMind and dynamic context
+# This is THE critical v1.0 concept
+cat _core.md
+cat workshop/intake/mastra-package-architecture-analysis.md
+# Understand what should be core vs plugin
+# Identify experimental features to extract
 ```
 
-## This Week's Goals
+## This Week's Goals (v1.0 Focus)
 
 ### Monday-Tuesday: Foundation
 
 - [ ] Complete document inventory (P0T02-P0T05)
-- [ ] Create dependency visualization
-- [ ] Read core principles from orig-agent
+- [ ] Extract LLM-first principles from orig-agent
+- [ ] Document hexagonal architecture patterns
 
-### Wednesday-Thursday: Critical Concepts
+### Wednesday-Thursday: v1.0 Critical Concepts
 
-- [ ] Extract bi-directional flow documentation
-- [ ] Understand FlowMind architecture
-- [ ] Document package vs plugin decision
+- [ ] Finalize package vs plugin separation
+- [ ] Define memory interface (not implementation)
+- [ ] Identify ALL experimental features to extract
+- [ ] Document production MCP/CLI requirements
 
-### Friday: Planning
+### Friday: v1.0 Planning
 
-- [ ] Finalize Phase 1 task breakdown
-- [ ] Resolve memory architecture approach
-- [ ] Set up weekly review process
+- [ ] Create v1.0 package structure plan
+- [ ] List experimental features → plugins
+- [ ] Set up v1.0 test framework goals
+- [ ] Mark v2.0 research for later phases
 
 ## Key Insights to Remember
 
-### From the Analysis
+### v1.0 Technical Foundation (Build THIS First)
 
-1. **Whisper → Bi-Directional Evolution**
-
-   - Current: Static navigation breadcrumbs
-   - Future: Dynamic context assembly with callbacks
-   - This changes EVERYTHING about guidance
-
-2. **FlowMind = LLM as Runtime**
-
-   - Not just using LLMs, LLM IS the execution engine
-   - Context switching creates emergent intelligence
-   - From mcp-ceo's working implementation
-
-3. **Package Architecture Clarity**
+1. **Package Architecture Clarity** ⚡️
 
    - If it's imported directly → Core package
    - If it's truly optional → Plugin
-   - Stop pretending core components are plugins
+   - STOP pretending core components are plugins
+   - Extract ALL experimental features
 
-4. **Workshop Scale**
-   - 170+ AI tools to evaluate
-   - Use 8-tier classification system
-   - Focus on Tier 1-2 for immediate value
+2. **Hexagonal Architecture** ⚡️
+
+   - Adapters route, core computes
+   - Business logic ONLY in core
+   - Clean separation of concerns
+   - Enables v2.0 evolution later
+
+3. **Production Infrastructure** ⚡️
+   - MCP server must be production-ready
+   - CLI adapter needs 100% coverage
+   - Memory interface, not implementation
+   - Focus on stability over features
+
+### v2.0 Revolutionary Concepts (Research Later)
+
+1. **Bi-Directional Flow** 🔬
+
+   - Revolutionary communication pattern
+   - Study from mcp-ceo AFTER v1.0
+   - Will transform everything
+
+2. **FlowMind = LLM as Runtime** 🔬
+   - Game-changing concept
+   - Context switching creates intelligence
+   - Requires stable v1.0 foundation
+
+### Workshop Integration
+
+- 170+ AI tools to evaluate
+- Focus on Tier 1-2 for v1.0
+- Ultimate MCP Server is priority
 
 ## Daily Routine
 
@@ -158,23 +192,38 @@ cat README.md
 
 ## Remember
 
-> "This is a marathon, not a sprint. Each phase builds on the previous one. Quality > Speed."
+> "v1.0 = Production-ready technical foundation. NO experimental features in core."
+>
+> "v2.0 = Revolutionary features AFTER v1.0 is stable."
 
-The goal is a **production-ready, cutting-edge AI OS** that preserves all revolutionary concepts while creating a clean, maintainable architecture.
+The goal is a **production-ready v1.0** that enables revolutionary v2.0 features through clean architecture.
+
+### v1.0 Mantra
+
+- Extract experimental features to plugins
+- Hexagonal architecture everywhere
+- 100% test coverage is non-negotiable
+- If it's not stable, it's not v1.0
 
 ## Get Started Now
 
 ```bash
-# 1. Open the tracker
+# 1. Open the tracker - focus on CRITICAL priority items
 open docs/consolidation-tracker.csv
 
-# 2. Start with P0T02 - inventory root _*.md files
-ls -la _*.md > docs/temp-inventory.txt
+# 2. Read package architecture decisions
+cat _core.md
+cat workshop/intake/mastra-package-architecture-analysis.md
 
-# 3. Begin reading bi-directional flow
-cat _ref/mcp-ceo/docs/BIDIRECTIONAL-FLOW-DIAGRAM.md
+# 3. Identify experimental features to extract
+grep -r "constitutional" agent/src/
+grep -r "eeps" agent/src/
+grep -r "personality" agent/src/
+
+# 4. Start v1.0 foundation work
+# Focus on: P1T05, P1T06, P1T07, P3T01-P3T03
 ```
 
 ---
 
-_Let's transform chaos into clarity, one document at a time._
+_v1.0 First. Revolutionary features later. Let's build a rock-solid foundation._
