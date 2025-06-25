@@ -41,13 +41,13 @@ class GraphitiBridge:
         except Exception as e:
             return {"success": False, "error": str(e)}
     
-    async def search(self, query: str, limit: int = 10) -> Dict[str, Any]:
+    async def search(self, query: str, num_results: int = 10) -> Dict[str, Any]:
         """Search memories in Graphiti"""
         try:
-            results = await self.graphiti.search(query, limit=limit)
+            results = await self.graphiti.search(query, num_results=num_results)
             return {
                 "success": True, 
-                "results": [{"content": r.content, "score": r.score} for r in results]
+                "results": [{"content": str(r), "edge": str(r)} for r in results]
             }
         except Exception as e:
             return {"success": False, "error": str(e)}
@@ -56,7 +56,7 @@ class GraphitiBridge:
         """Get Graphiti system status"""
         try:
             # Simple status check - try to perform a basic operation
-            await self.graphiti.search("test", limit=1)
+            await self.graphiti.search("test", num_results=1)
             return {
                 "success": True,
                 "connected": True,
@@ -104,9 +104,9 @@ async def main():
             result = await bridge.create_memory(content, memory_type)
         elif command == "search":
             query = sys.argv[5] if len(sys.argv) > 5 else "test"
-            limit = int(sys.argv[6]) if len(sys.argv) > 6 else 10
+            num_results = int(sys.argv[6]) if len(sys.argv) > 6 else 10
             await bridge.connect()
-            result = await bridge.search(query, limit)
+            result = await bridge.search(query, num_results)
         elif command == "close":
             result = await bridge.close()
         else:

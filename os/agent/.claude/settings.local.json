@@ -23,7 +23,8 @@
       "Bash(PYTHONPATH=semantic-search python -c \"\nfrom setup.collection_manager import CollectionManager\nfrom config.settings import SystemConfig\n\nconfig = SystemConfig()\nmanager = CollectionManager(config)\nmanager.create_project_collections('go-stdlib', 'go')\nprint('Collections created successfully')\n\")",
       "Bash(timeout:*)",
       "Bash(curl:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "mcp__desktop-commander__read_multiple_files"
     ],
     "deny": []
   }

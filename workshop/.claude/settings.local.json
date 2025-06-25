@@ -30,7 +30,10 @@
       "WebFetch(domain:news.ycombinator.com)",
       "Bash(grep:*)",
       "Bash(# Verify all repos were moved successfully\necho \"Checking archive repos directory:\"\nls -la /Users/jean-patricksmith/digital/homie/tmp/workshop-archive/repos/\n\necho -e \"\\nChecking workshop intake for moved repos:\"\nfor repo in dreamerv3 ijepa LLaVA LumenPallidium-jepa mae Sealing swav vicreg vit-pytorch vjepa2 Voyager; do\n    if [ -d \"/Users/jean-patricksmith/lev/workshop/intake/$repo\" ]; then\n        echo \"✅ $repo successfully moved\"\n    else\n        echo \"❌ $repo MISSING\"\n    fi\ndone)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }
