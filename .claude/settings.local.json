@@ -41,7 +41,11 @@
       "WebFetch(domain:docs.mastra.ai)",
       "Bash(npm run test:architectural:*)",
       "Bash(mv:*)",
-      "mcp__desktop-commander__move_file"
+      "mcp__desktop-commander__move_file",
+      "Bash(/Users/jean-patricksmith/digital/_infra/graphiti/mcp_server/.venv/bin/python -c \"from graphiti_core import Graphiti; print('✅ Graphiti core imported successfully')\")",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)"
     ],
     "deny": []
   }

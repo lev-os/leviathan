@@ -9,10 +9,10 @@
 ### Directory Structure Changes
 - ✅ Created `/plugins/@lev/` directory
 - ✅ Moved all `@kingly/*` packages to `/plugins/@lev-os/`:
-  - `@kingly/testing` → `/plugins/@lev-os/testing`
+  - `@kingly/testing` → `/packages/testing`
   - `@kingly/universal-validation` → `/plugins/@lev-os/validation`
   - `@kingly/protocol` → `/plugins/@lev-os/protocol`
-  - `@kingly/cmd` → `/plugins/@lev-os/cmd`
+  - `@kingly/cmd` → `/packages/commands`
   - `@kingly/debug` → `/plugins/@lev-os/debug`
   - Plus: `ai-core` and `memory`
 

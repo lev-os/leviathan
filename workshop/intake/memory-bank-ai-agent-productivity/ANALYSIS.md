@@ -40,14 +40,14 @@
 6. **Progress** - What works, what's left to build
 
 ## ⚡ QUICK DECISION
-**Decision**: ADOPT IMMEDIATELY
-**Reasoning**: Perfect alignment with Kingly's LLM-first architecture and session management needs. Zero dependencies, immediate value.
-**Timeline**: 1-2 days for full integration
+**Decision**: TBD - PENDING CONSOLIDATION
+**Reasoning**: Memory Bank aligns with procedural memory patterns but needs proper integration with existing cascading context system and memory architecture.
+**Timeline**: Post-consolidation (part of memory system enhancement)
 **Next Steps**: 
-1. Implement memory bank generation in `lev checkpoint` command
-2. Add memory bank reading to agent initialization
-3. Create auto-update hooks for milestone tracking
-4. Document pattern in Kingly CLAUDE.md
+1. Mark as TBD until documentation consolidation completes
+2. Save integration notes for procedural memory patterns  
+3. Review after ADRs define memory architecture
+4. Implement as part of enhanced file-only fallback
 
 ---
-**STATUS**: Tier 1 (PRODUCTION-READY) - ADOPT IMMEDIATELY
+**STATUS**: Tier 3 (EMERGING-VIABLE) - TBD PENDING ARCHITECTURE CONSOLIDATION

@@ -35,7 +35,7 @@ Persistent Layer (File System - Source of Truth)
 pip install graphiti-core
 
 # Initialize memory system
-cd ~/lev/plugins/@lev-os/memory
+cd ~/lev/packages/memory
 npm install
 ```
 

@@ -78,7 +78,7 @@ user@system:~$ lev find "build a react component with tests"
 ## Context Available
 - React patterns: `agent/contexts/patterns/component-design/`
 - Testing strategies: `agent/docs/testing/framework.md`
-- Workshop templates: `plugins/@lev-os/workshop/templates/`
+- Workshop templates: `packages/workshop/templates/`
 
 **Auto-routing confidence: 95%** - Workshop plugin optimal for this task
 ```
@@ -179,7 +179,7 @@ user@system:~$ lev find "data analysis workflows"
 ## Documentation Paths
 - Semantic search: `plugins/@lev-os/semantic-search/README.md`
 - Data patterns: `agent/contexts/patterns/data-analysis/`
-- Pipeline templates: `plugins/@lev-os/workshop/templates/data/`
+- Pipeline templates: `packages/workshop/templates/data/`
 
 **Choose based on data type and complexity** 📊
 ```

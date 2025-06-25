@@ -4,17 +4,20 @@
  * Extracted from index.js per _02-refactor.md Phase 1 specification
  */
 
-import { SessionInitializer } from './sessions/session-initializer.js';
-import { WorkflowInitializer } from './workflows/workflow-initializer.js';
-import { IntelligenceInitializer } from './intelligence/intelligence-initializer.js';
-import { TemplateInitializer } from './templates/template-initializer.js';
+import { SessionInitializer } from './sessions/session-initializer.js'
+import { WorkflowInitializer } from './workflows/workflow-initializer.js'
+import { IntelligenceInitializer } from './intelligence/intelligence-initializer.js'
+import { TemplateInitializer } from './templates/template-initializer.js'
+import { PluginLoader } from './plugins/plugin-loader.js'
+import { universalContextSystem } from './universal-context-system.js'
 
 export class CoreInitializer {
   constructor() {
-    this.sessionInitializer = new SessionInitializer();
-    this.workflowInitializer = new WorkflowInitializer();
-    this.intelligenceInitializer = new IntelligenceInitializer();
-    this.templateInitializer = new TemplateInitializer();
+    this.sessionInitializer = new SessionInitializer()
+    this.workflowInitializer = new WorkflowInitializer()
+    this.intelligenceInitializer = new IntelligenceInitializer()
+    this.templateInitializer = new TemplateInitializer()
+    this.pluginLoader = new PluginLoader()
   }
 
   /**
@@ -22,10 +25,14 @@ export class CoreInitializer {
    */
   async initializeCore() {
     // Initialize all core systems
-    const sessionData = await this.sessionInitializer.initializeSession();
-    const workflowData = await this.workflowInitializer.initializeWorkflows();
-    const intelligenceData = await this.intelligenceInitializer.initializeIntelligence();
-    const templateData = await this.templateInitializer.initializeTemplates();
+    const sessionData = await this.sessionInitializer.initializeSession()
+    const workflowData = await this.workflowInitializer.initializeWorkflows()
+    const intelligenceData = await this.intelligenceInitializer.initializeIntelligence()
+    const templateData = await this.templateInitializer.initializeTemplates()
+
+    // Initialize optional plugins
+    const coreSystems = { universalContextSystem }
+    await this.pluginLoader.initializePlugins(coreSystems)
 
     // Return unified dependencies object for command execution
     return {
@@ -33,7 +40,9 @@ export class CoreInitializer {
       ...workflowData,
       ...intelligenceData,
       ...templateData,
-      debugLogger: console
-    };
+      universalContextSystem,
+      pluginLoader: this.pluginLoader,
+      debugLogger: console,
+    }
   }
 }

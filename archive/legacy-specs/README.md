@@ -8,7 +8,7 @@ This directory contains original design specifications from the Kingly era that 
 
 ### `kingly-plugin-spec.md`
 **Original Design**: Plugin architecture with YAML-first configuration and reverse dependency patterns
-**Implementation Status**: ✅ **Fully Implemented** in `/plugins/@lev-os/cmd/`, `/plugins/@lev-os/debug/`, and other @lev-os/* packages
+**Implementation Status**: ✅ **Fully Implemented** in `/packages/commands/`, `/plugins/@lev-os/debug/`, and other @lev-os/* packages
 **Key Features Delivered**:
 - YAML-first plugin configuration (`config/plugin.yaml`)
 - Reverse dependency pattern (plugins import @lev-os/core)
@@ -26,7 +26,7 @@ This directory contains original design specifications from the Kingly era that 
 
 ### `kinglycmd.md`
 **Original Design**: Ultra-lightweight process management with PM2 integration
-**Implementation Status**: ✅ **Fully Implemented** in `/plugins/@lev-os/cmd/`
+**Implementation Status**: ✅ **Fully Implemented** in `/packages/commands/`
 **Key Features Delivered**:
 - Process management with execa + ps-tree stack
 - PID tracking and status monitoring
@@ -46,7 +46,7 @@ These documents represent the foundational design thinking that led to the curre
 ## Current Implementation References
 
 - **Plugin System**: `/plugins/@lev-os/` directory structure
-- **Process Management**: `/plugins/@lev-os/cmd/src/process-manager.js`
+- **Process Management**: `/packages/commands/src/process-manager.js`
 - **Universal Debugging**: `/plugins/@lev-os/debug/src/`
 - **Plugin Configuration**: `config/plugin.yaml` files in each plugin
 - **Package Structure**: All @lev-os/* packages follow the original reverse dependency design

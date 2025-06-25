@@ -79,9 +79,9 @@ export default class ExamplesCommand {
 
 📚 STUDY LOCATIONS:
    • plugins/@lev-os/debug/src/
-   • plugins/@lev-os/testing/src/
-   • plugins/@lev-os/cmd/src/
-   • plugins/@lev-os/workshop/src/
+   • packages/testing/src/
+   • packages/commands/src/
+   • packages/workshop/src/
 
 🚀 QUICK EXAMPLES:
    lev debug events              # See debug plugin in action
@@ -177,9 +177,9 @@ export default class ExamplesCommand {
    • Optional JSON output
 
 📚 STUDY THESE FILES:
-   • plugins/@lev-os/workshop/src/commands/status.js
-   • plugins/@lev-os/workshop/src/commands/list.js
-   • plugins/@lev-os/workshop/src/commands/info.js`,
+   • packages/workshop/src/commands/status.js
+   • packages/workshop/src/commands/list.js
+   • packages/workshop/src/commands/info.js`,
       data: { 
         filter: 'basic',
         patterns: ['hello_world', 'status', 'list', 'info'],
@@ -278,12 +278,12 @@ export default class ExamplesCommand {
 
 📚 STUDY THESE IMPLEMENTATIONS:
    • plugins/@lev-os/debug/src/    - Full debugging system
-   • plugins/@lev-os/testing/src/  - Testing framework
-   • plugins/@lev-os/workshop/src/    - Integration patterns`,
+   • packages/testing/src/  - Testing framework
+   • packages/workshop/src/    - Integration patterns`,
       data: { 
         filter: 'advanced',
         patterns: ['dependency_injection', 'state_management', 'plugin_integration', 'performance_monitoring'],
-        study_directories: ['@lev-os/debug/src/', '@lev-os/testing/src/', '@lev-os/workshop/src/']
+        study_directories: ['@lev-os/debug/src/', 'packages/testing/src/', 'packages/workshop/src/']
       }
     };
   }
@@ -525,11 +525,11 @@ export default class ExamplesCommand {
    })
 
 📚 COMPLETE FRAMEWORK:
-   Study plugins/@lev-os/testing/src/ for full testing patterns and framework implementation`,
+   Study packages/testing/src/ for full testing patterns and framework implementation`,
       data: { 
         filter: 'testing',
         patterns: ['plugin_validation', 'integration_testing', 'performance_benchmarking', 'community_validation'],
-        framework_location: 'plugins/@lev-os/testing/src/'
+        framework_location: 'packages/testing/src/'
       }
     };
   }
@@ -622,7 +622,7 @@ export default class ExamplesCommand {
    • Background job management
 
 🔧 IMPLEMENTATION STUDY:
-   plugins/@lev-os/cmd/src/ contains full implementation patterns for process management`,
+   packages/commands/src/ contains full implementation patterns for process management`,
       data: { 
         filter: 'cmd',
         patterns: ['process_execution', 'worktree_management', 'job_integration', 'constitutional_validation'],

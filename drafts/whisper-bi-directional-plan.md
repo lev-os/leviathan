@@ -95,7 +95,7 @@ const foreignLLMOnboardingRecipe = {
       format: 'pattern_based'
     },
     quick_wins: {
-      source: 'plugins/@lev-os/workshop/examples/',
+      source: 'packages/workshop/examples/',
       priority: 'medium',
       format: 'success_oriented'
     }

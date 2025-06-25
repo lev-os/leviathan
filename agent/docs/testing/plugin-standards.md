@@ -403,8 +403,8 @@ npm run test:discover
 # Output:
 📁 Discovered test files:
    - plugins/@lev-os/debug/tests/debug.test.js
-   - plugins/@lev-os/testing/tests/testing.test.js
-   - plugins/@lev-os/workshop/tests/workshop.test.js
+   - packages/testing/tests/testing.test.js
+   - packages/workshop/tests/workshop.test.js
 ```
 
 ## Troubleshooting Guide

@@ -123,7 +123,7 @@ export class MCPAdapter {
 ### Plugin Registration Pattern
 
 ```javascript
-// plugins/@lev-os/workshop/src/index.js
+// packages/workshop/src/index.js
 export class WorkshopPlugin {
   async register(commandRegistry) {
     // Register all workshop commands

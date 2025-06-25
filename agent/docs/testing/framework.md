@@ -323,7 +323,7 @@ npm run test:agent
 ### 2. Test Plugin Development
 ```bash
 # Test specific plugin
-cd plugins/@lev-os/workshop && npm test
+cd packages/workshop && npm test
 
 # Test all plugins
 npm run test:plugins

@@ -7,7 +7,7 @@
 ### **Completed Tasks:**
 
 #### **✅ Phase 1: Directory Structure**
-- Workshop plugin already at `plugins/@lev-os/workshop/`
+- Workshop plugin already at `packages/workshop/`
 - Empty `@leviathan/` directory removed
 - No `@lev/` directories remain
 
@@ -54,8 +54,8 @@ All Leviathan plugins now use the official `@lev-os/` namespace:
 ## 📊 **MIGRATION IMPACT**
 
 ### **Files Updated:**
-- `/plugins/@lev-os/workshop/src/index.js` - Plugin metadata
-- `/plugins/@lev-os/workshop/src/commands/*.js` - Command references
+- `/packages/workshop/src/index.js` - Plugin metadata
+- `/packages/workshop/src/commands/*.js` - Command references
 - `/plugins/@lev-os/PLUGIN_DEVELOPMENT_GUIDE.md` - Documentation
 - `/agent/docs/testing/` - Testing framework docs
 - `/agent/CLAUDE.md` - Agent documentation

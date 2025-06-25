@@ -7,6 +7,8 @@ class HybridMemoryManager {
   constructor(options = {}) {
     this.options = {
       neo4jUri: options.neo4jUri || "bolt://localhost:7687",
+      neo4jUsername: options.neo4jUsername || "neo4j",
+      neo4jPassword: options.neo4jPassword || "lev-mem123",
       sessionsPath: options.sessionsPath || "~/.kingly/sessions/",
       contextsPath: options.contextsPath || "./contexts/",
       enableGraphiti: options.enableGraphiti !== false,
@@ -28,6 +30,8 @@ class HybridMemoryManager {
         const { GraphitiClient } = await import('graphiti-core');
         this.graphiti = new GraphitiClient({
           neo4j_uri: this.options.neo4jUri,
+          neo4j_username: this.options.neo4jUsername,
+          neo4j_password: this.options.neo4jPassword,
           enable_mcp: true,
           enable_temporal: true
         });

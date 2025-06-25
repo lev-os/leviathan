@@ -1,166 +1,83 @@
-# 🔧 WORKSHOP STRUCTURE CLEANUP & PROCESS ENFORCEMENT PLAN
+# Workshop Automation Plan - Final Design
 
-## 🔍 CURRENT ISSUES IDENTIFIED
+## 🎯 GOAL: Zero-Friction Automated Repository Analysis
 
-### 1. **Scattered Repository Structure**
-The workshop has repos split across multiple directories instead of consolidated in `intake/`:
-- `accelerators/` - Contains AIOS, agent-cli, agent-mcp, claude-task-master
-- `essentials/` - Contains 1Panel, DevDocs, Upsonic, activepieces, etc.
-- `evaluation/` - Contains Cerebrum, bluelabel-autopilot, kingly-os, nextlevel
-- `foundations/` - Contains AgenticMemory, graphiti, mem0, ultimate_mcp_server
-- `intake/` - Contains many repos BUT also our analysis .md files (wrong!)
+### Current State
+- **87+ repositories** in intake/ (including nested projects like ai-engineering-hub with 50+ subprojects)
+- **Multiple disconnected CSVs** (TRACKER.csv, REPOSITORY_INTAKE_TRACKER.csv, WORKSHOP_TRACKING_FINAL.csv, etc.)
+- **Existing analysis scattered** in docs/june-2025-intake/ 
+- **packages/workshop/** has automation tools but disconnected
+- **/.claude/commands/lev/intake.md** has perfect automation spec
 
-### 2. **Documentation Pollution**
-We saved 4 analysis .md files directly in `intake/`:
-- mastra-complete-repository-analysis.md
-- mastra-ecosystem-research.md
-- mastra-package-architecture-analysis.md
-- lev-os-package-migration-guide.md
-
-### 3. **Process Not Followed**
-The `/lev/intake` command clearly states:
-```bash
-git clone <repository_url> ~/lev/workshop/intake/<repo_name>
+### Simplified Structure Design
 ```
-But the output format doesn't specify WHERE to save the analysis.
-
-## 🎯 PROPOSED SOLUTION
-
-### 1. **Consolidate All Repositories**
-Move all repos to `intake/` as the single source for raw cloned repositories:
-```bash
-# Move accelerators
-mv ~/lev/workshop/accelerators/* ~/lev/workshop/intake/
-rmdir ~/lev/workshop/accelerators
-
-# Move essentials
-mv ~/lev/workshop/essentials/* ~/lev/workshop/intake/
-rmdir ~/lev/workshop/essentials
-
-# Move evaluation
-mv ~/lev/workshop/evaluation/* ~/lev/workshop/intake/
-rmdir ~/lev/workshop/evaluation
-
-# Move foundations
-mv ~/lev/workshop/foundations/* ~/lev/workshop/intake/
-rmdir ~/lev/workshop/foundations
+workshop/
+├── intake/              # = "not analyzed" (auto-cloned repos)
+├── analysis/            # = "analyzed" (generated reports)
+│   ├── {repo-name}/     # folder per repo with analysis.md files
+│   └── mastra/          # existing analysis to migrate here
+└── archive/             # old CSV files + docs/june-2025-intake/
 ```
 
-### 2. **Create Proper Reports Structure**
-Create dedicated directories for analysis outputs:
-```bash
-# Create report directories
-mkdir -p ~/lev/workshop/reports/intake-analyses
-mkdir -p ~/lev/workshop/reports/strategic-recommendations
-mkdir -p ~/lev/workshop/reports/architecture-studies
-mkdir -p ~/lev/workshop/reports/tier-classifications
+## 🔄 AUTOMATION WORKFLOW
 
-# Move existing analysis files
-mv ~/lev/workshop/intake/mastra-*.md ~/lev/workshop/reports/intake-analyses/
-mv ~/lev/workshop/intake/lev-os-*.md ~/lev/workshop/reports/architecture-studies/
-```
+### Folder-Based Tracking (No CSV Needed)
+- **intake/{repo-name}/** = pending analysis
+- **analysis/{repo-name}/** = analysis complete
+- **Both exist** = redo analysis, then decide: ~/lev/_ref, ~/lev/vendor, or delete
 
-### 3. **Update Intake Command**
-Enhance `/lev/intake` command to explicitly save outputs in correct location:
-```markdown
-## OUTPUT LOCATION
-Analysis reports are automatically saved to:
-`~/lev/workshop/reports/intake-analyses/[repo-name]-analysis-[timestamp].md`
+### Analysis Decision Outcomes
+- **~/lev/_ref/** = reference code for ADRs/patterns (temporary)
+- **~/lev/vendor/** = forked/modified code for direct use
+- **Normal pnpm install** = full adoption as dependencies
+- **Delete** = not useful, save disk space
 
-DO NOT save analysis files in the intake/ directory!
-```
+## 🚀 IMPLEMENTATION TASKS
 
-### 4. **Create Intake Directory Documentation**
-Create `~/lev/workshop/intake/README.md`:
-```markdown
-# ⚠️ TEMPORARY INTAKE DIRECTORY - CLONED REPOS ONLY
+### Phase 1: Structure Cleanup
+- [ ] Create analysis/ folder structure
+- [ ] Migrate existing analysis from docs/june-2025-intake/ to analysis/{repo-name}/
+- [ ] Archive all old CSV files to archive/
+- [ ] Flatten nested repos (ai-engineering-hub subprojects, agent-bundles, etc.)
 
-This directory is for **CLONED REPOSITORIES ONLY** and is cleaned regularly.
+### Phase 2: Automation Connection
+- [ ] Extract simple clone+analyze logic from packages/workshop/intake.js
+- [ ] Wire up /.claude/commands/lev/intake.md automation spec to workshop/ folder
+- [ ] Test automation: clone repo → generate analysis → save to analysis/{repo-name}/
+- [ ] Implement decision workflow: analysis → _ref/vendor/delete
 
-## ❌ DO NOT SAVE HERE:
-- Analysis reports (.md files)
-- Strategic recommendations
-- Architecture studies
-- Any documentation you create
+### Phase 3: Batch Processing
+- [ ] Process all 87+ repos in intake/ through automation
+- [ ] Generate analysis/{repo-name}/ folders for each
+- [ ] Make decisions on existing analyzed repos
+- [ ] Clean up intake/ folder based on decisions
 
-## ✅ ANALYSIS OUTPUTS GO TO:
-- `../reports/intake-analyses/` - Repository analysis documents
-- `../reports/strategic-recommendations/` - Strategic recommendations
-- `../reports/architecture-studies/` - Architecture research
-- `../reports/tier-classifications/` - Tier assignment reports
+## 🎯 SUCCESS CRITERIA
 
-## 🧹 CLEANUP POLICY
-This directory is automatically cleaned of:
-- Repositories older than 30 days
-- Any .md files (moved to reports/)
-- Failed clones or partial downloads
+### Visual Status Check
+- `ls intake/` = TODO list (repos needing analysis)
+- `ls analysis/` = DONE list (analysis complete)
+- No CSV hunting, instant visual status
 
-Remember: This is a WORKSPACE, not a storage location!
-```
+### Automation Quality
+- /.claude/commands/lev/intake.md spec working end-to-end
+- Analysis generation under 5 minutes per repo
+- Clear decision criteria and outcomes
+- Minimal manual intervention needed
 
-### 5. **Update TRACKER.csv**
-Add a column for report location:
-```csv
-...,Report_Location
-...,reports/intake-analyses/mastra-analysis-20250623.md
-```
+### Future Extensibility
+- Ready for news scraper integration (TBD location)
+- Scalable to hundreds of repos
+- Clean separation of concerns
+- Workshop plugin architecture preserved but unused
 
-### 6. **Create Automated Cleanup Script**
-Create `~/lev/workshop/scripts/cleanup-intake.sh`:
-```bash
-#!/bin/bash
-# Cleanup intake directory
+## 📝 NOTES
 
-# Move any .md files to reports
-find ~/lev/workshop/intake -name "*.md" -not -path "*/node_modules/*" \
-  -not -name "README.md" -exec mv {} ~/lev/workshop/reports/intake-analyses/ \;
+- **Workshop plugin**: Leave packages/workshop/ alone for now, focus on workshop/ folder automation
+- **News scraping**: Will live elsewhere, workshop/ just handles analysis workflow
+- **Teaching others**: Workshop's original purpose on hold, focusing on personal automation first
+- **CSV elimination**: Folder structure IS the tracking system
 
-# Remove old repos (30+ days)
-find ~/lev/workshop/intake -maxdepth 1 -type d -mtime +30 \
-  -not -name "intake" -exec rm -rf {} \;
+---
 
-echo "Intake cleanup complete!"
-```
-
-## 📋 IMPLEMENTATION STEPS
-
-### Phase 1: Immediate Cleanup (10 minutes)
-1. Move analysis .md files to reports directory
-2. Create reports directory structure
-3. Add README.md to intake directory
-
-### Phase 2: Repository Consolidation (30 minutes)
-1. Move all repos from accelerators/ to intake/
-2. Move all repos from essentials/ to intake/
-3. Move all repos from evaluation/ to intake/
-4. Move all repos from foundations/ to intake/
-5. Remove empty directories
-
-### Phase 3: Process Documentation (20 minutes)
-1. Update /lev/intake command with output location
-2. Create intake/README.md with warnings
-3. Update PLANS-AND-TRACKERS-README.md
-4. Create cleanup script
-
-### Phase 4: Tracking Updates (10 minutes)
-1. Update TRACKER.csv with report locations
-2. Add new repos to tracking system
-3. Update workshop master plan
-
-## 🚀 PREVENTION MEASURES
-
-1. **Clear Command Output**: /lev/intake command explicitly states output location
-2. **Directory Warnings**: README.md in intake/ with big warnings
-3. **Automated Cleanup**: Script to move misplaced files
-4. **Process Documentation**: Clear guidelines in multiple locations
-5. **Tracking Integration**: TRACKER.csv includes report locations
-
-## ✅ SUCCESS CRITERIA
-
-- All repos consolidated in single intake/ directory
-- No analysis files saved in intake/
-- Clear documentation preventing future issues
-- Automated cleanup preventing accumulation
-- Tracking system includes report locations
-
-This plan ensures the workshop follows its intended architecture with intake/ as a temporary workspace and all analysis outputs properly organized in the reports/ structure.
+**Next Step**: Begin Phase 1 structure cleanup to establish clean foundation for automation.

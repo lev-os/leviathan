@@ -292,8 +292,8 @@ CREATE COMMAND:
 
 📚 STUDY THESE IMPLEMENTATIONS:
    • plugins/@lev-os/debug/src/commands/
-   • plugins/@lev-os/testing/src/
-   • plugins/@lev-os/workshop/src/commands/
+   • packages/testing/src/
+   • packages/workshop/src/commands/
 
 🔗 RELATED:
    • lev workshop docs plugins   - Development guide

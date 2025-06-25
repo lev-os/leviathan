@@ -1,0 +1,41 @@
+{
+  "name": "@lev-os/constitutional-ai",
+  "version": "0.1.0",
+  "description": "Constitutional AI framework with neurochemical optimization - Optional plugin for Leviathan",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./commands/*": "./src/commands/*.js"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules ../../node_modules/.bin/jest",
+    "test:coverage": "npm run test -- --coverage"
+  },
+  "keywords": [
+    "leviathan",
+    "lev-os",
+    "plugin",
+    "constitutional-ai",
+    "neurochemical",
+    "ai-ethics",
+    "experimental"
+  ],
+  "author": "Leviathan Team",
+  "license": "MIT",
+  "dependencies": {
+    "@lev-os/debug": "workspace:*"
+  },
+  "devDependencies": {
+    "@lev-os/testing": "workspace:*"
+  },
+  "peerDependencies": {
+    "@lev/agent": "workspace:*"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

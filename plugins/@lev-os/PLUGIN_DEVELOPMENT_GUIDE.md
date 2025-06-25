@@ -263,7 +263,7 @@ describe('Example Plugin Integration', () => {
 4. **`@lev-os/cmd`** - Process management and git operations
 
 ### **Plugin Template Available**:
-- **`plugins/@lev-os/workshop/templates/plugin-template.md`** - Complete working template
+- **`packages/workshop/templates/plugin-template.md`** - Complete working template
 - **Note**: This will move to `@lev-os/workshop` after refactor completion
 
 ## 🚀 **PLUGIN DEVELOPMENT WORKFLOW**

@@ -252,7 +252,7 @@ describe('Plugin Integration', () => {
 2. **`agent/CLAUDE.md`** - Testing philosophy and BDD approach
 3. **`_02-refactor.md`** - Architectural requirements and violations
 4. **`agent/src/core/command-registry.js`** - Auto-discovery implementation
-5. **`plugins/@lev-os/testing/`** - Existing test infrastructure to leverage
+5. **`packages/testing/`** - Existing test infrastructure to leverage
 
 ## 🚨 CRITICAL SUCCESS CRITERIA:
 

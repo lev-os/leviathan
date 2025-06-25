@@ -259,17 +259,17 @@ Create `~/lev/packages/@internal/config/package.json`:
 
 ```bash
 # Memory system
-cp -r ~/lev/plugins/@lev-os/memory/* ~/lev/packages/@lev-os/memory/
+cp -r ~/lev/packages/memory/* ~/lev/packages/@lev-os/memory/
 # Update imports in package.json and source files
 
 # Testing framework
-cp -r ~/lev/plugins/@lev-os/testing/* ~/lev/packages/@lev-os/testing/
+cp -r ~/lev/packages/testing/* ~/lev/packages/@lev-os/testing/
 
 # Command execution → CLI
-cp -r ~/lev/plugins/@lev-os/cmd/* ~/lev/packages/@lev-os/cli/
+cp -r ~/lev/packages/commands/* ~/lev/packages/@lev-os/cli/
 
 # Workshop intelligence
-cp -r ~/lev/plugins/@lev/workshop/* ~/lev/packages/@lev-os/workshop/
+cp -r ~/lev/packages/workshop/* ~/lev/packages/@lev-os/workshop/
 ```
 
 ### Step 2: Update Import Patterns
@@ -280,11 +280,11 @@ import { readFile, writeFile } from 'fs/promises';
 import { glob } from 'glob';
 
 const IMPORT_MAPPINGS = {
-  '../plugins/@lev-os/memory': '@lev-os/memory',
-  '../../plugins/@lev-os/memory': '@lev-os/memory',
-  '../plugins/@lev-os/testing': '@lev-os/testing',
-  '../plugins/@lev-os/cmd': '@lev-os/cli',
-  '../plugins/@lev/workshop': '@lev-os/workshop',
+  '../packages/memory': '@lev-os/memory',
+  '../../packages/memory': '@lev-os/memory',
+  '../packages/testing': '@lev-os/testing',
+  '../packages/commands': '@lev-os/cli',
+  '../packages/workshop': '@lev-os/workshop',
 };
 
 async function migrateImports() {
@@ -318,7 +318,7 @@ migrateImports();
 Update `~/lev/agent/mcp-server.js`:
 ```javascript
 // Before
-import { MemoryTools } from '../plugins/@lev-os/memory/tools.js';
+import { MemoryTools } from '../packages/memory/tools.js';
 
 // After
 import { MemoryTools } from '@lev-os/memory';

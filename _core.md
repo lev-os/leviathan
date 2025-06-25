@@ -202,13 +202,13 @@ export class PluginDiscovery {
 **Move False Plugins to Core:**
 ```bash
 # Memory system
-mv ~/lev/plugins/@lev-os/memory/* ~/lev/core/memory/backends/graphiti/
+mv ~/lev/plugins/@lev-os/memory/* ~/lev/packages/memory/
 # Testing framework  
-mv ~/lev/plugins/@lev-os/testing/* ~/lev/core/testing/
+mv ~/lev/plugins/@lev-os/testing/* ~/lev/packages/testing/
 # Command execution
-mv ~/lev/plugins/@lev-os/cmd/* ~/lev/core/commands/
+mv ~/lev/plugins/@lev-os/cmd/* ~/lev/packages/commands/
 # Workshop intelligence
-mv ~/lev/plugins/@lev-os/workshop/* ~/lev/core/workshop/
+mv ~/lev/plugins/@lev-os/workshop/* ~/lev/packages/workshop/
 ```
 
 **Update Import Paths:**

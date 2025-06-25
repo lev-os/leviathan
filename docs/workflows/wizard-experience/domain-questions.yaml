@@ -1,0 +1,253 @@
+# Wizard Experience Domain Question Templates
+
+wizard_experience:
+  version: "1.0"
+  description: "Template for creating domain-specific wizard question flows"
+  
+# Core Framework: The Five-Fold Path™
+core_framework:
+  name: "Five-Fold Path"
+  description: "Universal framework for achieving complete understanding"
+  
+  lenses:
+    - id: "evolution"
+      icon: "🌊"
+      question: "How did this come to be?"
+      focus: "Historical development and origin story"
+      
+    - id: "impact"
+      icon: "🎯"
+      question: "What problem does this uniquely solve?"
+      focus: "Value proposition and transformation enabled"
+      
+    - id: "relationships"
+      icon: "🔗"
+      question: "How does this connect to everything else?"
+      focus: "Dependencies, synergies, and ecosystem"
+      
+    - id: "essence"
+      icon: "💎"
+      question: "What is the ONE fundamental truth?"
+      focus: "Core principle and atomic insight"
+      
+    - id: "paradigm"
+      icon: "🚀"
+      question: "What assumption does this shatter?"
+      focus: "Revolutionary breakthrough and new possibilities"
+  
+  application_pattern: |
+    For any complex topic, guide through all five lenses:
+    1. First, understand its evolution
+    2. Then, analyze its unique impact
+    3. Next, map its relationships
+    4. Distill its core essence
+    5. Finally, identify the paradigm shift
+    
+    This creates complete understanding.
+
+# Question Structure Template
+question_template:
+  id: "Q{number}"
+  type: "domain|technical|strategic|validation"
+  depth_level: 1-5  # 1=broad, 5=specific
+  
+  prompt: "Clear, focused question text"
+  
+  options:
+    - id: 1
+      label: "Primary recommendation"
+      description: "Why this is recommended"
+      leads_to: "Q{next}"
+      
+    - id: 2
+      label: "Alternative approach"
+      description: "Different perspective"
+      leads_to: "Q{next}"
+      
+    - id: 3
+      label: "Advanced option"
+      description: "For specific cases"
+      requires_research: true
+      leads_to: "Q{next}"
+      
+    - id: 4
+      label: "Conservative choice"
+      description: "Safe, proven path"
+      leads_to: "Q{next}"
+      
+    - id: 5
+      label: "Creative wildcard"
+      description: "Innovative possibility"
+      enables_brainstorm: true
+      leads_to: "Q{next}"
+      
+    - id: "N"
+      label: "Something else?"
+      type: "open_ended"
+      leads_to: "adaptive"
+
+  context:
+    shows_when: "condition"
+    research_triggers: ["keywords", "to", "search"]
+    pivot_indicators: ["uncertainty", "complexity", "new_requirement"]
+
+# Domain-Specific Examples
+
+domains:
+  
+  # Documentation Consolidation Domain
+  documentation_consolidation:
+    opening: "Greetings, keeper of knowledge! I sense you wish to bring order to scattered wisdom..."
+    
+    questions:
+      - id: "Q1"
+        prompt: "What aspect of documentation should we address first?"
+        options:
+          - label: "📊 Current state analysis"
+            description: "Map what exists where"
+          - label: "🎯 Define target structure"
+            description: "Design ideal organization"
+          - label: "🔍 Identify critical content"
+            description: "Find the most important docs"
+          - label: "📈 Assess complexity"
+            description: "Understand the challenge scope"
+          - label: "🗺️ Create migration strategy"
+            description: "Plan the consolidation journey"
+      
+      - id: "Q2"
+        prompt: "Which type of content is most critical to preserve?"
+        options:
+          - label: "🏛️ Architectural decisions"
+            description: "Core design principles and ADRs"
+          - label: "🚀 Revolutionary concepts"
+            description: "Breakthrough ideas and patterns"
+          - label: "🔧 Implementation details"
+            description: "How things actually work"
+          - label: "📚 User guidance"
+            description: "How to use the system"
+          - label: "🧪 Research findings"
+            description: "Experiments and discoveries"
+
+  # Architecture Design Domain
+  architecture_design:
+    opening: "Ah, an architect of digital realms! Let us craft your vision..."
+    
+    questions:
+      - id: "Q1"
+        prompt: "What is the primary challenge your architecture must solve?"
+        options:
+          - label: "📈 Scale elegantly"
+            description: "Handle growth gracefully"
+          - label: "🔄 Enable flexibility"
+            description: "Adapt to changing needs"
+          - label: "🛡️ Ensure reliability"
+            description: "Never fail when it matters"
+          - label: "⚡ Maximize performance"
+            description: "Speed is critical"
+          - label: "🧩 Integrate systems"
+            description: "Connect disparate parts"
+
+  # Concept Synthesis Domain
+  concept_synthesis:
+    opening: "I see you seek to forge new understanding from scattered insights..."
+    
+    questions:
+      - id: "Q1"
+        prompt: "How should we approach this synthesis?"
+        options:
+          - label: "🌊 Follow natural evolution"
+            description: "Trace how concepts developed"
+          - label: "🎯 Work backwards from goal"
+            description: "Reverse engineer from outcome"
+          - label: "🔗 Map relationships first"
+            description: "Understand connections"
+          - label: "💎 Extract core essence"
+            description: "Find fundamental truths"
+          - label: "🚀 Identify breakthroughs"
+            description: "Focus on revolutionary leaps"
+
+# Wizard Behaviors
+
+behaviors:
+  
+  research_integration:
+    trigger_phrases:
+      - "I need more information about"
+      - "What exists for"
+      - "Show me examples of"
+    response_pattern: |
+      🧙‍♂️: "Let me consult the ancient scrolls..."
+      *searches through {context}* 🔍
+      
+      "Ah! I've discovered {findings}. This suggests..."
+  
+  pivot_handling:
+    indicators:
+      - user_confusion: true
+      - contradictory_requirements: true
+      - scope_change: true
+    response_pattern: |
+      🧙‍♂️: "I sense a shift in the cosmic winds... 🌀
+            Shall we explore a different path?"
+  
+  brainstorm_mode:
+    activation: "option_5_selected OR user_requests"
+    pattern: |
+      🧙‍♂️: "Let our minds dance together! 💫
+            
+            What if we...
+            • {wizard_idea_1}
+            • {wizard_idea_2}
+            
+            And perhaps you're imagining...?"
+
+# Output Formats
+
+outputs:
+  
+  summary:
+    template: |
+      🧙‍♂️: "Our magical journey has revealed:
+      
+      ✨ **Key Insights:**
+      {insights_list}
+      
+      📜 **Decisions Made:**
+      {decisions_list}
+      
+      🎯 **Next Steps:**
+      {actions_list}
+      
+      🗝️ **Success Criteria:**
+      {criteria_list}"
+  
+  specification:
+    formats:
+      - yaml: "Structured configuration"
+      - markdown: "Human documentation"
+      - json: "Machine-readable spec"
+      - mermaid: "Visual diagrams"
+
+# Session Management
+
+session:
+  state_tracking:
+    - questions_asked: []
+    - answers_received: []
+    - paths_taken: []
+    - pivots_made: []
+    - research_conducted: []
+    - insights_discovered: []
+  
+  context_building:
+    method: "progressive"
+    stores:
+      - immediate: "Current question context"
+      - session: "Full conversation history"
+      - domain: "Accumulated domain knowledge"
+  
+  completion_triggers:
+    - all_questions_answered: true
+    - user_satisfied: true
+    - specification_complete: true
+    - max_depth_reached: 5

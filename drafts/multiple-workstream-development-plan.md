@@ -3,7 +3,7 @@
 ## Perfect Combination Discovered
 
 **Existing Infrastructure:**
-- **`plugins/@lev-os/cmd`** - Complete worktree management system already built
+- **`packages/commands`** - Complete worktree management system already built
   - `worktree-manager.js` with create/remove/list/cleanup functionality
   - Commands: `kingly cmd worktree <action>` 
   - Constitutional AI validation and job system integration

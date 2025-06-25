@@ -253,9 +253,9 @@ packages:
 
 ```bash
 # Current → Target
-plugins/@lev-os/memory → packages/@lev-os/memory
-plugins/@lev-os/testing → packages/@lev-os/testing
-plugins/@lev-os/cmd → packages/@lev-os/cli
+plugins/@lev-os/memory → packages/memory
+plugins/@lev-os/testing → packages/testing
+plugins/@lev-os/cmd → packages/commands
 plugins/@lev/workshop → packages/@lev-os/workshop
 ```
 
@@ -263,7 +263,7 @@ plugins/@lev/workshop → packages/@lev-os/workshop
 
 ```javascript
 // Before
-import { MemoryManager } from '../plugins/@lev-os/memory';
+import { MemoryManager } from '../packages/memory';
 
 // After
 import { MemoryManager } from '@lev-os/memory';

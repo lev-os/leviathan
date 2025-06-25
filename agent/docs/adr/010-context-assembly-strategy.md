@@ -65,7 +65,7 @@ foreign_llm_onboarding:
   context_sources:
     constitutional: 'agent/contexts/constitutional/'
     commands: 'agent/docs/commands/'
-    examples: 'plugins/@lev-os/workshop/examples/'
+    examples: 'packages/workshop/examples/'
   assembly_strategy: progressive_disclosure
 ```
 

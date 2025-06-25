@@ -1,0 +1,46 @@
+name: constitutional-ai
+namespace: '@lev-os'
+version: '0.1.0'
+description: 'Constitutional AI framework with neurochemical optimization for ethical decision making'
+
+type: 'extension-plugin'
+capabilities:
+  - 'context-validation'
+  - 'neurochemical-optimization'
+  - 'mcp-tools'
+  - 'auto-bootstrap'
+
+commands:
+  - name: 'constitutional-validate'
+    description: 'Validate contexts against constitutional AI principles'
+    primary: true
+
+features:
+  neurochemical_profiles:
+    - HIGH_ENERGY_ACTION
+    - DEEP_FOCUS_ANALYTICAL
+    - CREATIVE_FLOW
+    - CRISIS_MANAGEMENT
+    - EVENING_WIND_DOWN
+
+  principles:
+    - optimal_neurochemical_state_first
+    - minimal_cognitive_load
+    - maximize_flow_states
+    - ethical_alignment
+
+dependencies:
+  core:
+    - '@lev-os/debug'
+  optional:
+    - '@lev-os/testing'
+
+config:
+  auto_bootstrap: true
+  cross_adapter_support: true
+  experimental: true
+
+integrations:
+  universal_context_system:
+    optional: true
+    interface: 'ConstitutionalValidator'
