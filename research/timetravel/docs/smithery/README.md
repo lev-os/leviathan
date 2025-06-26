@@ -1,5 +1,14 @@
 # Smithery Documentation - Complete Reference
 
+## Smithery Ecosystem Stats (June 2025)
+
+- **Total MCP Servers**: 7,693
+- **Total Usage Count**: 2,816,095+
+- **Remote-capable**: 6,409 servers (83%)
+- **Categories**: 14 major categories
+- **Most Used Server**: Desktop Commander (1.48M uses)
+- **Largest Category**: AI & Language Models (4,175 servers - 54%)
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -8,6 +17,9 @@
 4. [Project Configuration](#project-configuration)
 5. [Integration Approaches](#integration-approaches)
 6. [Deep Research Applications](#deep-research-applications)
+7. [Registry API](#registry-api)
+8. [Configuration Profiles](#configuration-profiles)
+9. [Data Policy](#data-policy)
 
 ## Introduction
 
@@ -394,6 +406,101 @@ For deep research needs, Smithery MCP servers can be integrated into multi-tier 
 - Store API keys securely in profiles
 - Use concurrent connections for parallel research
 - Implement proper error handling and retries
+
+## Registry API
+
+The Smithery Registry API provides programmatic access to search for MCP servers.
+
+### Authentication
+
+All endpoints require authentication via bearer token:
+
+```javascript
+headers: {
+  'Authorization': 'Bearer smithery-api-token'
+}
+```
+
+### List Servers
+
+```
+GET https://registry.smithery.ai/servers
+```
+
+Query parameters:
+
+- `q` (optional): Search query (semantic search)
+- `page` (optional): Page number (default: 1)
+- `pageSize` (optional): Items per page (default: 10)
+
+Filtering options:
+
+- **Text Search**: Any text for semantic search
+- **Owner Filter**: `owner:username`
+- **Repository Filter**: `repo:repository-name`
+- **Deployment Status**: `is:deployed`
+- **Verification Status**: `is:verified`
+
+Example:
+
+```javascript
+const apiKey = 'your-smithery-api-token'
+const query = 'owner:mem0ai is:verified memory'
+const encodedQuery = encodeURIComponent(query)
+
+const response = await fetch(`https://registry.smithery.ai/servers?q=${encodedQuery}&page=1&pageSize=10`, {
+  headers: {
+    Authorization: `Bearer ${apiKey}`,
+    Accept: 'application/json',
+  },
+})
+```
+
+### Get Server Details
+
+```
+GET https://registry.smithery.ai/servers/{qualifiedName}
+```
+
+Response includes:
+
+- Connection details
+- Security information (Invariant scan results)
+- Available tools
+- Configuration schema
+
+## Configuration Profiles
+
+Configuration profiles let you group session configurations and reuse them across AI agents.
+
+### Examples
+
+A "Coding Assistant" profile could connect:
+
+- Gitingest MCP for code repository access
+- Memory Tool for storing context
+- Context7 for semantic search
+
+### Using Profiles with Individual Servers
+
+```typescript
+import { createSmitheryUrl } from '@smithery/sdk/config.js'
+
+const profileId = 'your-profile-id'
+const apiKey = 'your-smithery-api-key'
+
+const url = createSmitheryUrl('https://server.smithery.ai/gitingest/mcp', { profile: profileId }, apiKey)
+```
+
+### Using Profiles with Toolbox
+
+The Toolbox MCP server loads all tools from your profile at once:
+
+```typescript
+const url = createSmitheryUrl('https://server.smithery.ai/@smithery/toolbox/mcp', { profile: profileId }, apiKey)
+```
+
+This eliminates the need to configure each server separately with individual API keys and settings.
 
 ## Data Policy
 

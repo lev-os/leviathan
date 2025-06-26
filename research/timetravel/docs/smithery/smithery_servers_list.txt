@@ -1,0 +1,369 @@
+# Smithery MCP Servers List
+# Generated: 2025-06-26T03:14:54.777774
+# Total: 67 servers (partial list from homepage)
+# Note: Visit https://smithery.ai/servers for complete list
+
+
+## AI Models (2 servers)
+
+Anthropic
+  Description: Claude API integration
+  URL: https://smithery.ai/server/anthropic
+
+OpenAI
+  Description: OpenAI API integration
+  URL: https://smithery.ai/server/openai
+
+
+## Academic (3 servers)
+
+PubMed
+  Description: Biomedical literature database
+  URL: https://smithery.ai/server/pubmed
+
+Semantic Scholar
+  Description: Academic search with citations
+  URL: https://smithery.ai/server/semantic-scholar
+
+arXiv
+  Description: Scientific paper repository
+  URL: https://smithery.ai/server/arxiv
+
+
+## Browser Automation (2 servers)
+
+Browserbase
+  Description: Cloud browser automation
+  URL: https://smithery.ai/server/@browserbasehq/mcp-browserbase
+
+Playwright
+  Description: Browser automation framework
+  URL: https://smithery.ai/server/playwright
+
+
+## CRM (1 servers)
+
+Salesforce
+  Description: Customer relationship management
+  URL: https://smithery.ai/server/salesforce
+
+
+## Cloud Services (3 servers)
+
+AWS
+  Description: AWS service integration
+  URL: https://smithery.ai/server/aws
+
+Azure
+  Description: Azure cloud services
+  URL: https://smithery.ai/server/azure
+
+Google Cloud
+  Description: GCP integration
+  URL: https://smithery.ai/server/gcp
+
+
+## Code Analysis (1 servers)
+
+Gitingest
+  Description: Code repository ingestion
+  URL: https://smithery.ai/server/gitingest
+
+
+## Collaboration (1 servers)
+
+Miro
+  Description: Visual collaboration
+  URL: https://smithery.ai/server/miro
+
+
+## Communication (6 servers)
+
+Discord
+  Description: Discord bot integration
+  URL: https://smithery.ai/server/discord
+
+Google Meet
+  Description: Video meetings
+  URL: https://smithery.ai/server/google-meet
+
+SendGrid
+  Description: Email delivery
+  URL: https://smithery.ai/server/sendgrid
+
+Slack
+  Description: Slack messaging integration
+  URL: https://smithery.ai/server/slack
+
+Twilio
+  Description: SMS and voice
+  URL: https://smithery.ai/server/twilio
+
+Zoom
+  Description: Video conferencing
+  URL: https://smithery.ai/server/zoom
+
+
+## Content Processing (2 servers)
+
+PDF Extract
+  Description: Parse PDF documents
+  URL: https://smithery.ai/server/pdf-extract
+
+URL Fetch
+  Description: Extract content from web pages
+  URL: https://smithery.ai/server/url-fetch
+
+
+## Data APIs (1 servers)
+
+Weather
+  Description: Weather information
+  URL: https://smithery.ai/server/weather
+
+
+## Databases (3 servers)
+
+MongoDB
+  Description: NoSQL database
+  URL: https://smithery.ai/server/mongodb
+
+PostgreSQL
+  Description: SQL database
+  URL: https://smithery.ai/server/postgresql
+
+Redis
+  Description: In-memory data store
+  URL: https://smithery.ai/server/redis
+
+
+## Design (2 servers)
+
+Canva
+  Description: Graphic design
+  URL: https://smithery.ai/server/canva
+
+Figma
+  Description: Design collaboration
+  URL: https://smithery.ai/server/figma
+
+
+## DevOps (3 servers)
+
+Docker
+  Description: Docker container management
+  URL: https://smithery.ai/server/docker
+
+Kubernetes
+  Description: K8s cluster management
+  URL: https://smithery.ai/server/kubernetes
+
+Terraform
+  Description: Infrastructure as code
+  URL: https://smithery.ai/server/terraform
+
+
+## Featured (4 servers)
+
+Browser Use
+  Description: Browser automation for web interaction
+  URL: https://smithery.ai/server/browser-use
+
+Context7
+  Description: Documentation retrieval system
+  URL: https://smithery.ai/server/@upstash/context7-mcp
+
+Exa Search
+  Description: Semantic search engine
+  URL: https://smithery.ai/server/exa
+
+Perplexity
+  Description: AI-powered search with citations
+  URL: https://smithery.ai/server/perplexity
+
+
+## File Storage (2 servers)
+
+Dropbox
+  Description: Dropbox file access
+  URL: https://smithery.ai/server/dropbox
+
+Google Drive
+  Description: Google Drive access
+  URL: https://smithery.ai/server/google-drive
+
+
+## Financial (2 servers)
+
+Cryptocurrency
+  Description: Crypto market data
+  URL: https://smithery.ai/server/crypto
+
+Stock Market
+  Description: Stock market data
+  URL: https://smithery.ai/server/stocks
+
+
+## Knowledge Base (1 servers)
+
+Wikipedia
+  Description: Wikipedia content access
+  URL: https://smithery.ai/server/wikipedia
+
+
+## Marketing (2 servers)
+
+HubSpot
+  Description: Marketing automation
+  URL: https://smithery.ai/server/hubspot
+
+Mailchimp
+  Description: Email marketing
+  URL: https://smithery.ai/server/mailchimp
+
+
+## Media (2 servers)
+
+Spotify
+  Description: Spotify music data
+  URL: https://smithery.ai/server/spotify
+
+YouTube
+  Description: YouTube video data
+  URL: https://smithery.ai/server/youtube
+
+
+## Memory Management (1 servers)
+
+Memory Tool
+  Description: Store and retrieve context
+  URL: https://smithery.ai/server/memory
+
+
+## Monitoring (2 servers)
+
+Datadog
+  Description: System monitoring
+  URL: https://smithery.ai/server/datadog
+
+Sentry
+  Description: Error tracking
+  URL: https://smithery.ai/server/sentry
+
+
+## News (2 servers)
+
+Hacker News
+  Description: HN content access
+  URL: https://smithery.ai/server/hackernews
+
+News API
+  Description: News aggregation
+  URL: https://smithery.ai/server/news
+
+
+## Payments (2 servers)
+
+PayPal
+  Description: Payment gateway
+  URL: https://smithery.ai/server/paypal
+
+Stripe
+  Description: Payment processing
+  URL: https://smithery.ai/server/stripe
+
+
+## Popular (1 servers)
+
+GitHub
+  Description: Code repository search and analysis
+  URL: https://smithery.ai/server/github
+
+
+## Productivity (1 servers)
+
+Calendar
+  Description: Calendar management
+  URL: https://smithery.ai/server/calendar
+
+
+## Professional (1 servers)
+
+LinkedIn
+  Description: LinkedIn data access
+  URL: https://smithery.ai/server/linkedin
+
+
+## Search (1 servers)
+
+Elasticsearch
+  Description: Full-text search
+  URL: https://smithery.ai/server/elasticsearch
+
+
+## Social Media (2 servers)
+
+Reddit
+  Description: Reddit content access
+  URL: https://smithery.ai/server/reddit
+
+Twitter/X
+  Description: Twitter/X API access
+  URL: https://smithery.ai/server/twitter
+
+
+## Support (2 servers)
+
+Intercom
+  Description: Customer messaging
+  URL: https://smithery.ai/server/intercom
+
+Zendesk
+  Description: Customer support
+  URL: https://smithery.ai/server/zendesk
+
+
+## Task Management (5 servers)
+
+Asana
+  Description: Asana task management
+  URL: https://smithery.ai/server/asana
+
+Jira
+  Description: Jira issue tracking
+  URL: https://smithery.ai/server/jira
+
+Notion
+  Description: Notion workspace integration
+  URL: https://smithery.ai/server/notion
+
+Todoist
+  Description: Personal task manager
+  URL: https://smithery.ai/server/todoist
+
+Trello
+  Description: Trello board management
+  URL: https://smithery.ai/server/trello
+
+
+## Tech (1 servers)
+
+Product Hunt
+  Description: Product discovery
+  URL: https://smithery.ai/server/producthunt
+
+
+## Web Search (3 servers)
+
+Brave Search
+  Description: Privacy-focused web search
+  URL: https://smithery.ai/server/brave-search
+
+DuckDuckGo
+  Description: Anonymous search engine
+  URL: https://smithery.ai/server/duckduckgo
+
+Google Search
+  Description: Google search integration
+  URL: https://smithery.ai/server/google-search
+

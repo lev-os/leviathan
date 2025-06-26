@@ -36,7 +36,12 @@
       "Bash(cp:*)",
       "Bash(chmod:*)",
       "Bash(./detect-next-repo.sh:*)",
-      "Bash(./process-intake.sh:*)"
+      "Bash(./process-intake.sh:*)",
+      "mcp__desktop-commander__execute_command",
+      "mcp__desktop-commander__read_output",
+      "mcp__desktop-commander__write_file",
+      "mcp__desktop-commander__create_directory",
+      "mcp__desktop-commander__write_file"
     ],
     "deny": []
   }

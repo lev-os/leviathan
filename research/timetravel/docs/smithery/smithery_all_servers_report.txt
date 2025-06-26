@@ -1,0 +1,462 @@
+# Smithery MCP Servers - Complete List
+# Fetched: 2025-06-26T04:10:45.060787
+# Total: 7693 servers
+
+## Summary Statistics
+
+- Total servers: 7693
+- Total usage count: 2,816,095
+- Deployed servers: 0
+- Remote-capable servers: 6409
+- Categories: 14
+
+## Top 20 Servers by Usage
+
+1. **Desktop Commander** (1,484,348 uses)
+   - Execute terminal commands and manage files with diff editing capabilities. Coding, shell and terminal, task automation
+   - URL: https://smithery.aihttps://smithery.ai/server/@wonderwhy-er/desktop-commander
+
+2. **Sequential Thinking** (304,223 uses)
+   - An MCP server implementation that provides a tool for dynamic and reflective problem-solving through a structured thinking process.
+   - URL: https://smithery.aihttps://smithery.ai/server/@smithery-ai/server-sequential-thinking
+
+3. **Playwright Automation** (106,245 uses)
+   - Automate web interactions effortlessly with this server. Enable your LLMs to navigate, extract data, and perform actions on web pages using structured accessibility snapshots, enhancing reliability and performance without the need for visual models.
+   - URL: https://smithery.aihttps://smithery.ai/server/@microsoft/playwright-mcp
+
+4. **TaskManager** (72,589 uses)
+   - Model Context Protocol server for Task Management, allowing Claude Desktop (or any MCP client) to manage and execute tasks in a queue-based system.
+   - URL: https://smithery.aihttps://smithery.ai/server/@kazuph/mcp-taskmanager
+
+5. **Exa Search** (59,373 uses)
+   - Fast, intelligent web search and crawling.
+
+Exa combines embeddings and traditional search to deliver the best results for LLMs.
+   - URL: https://smithery.aihttps://smithery.ai/server/exa
+
+6. **Context7** (51,539 uses)
+   - Fetch up-to-date, version-specific documentation and code examples directly into your prompts. Enhance your coding experience by eliminating outdated information and hallucinated APIs. Simply add `use context7` to your questions for accurate and relevant answers.
+   - URL: https://smithery.aihttps://smithery.ai/server/@upstash/context7-mcp
+
+7. **Playwright** (42,446 uses)
+   - Provides browser automation capabilities using Playwright, enabling LLMs to interact with web pages, take screenshots, and execute JavaScript in a browser environment.
+   - URL: https://smithery.aihttps://smithery.ai/server/@executeautomation/playwright-mcp-server
+
+8. **Notion** (39,203 uses)
+   - A Notion workspace is a collaborative environment where teams can organize work, manage projects, and store information in a highly customizable way. 
+   - URL: https://smithery.aihttps://smithery.ai/server/@smithery/notion
+
+9. **Github** (35,862 uses)
+   - Access the GitHub API, enabling file operations, repository management, search functionality, and more.
+   - URL: https://smithery.aihttps://smithery.ai/server/@smithery-ai/github
+
+10. **Shrimp Task Manager** (30,771 uses)
+   - Shrimp Task Manager guides Agents through structured workflows for systematic programming, enhancing task memory management mechanisms, and effectively avoiding redundant and repetitive coding work.
+   - URL: https://smithery.aihttps://smithery.ai/server/@cjo4m06/mcp-shrimp-task-manager
+
+11. **iTerm** (23,468 uses)
+   - Execute commands in the current iTerm session.
+   - URL: https://smithery.aihttps://smithery.ai/server/iterm-mcp
+
+12. **wcgw** (23,287 uses)
+   - Shell and coding agent on Claude and ChatGPT.
+   - URL: https://smithery.aihttps://smithery.ai/server/wcgw
+
+13. **Puppeteer Browser** (22,415 uses)
+   - Browser automation server that enables interaction with web pages, taking screenshots, and executing JavaScript in a real browser environment
+   - URL: https://smithery.aihttps://smithery.ai/server/@smithery-ai/puppeteer
+
+14. **Supabase MCP Server** (16,770 uses)
+   - Connect your Supabase projects to AI assistants like Cursor and Claude. Manage tables, fetch configurations, and query data seamlessly with your AI tools. Enhance your development workflow by integrating AI capabilities directly into your Supabase projects.
+   - URL: https://smithery.aihttps://smithery.ai/server/@supabase-community/supabase-mcp
+
+15. **Memory Tool** (16,709 uses)
+   - Store and retrieve user-specific memories to maintain context and make informed decisions based on past interactions. Utilize a simple API to add and search memories with relevance scoring, enhancing your application's ability to remember user preferences and interactions.
+   - URL: https://smithery.aihttps://smithery.ai/server/@mem0ai/mem0-memory-mcp
+
+16. **Office Word Document Server** (15,425 uses)
+   - Enable AI assistants to create, read, and manipulate Microsoft Word documents through a standardized interface. Perform rich document editing operations such as adding content, formatting text and tables, merging documents, and applying document protection. Streamline Word document workflows by integrating powerful document management and formatting capabilities into your AI applications.
+   - URL: https://smithery.aihttps://smithery.ai/server/@GongRzhe/Office-Word-MCP-Server
+
+17. **Filesystem MCP Server** (15,102 uses)
+   - Empower your AI agents with robust, platform-agnostic file system capabilities. Interact securely with the local filesystem to read, write, and manage files and directories effortlessly. Enhance your AI workflows with advanced file operations and targeted updates.
+   - URL: https://smithery.aihttps://smithery.ai/server/@cyanheads/filesystem-mcp-server
+
+18. **Toolbox** (11,970 uses)
+   - Toolbox dynamically routes to all MCPs in the Smithery registry based on your agent's need. When an MCP requires configuration, our tool will prompt the user to configure their tool with a callback link.
+
+Recommended use in Claude Desktop:
+This MCP provides a prompt that encourages Claude Desktop to use Smithery MCPs. You can include the prompt by clicking the "Attach from MCP" icon.
+   - URL: https://smithery.aihttps://smithery.ai/server/@smithery/toolbox
+
+19. **Memory Bank** (11,145 uses)
+   - Manage your AI assistant's context seamlessly across sessions. Store, retrieve, and track information with remote server support for enhanced collaboration and persistence.
+   - URL: https://smithery.aihttps://smithery.ai/server/@aakarsh-sasi/memory-bank-mcp
+
+20. **PowerPoint Manipulation Server** (10,704 uses)
+   - Create, edit, and manipulate PowerPoint presentations effortlessly. Utilize a range of tools to automate your presentation tasks and enhance your workflow. Streamline your PowerPoint experience with powerful features at your fingertips.
+   - URL: https://smithery.aihttps://smithery.ai/server/@GongRzhe/Office-PowerPoint-MCP-Server
+
+
+## Servers by Category
+
+### AI & Language Models (4175 servers)
+
+- **Sequential Thinking** (304,223 uses)
+  An MCP server implementation that provides a tool for dynamic and reflective problem-solving through a structured thinking process.
+- **Playwright Automation** (106,245 uses)
+  Automate web interactions effortlessly with this server. Enable your LLMs to navigate, extract data, and perform actions on web pages using structured accessibility snapshots, enhancing reliability and performance without the need for visual models.
+- **TaskManager** (72,589 uses)
+  Model Context Protocol server for Task Management, allowing Claude Desktop (or any MCP client) to manage and execute tasks in a queue-based system.
+- **Playwright** (42,446 uses)
+  Provides browser automation capabilities using Playwright, enabling LLMs to interact with web pages, take screenshots, and execute JavaScript in a browser environment.
+- **wcgw** (23,287 uses)
+  Shell and coding agent on Claude and ChatGPT.
+- **Puppeteer Browser** (22,415 uses)
+  Browser automation server that enables interaction with web pages, taking screenshots, and executing JavaScript in a real browser environment
+- **Supabase MCP Server** (16,770 uses)
+  Connect your Supabase projects to AI assistants like Cursor and Claude. Manage tables, fetch configurations, and query data seamlessly with your AI tools. Enhance your development workflow by integrating AI capabilities directly into your Supabase projects.
+- **Office Word Document Server** (15,425 uses)
+  Enable AI assistants to create, read, and manipulate Microsoft Word documents through a standardized interface. Perform rich document editing operations such as adding content, formatting text and tables, merging documents, and applying document protection. Streamline Word document workflows by integrating powerful document management and formatting capabilities into your AI applications.
+- **Filesystem MCP Server** (15,102 uses)
+  Empower your AI agents with robust, platform-agnostic file system capabilities. Interact securely with the local filesystem to read, write, and manage files and directories effortlessly. Enhance your AI workflows with advanced file operations and targeted updates.
+- **Toolbox** (11,970 uses)
+  Toolbox dynamically routes to all MCPs in the Smithery registry based on your agent's need. When an MCP requires configuration, our tool will prompt the user to configure their tool with a callback link.
+
+Recommended use in Claude Desktop:
+This MCP provides a prompt that encourages Claude Desktop to use Smithery MCPs. You can include the prompt by clicking the "Attach from MCP" icon.
+  ... and 4165 more
+
+### Academic & Research (18 servers)
+
+- **BioMCP** (129 uses)
+  Access critical biomedical databases with structured queries. Enhance your LLM's capabilities by integrating with PubMed, ClinicalTrials.gov, and MyVariant.info for comprehensive biomedical insights.
+- **Paperless NGX** (57 uses)
+  Manage documents, tags, correspondents, and document types through the Paperless-NGX API.
+- **Desktop Commander** (37 uses)
+  Enable powerful terminal command execution, process management, and comprehensive filesystem operations with AI assistance. Manage files, run long-running commands, and perform precise code edits seamlessly within your development environment. Enhance productivity by integrating all your development tools into one chat interface without additional API costs.
+- **Simple Arxiv** (23 uses)
+  Provides access to arXiv papers through their API.
+- **School MCP**
+  Fetch assignment deadlines, manage course materials, and integrate with your calendar seamlessly. Enhance your academic experience by automating reminders and file downloads from Canvas and Gradescope. Simplify your study schedule with easy access to essential academic tools.
+- **Fused MCP Agents**
+  Connect your LLMs to APIs and executable code seamlessly. Set up a local MCP server to run any Python code directly from your desktop, enhancing your data science workflows. Enjoy a straightforward notebook guide to create your own agents and functions with ease.
+- **WolframAlpha LLM Server**
+  Query WolframAlpha's LLM API using natural language questions. Get structured responses for complex queries in various domains like science and mathematics.
+- **Kaggle Integration**
+  Enhance your data science projects by seamlessly integrating Kaggle datasets and competitions into your workflows. Access a vast repository of datasets and leverage competition data to improve your models and analyses. Simplify your data acquisition process and focus on building better solutions.
+- **Mathematics for Machine Learning Resources**
+  Provide a curated collection of educational resources to learn and review mathematics essential for machine learning. Access books, papers, video lectures, and courses covering algebra, calculus, probability, statistics, and more to build a strong mathematical foundation for machine learning. Enhance your understanding of key concepts to improve your machine learning skills effectively.
+- **WolframAlpha LLM Server**
+  Query WolframAlpha's LLM API using natural language questions. Get structured responses for complex queries in various domains like science and mathematics.
+  ... and 8 more
+
+### Automation & Browser (151 servers)
+
+- **Playwright** (548 uses)
+  Control browsers and automate web interactions seamlessly.
+- **Markdown Downloader** (302 uses)
+  Download webpages as markdown files effortlessly. Convert web content into markdown format with a simple command, and manage your downloads with ease. Enjoy a configurable download directory and automatic date-stamped filenames for organized storage.
+- **Selenium WebDriver Automation** (100 uses)
+  Enable browser automation through standardized MCP clients.
+- **Oxylabs MCP** (72 uses)
+  Fetch and process content from specified URLs using the Oxylabs Web Scraper API.
+- **IsItDown Server** (17 uses)
+  Check if a website is currently down and get information about recent downtime events. Quickly verify website status to ensure your online presence is reliable and accessible.
+- **Screenshot Server** (16 uses)
+  Capture screenshots of web pages and local HTML files using Puppeteer.
+- **Goose App Maker** (15 uses)
+  Create, manage, and serve custom web applications locally with ease. Quickly build apps using HTML, CSS, and JavaScript, and open them in your default browser. Efficiently update, list, and delete your web applications stored in a dedicated directory.
+- **Blowback** (13 uses)
+  Integrate your front-end development server with a powerful MCP server. Capture browser console logs, manage checkpoints, and streamline your development workflow with ease. Enhance your debugging and testing capabilities while working with Vite and other frameworks.
+- **PowerShell Exec Server** (11 uses)
+  Execute PowerShell commands securely with controlled timeouts and input validation. Retrieve system information, manage services, monitor processes, and generate scripts dynamically using templates. Benefit from built-in security features that block dangerous commands and ensure consistent JSON-formatted outputs for automation workflows.
+- **Node Fetch** (10 uses)
+  Fetch web content effortlessly from any URL using various HTTP methods. Handle headers, request bodies, and response formats with ease, while managing timeouts and redirects. Enhance your applications with reliable web content retrieval capabilities.
+  ... and 141 more
+
+### Cloud & DevOps (22 servers)
+
+- **Kubernetes Server** (66 uses)
+  MCP server for interacting with Kubernetes clusters via kubectl
+- **k8s-pilot**
+  The Central Pilot for Your Kubernetes Fleets ✈️✈️
+
+k8s_pilot is a lightweight, centralized control plane server for managing multiple Kubernetes clusters at once.
+With powerful tools and intuitive APIs, you can observe and control all your clusters from one cockpit.
+- **K8s Interactive**
+  A MCP server that can run Kubernetes commands with a given kubeconfig path and provide interpretation of the commands.
+- **Deriv API Server**
+  Interact with the Deriv API to access active trading symbols and account balances. Simplify your trading operations by leveraging this server to seamlessly integrate with your applications. Get started quickly with local or Docker installation options.
+- **Azure MCP Server**
+  Manage Azure resources efficiently with this server. Streamline your cloud operations and enhance your resource management capabilities. Leverage the power of MCP to interact with Azure services seamlessly.
+- **Remote MCP Server**
+  Build and deploy a custom remote MCP server to the cloud effortlessly. Securely connect your applications with a robust server that supports OAuth and network isolation. Get started quickly with Azure Functions and enhance your projects with powerful tools.
+- **AWS Knowledge Base Retrieval**
+  Retrieve context from the AWS Knowledge Base based on your queries. Enhance your applications with retrieval-augmented generation capabilities to access structured information effortlessly.
+- **Kubernetes Management Control Panel**
+  Manage your Kubernetes clusters effortlessly. Utilize a simple interface to interact with your clusters, retrieve pod statuses, and access logs seamlessly. Enhance your Kubernetes experience with powerful management tools at your fingertips.
+- **Azure DevOps Server**
+  Integrate with Azure DevOps services to access work items, repositories, and pull requests.
+- **MCP K8S Go**
+  MCP server and library for Kubernetes, providing tools to list contexts, pods, events, services, and fetch pod logs in specified namespaces.
+  ... and 12 more
+
+### Communication & Social (51 servers)
+
+- **Super Shell** (61 uses)
+  Execute shell commands securely across multiple platforms with built-in whitelisting and approval mechanisms. Simplify command execution with automatic platform detection and comprehensive logging. Enhance your workflow by managing commands efficiently and safely.
+- **Slack User MCP Server** (35 uses)
+  Enable interaction with Slack workspaces as a user.
+- **Meta Post Scheduler** (26 uses)
+  Schedule and manage Facebook and Instagram posts, including Reels and feed posts, with support for immediate or scheduled publishing. Integrate seamlessly with Facebook Graph API to automate social media content management across multiple pages and accounts. Utilize both stdio and SSE transports for flexible integration options.
+- **Azure Integration Server** (16 uses)
+  Enable natural language interaction with Azure cloud services directly from your chat interface. Manage Azure subscriptions, tenants, and resources seamlessly through conversational commands. Benefit from automatic authentication and robust error handling for a smooth user experience.
+- **Flomo Note Writer** (13 uses)
+  Write notes directly to Flomo from your applications. Easily capture and send text content as notes to your Flomo account using a simple MCP server integration. Streamline your note-taking workflow by automating Flomo entries.
+- **Flomo Note Writer** (3 uses)
+  Write text notes directly to Flomo from your applications. Seamlessly integrate note-taking into your workflows with a simple and efficient tool. Enhance productivity by automating your Flomo note creation.
+- **Azure CLI Server** (2 uses)
+  Enable seamless management of Azure resources by leveraging the full Azure CLI through a conversational interface. Automate tasks like listing resources, fixing configurations, and creating services with natural language commands. Enhance productivity by integrating Azure operations directly into your development environment or chat tools.
+- **Hypefury MCP Server** (2 uses)
+  Authenticate with Hypefury and schedule your social media posts effortlessly. Streamline your social media management by integrating with Hypefury's powerful scheduling tools.
+- **Chat Logger** (1 uses)
+  Save your chat history in a formatted Markdown file for easy viewing and sharing. Automatically timestamp each message and customize your save directory to organize conversations by session ID. Enhance your chat experience with a simple and powerful logging tool.
+- **Flowise API** (1 uses)
+  Integrates with the Flowise API for creating predictions and managing chatflows.
+  ... and 41 more
+
+### Content Processing (158 servers)
+
+- **Audiense Insights** (1,018 uses)
+  Extract marketing insights and audience analysis from Audiense reports.
+- **YouTube Transcript Server** (668 uses)
+  Enables retrieval of transcripts from YouTube videos. Provides direct access to video captions and subtitles through a simple interface, with support for multiple languages and video URL formats.
+- **Unsplash Server** (539 uses)
+  Access a vast library of high-quality images from Unsplash. Integrate effortlessly with your applications to enhance visual content and user engagement. Utilize the power of Unsplash's API to fetch stunning images on demand.
+- **Document Reader** (305 uses)
+  Interact with PDF and EPUB documents seamlessly. Enhance your workflow by reading and processing documents directly within your IDE using this MCP server.
+- **Server Office** (151 uses)
+  Read and write Microsoft Word (docx) files effortlessly. Utilize powerful tools to manipulate document content, including editing paragraphs and inserting new text. Enhance your document processing capabilities with a simple command-line interface.
+- **ElevenLabs MCP Server** (127 uses)
+  Enable your applications to generate speech, clone voices, and transcribe audio effortlessly. Leverage powerful Text to Speech and audio processing APIs to enhance user interaction and create unique audio experiences. Start transforming your text and audio today with seamless integration into your projects.
+- **Youtube Transcript** (114 uses)
+  Retrieve transcripts of YouTube videos.
+- **Resume Modernizer** (96 uses)
+  Extract, analyze, and modernize resumes to improve job matching and presentation. Automatically parse resumes, identify skill gaps, update content for specific job descriptions, and generate polished resume documents. Enhance your job application process with grammar checks, anonymization, and cover letter generation.
+- **MiniMax** (85 uses)
+  Enable powerful text-to-speech, voice cloning, video, and image generation capabilities through a unified MCP server interface. Integrate with popular MCP clients to generate speech, clone voices, and create multimedia content seamlessly. Enhance your applications with advanced multimedia generation tools backed by MiniMax APIs.
+- **YouTube Insights** (66 uses)
+  Extract insights from YouTube videos effortlessly. Analyze transcripts, discover videos by keywords, and retrieve channel information to enhance your content strategy.
+  ... and 148 more
+
+### Data & Analytics (672 servers)
+
+- **Neon Database** (6,006 uses)
+  Control Neon serverless Postgres databases using natural language. Create and manage databases, run SQL queries, handle migrations, and manage projects.
+- **Excel** (3,940 uses)
+  Read and write spreadsheet data to MS Excel files.
+- **PostgreSQL Database Management Server** (2,516 uses)
+  Analyze, manage, and optimize your PostgreSQL databases effortlessly. Streamline your database operations with powerful tools for debugging, schema management, and data migration. Enhance performance monitoring and ensure your database runs smoothly with real-time insights and recommendations.
+- **Mixpanel Integration** (1,583 uses)
+  Talk to your Mixpanel analytics events data seamlessly! Query retention number, event data, funnels and more from any MCP client. Great for on-demand look ups like: "What's the weekly retention for users in the Feb 1 cohort?"
+
+I am adding more coverage of the Mixpanel API over time, let me know which tools you need or just open a PR.
+
+Make sure you go to your Mixpanel Organization Settings and create a service account. Then get your project ID from your project settings.
+- **Excel File Processing Server** (1,003 uses)
+  Read, write, and analyze Excel files effortlessly. Streamline your data management tasks with powerful functionalities for handling Excel documents. Enhance your applications with seamless integration of Excel processing capabilities.
+- **Neo4j Server** (643 uses)
+  Provides integration with Neo4j graph database for natural language interactions.
+- **Weather MCP Server** (614 uses)
+  Retrieve real-time weather information effortlessly for any city. Get accurate weather updates using a simple command or API call without needing an API key. Enhance your applications with reliable weather data from the Open-Meteo API.
+- **Datadog API Integration** (558 uses)
+  Leverage Datadog's powerful monitoring features for incident management, logs, metrics, and more. Streamline your observability processes by integrating directly with the Datadog API through this server. Enhance your incident response and monitoring capabilities effortlessly.
+- **Hevy Fitness API MCP Server** (374 uses)
+  Access and manage your workout data seamlessly. Integrate with the Hevy fitness tracking app to create, update, and organize workouts and routines effortlessly.
+- **PocketBase MCP Server** (357 uses)
+  Manage your PocketBase collections effortlessly. Fetch, create, update, and delete records with ease, while also handling file uploads and downloads. Streamline your database operations and enhance your application's capabilities with this powerful server.
+  ... and 662 more
+
+### Databases & Storage (22 servers)
+
+- **FoxZip**
+  Compress and decompress files effortlessly with our intuitive tool. Enhance your file management by quickly zipping and unzipping archives, saving you time and storage space. Experience seamless integration with your workflow for efficient file handling.
+- **Basic Network Proxy Tools Storage**
+  Provide a centralized open storage for various network proxy tools including Shadowrocket, SingBox, V2ray, Clash, Surge, QuantumultX, and Loon. Facilitate easy access and management of these tools for network proxy configurations and usage.
+- **MySQL数据库服务**
+  连接和操作本地MySQL数据库，轻松执行各种数据库操作。通过RESTful API和SSE推送能力，提升数据交互效率。
+- **Redis Integration Server**
+  Interact with Redis for caching and key-value storage operations.
+- **Netease Cloud Music FLAC Downloader**
+  Download lossless FLAC music from Netease Cloud Music playlists effortlessly. Streamline your music collection by automatically fetching high-quality tracks directly to your local storage.
+- **MySQL查询服务器**
+  提供实时的MySQL数据库查询功能，支持通过SSE进行数据传输。简化数据库操作，提升数据交互效率，适合需要实时数据更新的应用场景。
+- **Kubernetes Operations Manager**
+  Manage Kubernetes resources effortlessly with a powerful tool that simplifies operations like creating, updating, and deleting resources. Leverage advanced features such as multi-cluster support, custom resource definitions, and SQL-like queries to enhance your Kubernetes experience. Streamline your workflows and improve efficiency with this comprehensive management solution.
+- **Basic Network Proxy Tools Storage**
+  Provide a centralized open storage for various network proxy tools including Shadowrocket, SingBox, V2ray, Clash, Surge, QuantumultX, and Loon. Facilitate easy access and management of these tools for network proxy configurations and usage.
+- **Wise Backend**
+  Build and manage your backend services effortlessly. Leverage a powerful stack with FastAPI and SQLAlchemy to create robust applications that scale. Simplify your development process with integrated tools and libraries for seamless deployment and management.
+- **S3 Management Server**
+  Manage your S3 buckets and objects effortlessly. Create, list, and configure buckets, handle object uploads and downloads, and set policies with ease. Streamline your cloud storage operations and enhance your workflow with powerful S3 management capabilities.
+  ... and 12 more
+
+### Development & Code (285 servers)
+
+- **Shrimp Task Manager** (30,771 uses)
+  Shrimp Task Manager guides Agents through structured workflows for systematic programming, enhancing task memory management mechanisms, and effectively avoiding redundant and repetitive coding work.
+- **HubSpot MCP** (5,608 uses)
+  Access and manage your CRM data seamlessly with 100+ tools in our HubSpot MCP implementation including manipulation of Contacts, Companies, and Associations.
+
+Follow the steps here to get a free Developer API Key (save as HUBSPOT_ACCESS_TOKEN): https://developers.hubspot.com/docs/guides/api/overview
+- **E2B** (379 uses)
+  Add code execution and interpreting capabilities to your agents.
+- **Kakao Map** (334 uses)
+  카카오 API를 활용하여 대한민국 내 위치 기반 장소 추천을 제공하는 MCP 서버입니다.
+
+github link 를 통해 자세한 내용을 확인 할 수 있습니다.
+- **Game Engine Server** (272 uses)
+  Provide tools for game development and enhance sequential thinking. Access game assets, templates, and code generation to streamline your game projects. Break down complex problems and dynamically adjust your thought processes for effective problem-solving.
+- **Kakao Navigation** (194 uses)
+  Kakao Map 및 Mobility API를 통해 한국 내 교통 정보 및 경로 탐색 기능을 제공합니다. 자세한 사용 방법은 Github 레포지토리의 Readme를 참고해주세요.
+
+ Provides the car route and traffic information navigation function of Kakao Mobility.
+- **ABAP Development Tools Server** (191 uses)
+  Interact with SAP ABAP systems seamlessly. Retrieve source code, table structures, and more through a standardized protocol.
+- **LeetCode** (73 uses)
+  MCP server for LeetCode API, enabling advanced automation and intelligent interaction with LeetCode problems, contests, solutions and user data (Supports authenticated APIs).
+- **React Native Skia Animation Thinking Tool** (56 uses)
+  Analyze and solve React Native Skia animation challenges with structured thinking. Break down complex problems, explore techniques, and optimize performance for stunning visual effects. Enhance your animation workflow with a systematic approach to design and implementation.
+- **Upstash** (52 uses)
+  MCP server for managing Upstash Developer API operations via natural language commands.
+  ... and 275 more
+
+### Financial & Crypto (28 servers)
+
+- **CCXT MCP Server** (279 uses)
+  High-performance CCXT MCP server for cryptocurrency exchange integration.
+- **Coincap** (22 uses)
+  A MCP server to get crypto prices from coincap's public API.
+- **Comax Payment Link**
+  Create and manage payment links, orders, and customer information by integrating seamlessly with the Comax ERP/payment system. Simplify payment workflows and order management with ready-to-use tools for key Comax operations. Enhance your applications with robust, validated, and session-aware MCP server capabilities.
+- **Chess Analysis Assistant**
+  Analyze chess positions and get professional evaluations using Stockfish.
+- **Stripe Agent Toolkit**
+  Integrate with Stripe APIs using popular agent frameworks. Enable function calling for seamless API interactions.
+- **PayPal MCP Server**
+  Integrate seamlessly with PayPal's APIs for payment processing, invoicing, and subscription management. Simplify your business operations with a standardized interface that handles secure authentication and input validation. Enhance your applications with robust tools for managing payments and user information.
+- **PayPal Integration Server**
+  Seamlessly interact with PayPal's payment processing, invoicing, and subscription management through a standardized interface. Streamline your business operations and enhance user experiences with powerful tools for managing payments and products. Empower your applications with robust API integrations for efficient financial transactions.
+- **Figma MCP Server with Chunking**
+  Interact with the Figma API efficiently by utilizing memory-aware chunking and pagination capabilities.
+- **Crypto Market Maker Dashboard**
+  Monitor cryptocurrency markets in real-time with a comprehensive dashboard. Track prices, manage your portfolio, and visualize order books seamlessly across multiple exchanges. Enjoy a responsive design with theme switching for an optimal user experience.
+- **Crypto Market Maker Dashboard**
+  Monitor cryptocurrency markets in real-time with a comprehensive dashboard. Track prices, manage your portfolio, and visualize order books seamlessly across multiple exchanges. Enjoy a responsive design with theme switching for an optimal user experience.
+  ... and 18 more
+
+### Media & Entertainment (9 servers)
+
+- **Spotify Server** (155 uses)
+  Access Spotify's music catalog and interact with tracks, albums, and artists.
+- **YARR Media Stack**
+  Automate and control your media services using natural language commands.
+- **Tunes**
+  Create and manage your music playlists effortlessly. Enjoy a seamless experience in organizing your favorite tracks and discovering new music with our intuitive interface.
+- **Tunes**
+  Create and manage your music playlists effortlessly. Enjoy a seamless experience in organizing your favorite tracks and discovering new music with our intuitive interface.
+- **YARR Media Stack**
+  Automate and control your media services using natural language commands.
+- **Spotify**
+  Control your Spotify player effortlessly with voice commands. Manage playlists, play songs, and get artist information seamlessly through an intuitive interface.
+- **Project Siesta**
+  Create a versatile music bot for Telegram that caters to all your music needs. Enjoy seamless integration with various music services and manage your music library effortlessly. Enhance your Telegram experience with a powerful bot designed for music enthusiasts.
+- **Spotify**
+  Connect to Spotify to control playback and manage your music library. This fork includes playlist management support
+- **E-Commerce Demo Application for Pimcore 5**
+  Provide a ready-to-use e-commerce demo application to help newcomers understand Pimcore's PIM and E-Commerce capabilities. Enable users to quickly set up and explore Pimcore's e-commerce features as a blueprint for their own applications. Simplify the learning curve for building e-commerce solutions with Pimcore.
+
+### Other (578 servers)
+
+- **iTerm** (23,468 uses)
+  Execute commands in the current iTerm session.
+- **Memory Bank Server** (5,484 uses)
+  Manage project memory banks remotely and efficiently.
+- **Linear MCP Server** (2,665 uses)
+  Interact with Linear's API to manage issues, projects, and teams programmatically.
+- **Sequential Thinking** (1,414 uses)
+  Facilitate dynamic and reflective problem-solving through a structured thinking process. Break down complex problems into manageable steps and revise thoughts as understanding deepens, allowing for alternative paths of reasoning. Generate and verify solution hypotheses effectively.
+- **CMD Server** (1,214 uses)
+  MCP server for executing CMD and SSH commands.
+- **FTP Access Server** (1,154 uses)
+  Interact with FTP servers seamlessly. List directories, upload and download files, and manage your FTP resources effortlessly using natural language commands.
+- **小红书 MCP 服务  xiaohongshu** (937 uses)
+   采用js逆向出x-s,x-t,直接请求http接口,无须笨重的playwright
+ 搜索笔记
+ 获取笔记内容
+ 获取笔记的评论
+ 发表评论
+RedNote
+xiaohongshu
+- **Trends Hub** (706 uses)
+  Aggregate trending topics from various platforms in one place. Access real-time hot lists from sources like Weibo, Douyin, and Tencent News effortlessly. Stay updated with the latest trends and insights at your fingertips.
+- **CLI** (518 uses)
+  Command line interface for executing controlled CLI operations with robust security features including command whitelisting, path validation, and execution controls.
+- **Magic MCP** (371 uses)
+  v0 for MCP. Frontend feels like Magic
+  ... and 568 more
+
+### Productivity & Task Management (117 servers)
+
+- **Desktop Commander** (1,484,348 uses)
+  Execute terminal commands and manage files with diff editing capabilities. Coding, shell and terminal, task automation
+- **Notion** (39,203 uses)
+  A Notion workspace is a collaborative environment where teams can organize work, manage projects, and store information in a highly customizable way. 
+- **PowerPoint Manipulation Server** (10,704 uses)
+  Create, edit, and manipulate PowerPoint presentations effortlessly. Utilize a range of tools to automate your presentation tasks and enhance your workflow. Streamline your PowerPoint experience with powerful features at your fingertips.
+- **Notion** (5,514 uses)
+  Integrate your applications with Notion seamlessly. Automate tasks and manage your Notion workspace through intuitive API calls, enhancing productivity and collaboration.
+- **MCP-Atlassian** (3,517 uses)
+  An MCP server for accessing Atlassian products (Confluence and Jira)
+- **Todoist MCP Server** (1,793 uses)
+  MCP server for Todoist API integration
+- **Todoist Task and Project Manager** (936 uses)
+  Manage your Todoist tasks, projects, sections, labels, comments, and collaborators seamlessly through an MCP-compatible interface. Create, update, complete, and organize your tasks and projects efficiently using natural language commands. Enhance your productivity by integrating advanced Todoist management capabilities into your preferred MCP client.
+- **Jira MCP Server for Cursor** (811 uses)
+  Integrate Jira ticket management seamlessly into your workflow. List, create, and update tickets directly from your interface, enhancing productivity and collaboration. Simplify your Jira interactions with a powerful MCP server designed for Cursor.
+- **Figma MCP Server** (729 uses)
+  Interact seamlessly with the Figma API to manage files, comments, components, and more. Leverage a comprehensive set of tools to enhance your design workflow and automate tasks within Figma. Simplify your design processes and integrate Figma capabilities into your applications effortlessly.
+- **Todoist-mcp-server-extended** (129 uses)
+  Integrate natural language task management with Todoist. Manage tasks, projects, and labels effortlessly using everyday language.
+  ... and 107 more
+
+### Web Search & Discovery (1407 servers)
+
+- **Exa Search** (59,373 uses)
+  Fast, intelligent web search and crawling.
+
+Exa combines embeddings and traditional search to deliver the best results for LLMs.
+- **Context7** (51,539 uses)
+  Fetch up-to-date, version-specific documentation and code examples directly into your prompts. Enhance your coding experience by eliminating outdated information and hallucinated APIs. Simply add `use context7` to your questions for accurate and relevant answers.
+- **Github** (35,862 uses)
+  Access the GitHub API, enabling file operations, repository management, search functionality, and more.
+- **Memory Tool** (16,709 uses)
+  Store and retrieve user-specific memories to maintain context and make informed decisions based on past interactions. Utilize a simple API to add and search memories with relevance scoring, enhancing your application's ability to remember user preferences and interactions.
+- **Google Maps** (7,754 uses)
+  Provides location-based services and mapping functionality through the Google Maps Platform APIs
+- **Query | MCP Server for Supabase** (7,726 uses)
+  Query MCP (Supabase MCP Server) is now in Early Access under its new name. You can safely run SQL, manage schema changes, call the Supabase Management API, and use the Auth Admin SDK — all from MCP-compatible IDEs like Cursor and Windsurf.
+
+⚡ Core features are free & open-source forever.
+💎 Premium tools are coming — but nothing existing will be locked behind a paywall.
+- **Brave Search** (6,966 uses)
+  Integrate web search and local search capabilities with Brave.
+- **Tavily MCP Server** (6,920 uses)
+  Enable real-time web search and data extraction capabilities.
+- **Perplexity Search** (5,904 uses)
+  Enable AI assistants to perform web searches using Perplexity's Sonar Pro.
+- **DuckDuckGo Search Server** (5,675 uses)
+  Enable web search capabilities through DuckDuckGo. Fetch and parse webpage content intelligently for enhanced LLM interaction.
+  ... and 1397 more
+
