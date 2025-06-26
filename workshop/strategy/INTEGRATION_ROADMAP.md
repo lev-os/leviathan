@@ -2,9 +2,7 @@
 
 ## 🎯 Executive Summary
 
-Strategic 16-week integration plan for systematically incorporating 30 cutting-edge AI repositories into the Kingly LLM-first agent ecosystem. Prioritized by impact, effort, and architectural alignment.
-
-**🔄 Retroactive Integration Note:** This roadmap was created on June 19, 2025, but the repositories were retroactively moved to `/Users/jean-patricksmith/lev/workshop/intake/` on January 14, 2025. All planning and timelines remain valid.
+Strategic 16-week integration plan for systematically incorporating 18 cutting-edge AI repositories into the Kingly LLM-first agent ecosystem. Prioritized by impact, effort, and architectural alignment.
 
 ## 📅 Phase-Based Integration Timeline
 

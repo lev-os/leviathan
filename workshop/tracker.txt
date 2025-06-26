@@ -18,4 +18,5 @@ ultimate-mcp-server
 mastra
 1Panel
 A5-Browser-Use
-ottomator-agentsopen-webui
+ottomator-agents
+open-webui [POC-DAY-3-COMPLETE-MEMORY-INTEGRATION]

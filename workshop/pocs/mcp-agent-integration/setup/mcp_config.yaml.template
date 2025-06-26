@@ -1,0 +1,52 @@
+# MCP Agent Configuration Template
+# Copy to mcp_config.yaml and update with your settings
+
+execution_engine: "asyncio"
+
+logger:
+  type: "file"
+  level: "debug"
+  file: "logs/mcp_agent.log"
+
+# MCP Servers Configuration
+mcp:
+  servers:
+    # Basic file system access
+    filesystem:
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-filesystem"]
+      
+    # Web fetch capabilities  
+    fetch:
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-fetch"]
+      
+    # Brave search (if available)
+    brave-search:
+      command: "npx"  
+      args: ["-y", "@modelcontextprotocol/server-brave-search"]
+      
+# OpenAI Configuration (update with your key)
+openai:
+  api_key: "your-openai-api-key-here"
+  default_model: "gpt-4o-mini"
+  
+# Anthropic Configuration (update with your key)  
+anthropic:
+  api_key: "your-anthropic-api-key-here"
+
+# Lev Integration Settings
+lev_integration:
+  memory_backend: "graphiti"
+  session_manager: "kingly"
+  neo4j_uri: "bolt://localhost:7687"
+  neo4j_user: "neo4j"
+  neo4j_password: "password"
+  
+  # Lev paths
+  sessions_path: "~/.kingly/sessions/"
+  memory_path: "~/lev/packages/memory/"
+  
+  # Constitutional compliance
+  constitutional_validation: true
+  neurochemical_optimization: true

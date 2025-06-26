@@ -21,6 +21,26 @@ intake_progress:
   step_6_completed: false
 ```
 
+## 🤝 INTERACTIVE MODE DETECTION
+
+<mode_selection>
+IF working with human in real-time: Use Interactive Mode
+IF autonomous execution: Use Standard Mode  
+</mode_selection>
+
+### Interactive Mode Requirements:
+- Share findings after each step before proceeding
+- Ask for guidance on ambiguous decisions  
+- Confirm cleanup actions before execution
+- Never auto-delete without explicit permission
+
+### Interactive Mode Checkpoints:
+- **After Step 1**: "Found [X] in cache. Should I proceed with acquisition?"
+- **After Step 2**: "Content saved to [location]. Structure verified. Ready for Lev scan?"
+- **After Step 3**: "Lev capabilities: [findings]. Which areas need deeper investigation?"
+- **Before Step 5**: "I recommend [DECISION] because [REASONING]. Your thoughts?"
+- **Before Step 6**: "Documentation path: ADR via wizard experience OR POC first?"
+
 ## ❌ FAILURE PATTERNS (What NOT to do):
 1. **Skipping Step 3**: "I'll just assume what Leviathan has" → WRONG
 2. **Assuming gaps**: "Leviathan probably doesn't have X" → WRONG

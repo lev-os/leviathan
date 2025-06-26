@@ -1,0 +1,29 @@
+{
+  "name": "@lev-os/workshop-auto-processor",
+  "version": "1.0.0",
+  "description": "Autonomous workshop intake processor with terminal UI",
+  "main": "auto-processor.js",
+  "bin": {
+    "workshop-auto": "./auto-processor.js",
+    "workshop-ui": "./terminal-ui.js"
+  },
+  "scripts": {
+    "start": "node terminal-ui.js",
+    "worker": "node auto-processor.js start",
+    "status": "node auto-processor.js status",
+    "intake": "node auto-processor.js intake",
+    "install-deps": "npm install"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81"
+  },
+  "keywords": [
+    "leviathan",
+    "workshop",
+    "auto-processor",
+    "claude",
+    "terminal-ui"
+  ],
+  "author": "Kingly Agency",
+  "license": "MIT"
+}

@@ -1,0 +1,31 @@
+# MCP Agent Integration POC Dependencies
+
+# Core MCP Agent
+mcp-agent>=0.1.4
+
+# Additional MCP-related packages
+mcp>=1.0.0
+
+# Neo4j driver for Graphiti integration (matching Lev memory system)
+neo4j>=5.0.0
+
+# Async support
+aiohttp>=3.11.0
+asyncio-mqtt>=0.16.0
+
+# Configuration management
+pyyaml>=6.0.0
+pydantic>=2.10.0
+pydantic-settings>=2.7.0
+
+# Testing framework
+pytest>=8.0.0
+pytest-asyncio>=0.24.0
+
+# Development tools
+black>=24.0.0
+isort>=5.13.0
+
+# Integration utilities
+requests>=2.32.0
+rich>=13.9.0

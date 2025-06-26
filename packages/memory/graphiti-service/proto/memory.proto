@@ -33,6 +33,13 @@ service MemoryService {
   // Advanced features
   rpc HybridSearch(HybridSearchRequest) returns (HybridSearchResponse);
   rpc BuildIndices(BuildIndicesRequest) returns (BuildIndicesResponse);
+  
+  // Decay and learning operations
+  rpc ApplyDecay(ApplyDecayRequest) returns (ApplyDecayResponse);
+  rpc ReinforceMemory(ReinforceMemoryRequest) returns (ReinforceMemoryResponse);
+  rpc DetectAhaMoment(DetectAhaMomentRequest) returns (DetectAhaMomentResponse);
+  rpc PropagateInsight(PropagateInsightRequest) returns (PropagateInsightResponse);
+  rpc GetDecayStats(GetDecayStatsRequest) returns (GetDecayStatsResponse);
 }
 
 // Connection messages
@@ -75,6 +82,15 @@ message Memory {
   map<string, string> metadata = 5;
   repeated float embedding = 6;
   string workspace_id = 7;
+  
+  // Decay and learning fields
+  float confidence = 8;
+  int64 last_accessed_at = 9;
+  int32 access_count = 10;
+  int64 last_decayed_at = 11;
+  float importance_score = 12;
+  int32 transformation_count = 13;
+  repeated string reinforcement_history = 14;
 }
 
 message Episode {
@@ -298,4 +314,82 @@ message BuildIndicesResponse {
   string message = 2;
   map<string, int32> index_counts = 3;
   string error = 4;
+}
+
+// Decay and learning messages
+message ApplyDecayRequest {
+  string workspace_id = 1;
+  repeated string memory_ids = 2; // Optional: specific memories to decay
+  float prune_threshold = 3; // Optional: mark for pruning below this confidence
+}
+
+message ApplyDecayResponse {
+  bool success = 1;
+  int32 memories_decayed = 2;
+  int32 memories_pruned = 3;
+  string error = 4;
+}
+
+message ReinforceMemoryRequest {
+  string memory_id = 1;
+  string workspace_id = 2;
+  float usage_strength = 3; // 0-1 strength of reinforcement
+}
+
+message ReinforceMemoryResponse {
+  bool success = 1;
+  Memory memory = 2;
+  float previous_confidence = 3;
+  string error = 4;
+}
+
+message AhaMoment {
+  string id = 1;
+  string type = 2;
+  int64 timestamp = 3;
+  string context_id = 4;
+  float significance = 5;
+  string insight = 6;
+  repeated string affected_contexts = 7;
+  repeated string bubble_up_to = 8;
+}
+
+message DetectAhaMomentRequest {
+  string observation = 1;
+  string context_id = 2;
+  string workspace_id = 3;
+  map<string, string> observation_metadata = 4;
+}
+
+message DetectAhaMomentResponse {
+  bool success = 1;
+  bool aha_moment_detected = 2;
+  AhaMoment aha_moment = 3;
+  string error = 4;
+}
+
+message PropagateInsightRequest {
+  AhaMoment insight = 1;
+  string workspace_id = 2;
+}
+
+message PropagateInsightResponse {
+  bool success = 1;
+  repeated string bubbled_up = 2;
+  repeated string trickled_down = 3;
+  repeated string errors = 4;
+}
+
+message GetDecayStatsRequest {
+  string workspace_id = 1;
+}
+
+message GetDecayStatsResponse {
+  bool success = 1;
+  float temporal_decay_rate = 2;
+  int32 memories_tracked = 3;
+  bool scheduler_active = 4;
+  int64 last_decay_run = 5;
+  map<string, float> workspace_stats = 6;
+  string error = 7;
 }
