@@ -45,7 +45,8 @@
       "Bash(/Users/jean-patricksmith/digital/_infra/graphiti/mcp_server/.venv/bin/python -c \"from graphiti_core import Graphiti; print('✅ Graphiti core imported successfully')\")",
       "Bash(source:*)",
       "Bash(pip install:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "mcp__firecrawl__firecrawl_scrape"
     ],
     "deny": []
   }

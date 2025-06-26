@@ -18,4 +18,4 @@ ultimate-mcp-server
 mastra
 1Panel
 A5-Browser-Use
-ottomator-agents
+ottomator-agentsopen-webui

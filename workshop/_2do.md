@@ -69,10 +69,12 @@ git clone <repo-url> ~/lev/workshop/intake/<repo-name>
 - [ ] Clean up remaining folders to archive/ (keeping adrs/ and cache/)
 
 ### Phase 2: Automation Connection
+- [x] Created comprehensive intake.md process guide with 6-step workflow
+- [x] Enhanced with checkpoints, failure patterns, and post-processing actions
 - [ ] Extract simple clone+analyze logic from packages/workshop/intake.js
-- [ ] Wire up /.claude/commands/lev/intake.md automation spec to workshop/ folder
-- [ ] Test automation: clone repo → generate analysis → save to analysis/{repo-name}/
-- [ ] Implement decision workflow: analysis → _ref/vendor/delete
+- [ ] Wire up /.claude/commands/lev/intake.md automation spec to workshop/intake.md
+- [ ] Test automation: source → analysis → decision → action → wizard docs
+- [ ] Implement decision workflow: EXTRACT(_ref)/ADOPT(pnpm)/FORK(vendor)/MONITOR/PASS
 
 ### Phase 3: Batch Processing
 - [ ] Process all 87+ repos in intake/ through automation
