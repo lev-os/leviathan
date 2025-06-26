@@ -33,7 +33,10 @@
       "Bash(find:*)",
       "Bash(mkdir:*)",
       "Bash(touch:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(chmod:*)",
+      "Bash(./detect-next-repo.sh:*)",
+      "Bash(./process-intake.sh:*)"
     ],
     "deny": []
   }

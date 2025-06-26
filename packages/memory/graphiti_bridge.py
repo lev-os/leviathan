@@ -21,23 +21,25 @@ class GraphitiBridge:
     async def connect(self) -> Dict[str, Any]:
         """Initialize Graphiti connection"""
         try:
-            await self.graphiti.connect()
+            # Graphiti connects automatically during __init__, just verify it works
+            await self.graphiti.search("test", num_results=1)
             return {"success": True, "message": "Connected to Graphiti"}
         except Exception as e:
             return {"success": False, "error": str(e)}
     
     async def create_memory(self, content: str, memory_type: str = "general", metadata: Dict = None) -> Dict[str, Any]:
-        """Create a new memory in Graphiti"""
+        """Create a new memory in Graphiti using add_episode"""
         try:
             if metadata is None:
                 metadata = {}
             
-            result = await self.graphiti.create_memory(
-                content=content,
-                memory_type=memory_type,
-                metadata=metadata
+            # Graphiti uses add_episode to create memories
+            result = await self.graphiti.add_episode(
+                name=f"{memory_type}_episode",
+                episode_body=content,
+                reference_time=metadata.get('timestamp', None)
             )
-            return {"success": True, "memory_id": str(result), "content": content}
+            return {"success": True, "episode_id": str(result), "content": content}
         except Exception as e:
             return {"success": False, "error": str(e)}
     

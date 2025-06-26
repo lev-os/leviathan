@@ -1,0 +1,8 @@
+# Workshop Intake Tracker - Recursive Repository Analysis
+# Format: unique-slug (generated from path)
+# This file tracks which repositories have been processed by the LLM-first analysis
+
+ai-engineering-hub-colivara-deepseek-website-rag
+ultimate-mcp-server
+mastra
+1Panel

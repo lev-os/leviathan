@@ -1,234 +1,193 @@
-# TimeTravel Research Platform
+# TimeTravel AI Research Platform
 
-A production-quality AI research platform combining CLI tools and web interfaces for systematic research using the TimeTravel methodology.
+A production-ready AI research platform that orchestrates multiple AI tools and APIs to conduct deep, multi-perspective research on any topic.
 
-## 🚀 Quick Start
+## 🚀 Overview
 
-### Installation
-```bash
-npm install
-npm run install:web
-```
+TimeTravel is a sophisticated research automation platform that:
 
-### Setup API Keys
-```bash
-# Interactive setup
-npx timetravel config --setup
-
-# Or create .env file
-cp .env.example .env
-# Edit .env with your API keys
-```
-
-### Run Research
-```bash
-# CLI
-npx timetravel research "quantum computing breakthroughs"
-
-# Web Interface  
-npx timetravel web --open
-```
+- Orchestrates multiple AI research tools (Perplexity, Elicit, DeepSeek, etc.)
+- Applies personality-based analysis perspectives
+- Implements three-tier research methodology
+- Provides both CLI and web interfaces
+- Stores and indexes research for future reference
 
 ## 🏗️ Architecture
 
-### CLI Layer (`src/cli/`)
-- **Commander.js** - Modern CLI framework
-- **Inquirer** - Interactive prompts
-- **Ora** - Progress spinners
-- **Chalk** - Colored output
-
-### API Layer (`src/api/`)
-- **Express** - Web server
-- **WebSocket** - Real-time updates
-- **Research Engine** - Three-tier workflow
-- **Tool Orchestrator** - MCP integration
-
-### Web Layer (`src/web/`)
-- **React 18** - Modern UI framework
-- **TanStack Query** - Data fetching
-- **Tailwind CSS** - Utility-first styling
-- **Recharts** - Data visualization
-
-## 🔧 CLI Commands
-
-### Research
-```bash
-timetravel research <topic> [options]
-
-Options:
-  -d, --depth <level>     Research depth: quick|standard|deep
-  -t, --time <minutes>    Maximum time in minutes
-  -o, --output <format>   Output format: markdown|json|html
-  -p, --personalities     Personality modes (comma-separated)
-  -s, --sources          Data sources (comma-separated)
-  --web                  Open web interface
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Web UI (React)│     │    CLI (Node)    │     │   API Client    │
+└────────┬────────┘     └────────┬────────┘     └────────┬────────┘
+         │                       │                         │
+         └───────────────┬───────┴─────────────────────────┘
+                         │
+                   ┌─────▼─────┐
+                   │ REST API  │
+                   │ (Express) │
+                   └─────┬─────┘
+                         │
+         ┌───────────────┴───────────────┐
+         │                               │
+    ┌────▼────┐                   ┌─────▼─────┐
+    │Research │                   │Personality│
+    │ Engine  │                   │  Manager  │
+    └────┬────┘                   └─────┬─────┘
+         │                               │
+         └───────────┬───────────────────┘
+                     │
+              ┌──────▼──────┐
+              │    Tool     │
+              │Orchestrator │
+              └──────┬──────┘
+                     │
+     ┌───────────────┼───────────────┐
+     │               │               │
+┌────▼────┐    ┌────▼────┐    ┌────▼────┐
+│Perplexity│    │  Brave  │    │   Exa   │
+│   API    │    │ Search  │    │   API   │
+└──────────┘    └─────────┘    └─────────┘
 ```
 
-### Configuration
-```bash
-timetravel config [options]
+## 🛠️ Technology Stack
 
-Options:
-  --setup     Run interactive setup
-  --list      List current configuration  
-  --validate  Validate API keys
+- **Backend**: Node.js, TypeScript, Express
+- **Frontend**: React, Vite, TailwindCSS
+- **APIs**: Perplexity, Brave Search, Exa, Firecrawl
+- **Storage**: File-based (future: PostgreSQL)
+- **Testing**: Jest, React Testing Library
+
+## 📦 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/timetravel.git
+cd timetravel
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Set up your API keys
+npm run cli -- config --setup
 ```
 
-### Status
-```bash
-timetravel status [options]
+## 🔧 Configuration
 
-Options:
-  --json      Output as JSON
+Create a `.env` file in the root directory:
+
+```env
+# API Keys
+PERPLEXITY_API_KEY=your_key_here
+BRAVE_API_KEY=your_key_here
+EXA_API_KEY=your_key_here
+FIRECRAWL_API_KEY=your_key_here
+
+# Server Configuration
+PORT=3000
+NODE_ENV=development
 ```
 
-### Web Interface
-```bash
-timetravel web [options]
+## 🚀 Quick Start
 
-Options:
-  -p, --port <port>       Port number (default: 3000)
-  --open                  Open browser automatically
+### CLI Usage
+
+```bash
+# Start a new research session
+npm run cli -- research --topic "AI reasoning models" --depth comprehensive
+
+# List available personality modes
+npm run cli -- personality --list
+
+# Check system status
+npm run cli -- status
 ```
 
-## 📡 API Endpoints
+### Web UI
 
-### Research
-- `POST /api/research/execute` - Start research
-- `GET /api/research/:id` - Get research status
-- `GET /api/research` - List all research
-- `DELETE /api/research/:id` - Delete research
+```bash
+# Start the API server
+npm run api
 
-### Configuration
-- `GET /api/config` - Get configuration
-- `PUT /api/config` - Update configuration
-- `POST /api/config/validate` - Validate API keys
+# In another terminal, start the web UI
+npm run web
 
-### Status
-- `GET /api/status` - System status
-- `GET /api/status/stats` - Usage statistics
+# Open http://localhost:5173
+```
 
-## 🎭 Personality Modes
+### API Usage
 
-The platform applies eight personality perspectives to research:
+```typescript
+// Start the API server
+const server = new ApiServer()
+await server.start(3000)
 
-1. **sovereignty_architect** - Independence and self-reliance focus
-2. **abundance_amplifier** - 10x opportunity identification  
-3. **visionary_pioneer** - Paradigm shift recognition
-4. **cortisol_guardian** - Risk assessment and threat analysis
-5. **strategic_commander** - Competitive positioning insights
-6. **empathetic_connector** - User impact and adoption factors
-7. **practical_builder** - Implementation requirements
-8. **systems_thinker** - Interconnections and emergent properties
+// Make a research request
+const response = await fetch('http://localhost:3000/api/research/execute', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    topic: 'Subquadratic architectures in AI',
+    depth: 'comprehensive',
+    personalities: ['sovereignty_architect', 'abundance_amplifier'],
+  }),
+})
+```
 
-## 🔬 Research Methodology
+## 🧠 Research Methodology
 
-### Three-Tier Deep Research
+TimeTravel implements a three-tier research approach:
 
-**Tier 1 (30 min): Parallel Base Exploration**
-- Architecture Revolution (WebSearch, Perplexity)
-- World Models (URL fetch, analysis)
-- Reasoning Evolution (competitive intel)
-- Efficiency Innovations (cost analysis)
+### Tier 1: Base Exploration
 
-**Tier 2 (45 min): Dynamic Deep Dives**
-- Generated from Tier 1 findings with >0.7 relevance
-- 6-8 focused investigations
-- Deep content analysis
+- Broad search across multiple sources
+- Identify key themes and concepts
+- 4 parallel research streams
 
-**Tier 3 (30 min): Strategic Positioning**
-- Competitive advantage opportunities
-- White space identification
-- Technical differentiation potential
+### Tier 2: Dynamic Deep Dives
+
+- Focus on high-relevance findings
+- Deeper investigation of promising areas
+- Up to 6 parallel deep dives
+
+### Tier 3: Strategic Positioning
+
+- Competitive analysis
 - Implementation feasibility
+- Final synthesis and recommendations
 
-## 🛠️ Development
+## 🎭 Personality System
 
-### Scripts
-```bash
-npm run dev          # Start all services in development
-npm run build        # Build for production
-npm run test         # Run tests
-npm run lint         # Lint code
-npm run format       # Format code
-npm run docs         # Generate API documentation
-```
+The platform includes multiple analysis personalities:
 
-### Project Structure
-```
-src/
-├── cli/             # Command-line interface
-│   ├── commands/    # CLI command implementations
-│   └── index.ts     # Main CLI entry point
-├── api/             # API server and business logic
-│   ├── routes/      # Express routes
-│   ├── engine/      # Research engine
-│   ├── config/      # Configuration management
-│   └── utils/       # Utilities
-├── web/             # React web interface
-│   ├── src/         # React components and pages
-│   └── package.json # Web-specific dependencies
-└── shared/          # Shared types and utilities
-```
+- **Sovereignty Architect**: Technical systems perspective
+- **Abundance Amplifier**: Growth and opportunity focus
+- **Cortisol Guardian**: Risk and stress management
+- **Practical Builder**: Implementation-focused analysis
 
-## 🔌 API Integration
+## 📊 Project Status
 
-The platform integrates with multiple research APIs:
-
-- **Perplexity** - AI-powered search with citations
-- **Brave Search** - Privacy-focused web search  
-- **Exa** - Neural search engine
-- **Firecrawl** - Web scraping and content extraction
-
-## 📊 Output Formats
-
-### Markdown
-```markdown
-# Research Report: Topic
-## Executive Summary
-## Key Findings
-## Personality Analysis
-## Strategic Implications
-```
-
-### JSON
-```json
-{
-  "id": "uuid",
-  "topic": "research topic",
-  "findings": [...],
-  "synthesis": "...",
-  "metadata": {...}
-}
-```
-
-### HTML
-Complete web-ready report with styling and interactive elements.
-
-## 🔒 Security
-
-- API keys stored in environment variables
-- Request validation with Joi
-- Rate limiting and CORS protection
-- Input sanitization
-- Secure headers with Helmet
-
-## 📈 Monitoring
-
-- Structured logging with Winston
-- Performance metrics
-- Error tracking
-- Usage analytics
-- Quality scoring
+- ✅ Core architecture implemented
+- ✅ TypeScript build system working
+- ✅ Basic web UI created
+- ✅ CLI framework in place
+- 🚧 API integrations (placeholder implementations)
+- 🚧 Research repository storage
+- 🚧 Full personality system
+- 📋 Production deployment
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Write tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.
 
 ## 📄 License
 
-MIT License - see LICENSE file for details.
+MIT License - see [LICENSE](../LICENSE) for details.
+
+## 🔗 Links
+
+- [Architecture Overview](architecture/overview.md)
+- [API Documentation](api/README.md)
+- [Research Methodology](guides/research-methodology.md)
+- [Personality System](guides/personality-modes.md)

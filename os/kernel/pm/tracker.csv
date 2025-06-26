@@ -1,0 +1,21 @@
+Task ID,Status,Priority,Component,Task Description,Assigned,Created,Updated,Notes
+1,completed,high,JEPA,Integrate JEPA 2 temporal prediction into cognitive parliament,system,2025-06-25,2025-06-25,Initial JEPA 2 scaffolding complete
+2,completed,high,Pattern Detection,Phase 1: Simple Pattern Detection - Store 100 telemetry snapshots,system,2025-06-25,2025-06-25,Circular buffer implemented
+3,completed,high,Pattern Detection,Phase 1: Calculate derivatives and detect patterns,system,2025-06-25,2025-06-25,Real pattern detection with derivatives
+4,completed,high,Predictions,Phase 1: LLM-based structured predictions,system,2025-06-25,2025-06-25,Prediction validation loop implemented
+5,completed,high,Predictions,Phase 1: Validation loop with accuracy tracking,system,2025-06-25,2025-06-25,Real accuracy metrics tracked
+6,pending,high,Documentation,Update CLAUDE.md with Go semantic search instructions,dev,2025-06-25,2025-06-25,Added to CLAUDE.md
+7,completed,high,Documentation,Add BDD/TDD philosophy to CLAUDE.md,dev,2025-06-25,2025-06-25,BDD guidelines documented
+8,completed,medium,PM,Create pm/agent.md process documentation,dev,2025-06-25,2025-06-25,Process doc created
+9,completed,medium,PM,Create pm/tracker.csv for project tracking,dev,2025-06-25,2025-06-25,This file
+10,completed,high,Assessment,Assess current project structure and status,dev,2025-06-25,2025-06-25,Structure documented
+11,pending,high,Architecture,Implement DiscoveryEngine interface,dev,2025-06-25,2025-06-25,Core interface for TELO cycle
+12,pending,high,Memory,Create GraphitiClient for Go integration,dev,2025-06-25,2025-06-25,Neo4j + Graphiti bridge
+13,pending,high,Embeddings,Implement EmbeddingService with Voyage,dev,2025-06-25,2025-06-25,High-quality embeddings
+14,pending,medium,SEAL,Implement SEALEngine discovery engine,dev,2025-06-25,2025-06-25,Self-evolving discovery
+15,pending,medium,JEPA,Enhance JEPAEngine with real embeddings,dev,2025-06-25,2025-06-25,Replace LLM placeholders
+16,pending,medium,Testing,Create BDD tests for discovery engines,dev,2025-06-25,2025-06-25,Test-driven development
+17,pending,low,Brute Force,Implement BruteForceEngine for baseline,dev,2025-06-25,2025-06-25,Simple trial-error engine
+18,pending,medium,Manager,Implement DiscoveryEngineManager,dev,2025-06-25,2025-06-25,Hot-swapping capability
+19,pending,low,Config,Create engine configuration system,dev,2025-06-25,2025-06-25,YAML-based configuration
+20,pending,low,Docs,Create docs/specs/ for BDD specifications,dev,2025-06-25,2025-06-25,Behavioral specs

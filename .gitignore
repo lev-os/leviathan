@@ -1,7 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.trees
 .worktrees
 
+workshop/intake
 workshop/accelerators
 workshop/drafts
 workshop/essentials
@@ -9,6 +11,9 @@ workshop/evaluation
 workshop/foundations
 workshop/mcp-ecosystem
 workshop/reference
+workshop/intake-*
+
+tmp/quick-data-mcp
 
 # dependencies
 node_modules

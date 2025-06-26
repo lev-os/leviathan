@@ -81,22 +81,140 @@ This project underwent systematic adversarial validation that exposed several cr
 - Hybrid architecture provides fallback if pure Go proves infeasible
 - Limited initial investment ($75K) before major commitment
 
-## Documentation Structure
+## Project Management Structure
+
+**This CLAUDE.md serves as the master configuration** - it contains core principles, development guidelines, and references to all other documentation.
+
+### File Organization
+- **`CLAUDE.md`**: Master configuration (this file) - core principles, Go search, BDD/TDD philosophy
+- **`pm/agent.md`**: Agentic development process and guidelines
+- **`pm/tracker.csv`**: Current todo list and project tracking
+- **`docs/_arch.md`**: Discovery engine architecture documentation  
+- **`docs/_mem.md`**: Memory integration and embedding systems
+- **`docs/{research|adrs|specs|experiments}/`**: Organized documentation by type
+
+### Documentation Structure
 
 - `docs/architecture/`: Core architectural decisions and design principles
   - `01-hybrid-design-fundamentals.md`: Basic C/Go hybrid architecture
   - `02-memory-management-design.md`: Memory safety and allocation strategies
   - `03-ai-extensibility-framework.md`: **Revolutionary AI-driven extensibility system**
+  - `_arch.md`: **Discovery engine architecture (SEAL/JEPA/TELO)**
+  - `_mem.md`: **Memory integration with Neo4j/Graphiti**
 - `docs/implementation/`: Development phases and implementation strategy
 - `docs/validation/`: Adversarial analysis insights and risk assessment
 - `docs/research/`: Research materials and technical investigations
 - `docs/roadmap/`: Project timeline and milestone planning
+- `docs/specs/`: BDD specifications and behavioral requirements
+- `docs/experiments/`: Discovery engine experiments and results
+
+## Go Development Guidelines
+
+### Semantic Search for Go Development
+When developing Go kernel components, use the semantic search API for language assistance:
+
+```bash
+# Start semantic search API (if not running)
+cd /Users/jean-patricksmith/digital/leviathan/os/agent && python search_api.py
+
+# Search for Go stdlib functions and patterns
+curl -X POST "http://localhost:8000/search" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "HTTP client server networking", "limit": 5}'
+
+# Example searches for common Go patterns:
+curl -X POST "http://localhost:8000/search" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "error handling patterns", "limit": 3}'
+
+curl -X POST "http://localhost:8000/search" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "goroutines channels concurrency", "limit": 5}'
+
+curl -X POST "http://localhost:8000/search" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "JSON parsing encoding", "limit": 3}'
+```
+
+**When to Use Semantic Search:**
+- Finding Go stdlib functions and packages
+- Code pattern discovery  
+- API exploration
+- Architecture research
+- Documentation lookup
+
+**Available Documentation**: 23,541+ indexed Go documentation entries in Qdrant
+
+### BDD/TDD Development Philosophy
+
+**Behavior-Driven Development (BDD) Approach:**
+We use BDD to define and implement system behaviors through self-documenting tests.
+
+```go
+// Example: Define behavior as a test first
+func TestDiscoveryEngine_CanDetectMemoryLeaks(t *testing.T) {
+    // Given: A discovery engine with telemetry data showing memory growth
+    engine := NewJEPAEngine()
+    telemetry := []TelemetrySnapshot{
+        {MemoryUsed: 100, Timestamp: time.Now()},
+        {MemoryUsed: 150, Timestamp: time.Now().Add(1 * time.Minute)},
+        {MemoryUsed: 200, Timestamp: time.Now().Add(2 * time.Minute)},
+    }
+    
+    // When: Engine analyzes the pattern
+    problem := Problem{Type: "memory_pattern", Context: telemetry}
+    attempt, err := engine.Attempt(context.Background(), problem)
+    
+    // Then: Engine should detect memory leak pattern
+    assert.NoError(t, err)
+    assert.Contains(t, attempt.Strategy.Type, "memory_leak")
+    assert.True(t, attempt.Strategy.Confidence > 0.7)
+}
+```
+
+**BDD Guidelines:**
+1. **Define behavior first**: Write the test describing what should happen
+2. **Use Given/When/Then**: Structure tests as scenarios
+3. **Self-documenting intent**: Tests serve as living documentation
+4. **Focus on behavior, not implementation**: Test outcomes, not internals
+5. **Keep tests readable**: Anyone should understand the intended behavior
+
+**Test-Driven Development (TDD) Cycle:**
+1. **Red**: Write a failing test that defines desired behavior
+2. **Green**: Write minimal code to make the test pass
+3. **Refactor**: Clean up code while keeping tests green
+
+```bash
+# Run tests
+go test ./...
+
+# Run specific behavior tests
+go test -run TestDiscoveryEngine
+
+# Run with verbose output
+go test -v ./tests/
+```
 
 ## Development Commands
 
-*Note: No build system implemented yet—project is in design phase*
+### Current Build System
+```bash
+# Build the kernel system
+cd /Users/jean-patricksmith/digital/leviathan/os/kernel/src
+go build -o ../leviathan-kernel .
 
-Future build system will likely include:
+# Run with development flags
+go run . --verbose --dry-run
+
+# Test pattern detection
+go test ./tests/ -v
+
+# Build specific components
+go build ./src/pattern_detector.go
+go build ./src/simple_predictor.go
+```
+
+### Future build system will include:
 - Cross-compilation for ARM64 targets
 - Custom Go runtime compilation
 - Kernel image generation
