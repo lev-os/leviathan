@@ -1,0 +1,25 @@
+metadata:
+  name: 'TimeTravel Research Repository'
+  version: '1.0.0'
+  description: 'Searchable index of all AI research conducted'
+  last_updated: '2025-01-09'
+
+entries:
+  - id: 'launch-week-2025-01-09'
+    title: 'TimeTravel Project Launch Week Update'
+    date: '2025-01-09'
+    topic: 'project-status'
+    horizon: 'immediate'
+    tags: ['launch', 'status', 'planning']
+    summary: 'Initial launch week activities and setup'
+    path: 'weekly-updates/2025-01-09-launch.md'
+# Future entries will be added here as research is conducted
+# Each entry should include:
+# - Unique ID
+# - Descriptive title
+# - ISO date
+# - Primary topic
+# - Time horizon
+# - Relevant tags
+# - One-line summary
+# - Path to full document

@@ -1,12 +1,12 @@
 # TimeTravel Project Tracker
 
-Last Updated: 2025-01-09
+Last Updated: 2025-01-10
 
 ## 📊 Overall Progress
 
 | Phase   | Total Tasks | Completed | In Progress | Pending | Progress |
 | ------- | ----------- | --------- | ----------- | ------- | -------- |
-| Phase 1 | 9           | 3         | 0           | 6       | 33%      |
+| Phase 1 | 9           | 6         | 0           | 3       | 67%      |
 | Phase 2 | 9           | 0         | 0           | 9       | 0%       |
 | Phase 3 | 6           | 0         | 0           | 6       | 0%       |
 
@@ -27,9 +27,30 @@ Last Updated: 2025-01-09
   - Completed: 2025-01-09
 
 - [x] **Update task tracking** (0.5h)
+
   - Converted from CSV to Markdown
   - Added proper status tracking
   - Completed: 2025-01-09
+
+- [x] **Create missing ADRs** (0.5h)
+
+  - Added ADR-003: Multi-API Orchestration Strategy
+  - Added ADR-004: Research Repository Pattern
+  - Completed: 2025-01-10
+
+- [x] **Implement Research Repository Structure** (0.5h)
+
+  - Created /research directory hierarchy
+  - Set up horizons and topics organization
+  - Created initial index.yaml
+  - Completed: 2025-01-10
+
+- [x] **Consolidate \_intake documentation** (0.75h)
+  - Moved deep-research-system.md to docs/specs
+  - Moved tracking-system.md to docs/guides/research-methodology.md
+  - Moved research-apis-config.yaml to config/
+  - Created workflow-definitions.md and research-apis.md
+  - Completed: 2025-01-10
 
 ### 📋 Pending
 
@@ -167,9 +188,9 @@ Last Updated: 2025-01-09
 
 ## 📈 Velocity Tracking
 
-| Week     | Tasks Completed | Hours Spent | Notes                              |
-| -------- | --------------- | ----------- | ---------------------------------- |
-| 2025-W02 | 3               | 3           | Fixed build errors, organized docs |
+| Week     | Tasks Completed | Hours Spent | Notes                                                                  |
+| -------- | --------------- | ----------- | ---------------------------------------------------------------------- |
+| 2025-W02 | 6               | 5.25        | Fixed build errors, organized docs, created ADRs, set up research repo |
 
 ## 🎯 Next Steps
 

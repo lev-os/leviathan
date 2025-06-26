@@ -35,6 +35,42 @@ The kernel features a revolutionary extensibility framework:
 - Zero-copy buffers for C/Go communication
 - Type-safe memory access with compile-time and runtime validation
 
+## Key Architectural Innovations
+
+### 1. Pluggable Discovery Engine Architecture (TELO Cycle)
+**Revolutionary AI learning system** with hot-swappable engines:
+- **SEAL Engine**: Self-evolving through synthetic data generation (MIT research)
+- **JEPA Engine**: World model predictions and temporal reasoning (Meta research)  
+- **Brute Force Engine**: Pure trial-and-error baseline
+- **Core Pattern**: Trial → Error → Learn → Optimize (TELO)
+- **Hot-Swapping**: Runtime engine switching based on performance
+- **Details**: See `docs/architecture/04-discovery-engine-architecture.md`
+
+### 2. Temporal Memory Integration  
+**Neo4j + Graphiti** for persistent learning:
+- **High-Quality Embeddings**: Voyage-3-large for pattern similarity (768D vectors)
+- **Workspace Isolation**: Each engine gets separate memory space (group_ids)
+- **Temporal Awareness**: Episodes linked by time relationships in graph
+- **Semantic Search**: Find similar patterns even if never seen exactly
+- **Cross-Engine Learning**: Shared insights while maintaining separation
+- **Details**: See `docs/architecture/05-memory-integration-architecture.md`
+
+### 3. Real Pattern Detection (Working Implementation)
+**Mathematical derivatives-based detection** (not fake confidence):
+- **CPU Spike Detection**: Rate of change > 20% per minute
+- **Memory Leak Detection**: Consistent growth over 5 samples  
+- **Periodic Pattern Recognition**: Interval similarity detection
+- **Evidence-Based Confidence**: Real data points, not hardcoded scores
+- **Implementation**: `src/pattern_detector.go` + `src/simple_predictor.go`
+
+### 4. Bi-Directional LLM Integration
+**System ↔ LLM feedback loops** for autonomous operation:
+- **LLM → System Call**: Agent identifies need via MCP tools
+- **System → LLM Response**: Provides workflow + callback instructions  
+- **LLM → Enhanced Processing**: Executes with full autonomy
+- **LLM → System Callback**: Reports results and requests next step
+- **System → Iteration**: Saves progress and guides next iteration
+
 ## Development Status
 
 **Current Phase**: Early research and architecture design

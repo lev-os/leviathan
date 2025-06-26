@@ -8,5 +8,3 @@ mastra
 1Panel
 A5-Browser-Use
 aci
-activepieces
-ag-ui-protocol
