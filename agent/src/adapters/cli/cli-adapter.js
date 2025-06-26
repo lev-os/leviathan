@@ -17,10 +17,11 @@ import { CheckpointRouter } from './routers/checkpoint-router.js';
 import { AgentRouter } from './routers/agent-router.js';
 
 export class CLIAdapter {
-  constructor() {
+  constructor(dependencies) {
     this.commandRegistry = new CommandRegistry();
     this.coreCommandRegistry = coreCommandRegistry;
     this.formatter = new ClaudeFormatter();
+    this.dependencies = dependencies;
     
     // Initialize specialized routers
     this.findRouter = new FindRouter(findContexts, this.formatter);
@@ -51,13 +52,7 @@ export class CLIAdapter {
     await this.commandRegistry.initialize();
     
     // Initialize core command registry with dependencies
-    const dependencies = {
-      workflowLoader: null, // TODO: inject proper dependencies
-      debugLogger: console,
-      semanticLookup: null,
-      // Add other dependencies as needed
-    };
-    await this.coreCommandRegistry.initialize(dependencies);
+    await this.coreCommandRegistry.initialize(this.dependencies);
     
     this.initialized = true;
   }
@@ -70,12 +65,16 @@ export class CLIAdapter {
   async handleCommand(args) {
     await this.initialize();
     
-    if (args.length === 0) {
+    if (args.length === 0 || (args.length === 1 && (args[0] === 'help' || args[0] === '--help'))) {
       return this.handleHelp();
     }
     
     const command = args[0];
     const commandArgs = args.slice(1);
+
+    if (commandArgs.includes('--help')) {
+      return this.handleHelp(command);
+    }
     
     // Route to appropriate handler
     switch (command) {
@@ -109,7 +108,7 @@ export class CLIAdapter {
         const coreCommands = this.coreCommandRegistry.listCommands();
         if (coreCommands.includes(command)) {
           try {
-            const result = await this.coreCommandRegistry.executeCommand(command, commandArgs);
+            const result = await this.coreCommandRegistry.executeCommand(command, commandArgs, this.dependencies);
             return this.formatCoreCommandResult(result);
           } catch (error) {
             return {
@@ -184,7 +183,11 @@ export class CLIAdapter {
    */
   handleHelp(specificCommand = null) {
     if (specificCommand) {
-      const commandInfo = this.commandRegistry.getCommand(specificCommand);
+      let commandInfo = this.commandRegistry.getCommand(specificCommand);
+      if (!commandInfo) {
+        commandInfo = this.coreCommandRegistry.getCommand(specificCommand);
+      }
+
       if (commandInfo) {
         return {
           success: true,

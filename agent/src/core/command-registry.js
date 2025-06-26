@@ -23,6 +23,10 @@ export class CommandRegistry {
     });
   }
 
+  getCommand(name) {
+    return this.commands.get(name);
+  }
+
   /**
    * Get all registered commands
    */

@@ -6,12 +6,20 @@
  */
 
 import { CLIAdapter } from './cli-adapter.js';
+import { CoreInitializer } from '../../core/core-initializer.js';
 
 async function main() {
   try {
+    console.log('[🔎] Initializing CLI Adapter...');
     const args = process.argv.slice(2);
     
-    const cliAdapter = new CLIAdapter();
+    const coreInitializer = new CoreInitializer();
+    const dependencies = await coreInitializer.initializeCore();
+    
+    console.log('[✅] Core dependencies initialized.');
+    const cliAdapter = new CLIAdapter(dependencies);
+    
+    console.log(`[➡️] Handling command: ${args.join(' ')}`);
     const result = await cliAdapter.handleCommand(args);
     
     // Output formatted response

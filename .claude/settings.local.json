@@ -46,7 +46,10 @@
       "Bash(source:*)",
       "Bash(pip install:*)",
       "Bash(python:*)",
-      "mcp__firecrawl__firecrawl_scrape"
+      "mcp__firecrawl__firecrawl_scrape",
+      "Bash(chmod:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm install:*)"
     ],
     "deny": []
   }

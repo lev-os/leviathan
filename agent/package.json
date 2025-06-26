@@ -40,7 +40,8 @@
     "test:legacy:checkpoint": "node test-checkpoint-basic.js",
     "test:legacy:e2e": "./test-e2e.sh",
     "test:legacy:core": "node test-core-integration.js",
-    "test:legacy:components": "node tests/components/session-manager.test.js"
+    "test:legacy:components": "node tests/components/session-manager.test.js",
+    "test:memory": "node _06-memory-connection.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",

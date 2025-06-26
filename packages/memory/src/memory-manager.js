@@ -1,14 +1,17 @@
 /**
  * Hybrid Memory Manager
- * Core implementation of tiered memory architecture combining file system + Graphiti
+ * Core implementation of tiered memory architecture combining file system + Graphiti via gRPC
  */
 
-class HybridMemoryManager {
+import { GraphitiGRPCClient } from './grpc-client.js';
+
+export class HybridMemoryManager {
   constructor(options = {}) {
     this.options = {
       neo4jUri: options.neo4jUri || "bolt://localhost:7687",
       neo4jUsername: options.neo4jUsername || "neo4j",
       neo4jPassword: options.neo4jPassword || "lev-mem123",
+      grpcAddress: options.grpcAddress || "localhost:50051",
       sessionsPath: options.sessionsPath || "~/.kingly/sessions/",
       contextsPath: options.contextsPath || "./contexts/",
       enableGraphiti: options.enableGraphiti !== false,
@@ -25,17 +28,19 @@ class HybridMemoryManager {
 
   async initialize() {
     try {
-      // Initialize Graphiti connection
+      // Initialize Graphiti gRPC connection
       if (this.options.enableGraphiti) {
-        const { GraphitiClient } = await import('graphiti-core');
-        this.graphiti = new GraphitiClient({
-          neo4j_uri: this.options.neo4jUri,
-          neo4j_username: this.options.neo4jUsername,
-          neo4j_password: this.options.neo4jPassword,
-          enable_mcp: true,
-          enable_temporal: true
+        this.graphiti = new GraphitiGRPCClient({
+          serverAddress: this.options.grpcAddress,
+          neo4jUri: this.options.neo4jUri,
+          neo4jUsername: this.options.neo4jUsername,
+          neo4jPassword: this.options.neo4jPassword
         });
+        
+        await this.graphiti.initialize();
         await this.graphiti.connect();
+        
+        console.log('✅ Graphiti gRPC client connected successfully');
       }
       
       // Initialize file system manager
@@ -109,17 +114,21 @@ class HybridMemoryManager {
 
   // Query Graphiti with error handling
   async queryGraphiti(request) {
-    if (!this.graphiti) return null;
+    if (!this.graphiti || !this.graphiti.connected) return null;
 
-    const graphitiQuery = {
-      semantic: request.vectorQuery || request.query,
-      graph: request.relationshipQuery,
-      temporal: request.timeRange,
-      context: request.context,
-      namespace: request.namespace
+    // Use gRPC client's hybrid search
+    const options = {
+      workspaceId: request.namespace,
+      includeRelationships: !!request.relationshipQuery,
+      includeTemporal: !!request.timeRange,
+      limit: request.limit || 10,
+      advanced: {
+        context: request.context,
+        temporal: request.timeRange
+      }
     };
 
-    return await this.graphiti.hybrid_query(graphitiQuery);
+    return await this.graphiti.hybridSearch(request.query, options);
   }
 
   // Query file system
@@ -193,23 +202,20 @@ class HybridMemoryManager {
   }
 
   async indexFileInGraphiti(file) {
-    if (!this.graphiti) return;
+    if (!this.graphiti || !this.graphiti.connected) return;
 
-    const embeddings = await this.generateEmbeddings(file.content);
-    const relationships = this.extractFileRelationships(file);
-
-    await this.graphiti.create_memory({
+    const metadata = {
       file_id: file.path,
-      type: file.type || 'file',
-      content: file.content,
-      embeddings: embeddings,
-      relationships: relationships,
-      metadata: {
-        size: file.size,
-        modified: file.modified,
-        path: file.path
-      }
-    });
+      size: file.size,
+      modified: file.modified,
+      path: file.path
+    };
+
+    await this.graphiti.createMemory(
+      file.content,
+      file.type || 'file',
+      metadata
+    );
   }
 
   // Health monitoring
@@ -219,8 +225,10 @@ class HybridMemoryManager {
       fallback_mode: this.options.fallbackMode,
       components: {
         graphiti: {
-          connected: !!this.graphiti,
-          uri: this.options.neo4jUri
+          connected: this.graphiti && this.graphiti.connected,
+          uri: this.options.neo4jUri,
+          grpc_address: this.options.grpcAddress,
+          session_id: this.graphiti ? this.graphiti.sessionId : null
         },
         file_system: {
           accessible: await this.fileSystem.isAccessible(),
@@ -245,7 +253,7 @@ class HybridMemoryManager {
   // Cleanup
   async close() {
     if (this.graphiti) {
-      await this.graphiti.close();
+      await this.graphiti.disconnect();
     }
     
     for (const memoryType of Object.values(this.memoryTypes)) {
@@ -254,6 +262,40 @@ class HybridMemoryManager {
       }
     }
   }
-}
 
-module.exports = { HybridMemoryManager };
+  // Expose gRPC client methods for direct access
+  async createMemory(content, type = 'general', metadata = {}) {
+    if (this.graphiti && this.graphiti.connected) {
+      return await this.graphiti.createMemory(content, type, metadata);
+    }
+    throw new Error('Graphiti not connected');
+  }
+
+  async searchMemory(query, limit = 10) {
+    if (this.graphiti && this.graphiti.connected) {
+      return await this.graphiti.searchMemory(query, limit);
+    }
+    throw new Error('Graphiti not connected');
+  }
+
+  async addEpisode(name, content, referenceTime = null, metadata = {}) {
+    if (this.graphiti && this.graphiti.connected) {
+      return await this.graphiti.addEpisode(name, content, referenceTime, null, metadata);
+    }
+    throw new Error('Graphiti not connected');
+  }
+
+  async createWorkspace(workspaceId, description = '') {
+    if (this.graphiti && this.graphiti.connected) {
+      return await this.graphiti.createWorkspace(workspaceId, description);
+    }
+    throw new Error('Graphiti not connected');
+  }
+
+  async switchWorkspace(workspaceId) {
+    if (this.graphiti && this.graphiti.connected) {
+      return await this.graphiti.switchWorkspace(workspaceId);
+    }
+    throw new Error('Graphiti not connected');
+  }
+}
