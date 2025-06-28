@@ -1,5 +1,5 @@
 /**
- * Kingly-DX Plugin
+ * Leviathan-DX Plugin
  * Workspace/Project/Task organizational flavor for CoreSDK
  */
 
@@ -8,14 +8,14 @@ import { ProjectPlugin } from './project.js';
 import { TaskPlugin } from './task.js';
 import { CoreSDK } from '../../sdk/core-sdk.js';
 
-export class KinglyDX {
+export class LeviathanDX {
   constructor() {
     this.sdk = new CoreSDK();
     this.setupPlugins();
   }
 
   setupPlugins() {
-    // Register all kingly-dx plugins
+    // Register all leviathan-dx plugins
     this.sdk.registerPlugin(new WorkspacePlugin());
     this.sdk.registerPlugin(new ProjectPlugin());
     this.sdk.registerPlugin(new TaskPlugin());
@@ -102,4 +102,4 @@ export class KinglyDX {
 }
 
 // Export singleton instance for easy usage
-export const kinglydx = new KinglyDX();
+export const leviathan = new LeviathanDX();

@@ -8,23 +8,114 @@ const fs = require('fs').promises
 const path = require('path')
 const yaml = require('js-yaml')
 const cron = require('node-cron')
-const { exec } = require('child_process').promises
+const { promisify } = require('util')
+const exec = promisify(require('child_process').exec)
 
 // Source handlers
 const TwitterHandler = require('./handlers/twitter-handler')
-const GitHubHandler = require('./handlers/github-handler')
 const ArxivHandler = require('./handlers/arxiv-handler')
-const CB3Handler = require('./handlers/cb3-handler')
 
-// Processors
-const LLMProcessor = require('./processors/llm-processor')
-const AggregateProcessor = require('./processors/aggregate-processor')
-const PatternDetector = require('./processors/pattern-detector')
+// Placeholder handlers (to be implemented)
+class GitHubHandler {
+  async collect(config) {
+    return []
+  }
+  async testConnection(config) {
+    return { status: 'not_implemented', message: 'GitHub handler not yet implemented' }
+  }
+}
 
-// Handoff system
-const WorkflowHandoff = require('./handoff/workflow-handoff')
-const WebhookHandoff = require('./handoff/webhook-handoff')
-const MemoryHandoff = require('./handoff/memory-handoff')
+class CB3Handler {
+  async collect(config) {
+    return []
+  }
+  async testConnection(config) {
+    return { status: 'not_implemented', message: 'CB3 handler not yet implemented' }
+  }
+}
+
+class PubmedHandler {
+  async collect(config) {
+    return []
+  }
+  async testConnection(config) {
+    return { status: 'not_implemented', message: 'PubMed handler not yet implemented' }
+  }
+}
+
+class RedditHandler {
+  async collect(config) {
+    return []
+  }
+  async testConnection(config) {
+    return { status: 'not_implemented', message: 'Reddit handler not yet implemented' }
+  }
+}
+
+class HackernewsHandler {
+  async collect(config) {
+    return []
+  }
+  async testConnection(config) {
+    return { status: 'not_implemented', message: 'HackerNews handler not yet implemented' }
+  }
+}
+
+class ScrapeHandler {
+  async collect(config) {
+    return []
+  }
+  async testConnection(config) {
+    return { status: 'not_implemented', message: 'Scrape handler not yet implemented' }
+  }
+}
+
+class CustomHandler {
+  async collect(config) {
+    return []
+  }
+  async testConnection(config) {
+    return { status: 'not_implemented', message: 'Custom handler not yet implemented' }
+  }
+}
+
+// Placeholder processors (to be implemented)
+class LLMProcessor {
+  async process(data, config) {
+    return { status: 'not_implemented', data: data }
+  }
+}
+
+class AggregateProcessor {
+  async process(data, config) {
+    return { status: 'not_implemented', data: data }
+  }
+}
+
+class PatternDetector {
+  async process(data, config) {
+    return { status: 'not_implemented', data: data }
+  }
+}
+
+// Placeholder handoff system (to be implemented)
+class WorkflowHandoff {
+  async execute(action, context) {
+    console.log('Handoff action (not implemented):', action.type)
+  }
+}
+
+class WebhookHandoff {
+  async execute(action, context) {
+    console.log('Webhook handoff (not implemented):', action.url)
+  }
+}
+
+class MemoryHandoff {
+  async execute(action, context) {
+    console.log('Memory handoff (not implemented):', action.namespace)
+  }
+}
 
 class ResearchPlanEngine {
   constructor() {
@@ -42,6 +133,11 @@ class ResearchPlanEngine {
     this.handlers.set('github', new GitHubHandler())
     this.handlers.set('arxiv', new ArxivHandler())
     this.handlers.set('cb3', new CB3Handler())
+    this.handlers.set('pubmed', new PubmedHandler())
+    this.handlers.set('reddit', new RedditHandler())
+    this.handlers.set('hackernews', new HackernewsHandler())
+    this.handlers.set('scrape', new ScrapeHandler())
+    this.handlers.set('custom', new CustomHandler())
 
     // Register processors
     this.processors.set('llm', new LLMProcessor())

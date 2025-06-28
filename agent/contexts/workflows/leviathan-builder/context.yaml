@@ -1,7 +1,7 @@
 metadata:
-  id: kingly-builder
+  id: leviathan-builder
   type: workflow
-  name: Kingly System Builder
+  name: Leviathan System Builder
   version: 1.0.0
   description: Meta-workflow for suggesting agents, templates, and system architecture
   category: meta-orchestration

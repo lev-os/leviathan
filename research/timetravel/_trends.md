@@ -254,3 +254,5 @@ class CompetitionTracker:
 ---
 
 _This framework turns TimeTravel into a comprehensive research intelligence system, combining academic rigor with market awareness._
+
+{{processing.trend-analysis.trends_update}}

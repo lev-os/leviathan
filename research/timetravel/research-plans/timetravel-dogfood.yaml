@@ -1,0 +1,428 @@
+# TimeTravel Dogfooding Research Plan
+# This plan monitors our own development and competing research intelligence tools
+
+version: '1.0'
+name: 'TimeTravel Dogfood'
+description: 'Self-monitoring and competitive intelligence for TimeTravel research system'
+
+metadata:
+  owner: timetravel-team
+  tags: [dogfood, meta-research, competitive-intelligence, self-improvement]
+  created: 2025-06-27
+  purpose: 'Monitor our own system performance and discover improvement opportunities'
+
+schedule:
+  default: daily
+  timezone: UTC
+
+# Environment variables needed
+env:
+  - GITHUB_TOKEN
+  - TWITTER_BEARER_TOKEN # Optional for competitor monitoring
+  - PERPLEXITY_API_KEY # For deep analysis
+
+sources:
+  # Monitor TimeTravel's own development
+  - id: timetravel-repo
+    type: github
+    handler: api
+    schedule: hourly
+    config:
+      watch_repos:
+        - 'leviathan/research/timetravel' # Our repo
+      track_events:
+        - commits
+        - issues
+        - pull_requests
+        - releases
+      track_metrics:
+        - commits_per_day
+        - issues_opened
+        - issues_closed
+        - pr_merge_time
+
+  # Track competing research intelligence tools
+  - id: competitor-repos
+    type: github
+    handler: api
+    schedule: daily
+    config:
+      queries:
+        - 'research intelligence tool language:python stars:>10'
+        - 'automated research monitoring language:javascript'
+        - 'trend analysis API language:typescript'
+        - 'academic paper monitoring tool'
+        - 'arxiv api wrapper language:python'
+        - 'twitter research tool'
+      exclude_repos:
+        - 'leviathan/research/timetravel' # Don't track ourselves
+      track_metrics:
+        - stars
+        - forks
+        - watchers
+        - last_activity
+
+  # Monitor academic research about research tools
+  - id: meta-research-papers
+    type: arxiv
+    handler: api
+    schedule: daily
+    config:
+      keywords:
+        - 'research automation'
+        - 'scientific monitoring'
+        - 'academic trend analysis'
+        - 'research intelligence system'
+        - 'automated literature review'
+        - 'research discovery tool'
+      categories:
+        - cs.DL # Digital Libraries
+        - cs.IR # Information Retrieval
+        - cs.HC # Human-Computer Interaction
+      max_results: 20
+
+  # Community discussions about research tools
+  - id: research-tool-discussions
+    type: reddit
+    handler: cb3
+    schedule: daily
+    config:
+      subreddits:
+        - MachineLearning
+        - academia
+        - GradSchool
+        - research
+        - datascience
+      keywords:
+        - 'research tool'
+        - 'paper tracking'
+        - 'arxiv monitoring'
+        - 'research automation'
+        - 'literature review tool'
+      min_score: 5
+
+  # Tech community discussions
+  - id: hackernews-research-tools
+    type: hackernews
+    handler: cb3
+    schedule: daily
+    config:
+      keywords:
+        - 'research intelligence'
+        - 'academic monitoring'
+        - 'arxiv tool'
+        - 'paper discovery'
+        - 'trend analysis'
+      min_comments: 3
+
+  # Twitter research tool announcements
+  - id: research-tool-twitter
+    type: twitter
+    handler: api
+    schedule: hourly
+    config:
+      keywords:
+        - 'research tool launch'
+        - 'academic monitoring'
+        - 'new arxiv tool'
+        - 'research automation'
+        - 'paper tracking tool'
+      hashtags:
+        - '#ResearchTools'
+        - '#AcademicTwitter'
+        - '#PaperDiscovery'
+      exclude:
+        - 'RT @'
+      max_results: 50
+
+  # Monitor our own usage patterns
+  - id: timetravel-usage
+    type: custom
+    handler: local
+    schedule: hourly
+    config:
+      log_files:
+        - 'outputs/research/*/summary.md'
+        - 'logs/research-plan-*.log'
+      metrics:
+        - plan_execution_count
+        - average_execution_time
+        - error_rate
+        - source_success_rate
+        - papers_collected_per_day
+        - trends_identified
+
+processing:
+  # Stage 1: Aggregate and deduplicate
+  - id: aggregate
+    type: aggregate
+    config:
+      dedupe_by: [url, title]
+      merge_similar: true
+      similarity_threshold: 0.8
+
+  # Stage 2: Competitive analysis
+  - id: competitive-analysis
+    type: llm
+    model: gpt-4
+    temperature: 0.7
+    prompt_template: |
+      Analyze the following data about research intelligence tools and TimeTravel's development:
+
+      TimeTravel Development:
+      {{sources.timetravel-repo.data}}
+
+      Competing Tools:
+      {{sources.competitor-repos.data}}
+
+      Academic Research:
+      {{sources.meta-research-papers.data}}
+
+      Community Discussions:
+      {{sources.research-tool-discussions.data}}
+      {{sources.hackernews-research-tools.data}}
+
+      Please analyze:
+      1. **Feature Gaps**: What features do competitors have that we don't?
+      2. **Innovation Opportunities**: What unmet needs are discussed in the community?
+      3. **Development Velocity**: How does our development speed compare?
+      4. **Market Position**: What's our unique value proposition?
+      5. **Technical Improvements**: What could we implement better?
+      6. **User Needs**: What are researchers actually asking for?
+
+      Format as structured JSON with specific, actionable recommendations.
+
+  # Stage 3: Self-performance analysis
+  - id: self-performance
+    type: llm
+    model: gpt-4
+    temperature: 0.3
+    prompt_template: |
+      Analyze TimeTravel's own performance data:
+
+      Usage Metrics:
+      {{sources.timetravel-usage.data}}
+
+      System Health:
+      {{processing.aggregate.metrics}}
+
+      Evaluate:
+      1. **Performance Trends**: Are we getting faster or slower?
+      2. **Reliability**: What's our error rate and uptime?
+      3. **Effectiveness**: How many useful insights are we generating?
+      4. **Efficiency**: Resource usage and optimization opportunities
+      5. **User Experience**: Ease of use and setup complexity
+
+      Provide specific performance recommendations and benchmarks.
+
+  # Stage 4: Research trend detection
+  - id: meta-trend-detection
+    type: llm
+    model: gpt-4
+    temperature: 0.7
+    prompt_template: |
+      Identify trends in research tool development and research automation:
+
+      Academic Papers: {{sources.meta-research-papers.data}}
+      Community Interest: {{sources.research-tool-discussions.data}}
+      New Tools: {{sources.competitor-repos.data}}
+
+      Detect:
+      1. **Emerging Technologies**: What new approaches are being researched?
+      2. **Shifting Needs**: How are researcher requirements evolving?
+      3. **Integration Trends**: What tools are people combining?
+      4. **Platform Preferences**: What technologies are gaining adoption?
+      5. **Future Directions**: Where is the field heading?
+
+      Predict opportunities for TimeTravel to lead or adapt.
+
+  # Stage 5: Deep dive on high-impact findings
+  - id: deep-research
+    type: perplexity
+    model: sonar-pro
+    condition: 'competitive-analysis.innovation_score > 8'
+    prompt_template: |
+      Research in depth: {{competitive-analysis.top_opportunity}}
+
+      Provide comprehensive analysis including:
+      1. Technical implementation details
+      2. Market demand and user feedback
+      3. Competitive landscape
+      4. Implementation effort and timeline
+      5. Potential impact on TimeTravel's roadmap
+
+handoff:
+  # Create GitHub issues for high-priority improvements
+  - id: improvement-issues
+    condition: |
+      processing.competitive-analysis.recommendations.any(rec => 
+        rec.priority == "high" && rec.effort == "low"
+      )
+    action:
+      type: workflow
+      target: github-issues
+      config:
+        repo: 'leviathan/research/timetravel'
+        label: 'self-improvement'
+        title_template: '{{recommendation.title}}'
+        body_template: |
+          ## Self-Improvement Recommendation
+
+          **Source**: {{recommendation.source}}
+          **Priority**: {{recommendation.priority}}
+          **Effort**: {{recommendation.effort}}
+
+          ### Description
+          {{recommendation.description}}
+
+          ### Implementation
+          {{recommendation.implementation}}
+
+          ### Expected Impact
+          {{recommendation.impact}}
+
+          ---
+          *Auto-generated by TimeTravel dogfooding system*
+
+  # Alert on significant competitive threats
+  - id: competitive-alert
+    condition: 'processing.competitive-analysis.threat_level > 7'
+    action:
+      type: webhook
+      url: '${SLACK_WEBHOOK_URL}'
+      payload:
+        text: '🚨 Competitive Intelligence Alert'
+        blocks:
+          - type: section
+            text: |
+              **High-priority competitive development detected**
+
+              {{processing.competitive-analysis.threat_summary}}
+
+              **Recommended Action**: {{processing.competitive-analysis.recommended_response}}
+
+  # Update performance dashboard
+  - id: performance-update
+    condition: 'sources.timetravel-usage.data.length > 0'
+    action:
+      type: memory
+      operation: upsert
+      namespace: timetravel-performance
+      key: '{{date}}'
+      data:
+        metrics: '{{processing.self-performance.metrics}}'
+        trends: '{{processing.self-performance.trends}}'
+        recommendations: '{{processing.self-performance.recommendations}}'
+
+  # Schedule follow-up research on trends
+  - id: trend-followup
+    condition: 'processing.meta-trend-detection.emerging_trends.length > 0'
+    action:
+      type: workflow
+      target: research-plan-creator
+      config:
+        template: 'trend-investigation'
+        trends: '{{processing.meta-trend-detection.emerging_trends}}'
+
+outputs:
+  # Daily dogfooding report
+  - type: file
+    path: 'outputs/dogfood/{{date}}/timetravel-dogfood-report.md'
+    template: |
+      # TimeTravel Dogfooding Report - {{date}}
+
+      ## 🏃 Our Development Velocity
+      {{processing.self-performance.velocity_summary}}
+
+      ## 🏆 Competitive Position
+      {{processing.competitive-analysis.position_summary}}
+
+      ## 🔍 Discovery Opportunities
+      {{processing.competitive-analysis.opportunities}}
+
+      ## 📈 Performance Trends
+      {{processing.self-performance.trends}}
+
+      ## 🎯 Recommended Actions
+      {{processing.competitive-analysis.high_priority_recommendations}}
+
+      ## 📊 System Health
+      - Papers collected: {{sources.meta-research-papers.count}}
+      - Competing tools tracked: {{sources.competitor-repos.count}}
+      - Community discussions: {{sources.research-tool-discussions.count}}
+      - Performance score: {{processing.self-performance.score}}/10
+
+      ---
+      *Generated by TimeTravel self-monitoring system*
+
+  # Update main trends file
+  - type: append
+    path: '_trends.md'
+    content: |
+
+      ## Meta-Research Update - {{date}}
+      {{processing.meta-trend-detection.summary}}
+
+  # Performance metrics for monitoring
+  - type: memory
+    namespace: timetravel-dogfood
+    operation: upsert
+    key: '{{date}}'
+    data:
+      competitive_analysis: '{{processing.competitive-analysis}}'
+      self_performance: '{{processing.self-performance}}'
+      meta_trends: '{{processing.meta-trend-detection}}'
+
+  # Event for dashboard updates
+  - type: event
+    channel: dogfood-updates
+    event: daily-dogfood-complete
+    data:
+      date: '{{date}}'
+      score: '{{processing.self-performance.score}}'
+      threats: '{{processing.competitive-analysis.threat_count}}'
+      opportunities: '{{processing.competitive-analysis.opportunity_count}}'
+
+monitoring:
+  # Track self-monitoring performance
+  metrics:
+    - dogfood_execution_time
+    - sources_analyzed
+    - recommendations_generated
+    - issues_created
+    - improvements_implemented
+
+  # Self-monitoring health checks
+  health_check:
+    interval: daily
+    checks:
+      - timetravel_repo_accessibility
+      - competitor_tracking_accuracy
+      - recommendation_quality
+      - system_responsiveness
+
+  # Alert if we stop improving
+  alerts:
+    - condition: 'no_improvements_for_7_days'
+      message: "TimeTravel hasn't generated self-improvements in 7 days"
+    - condition: 'performance_score_declining'
+      message: 'TimeTravel performance score is declining'
+    - condition: 'competitor_advantage_detected'
+      message: 'Competitor has significant advantage in {{area}}'
+
+# Success criteria for dogfooding
+success_criteria:
+  daily:
+    - recommendations_generated: '> 3'
+    - competitive_threats_identified: '>= 0'
+    - performance_score: '> 7'
+
+  weekly:
+    - improvements_implemented: '> 1'
+    - new_features_discovered: '> 2'
+    - trend_predictions_accuracy: '> 80%'
+
+  monthly:
+    - user_experience_improvements: '> 5'
+    - competitive_position: 'maintained or improved'
+    - system_reliability: '> 99%'
