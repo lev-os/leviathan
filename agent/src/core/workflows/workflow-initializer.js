@@ -3,12 +3,12 @@
  * Extracted from index.js per _02-refactor.md Phase 1 specification
  */
 
-import { WorkflowLoader } from '../../workflow-loader.js';
+import { ContextLoader } from '../../context-loader.js';
 import { SemanticLookup } from '../../semantic-lookup.js';
 
 export class WorkflowInitializer {
   constructor() {
-    this.workflowLoader = new WorkflowLoader();
+    this.contextLoader = new ContextLoader();
     this.semanticLookup = new SemanticLookup();
   }
 
@@ -20,7 +20,7 @@ export class WorkflowInitializer {
     // For now, just instantiate the services
     
     return {
-      workflowLoader: this.workflowLoader,
+      contextLoader: this.contextLoader,
       semanticLookup: this.semanticLookup
     };
   }
@@ -30,7 +30,7 @@ export class WorkflowInitializer {
    */
   getWorkflowDependencies() {
     return {
-      workflowLoader: this.workflowLoader,
+      contextLoader: this.contextLoader,
       semanticLookup: this.semanticLookup
     };
   }

@@ -49,7 +49,18 @@
       "Bash(curl:*)",
       "Bash(python3:*)",
       "Bash(tree:*)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Bash(rm:*)",
+      "Bash(true)",
+      "Bash(npm run status:*)",
+      "Bash(npm install:*)",
+      "Bash(/Users/jean-patricksmith/lev/workshop/pocs/open-webui-leviathan/run_adapter.sh)",
+      "Bash(/Users/jean-patricksmith/lev/workshop/pocs/open-webui-leviathan/scripts/setup.sh:*)",
+      "Bash(source:*)",
+      "Bash(python:*)",
+      "Bash(cat:*)",
+      "Bash(lev find:*)",
+      "Bash(npm init:*)"
     ],
     "deny": []
   }

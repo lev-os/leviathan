@@ -4,6 +4,7 @@ metadata:
   name: "Development Environment Setup"
   version: 1.0.0
   description: "Create ready-to-code development environment with complete context"
+  execution_type: "sequential"
 
 phase_config:
   prompt_template: ../prompts/environment.md

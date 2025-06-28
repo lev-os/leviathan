@@ -17,7 +17,7 @@ import {
 
 import { CommandRegistry } from './core/command-registry.js';
 import { SemanticLookup } from './semantic-lookup.js';
-import { WorkflowLoader } from './workflow-loader.js';
+import { ContextLoader } from './context-loader.js';
 import { CEOBinding } from './ceo-binding.js';
 import { SessionManager } from './session-manager.js';
 import { IntelligenceCoordinator } from './intelligence-coordinator.js';
@@ -38,7 +38,7 @@ class KinglyAgentServer {
 
     // Initialize services
     this.semanticLookup = new SemanticLookup();
-    this.workflowLoader = new WorkflowLoader();
+    this.contextLoader = new ContextLoader();
     this.ceoBinding = new CEOBinding();
     this.sessionManager = new SessionManager();
     this.intelligenceCoordinator = new IntelligenceCoordinator();

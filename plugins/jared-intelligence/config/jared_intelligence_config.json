@@ -1,0 +1,59 @@
+{
+  "intelligence_sources": {
+    "hackernews": {
+      "adapter": "hackernews_discovery",
+      "frequency": "1h",
+      "keywords": ["agent", "mcp", "ai wearables", "health tech"],
+      "min_score": 50,
+      "categories": ["ai", "programming", "startups"]
+    },
+    "github_trending": {
+      "adapter": "github_discovery",
+      "frequency": "1h",
+      "languages": ["python", "javascript", "rust"],
+      "tracked_repos": ["microsoft/autogen", "anthropics/mcp"],
+      "trending_categories": ["ai", "machine-learning"]
+    },
+    "twitter_monitoring": {
+      "adapter": "twitter_discovery",
+      "frequency": "10m",
+      "keywords": ["agent", "mcp"],
+      "opportunity_keywords": ["ai wearables", "health tech"],
+      "api_key": "${TWITTER_API_KEY}"
+    },
+    "arxiv_papers": {
+      "adapter": "arxiv_discovery",
+      "frequency": "daily",
+      "categories": ["cs.AI", "cs.LG", "cs.HC"],
+      "keywords": ["wearable", "health", "agent"]
+    }
+  },  "processing_pipeline": {
+    "relevance_scoring": true,
+    "deduplication": true,
+    "ai_analysis": true,
+    "opportunity_detection": true
+  },
+  "output_routing": {
+    "urgent_alerts": "jared_slack_notification",
+    "daily_digest": "jared_notion_update",
+    "opportunity_logs": "jared_graphiti_memory"
+  },
+  "jared_self_monitoring": {
+    "keywords": ["AI COO", "slack bot", "notion integration", "project management AI"],
+    "github_repos": ["slack-sdk", "notion-python", "anthropics/mcp"],
+    "competitive_analysis": ["zapier AI", "notion AI", "slack workflow builder"],
+    "technology_tracking": ["socket mode", "mcp protocol", "ai agents"]
+  },
+  "fractal_adapter_config": {
+    "composite_adapters": {
+      "unified_intelligence": {
+        "type": "composite",
+        "adapters": ["cb", "perplexity", "hackernews", "github"]
+      },
+      "multi_storage": {
+        "type": "composite", 
+        "adapters": ["leviathan", "graphiti", "filesystem"]
+      }
+    }
+  }
+}

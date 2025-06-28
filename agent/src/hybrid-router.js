@@ -1094,7 +1094,7 @@ export class HybridRouter {
       }
       
       // Reload all contexts with dynamic type discovery
-      await this.adapter.workflowLoader.refreshCache();
+      await this.adapter.workflowLoader.rebuildCache();
       
       // Rebuild embeddings with enhanced content
       const contexts = await this.adapter.workflowLoader.loadAll();

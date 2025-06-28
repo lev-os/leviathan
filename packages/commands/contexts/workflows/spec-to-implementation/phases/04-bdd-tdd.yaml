@@ -4,6 +4,7 @@ metadata:
   name: "BDD/TDD Test Specification Generation"
   version: 1.0.0
   description: "Generate comprehensive test-driven specifications for confident implementation"
+  execution_type: "sequential"
 
 phase_config:
   prompt_template: ../prompts/bdd-tdd.md

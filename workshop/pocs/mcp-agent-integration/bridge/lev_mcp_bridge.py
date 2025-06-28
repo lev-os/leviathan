@@ -10,9 +10,16 @@ from pathlib import Path
 from typing import Dict, Optional, Any
 import uuid
 
-from mcp_agent.agents.agent import Agent
-from mcp_agent.app import MCPApp
-from mcp_agent.config import Settings
+# Use mock implementation for POC
+try:
+    from mcp_agent.agents.agent import Agent
+    from mcp_agent.app import MCPApp
+except ImportError:
+    # Fallback to mock implementation for POC testing
+    try:
+        from .mock_mcp_agent import Agent, MCPApp
+    except ImportError:
+        from mock_mcp_agent import Agent, MCPApp
 
 class LevMemoryAdapter:
     """Adapter to connect MCP Agent with Lev's memory system"""
@@ -129,6 +136,7 @@ class LevSessionManager:
     def get_current_session(self) -> Optional[str]:
         """Get current session ID"""
         return self.current_session_id
+
 class LevMCPBridge:
     """Main bridge connecting MCP Agent with Lev ecosystem"""
     

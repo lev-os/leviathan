@@ -2,21 +2,15 @@
 # Format: unique-slug (generated from path)
 # This file tracks which repositories have been processed by the LLM-first analysis
 
-ai-engineering-hub-colivara-deepseek-website-rag
-ultimate-mcp-server
-mastra
 1Panel
+1Panel-frontend
 A5-Browser-Use
 aci
 activepieces
-ag-ui-protocol# Workshop Intake Tracker - Recursive Repository Analysis
-# Format: unique-slug (generated from path)
-# This file tracks which repositories have been processed by the LLM-first analysis
-
+ag-ui-protocol
 ai-engineering-hub-colivara-deepseek-website-rag
-ultimate-mcp-server
 mastra
-1Panel
-A5-Browser-Use
+mem0
+open-webui
 ottomator-agents
-open-webui [POC-DAY-3-COMPLETE-MEMORY-INTEGRATION]
+ultimate-mcp-server

@@ -1,0 +1,95 @@
+file_path,current_status,action,destination,notes
+# ROOT CLUTTER - Move these out of root!
+_01-whisper.md,root_clutter,move,docs/planning/features/whisper.md,Whisper system spec & bi-directional evolution
+_01-prime.md,root_clutter,move,docs/planning/features/prime.md,Universal prime context loading
+_01-codex.md,root_clutter,move,docs/planning/features/codex.md,Codex plugin migration plan
+_01-mediaforge.md,root_clutter,move,docs/planning/features/mediaforge.md,Media forge plugin spec
+_02-adapters.md,root_clutter,move,docs/architecture/patterns/adapters.md,Adapter patterns and architecture
+_02-refactor.md,root_clutter,move,docs/archive/refactor-plan.md,Refactoring plans - likely outdated
+_03-jepa.md,root_clutter,move,docs/planning/features/jepa-learning.md,JEPA 2 self-learning plugin
+_04-lev-testing-plugin.md,root_clutter,move,docs/planning/features/testing-plugin.md,Testing plugin specification
+_04-os-llm-testing-framework.md,root_clutter,move,docs/planning/features/os-testing-framework.md,OS-level testing framework
+_05-gemini-integration.md,root_clutter,move,docs/planning/integrations/gemini.md,Gemini integration spec
+_10-itsalivetools.md,root_clutter,move,docs/planning/integrations/itsalivetools.md,Tools integration spec
+_2do.md,root_clutter,move,docs/todo/main-todo.md,Main project TODO list
+_branding.md,root_clutter,move,docs/guides/branding.md,Branding guidelines
+_cleanup.md,root_clutter,move,docs/archive/cleanup-tracking.md,Cleanup tracking - likely outdated
+_cleanup_complete.md,root_clutter,move,docs/archive/cleanup-complete.md,Cleanup completion - archive
+_core.md,root_clutter,move,docs/architecture/package-architecture.md,CRITICAL - Core vs plugin architecture
+_cursor.md,root_clutter,move,docs/archive/cursor-notes.md,Cursor IDE notes
+_hormones.md,root_clutter,move,docs/architecture/patterns/hormones.md,System hormones concept
+_tree.md,root_clutter,move,docs/archive/directory-tree.md,Directory structure snapshot
+whisper-architecture-wizard.md,root_clutter,move,docs/planning/features/whisper-architecture.md,Whisper architecture guide
+whisper-wizard-continuation.md,root_clutter,move,docs/planning/features/whisper-continuation.md,Whisper continuation docs
+_repo.md,active,keep,_repo.md,This cleanup plan - keep in root for now
+
+# DRAFTS FOLDER - Move to planning
+drafts/001-project-codex-knowledge-crystallization-system.md,draft,move,docs/planning/features/codex-system.md,Codex system design
+drafts/003-hybrid-memory-system-architecture.md,draft,move,docs/planning/architecture/memory-hybrid.md,Memory architecture option 1
+drafts/004-lev-os-memory-integration-architecture.md,draft,move,docs/planning/architecture/memory-lev-os.md,Memory architecture option 2
+drafts/005-graphiti-only-memory-architecture.md,draft,move,docs/planning/architecture/memory-graphiti.md,Memory architecture option 3
+drafts/005-kingly-mcp-orchestration-layer.md,draft,move,docs/planning/architecture/mcp-orchestration.md,MCP orchestration patterns
+drafts/007-mcp-functionality-integration-strategy.md,draft,move,docs/planning/integrations/mcp-strategy.md,MCP integration strategy
+drafts/008-embedded-context-wasm-architecture.md,draft,move,docs/planning/architecture/wasm-context.md,WASM architecture design
+drafts/adr-004-lev-os-memory-integration-architecture.md,draft,move,docs/adr/draft/004-memory-integration.md,Memory ADR draft
+drafts/adr-005-graphiti-only-memory-architecture.md,draft,move,docs/adr/draft/005-memory-graphiti.md,Memory ADR draft
+drafts/coding-guide.md,draft,move,docs/guides/development/coding-standards.md,Development standards
+drafts/mcp-multiplexer-sse-architecture.md,draft,move,docs/planning/architecture/mcp-multiplexer.md,MCP multiplexer design
+drafts/multiple-workstream-development-plan.md,draft,move,docs/planning/development-workflow.md,Development workflow
+drafts/production-coding-agents-analysis.md,draft,move,docs/research/coding-agents.md,Agent analysis
+drafts/whisper-bi-directional-plan.md,draft,move,docs/planning/features/whisper-bidirectional.md,Whisper evolution plan
+drafts/whisper-validation-examples.md,draft,move,docs/planning/features/whisper-examples.md,Whisper examples
+drafts/workshop-fixes.md,draft,move,docs/todo/workshop-fixes.md,Workshop issues to fix
+drafts/archive/_mem.md,archived,move,docs/archive/drafts/mem-v1.md,Old memory draft
+drafts/archive/_03-mem.md,archived,move,docs/archive/drafts/mem-v3.md,Old memory draft
+
+# AGENT DOCS - Should NOT be in agent folder!
+agent/docs/documentation-map.csv,wrong_location,merge,docs/DOCUMENTATION_MAP.csv,Merge into this master map
+agent/docs/README.md,wrong_location,move,docs/packages/agent/README.md,Agent package docs
+agent/docs/current-status.md,wrong_location,move,docs/packages/agent/current-status.md,Agent status
+agent/docs/plugins.md,wrong_location,move,docs/packages/agent/plugins.md,Plugin documentation
+agent/drafts/context-core-system-research.md,wrong_location,move,docs/research/context-core-system.md,Context system research
+
+# OS DOCS - Should NOT be in os folder!
+os/docs/BDD-TDD-FRAMEWORK.md,wrong_location,move,docs/packages/os/bdd-tdd-framework.md,OS testing framework
+os/docs/FINAL-SYNTHESIS.md,wrong_location,move,docs/packages/os/final-synthesis.md,OS synthesis
+os/docs/ROADMAP.md,wrong_location,move,docs/packages/os/roadmap.md,OS roadmap
+os/docs/TECH-SPECS.md,wrong_location,move,docs/packages/os/tech-specs.md,OS technical specs
+
+# TEMPORARY FOLDERS - Need review and organization
+agent/tmp/,temp_files,review,docs/tmp/agent/,24 files needing review
+os/tmp/,temp_files,review,docs/tmp/os/,22 JEPA2 analysis files
+workshop/tmp/,temp_files,review,docs/tmp/workshop/,Analysis files
+
+# EXTERNAL PROJECTS - Should be removed!
+_ref/fastmcp/,external_project,delete,,External project - should be dependency
+_ref/gemini-cli/,external_project,delete,,External project - should be dependency
+_ref/integration-tools/,external_project,delete,,External tools - should be dependencies
+_ref/mcp-ceo/,external_project,extract_then_delete,,Extract FlowMind concepts first
+_ref/mem0/,external_project,delete,,External project - should be dependency
+_ref/ml-research/,external_project,delete,,External research - should be referenced
+_ref/orig-agent/,external_project,extract_then_delete,,Extract core principles first
+
+# WORKSHOP - Has its own doc structure
+workshop/adrs/,duplicate_structure,move,docs/workshop/adrs/,Workshop-specific ADRs
+workshop/analysis/,workshop_docs,move,docs/workshop/analysis/,Analysis documents
+workshop/archive/,workshop_docs,move,docs/workshop/archive/,Archived workshop docs
+workshop/strategy/,workshop_docs,move,docs/workshop/strategy/,Strategy documents
+
+# MAIN DOCS FOLDER - Already organized (mostly)
+docs/consolidation-tracker.csv,active,keep,docs/consolidation-tracker.csv,Consolidation tracking
+docs/consolidation-inventory.md,active,keep,docs/consolidation-inventory.md,Document inventory
+docs/consolidation-process.md,active,keep,docs/consolidation-process.md,Process documentation
+docs/consolidation-dependencies.md,active,keep,docs/consolidation-dependencies.md,Dependency mapping
+docs/consolidation-quick-start.md,active,keep,docs/consolidation-quick-start.md,Quick start guide
+docs/adr/,organized,keep,docs/adr/,ADR folder - well organized
+docs/concepts/revolutionary/,organized,keep,docs/concepts/revolutionary/,Revolutionary concepts from Phase 0.5
+docs/patterns/,organized,keep,docs/patterns/,Pattern library
+docs/workflows/wizard-experience/,organized,keep,docs/workflows/wizard-experience/,Wizard framework
+
+# MISSING CRITICAL ITEMS
+docs/README.md,missing,create,docs/README.md,Main documentation hub - NEEDED!
+docs/quickstart.md,missing,create,docs/quickstart.md,5-minute getting started - NEEDED!
+docs/packages/README.md,missing,create,docs/packages/README.md,Package overview - NEEDED!
+docs/todo/README.md,missing,create,docs/todo/README.md,Active work tracking - NEEDED!
+docs/archive/README.md,missing,create,docs/archive/README.md,Archive index - NEEDED!

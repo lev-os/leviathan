@@ -4,9 +4,17 @@
  */
 
 import { GraphitiGRPCClient } from './grpc-client.js';
+import { ConfigManager } from './config/config-manager.js';
+import { ServiceOrchestrator } from './config/service-orchestrator.js';
 
 export class HybridMemoryManager {
   constructor(options = {}) {
+    // Use new configuration system if no explicit options provided
+    this.configManager = new ConfigManager();
+    this.orchestrator = null;
+    this.config = null;
+    
+    // Legacy support for direct options
     this.options = {
       neo4jUri: options.neo4jUri || "bolt://localhost:7687",
       neo4jUsername: options.neo4jUsername || "neo4j",
@@ -16,14 +24,13 @@ export class HybridMemoryManager {
       contextsPath: options.contextsPath || "./contexts/",
       enableGraphiti: options.enableGraphiti !== false,
       fallbackMode: false,
+      useConfigSystem: options.useConfigSystem !== false,
       ...options
     };
     
     this.graphiti = null;
     this.fileSystem = null;
     this.memoryTypes = {};
-    
-    this.initialize();
   }
 
   async initialize() {

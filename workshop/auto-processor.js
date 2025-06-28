@@ -53,6 +53,15 @@ class AutoProcessor extends EventEmitter {
       const prompt = await this.readAutoPrompt();
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
       const outputFile = path.join(this.outputDir, `${workerId}-${timestamp}.log`);
+      const promptFile = path.join(this.outputDir, `${workerId}-${timestamp}-prompt.txt`);
+
+      // Write prompt to file
+      await fs.writeFile(promptFile, prompt);
+      
+      // Initialize log file with header
+      await fs.writeFile(outputFile, `[AUTO-PROCESSOR] Starting worker ${workerId} at ${new Date().toISOString()}\n`);
+      await fs.appendFile(outputFile, `[AUTO-PROCESSOR] Prompt file: ${promptFile}\n`);
+      await fs.appendFile(outputFile, `[AUTO-PROCESSOR] Command: claude "${prompt.substring(0, 100)}..."\n\n`);
 
       this.emit('status', { 
         type: 'start', 
@@ -61,11 +70,33 @@ class AutoProcessor extends EventEmitter {
         outputFile 
       });
 
-      // Run claude with the auto prompt
-      const claudeProcess = spawn('claude', [prompt], {
+      // Run claude with file-based prompt for reliability
+      this.emit('output', {
+        workerId,
+        type: 'system',
+        data: `[SYSTEM] Starting Claude with prompt file: ${promptFile}\n`,
+        timestamp: new Date().toISOString()
+      });
+
+      // Use direct spawn with -f flag for file input
+      const claudeProcess = spawn('claude', ['-f', promptFile], {
         stdio: ['pipe', 'pipe', 'pipe'],
-        env: { ...process.env, CLAUDE_CODE_ENTRYPOINT: 'cli' },
-        shell: true
+        env: { 
+          ...process.env, 
+          CLAUDE_CODE_ENTRYPOINT: 'cli',
+          WORKSHOP_AUTO_PROCESSOR: workerId // Unique identifier
+        }
+      });
+
+      // Add immediate spawn event monitoring
+      claudeProcess.on('spawn', () => {
+        this.emit('output', {
+          workerId,
+          type: 'system',
+          data: `[SYSTEM] Claude process spawned successfully (PID: ${claudeProcess.pid})\n`,
+          timestamp: new Date().toISOString()
+        });
+        require('fs').appendFileSync(outputFile, `[SYSTEM] Claude process spawned (PID: ${claudeProcess.pid})\n`);
       });
 
       // Set up streaming capture using writeFileSync for simplicity
@@ -93,21 +124,32 @@ class AutoProcessor extends EventEmitter {
 
       claudeProcess.on('close', (code) => {
         this.processes.delete(workerId);
+        require('fs').appendFileSync(outputFile, `\n[AUTO-PROCESSOR] Worker finished with exit code: ${code}\n`);
         this.emit('status', { 
           type: 'complete', 
           message: `Worker ${workerId} finished with code ${code}`,
           workerId,
           exitCode: code
         });
+        
+        // Clean up prompt file after completion
+        fs.unlink(promptFile).catch(() => {});
       });
 
       claudeProcess.on('error', (error) => {
         this.processes.delete(workerId);
+        require('fs').appendFileSync(outputFile, `\n[ERROR] Process error: ${error.message}\n`);
         this.emit('error', { 
           type: 'process_error',
           message: error.message,
           workerId,
           error 
+        });
+        this.emit('output', {
+          workerId,
+          type: 'error',
+          data: `[ERROR] Failed to start Claude: ${error.message}\n`,
+          timestamp: new Date().toISOString()
         });
       });
 
@@ -124,6 +166,12 @@ class AutoProcessor extends EventEmitter {
         message: error.message,
         workerId,
         error 
+      });
+      this.emit('output', {
+        workerId,
+        type: 'error',
+        data: `[ERROR] Failed to start worker: ${error.message}\n${error.stack}\n`,
+        timestamp: new Date().toISOString()
       });
     }
   }

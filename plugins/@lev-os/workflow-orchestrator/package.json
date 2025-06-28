@@ -1,0 +1,41 @@
+{
+  "name": "@lev-os/workflow-orchestrator",
+  "version": "0.1.0",
+  "description": "Bi-directional workflow orchestration engine for Leviathan - enabling LLMs to orchestrate themselves through complex workflows",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./core": "./src/core/index.js",
+    "./adapters/cli": "./src/adapters/cli/index.js",
+    "./adapters/mcp": "./src/adapters/mcp/index.js"
+  },
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [
+    "leviathan",
+    "workflow",
+    "orchestration",
+    "bidirectional",
+    "flowmind",
+    "lev-os"
+  ],
+  "author": "Leviathan Team",
+  "license": "MIT",
+  "bin": {
+    "workflow-orchestrator": "./bin/workflow-orchestrator"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "glob": "^10.3.10",
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

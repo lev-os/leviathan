@@ -1,18 +1,18 @@
 /**
- * Claude Code Direct Adapter for Semantic Workflow Lookup
+ * Claude Code Direct Adapter for Semantic Context Lookup
  * Bypasses MCP protocol overhead for direct method calls
- * Provides fast semantic search and workflow access
+ * Provides fast semantic search and context access
  */
 
 import { SemanticLookup } from './semantic-lookup.js';
-import { WorkflowLoader } from './workflow-loader.js';
+import { ContextLoader } from './context-loader.js';
 import fs from 'fs-extra';
 import path from 'path';
 
 export class ClaudeCodeAdapter {
   constructor() {
     this.semanticLookup = new SemanticLookup();
-    this.workflowLoader = new WorkflowLoader();
+    this.contextLoader = new ContextLoader();
     this.initialized = false;
     this.relationships = new Map();
     this.powerCombos = new Map();
@@ -24,7 +24,7 @@ export class ClaudeCodeAdapter {
     if (this.initialized) return;
     
     // Ensure both components are loaded
-    await this.workflowLoader.loadAll();
+    await this.contextLoader.loadAll();
     await this.semanticLookup.ensureLoaded();
     await this.loadOrBuildCombos();
     
@@ -32,13 +32,13 @@ export class ClaudeCodeAdapter {
     console.error('🚀 ClaudeCodeAdapter initialized with combo intelligence');
   }
 
-  // Direct semantic workflow lookup
+  // Direct semantic context lookup
   async findWorkflow(intent, mode = 'full', typeFilter = null) {
     await this.initialize();
     
     // Quick code lookup first (fastest) - only if no type filter
     if (!typeFilter) {
-      const quickResult = await this.workflowLoader.getByCode(intent);
+      const quickResult = await this.contextLoader.getByCode(intent);
       if (quickResult) {
         return this.formatWorkflow(quickResult, mode);
       }
@@ -60,14 +60,14 @@ export class ClaudeCodeAdapter {
     };
   }
 
-  // List workflows by category
+  // List contexts by category
   async listWorkflows(category = null, mode = 'menu') {
     await this.initialize();
     
-    const workflows = await this.workflowLoader.loadAll();
+    const contexts = await this.contextLoader.loadAll();
     const filtered = category ? 
-      workflows.filter(w => w.category === category) : 
-      workflows;
+      contexts.filter(w => w.category === category) : 
+      contexts;
     
     return this.formatWorkflowList(filtered, mode);
   }
@@ -76,19 +76,19 @@ export class ClaudeCodeAdapter {
   async getCategories() {
     await this.initialize();
     
-    const workflows = await this.workflowLoader.loadAll();
-    const categories = [...new Set(workflows.map(w => w.category))].sort();
+    const contexts = await this.contextLoader.loadAll();
+    const categories = [...new Set(contexts.map(w => w.category))].sort();
     
     return {
       categories,
       counts: categories.map(cat => ({
         category: cat,
-        count: workflows.filter(w => w.category === cat).length
+        count: contexts.filter(w => w.category === cat).length
       }))
     };
   }
 
-  // Batch workflow lookup for multiple intents
+  // Batch context lookup for multiple intents
   async batchFindWorkflows(intents, mode = 'quick') {
     await this.initialize();
     
@@ -106,16 +106,17 @@ export class ClaudeCodeAdapter {
   }
 
   // Refresh cache and rebuild embeddings
-  async refreshCache(rebuildEmbeddings = false, rebuildCombos = true) {
+  async rebuildCache(rebuildEmbeddings = false, rebuildCombos = true) {
     this.initialized = false;
     
-    // Clear workflow loader cache
-    this.workflowLoader = new WorkflowLoader();
+    // Clear context loader cache
+    this.contextLoader = new ContextLoader();
     
     if (rebuildEmbeddings) {
       // Clear semantic lookup and force rebuild
       this.semanticLookup = new SemanticLookup();
-      await this.semanticLookup.buildEmbeddings();
+      const contexts = await this.contextLoader.loadAll();
+      await this.semanticLookup.buildEmbeddings(contexts);
     } else {
       // Just reload existing embeddings
       this.semanticLookup = new SemanticLookup();
@@ -141,10 +142,10 @@ export class ClaudeCodeAdapter {
   async clearCache() {
     console.error('🗑️ Clearing all caches...');
     
-    // Clear workflow loader cache
-    this.workflowLoader.cache.clear();
-    this.workflowLoader.quickCodes.clear();
-    this.workflowLoader.loaded = false;
+    // Clear context loader cache
+    this.contextLoader.cache.clear();
+    this.contextLoader.quickCodes.clear();
+    this.contextLoader.loaded = false;
     
     // Clear semantic lookup cache
     await this.semanticLookup.rebuildEmbeddings();
@@ -152,15 +153,15 @@ export class ClaudeCodeAdapter {
     console.error('✅ All caches cleared');
   }
 
-  // Format workflow based on mode
-  formatWorkflow(workflow, mode) {
+  // Format context based on mode
+  formatWorkflow(context, mode) {
     const base = {
       found: true,
-      id: workflow.id,
-      code: workflow.code,
-      name: workflow.name,
-      category: workflow.category,
-      similarity: workflow.similarity
+      id: context.id,
+      code: context.code,
+      name: context.name,
+      category: context.category,
+      similarity: context.similarity
     };
 
     switch (mode) {
@@ -170,17 +171,17 @@ export class ClaudeCodeAdapter {
       case 'full':
         return {
           ...base,
-          description: workflow.description,
-          instructions: workflow.instructions,
-          triggers: workflow.triggers,
-          filePath: workflow.filePath
+          description: context.description,
+          instructions: context.instructions,
+          triggers: context.triggers,
+          filePath: context.filePath
         };
         
       case 'menu':
         return {
-          code: workflow.code,
-          name: workflow.name,
-          category: workflow.category
+          code: context.code,
+          name: context.name,
+          category: context.category
         };
         
       default:
@@ -188,14 +189,14 @@ export class ClaudeCodeAdapter {
     }
   }
 
-  // Format workflow list based on mode
-  formatWorkflowList(workflows, mode) {
+  // Format context list based on mode
+  formatWorkflowList(contexts, mode) {
     switch (mode) {
       case 'quick':
-        return workflows.map(w => `${w.code} - ${w.name}`).join('\n');
+        return contexts.map(w => `${w.code} - ${w.name}`).join('\n');
         
       case 'menu':
-        const byCategory = workflows.reduce((acc, w) => {
+        const byCategory = contexts.reduce((acc, w) => {
           if (!acc[w.category]) acc[w.category] = [];
           acc[w.category].push(`${w.code} - ${w.name}`);
           return acc;
@@ -206,7 +207,7 @@ export class ClaudeCodeAdapter {
           .join('\n\n');
         
       case 'full':
-        return workflows.map(w => ({
+        return contexts.map(w => ({
           code: w.code,
           name: w.name,
           description: w.description,
@@ -214,7 +215,7 @@ export class ClaudeCodeAdapter {
         }));
         
       default:
-        return workflows.map(w => this.formatWorkflow(w, 'quick'));
+        return contexts.map(w => this.formatWorkflow(w, 'quick'));
     }
   }
 
@@ -242,7 +243,7 @@ export class ClaudeCodeAdapter {
         'findWorkflow(intent, mode)',
         'listWorkflows(category, mode)', 
         'getCategories()',
-        'refreshCache(rebuildEmbeddings)'
+        'rebuildCache(rebuildEmbeddings)'
       ],
       batch: [
         'batchFindWorkflows(intents, mode)'
@@ -280,21 +281,21 @@ export class ClaudeCodeAdapter {
 
   // Build combo intelligence from scratch
   async buildComboIntelligence() {
-    const workflows = await this.workflowLoader.loadAll();
+    const contexts = await this.contextLoader.loadAll();
     
     // Filter out pure organizational patterns
-    const nonOrgWorkflows = workflows.filter(w => 
+    const nonOrgContexts = contexts.filter(w => 
       !['agile-scrum', 'lean-startup', 'business-model-canvas'].includes(w.id)
     );
 
     // Build semantic relationships
-    const relationships = await this.analyzeWorkflowRelationships(nonOrgWorkflows);
+    const relationships = await this.analyzeWorkflowRelationships(nonOrgContexts);
     
     // Define power combinations
-    const powerCombos = this.definePowerCombos(nonOrgWorkflows);
+    const powerCombos = this.definePowerCombos(nonOrgContexts);
     
     // Build workflow chains
-    const chains = this.buildWorkflowChains(nonOrgWorkflows, relationships);
+    const chains = this.buildWorkflowChains(nonOrgContexts, relationships);
 
     const cache = {
       version: '1.0.0',
@@ -302,7 +303,7 @@ export class ClaudeCodeAdapter {
       relationships,
       powerCombos,
       chains,
-      workflowCount: nonOrgWorkflows.length
+      workflowCount: nonOrgContexts.length
     };
 
     // Save cache
@@ -313,19 +314,19 @@ export class ClaudeCodeAdapter {
     this.buildRelationshipMaps(cache);
   }
 
-  // Analyze semantic relationships between workflows
-  async analyzeWorkflowRelationships(workflows) {
+  // Analyze semantic relationships between contexts
+  async analyzeWorkflowRelationships(contexts) {
     const relationships = {};
     
-    for (const workflow of workflows) {
+    for (const context of contexts) {
       const related = [];
       
-      // Find semantically similar workflows
-      if (workflow.description) {
-        const similarities = await this.semanticLookup.getSuggestions(workflow.description, 10);
+      // Find semantically similar contexts
+      if (context.description) {
+        const similarities = await this.semanticLookup.getSuggestions(context.description, 10);
         
         for (const similar of similarities) {
-          if (similar.id !== workflow.id && similar.similarity > 0.4) {
+          if (similar.id !== context.id && similar.similarity > 0.4) {
             related.push({
               id: similar.id,
               code: similar.code,
@@ -338,8 +339,8 @@ export class ClaudeCodeAdapter {
       }
       
       // Add category relationships
-      const categoryMatches = workflows.filter(w => 
-        w.category === workflow.category && w.id !== workflow.id
+      const categoryMatches = contexts.filter(w => 
+        w.category === context.category && w.id !== context.id
       );
       
       categoryMatches.forEach(match => {
@@ -348,18 +349,18 @@ export class ClaudeCodeAdapter {
           code: match.code,
           type: 'category',
           strength: 0.6,
-          reason: `same category: ${workflow.category}`
+          reason: `same category: ${context.category}`
         });
       });
 
-      relationships[workflow.id] = related.slice(0, 8); // Top 8 relationships
+      relationships[context.id] = related.slice(0, 8); // Top 8 relationships
     }
     
     return relationships;
   }
 
   // Define power combinations for common scenarios
-  definePowerCombos(workflows) {
+  definePowerCombos(contexts) {
     const combos = {
       'creative-problem-solving': {
         name: 'Creative Problem Solving',
@@ -407,7 +408,7 @@ export class ClaudeCodeAdapter {
   }
 
   // Build workflow chains for common progressions
-  buildWorkflowChains(workflows, relationships) {
+  buildWorkflowChains(contexts, relationships) {
     return {
       'research-to-action': ['2i', 'jobs-to-be-done', 'design-thinking', '1a'],
       'problem-to-solution': ['2k', 'first-principles-thinking', '2f', '1i'],
@@ -430,17 +431,17 @@ export class ClaudeCodeAdapter {
     }
   }
 
-  // Find workflow combinations for an intent
+  // Find context combinations for an intent
   async findCombos(intent, depth = 3) {
     await this.initialize();
     
-    // First find the primary workflow
+    // First find the primary context
     const primary = await this.findWorkflow(intent, 'full');
     if (!primary.found) {
-      return { found: false, message: 'No primary workflow found for intent' };
+      return { found: false, message: 'No primary context found for intent' };
     }
 
-    // Get related workflows
+    // Get related contexts
     const relationships = this.relationships.get(primary.id) || [];
     const combos = relationships
       .filter(r => r.strength > 0.5)
@@ -513,14 +514,14 @@ export class ClaudeCodeAdapter {
     };
   }
 
-  // Build workflow chain from start to goal
+  // Build context chain from start to goal
   async buildWorkflowChain(startCode, goal) {
     await this.initialize();
     
-    // Get starting workflow
-    const startWorkflow = await this.workflowLoader.getByCode(startCode);
+    // Get starting context
+    const startWorkflow = await this.contextLoader.getByCode(startCode);
     if (!startWorkflow) {
-      return { found: false, message: 'Starting workflow not found' };
+      return { found: false, message: 'Starting context not found' };
     }
 
     // Check if we have a pre-built chain
@@ -541,7 +542,7 @@ export class ClaudeCodeAdapter {
     let current = startWorkflow.id;
     const visited = new Set([current]);
     
-    for (let i = 0; i < 4; i++) { // Max 5 workflows in chain
+    for (let i = 0; i < 4; i++) { // Max 5 contexts in chain
       const relationships = this.relationships.get(current) || [];
       const nextStep = relationships.find(r => 
         !visited.has(r.id) && 
@@ -561,11 +562,11 @@ export class ClaudeCodeAdapter {
     // Convert codes to semantic descriptions
     const semanticChain = [];
     for (const code of chain) {
-      const workflow = await this.workflowLoader.getByCode(code);
-      if (workflow) {
+      const context = await this.contextLoader.getByCode(code);
+      if (context) {
         semanticChain.push({
-          name: workflow.name,
-          description: workflow.description,
+          name: context.name,
+          description: context.description,
           purpose: `Step toward ${goal}`
         });
       }
@@ -579,16 +580,16 @@ export class ClaudeCodeAdapter {
     };
   }
 
-  // Suggest next workflow after current
+  // Suggest next context after current
   async suggestNext(currentCode) {
     await this.initialize();
     
-    const currentWorkflow = await this.workflowLoader.getByCode(currentCode);
-    if (!currentWorkflow) {
-      return { found: false, message: 'Current workflow not found' };
+    const currentContext = await this.contextLoader.getByCode(currentCode);
+    if (!currentContext) {
+      return { found: false, message: 'Current context not found' };
     }
 
-    const relationships = this.relationships.get(currentWorkflow.id) || [];
+    const relationships = this.relationships.get(currentContext.id) || [];
     const suggestions = relationships
       .filter(r => r.strength > 0.6)
       .slice(0, 3)
@@ -601,16 +602,16 @@ export class ClaudeCodeAdapter {
     return {
       found: suggestions.length > 0,
       current: {
-        name: currentWorkflow.name,
-        description: currentWorkflow.description
+        name: currentContext.name,
+        description: currentContext.description
       },
       suggestions: relationships
         .filter(r => r.strength > 0.6)
         .slice(0, 3)
         .map(r => {
-          const workflow = this.workflowLoader.getByCode(r.code);
+          const context = this.contextLoader.getByCode(r.code);
           return {
-            name: workflow?.name || r.code,
+            name: context?.name || r.code,
             reason: r.reason,
             strength: r.strength
           };

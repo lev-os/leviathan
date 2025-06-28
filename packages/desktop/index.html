@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Leviathan Status</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .service {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .service-info {
+      flex: 1;
+    }
+    .service-name {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }    .service-status {
+      font-size: 14px;
+      color: #666;
+    }
+    .status-running { color: #22c55e; }
+    .status-stopped { color: #6b7280; }
+    .status-failed { color: #ef4444; }
+    .service-actions {
+      display: flex;
+      gap: 5px;
+    }
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .btn-start {
+      background: #3b82f6;
+      color: white;
+    }
+    .btn-stop {
+      background: #ef4444;
+      color: white;
+    }
+    .btn-restart {
+      background: #f59e0b;
+      color: white;
+    }    button:hover {
+      opacity: 0.9;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn-large {
+      padding: 10px 20px;
+      font-size: 14px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🧠 Leviathan</h1>
+      <p>Service Management Dashboard</p>
+    </div>
+    
+    <div id="services"></div>
+    
+    <div class="controls">
+      <button class="btn-start btn-large" onclick="startAll()">Start All</button>
+      <button class="btn-stop btn-large" onclick="stopAll()">Stop All</button>
+    </div>
+  </div>  <script>
+    let services = {};
+    
+    async function updateStatus() {
+      services = await window.api.getStatus();
+      renderServices();
+    }
+    
+    function renderServices() {
+      const container = document.getElementById('services');
+      container.innerHTML = '';
+      
+      for (const [id, service] of Object.entries(services)) {
+        const div = document.createElement('div');
+        div.className = 'service';
+        div.innerHTML = `
+          <div class="service-info">
+            <div class="service-name">${service.name}</div>
+            <div class="service-status status-${service.status}">
+              ${service.status} ${service.pid ? `(PID: ${service.pid})` : ''}
+            </div>
+          </div>
+          <div class="service-actions">
+            <button class="btn-start" onclick="startService('${id}')" 
+                    ${service.status === 'running' ? 'disabled' : ''}>Start</button>
+            <button class="btn-restart" onclick="restartService('${id}')"
+                    ${service.status === 'stopped' ? 'disabled' : ''}>Restart</button>
+            <button class="btn-stop" onclick="stopService('${id}')"
+                    ${service.status === 'stopped' ? 'disabled' : ''}>Stop</button>
+          </div>
+        `;
+        container.appendChild(div);
+      }
+    }    async function startService(id) {
+      await window.api.startService(id);
+      updateStatus();
+    }
+    
+    async function stopService(id) {
+      await window.api.stopService(id);
+      updateStatus();
+    }
+    
+    async function restartService(id) {
+      await window.api.restartService(id);
+      updateStatus();
+    }
+    
+    async function startAll() {
+      for (const id of Object.keys(services)) {
+        if (services[id].status === 'stopped') {
+          await window.api.startService(id);
+        }
+      }
+      updateStatus();
+    }
+    
+    async function stopAll() {
+      for (const id of Object.keys(services)) {
+        if (services[id].status === 'running') {
+          await window.api.stopService(id);
+        }
+      }
+      updateStatus();
+    }
+    
+    // Update status every 2 seconds
+    setInterval(updateStatus, 2000);
+    updateStatus();
+  </script>
+</body>
+</html>

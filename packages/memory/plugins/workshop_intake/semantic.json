@@ -1,0 +1,26 @@
+{
+  "repo_analysis": {
+    "value": {
+      "repo_path": "~/lev/workshop/intake/mcp-agent",
+      "structure_analyzed": true,
+      "readme_processed": true,
+      "patterns_identified": [
+        "MCP Agent patterns",
+        "Async orchestration",
+        "Multi-model support"
+      ],
+      "key_files": [
+        "src/mcp_agent/",
+        "examples/",
+        "README.md"
+      ],
+      "technology_stack": [
+        "Python",
+        "AsyncIO",
+        "MCP Protocol"
+      ]
+    },
+    "timestamp": 923469.041240833,
+    "plugin": "workshop_intake"
+  }
+}

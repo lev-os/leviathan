@@ -1,0 +1,45 @@
+
+> @lev-os/core@0.1.0 dev
+> node --watch src/index.js
+
+node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EMFILE: too many open files, watch
+    at FSWatcher._handle.onchange (node:internal/fs/watchers:207:21)
+Emitted 'error' event on FSWatcher instance at:
+    at FSWatcher._handle.onchange (node:internal/fs/watchers:213:12) {
+  errno: -24,
+  syscall: 'watch',
+  code: 'EMFILE',
+  filename: null
+}
+
+Node.js v22.16.0
+npm error Lifecycle script `dev` failed with error:
+npm error code 1
+npm error path /Users/jean-patricksmith/digital/leviathan/agent
+npm error workspace @lev-os/core@0.1.0
+npm error location /Users/jean-patricksmith/digital/leviathan/agent
+npm error command failed
+npm error command sh -c node --watch src/index.js
+node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: write EPIPE
+    at target._send (node:internal/child_process:877:20)
+    at target.send (node:internal/child_process:751:19)
+    at #createModuleJob (node:internal/modules/esm/loader:613:15)
+    at #getJobFromResolveResult (node:internal/modules/esm/loader:338:34)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:306:41)
+Emitted 'error' event on process instance at:
+    at node:internal/child_process:881:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11) {
+  errno: -32,
+  code: 'EPIPE',
+  syscall: 'write'
+}
+
+Node.js v22.16.0

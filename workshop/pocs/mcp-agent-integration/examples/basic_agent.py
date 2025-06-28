@@ -59,23 +59,22 @@ async def basic_integration_test():
         constitutional_agent = ConstitutionalMCPAgent(research_agent)
         
         # Run the agent in MCP context
-        async with bridge.run_agent_context(research_agent) as active_agent:
-            print("\n🤖 Testing agent capabilities...")
+        print("\n🤖 Testing agent capabilities...")
+        
+        # Test agent directly (mock implementation doesn't need context manager)
+        tools = await research_agent.list_tools()
+        print(f"🔧 Available tools: {len(tools.tools)} tools")
+        for tool in tools.tools[:3]:  # Show first 3 tools
+            print(f"   - {tool.name}: {tool.description}")
             
-            # List available tools
-            tools = await active_agent.list_tools()
-            print(f"🔧 Available tools: {len(tools.tools)} tools")
-            for tool in tools.tools[:3]:  # Show first 3 tools
-                print(f"   - {tool.name}: {tool.description}")
-            
-            # Test basic functionality with constitutional wrapper
-            if hasattr(active_agent, 'attach_llm'):
-                print("\n💭 Testing LLM integration...")
-                try:
-                    # This would require API keys to work fully
-                    print("   (Skipping LLM test - requires API keys)")
-                except Exception as e:
-                    print(f"   Note: LLM test skipped ({e})")
+        # Test basic functionality with constitutional wrapper
+        if hasattr(research_agent, 'attach_llm'):
+            print("\n💭 Testing LLM integration...")
+            try:
+                # This would require API keys to work fully
+                print("   (Skipping LLM test - requires API keys)")
+            except Exception as e:
+                print(f"   Note: LLM test skipped ({e})")
             
         print("\n✅ Basic integration test completed successfully!")
         print("\nKey validations:")

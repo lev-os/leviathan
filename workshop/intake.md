@@ -6,19 +6,40 @@
 ## Working Memory Template (Copy this and fill out as you go):
 ```yaml
 intake_progress:
+  mode: "[interactive|autonomous]"
   repository: "[name]"
+  
+  directory_verification:
+    target_directory: "~/lev/workshop/intake/[name]/"
+    ls_output: ""
+    structure_confirmed: false
+    
   step_1_completed: false
   step_1_findings: ""
-  step_2_completed: false
+  step_1_checkpoint: "[user_approval_received|na_for_autonomous]"
+  
+  step_2_completed: false  
   step_2_location: ""
+  step_2_verification: "[ls_output_shown]"
+  step_2_checkpoint: "[user_approval_received|na_for_autonomous]"
+  
   step_3_completed: false  # ⚠️ MOST CRITICAL STEP
   step_3_findings: 
     memory_system: ""
     agent_capabilities: ""
     gaps_verified: ""
+  step_3_checkpoint: "[user_guidance_received|na_for_autonomous]"
+  
   step_4_completed: false
+  step_4_checkpoint: "[user_input_on_focus_areas|na_for_autonomous]"
+  
   step_5_completed: false
+  step_5_decision: ""
+  step_5_checkpoint: "[user_approval_of_decision|na_for_autonomous]"
+  
   step_6_completed: false
+  step_6_path: "[adr|poc|direct]"
+  step_6_checkpoint: "[user_documentation_preference|na_for_autonomous]"
 ```
 
 ## 🤝 INTERACTIVE MODE DETECTION
@@ -59,7 +80,64 @@ IF autonomous execution: Use Standard Mode
 
 **Checkpoint 1**: Document findings in working memory before proceeding.
 
+### Interactive Mode Checkpoint:
+"📋 **Step 1 Complete**: Found [X] in cache. Current best solutions: [Y]. 
+Should I proceed with acquisition?"
+
 ## 📋 STEP 2: Source Acquisition / Verification
+
+### Content Acquisition Routes
+
+<content_routing>
+TYPE: GitHub Repository
+  ACTION: git clone <url> ~/lev/workshop/intake/<repo_name>
+  
+  <example>
+  URL: https://github.com/evalstate/fast-agent
+  CORRECT: git clone https://github.com/evalstate/fast-agent ~/lev/workshop/intake/fast-agent
+  VERIFY: ls ~/lev/workshop/intake/fast-agent/
+  </example>
+
+TYPE: Article/Documentation
+  ACTION: Create directory, then save content
+  
+  <example>
+  URL: https://fast-agent.ai/agents/defining/
+  STEP 1: mkdir ~/lev/workshop/intake/fast-agent
+  STEP 2: Save content to ~/lev/workshop/intake/fast-agent/article.md
+  VERIFY: ls ~/lev/workshop/intake/fast-agent/
+  </example>
+
+TYPE: Multiple Sources Same Project
+  <example>
+  Sources: Article + GitHub repo for same project
+  STRUCTURE:
+    ~/lev/workshop/intake/fast-agent/
+    ├── article.md          # Documentation content
+    ├── repo/              # OR direct clone in main folder
+    └── [other sources]    # transcript.md, etc.
+  </example>
+</content_routing>
+
+### MANDATORY Directory Structure Verification:
+```bash
+# REQUIRED after every save operation:
+ls ~/lev/workshop/intake/[project-name]/
+```
+
+### FAILURE PREVENTION CHECKLIST:
+❌ **NEVER DO:**
+- Save files directly in ~/lev/workshop/intake/ 
+- Use custom filenames like "project-docs.md"
+- Skip directory creation step
+- Skip ls verification
+
+✅ **ALWAYS DO:**
+- Create project subdirectory FIRST
+- Use standard names: article.md, transcript.md
+- Verify structure with ls command
+- Show ls output before proceeding
+
 **⚠️ STOP**: Do not proceed until you have:
 - [ ] Located source in ~/lev/workshop/intake/[name]/
   - GitHub: Cloned repository
@@ -68,6 +146,11 @@ IF autonomous execution: Use Standard Mode
 - [ ] For large repos (20+ components): Documented sampling strategy
 
 **Checkpoint 2**: Source location confirmed in working memory.
+
+### Interactive Mode Checkpoint:
+"📋 **Step 2 Complete**: Content saved to [location]. Structure verified:
+[show ls output]
+Ready for Lev system scan?"
 
 ## 📋 STEP 3: Scan Actual Lev Paths ⚠️ CRITICAL - DO NOT SKIP
 **⚠️ STOP**: This is the MOST SKIPPED and MOST IMPORTANT step!
@@ -90,7 +173,16 @@ ls ~/lev/plugins/
 
 **⚠️ DO NOT ASSUME**: Read the actual code to understand capabilities!
 
-**Checkpoint 3**: Document ACTUAL findings with file references.## 📋 STEP 4: Comprehensive Evaluation
+**Checkpoint 3**: Document ACTUAL findings with file references.
+
+### Interactive Mode Checkpoint:
+"📋 **Step 3 Complete**: Lev capabilities analyzed:
+- Memory system: [specific findings with file references]
+- Agent capabilities: [specific findings with file references] 
+- Verified gaps: [evidence-based gaps only]
+Which areas need deeper investigation?"
+
+## 📋 STEP 4: Comprehensive Evaluation
 **⚠️ STOP**: Do not proceed until you have:
 - [ ] Compared against ACTUAL Lev capabilities from Step 3
 - [ ] Identified VERIFIED gaps (not assumed)
@@ -98,6 +190,13 @@ ls ~/lev/plugins/
 - [ ] For large repos: Analyzed 3-5 representative examples
 
 **Checkpoint 4**: Complete analysis with evidence-based comparisons.
+
+### Interactive Mode Checkpoint:
+"📋 **Step 4 Complete**: Analysis reveals:
+- Repository strengths: [specific capabilities]
+- Lev vs Repository comparison: [evidence-based comparison]
+- Integration opportunities: [specific possibilities]
+Which aspects interest you most for potential integration?"
 
 ## 📋 STEP 5: Decision Implementation & Post-Processing
 **⚠️ STOP**: Do not proceed until you have:
@@ -113,6 +212,13 @@ ls ~/lev/plugins/
 
 **Checkpoint 5**: Post-processing action completed.
 
+### Interactive Mode Checkpoint:
+"📋 **Ready for Decision**: Based on analysis, I recommend [DECISION] because [REASONING].
+- Strengths: [list key strengths]
+- Weaknesses: [list limitations]
+- Integration potential: [specific opportunities]
+Your thoughts before proceeding with post-processing?"
+
 ## 📋 STEP 6: Documentation & POC Decision
 **⚠️ STOP**: Choose your documentation/implementation path:
 
@@ -123,7 +229,10 @@ ls ~/lev/plugins/
   - Follow POC lifecycle (Planning → Implementation → Validation)
   
 - [ ] **ADR NEEDED**: For architectural decisions (EXTRACT/ADOPT/FORK)
-  - Load wizard workflow from `~/lev/docs/workflows/wizard-experience/`
+  - 🧙‍♂️ **Wizard Experience Available**: Interactive decision guidance from `~/lev/docs/workflows/wizard-experience/`
+  - Uses Five-Fold Path for deep analysis (evolution, impact, relationships, essence, paradigm)
+  - Guides collaborative ADR creation with structured questioning
+  - Handles complex integration decisions with progressive revelation
   - Create ADR: `~/lev/workshop/adrs/ADR-XXX-[title].md`
   
 - [ ] **DIRECT ACTION**: For simple adoptions
@@ -135,7 +244,17 @@ ls ~/lev/plugins/
   - Start with POC to test
   - Create ADR based on POC findings
 
-**Checkpoint 6**: Documentation/POC path chosen and initiated.## 🧠 SPECIAL FOCUS: Memory System Analysis
+**Checkpoint 6**: Documentation/POC path chosen and initiated.
+
+### Interactive Mode Checkpoint:
+"📋 **Ready for Documentation**: 
+Should we:
+1. Create ADR via wizard experience (~/lev/docs/workflows/wizard-experience/)
+2. Create POC first (~/lev/workshop/pocs/README.md)
+3. Direct action with minimal documentation
+Your preference for documenting this decision?"
+
+## 🧠 SPECIAL FOCUS: Memory System Analysis
 
 When analyzing memory-related repos, you MUST:
 
@@ -264,8 +383,33 @@ Save your analysis to `~/lev/workshop/analysis/[repo-name]/analysis.md` with thi
 - [ ] Created ADR if warranted
 - [ ] Updated capability matrix if new patterns discovered
 
-### Cleanup Checklist:
-- [ ] Source removed from intake/ (unless needed for POC)
+### Enhanced Cleanup Protocol
+
+#### Autonomous Mode:
+- Execute decision matrix automatically
+- Document actions in working memory
+
+#### Interactive Mode - NEVER auto-delete:
+
+### Interactive Mode Checkpoint:
+"📋 **Cleanup Decision Required**:
+Analysis saved to: ~/lev/workshop/analysis/[name]/
+Source currently at: ~/lev/workshop/intake/[name]/
+
+Based on decision [X], I should:
+[show specific action from decision matrix]
+
+Proceed with cleanup? Or keep source for further exploration?"
+
+### Confirmation Template:
+"Please confirm:
+- [ ] Remove from intake/ 
+- [ ] Move to [destination per decision]
+- [ ] Keep analysis in analysis/[name]/
+- [ ] Update tracking files"
+
+### Standard Cleanup Checklist:
+- [ ] Source handled per user confirmation (interactive) or decision matrix (autonomous)
 - [ ] Analysis saved in analysis/[name]/
 - [ ] Documentation/POC created as decided
 - [ ] Capability matrix updated if needed

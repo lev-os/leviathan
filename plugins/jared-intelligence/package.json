@@ -1,0 +1,51 @@
+{
+  "name": "@lev/jared-intelligence",
+  "version": "1.0.0",
+  "description": "Jared AI Intelligence Coordinator - Leviathan Plugin with Fractal Adapter Architecture",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint src --fix",
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.21.0",
+    "@slack/web-api": "^7.0.0",
+    "@notionhq/client": "^2.2.14",
+    "natural": "^8.0.1",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.2",
+    "winston": "^3.11.0",
+    "node-cron": "^3.0.3",
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "eslint": "^8.56.0",
+    "@types/node": "^20.10.5"
+  },
+  "keywords": [
+    "jared",
+    "ai",
+    "intelligence",
+    "coordinator",
+    "leviathan",
+    "plugin",
+    "mcp",
+    "slack",
+    "notion",
+    "hexagonal",
+    "fractal",
+    "adapter"
+  ],
+  "author": "Kingly Agency",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

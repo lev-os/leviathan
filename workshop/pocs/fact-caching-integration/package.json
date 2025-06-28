@@ -1,0 +1,22 @@
+{
+  "name": "fact-caching-integration",
+  "version": "1.0.0",
+  "description": "## 🎯 POC Overview",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "demo": "node examples/basic-caching.js",
+    "benchmark": "node src/run-benchmarks.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^30.0.3"
+  }
+}

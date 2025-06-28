@@ -4,6 +4,7 @@ metadata:
   name: "Architecture Decision Record Wizard"
   version: 1.0.0
   description: "Step-by-step wizard for creating architectural decisions"
+  execution_type: "sequential"
 
 phase_config:
   prompt_template: ../prompts/adr-wizard.md

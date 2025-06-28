@@ -1,0 +1,65 @@
+name: jared-intelligence-coordinator
+version: 1.0.0
+description: AI-powered intelligence coordination and project memory system with fractal adapter architecture
+author: Kingly Agency
+
+capabilities:
+  - intelligence_gathering
+  - project_memory
+  - conversational_interface
+  - opportunity_tracking
+  - mcp_server
+  - slack_integration
+  - notion_integration
+
+dependencies:
+  - graphiti-memory
+  - cb-universal-discovery
+  - slack-integration
+  - notion-integration
+
+configuration:
+  graphiti_endpoint: "${GRAPHITI_ENDPOINT:-http://localhost:8000}"
+  cb_config_path: "./config/jared_intelligence_config.json"
+  slack_workspace: "${SLACK_WORKSPACE_ID}"
+  notion_token: "${NOTION_TOKEN}"
+  
+execution_patterns:
+  - conversation_routing
+  - continuous_monitoring
+  - memory_management
+  - intelligence_analysis
+  - fractal_adapter_composition
+
+adapters:
+  input:
+    protocols:
+      - mcp
+      - http
+      - websocket
+    platforms:
+      - slack
+      - notion
+      - github
+    intelligence:
+      - cb_scraping
+      - perplexity
+      - news_api
+  output:
+    storage:
+      - leviathan_memory
+      - graphiti
+      - filesystem
+    notification:
+      - slack
+      - email
+    integration:
+      - lev_workflow
+      - lev_pattern
+      - lev_agent
+
+metadata:
+  repository: "~/digital/kingly/hub/jared2"
+  documentation: "/docs/architecture.md"
+  test_coverage: "95%"
+  architecture: "hexagonal_fractal"

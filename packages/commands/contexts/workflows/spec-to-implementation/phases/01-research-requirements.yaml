@@ -4,6 +4,7 @@ metadata:
   name: "Research & Requirements Gathering"
   version: 1.0.0
   description: "Flexible entry point for research and requirement gathering"
+  execution_type: "sequential"
 
 phase_config:
   prompt_template: ../prompts/research-requirements.md

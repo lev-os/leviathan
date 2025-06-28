@@ -5,7 +5,7 @@
  */
 
 import { SemanticLookup } from '../../semantic-lookup.js'
-import { WorkflowLoader } from '../../workflow-loader.js'
+import { ContextLoader } from '../../context-loader.js'
 import fs from 'fs-extra'
 import path from 'path'
 
@@ -27,14 +27,14 @@ export async function findContexts(query, options = {}) {
   try {
     // Initialize lookup components
     const semanticLookup = new SemanticLookup()
-    const workflowLoader = new WorkflowLoader()
+    const contextLoader = new ContextLoader()
 
-    await workflowLoader.loadAll()
+    await contextLoader.loadAll()
     await semanticLookup.ensureLoaded()
 
     // Quick code lookup first (fastest) - only if no type filter
     if (!type) {
-      const quickResult = await workflowLoader.getByCode(query)
+      const quickResult = await contextLoader.getByCode(query)
       if (quickResult) {
         return {
           found: true,

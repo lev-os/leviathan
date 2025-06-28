@@ -23,12 +23,18 @@ logger = logging.getLogger(__name__)
 # Configuration
 @dataclass
 class LeviathanConfig:
-    mcp_server_url: str = "http://localhost:3001"  # Leviathan agent MCP server
-    adapter_port: int = 8081
+    mcp_server_host: str = "localhost"
+    mcp_server_port: int = 7893  # Base port for Leviathan agent
+    adapter_port: int = 7894  # Adapter port (next to MCP port)
     timeout_seconds: int = 30
     max_retries: int = 3
     enable_caching: bool = True
     cache_ttl_seconds: int = 300
+    
+    @property
+    def mcp_server_url(self) -> str:
+        """Dynamically build MCP server URL from host and port"""
+        return f"http://{self.mcp_server_host}:{self.mcp_server_port}"
 
 config = LeviathanConfig()
 
@@ -379,15 +385,129 @@ async def session_checkpoint(session_id: str, context: str):
         logger.error(f"Error in session checkpoint: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+def find_available_port_pair(base_port: int = 7893, max_attempts: int = 10) -> tuple[int, int]:
+    """Find two consecutive available ports starting from base_port"""
+    import socket
+    
+    for port in range(base_port, base_port + max_attempts * 2, 2):
+        try:
+            # Try to bind to both ports (MCP and adapter)
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s1:
+                s1.bind(('', port))
+                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s2:
+                    s2.bind(('', port + 1))
+                    # Both ports available!
+                    return port, port + 1
+        except OSError:
+            # One or both ports in use, try next pair
+            logger.info(f"Port pair {port}/{port+1} is in use, trying next...")
+            continue
+    
+    raise RuntimeError(f"Could not find available port pair starting from {base_port}")
+
+class PIDLock:
+    """Simple PID-based lock to ensure only one instance runs"""
+    
+    def __init__(self, lockfile: str = "/tmp/leviathan_adapter.pid"):
+        self.lockfile = lockfile
+        self.acquired = False
+    
+    def acquire(self) -> bool:
+        """Try to acquire lock by writing PID to lockfile"""
+        import os
+        import sys
+        
+        try:
+            # Check if lockfile exists and process is still running
+            if os.path.exists(self.lockfile):
+                with open(self.lockfile, 'r') as f:
+                    old_pid = int(f.read().strip())
+                
+                # Check if process is still alive
+                try:
+                    os.kill(old_pid, 0)  # Signal 0 = check if process exists
+                    logger.error(f"Another instance is already running (PID: {old_pid})")
+                    return False
+                except OSError:
+                    # Process doesn't exist, remove stale lockfile
+                    logger.info(f"Removing stale lockfile (PID: {old_pid})")
+                    os.remove(self.lockfile)
+            
+            # Write our PID
+            with open(self.lockfile, 'w') as f:
+                f.write(str(os.getpid()))
+            
+            self.acquired = True
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to acquire lock: {e}")
+            return False
+    
+    def release(self):
+        """Release lock by removing lockfile"""
+        import os
+        
+        if self.acquired and os.path.exists(self.lockfile):
+            try:
+                os.remove(self.lockfile)
+                logger.info("Released PID lock")
+            except Exception as e:
+                logger.error(f"Failed to release lock: {e}")
+    
+    def __enter__(self):
+        if not self.acquire():
+            raise RuntimeError("Could not acquire PID lock")
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.release()
+
 if __name__ == "__main__":
     import uvicorn
+    import os
+    import signal
+    import sys
     
-    logger.info(f"Starting Leviathan Adapter on port {config.adapter_port}")
-    logger.info(f"Connecting to Leviathan agent at {config.mcp_server_url}")
+    # Handle shutdown gracefully
+    def signal_handler(sig, frame):
+        logger.info("Shutting down gracefully...")
+        sys.exit(0)
     
-    uvicorn.run(
-        app,
-        host="0.0.0.0",
-        port=config.adapter_port,
-        log_level="info"
-    )
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    
+    try:
+        # Acquire PID lock
+        with PIDLock():
+            # Get base port from environment or use default
+            base_port = int(os.getenv("BASE_PORT", 7893))
+            
+            # Find available consecutive ports for MCP and adapter
+            mcp_port, adapter_port = find_available_port_pair(base_port)
+            
+            # Update configuration with discovered ports
+            config.mcp_server_port = mcp_port
+            config.adapter_port = adapter_port
+            
+            logger.info(f"🚀 Port Configuration:")
+            logger.info(f"   Leviathan MCP: http://localhost:{mcp_port}")
+            logger.info(f"   Adapter API:   http://localhost:{adapter_port}")
+            
+            if mcp_port != base_port:
+                logger.info(f"   (Base port {base_port} was taken, auto-incremented to {mcp_port}/{adapter_port})")
+            
+            # Run the adapter
+            uvicorn.run(
+                app,
+                host="0.0.0.0",
+                port=adapter_port,
+                log_level="info"
+            )
+    
+    except RuntimeError as e:
+        logger.error(f"Startup failed: {e}")
+        sys.exit(1)
+    except Exception as e:
+        logger.error(f"Unexpected error: {e}")
+        sys.exit(1)

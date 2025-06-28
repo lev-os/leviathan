@@ -4,6 +4,7 @@ metadata:
   name: "Complexity Assessment & Splitting"
   version: 1.0.0
   description: "Gateway decision: assess complexity and split if needed for confident implementation"
+  execution_type: "sequential"
 
 phase_config:
   prompt_template: ../prompts/splitting.md

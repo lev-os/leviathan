@@ -1,0 +1,38 @@
+{
+  "research_923462.215124083": {
+    "value": {
+      "request": "Research the top 3 AI agent frameworks and analyze their architectures",
+      "specialist": "research_specialist",
+      "status": "completed",
+      "findings": "Research completed for: Research the top 3 AI agent frameworks and analyze their architectures",
+      "memory_stored": true,
+      "session_id": "mcp-f732ec79"
+    },
+    "timestamp": 923462.215164291,
+    "plugin": "ceo_research"
+  },
+  "research_923462.215481416": {
+    "value": {
+      "request": "Analyze the competitive landscape for LLM-first applications",
+      "specialist": "research_specialist",
+      "status": "completed",
+      "findings": "Research completed for: Analyze the competitive landscape for LLM-first applications",
+      "memory_stored": true,
+      "session_id": "mcp-f732ec79"
+    },
+    "timestamp": 923462.21551875,
+    "plugin": "ceo_research"
+  },
+  "research_923462.2157965": {
+    "value": {
+      "request": "Research MCP protocol adoption and create strategic recommendations",
+      "specialist": "research_specialist",
+      "status": "completed",
+      "findings": "Research completed for: Research MCP protocol adoption and create strategic recommendations",
+      "memory_stored": true,
+      "session_id": "mcp-f732ec79"
+    },
+    "timestamp": 923462.215831833,
+    "plugin": "ceo_research"
+  }
+}

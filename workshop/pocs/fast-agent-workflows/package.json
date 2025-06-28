@@ -1,0 +1,32 @@
+{
+  "name": "@lev-os/fast-agent-workflows-poc",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "POC for integrating fast-agent workflow patterns into Leviathan",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test tests/",
+    "example:chain": "node examples/chain-example.js",
+    "example:orchestrator": "node examples/orchestrator-demo.js",
+    "example:refine": "node examples/refinement-loop.js",
+    "benchmark": "node tests/performance.test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evalstate/leviathan"
+  },
+  "keywords": [
+    "leviathan",
+    "fast-agent",
+    "workflows",
+    "orchestration",
+    "mcp"
+  ],
+  "author": "Leviathan Team",
+  "license": "MIT"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@lev-os/gemini-executor",
+  "version": "0.1.0",
+  "description": "A Gemini-powered workflow executor for the Leviathan OS, inspired by Mastra and Pickaxe.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "lev-gemini-executor": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@lev-os/cmd": "workspace:*",
+    "@lev-os/debug": "workspace:*",
+    "js-yaml": "^4.1.0",
+    "xstate": "^5.13.0"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  },
+  "keywords": [
+    "leviathan",
+    "gemini",
+    "workflow",
+    "executor",
+    "xstate"
+  ],
+  "author": "Gemini",
+  "license": "MIT"
+}
