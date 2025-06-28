@@ -1,6 +1,6 @@
 ---
 description: 
-globs: 
+globs: *.go,os/**/*.*
 alwaysApply: false
 ---
 # AI-Native OS Kernel Development (Go)

@@ -1,6 +1,6 @@
 ---
 description: 
-globs: 
+globs: packages/**/*.*,plugins/**/*.*
 alwaysApply: false
 ---
 # Leviathan Plugin Development Standards

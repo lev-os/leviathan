@@ -1,0 +1,325 @@
+# TimeTravel AI Research Plan
+# This monitors the AI ecosystem for breakthroughs, trends, and opportunities
+
+version: '1.0'
+name: 'TimeTravel AI Intelligence'
+description: 'Comprehensive AI/ML research monitoring with medical focus'
+
+metadata:
+  owner: timetravel
+  tags: [ai, ml, medical, academic]
+  created: 2025-06-27
+
+schedule:
+  default: daily
+  timezone: UTC
+
+# Environment variables needed
+env:
+  - TWITTER_BEARER_TOKEN
+  - GITHUB_TOKEN
+  - PERPLEXITY_API_KEY
+
+sources:
+  # Twitter - AI Researchers & Community
+  - id: ai-twitter
+    type: twitter
+    handler: api
+    schedule: hourly
+    config:
+      accounts:
+        # Core AI researchers
+        - karpathy # Andrej Karpathy
+        - ylecun # Yann LeCun
+        - GaryMarcus # Gary Marcus (AI critic)
+        - ilyasut # Ilya Sutskever
+        - drfeifei # Fei-Fei Li
+        - AndrewYNg # Andrew Ng
+        - goodfellow_ian # Ian Goodfellow
+        - fchollet # François Chollet
+        # Medical AI
+        - EricTopol # Digital medicine
+        - animesh_garg # Medical robotics
+      keywords:
+        - 'new paper'
+        - 'breakthrough'
+        - 'open source'
+        - 'medical AI'
+        - 'clinical AI'
+        - 'FDA approval AI'
+      hashtags:
+        - '#AIresearch'
+        - '#MedicalAI'
+        - '#ClinicalAI'
+      max_results: 200
+      exclude:
+        - 'RT @' # Skip pure retweets
+
+  # GitHub - Track AI Projects
+  - id: github-ai-repos
+    type: github
+    handler: api
+    schedule: daily
+    config:
+      queries:
+        # New high-potential projects
+        - 'stars:>100 created:>{{last_week}} language:python topic:machine-learning'
+        - 'stars:>50 created:>{{last_week}} topic:medical-ai'
+        - 'stars:>200 pushed:>{{yesterday}} topic:llm'
+      watch_repos:
+        # Core AI infrastructure
+        - openai/whisper
+        - pytorch/pytorch
+        - huggingface/transformers
+        - langchain-ai/langchain
+        # Medical AI
+        - Project-MONAI/MONAI
+        - facebookresearch/Clinical-Trial-Parser
+        - stanford-crfm/BioMedLM
+      track_events:
+        - releases
+        - star_threshold: 1000 # Alert when repo hits 1k stars
+        - fork_surge: 50 # Alert on 50+ forks/day
+
+  # arXiv - Academic Papers
+  - id: arxiv-papers
+    type: arxiv
+    handler: api
+    schedule: daily
+    config:
+      categories:
+        - cs.AI # Artificial Intelligence
+        - cs.LG # Machine Learning
+        - cs.CL # Computation and Language
+        - cs.CV # Computer Vision
+        - cs.NE # Neural and Evolutionary Computing
+        - stat.ML # Machine Learning (Statistics)
+      max_results: 100
+      sort: submittedDate
+      filters:
+        min_authors: 2 # Skip single-author papers
+
+  # PubMed - Medical AI Research
+  - id: pubmed-medical-ai
+    type: pubmed
+    handler: api
+    schedule: daily
+    config:
+      queries:
+        - 'artificial intelligence[Title/Abstract] AND clinical[Title/Abstract]'
+        - 'machine learning[Title/Abstract] AND diagnosis[Title/Abstract]'
+        - 'deep learning[Title/Abstract] AND medical imaging[Title/Abstract]'
+      date_range: 'last_7_days'
+      max_results: 50
+
+  # HackerNews - Community Pulse
+  - id: hackernews-ai
+    type: scrape
+    handler: cb3
+    schedule: every_3_hours
+    config:
+      urls:
+        - 'https://news.ycombinator.com/newest'
+        - 'https://news.ycombinator.com/show'
+      filters:
+        title_contains: ['AI', 'ML', 'GPT', 'LLM', 'neural', 'medical AI']
+        min_comments: 10
+
+  # Reddit - AI Communities
+  - id: reddit-ai
+    type: scrape
+    handler: cb3
+    schedule: daily
+    config:
+      subreddits:
+        - MachineLearning
+        - LocalLLaMA
+        - singularity
+        - ArtificialIntelligence
+        - compsci
+      sort: hot
+      limit: 25
+
+  # Google Scholar Alerts (via cb3)
+  - id: scholar-alerts
+    type: scrape
+    handler: cb3
+    schedule: daily
+    config:
+      urls:
+        - 'https://scholar.google.com/scholar?q=medical+AI+breakthrough&scisbd=1'
+        - 'https://scholar.google.com/scholar?q=clinical+LLM&scisbd=1'
+
+processing:
+  # Stage 1: Aggregate and Deduplicate
+  - id: aggregate
+    type: function
+    handler: aggregate_sources
+    config:
+      dedupe_by: [title, url]
+      merge_similar: true
+      similarity_threshold: 0.85
+
+  # Stage 2: Trend Analysis
+  - id: trend-analysis
+    type: llm
+    model: gpt-4
+    temperature: 0.7
+    prompt_template: |
+      Analyze the following research data from the past {{time_window}}:
+
+      Sources:
+      {{#each sources}}
+      - {{this.id}}: {{this.count}} items
+      {{/each}}
+
+      Data:
+      {{aggregated_data}}
+
+      Identify:
+      1. **Emerging Trends**: What new themes are appearing?
+      2. **Breakthrough Papers**: Which papers could be game-changing?
+      3. **Hot Projects**: Which GitHub repos are gaining momentum?
+      4. **Community Sentiment**: What is the community excited/concerned about?
+      5. **Medical AI Developments**: Any clinical applications or FDA news?
+      6. **Opportunities**: Gaps or underserved areas
+
+      Format as structured JSON with scores and reasoning.
+
+  # Stage 3: Deep Research with Perplexity
+  - id: deep-dive
+    type: perplexity
+    model: sonar-pro
+    condition: 'trend-analysis.breakthrough_score > 8'
+    prompt_template: |
+      Research the following breakthrough finding in depth:
+      {{trend-analysis.top_breakthrough}}
+
+      Provide:
+      1. Technical details and methodology
+      2. Potential applications
+      3. Related work and citations
+      4. Implementation status
+      5. Expert opinions
+
+  # Stage 4: Pattern Detection
+  - id: pattern-detection
+    type: flowmind
+    config:
+      memory_namespace: ai-research-patterns
+      lookback_days: 30
+      patterns:
+        - name: convergence
+          description: 'Multiple sources discussing same topic'
+        - name: cascade
+          description: 'Paper → Implementation → Product'
+        - name: pivot
+          description: 'Field shifting direction'
+
+handoff:
+  # Trigger workshop intake for interesting repos
+  - id: workshop-intake
+    condition: |
+      sources.github-ai-repos.new_repos.any(repo => 
+        repo.stars > 500 && 
+        repo.topics.includes('medical') &&
+        processing.trend-analysis.interest_score > 7
+      )
+    action:
+      type: workflow
+      target: workshop-intake
+      config:
+        repos: '{{matching_repos}}'
+        context: '{{trend-analysis.summary}}'
+        priority: 'high'
+
+  # Alert on breakthroughs
+  - id: breakthrough-alert
+    condition: 'processing.trend-analysis.breakthrough_score > 9'
+    action:
+      type: webhook
+      url: '${SLACK_WEBHOOK_URL}'
+      payload:
+        text: '🚨 AI Breakthrough Detected'
+        blocks:
+          - type: section
+            text: '{{processing.trend-analysis.breakthrough_summary}}'
+
+  # Update memory with insights
+  - id: memory-update
+    condition: 'processing.pattern-detection.patterns_found > 0'
+    action:
+      type: memory
+      operation: append
+      namespace: ai-research-insights
+      data:
+        patterns: '{{processing.pattern-detection.patterns}}'
+        timestamp: '{{execution_time}}'
+
+outputs:
+  # Daily summary report
+  - type: file
+    path: 'outputs/research/{{date}}/ai-research-summary.md'
+    template: |
+      # AI Research Summary - {{date}}
+
+      ## 📊 Statistics
+      - Papers reviewed: {{sources.arxiv-papers.count}}
+      - GitHub repos tracked: {{sources.github-ai-repos.count}}
+      - Tweets analyzed: {{sources.ai-twitter.count}}
+      - Medical papers: {{sources.pubmed-medical-ai.count}}
+
+      ## 🔥 Top Findings
+      {{processing.trend-analysis.top_findings}}
+
+      ## 📈 Trends
+      {{processing.trend-analysis.trends}}
+
+      ## 💡 Opportunities
+      {{processing.trend-analysis.opportunities}}
+
+  # Update trends file
+  - type: append
+    path: '_trends.md'
+    content: '{{processing.trend-analysis.trends_update}}'
+
+  # Memory storage
+  - type: memory
+    namespace: timetravel-research
+    operation: upsert
+    key: '{{date}}'
+    data: '{{processing}}'
+
+  # Event emission
+  - type: event
+    channel: research-updates
+    event: daily-summary
+    data:
+      date: '{{date}}'
+      highlights: '{{processing.trend-analysis.highlights}}'
+
+monitoring:
+  # Track performance
+  metrics:
+    - execution_time
+    - sources_success_rate
+    - items_processed
+    - patterns_detected
+
+  # Error handling
+  on_error:
+    - type: retry
+      max_attempts: 3
+      backoff: exponential
+    - type: alert
+      channel: errors
+      include_stack: true
+
+  # Health checks
+  health_check:
+    interval: hourly
+    checks:
+      - twitter_api_status
+      - github_rate_limit
+      - disk_space
+      - memory_usage

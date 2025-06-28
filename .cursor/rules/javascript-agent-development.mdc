@@ -1,6 +1,6 @@
 ---
 description: 
-globs: 
+globs: *.js,*.ts
 alwaysApply: false
 ---
 # Agent System JavaScript Development
