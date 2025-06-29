@@ -1,0 +1,45 @@
+{
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "quote": {
+      "inputMint": "So11111111111111111111111111111111111111112",
+      "inAmount": "49500000",
+      "inDecimals": 9,
+      "outDecimals": 6,
+      "outputMint": "EszDmCQxSiGkBYF9QN1gWvY7yJornNcRUi2HPBYSpump",
+      "outAmount": "202354425381",
+      "otherAmountThreshold": "201342653254",
+      "swapMode": "ExactIn",
+      "slippageBps": 50,
+      "platformFee": "495000",
+      "priceImpactPct": "0",
+      "routePlan": [
+        {
+          "swapInfo": {
+            "ammKey": "Pump",
+            "label": "Pump",
+            "inputMint": "So11111111111111111111111111111111111111112",
+            "outputMint": "EszDmCQxSiGkBYF9QN1gWvY7yJornNcRUi2HPBYSpump",
+            "inAmount": "49500000",
+            "outAmount": "201342653254",
+            "feeAmount": "495000",
+            "feeMint": "So11111111111111111111111111111111111111112"
+          },
+          "percent": 100
+        }
+      ],
+      "timeTaken": 0.014
+    },
+    "raw_tx": {
+      "swapTransaction": "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAHDGN2MQuXim9Q+TNfpYhBI8CIQPnzpNzLdDGFcx7O+PJd1b4ICy+35c66urUMBr7TUmhMkXyPF+eILprcRayGGxGtEeak/ClEpPqCUb74FUJuG/soxrZkZndgfGrZ9WamRmfuVwxa8pXMUXp3MqvJzwF+omgjC8UanVRrICU9jWytH3j9Uo05XqdT34YLDH0ahd/XwpgmURxyLyKiZy90/9cDBkZv5SEXMv/srbpyw5vnvIzlu8X3EmssQ5s6QAAAAIyXJY9OJInxuz0QKRSODYMLWhOZ2v8QhASOe9jb6fhZzjerXYa3ExIIfM3S7vKmr1L4jupwGpW2Z0D6B13bUz8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFW4PaTZlrPRNsVaL8XW6pRicuX9dL/O2VdK7b9bRiwOoZeae4PVIDKvPZjV+TcLxjVjUXB6nSJ+zcj2Xk8cqas8TbrAfwcTog9I8i1hEq1mjf2at1XxemsO1PgWdNcZHHz6G8pnKA9fm5AMbUgPZJYLJuV7fJ961udqB334RnuBgUACQMVKH8AAAAAAAUABQLgkwQABgYAAQAHCA4ACQwKAgcDBAEACA4PCwkYZgY9EgHa6+olfkMdLwAAACwW9wIAAAAACAIADAwCAAAAIKEHAAAAAAAIAgANDAIAAACgJSYAAAAAAAF4IuyAOJt4qzcglYTn50/yPCmhVsyTy5UUULyyMxWHGwIYGwICBQ==",
+      "version": "0",
+      "lastValidBlockHeight": 319000907,
+      "prioritizationFeeLamports": 2500000,
+      "recentBlockhash": "8fpnRvbMcFxcwjxPzZw8gXeK7pwus77s9XuBeqsPcx3f"
+    },
+    "amount_in_usd": "9.65945486",
+    "amount_out_usd": "9.81999660",
+    "jito_order_id": null
+  }
+}

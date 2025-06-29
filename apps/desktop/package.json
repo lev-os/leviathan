@@ -1,0 +1,64 @@
+{
+  "name": "@trader/root",
+  "description": "Secure boilerplate for Electron app based on Vite",
+  "version": "3.1.0",
+  "private": true,
+  "type": "module",
+  "author": {
+    "email": "kozackunisoft@gmail.com",
+    "name": "Alex Kozack",
+    "url": "https://kozack.me"
+  },
+  "main": "packages/entry-point.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node start-dev.js",
+    "start:forge": "electron-forge start",
+    "start:forge-custom": "node forge-start.js",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "dev": "node forge-start.js",
+    "build": "npm run build -ws --if-present && electron-forge package",
+    "test": "npm run test -ws --if-present",
+    "typecheck": "npm run typecheck -ws --if-present",
+    "test:devnet:full": "node devnet-test-runner.js",
+    "test:devnet:quick": "node devnet-quick-test.js",
+    "test:devnet:connection": "node packages/trading/src/devnet-config.js",
+    "test:devnet:telegram": "node packages/tg/src/devnet-telegram-test.js",
+    "test:devnet:trading": "node packages/trading/src/devnet-trading-test.js",
+    "test:devnet:integration": "node packages/tg/src/devnet-trigger-test.js",
+    "legacy:compile": "npm run build && electron-builder build --config electron-builder.mjs",
+    "legacy:dev": "NODE_ENV=development VITE_DEV_SERVER_URL=http://localhost:3000 run-p --print-label dev:*"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-dmg": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-vite": "^7.8.1",
+    "@electron-forge/publisher-github": "^7.8.1",
+    "@npmcli/map-workspaces": "4.0.2",
+    "@playwright/test": "1.49.0",
+    "@types/node": "22.10.2",
+    "electron": "33.2.1",
+    "electron-builder": "26.0.0-alpha.8",
+    "glob": "11.0.0",
+    "npm-run-all": "^4.1.5",
+    "playwright": "1.49.0",
+    "rimraf": "^6.0.1"
+  },
+  "dependencies": {
+    "@trader/main": "*",
+    "bs58": "^6.0.0",
+    "electron-squirrel-startup": "^1.0.1",
+    "next-electron-rsc": "^0.2.3"
+  }
+}

@@ -129,7 +129,7 @@ The project uses Turborepo for build orchestration with dependency-aware caching
 The Leviathan agent system implements a sophisticated MCP (Model Context Protocol) server with multi-tiered intelligence:
 
 #### Key Entry Points
-- **`src/index.js`** - Main MCP server with 20+ tools
+- **`src/index.js`** - Main MCP server with Universal Command Registry
 - **`bin/lev`** - CLI interface for agent interaction
 - **`src/ceo-binding.js`** - CEO agent binding with intent detection
 - **`src/semantic-lookup.js`** - Semantic workflow discovery
@@ -156,14 +156,19 @@ cd agent && npm run test:ceo
 cd agent && npm run test:e2e
 ```
 
-#### Available Agent Tools
-The system provides 20+ MCP tools including:
+#### Available Commands
+The system provides commands via Universal Command Registry including:
 - `get_workflow` - Semantic workflow lookup
 - `ceo_bind` - Agent switching and intent detection
 - `session_ping` - Session checkpoints
 - `intelligence_power` - Deep contextual analysis
 - `network_intelligence` - Distributed intelligence access
 - `template_sync` - Cross-workspace synchronization
+
+**Architecture Note**: Commands are defined once in the Universal Command Registry, then auto-adapted by:
+- **MCP Adapter**: Transforms commands into MCP tools for Claude Code integration
+- **CLI Adapter**: Transforms commands into CLI commands for terminal usage
+- **Future Adapters**: Can transform commands into any platform-specific format
 
 ### Session Management & Bi-Directional Communication
 

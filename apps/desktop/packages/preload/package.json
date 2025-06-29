@@ -1,0 +1,24 @@
+{
+  "name": "@trader/preload",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/_virtual_browser.mjs"
+    },
+    "./exposed.mjs": {
+      "types": "./src/exposed.d.ts",
+      "default": "./dist/exposed.mjs"
+    }
+  },
+  "devDependencies": {
+    "@trader/electron-versions": "*",
+    "mlly": "1.7.3",
+    "typescript": "^5.7.2",
+    "vite": "^6.2.2"
+  }
+}

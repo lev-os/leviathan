@@ -1,0 +1,200 @@
+#!/usr/bin/env node
+
+/**
+ * Leviathan Memory System CLI
+ * Configurable memory management with auto-detection
+ */
+
+import { program } from 'commander';
+import { SetupWizard } from '../src/config/setup-wizard.js';
+import { ConfigManager } from '../src/config/config-manager.js';
+import { ServiceOrchestrator } from '../src/config/service-orchestrator.js';
+import { HybridMemoryManager } from '../src/memory-manager.js';
+import chalk from 'chalk';
+
+const version = '1.0.0';
+
+program
+  .name('lev-memory')
+  .description('Leviathan Memory System - Configurable AI-native memory')
+  .version(version);
+
+// Setup command
+program
+  .command('setup')
+  .description('Run the setup wizard to configure memory system')
+  .option('-i, --interactive', 'Interactive setup mode', true)
+  .option('--auto', 'Non-interactive auto-setup')
+  .action(async (options) => {
+    try {
+      const wizard = new SetupWizard();
+      const result = await wizard.run({ 
+        interactive: options.auto ? false : options.interactive 
+      });
+      
+      console.log(chalk.green('\n🎉 Setup completed successfully!'));
+      if (result.services) {
+        console.log(chalk.cyan(`Services: ${result.services.services.join(', ')}`));
+      }
+      
+    } catch (error) {
+      console.error(chalk.red('Setup failed:'), error.message);
+      process.exit(1);
+    }
+  });// Detect command  
+program
+  .command('detect')
+  .description('Detect available Neo4j installations and configurations')
+  .action(async () => {
+    try {
+      const configManager = new ConfigManager();
+      await configManager.loadConfig();
+      
+      console.log(configManager.getConfigSummary());
+      console.log(configManager.detector.getSummary());
+      
+    } catch (error) {
+      console.error(chalk.red('Detection failed:'), error.message);
+      process.exit(1);
+    }
+  });
+
+// Status command
+program
+  .command('status')
+  .description('Check status of memory system services')
+  .action(async () => {
+    try {
+      const configManager = new ConfigManager();
+      const config = await configManager.loadConfig();
+      const orchestrator = new ServiceOrchestrator(config);
+      
+      console.log(chalk.yellow('🔍 Checking service status...\n'));
+      
+      const status = await orchestrator.getStatus();
+      
+      console.log(chalk.blue('📊 Service Status:'));
+      console.log(`  Mode: ${status.mode}`);
+      console.log(`  Neo4j: ${status.services.neo4j ? '✅ Running' : '❌ Not accessible'}`);
+      console.log(`  Graphiti: ${status.services.graphiti ? '✅ Running' : '❌ Not accessible'}`);
+      console.log(`  Overall: ${status.healthy ? '✅ Healthy' : '❌ Issues detected'}`);
+      
+    } catch (error) {
+      console.error(chalk.red('Status check failed:'), error.message);
+      process.exit(1);
+    }
+  });
+
+// Start command
+program
+  .command('start')
+  .description('Start memory system services')
+  .option('-m, --mode <mode>', 'Deployment mode (auto, desktop, docker, external, native)')
+  .action(async (options) => {
+    try {
+      const configManager = new ConfigManager();
+      const config = await configManager.loadConfig();
+      
+      if (options.mode) {
+        config.deploymentMode = options.mode;
+      }
+      
+      const orchestrator = new ServiceOrchestrator(config);
+      const result = await orchestrator.start();
+      
+      console.log(chalk.green.bold('🚀 Services started successfully!'));
+      console.log(chalk.cyan(`Mode: ${result.mode}`));
+      console.log(chalk.cyan(`Services: ${result.services.join(', ')}`));
+      
+    } catch (error) {
+      console.error(chalk.red('Failed to start services:'), error.message);
+      process.exit(1);
+    }
+  });
+
+// Stop command
+program
+  .command('stop')
+  .description('Stop memory system services')
+  .action(async () => {
+    try {
+      const configManager = new ConfigManager();
+      const config = await configManager.loadConfig();
+      const orchestrator = new ServiceOrchestrator(config);
+      
+      await orchestrator.stop();
+      console.log(chalk.green('🛑 Services stopped successfully'));
+      
+    } catch (error) {
+      console.error(chalk.red('Failed to stop services:'), error.message);
+      process.exit(1);
+    }
+  });
+
+// Config command
+program
+  .command('config')
+  .description('Show current configuration')
+  .option('--export', 'Export configuration as environment variables')
+  .action(async (options) => {
+    try {
+      const configManager = new ConfigManager();
+      await configManager.loadConfig();
+      
+      if (options.export) {
+        const installScript = SetupWizard.generateInstallScript(configManager.config);
+        console.log(chalk.yellow('Environment Variables:'));
+        console.log(installScript.bash);
+        console.log('\n' + chalk.yellow('Installation Instructions:'));
+        installScript.instructions.forEach(instruction => {
+          console.log(chalk.cyan(`  ${instruction}`));
+        });
+      } else {
+        console.log(configManager.getConfigSummary());
+      }
+      
+    } catch (error) {
+      console.error(chalk.red('Configuration check failed:'), error.message);
+      process.exit(1);
+    }
+  });
+
+// Test command
+program
+  .command('test')
+  .description('Test memory system functionality')
+  .action(async () => {
+    try {
+      console.log(chalk.yellow('🧪 Testing memory system...\n'));
+      
+      const memoryManager = new HybridMemoryManager();
+      await memoryManager.initialize();
+      
+      // Basic functionality test
+      const testData = {
+        session: 'test-session',
+        content: 'This is a test memory entry',
+        type: 'test',
+        timestamp: new Date().toISOString()
+      };
+      
+      console.log(chalk.cyan('📝 Storing test data...'));
+      await memoryManager.store(testData);
+      
+      console.log(chalk.cyan('🔍 Retrieving test data...'));
+      const retrieved = await memoryManager.retrieve('test-session');
+      
+      if (retrieved && retrieved.length > 0) {
+        console.log(chalk.green('✅ Memory system is working correctly!'));
+        console.log(chalk.gray(`Retrieved ${retrieved.length} items`));
+      } else {
+        console.log(chalk.yellow('⚠️ No data retrieved - check configuration'));
+      }
+      
+    } catch (error) {
+      console.error(chalk.red('Memory test failed:'), error.message);
+      process.exit(1);
+    }
+  });
+
+program.parse();

@@ -54,7 +54,8 @@
       "Bash(chmod:*)",
       "Bash(npm install:*)",
       "Bash(magick:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(rsync:*)"
     ],
     "deny": []
   }

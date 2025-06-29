@@ -1,0 +1,11 @@
+{
+  "triggers": [
+    { "chat_id": 1764723570, "name": "Target 1", "cmd": "scanForContract" },
+    { "user_id": 1609096720, "name": "Rude Paris", "phrase": "testzxc", "cmd": "watchChannel" },
+    { "chat_id": 1764723570, "name": "Muscle", "cmd": "watchChannel" }
+  ],
+  "rpid": 1609096720,
+  "muscle": 0,
+  "targetLounges": [],
+  "channels": [-1002020773267]
+}

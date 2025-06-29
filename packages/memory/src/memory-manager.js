@@ -35,6 +35,28 @@ export class HybridMemoryManager {
 
   async initialize() {
     try {
+      // Load configuration using new system if enabled
+      if (this.options.useConfigSystem) {
+        console.log('🔧 Loading configuration...');
+        this.config = await this.configManager.loadConfig();
+        
+        // Update options with config values
+        this.options = {
+          ...this.options,
+          neo4jUri: this.config.neo4j.uri,
+          neo4jUsername: this.config.neo4j.username,
+          neo4jPassword: this.config.neo4j.password,
+          grpcAddress: this.config.graphiti.grpcAddress,
+          enableGraphiti: this.config.features.enableGraphiti,
+          fallbackMode: this.config.features.fallbackMode
+        };
+        
+        // Initialize service orchestrator
+        this.orchestrator = new ServiceOrchestrator(this.config);
+        
+        console.log(`📋 Using ${this.config.deploymentMode} deployment mode`);
+      }
+      
       // Initialize Graphiti gRPC connection
       if (this.options.enableGraphiti) {
         this.graphiti = new GraphitiGRPCClient({
