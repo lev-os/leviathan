@@ -65,7 +65,8 @@
       "Bash(wget:*)",
       "mcp__desktop-commander__get_file_info",
       "mcp__perplexity-ask_1__perplexity_research",
-      "Bash(pnpm list:*)"
+      "Bash(pnpm list:*)",
+      "mcp__perplexity-ask_1__perplexity_research"
     ],
     "deny": []
   }

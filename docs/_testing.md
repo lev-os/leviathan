@@ -1,12 +1,48 @@
 # Leviathan Testing Strategy Assessment
 
-## Current Testing Landscape
+## Current Testing Landscape (Updated 2025-06-30)
 
-*   **`agent/tests`**: This directory contains a very structured and comprehensive set of tests. The subdirectories (`adapters`, `architectural`, `commands`, `components`, `core`, `e2e`, `integration`, `performance`, `smoke`, `validation`) suggest a mature testing strategy that covers various levels of testing, from unit to end-to-end.
-*   **`packages/`**: The testing situation in the individual packages is much less consistent.
-    *   `packages/workshop`: Contains a `tests` directory with `workshop.test.js` and an `integration-test.js`. This is a good sign.
-    *   `packages/testing`: Ironically, the `testing` package itself has a `tests` directory with several test files. This suggests it's a self-contained, testable unit.
-    *   **Other Packages**: The other core packages (`api`, `auth`, `commands`, `db`, `debug`, `desktop`, `memory`, `ui`, `validation`, `validators`) do **not** appear to have any dedicated test files.
+### ✅ **Excellent Foundation: Agent Testing (5/5 smoke tests passing)**
+**Agent Testing Structure (Exemplary Model)**:
+```
+agent/tests/
+├── adapters/           # Adapter-specific testing (CLI, MCP)
+│   ├── cli/           # CLI adapter with e2e/claude/ integration
+│   │   ├── e2e/       # End-to-end Claude Code integration
+│   │   ├── integration/   # CLI integration tests
+│   │   └── unit/      # CLI unit tests
+│   └── mcp/           # MCP adapter testing
+├── architectural/     # Hexagonal architecture compliance
+├── commands/          # Command-level testing
+├── components/        # Component-specific tests
+├── core/              # Core business logic tests
+│   ├── agents/        # Agent management
+│   ├── discovery/     # Context search
+│   └── sessions/      # Session management
+├── dogfooding/        # Real workflow BDD tests
+├── e2e/               # Full system end-to-end
+├── integration/       # Cross-component integration
+├── performance/       # Performance/benchmarking
+├── smoke/             # Quick health checks (5/5 passing)
+└── validation/        # Behavior validation
+```
+
+### 🔄 **Core Package Testing Status**
+**Post-Migration State**:
+- **`core/testing`**: ✅ 7 test files (sophisticated framework)
+- **`core/workshop`**: ✅ 1 test file (basic coverage)
+- **`core/debug`**: ❌ No tests (critical gap)
+- **`core/memory`**: ❌ No tests (critical gap)
+- **`core/commands`**: ❌ No tests (critical gap)
+- **`core/validation`**: ❌ No tests (critical gap)
+
+### 🔄 **Plugin Testing Status**
+**Post-Flattening State**:
+- **`workflow-orchestrator`**: ✅ 1 test file (basic coverage)
+- **`constitutional-ai`**: ❌ Empty tests directory (migration needed)
+- **`gemini-executor`**: ❌ No tests
+- **`constitutional-framework`**: ❌ No tests
+- **`eeps-system`**: ❌ No tests
 
 ## Analysis and Recommendations
 

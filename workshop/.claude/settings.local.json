@@ -64,7 +64,8 @@
       "Bash(docker rm:*)",
       "Bash(docker run:*)",
       "Bash(docker stop:*)",
-      "Bash(docker volume rm:*)"
+      "Bash(docker volume rm:*)",
+      "Bash(docker volume:*)"
     ],
     "deny": []
   }

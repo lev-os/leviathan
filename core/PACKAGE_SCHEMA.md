@@ -82,14 +82,21 @@ namespace:
   - `required`: Must be loaded during core initialization
   - `optional`: Can be loaded on-demand
 
-### integration.mcp_tools
+### integration.tool_exposure
 - **Type**: enum
 - **Required**: Yes
 - **Values**: `selective` | `full` | `none`
-- **Description**: MCP tool exposure strategy
+- **Description**: Tool exposure strategy across adapters
   - `selective`: Limited set of essential tools (5-8 max)
-  - `full`: All package capabilities as MCP tools
-  - `none`: No MCP tool exposure
+  - `full`: All package capabilities exposed as tools
+  - `none`: No tool exposure
+
+### integration.adapters
+- **Type**: array[string]
+- **Required**: Yes
+- **Values**: `["mcp", "cli", "http", "grpc"]`
+- **Description**: Which adapters this package supports
+- **Examples**: `["mcp", "cli"]` for most core packages
 
 ### integration.universal_context
 - **Type**: boolean
