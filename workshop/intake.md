@@ -6,8 +6,9 @@
 ## Working Memory Template (Copy this and fill out as you go):
 ```yaml
 intake_progress:
-  mode: "[interactive|autonomous]"
-  repository: "[name]"
+  mode: "[interactive|autonomous|batch]"
+  repository: "[name]"  # Single repo mode
+  batch_repositories: []  # ["repo1", "repo2", "repo3"] for batch mode
   
   directory_verification:
     target_directory: "~/lev/workshop/intake/[name]/"
@@ -40,13 +41,18 @@ intake_progress:
   step_6_completed: false
   step_6_path: "[adr|poc|direct]"
   step_6_checkpoint: "[user_documentation_preference|na_for_autonomous]"
+  
+  # Batch mode extensions
+  shared_steps_completed: {step_1: false, step_3: false}
+  batch_progress: {}  # Per-repo tracking: {repo1: {step_2: false, step_4: false}, ...}
 ```
 
 ## 🤝 INTERACTIVE MODE DETECTION
 
 <mode_selection>
 IF working with human in real-time: Use Interactive Mode
-IF autonomous execution: Use Standard Mode  
+IF autonomous execution: Use Standard Mode
+IF multiple repositories: Use Batch Mode
 </mode_selection>
 
 ### Interactive Mode Requirements:
@@ -61,6 +67,26 @@ IF autonomous execution: Use Standard Mode
 - **After Step 3**: "Lev capabilities: [findings]. Which areas need deeper investigation?"
 - **Before Step 5**: "I recommend [DECISION] because [REASONING]. Your thoughts?"
 - **Before Step 6**: "Documentation path: ADR via wizard experience OR POC first?"
+
+### Batch Mode Process:
+**Phase 1: Parallel Acquisition**
+```bash
+# Clone all repositories in parallel
+git clone <repo1_url> ~/lev/workshop/intake/<repo1_name> &
+git clone <repo2_url> ~/lev/workshop/intake/<repo2_name> &
+git clone <repo3_url> ~/lev/workshop/intake/<repo3_name> &
+wait
+```
+
+**Phase 2: Shared Analysis (Once)**
+- Step 1: Load cache once, reuse for all repos
+- Step 3: Scan Lev capabilities once, cache findings
+
+**Phase 3: Per-Repository Processing**
+- Steps 2,4,5,6 per repository using cached data
+- Generate cross-repository comparison matrix
+
+**Efficiency**: Reduces operations from 6×N to 3+3×N (~40-60% time savings)
 
 ## ❌ FAILURE PATTERNS (What NOT to do):
 1. **Skipping Step 3**: "I'll just assume what Leviathan has" → WRONG
@@ -209,6 +235,34 @@ Which aspects interest you most for potential integration?"
 - [ ] **FORK/MODIFY**: `mv ~/lev/workshop/intake/[name] ~/lev/vendor/` (or ~/lev/os/vendor/)
 - [ ] **MONITOR**: `rm -rf ~/lev/workshop/intake/[name]` (keep analysis only)
 - [ ] **PASS**: `rm -rf ~/lev/workshop/intake/[name]` (not useful)
+
+### Post-Decision Processing Routes
+
+**CRITICAL UPDATE**: Repository destination depends on implementation readiness:
+
+#### 1. **workshop/approved/** - Further Analysis Required
+- **When**: EXTRACT/ADOPT/FORK decisions that need integration planning
+- **Purpose**: Staging area for approved technologies awaiting implementation
+- **Contents**: Repos that passed intake but need ADR/POC before _ref
+- **Action**: `mv ~/lev/workshop/intake/[name] ~/lev/workshop/approved/`
+
+#### 2. **_ref/** - Shovel Ready
+- **When**: Patterns ready for immediate extraction/use
+- **Purpose**: Reference implementations ready to copy/integrate
+- **Contents**: Clean, documented patterns ready for direct use
+- **Action**: `mv ~/lev/workshop/approved/[name] ~/lev/_ref/`
+
+#### 3. **Direct Deletion** - No Further Value
+- **When**: MONITOR/PASS decisions
+- **Purpose**: Keep workspace clean
+- **Action**: `rm -rf ~/lev/workshop/intake/[name]`
+
+**Updated Decision Matrix**:
+- [ ] **EXTRACT PATTERNS**: → `workshop/approved/` → ADR → `_ref/`
+- [ ] **ADOPT DEPENDENCY**: → `workshop/approved/` → Integration plan → Install
+- [ ] **FORK/MODIFY**: → `workshop/approved/` → Fork strategy → `vendor/`
+- [ ] **MONITOR**: → Delete (keep analysis only)
+- [ ] **PASS**: → Delete immediately
 
 **Checkpoint 5**: Post-processing action completed.
 
@@ -419,10 +473,12 @@ Proceed with cleanup? Or keep source for further exploration?"
 ## 📊 Complete Flow Summary
 ```
 intake/[name]/ → analysis/[name]/ → decision → action
-                                                  ↓
-                    ┌─────────┬────────┬────────┬─┴──────┬────────┐
-                    ↓         ↓        ↓        ↓        ↓        ↓
-                 _ref/    vendor/    pnpm    monitor   pass    POC?
-                                   install  (delete) (delete)    ↓
-                                                              ADR?
+                                                 ↓
+                  ┌─────────┬────────┬────────┬──┴─────┬────────┐
+                  ↓         ↓        ↓        ↓        ↓        ↓
+             approved/  approved/  approved/ monitor  pass    POC?
+                ↓          ↓         ↓      (delete) (delete)   ↓
+              ADR?      install    fork                       ADR?
+                ↓                    ↓
+              _ref/               vendor/
 ```

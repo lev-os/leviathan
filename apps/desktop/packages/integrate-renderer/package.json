@@ -1,5 +1,5 @@
 {
-  "name": "@trader/integrate-renderer",
+  "name": "@lev-os/desktop-integrate-renderer",
   "description": "",
   "main": "index.js",
   "type": "module",

@@ -13,12 +13,33 @@ from typing import Dict, Any, List
 try:
     from mcp_agent.app import MCPApp
     from mcp_agent.agents.agent import Agent
-    from mcp_agent.workflows.orchestrator.orchestrator import Orchestrator
-    from mcp_agent.workflows.router.router_llm import RouterLLM
-    from mcp_agent.config import Settings, MCPSettings, MCPServerSettings
-    from mcp_agent.workflows.llm.augmented_llm_openai import OpenAIAugmentedLLM
-except ImportError:
-    print("❌ MCP Agent not installed. Run: ./install_real_mcp.sh")
+    print("✅ Core MCP Agent modules imported")
+    
+    # Try importing optional modules
+    try:
+        from mcp_agent.workflows.orchestrator.orchestrator import Orchestrator
+        print("✅ Orchestrator imported")
+    except ImportError:
+        print("⚠️  Orchestrator not available, using simplified flow")
+        Orchestrator = None
+    
+    try:
+        from mcp_agent.workflows.router.router_llm import RouterLLM  
+        print("✅ RouterLLM imported")
+    except ImportError:
+        print("⚠️  RouterLLM not available, using simplified routing")
+        RouterLLM = None
+    
+    try:
+        from mcp_agent.config import Settings, MCPSettings, MCPServerSettings
+        print("✅ Configuration classes imported")
+    except ImportError:
+        print("⚠️  Config classes not available, using defaults")
+        Settings = MCPSettings = MCPServerSettings = None
+        
+except ImportError as e:
+    print(f"❌ MCP Agent import failed: {e}")
+    print("Run: ./install_real_mcp.sh")
     exit(1)
 
 
@@ -56,32 +77,36 @@ class LevBiDirectionalBridge:
                 
         return contexts
     
-    def _create_mcp_settings(self) -> Settings:
+    def _create_mcp_settings(self):
         """Create MCP settings integrating with Lev's systems"""
-        return Settings(
-            execution_engine="asyncio",
-            mcp=MCPSettings(
-                servers={
-                    "filesystem": MCPServerSettings(
-                        command="npx",
-                        args=["-y", "@modelcontextprotocol/server-filesystem", str(Path.home())]
-                    ),
-                    "fetch": MCPServerSettings(
-                        command="npx",
-                        args=["-y", "@modelcontextprotocol/server-fetch"]
-                    ),
-                    # Future: Add Lev's memory and agent servers
-                    # "lev_memory": MCPServerSettings(
-                    #     command="python",
-                    #     args=[str(Path("~/lev/packages/memory/mcp_server.py").expanduser())]
-                    # ),
-                    # "lev_agent": MCPServerSettings(
-                    #     command="node",
-                    #     args=[str(Path("~/lev/agent/src/index.js").expanduser())]
-                    # )
-                }
+        if Settings and MCPSettings and MCPServerSettings:
+            return Settings(
+                execution_engine="asyncio",
+                mcp=MCPSettings(
+                    servers={
+                        "filesystem": MCPServerSettings(
+                            command="npx",
+                            args=["-y", "@modelcontextprotocol/server-filesystem", str(Path.home())]
+                        ),
+                        "fetch": MCPServerSettings(
+                            command="npx",
+                            args=["-y", "@modelcontextprotocol/server-fetch"]
+                        ),
+                        # Future: Add Lev's memory and agent servers
+                        # "lev_memory": MCPServerSettings(
+                        #     command="python",
+                        #     args=[str(Path("~/lev/packages/memory/mcp_server.py").expanduser())]
+                        # ),
+                        # "lev_agent": MCPServerSettings(
+                        #     command="node",
+                        #     args=[str(Path("~/lev/agent/src/index.js").expanduser())]
+                        # )
+                    }
+                )
             )
-        )
+        else:
+            print("⚠️  Using default MCP settings (config classes not available)")
+            return None
     
     async def demonstrate_bi_directional_flow(self, intent: str):
         """
@@ -96,10 +121,8 @@ class LevBiDirectionalBridge:
         print(f"\n1️⃣  LLM → System: '{intent}'")
         
         # Create MCP app with our settings
-        app = MCPApp(
-            name="lev_bridge",
-            settings=self._create_mcp_settings()
-        )
+        settings = self._create_mcp_settings()
+        app = MCPApp(name="lev_bridge", settings=settings) if settings else MCPApp(name="lev_bridge")
         
         async with app.run() as mcp_app:
             # Step 2: System → LLM Response
@@ -109,31 +132,45 @@ class LevBiDirectionalBridge:
             orchestrator_context = self.contexts.get('mcp_orchestrator', {})
             agent_config = orchestrator_context.get('agent_config', {})
             
-            # Create router to classify intent
-            router = RouterLLM(
-                categories={
-                    "analysis": "Code analysis and architecture review",
-                    "integration": "System integration and bridging",
-                    "research": "Research and documentation tasks"
-                }
-            )
+            # Create router to classify intent if available
+            if RouterLLM:
+                router = RouterLLM(
+                    categories={
+                        "analysis": "Code analysis and architecture review",
+                        "integration": "System integration and bridging", 
+                        "research": "Research and documentation tasks"
+                    }
+                )
+                
+                # Let router decide based on natural language
+                routing_decision = await router.route(intent)
+                print(f"   Router decision: {routing_decision.result} (confidence: {routing_decision.p_score})")
+                routing_result = routing_decision.result
+            else:
+                # Simplified routing based on keywords
+                if "integrat" in intent.lower():
+                    routing_result = "integration"
+                elif "analy" in intent.lower():
+                    routing_result = "analysis"
+                else:
+                    routing_result = "research"
+                print(f"   Simple routing: {routing_result}")
             
-            # Let router decide based on natural language
-            routing_decision = await router.route(intent)
-            print(f"   Router decision: {routing_decision.result} (confidence: {routing_decision.p_score})")
-            
-            # Create orchestrator for task breakdown
-            orchestrator = Orchestrator()
-            
-            # The orchestrator creates a plan based on intent
-            # In a real implementation, this would use the LLM to create the plan
-            print("\n   Creating execution plan...")
+            # Create orchestrator for task breakdown if available
+            if Orchestrator:
+                try:
+                    # Orchestrator needs an LLM factory - skip for now
+                    print("\n   Orchestrator available but needs LLM setup - using simplified plan...")
+                except Exception as e:
+                    print(f"\n   Orchestrator error: {e} - using simplified plan...")
+            else:
+                print("\n   Creating simplified execution plan...")
             
             # Step 3: LLM → Enhanced Processing
             print("\n3️⃣  LLM → Execute: Following plan with autonomy...")
             
             # Create specialized agent based on routing decision
-            if routing_decision.result == "integration":
+            if routing_result == "integration":
                 agent = Agent(
                     name="integration_specialist",
                     instruction="""You are an integration specialist. 
@@ -145,7 +182,7 @@ class LevBiDirectionalBridge:
                 agent = Agent(
                     name="general_agent",
                     instruction="You help with various tasks using available tools.",
-                    server_names=["filesystem", "fetch"]
+                    server_names=["filesystem"]
                 )
             
             async with agent:
@@ -165,7 +202,7 @@ class LevBiDirectionalBridge:
                 # Save to session (Lev's session management)
                 session_data = {
                     'intent': intent,
-                    'routing': routing_decision.result,
+                    'routing': routing_result,
                     'agent': agent.name,
                     'timestamp': asyncio.get_event_loop().time(),
                     'status': 'completed'
@@ -180,13 +217,13 @@ class LevBiDirectionalBridge:
                 # Step 5: System → Iteration
                 print("\n5️⃣  System → Next: Suggesting next steps...")
                 
-                next_steps = self._suggest_next_steps(routing_decision.result)
+                next_steps = self._suggest_next_steps(routing_result)
                 for i, step in enumerate(next_steps, 1):
                     print(f"   {i}. {step}")
                 
                 return {
                     'intent': intent,
-                    'routing': routing_decision.result,
+                    'routing': routing_result,
                     'agent_used': agent.name,
                     'next_steps': next_steps
                 }
@@ -250,7 +287,7 @@ Remember: You operate in an LLM-first architecture where:
         agent = Agent(
             name=name,
             instruction=instruction,
-            server_names=["filesystem", "fetch"]
+            server_names=["filesystem"]
         )
         
         print(f"✅ Agent created with {len(capabilities)} capabilities")

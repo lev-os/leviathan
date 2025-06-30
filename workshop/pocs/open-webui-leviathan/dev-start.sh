@@ -21,7 +21,7 @@ echo "   cd ~/lev/agent && npm run dev"
 echo ""
 
 echo "2️⃣ TERMINAL 2 - Open WebUI Docker:"
-echo "   docker run -d --name open-webui -p 3002:8080 -v open-webui:/app/backend/data ghcr.io/open-webui/open-webui:main"
+echo "   docker run -d --name open-webui -p 3002:8080 -v open-webui:/app/backend/data -e WEBUI_AUTH=False ghcr.io/open-webui/open-webui:main"
 echo "   # Or if already exists: docker start open-webui"
 echo ""
 

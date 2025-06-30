@@ -1,0 +1,16 @@
+id: multi-modal-memory-fusion-for-24-7-ai-assistants-2025-06-29-6ee995
+workflowId: ultimate-research-workflow
+created: '2025-06-29T22:06:45.010Z'
+status: active
+currentStep: qna_wizard
+currentStepNumber: 1
+completedSteps: []
+pendingCallbacks:
+  - - qna-wizard-complete
+    - context:
+        stepId: qna_wizard
+      timestamp: '2025-06-29T22:06:45.014Z'
+outputs: {}
+input:
+  topic: Multi-modal memory fusion for 24/7 AI assistants
+path: sessions/multi-modal-memory-fusion-for-24-7-ai-assistants-2025-06-29-6ee995

@@ -1,5 +1,5 @@
 {
-  "name": "@trader/preload",
+  "name": "@lev-os/desktop-preload",
   "type": "module",
   "scripts": {
     "build": "vite build",
@@ -16,7 +16,7 @@
     }
   },
   "devDependencies": {
-    "@trader/electron-versions": "*",
+    "@lev-os/desktop-electron-versions": "*",
     "mlly": "1.7.3",
     "typescript": "^5.7.2",
     "vite": "^6.2.2"

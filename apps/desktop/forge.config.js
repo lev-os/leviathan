@@ -1,29 +1,25 @@
 export default {
   packagerConfig: {
     asar: true,
-    name: 'TraderStack',
-    executableName: 'trader-stack',
-    appBundleId: 'com.mpup.traderstack',
+    name: 'Leviathan',
+    executableName: 'leviathan-desktop',
+    appBundleId: 'com.leviathan.desktop',
     icon: './buildResources/icon',
-    extraResource: [
-      './packages/tg/.env.devnet',
-      './devnet-keypair.json',
-      './packages/crypto-hedge-fund'
-    ],
+    extraResource: [],
     osxSign: false, // Disable signing for development
     osxNotarize: false, // Disable notarization for development
     ignore: [
       /^\/\.git$/,
       /^\/\.vscode$/,
-      /^\/\.memory$/,
       /^\/docs$/,
+      /^\/agent$/,
+      /^\/os$/,
+      /^\/workshop$/,
       /^\/out$/,
       /^\/dist$/,
       /^\/test-results$/,
       /^\/tests$/,
       /^\/scripts$/,
-      /^\/ai-hedge-fund$/,
-      /^\/research$/,
       /\.md$/,
       /\.map$/,
       /\.ts$/,
@@ -53,10 +49,10 @@ export default {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        name: 'trader_stack',
+        name: 'leviathan_desktop',
         setupIcon: './buildResources/icon.ico',
-        authors: 'MPUP Labs',
-        description: 'AI-powered Solana trading platform'
+        authors: 'Leviathan Team',
+        description: 'Leviathan AI-Native Desktop Service Manager'
       }
     },
     {
@@ -67,7 +63,7 @@ export default {
       name: '@electron-forge/maker-dmg',
       config: {
         icon: './buildResources/icon.icns',
-        name: 'TraderStack',
+        name: 'Leviathan',
         overwrite: true
       }
     },
@@ -76,10 +72,10 @@ export default {
       config: {
         options: {
           icon: './buildResources/icon.png',
-          maintainer: 'MPUP Labs',
-          homepage: 'https://mpup.ai',
-          categories: ['Finance', 'Development'],
-          description: 'AI-powered Solana trading platform'
+          maintainer: 'Leviathan Team',
+          homepage: 'https://github.com/leviathan',
+          categories: ['Development', 'Utility'],
+          description: 'Leviathan AI-Native Desktop Service Manager'
         }
       }
     }
@@ -97,8 +93,8 @@ export default {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'mpup-labs',
-          name: 'trader-stack'
+          owner: 'leviathan-os',
+          name: 'leviathan'
         },
         prerelease: false,
         draft: true,

@@ -1,4 +1,4 @@
-import { getNodeMajorVersion } from "@trader/electron-versions";
+import { getNodeMajorVersion } from "@lev-os/desktop-electron-versions";
 import { spawn } from "child_process";
 import electronPath from "electron";
 
@@ -18,6 +18,11 @@ export default /**
       formats: ["es"],
     },
     rollupOptions: {
+      external: [
+        "electron",
+        "electron-squirrel-startup",
+        "electron-updater"
+      ],
       output: {
         entryFileNames: "[name].js",
       },
@@ -40,7 +45,7 @@ function handleHotReload() {
   let rendererWatchServer = null;
 
   return {
-    name: "@trader/main-process-hot-reload",
+    name: "@lev-os/desktop-main-process-hot-reload",
 
     config(config, env) {
       if (env.mode !== "development") {

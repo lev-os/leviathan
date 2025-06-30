@@ -13,16 +13,16 @@
     "@auth/core": "catalog:"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tailwind-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@lev-os/eslint-config": "workspace:*",
+    "@lev-os/prettier-config": "workspace:*",
+    "@lev-os/tailwind-config": "workspace:*",
+    "@lev-os/tsconfig": "workspace:*",
     "@types/node": "^22.15.3",
-    "eslint": "catalog:",
+    "eslint": "^8.0.0",
     "h3": "^1.15.3",
     "nitropack": "^2.11.11",
-    "prettier": "catalog:",
-    "typescript": "catalog:"
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@lev-os/prettier-config"
 }

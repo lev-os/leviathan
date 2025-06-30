@@ -19,7 +19,8 @@
       "Bash(ls:*)",
       "Bash(grep:*)",
       "Bash(mkdir:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(go test:*)"
     ],
     "deny": []
   }

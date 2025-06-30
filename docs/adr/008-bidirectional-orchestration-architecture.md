@@ -167,5 +167,12 @@ class EmergenceEngine {
 - BIDIRECTIONAL-FLOW-DIAGRAM.md
 - Original whisper system analysis (_01-whisper.md)
 
+## Related
+
+- [ADR-012: Domain-Based Package Architecture](./012-domain-based-package-architecture.md)
+- [Bi-Directional Communication Specification](../concepts/revolutionary/bidirectional-communication-spec.md)
+- [Whisper Scaling Diagrams](../concepts/revolutionary/whisper-scaling-diagrams.md)
+- [Agent ADR 008: Whisper System Architecture](../agent/adr/008-whisper-system-architecture.md)
+
 ## Decision
 Proceed with staged implementation of bi-directional orchestration architecture, beginning with dynamic context assembly in Q1 2025.

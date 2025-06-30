@@ -1,0 +1,5 @@
+graphiti-core==0.12.4
+grpcio==1.62.2
+grpcio-tools==1.62.2
+protobuf==4.25.3
+neo4j>=5.26.0

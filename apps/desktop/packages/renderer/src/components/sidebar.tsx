@@ -15,11 +15,11 @@ import {
   Moon,
   ChevronLeft,
   ChevronRight,
-  Wallet,
+  Server,
   ChevronDown,
-  LineChart,
-  Sliders,
-  Link2,
+  Database,
+  Brain,
+  Bot,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -34,20 +34,19 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { name: "Active Trades", href: "/", icon: Activity },
+  { name: "Services", href: "/", icon: Server },
   { name: "Console", href: "/console", icon: Terminal },
   { name: "History", href: "/history", icon: History },
   {
-    name: "Trading",
+    name: "Components",
     href: "#",
-    icon: LineChart,
+    icon: Brain,
     children: [
-      { name: "Channels", href: "/trading/channels", icon: MessageSquare },
-      { name: "Settings", href: "/trading/settings", icon: Sliders },
+      { name: "Neo4j", href: "/services/neo4j", icon: Database },
+      { name: "Graphiti", href: "/services/graphiti", icon: Brain },
+      { name: "Agent", href: "/services/agent", icon: Bot },
     ],
   },
-  { name: "Wallet", href: "/wallet", icon: Wallet },
-  { name: "Connections", href: "/connections", icon: Link2 },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
 

@@ -1,4 +1,4 @@
-import { initApp } from "@trader/main";
+import { initApp } from "@lev-os/desktop-main";
 import { fileURLToPath } from "node:url";
 
 if (
@@ -23,10 +23,10 @@ process.on("SIGINT", () => process.exit(0));
 
 // noinspection JSIgnoredPromiseFromCall
 /**
- * We resolve '@trader/renderer' and '@trader/preload'
- * here and not in '@trader/main'
+ * We resolve '@lev-os/desktop-renderer' and '@lev-os/desktop-preload'
+ * here and not in '@lev-os/desktop-main'
  * to observe good practices of modular design.
- * This allows fewer dependencies and better separation of concerns in '@trader/main'.
+ * This allows fewer dependencies and better separation of concerns in '@lev-os/desktop-main'.
  * Thus,
  * the main module remains simplistic and efficient
  * as it receives initialization instructions rather than direct module imports.
@@ -36,10 +36,10 @@ initApp({
     process.env.MODE === "development" && !!process.env.VITE_DEV_SERVER_URL
       ? new URL(process.env.VITE_DEV_SERVER_URL)
       : {
-          path: fileURLToPath(import.meta.resolve("@trader/renderer")),
+          path: fileURLToPath(import.meta.resolve("@lev-os/desktop-renderer")),
         },
 
   preload: {
-    path: fileURLToPath(import.meta.resolve("@trader/preload/exposed.mjs")),
+    path: fileURLToPath(import.meta.resolve("@lev-os/desktop-preload/exposed.mjs")),
   },
 });

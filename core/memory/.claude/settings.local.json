@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__desktop-commander__search_files",
+      "mcp__desktop-commander__search_code",
+      "mcp__desktop-commander__read_file",
+      "mcp__desktop-commander__write_file",
+      "Bash(node:*)",
+      "Bash(pnpm install:*)",
+      "mcp__desktop-commander__create_directory"
+    ],
+    "deny": []
+  }
+}

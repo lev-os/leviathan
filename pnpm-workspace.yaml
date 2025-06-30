@@ -1,5 +1,8 @@
 packages:
-  # Core packages (following Mastra model)
+  # Core packages (moved from packages/)
+  - 'core/*'
+  
+  # Remaining packages (UI, API, DB, etc.)
   - 'packages/*'
   
   # Agent system
@@ -14,8 +17,8 @@ packages:
   # Tooling
   - 'tooling/*'
   
-  # True plugins (optional functionality)
-  - 'plugins/@homie/*'
+  # Flattened plugins (no @lev-os nesting)
+  - 'plugins/*'
   
   # Forge and experimental features
   - 'forge/*'

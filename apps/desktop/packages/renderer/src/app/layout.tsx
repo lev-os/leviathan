@@ -9,8 +9,8 @@ import { DevModeIndicator } from "@/components/dev-mode-indicator";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Auto Trader",
-  description: "MoonPup Labs Auto Trader",
+  title: "Leviathan Desktop",
+  description: "Leviathan AI-Native Desktop Service Manager",
 };
 
 export default function RootLayout({

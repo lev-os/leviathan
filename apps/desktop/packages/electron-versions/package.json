@@ -1,5 +1,5 @@
 {
-  "name": "@trader/electron-versions",
+  "name": "@lev-os/desktop-electron-versions",
   "type": "module",
   "files": [],
   "main": "./index.js",

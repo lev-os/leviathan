@@ -60,7 +60,11 @@
       "Bash(python:*)",
       "Bash(cat:*)",
       "Bash(lev find:*)",
-      "Bash(npm init:*)"
+      "Bash(npm init:*)",
+      "Bash(docker rm:*)",
+      "Bash(docker run:*)",
+      "Bash(docker stop:*)",
+      "Bash(docker volume rm:*)"
     ],
     "deny": []
   }

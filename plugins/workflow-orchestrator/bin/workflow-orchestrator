@@ -1,0 +1,134 @@
+#!/usr/bin/env node
+
+/**
+ * Workflow Orchestrator CLI Entry Point
+ * 
+ * Provides command-line interface for bi-directional workflow orchestration
+ */
+
+import { program } from 'commander';
+import { SessionCLI } from '../src/adapters/cli/session-cli.js';
+
+const cli = new SessionCLI();
+
+program
+  .name('workflow-orchestrator')
+  .description('Bi-directional workflow orchestration CLI')
+  .version('1.0.0');
+
+// Execute workflow command - Creates session and returns first instruction
+program
+  .command('execute <workflow>')
+  .description('Execute a workflow (creates new session)')
+  .option('-i, --input <input>', 'Input data (JSON, file path, or key=value pairs)')
+  .option('-v, --verbose', 'Verbose output')
+  .action(async (workflow, options) => {
+    try {
+      const result = await cli.execute({
+        workflow,
+        input: options.input,
+        verbose: options.verbose
+      });
+      
+      if (result.status === 'awaiting_callback') {
+        console.log(`\n📋 Session ${result.sessionId} created and awaiting your response.`);
+      }
+    } catch (error) {
+      console.error('❌ Execution failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+// List workflows command
+program
+  .command('list')
+  .description('List available workflows')
+  .option('-t, --type <type>', 'Filter by workflow type')
+  .option('-c, --category <category>', 'Filter by category')
+  .option('-v, --verbose', 'Show detailed information')
+  .action(async (options) => {
+    try {
+      await cli.list({
+        type: options.type,
+        category: options.category,
+        verbose: options.verbose
+      });
+    } catch (error) {
+      console.error('❌ List failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+// Show workflow info command
+program
+  .command('info <workflow>')
+  .description('Show detailed information about a workflow')
+  .action(async (workflow) => {
+    try {
+      await cli.info(workflow);
+    } catch (error) {
+      console.error('❌ Info failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+// Callback command - Process LLM response and continue workflow
+program
+  .command('callback <sessionId> <callbackId>')
+  .description('Process LLM callback and continue workflow')
+  .option('-f, --file <file>', 'Output file path')
+  .action(async (sessionId, callbackId, options) => {
+    try {
+      const result = await cli.callback({
+        sessionId,
+        callbackId,
+        file: options.file
+      });
+      
+      if (result.status === 'completed') {
+        console.log(`\n🎉 Workflow completed! Results in: ${result.finalPath}`);
+      } else if (result.status === 'awaiting_callback') {
+        console.log(`\n📋 Session ${result.sessionId} awaiting next response.`);
+      }
+    } catch (error) {
+      console.error('❌ Callback failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+// Status command - Show session status
+program
+  .command('status [sessionId]')
+  .description('Show session status (all sessions if no ID provided)')
+  .action(async (sessionId) => {
+    try {
+      await cli.status({ sessionId });
+    } catch (error) {
+      console.error('❌ Status failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+// Resume command - Resume a session
+program
+  .command('resume <sessionId>')
+  .description('Resume a session')
+  .action(async (sessionId) => {
+    try {
+      const result = await cli.resume({ sessionId });
+      
+      if (result.status === 'completed') {
+        console.log(`\n🎉 Session already completed!`);
+      } else if (result.status === 'pending_callbacks') {
+        console.log(`\n⏳ Complete pending callbacks first.`);
+      } else if (result.status === 'awaiting_callback') {
+        console.log(`\n📋 Session ${result.sessionId} resumed and awaiting response.`);
+      }
+    } catch (error) {
+      console.error('❌ Resume failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+// Parse and execute
+program.parse();

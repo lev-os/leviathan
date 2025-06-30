@@ -1,0 +1,98 @@
+# Core Package Template
+# Copy this template when creating new core packages
+
+package:
+  name: "{package-name}"                    # Package name (kebab-case)
+  version: "1.0.0"                         # Semantic version
+  type: core_package                       # Always 'core_package'
+  namespace: "{namespace}"                 # Namespace for MCP tools and isolation
+  description: "Brief description of the core package"
+
+integration:
+  agent_coupling: tight                    # tight | loose
+  core_initializer: required               # required | optional
+  mcp_tools: selective                     # selective | full | none
+  universal_context: true                  # Access to universal context system
+
+architecture:
+  layers:                                  # System architecture layers this package operates on
+    - example_layer_1
+    - example_layer_2
+  backends:                               # External services or backends supported
+    - example_backend_1
+    - example_backend_2
+  capabilities:                           # Core capabilities provided
+    - example_capability_1
+    - example_capability_2
+
+core_hooks:                              # Integration points with agent system
+  - initialization                       # Package initialization hook
+  - mcp_registration                     # MCP tool registration
+  - context_attachment                   # Universal context integration
+  - session_management                   # Session lifecycle hooks
+
+namespace:
+  prefix: "{namespace}:"                 # MCP tool prefix
+  isolation: agent                       # agent | session | shared
+  permissions:                           # Cross-namespace access permissions
+    - "read:shared:example"
+    - "write:agent:example"
+
+# Selective MCP tool exposure (core package principle)
+# Only expose 5-8 essential tools to avoid overwhelming LLMs
+mcp_tools:
+  "{namespace}:primary":
+    description: "Primary action for this package"
+    auto_context: ["agent_id", "session_id"]
+    
+  "{namespace}:query":
+    description: "Query/search functionality"
+    auto_context: ["agent_id", "session_id", "namespace_scope"]
+    
+  "{namespace}:status":
+    description: "Package health and configuration status"
+    auto_context: ["deployment_mode", "service_status"]
+
+# Core package privileges (elevated status)
+core_privileges:
+  direct_system_access: true             # Direct access to system resources
+  cross_agent_communication: false      # Access to other agents' data
+  global_resource_access: false         # Access to global resources
+  namespace_management: false           # Can create/manage namespaces
+  file_system_access: "restricted"      # restricted | unrestricted
+  service_orchestration: false          # Can start/stop external services
+
+# Integration with existing agent components
+agent_integration:
+  session_manager:
+    wrapper: "{Package}SessionWrapper"
+    enhancements: ["Description of enhancements"]
+    
+  universal_context_system:
+    wrapper: "{Package}ContextWrapper"
+    enhancements: ["Description of enhancements"]
+    
+  intelligence_coordinator:
+    wrapper: "{Package}IntelligenceWrapper"
+    enhancements: ["Description of enhancements"]
+
+# Package-specific configuration
+configuration:
+  debug_enabled: true
+  performance_monitoring: true
+  auto_setup: false
+  fallback_mode: true
+
+# Optional: Legacy configuration for migration reference
+# Remove this section for new packages
+legacy_migration:
+  from_plugin: false                     # Set to true if migrating from plugin
+  plugin_name: "{old-plugin-name}"      # Original plugin name
+  breaking_changes: []                   # List of breaking changes
+  migration_notes: "Notes for migration"
+
+# Optional: Advanced features (remove if not needed)
+advanced_features:
+  bidirectional_flow: false             # Supports bidirectional communication
+  distributed_intelligence: false       # Part of distributed intelligence network
+  autonomous_optimization: false        # Self-optimizing capabilities

@@ -1,5 +1,5 @@
 import { resolveModuleExportNames } from "mlly";
-import { getChromeMajorVersion } from "@trader/electron-versions";
+import { getChromeMajorVersion } from "@lev-os/desktop-electron-versions";
 
 export default /**
  * @type {import('vite').UserConfig}
@@ -85,7 +85,7 @@ function handleHotReload() {
   let rendererWatchServer = null;
 
   return {
-    name: "@trader/preload-process-hot-reload",
+    name: "@lev-os/desktop-preload-process-hot-reload",
 
     config(config, env) {
       if (env.mode !== "development") {

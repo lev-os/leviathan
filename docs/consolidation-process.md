@@ -60,6 +60,34 @@ This document defines the process for consolidating all Leviathan documentation 
 
 ## Consolidation Phases
 
+### Phase -1: Repository Structure Cleanup (NEW - Prerequisites) ✅ COMPLETE
+
+**Goal**: Create organized structure before content consolidation
+
+**Key Activities**:
+
+1. Create flat organization buckets (docs/{agent,features,drafts,archive,todo,tmp}) ✅
+2. Move agent/docs → docs/agent/ (agent should be sparse) ✅  
+3. Organize root _*.md files into proper buckets ✅
+4. Archive external projects to docs/archive/external-projects/ ✅
+5. Consolidate tmp folders to docs/tmp/ ✅
+
+**Deliverables**:
+
+- Clean root directory (only README.md, CLAUDE.md, _repo.md, _desktop.md) ✅
+- Organized documentation structure under /docs/ ✅
+- Agent folder sparse (code only) ✅
+- External projects archived ✅
+- Flat structure (maximum 2 levels deep) ✅
+
+**Completion Summary**:
+
+- Moved 20+ root _*.md files to appropriate buckets
+- Relocated agent/docs/ to docs/agent/ (agent is now a sparse monorepo package)
+- Archived external projects (_ref/) while preserving for concept extraction
+- Consolidated agent/tmp/ and workshop/tmp/ to docs/tmp/
+- Created navigable flat structure avoiding deep nesting
+
 ### Phase 0: Setup & Assessment (Week 1) ✅ COMPLETE
 
 **Goal**: Establish infrastructure and complete inventory

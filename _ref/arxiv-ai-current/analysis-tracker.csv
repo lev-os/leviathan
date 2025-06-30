@@ -1,0 +1,15 @@
+Paper,Priority,Complexity,Timeline,Status,Key_Innovation,Leviathan_Integration,Next_Step
+agent-auditor.md,High,Moderate,3mo,Completed,Memory-augmented safety evaluation 96.1% accuracy,Cognitive Parliament safety layer,Prototype integration
+dyna-think-world-models.md,High,Moderate,3mo,Completed,2x token efficiency via compressed world model simulation,MCP session prediction + critique-based learning,Prototype DDT critique generation
+mirror-cognitive-monologue.md,High,Moderate,3mo,Completed,Persistent inner monologue via parallel cognitive threads,Cognitive parliament consensus + MCP orchestration,Prototype parallel reasoning threads
+agent-negotiations.md,High,Complex,3mo,Completed,Autonomous AI negotiation reveals 5-11% price disparities from capability gaps,Cognitive Parliament arbitration for deadlocks + MCP negotiation contracts,Deploy negotiation MCP tools with constraint enforcement
+world-models-cognitive-agents.md,High,Complex,3mo,Completed,World models for predictive reasoning + Wireless Dreamer Q-learning framework,Shared imagination engines for cognitive parliament + JEPA 2 future-state prediction,Blueprint world model plugin interfaces
+control-r-test-time-scaling.md,High,Complex,3mo,Completed,11 control fields for test-time reasoning depth/efficiency control,Cognitive Parliament field negotiation + MCP controllable parameters,Define RCF interface abstraction in MCP
+2506.00056.md,High,Moderate,3mo,Completed,Expert-guided sampling + physics-informed ML for inverse design,Knowledge amplification across domains via expertise democratization,Apply domain expert patterns to 3D modeling and materials science
+2506.00140.md,Medium,Moderate,6mo,Completed,RL social planner with interpretable tax schedules for market fairness,AI-regulated economic justice preventing winner-take-all dynamics,Prototype fair resource allocation algorithms
+2506.00178.md,Medium,Simple,Immediate,Completed,Tournament-based prompt evolution with Elo ratings,Self-improving instruction optimization through competitive selection,Implement instruction evolution for Leviathan command optimization
+2506.00189.md,,,,,,,
+2506.00328.md,High,Moderate,3mo,Completed,Evolutionary symbolic policies via quality-diversity optimization,Bridge deep RL performance with human-interpretable logic,Create symbolic policy generators for transparent AI decisions
+2506.00430.md,,,,,,,
+2506.00570.md,,,,,,,
+2506.00618.md,,,,,,,

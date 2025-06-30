@@ -59,6 +59,16 @@ rsync -av /tmp/leviathan-desktop-base/ apps/desktop/
 
 ### 1.3 Systematic File Modifications (Checklist)
 
+#### Package Naming Strategy Decision
+
+Based on monorepo best practices for 2025, we're using the scoped namespace pattern:
+- **Root desktop package**: `@lev-os/desktop`
+- **Main process package**: `@lev-os/desktop-main`
+- **Renderer package**: `@lev-os/desktop-renderer`
+- **Preload package**: `@lev-os/desktop-preload`
+
+This maintains consistency with the existing `@lev-os/*` namespace while clearly identifying desktop-specific packages.
+
 #### A. Main Package.json Updates (`apps/desktop/package.json`):
 ```json
 {
@@ -82,6 +92,20 @@ rsync -av /tmp/leviathan-desktop-base/ apps/desktop/
 - [ ] Remove trader-specific scripts: `test:devnet:*`, `legacy:*`
 - [ ] Keep forge scripts: `start:forge`, `dev`, `build`, `package`, `make`
 - [ ] Update workspace paths if needed
+- [ ] Update dependency from `@trader/main` to `@lev-os/desktop-main`
+
+#### A2. Workspace Package Updates:
+
+Each package in `packages/` subdirectory needs package.json updates:
+
+**Main Process (`apps/desktop/packages/main/package.json`):**
+- [ ] Change `"name": "@trader/main"` → `"name": "@lev-os/desktop-main"`
+
+**Renderer Process (`apps/desktop/packages/renderer/package.json`):**
+- [ ] Update package name to `@lev-os/desktop-renderer`
+
+**Preload Process (`apps/desktop/packages/preload/package.json`):**
+- [ ] Update package name to `@lev-os/desktop-preload`
 
 #### B. Forge Config Updates (`apps/desktop/forge.config.js`):
 ```javascript

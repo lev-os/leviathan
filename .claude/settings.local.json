@@ -55,7 +55,17 @@
       "Bash(npm install:*)",
       "Bash(magick:*)",
       "Bash(curl:*)",
-      "Bash(rsync:*)"
+      "Bash(rsync:*)",
+      "mcp__desktop-commander__move_file",
+      "Bash(mv:*)",
+      "Bash(true)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(pnpm build:*)",
+      "Bash(touch:*)",
+      "Bash(wget:*)",
+      "mcp__desktop-commander__get_file_info",
+      "mcp__perplexity-ask_1__perplexity_research",
+      "Bash(pnpm list:*)"
     ],
     "deny": []
   }

@@ -1,0 +1,42 @@
+id: modern-ai-agent-coordination-patterns-2025-06-29-d2bce8
+workflowId: ultimate-research-workflow
+created: '2025-06-29T15:56:36.025Z'
+status: active
+currentStep: deep_prompt_building
+currentStepNumber: 3
+completedSteps:
+  - qna_wizard
+  - discovery_1
+pendingCallbacks:
+  - - discovery-2
+    - context:
+        stepId: discovery_2
+      timestamp: '2025-06-29T15:58:02.228Z'
+  - - discovery-3
+    - context:
+        stepId: discovery_3
+      timestamp: '2025-06-29T15:58:02.228Z'
+  - - discovery-4
+    - context:
+        stepId: discovery_4
+      timestamp: '2025-06-29T15:58:02.229Z'
+  - - discovery-5
+    - context:
+        stepId: discovery_5
+      timestamp: '2025-06-29T15:58:02.229Z'
+  - - prompt-building-complete
+    - context:
+        stepId: deep_prompt_building
+      timestamp: '2025-06-29T15:59:23.234Z'
+outputs:
+  qna_wizard:
+    - file: >-
+        sessions/modern-ai-agent-coordination-patterns-2025-06-29-d2bce8/step2/00-qna-wizard-discovery.md
+      timestamp: '2025-06-29T15:58:02.223Z'
+  discovery_1:
+    - file: >-
+        sessions/modern-ai-agent-coordination-patterns-2025-06-29-d2bce8/step3/00-ai-workflow-orchestration-patt.md
+      timestamp: '2025-06-29T15:59:23.227Z'
+input:
+  topic: Modern AI agent coordination patterns
+path: sessions/modern-ai-agent-coordination-patterns-2025-06-29-d2bce8

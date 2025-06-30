@@ -54,11 +54,9 @@ export class DevModeManager extends EventEmitter {
         args: []
       };
     } else {
-      // Production: Use embedded Python
-      const { pythonRuntime } = await import('./PythonRuntime.js');
-      await pythonRuntime.initialize();
+      // Production: Use system Python (PythonRuntime removed for Leviathan)
       return {
-        command: pythonRuntime.getExecutablePath(),
+        command: 'python3',
         args: []
       };
     }
@@ -163,14 +161,14 @@ export class DevModeManager extends EventEmitter {
     
     proc.stdout?.on('data', (data) => {
       const lines = data.toString().trim().split('\n');
-      lines.forEach(line => {
+      lines.forEach((line: string) => {
         if (line) console.log(`${color}[${config.name}]\x1b[0m ${line}`);
       });
     });
     
     proc.stderr?.on('data', (data) => {
       const lines = data.toString().trim().split('\n');
-      lines.forEach(line => {
+      lines.forEach((line: string) => {
         if (line) console.error(`\x1b[31m[${config.name}]\x1b[0m ${line}`);
       });
     });

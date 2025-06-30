@@ -1,5 +1,5 @@
 {
-  "name": "@trader/main",
+  "name": "@lev-os/desktop-main",
   "type": "module",
   "scripts": {
     "build": "vite build",
@@ -12,13 +12,13 @@
     }
   },
   "dependencies": {
-    "@trader/preload": "*",
-    "@trader/renderer": "*",
+    "@lev-os/desktop-preload": "*",
+    "@lev-os/desktop-renderer": "*",
     "electron-updater": "6.3.9",
     "next-electron-rsc": "^0.2.3"
   },
   "devDependencies": {
-    "@trader/electron-versions": "*",
+    "@lev-os/desktop-electron-versions": "*",
     "electron-devtools-installer": "^3.2.0",
     "typescript": "5.7.2",
     "vite": "^6.2.2"

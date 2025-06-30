@@ -1,5 +1,5 @@
 {
-  "name": "@trader/renderer",
+  "name": "@lev-os/desktop-renderer",
   "version": "0.1.0",
   "private": true,
   "main": "./dist/index.html",
@@ -9,11 +9,11 @@
     "package.json"
   ],
   "scripts": {
-    "dev": "source ~/.nvm/nvm.sh && nvm use && next dev",
-    "build": "source ~/.nvm/nvm.sh && nvm use && npm run clean && npm i && next build",
-    "clean": "npm cache clean --force && rimraf .next node_modules",
+    "dev": "next dev",
+    "build": "next build",
+    "clean": "rm -rf .next node_modules",
     "start": "next start",
-    "prevew": "next start",
+    "preview": "next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -50,6 +50,7 @@
     "drizzle-kit": "^0.30.5",
     "eslint": "^9",
     "eslint-config-next": "15.2.3",
+    "rimraf": "^6.0.1",
     "typescript": "^5"
   }
 }

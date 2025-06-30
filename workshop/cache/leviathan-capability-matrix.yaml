@@ -1,221 +1,253 @@
 # Leviathan Capability Matrix - Smart Intake Cache
-# Auto-generated from consolidation analysis: 2025-06-24
+# Comprehensive rescan: 2025-06-29
+# Updated terminology and architecture based on current implementation + planned state
 
 metadata:
-  version: "0.1.0"
-  last_scan: "2025-06-24"
-  consolidation_phase: "0.5"
-  scan_method: "consolidation_docs_guided"
-  next_refresh: "auto_on_intake"
+  version: "0.2.0"
+  last_scan: "2025-06-29"
+  architecture_phase: "advanced_prototype"
+  scan_method: "comprehensive_implementation_plus_docs"
+  next_refresh: "auto_on_major_integration"
 
 # === CURRENT PRODUCTION CAPABILITIES ===
-core_capabilities:
+production_capabilities:
   
-  workflow_orchestration:
-    status: "production"
+  bi_directional_orchestration:
+    status: "advanced_implementation"
+    maturity: "production_ready"
     locations:
       - "agent/src/hybrid-router.js"
-      - "agent/docs/features/job-system.md"
+      - "plugins/@lev-os/workflow-orchestrator/"
+      - "docs/concepts/revolutionary/bidirectional-communication-spec.md"
     features:
-      job_breakdown:
-        description: "AI-driven task analysis with complexity scoring"
-        implementation: "natural language → structured workflows"
-        supports: ["complexity analysis", "time estimation", "task decomposition"]
-      multi_tab_coordination:
-        description: "3-tab strategy for complex workflows"
-        implementation: "intelligent tab allocation (Implementation, Testing, Research)"
-        supports: ["1-3 tab optimization", "resource allocation", "coordination strategy"]
-      callback_chains:
-        description: "Checkpoint-based execution tracking"
-        implementation: "stage-based execution with rollback points"
-        supports: ["progress tracking", "error recovery", "session continuity"]
+      flowmind_metaprogramming:
+        description: "LLM as runtime concept with natural language → executable workflows"
+        implementation: "FlowMind framework with semantic control patterns"
+        supports: ["when_semantic conditions", "dual LLM architecture", "infinite feedback loops"]
+      system_initiated_callbacks:
+        description: "System can initiate LLM conversations autonomously"
+        implementation: "Bi-directional flow patterns with safety mechanisms"
+        supports: ["adaptive optimization", "self-healing workflows", "proactive intelligence"]
+      cognitive_parliament:
+        description: "Multi-layered AI decision engine"
+        implementation: "5-layer architecture from AI decisions to hardware abstraction"
+        supports: ["autonomous optimization", "predictive computing", "verified extensions"]
     gaps:
-      - "no crash recovery/durability"
-      - "limited fault tolerance"
-      - "no agent swarm coordination"
+      - "production fault tolerance (crash recovery, durability)"
+      - "enterprise scalability patterns"
+      - "self-healing system components"
       
-  mcp_integration:
-    status: "production"
+  mcp_protocol_integration:
+    status: "production_ready"
+    maturity: "stable_deployment"
     locations:
-      - "agent/src/index.js"
-      - "agent/src/commands/"
+      - "agent/src/index.js (Universal Command Registry)"
+      - "agent/src/adapters/mcp/"
+      - "agent/src/commands/ (20+ tools)"
     features:
-      mcp_tools: 
-        count: 18
-        categories: ["session management", "workflow execution", "intelligence coordination", "context assembly"]
-        tools: ["session-ping", "session-load", "workflow-execute", "ceo-bind", "intelligence-power", "network-intelligence"]
-      protocol_compliance:
-        description: "Full MCP server implementation"
-        supports: ["tool discovery", "session persistence", "context switching"]
+      universal_command_registry:
+        description: "Commands defined once, auto-adapted to MCP/CLI/HTTP"
+        implementation: "Hexagonal architecture with protocol adapters"
+        supports: ["MCP protocol", "CLI interface", "future platform adaptation"]
+      session_management:
+        description: "Advanced session continuity with quantum context entanglement"
+        implementation: "Session checkpoints, rollbacks, cross-tab coordination"
+        supports: ["multi-tab sessions", "context switching", "session handoffs"]
+      claude_code_integration:
+        description: "Native integration with Claude Code CLI"
+        implementation: "MCP adapter with tool discovery and persistence"
+        supports: ["tool access", "context preservation", "hot-reload development"]
     gaps:
-      - "no swarm-specific MCP tools"
-      - "limited multi-agent coordination via MCP"
+      - "MCP swarm coordination tools"
+      - "distributed MCP session routing"
+      - "production monitoring and observability"
       
-  multi_agent_coordination:
-    status: "limited"
+  universal_context_system:
+    status: "production_ready"
+    maturity: "stable_deployment"
     locations:
-      - "agent/src/hybrid-router.js (job system)"
+      - "agent/contexts/"
+      - "agent/src/core/universal-context-system.js"
+      - "packages/memory/"
     features:
-      job_distribution:
-        description: "Multi-tab task distribution"
-        implementation: "AI analyzes complexity and assigns to tabs"
-        supports: ["3-tab max", "task complexity routing", "tab purpose specialization"]
-      ceo_binding:
-        description: "Agent switching based on intent"
-        implementation: "ceo-bind.js for personality/capability switching"
-        supports: ["intent detection", "agent selection", "context transfer"]
+      yaml_first_architecture:
+        description: "YAML-first behavior definition and execution"
+        implementation: "Context definitions drive agent behavior"
+        supports: ["declarative workflows", "rapid iteration", "non-programmer accessibility"]
+      five_memory_types:
+        description: "Cognitive science based memory architecture"
+        implementation: "Procedural, semantic, episodic, working, temporal memory"
+        supports: ["Graphiti integration", "file persistence", "privilege system"]
+      template_propagation:
+        description: "Cross-workspace template synchronization"
+        implementation: "Intelligent template evolution and distribution"
+        supports: ["workspace coordination", "pattern sharing", "automatic updates"]
     gaps:
-      - "no true multi-agent orchestration"
-      - "no swarm intelligence"
-      - "no work stealing or load balancing"
-      - "no specialized agent types beyond tabs"
-      - "no fault tolerance for agent failures"
+      - "memory federation across distributed systems"
+      - "hot-swappable context definitions"
+      - "version control for context evolution"
 
-# === PACKAGE ARCHITECTURE ===
-package_structure:
-  status: "evolving"
-  current_packages:
-    commands:
-      description: "Process management and git worktree operations"
-      includes: ["@lev-os/cmd", "worktree-manager", "process-manager"]
-      status: "production"
-    memory:
-      description: "Unified memory interface with multiple backends"
-      includes: ["memory-manager", "five memory types", "graphiti bridge"]
-      status: "evolving"
-    testing:
-      description: "Universal testing framework"
-      includes: ["plugin validation", "integration testing", "performance benchmarking"]
-      status: "production"
-    workshop:
-      description: "Tool evaluation and intake system"
-      includes: ["classification", "integration", "onboarding"]
-      status: "production"
-  plugins:
-    constitutional_ai: "values-based decision making"
-    debug: "system monitoring and tracing"
-    validation: "consensus and mathematical validation"
-    eeps_system: "8-personality system"
-  gaps:
-    - "no workflow package (planned)"
-    - "no intelligence package (planned)"
-    - "no orchestration package (planned)"
-
-# === PLANNED ENHANCEMENTS (From Consolidation) ===
+# === PLANNED ARCHITECTURE (High-Priority Gaps) ===
 planned_capabilities:
   
-  bi_directional_flow:
-    consolidation_task: "P1T02"
-    description: "System can initiate LLM conversations"
-    status: "research"
+  jepa_2_integration:
+    status: "planned_architecture"
+    priority: "critical_technology_gap"
+    planned_locations:
+      - "plugins/@lev-os/jepa-learning/"
+      - "os/kernel/src/leviathan_intelligence.go"
     planned_features:
-      - "system-initiated callbacks"
-      - "infinite conversation loops with safety"
-      - "adaptive optimization based on LLM responses"
+      predictive_intelligence:
+        description: "Anticipate system states and user workflows"
+        benefits: "Zero-shot adaptation, temporal reasoning, autonomous optimization"
+      world_model_integration:
+        description: "4D understanding of space, time, code, and context"
+        benefits: "Embodied intelligence, physical-digital environment integration"
+      self_learning_plugins:
+        description: "Plugins that improve through experience"
+        benefits: "Continuous optimization, pattern discovery, emergent capabilities"
+    integration_targets:
+      - "Semantic search (23,541+ indexed docs)"
+      - "Universal debugging framework"
+      - "Hexagonal architecture compatibility"
       
-  pickaxe_integration:
-    consolidation_task: "P05T06"
-    description: "Durable execution patterns"
-    status: "preliminary_analysis"
-    planned_features:
-      - "fault-tolerant workflow execution"
-      - "automatic crash recovery"
-      - "event log replay"
-      
-  flowmind_runtime:
-    consolidation_task: "P05T01"
-    description: "LLM as runtime concept"
-    status: "completed_synthesis"
-    planned_features:
-      - "semantic control patterns"
-      - "when_semantic conditions"
-      - "dual LLM architecture"
-      
-  mcp_multiplexer:
-    consolidation_task: "P05T07"
-    description: "SSE-based MCP session routing"
-    status: "draft_complete"
-    planned_features:
-      - "225→8 process reduction"
-      - "resource optimization"
-      - "session multiplexing"
-
-# === KNOWN GAPS (What We DON'T Have) ===
-capability_gaps:
-  
-  true_multi_agent:
-    missing:
-      - "agent swarm coordination"
-      - "specialized agent types (beyond tabs)"
-      - "work stealing and load balancing"
-      - "circuit breaker patterns for agent failures"
-      - "background workers for continuous processing"
-    current_workaround: "multi-tab coordination (limited to 3 tabs)"
-    
-  fault_tolerance:
-    missing:
-      - "crash recovery for workflows"
-      - "state persistence across failures"
-      - "automatic retry mechanisms"
-      - "graceful degradation"
-    current_workaround: "checkpoint-based execution (manual recovery)"
-    
   production_orchestration:
-    missing:
-      - "SPARC-style development modes"
-      - "specialized role-based agents"
-      - "complex dependency management"
-      - "objective decomposition algorithms"
-    current_workaround: "job breakdown with manual coordination"
+    status: "planned_architecture"
+    priority: "critical_technology_gap"
+    planned_features:
+      fault_tolerance:
+        description: "Crash recovery, state persistence, automatic retry"
+        implementation_pattern: "Event sourcing, circuit breakers, graceful degradation"
+      self_healing_systems:
+        description: "Automatic error detection and recovery"
+        implementation_pattern: "Health checks, dependency management, rollback mechanisms"
+      enterprise_scalability:
+        description: "Load balancing, resource optimization, monitoring"
+        implementation_pattern: "Horizontal scaling, resource pooling, observability"
+    gaps_preventing_world_class:
+      - "no crash recovery for bi-directional workflows"
+      - "limited production monitoring and alerting"
+      - "no enterprise deployment patterns"
+      
+  advanced_intelligence:
+    status: "research_prototype"
+    priority: "future_competitive_advantage"
+    current_research:
+      - "os/kernel/ - AI-native kernel with Go implementation"
+      - "docs/concepts/revolutionary/ - Theoretical frameworks"
+    planned_features:
+      self_modifying_optimization:
+        description: "System modifies own code for better performance"
+        safety_requirements: "Constitutional framework, verification layers"
+      distributed_intelligence:
+        description: "Intelligence across multiple connected systems"
+        implementation_pattern: "Network intelligence, federated learning"
+      plugin_marketplace:
+        description: "Community-driven plugin ecosystem"
+        implementation_pattern: "@lev-os/ namespace, quality assurance, revenue sharing"
 
 # === INTEGRATION OPPORTUNITY MATRIX ===
-# This helps evaluate new tools against specific gaps
+# Updated to reflect world-class technology gaps
 integration_opportunities:
   
-  multi_agent_coordination:
-    priority: "high"
-    current_gap: "no true swarm intelligence"
+  production_orchestration:
+    priority: "critical_technology_gap"
+    current_limitation: "bi-directional workflows lack fault tolerance"
+    world_class_requirements:
+      - "crash recovery with event sourcing"
+      - "circuit breaker patterns for agent failures"
+      - "enterprise monitoring and observability"
+      - "zero-downtime deployments"
     evaluation_criteria:
-      - "specialized agent types"
-      - "work stealing patterns"
-      - "fault tolerance mechanisms"
-      - "background processing"
+      - "production battle-tested implementations"
+      - "enterprise reliability patterns"
+      - "monitoring and alerting integration"
+      - "distributed system support"
       
-  durable_execution:
-    priority: "high" 
-    current_gap: "no crash recovery"
+  jepa_2_world_models:
+    priority: "revolutionary_capability_gap"
+    current_limitation: "no temporal reasoning or predictive intelligence"
+    world_class_requirements:
+      - "predictive computing capabilities"
+      - "temporal intelligence across 4D reasoning"
+      - "zero-shot learning and adaptation"
+      - "autonomous optimization"
     evaluation_criteria:
-      - "event log patterns"
-      - "state persistence"
-      - "automatic retry"
-      - "graceful recovery"
+      - "JEPA 2 or equivalent world model integration"
+      - "temporal reasoning capabilities"
+      - "self-supervised learning mechanisms"
+      - "production-ready implementations"
       
-  production_patterns:
-    priority: "medium"
-    current_gap: "limited production orchestration"
+  advanced_multi_agent:
+    priority: "high_technology_gap"
+    current_limitation: "limited to 3-tab coordination, no true swarms"
+    world_class_requirements:
+      - "specialized agent types with role-based behavior"
+      - "work stealing and load balancing"
+      - "agent swarm coordination patterns"
+      - "fault tolerance for agent failures"
     evaluation_criteria:
-      - "specialized modes/roles"
-      - "complex dependency handling"
-      - "resource optimization"
-      - "performance monitoring"
+      - "proven multi-agent orchestration"
+      - "specialized agent architectures"
+      - "production swarm implementations"
+      - "enterprise coordination patterns"
+      
+  memory_federation:
+    priority: "medium_technology_gap"
+    current_limitation: "single-system memory, no federation"
+    world_class_requirements:
+      - "distributed memory across systems"
+      - "memory synchronization protocols"
+      - "hot-swappable memory backends"
+      - "federated learning integration"
+    evaluation_criteria:
+      - "distributed memory architectures"
+      - "memory federation protocols"
+      - "hot-swap capabilities"
+      - "conflict resolution mechanisms"
 
 # === CACHE MAINTENANCE ===
 maintenance:
   auto_refresh_triggers:
-    - "intake analysis starts"
-    - "consolidation task completed"
-    - "package structure changes"
-  manual_refresh_command: "lev cache refresh"
+    - "major architecture changes"
+    - "new production capabilities deployed"
+    - "integration of world-class technology"
+    - "JEPA 2 or equivalent integration"
+  manual_refresh_command: "lev cache refresh --comprehensive"
   backup_location: "workshop/cache/backups/"
   
+# === COMPETITIVE ANALYSIS FRAMEWORK ===
+competitive_analysis:
+  world_class_benchmarks:
+    production_orchestration:
+      - "Kubernetes-level reliability and scaling"
+      - "Netflix/Amazon-level fault tolerance"
+      - "Enterprise monitoring (Datadog/New Relic level)"
+    ai_capabilities:
+      - "GPT-4/Claude-level reasoning integration"
+      - "JEPA 2 world model capabilities"
+      - "Production AI system reliability"
+    developer_experience:
+      - "VS Code-level IDE integration"
+      - "npm/cargo-level package ecosystem"
+      - "Docker-level deployment simplicity"
+  
+  technology_adoption_criteria:
+    tier_1_adoption: "clearly superior to current implementation"
+    tier_2_integration: "enhances existing capabilities significantly"
+    tier_3_research: "promising future technology, early stage"
+    rejection_criteria: "marginal improvement, high integration cost"
+
 # === USAGE INSTRUCTIONS ===
 usage:
   intake_process:
-    1: "Load this cache to understand current capabilities"
-    2: "Analyze target repository for features"
-    3: "Generate targeted scan queries based on gaps"
-    4: "Selectively scan Leviathan for specific overlaps"
-    5: "Update cache with new insights"
-  scan_efficiency:
-    focus_areas: ["multi-agent", "fault tolerance", "orchestration patterns"]
-    skip_areas: ["basic MCP tools", "session management", "simple job coordination"]
+    1: "Load this cache to understand current + planned capabilities"
+    2: "Focus on CRITICAL_TECHNOLOGY_GAPs for world-class requirements"
+    3: "Prioritize production orchestration and JEPA 2 integration"
+    4: "Evaluate against world_class_benchmarks criteria"
+    5: "Update cache with new insights and integrations"
+  
+  technology_evaluation:
+    focus_areas: ["production orchestration", "JEPA 2 integration", "advanced multi-agent", "memory federation"]
+    skip_areas: ["basic MCP tools", "simple session management", "basic YAML workflows"]
+    world_class_priority: ["fault tolerance", "predictive intelligence", "enterprise reliability"]

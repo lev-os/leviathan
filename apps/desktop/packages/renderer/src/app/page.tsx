@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
@@ -11,112 +11,155 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Settings } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Play, Square, RotateCw, AlertCircle } from "lucide-react";
 
-type Trade = {
-  id: number;
+type ServiceStatus = 'stopped' | 'starting' | 'running' | 'error';
+
+type Service = {
+  id: string;
   name: string;
-  entryMcap: number;
-  currentMcap: number;
-  pl: number;
-  takeProfit: number;
-  stopLoss: number;
+  status: ServiceStatus;
+  healthCheck?: string;
+  lastError?: string;
 };
 
-const mockTrades: Trade[] = [
-  {
-    id: 1,
-    name: "$MPUP",
-    entryMcap: 25000000,
-    currentMcap: 28500000,
-    pl: 14,
-    takeProfit: 20,
-    stopLoss: -10,
-  },
-  {
-    id: 2,
-    name: "$GOAT",
-    entryMcap: 42000000,
-    currentMcap: 39900000,
-    pl: -5,
-    takeProfit: 15,
-    stopLoss: -8,
-  },
-  {
-    id: 3,
-    name: "$TURBO",
-    entryMcap: 18000000,
-    currentMcap: 21600000,
-    pl: 20,
-    takeProfit: 25,
-    stopLoss: -12,
-  },
-];
+export default function ServiceDashboard() {
+  const [services, setServices] = useState<Service[]>([]);
+  const [loading, setLoading] = useState<Record<string, boolean>>({});
 
-export default function ActiveTrades() {
-  const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  useEffect(() => {
+    loadServices();
+  }, []);
 
-  const formatMcap = (mcap: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      notation: "compact",
-      maximumFractionDigits: 1,
-    }).format(mcap);
+  const loadServices = async () => {
+    try {
+      // @ts-ignore - serviceBridge is exposed from preload with base64 encoding
+      const serviceList = await window.c2VydmljZUJyaWRnZQ.listServices();
+      setServices(serviceList);
+    } catch (error) {
+      console.error('Failed to load services:', error);
+    }
   };
 
-  const openTradeDetails = (trade: Trade) => {
-    setSelectedTrade(trade);
-    setIsModalOpen(true);
+  const handleStart = async (serviceId: string) => {
+    setLoading({ ...loading, [serviceId]: true });
+    try {
+      // @ts-ignore
+      await window.c2VydmljZUJyaWRnZQ.startService(serviceId);
+      await loadServices();
+    } catch (error) {
+      console.error(`Failed to start service ${serviceId}:`, error);
+    } finally {
+      setLoading({ ...loading, [serviceId]: false });
+    }
+  };
+
+  const handleStop = async (serviceId: string) => {
+    setLoading({ ...loading, [serviceId]: true });
+    try {
+      // @ts-ignore
+      await window.c2VydmljZUJyaWRnZQ.stopService(serviceId);
+      await loadServices();
+    } catch (error) {
+      console.error(`Failed to stop service ${serviceId}:`, error);
+    } finally {
+      setLoading({ ...loading, [serviceId]: false });
+    }
+  };
+
+  const handleRestart = async (serviceId: string) => {
+    setLoading({ ...loading, [serviceId]: true });
+    try {
+      // @ts-ignore
+      await window.c2VydmljZUJyaWRnZQ.restartService(serviceId);
+      await loadServices();
+    } catch (error) {
+      console.error(`Failed to restart service ${serviceId}:`, error);
+    } finally {
+      setLoading({ ...loading, [serviceId]: false });
+    }
+  };
+
+  const getStatusBadge = (status: ServiceStatus) => {
+    const variants: Record<ServiceStatus, { variant: "default" | "secondary" | "destructive" | "outline", label: string }> = {
+      stopped: { variant: "secondary", label: "Stopped" },
+      starting: { variant: "outline", label: "Starting..." },
+      running: { variant: "default", label: "Running" },
+      error: { variant: "destructive", label: "Error" }
+    };
+    
+    const { variant, label } = variants[status];
+    return <Badge variant={variant}>{label}</Badge>;
   };
 
   return (
     <div className="space-y-4">
-      <h1 className="text-2xl font-bold">Active Trades</h1>
+      <h1 className="text-2xl font-bold">Leviathan Services</h1>
       <Card>
         <CardHeader>
-          <CardTitle>Current Positions</CardTitle>
+          <CardTitle>Service Management</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Entry MCap</TableHead>
-                <TableHead>Current MCap</TableHead>
-                <TableHead>P/L</TableHead>
-                <TableHead></TableHead>
+                <TableHead>Service</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead>Health Check</TableHead>
+                <TableHead className="text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {mockTrades.map((trade) => (
-                <TableRow key={trade.id}>
-                  <TableCell>{trade.name}</TableCell>
-                  <TableCell>{formatMcap(trade.entryMcap)}</TableCell>
-                  <TableCell>{formatMcap(trade.currentMcap)}</TableCell>
-                  <TableCell
-                    className={
-                      trade.pl >= 0 ? "text-green-600" : "text-red-600"
-                    }
-                  >
-                    {trade.pl.toFixed(2)}%
+              {services.map((service) => (
+                <TableRow key={service.id}>
+                  <TableCell className="font-medium">{service.name}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      {getStatusBadge(service.status)}
+                      {service.lastError && (
+                        <AlertCircle className="h-4 w-4 text-red-500" title={service.lastError} />
+                      )}
+                    </div>
                   </TableCell>
                   <TableCell>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => openTradeDetails(trade)}
-                    >
-                      <Settings className="h-4 w-4" />
-                    </Button>
+                    {service.healthCheck && (
+                      <span className="text-sm text-muted-foreground">{service.healthCheck}</span>
+                    )}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <div className="flex justify-end gap-2">
+                      {service.status === 'stopped' && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => handleStart(service.id)}
+                          disabled={loading[service.id]}
+                        >
+                          <Play className="h-4 w-4" />
+                        </Button>
+                      )}
+                      {service.status === 'running' && (
+                        <>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleRestart(service.id)}
+                            disabled={loading[service.id]}
+                          >
+                            <RotateCw className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleStop(service.id)}
+                            disabled={loading[service.id]}
+                          >
+                            <Square className="h-4 w-4" />
+                          </Button>
+                        </>
+                      )}
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}
@@ -124,45 +167,6 @@ export default function ActiveTrades() {
           </Table>
         </CardContent>
       </Card>
-
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Trade Details: {selectedTrade?.name}</DialogTitle>
-          </DialogHeader>
-          <div className="py-4">
-            <p>
-              <strong>Entry Market Cap:</strong>{" "}
-              {selectedTrade && formatMcap(selectedTrade.entryMcap)}
-            </p>
-            <p>
-              <strong>Current Market Cap:</strong>{" "}
-              {selectedTrade && formatMcap(selectedTrade.currentMcap)}
-            </p>
-            <p>
-              <strong>P/L:</strong>{" "}
-              <span
-                className={
-                  selectedTrade && selectedTrade.pl >= 0
-                    ? "text-green-600"
-                    : "text-red-600"
-                }
-              >
-                {selectedTrade?.pl.toFixed(2)}%
-              </span>
-            </p>
-            <p>
-              <strong>Take Profit:</strong> {selectedTrade?.takeProfit}%
-            </p>
-            <p>
-              <strong>Stop Loss:</strong> {selectedTrade?.stopLoss}%
-            </p>
-          </div>
-          <DialogFooter>
-            <Button onClick={() => setIsModalOpen(false)}>Close</Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

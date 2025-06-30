@@ -1,0 +1,170 @@
+# Memory Core Package Configuration
+# Hybrid File + Graphiti memory system for Leviathan ecosystem
+
+package:
+  name: memory
+  version: 1.0.0
+  type: core_package
+  namespace: memory
+  description: "Unified memory system with hybrid file + Graphiti architecture and auto-detection"
+
+integration:
+  agent_coupling: tight
+  core_initializer: required
+  mcp_tools: selective
+  universal_context: true
+
+architecture:
+  layers:
+    - fast_access      # RAM/cache, working memory
+    - medium_access    # Graphiti vector/temporal storage
+    - persistent_storage # File system, checkpoints
+  backends:
+    - neo4j
+    - graphiti
+    - file_system
+    - redis
+  capabilities:
+    - unified_memory_interface
+    - hybrid_query_system
+    - auto_configuration
+    - service_orchestration
+    - cross_agent_isolation
+    - memory_type_classification
+    - fallback_strategies
+
+core_hooks:
+  - initialization
+  - mcp_registration
+  - context_attachment
+  - session_management
+
+namespace:
+  prefix: "memory:"
+  isolation: agent
+  permissions:
+    - "read:shared:semantic"
+    - "write:agent:episodic"
+    - "write:session:working"
+    - "read:agent:procedural"
+
+# Legacy architecture details for reference
+legacy_architecture:
+  strategy: "hybrid_tiered"
+  layers:
+    fast_access:
+      - working_memory: "Active session state in RAM/cache"
+      - context_buffers: "Current conversation context"
+    medium_access:
+      - semantic_memory: "Vector embeddings in Graphiti"
+      - temporal_memory: "Session/conversation history"
+      - episodic_memory: "Agent learning patterns"
+      - graph_relationships: "Code dependencies and connections"
+    persistent_access:
+      - procedural_memory: "YAML workflows and patterns in file system"
+      - session_checkpoints: "~/.kingly/sessions/ existing system"
+      - context_definitions: "contexts/*.yaml configurations"
+      - constitutional_framework: "Validation rules and compliance"
+
+backend:
+  graphiti:
+    neo4j_uri: "auto_detect"  # Now uses auto-detection system
+    enable_mcp: true
+    enable_temporal: true
+    sync_strategy: "files_to_graphiti_oneway"
+  file_system:
+    source_of_truth: true
+    fallback_mode: true
+    real_time_sync: false
+  auto_detection:
+    enabled: true
+    deployment_modes: ["desktop", "docker", "external", "native"]
+    config_hierarchy: ["env_vars", "local_config", "project_config", "auto_detect", "fallback"]
+
+memory_types:
+  procedural:
+    description: "How to do things - agent patterns, workflows, muscle memory"
+    storage: "file_system_primary"
+    searchable_via: "graphiti_index"
+    examples: ["React component creation patterns", "Git workflow steps"]
+    
+  semantic:
+    description: "Facts and knowledge - code patterns, API docs, framework knowledge" 
+    storage: "graphiti_primary"
+    backed_by: "file_system"
+    examples: ["React hooks documentation", "TypeScript type definitions"]
+    
+  temporal:
+    description: "Timeline of events - conversation history, session evolution"
+    storage: "graphiti_primary"
+    checkpoints_in: "file_system"
+    examples: ["Previous conversation context", "Session progression tracking"]
+    
+  working:
+    description: "Active thinking space - current context, active variables"
+    storage: "memory_cache"
+    persistence: "session_based"
+    examples: ["Files currently being edited", "Active debugging context"]
+    
+  episodic:
+    description: "Personal experiences - agent learning, successes/failures"
+    storage: "graphiti_primary"
+    analysis_in: "file_system"
+    examples: ["Approach X failed because Y", "Pattern Z works in context W"]
+
+# Selective MCP tool exposure (core package principle)
+mcp_tools:
+  memory:store:
+    description: "Store data with automatic namespace and type detection"
+    auto_context: ["agent_id", "session_id"]
+    
+  memory:retrieve:
+    description: "Query memories with context awareness"
+    auto_context: ["agent_id", "session_id", "namespace_scope"]
+    
+  memory:query:
+    description: "Semantic search across memory types"
+    auto_context: ["agent_id", "permitted_namespaces"]
+    
+  memory:compress:
+    description: "Convert episodic to semantic memories"
+    auto_context: ["agent_id"]
+    
+  memory:status:
+    description: "Memory system health and configuration"
+    auto_context: ["deployment_mode", "service_status"]
+
+# Core package privileges (elevated status)
+core_privileges:
+  direct_graphiti_access: true
+  cross_agent_communication: true
+  global_memory_access: true
+  namespace_management: true
+  file_system_access: "unrestricted"
+  service_orchestration: true
+  auto_configuration: true
+
+# Integration with existing agent components
+agent_integration:
+  session_manager:
+    wrapper: "SessionMemory"
+    enhancements: ["Cross-session relationship tracking", "Temporal evolution"]
+    
+  universal_context_system:
+    wrapper: "ContextMemory"
+    enhancements: ["Usage pattern analysis", "Inheritance relationship mapping"]
+    
+  intelligence_coordinator:
+    wrapper: "IntelligenceMemory"
+    enhancements: ["Pattern success tracking", "Adaptive intelligence"]
+
+configuration:
+  debug_enabled: true
+  performance_monitoring: true
+  backup_strategy: "file_system_continuous"
+  recovery_strategy: "graphiti_rebuild_from_files"
+  sync_interval: "on_demand"
+  cache_size: "256MB"
+  query_timeout: "30s"
+  auto_setup: true
+  config_detection: true

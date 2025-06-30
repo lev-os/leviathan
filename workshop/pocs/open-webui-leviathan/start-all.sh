@@ -102,6 +102,7 @@ start_open_webui() {
         --name open-webui \
         -p "${OPEN_WEBUI_PORT}:8080" \
         -v open-webui:/app/backend/data \
+        -e WEBUI_AUTH=False \
         --restart always \
         ghcr.io/open-webui/open-webui:main
     
