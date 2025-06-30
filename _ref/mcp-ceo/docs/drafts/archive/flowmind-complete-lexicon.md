@@ -424,7 +424,7 @@ flowmind:
   # Global variables
   global_variables:
     company_name: "Acme Corp"
-    support_email: "support@acme.com"
+    support_email: "support@lev-os.com"
     
   # Flow-level variables
   variables:

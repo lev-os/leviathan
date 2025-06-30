@@ -13,13 +13,13 @@
   },
   "dependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
-    "prettier": "catalog:",
+    "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11"
   },
   "devDependencies": {
     "@lev-os/tsconfig": "workspace:*",
     "@types/node": "^22.15.3",
-    "typescript": "catalog:"
+    "typescript": "^5.7.2"
   },
   "prettier": "@lev-os/prettier-config"
 }

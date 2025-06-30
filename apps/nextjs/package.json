@@ -1,5 +1,5 @@
 {
-  "name": "@acme/nextjs",
+  "name": "@lev-os/nextjs",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -14,37 +14,37 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@acme/api": "workspace:*",
-    "@acme/auth": "workspace:*",
-    "@acme/db": "workspace:*",
-    "@acme/ui": "workspace:*",
-    "@acme/validators": "workspace:*",
+    "@lev-os/api": "workspace:*",
+    "@lev-os/auth": "workspace:*",
+    "@lev-os/db": "workspace:*",
+    "@lev-os/ui": "workspace:*",
+    "@lev-os/validators": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.4",
-    "@tanstack/react-query": "catalog:",
-    "@trpc/client": "catalog:",
-    "@trpc/server": "catalog:",
-    "@trpc/tanstack-react-query": "catalog:",
+    "@tanstack/react-query": "^5.62.7",
+    "@trpc/client": "^11.0.0",
+    "@trpc/server": "^11.0.0",
+    "@trpc/tanstack-react-query": "^11.0.0",
     "geist": "^1.3.1",
     "next": "^15.3.1",
-    "react": "catalog:react19",
-    "react-dom": "catalog:react19",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "superjson": "2.2.2",
-    "zod": "catalog:"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tailwind-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@lev-os/eslint-config": "workspace:*",
+    "@lev-os/prettier-config": "workspace:*",
+    "@lev-os/tailwind-config": "workspace:*",
+    "@lev-os/tsconfig": "workspace:*",
     "@types/node": "^22.15.3",
-    "@types/react": "catalog:react19",
-    "@types/react-dom": "catalog:react19",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
     "dotenv-cli": "^8.0.0",
-    "eslint": "catalog:",
+    "eslint": "^9.17.0",
     "jiti": "^1.21.7",
-    "prettier": "catalog:",
-    "tailwindcss": "catalog:",
-    "typescript": "catalog:"
+    "prettier": "^3.4.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@lev-os/prettier-config"
 }

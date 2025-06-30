@@ -19,8 +19,9 @@ package:
 integration:
   agent_coupling: enum           # tight | loose
   core_initializer: enum         # required | optional  
-  mcp_tools: enum               # selective | full | none
-  universal_context: boolean    # Access to universal context system
+  tool_exposure: enum            # selective | full | none
+  universal_context: boolean     # Access to universal context system
+  adapters: array[string]        # Available adapters: [mcp, cli, http, grpc]
   
 architecture:
   layers: array[string]          # System architecture layers

@@ -55,7 +55,7 @@ These documents represent the foundational design thinking that led to the curre
 
 During the Kingly → Leviathan rebrand:
 - All @kingly/* references were updated to @lev-os/*
-- Package namespace migrated from @acme/* to @lev-os/*
+- Package namespace migrated from @lev-os/* to @lev-os/*
 - Command interfaces updated from `ks` to `lev`
 - Sponsorship attribution maintained for Kingly Agency
 

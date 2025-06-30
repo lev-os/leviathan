@@ -3,7 +3,9 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "matchPackagePatterns": ["^@acme/"],
+      "matchPackagePatterns": [
+        "^@lev-os/"
+      ],
       "enabled": false
     }
   ],

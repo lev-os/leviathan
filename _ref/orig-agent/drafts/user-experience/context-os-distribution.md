@@ -307,15 +307,15 @@ base: "@kingly/enterprise"
 
 contexts:
   agents:
-    - "@acme/company-ceo"
-    - "@acme/security-officer"
+    - "@lev-os/company-ceo"
+    - "@lev-os/security-officer"
     
   workflows:
-    - "@acme/deployment-pipeline"
-    - "@acme/incident-response"
+    - "@lev-os/deployment-pipeline"
+    - "@lev-os/incident-response"
     
   themes:
-    - "@acme/brand-theme"
+    - "@lev-os/brand-theme"
     
   compliance:
     - "@enterprise/sox"
@@ -323,7 +323,7 @@ contexts:
 
 # Deploy to team
 kingly build distribution my-company-os.yaml
-kingly deploy @acme/standard-os --to team
+kingly deploy @lev-os/standard-os --to team
 ```
 
 ### Context Marketplace

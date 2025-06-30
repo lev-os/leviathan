@@ -30,7 +30,7 @@
     "@lev-os/testing": "workspace:*"
   },
   "peerDependencies": {
-    "@lev/agent": "workspace:*"
+    "@lev-os/core": "workspace:*"
   },
   "engines": {
     "node": ">=18.0.0"

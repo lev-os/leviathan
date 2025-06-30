@@ -34,7 +34,7 @@ export default function ServiceDashboard() {
 
   const loadServices = async () => {
     try {
-      // @ts-ignore - serviceBridge is exposed from preload with base64 encoding
+      // @ts-expect-error - serviceBridge is exposed from preload with base64 encoding
       const serviceList = await window.c2VydmljZUJyaWRnZQ.listServices();
       setServices(serviceList);
     } catch (error) {
@@ -45,7 +45,7 @@ export default function ServiceDashboard() {
   const handleStart = async (serviceId: string) => {
     setLoading({ ...loading, [serviceId]: true });
     try {
-      // @ts-ignore
+      // @ts-expect-error - serviceBridge API not in global types
       await window.c2VydmljZUJyaWRnZQ.startService(serviceId);
       await loadServices();
     } catch (error) {
@@ -58,7 +58,7 @@ export default function ServiceDashboard() {
   const handleStop = async (serviceId: string) => {
     setLoading({ ...loading, [serviceId]: true });
     try {
-      // @ts-ignore
+      // @ts-expect-error - serviceBridge API not in global types
       await window.c2VydmljZUJyaWRnZQ.stopService(serviceId);
       await loadServices();
     } catch (error) {
@@ -71,7 +71,7 @@ export default function ServiceDashboard() {
   const handleRestart = async (serviceId: string) => {
     setLoading({ ...loading, [serviceId]: true });
     try {
-      // @ts-ignore
+      // @ts-expect-error - serviceBridge API not in global types
       await window.c2VydmljZUJyaWRnZQ.restartService(serviceId);
       await loadServices();
     } catch (error) {
@@ -118,7 +118,9 @@ export default function ServiceDashboard() {
                     <div className="flex items-center gap-2">
                       {getStatusBadge(service.status)}
                       {service.lastError && (
-                        <AlertCircle className="h-4 w-4 text-red-500" title={service.lastError} />
+                        <div title={service.lastError}>
+                          <AlertCircle className="h-4 w-4 text-red-500" />
+                        </div>
                       )}
                     </div>
                   </TableCell>

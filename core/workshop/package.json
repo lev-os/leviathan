@@ -9,9 +9,9 @@
     "dev": "nodemon src/index.js"
   },
   "dependencies": {
-    "@lev-os/debug": "^0.1.0",
-    "@lev-os/testing": "^0.1.0", 
-    "@lev-os/cmd": "^0.1.0",
+    "@lev-os/debug": "workspace:*",
+    "@lev-os/testing": "workspace:*",
+    "@lev-os/cmd": "workspace:*",
     "js-yaml": "^4.1.0",
     "fs-extra": "^11.2.0",
     "glob": "^11.0.0"

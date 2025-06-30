@@ -44,6 +44,6 @@
     "eslint": "^8.0.0"
   },
   "peerDependencies": {
-    "@lev-os/core": "^0.1.0"
+    "@lev-os/core": "workspace:*"
   }
 }

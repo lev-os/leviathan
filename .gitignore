@@ -80,3 +80,7 @@ dist/
 **/venv/
 **/*.pyc
 **/.pytest_cache/
+
+# Track _ref directory but ignore nested git repos within it
+!_ref/
+_ref/**/.git/

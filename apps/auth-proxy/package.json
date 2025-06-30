@@ -1,5 +1,5 @@
 {
-  "name": "@acme/auth-proxy",
+  "name": "@lev-os/auth-proxy",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@auth/core": "catalog:"
+    "@auth/core": "^0.37.2"
   },
   "devDependencies": {
     "@lev-os/eslint-config": "workspace:*",

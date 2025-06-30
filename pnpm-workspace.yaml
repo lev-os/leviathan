@@ -1,24 +1,31 @@
 packages:
   # Core packages (moved from packages/)
   - 'core/*'
-  
+
   # Remaining packages (UI, API, DB, etc.)
   - 'packages/*'
-  
+
   # Agent system
   - 'agent'
-  
+
   # Operating system components
   - 'os/agent'
-  
+
   # Applications
   - 'apps/*'
-  
+
+  # Desktop app internal packages
+  - 'apps/*/packages/*'
+
   # Tooling
   - 'tooling/*'
-  
+
   # Flattened plugins (no @lev-os nesting)
   - 'plugins/*'
-  
+
   # Forge and experimental features
   - 'forge/*'
+
+  # Exclusions for problematic packages
+  - '!apps/universal-preview'
+  - '!forge/sunny-mvp-electron'

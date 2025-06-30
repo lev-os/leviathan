@@ -52,12 +52,12 @@ context_architecture:
 **CRITICAL**: All Leviathan plugins MUST follow standardized development patterns:
 
 - **Official Namespace**: `@lev-os/` (NOT @lev/ or @leviathan/)
-- **Master Development Guide**: `plugins/@lev-os/PLUGIN_DEVELOPMENT_GUIDE.md`
+- **Master Development Guide**: `plugins/README.md`
 - **Auto-Bootstrap Pattern**: Commands auto-discovered across CLI + MCP
 - **MCP Protocol Compliance**: Follow MCP standards for tool integration
 - **Testing Requirements**: Include comprehensive test coverage
 
-**For Plugin Development**: Always start with `plugins/@lev-os/PLUGIN_DEVELOPMENT_GUIDE.md` - the single source of truth for all plugin creation.
+**For Plugin Development**: Always start with `plugins/README.md` - the single source of truth for all plugin creation.
 
 ## Architecture Overview
 
@@ -69,7 +69,8 @@ This is a multi-layered monorepo containing several interconnected systems:
 - **`/apps`** - Application layer (Next.js, Expo, auth-proxy)
 - **`/tooling`** - Shared development tooling (ESLint, Prettier, TypeScript, Tailwind)
 - **`/forge`** - Experimental features and prototypes
-- **`/packages`** - Core shared packages and libraries
+- **`/core`** - Agent core packages
+- **`/packages`** - Globally shared packages and libraries, for web/mobile
 - **`/workshop`** - Research, evaluation, and development accelerators
 
 ## Development Environment
