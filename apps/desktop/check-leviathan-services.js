@@ -24,12 +24,12 @@ const leviathanServices = [
     autoStart: true
   },
   {
-    id: 'qdrant',
-    name: 'Qdrant Vector DB',
-    ports: [6333],
-    healthChecks: ['http://localhost:6333/health'],
-    processNames: ['qdrant'],
-    dockerImage: 'qdrant/qdrant',
+    id: 'graphiti',
+    name: 'Graphiti Memory',
+    ports: [50051],
+    healthChecks: ['http://localhost:50051'],
+    processNames: ['python.*memory_service', 'python.*graphiti'],
+    workingDir: '/Users/jean-patricksmith/digital/leviathan/memory/graphiti-service',
     autoStart: true
   },
   {
