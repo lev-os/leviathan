@@ -34,7 +34,15 @@
     "pnpm": ">=8.0.0"
   },
   "packageManager": "pnpm@8.15.0",
-  "keywords": ["leviathan", "llm-first", "plugin", "architecture"],
+  "keywords": [
+    "leviathan",
+    "llm-first",
+    "plugin",
+    "architecture"
+  ],
   "author": "Leviathan Team (sponsored by Kingly Agency)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.1"
+  }
 }

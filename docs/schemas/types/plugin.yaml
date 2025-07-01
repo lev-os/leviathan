@@ -1,0 +1,97 @@
+# Plugin Schema
+# Extends base.yaml for Leviathan plugins
+
+# Inherits all fields from base.yaml
+extends: "../base.yaml"
+
+# Plugin-specific overrides and extensions
+metadata:
+  type: "plugin"                # Fixed type for plugins
+  namespace: "@lev-os"          # Fixed namespace for plugins
+  
+# Plugin-specific architecture
+architecture:
+  type: "plugin"                # Fixed architecture type
+  plugin_pattern: string       # Plugin pattern (mcp-tool, command-extension, workflow, ai-model)
+  
+# Plugin structure requirements
+structure:
+  has_src: true                 # Required for plugins
+  has_tests: true               # Required for plugins
+  has_docs: true                # Required for plugins
+  plugin_files:
+    has_commands: boolean       # Has src/commands/ directory
+    has_mcp_tools: boolean      # Has MCP tool definitions
+    has_workflows: boolean      # Has workflow definitions
+    
+# Plugin-specific configuration
+extensions:
+  plugin_config:
+    commands: array<object>     # Plugin commands
+      # - command: string       # Command name
+      # - description: string   # Command description
+      # - parameters: array     # Command parameters
+    
+    mcp_tools: array<object>    # MCP tools exposed by plugin
+      # - tool: string          # Tool name
+      # - description: string   # Tool description
+      # - parameters: object    # Tool parameters schema
+    
+    workflows: array<object>    # Workflows provided by plugin
+      # - workflow: string      # Workflow name
+      # - description: string   # Workflow description
+      # - triggers: array       # Workflow triggers
+    
+    integration:
+      agent_aware: boolean      # Integrates with agent system
+      context_aware: boolean    # Uses agent contexts
+      memory_aware: boolean     # Integrates with memory system
+      
+  package_config:
+    main: "./src/index.js"      # Plugin entry point
+    exports:
+      ".": "./src/index.js"
+      "./commands/*": "./src/commands/*.js"
+    scripts:
+      test: "node --experimental-vm-modules ../../node_modules/.bin/jest"
+      test:coverage: "npm run test -- --coverage"
+    dependencies:
+      "@lev-os/debug": "workspace:*"     # Required for all plugins
+    devDependencies:
+      "@lev-os/testing": "workspace:*"   # Required for all plugins
+    peerDependencies:
+      "@lev-os/core": "workspace:*"      # Required for all plugins
+
+# Plugin-specific documentation
+documentation:
+  architecture_summary: "Plugin architecture for Leviathan ecosystem"
+  plugin_characteristics:
+    optional_nature: string     # How plugin can be disabled/enabled
+    llm_integration: string     # How plugin integrates with LLM
+    performance_impact: string  # Plugin performance characteristics
+    
+# Plugin-specific relationships
+relationships:
+  parent:
+    path: "../../README.md"
+    description: "Leviathan plugin ecosystem"
+  siblings_pattern: "Other plugins in /plugins/"
+  
+# Plugin-specific navigation
+navigation:
+  quick_start: "../README.md"
+  plugin_guide: "guides/plugin-development.md"
+  mcp_integration: "specs/mcp-integration.md"
+  
+# Plugin fractal structure
+fractal:
+  required_dirs:
+    - "docs/architecture"
+    - "docs/features" 
+    - "docs/adrs"
+    - "docs/specs"
+    - "docs/guides"
+  optional_dirs:
+    - "docs/examples"
+    - "src/commands"
+    - "src/workflows"

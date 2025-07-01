@@ -66,7 +66,10 @@
       "mcp__desktop-commander__get_file_info",
       "mcp__perplexity-ask_1__perplexity_research",
       "Bash(pnpm list:*)",
-      "mcp__perplexity-ask_1__perplexity_research"
+      "mcp__perplexity-ask_1__perplexity_research",
+      "Bash(turbo gen:*)",
+      "Bash(CONTEXTS_PATH=\"$HOME/digital/leviathan/agent/contexts\" node \"$HOME/digital/leviathan/agent/src/adapters/cli/cli-entry.js\" --help)",
+      "Bash(npm test)"
     ],
     "deny": []
   }

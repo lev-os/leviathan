@@ -1,0 +1,75 @@
+# Base Component Schema
+# Universal metadata and structure for all Leviathan components
+
+# Core Metadata (Required for all components)
+metadata:
+  id: string                     # Unique identifier (kebab-case, no spaces)
+  type: string                   # Component type (plugin|package|core|app|tool)
+  name: string                   # Display name (human-readable)
+  version: string                # Semantic version (semver format)
+  description: string            # Brief description (1-2 sentences)
+  namespace: string              # Namespace (@lev-os, core, plugins, apps, etc.)
+  category: string               # Category (infrastructure, ai-tools, workflow, etc.)
+  tags: array<string>            # Classification tags
+  author: string                 # Author/team (defaults to "Leviathan Team")
+  license: string                # License (defaults to "MIT")
+
+# Architecture Information (Required)
+architecture:
+  type: string                   # Architecture pattern (hexagonal, plugin, library, service, microservice)
+  summary: string                # Brief architecture description
+  dependencies:
+    core: array<string>          # Core Leviathan dependencies
+    external: array<string>      # External dependencies
+    peer: array<string>          # Peer dependencies (optional)
+  
+# Component Structure (Required)
+structure:
+  has_src: boolean              # Has src/ directory
+  has_tests: boolean            # Has tests/ directory  
+  has_docs: boolean             # Has docs/ directory
+  has_examples: boolean         # Has examples/ directory
+  has_config: boolean           # Has config/ directory
+  build_output: string          # Build output directory (dist, lib, build)
+
+# Documentation Configuration (Required)
+documentation:
+  architecture_summary: string  # Architecture summary for docs
+  features: array<object>       # Feature list with name, status, purpose
+  capabilities: object          # Capabilities table data (optional)
+  integrations: array<object>   # Integration points with other systems
+  
+# Relationships (Required)
+relationships:
+  parent:                       # Parent component/system
+    path: string               # Relative path to parent
+    description: string        # Parent description
+  siblings: array<object>       # Sibling components (same level)
+    # - path: string
+    # - description: string
+  children: array<object>       # Child components (optional)
+    # - path: string  
+    # - description: string
+
+# Navigation Configuration (Required)
+navigation:
+  quick_start: string           # Quick start section path
+  api_reference: string         # API reference path
+  examples: string              # Examples path
+  custom_sections: array<object> # Custom navigation sections
+    # - label: string
+    # - path: string
+
+# Fractal Documentation Structure (Required)
+fractal:
+  required_dirs: array<string>  # Required documentation directories
+  optional_dirs: array<string>  # Optional documentation directories
+  quantum_links:
+    bidirectional: boolean      # Enable bi-directional links
+    auto_discovery: boolean     # Auto-discover component relationships
+    cross_reference: boolean    # Enable cross-referencing
+
+# Extension Points (Type-specific schemas extend this)
+extensions:
+  # Type-specific configuration goes here
+  # Extended by: plugin.yaml, package.yaml, core.yaml, app.yaml

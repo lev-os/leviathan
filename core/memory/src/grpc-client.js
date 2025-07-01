@@ -8,6 +8,7 @@ import protoLoader from '@grpc/proto-loader';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { EventEmitter } from 'events';
+import { debugLogger } from '../../../agent/src/core/debug-logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -74,7 +75,15 @@ export class GraphitiGRPCClient extends EventEmitter {
 
       this.client.Connect(request, (error, response) => {
         if (error) {
-          console.error('❌ gRPC Connect failed:', error.message);
+          // Log detailed error to file for debugging
+          debugLogger.logError('grpc-client', error, {
+            serverAddress: this.options.serverAddress,
+            neo4jUri: this.options.neo4jUri,
+            action: 'connect'
+          });
+          
+          // Clean console output
+          debugLogger.cleanWarn('Memory service unavailable, using fallback mode');
           reject(error);
           return;
         }
@@ -86,7 +95,13 @@ export class GraphitiGRPCClient extends EventEmitter {
           this.emit('connected', { sessionId: this.sessionId });
           resolve(response);
         } else {
-          console.error('❌ Graphiti connection failed:', response.message);
+          // Log detailed response to file
+          debugLogger.logWarning('grpc-client', 'Connection failed', {
+            serverAddress: this.options.serverAddress,
+            response: response.message
+          });
+          
+          debugLogger.cleanWarn('Memory service connection failed, using fallback mode');
           reject(new Error(response.message));
         }
       });

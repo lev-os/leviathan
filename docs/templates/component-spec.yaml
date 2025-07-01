@@ -1,0 +1,117 @@
+# Component Specification Template
+# Based on Leviathan agent context patterns and fractal architecture
+
+metadata:
+  id: "{{component_id}}"
+  type: "{{component_type}}" # plugin, package, app, core, tool
+  name: "{{display_name}}"
+  namespace: "{{namespace}}" # @lev-os, core, plugins, apps, etc.
+  version: "{{version}}"
+  description: "{{short_description}}"
+  category: "{{category}}" # infrastructure, ai-tools, workflow, etc.
+  tags:
+    - "{{primary_tag}}"
+    - "{{secondary_tag}}"
+    - "leviathan"
+
+architecture:
+  type: "{{arch_type}}" # hexagonal, plugin, library, service, etc.
+  summary: "{{architecture_summary}}"
+  dependencies:
+    core:
+      - "@lev-os/debug"
+      - "@lev-os/testing"
+    external:
+      - "{{external_dep}}"
+  
+structure:
+  has_src: true
+  has_tests: true
+  has_docs: true
+  has_examples: {{has_examples}}
+  has_config: {{has_config}}
+
+documentation:
+  architecture_summary: "{{arch_summary}}"
+  
+  features:
+    - name: "{{feature_name}}"
+      status: "✅ Active" # ✅ Active, 🔬 Experimental, 📋 Planned, ❌ Deprecated
+      purpose: "{{feature_purpose}}"
+  
+  capabilities_table: |
+    | Capability | Backend | Purpose | Access Pattern |
+    |------------|---------|---------|----------------|
+    | **{{capability}}** | {{backend}} | {{purpose}} | {{access}} |
+  
+  integrations:
+    - system: "{{integration_system}}"
+      path: "{{integration_path}}"
+      link: "{{integration_link}}"
+      description: "{{integration_desc}}"
+
+relationships:
+  parent:
+    path: "{{parent_path}}"
+    link: "{{parent_link}}" 
+    description: "{{parent_desc}}"
+  
+  siblings:
+    - path: "{{sibling_path}}"
+      link: "{{sibling_link}}"
+      description: "{{sibling_desc}}"
+
+navigation:
+  developer_links:
+    - label: "Getting Started"
+      path: "../README.md#quick-start"
+    - label: "API Reference" 
+      path: "specs/"
+  
+  architect_links:
+    - label: "System Design"
+      path: "architecture.md"
+    - label: "ADR Collection"
+      path: "adrs/"
+  
+  user_links:
+    - label: "Usage Examples"
+      path: "../examples/"
+    - label: "Configuration"
+      path: "guides/"
+
+# Plugin-specific configuration (if applicable)
+plugin_config:
+  namespace_pattern: "@lev-os/{{name}}"
+  commands:
+    - command: "{{command_name}}"
+      description: "{{command_desc}}"
+  
+  mcp_tools:
+    - tool: "{{tool_name}}"
+      description: "{{tool_desc}}"
+
+# Package-specific configuration (if applicable)  
+package_config:
+  workspace: "{{workspace}}" # core/*, packages/*, plugins/*
+  build_target: "{{build_target}}" # lib, binary, service
+  exports:
+    ".": "./src/index.ts"
+
+# Fractal compliance
+fractal_structure:
+  required_dirs:
+    - "docs/architecture"
+    - "docs/features" 
+    - "docs/adrs"
+    - "docs/specs"
+    - "docs/guides"
+  
+  optional_dirs:
+    - "docs/examples"
+    - "docs/decisions"
+  
+  quantum_links:
+    bidirectional: true
+    auto_discovery: true
+    cross_reference: true

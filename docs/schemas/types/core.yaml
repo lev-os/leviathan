@@ -1,0 +1,100 @@
+# Core Package Schema  
+# Extends base.yaml for Leviathan core packages
+
+# Inherits all fields from base.yaml
+extends: "../base.yaml"
+
+# Core package specific overrides
+metadata:
+  type: "core"                  # Fixed type for core packages
+  namespace: "core"             # Fixed namespace for core packages
+  
+# Core package architecture
+architecture:
+  type: "hexagonal"             # Core packages use hexagonal architecture
+  layer: string                 # Core layer (business-logic, adapter, infrastructure)
+  
+# Core package structure requirements  
+structure:
+  has_src: true                 # Required for core packages
+  has_tests: true               # Required for core packages
+  has_docs: true                # Required for core packages
+  has_examples: true            # Encouraged for core packages
+  core_structure:
+    has_adapters: boolean       # Has adapter implementations
+    has_ports: boolean          # Has port definitions
+    has_domain: boolean         # Has domain logic
+    
+# Core package specific configuration
+extensions:
+  core_config:
+    sdk_functions: array<object> # Core SDK functions exposed
+      # - function: string      # Function name
+      # - description: string   # Function description
+      # - parameters: object    # Function parameters
+      # - returns: object       # Return value specification
+    
+    adapters: array<object>     # Adapters that use this core package
+      # - adapter: string       # Adapter name (cli, mcp, web, etc.)
+      # - integration: string   # How adapter integrates
+      # - dependencies: array   # Adapter dependencies on this core
+    
+    integration:
+      universal_import: boolean  # Can be imported by any component
+      agent_integration: boolean # Integrates with agent system
+      plugin_compatible: boolean # Compatible with plugin system
+      
+  package_config:
+    main: "./src/index.js"      # Core package entry point
+    exports:
+      ".": "./src/index.js"
+      "./adapters/*": "./src/adapters/*.js"
+    scripts:
+      build: "tsc"
+      test: "vitest"
+      test:coverage: "vitest --coverage"
+    dependencies:
+      "@lev-os/debug": "workspace:*"     # Required for all core packages
+    devDependencies:
+      "@lev-os/testing": "workspace:*"   # Required for all core packages
+      "@lev-os/tsconfig": "workspace:*"  # TypeScript config
+
+# Core package documentation
+documentation:
+  architecture_summary: "Core package implementing hexagonal architecture principles"
+  core_characteristics:
+    business_logic: string      # Core business logic description
+    adapter_interfaces: string  # How adapters interface with core
+    extensibility: string       # How core can be extended
+    
+# Core package relationships
+relationships:
+  parent:
+    path: "../../README.md"
+    description: "Core Leviathan packages"
+  siblings_pattern: "Other core packages in /core/"
+  adapters: array<object>       # Adapters that depend on this core
+    # - path: string
+    # - description: string
+    
+# Core package navigation
+navigation:
+  quick_start: "../README.md#quick-start"
+  sdk_reference: "specs/sdk-reference.md"
+  adapter_guide: "guides/adapter-development.md"
+  hexagonal_architecture: "architecture/hexagonal-design.md"
+  
+# Core package fractal structure
+fractal:
+  required_dirs:
+    - "docs/architecture"
+    - "docs/features"
+    - "docs/adrs" 
+    - "docs/specs"
+    - "docs/guides"
+  optional_dirs:
+    - "docs/examples"
+    - "docs/decisions"    # Historical decisions for core packages
+  core_specific:
+    - "docs/adapters"     # Adapter documentation
+    - "docs/sdk"          # SDK documentation

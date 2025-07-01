@@ -1,0 +1,51 @@
+{{!-- Plugin-specific template extending base --}}
+{{> ../base/docs-readme.hbs}}
+
+{{!-- Plugin-specific additions --}}
+{{#if extensions.plugin_config.commands}}
+## 🔧 Plugin Commands
+
+| Command | Description |
+|---------|-------------|
+{{#each extensions.plugin_config.commands}}
+| `{{command}}` | {{description}} |
+{{/each}}
+{{/if}}
+
+{{#if extensions.plugin_config.mcp_tools}}
+## 🛠️ MCP Tools
+
+| Tool | Description |
+|------|-------------|
+{{#each extensions.plugin_config.mcp_tools}}
+| `{{tool}}` | {{description}} |
+{{/each}}
+{{/if}}
+
+{{#if extensions.plugin_config.workflows}}
+## 🔄 Workflows
+
+| Workflow | Description |
+|----------|-------------|
+{{#each extensions.plugin_config.workflows}}
+| `{{workflow}}` | {{description}} |
+{{/each}}
+{{/if}}
+
+## 🎯 Plugin Characteristics
+
+**Optional Nature:** This plugin is designed as an overlay - the core Leviathan system functions independently without this plugin.
+
+**LLM-First Integration:** Plugin patterns are implemented as context-aware prompts and behavioral modifiers rather than rigid code constraints.
+
+{{#if extensions.plugin_config.integration.agent_aware}}
+**Agent Awareness:** Integrates seamlessly with the Leviathan agent system for enhanced AI capabilities.
+{{/if}}
+
+{{#if extensions.plugin_config.integration.context_aware}}
+**Context Integration:** Leverages agent contexts for intelligent behavior adaptation.
+{{/if}}
+
+{{#if extensions.plugin_config.integration.memory_aware}}
+**Memory Integration:** Utilizes the unified memory system for persistent state and learning.
+{{/if}}

@@ -1,0 +1,110 @@
+# Application Schema
+# Extends base.yaml for Leviathan applications
+
+# Inherits all fields from base.yaml
+extends: "../base.yaml"
+
+# Application specific overrides
+metadata:
+  type: "app"                   # Fixed type for applications
+  namespace: "apps"             # Fixed namespace for applications
+  
+# Application architecture  
+architecture:
+  type: "application"           # Applications have their own architecture
+  app_type: string              # web, mobile, desktop, cli, service
+  framework: string             # Next.js, Expo, Electron, etc.
+  
+# Application structure requirements
+structure:
+  has_src: true                 # Required for applications
+  has_tests: true               # Required for applications
+  has_docs: true                # Required for applications
+  app_structure:
+    has_pages: boolean          # Has pages/routes (web apps)
+    has_components: boolean     # Has UI components
+    has_api: boolean            # Has API endpoints
+    has_public: boolean         # Has public assets
+    has_styles: boolean         # Has stylesheets
+    
+# Application specific configuration
+extensions:
+  app_config:
+    features: array<object>     # Application features
+      # - feature: string       # Feature name
+      # - description: string   # Feature description
+      # - routes: array         # Related routes/pages
+    
+    apis: array<object>         # API endpoints (if applicable)
+      # - endpoint: string      # API endpoint
+      # - method: string        # HTTP method
+      # - description: string   # Endpoint description
+    
+    deployment:
+      platforms: array<string>  # Deployment platforms (vercel, expo, electron)
+      environments: array<string> # Environments (dev, staging, prod)
+      build_targets: array<string> # Build targets (web, ios, android)
+      
+    integration:
+      uses_core_packages: boolean    # Uses core Leviathan packages
+      uses_plugins: boolean          # Uses Leviathan plugins
+      agent_integration: boolean     # Integrates with agent system
+      
+  package_config:
+    main: "./src/index.tsx"     # Application entry point (varies by type)
+    scripts:
+      dev: "next dev"           # Development server (example for Next.js)
+      build: "next build"       # Production build
+      start: "next start"       # Production server
+      test: "vitest"
+      test:e2e: "playwright test"
+    dependencies:
+      # Framework-specific dependencies
+      next: "^14.0.0"           # Example for Next.js app
+      react: "^18.0.0"
+      "@lev-os/debug": "workspace:*"     # Required for all apps
+    devDependencies:
+      "@lev-os/testing": "workspace:*"   # Required for all apps
+      "@lev-os/tsconfig": "workspace:*"  # TypeScript config
+      playwright: "^1.40.0"     # E2E testing
+
+# Application documentation
+documentation:
+  architecture_summary: "Application built on Leviathan ecosystem"
+  app_characteristics:
+    user_interface: string      # UI/UX approach
+    data_flow: string           # How data flows through app
+    deployment_strategy: string # Deployment and hosting strategy
+    
+# Application relationships
+relationships:
+  parent:
+    path: "../../README.md"
+    description: "Leviathan applications"
+  siblings_pattern: "Other applications in /apps/"
+  dependencies: array<object>   # Core packages and plugins used
+    # - path: string
+    # - description: string
+    
+# Application navigation
+navigation:
+  quick_start: "../README.md#development"
+  deployment_guide: "guides/deployment.md"
+  feature_docs: "features/"
+  api_docs: "specs/api.md"      # If app has APIs
+  
+# Application fractal structure
+fractal:
+  required_dirs:
+    - "docs/architecture"
+    - "docs/features"
+    - "docs/adrs"
+    - "docs/specs"
+    - "docs/guides"
+  optional_dirs:
+    - "docs/examples"
+    - "docs/deployment"   # Deployment documentation
+    - "docs/api"          # API documentation (if applicable)
+  app_specific:
+    - "docs/user-guide"   # User-facing documentation
+    - "docs/screenshots"  # Application screenshots/demos

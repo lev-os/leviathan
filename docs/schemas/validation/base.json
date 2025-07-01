@@ -1,0 +1,268 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://leviathan.dev/schemas/base.json",
+  "title": "Leviathan Base Component Schema",
+  "description": "Base schema for all Leviathan components",
+  "type": "object",
+  "required": [
+    "metadata",
+    "architecture", 
+    "structure",
+    "documentation",
+    "relationships",
+    "navigation",
+    "fractal"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["id", "type", "name", "version", "description", "namespace"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Unique identifier in kebab-case"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["plugin", "package", "core", "app", "tool"],
+          "description": "Component type"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable display name"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+",
+          "description": "Semantic version"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 200,
+          "description": "Brief component description"
+        },
+        "namespace": {
+          "type": "string",
+          "description": "Component namespace"
+        },
+        "category": {
+          "type": "string",
+          "description": "Component category"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "Classification tags"
+        },
+        "author": {
+          "type": "string",
+          "default": "Leviathan Team"
+        },
+        "license": {
+          "type": "string", 
+          "default": "MIT"
+        }
+      }
+    },
+    "architecture": {
+      "type": "object",
+      "required": ["type", "summary", "dependencies"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["hexagonal", "plugin", "library", "service", "microservice", "application"],
+          "description": "Architecture pattern"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Architecture description"
+        },
+        "dependencies": {
+          "type": "object",
+          "properties": {
+            "core": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Core Leviathan dependencies"
+            },
+            "external": {
+              "type": "array", 
+              "items": { "type": "string" },
+              "description": "External dependencies"
+            },
+            "peer": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Peer dependencies"
+            }
+          }
+        }
+      }
+    },
+    "structure": {
+      "type": "object",
+      "required": ["has_src", "has_tests", "has_docs"],
+      "properties": {
+        "has_src": {
+          "type": "boolean",
+          "description": "Has src/ directory"
+        },
+        "has_tests": {
+          "type": "boolean", 
+          "description": "Has tests/ directory"
+        },
+        "has_docs": {
+          "type": "boolean",
+          "description": "Has docs/ directory"
+        },
+        "has_examples": {
+          "type": "boolean",
+          "description": "Has examples/ directory"
+        },
+        "has_config": {
+          "type": "boolean",
+          "description": "Has config/ directory"
+        },
+        "build_output": {
+          "type": "string",
+          "description": "Build output directory"
+        }
+      }
+    },
+    "documentation": {
+      "type": "object",
+      "required": ["architecture_summary"],
+      "properties": {
+        "architecture_summary": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Architecture summary for documentation"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "status", "purpose"],
+            "properties": {
+              "name": { "type": "string" },
+              "status": { 
+                "type": "string",
+                "enum": ["✅ Active", "🔬 Experimental", "📋 Planned", "❌ Deprecated"]
+              },
+              "purpose": { "type": "string" }
+            }
+          }
+        },
+        "capabilities": {
+          "type": "object",
+          "description": "Capabilities table data"
+        },
+        "integrations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["system", "path", "description"],
+            "properties": {
+              "system": { "type": "string" },
+              "path": { "type": "string" },
+              "link": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "object",
+      "required": ["parent"],
+      "properties": {
+        "parent": {
+          "type": "object",
+          "required": ["path", "description"],
+          "properties": {
+            "path": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        },
+        "siblings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "description"],
+            "properties": {
+              "path": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "object", 
+            "required": ["path", "description"],
+            "properties": {
+              "path": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "required": ["quick_start"],
+      "properties": {
+        "quick_start": { "type": "string" },
+        "api_reference": { "type": "string" },
+        "examples": { "type": "string" },
+        "custom_sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "path"],
+            "properties": {
+              "label": { "type": "string" },
+              "path": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "fractal": {
+      "type": "object",
+      "required": ["required_dirs"],
+      "properties": {
+        "required_dirs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "description": "Required documentation directories"
+        },
+        "optional_dirs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Optional documentation directories"
+        },
+        "quantum_links": {
+          "type": "object",
+          "properties": {
+            "bidirectional": { "type": "boolean" },
+            "auto_discovery": { "type": "boolean" },
+            "cross_reference": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Type-specific extensions (varies by component type)"
+    }
+  }
+}

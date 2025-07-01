@@ -1,0 +1,56 @@
+{{!-- Core package template extending base --}}
+{{> ../base/docs-readme.hbs}}
+
+{{!-- Core package specific additions --}}
+{{#if extensions.core_config.sdk_functions}}
+## 🏗️ Core SDK Functions
+
+| Function | Description | Returns |
+|----------|-------------|---------|
+{{#each extensions.core_config.sdk_functions}}
+| `{{function}}` | {{description}} | {{returns}} |
+{{/each}}
+{{/if}}
+
+{{#if extensions.core_config.adapters}}
+## 🔌 Adapter Integration
+
+| Adapter | Integration | Dependencies |
+|---------|-------------|--------------|
+{{#each extensions.core_config.adapters}}
+| **{{adapter}}** | {{integration}} | {{dependencies}} |
+{{/each}}
+{{/if}}
+
+## 🏛️ Hexagonal Architecture
+
+**Business Logic Core:** Pure business logic with no external dependencies, following hexagonal architecture principles.
+
+**Adapter Interfaces:** Clear separation between core business logic and external interfaces (CLI, MCP, Web, etc.).
+
+**SDK Pattern:** Core functions exposed as a reusable SDK for multiple adapter implementations.
+
+{{#if extensions.core_config.integration.universal_import}}
+**Universal Import:** This core package can be safely imported by any component in the Leviathan ecosystem.
+{{/if}}
+
+{{#if extensions.core_config.integration.plugin_compatible}}
+**Plugin Compatibility:** Designed to work seamlessly with the plugin system for extended functionality.
+{{/if}}
+
+## 🎯 Core Benefits
+
+### Extensibility
+- Easy to add new adapters (API, Web UI, Mobile)
+- Plugin system for community extensions  
+- Core SDK reusable across multiple products
+
+### Maintainability
+- Clear module boundaries and responsibilities
+- Each layer can be tested independently
+- Business logic separated from presentation
+
+### Performance
+- Core SDK optimized for speed
+- Adapter-specific optimizations possible
+- Clean separation enables caching strategies

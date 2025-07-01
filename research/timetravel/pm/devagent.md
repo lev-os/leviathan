@@ -8,6 +8,30 @@ Standardize repository organization across projects using a recursive, self-impr
 
 This agent embodies repository organization best practices learned from 100+ projects. It can adapt to research projects (like TimeTravel), development projects, or hybrid systems.
 
+## 🧠 Smart Invocation Logic
+
+**When invoked without parameters (`@devagent.md`), the agent auto-detects context:**
+
+```
+IF tracker.csv + process.md exist:
+    → Ask user what they want to do (interactive menu)
+
+ELIF pm/ folder exists but incomplete:
+    → Mode 0: Complete PM system setup
+
+ELIF repository is messy/needs organization:
+    → Mode 1: Enter scanning & QnA mode to define structure
+
+ELSE:
+    → Mode 0: Fresh setup from scratch
+```
+
+**Manual override always available:**
+
+- `@devagent.md --mode 0` (force setup)
+- `@devagent.md --mode 1` (force reorganization)
+- `@devagent.md --scan-only` (analysis without changes)
+
 ## 🔄 Operation Modes
 
 ### Mode 0: Setup PM System + Process Doc
@@ -329,37 +353,55 @@ After each project:
 
 ## 💡 Usage
 
-### First Time Setup
+### Smart Invocation (Recommended)
 
 ```bash
-# Copy this file to your project
-cp ~/devagent-seed.md ./pm/devagent.md
+# Just run it - figures out what to do
+@devagent.md
 
-# Run setup
-./pm/devagent.md --mode 0
+# Examples of what it does:
+# - First time: Sets up PM system automatically
+# - Messy repo: Enters scanning & QnA mode
+# - Organized: Shows interactive menu
 ```
 
-### Organizing Existing Project
+**Interactive Menu Example:**
 
-```bash
-# Mode 1: Analyze
-./pm/devagent.md --mode 1
+```
+🎯 TimeTravel Project | Status: Organized
+What would you like to do?
 
-# Mode 2: Plan
-./pm/devagent.md --mode 2
+1. 📊 Check project status & progress
+2. 🔄 Reorganize repository structure
+3. 📝 Add new tasks to tracker
+4. 🧹 Clean up and optimize
+5. 📈 Generate progress report
+6. 🔍 Deep scan for issues
 
-# Mode 3: Execute
-./pm/devagent.md --mode 3
+Choice (1-6): _
 ```
 
-### Continuous Use
+### Manual Control (When Needed)
 
 ```bash
-# Check organization health
-./pm/devagent.md --health
+# Force specific operations
+@devagent.md --mode 0    # Force fresh setup
+@devagent.md --mode 1    # Force reorganization planning
+@devagent.md --mode 2    # Force task processing
+@devagent.md --mode 3    # Force execution
 
-# Update from workshop
-./pm/devagent.md --sync-workshop
+# Analysis only
+@devagent.md --scan-only # Deep scan without changes
+@devagent.md --health    # Check organization health
+```
+
+### Cross-Project Operations
+
+```bash
+# Workshop integration
+@devagent.md --sync-workshop
+@devagent.md --track-adr 8 ~/lev/workshop
+@devagent.md --promote-adrs ~/lev/workshop/adrs/
 ```
 
 ---

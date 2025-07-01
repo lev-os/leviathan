@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://leviathan.dev/schemas/plugin.json",
+  "title": "Leviathan Plugin Schema",
+  "description": "Schema for Leviathan plugins extending base schema",
+  "allOf": [
+    {
+      "$ref": "../base.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "properties": {
+            "type": {
+              "const": "plugin"
+            },
+            "namespace": {
+              "const": "@lev-os"
+            }
+          }
+        },
+        "architecture": {
+          "properties": {
+            "type": {
+              "const": "plugin"
+            },
+            "plugin_pattern": {
+              "type": "string",
+              "enum": ["mcp-tool", "command-extension", "workflow", "ai-model"],
+              "description": "Plugin architectural pattern"
+            }
+          },
+          "required": ["plugin_pattern"]
+        },
+        "structure": {
+          "properties": {
+            "has_src": {
+              "const": true
+            },
+            "has_tests": {
+              "const": true
+            },
+            "has_docs": {
+              "const": true
+            },
+            "plugin_files": {
+              "type": "object",
+              "properties": {
+                "has_commands": {
+                  "type": "boolean",
+                  "description": "Has src/commands/ directory"
+                },
+                "has_mcp_tools": {
+                  "type": "boolean",
+                  "description": "Has MCP tool definitions"
+                },
+                "has_workflows": {
+                  "type": "boolean",
+                  "description": "Has workflow definitions"
+                }
+              }
+            }
+          },
+          "required": ["plugin_files"]
+        },
+        "extensions": {
+          "type": "object",
+          "required": ["plugin_config"],
+          "properties": {
+            "plugin_config": {
+              "type": "object",
+              "properties": {
+                "commands": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["command", "description"],
+                    "properties": {
+                      "command": {
+                        "type": "string",
+                        "pattern": "^[a-z-]+$"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "parameters": {
+                        "type": "array"
+                      }
+                    }
+                  }
+                },
+                "mcp_tools": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["tool", "description"],
+                    "properties": {
+                      "tool": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "parameters": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                },
+                "workflows": {
+                  "type": "array", 
+                  "items": {
+                    "type": "object",
+                    "required": ["workflow", "description"],
+                    "properties": {
+                      "workflow": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "triggers": {
+                        "type": "array"
+                      }
+                    }
+                  }
+                },
+                "integration": {
+                  "type": "object",
+                  "properties": {
+                    "agent_aware": {
+                      "type": "boolean"
+                    },
+                    "context_aware": {
+                      "type": "boolean"
+                    },
+                    "memory_aware": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "package_config": {
+              "type": "object",
+              "required": ["main", "exports", "dependencies"],
+              "properties": {
+                "main": {
+                  "const": "./src/index.js"
+                },
+                "exports": {
+                  "type": "object",
+                  "required": ["."],
+                  "properties": {
+                    ".": {
+                      "const": "./src/index.js"
+                    },
+                    "./commands/*": {
+                      "const": "./src/commands/*.js"
+                    }
+                  }
+                },
+                "dependencies": {
+                  "type": "object",
+                  "required": ["@lev-os/debug"],
+                  "properties": {
+                    "@lev-os/debug": {
+                      "const": "workspace:*"
+                    }
+                  }
+                },
+                "devDependencies": {
+                  "type": "object",
+                  "required": ["@lev-os/testing"],
+                  "properties": {
+                    "@lev-os/testing": {
+                      "const": "workspace:*"
+                    }
+                  }
+                },
+                "peerDependencies": {
+                  "type": "object",
+                  "required": ["@lev-os/core"],
+                  "properties": {
+                    "@lev-os/core": {
+                      "const": "workspace:*"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "fractal": {
+          "properties": {
+            "required_dirs": {
+              "type": "array",
+              "contains": {
+                "enum": ["docs/architecture", "docs/features", "docs/adrs", "docs/specs", "docs/guides"]
+              },
+              "minItems": 5
+            }
+          }
+        }
+      }
+    }
+  ]
+}

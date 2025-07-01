@@ -1,0 +1,107 @@
+# Package Schema
+# Extends base.yaml for general Leviathan packages
+
+# Inherits all fields from base.yaml  
+extends: "../base.yaml"
+
+# Package specific overrides
+metadata:
+  type: "package"               # Fixed type for packages
+  namespace: "packages"         # Fixed namespace for packages
+  
+# Package architecture
+architecture:
+  type: "library"               # Most packages are libraries
+  package_type: string          # Library, utility, shared, ui, tooling
+  
+# Package structure requirements
+structure:
+  has_src: true                 # Required for packages
+  has_tests: true               # Required for packages  
+  has_docs: true                # Required for packages
+  package_structure:
+    is_publishable: boolean     # Can be published to npm
+    is_workspace_only: boolean  # Only used within workspace
+    has_ui_components: boolean  # Contains UI components
+    
+# Package specific configuration
+extensions:
+  package_config:
+    library_functions: array<object> # Library functions/exports
+      # - function: string      # Function/class name
+      # - description: string   # Function description
+      # - usage: string         # Usage example
+    
+    ui_components: array<object> # UI components (if applicable)
+      # - component: string     # Component name
+      # - description: string   # Component description
+      # - props: object         # Component props
+    
+    integration:
+      framework_agnostic: boolean # Works with any framework
+      react_compatible: boolean   # Compatible with React
+      node_compatible: boolean    # Compatible with Node.js
+      browser_compatible: boolean # Compatible with browsers
+      
+  package_config:
+    main: "./src/index.ts"      # Package entry point
+    exports:
+      ".": "./src/index.ts"
+      "./components/*": "./src/components/*.tsx"
+    scripts:
+      build: "tsc"
+      test: "vitest" 
+      test:coverage: "vitest --coverage"
+    dependencies:
+      "@lev-os/debug": "workspace:*"     # Required for all packages
+    devDependencies:
+      "@lev-os/testing": "workspace:*"   # Required for all packages
+      "@lev-os/tsconfig": "workspace:*"  # TypeScript config
+      
+    # Package-specific dependencies based on type
+    conditional_dependencies:
+      ui_packages:
+        react: "^18.0.0"
+        "@types/react": "^18.0.0"
+      node_packages:
+        "@types/node": "^20.0.0"
+
+# Package documentation
+documentation:
+  architecture_summary: "Shared package for Leviathan ecosystem"
+  package_characteristics:
+    reusability: string         # How package promotes reusability
+    framework_support: string   # Framework compatibility
+    api_stability: string       # API stability guarantees
+    
+# Package relationships
+relationships:
+  parent:
+    path: "../../README.md"
+    description: "Leviathan shared packages"
+  siblings_pattern: "Other packages in /packages/"
+  consumers: array<object>      # Components that use this package
+    # - path: string
+    # - description: string
+    
+# Package navigation
+navigation:
+  quick_start: "../README.md#installation"
+  api_reference: "specs/api-reference.md"
+  usage_guide: "guides/usage.md"
+  examples: "../examples/"
+  
+# Package fractal structure
+fractal:
+  required_dirs:
+    - "docs/architecture"
+    - "docs/features"
+    - "docs/adrs"
+    - "docs/specs" 
+    - "docs/guides"
+  optional_dirs:
+    - "docs/examples"
+    - "docs/components"   # For UI component packages
+  package_specific:
+    - "docs/api"          # API documentation
+    - "docs/usage"        # Usage examples and patterns

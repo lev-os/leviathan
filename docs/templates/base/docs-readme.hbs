@@ -1,0 +1,89 @@
+# {{metadata.name}} Documentation Hub
+
+**{{metadata.description}}**
+
+> 🔗 **Component Entry Point:** [`{{component_path}}/README.md`](../README.md)  
+> 🏗️ **Architecture:** {{documentation.architecture_summary}}
+
+## 📚 Documentation Structure
+
+### 🏗️ Architecture & Decisions
+- [`architecture.md`](architecture.md) - Core {{metadata.name}} architecture overview
+- [`adrs/`](adrs/) - Architecture Decision Records (ADRs)
+{{#if has_decisions}}
+- [`decisions/`](decisions/) - Historical decisions and rationale
+{{/if}}
+
+### ⚡ Features & Capabilities  
+- [`features/`](features/) - {{metadata.name}} feature specifications
+{{#if has_integration}}
+- [`integration.md`](integration.md) - Integration patterns and examples
+{{/if}}
+
+### 📖 Specifications & Guides
+- [`specs/`](specs/) - Technical specifications and protocols
+- [`guides/`](guides/) - Usage and development guides
+
+{{#if structure.has_examples}}
+### 🔬 Examples & Patterns
+- [`../examples/`](../examples/) - Working code examples and demonstrations
+{{/if}}
+
+{{#if documentation.features}}
+## 🧠 {{metadata.name}} Overview
+
+| Feature | Status | Purpose |
+|---------|--------|---------|
+{{#each documentation.features}}
+| **{{name}}** | {{status}} | {{purpose}} |
+{{/each}}
+{{/if}}
+
+{{#if custom_capabilities_table}}
+{{{custom_capabilities_table}}}
+{{/if}}
+
+## 🔗 Quantum Links
+
+### Component Relationships
+- **Parent:** [`{{relationships.parent.path}}/`]({{relationships.parent.path}}) - {{relationships.parent.description}}
+{{#if relationships.siblings}}
+{{#each relationships.siblings}}
+- **Siblings:** [`{{path}}/`]({{path}}) - {{description}}
+{{/each}}
+{{/if}}
+
+### Cross-System Integration
+{{#each documentation.integrations}}
+- **{{system}}:** [`{{path}}/`]({{path}}) - {{description}}
+{{/each}}
+
+## 🚀 Quick Navigation
+
+**For Developers:**
+- **Getting Started:** [`{{navigation.quick_start}}`]({{navigation.quick_start}})
+{{#if has_integration}}
+- **Integration Guide:** [`integration.md`](integration.md)
+{{/if}}
+- **API Reference:** [`{{navigation.api_reference}}`]({{navigation.api_reference}})
+
+**For Architects:**
+- **System Design:** [`architecture.md`](architecture.md)
+{{#if has_decisions}}
+- **Decision History:** [`decisions/`](decisions/)
+{{/if}}
+- **ADR Collection:** [`adrs/`](adrs/)
+
+**For Users:**
+{{#if structure.has_examples}}
+- **Usage Examples:** [`{{navigation.examples}}`]({{navigation.examples}})
+{{/if}}
+- **Configuration:** [`guides/`](guides/)
+
+{{#if custom_navigation}}
+{{{custom_navigation}}}
+{{/if}}
+
+---
+
+*Part of the [Leviathan Fractal Documentation Architecture]({{root_relative_path}}/README.md#documentation-architecture---fractal--quantum-consciousness)*
