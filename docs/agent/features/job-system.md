@@ -261,19 +261,19 @@ Determines optimal tab configuration based on job complexity.
 
 ### Development Task
 ```bash
-kingly job "implement user authentication with JWT tokens"
+lev job "implement user authentication with JWT tokens"
 ```
 **Output:** 2-tab setup, Implementation + Testing, ~35 minutes
 
 ### Analysis Task  
 ```bash
-kingly job "security audit of payment processing system"
+lev job "security audit of payment processing system"
 ```
 **Output:** 3-tab setup, Research + Analysis + Documentation, ~60 minutes
 
 ### Simple Task
 ```bash
-kingly job "fix button styling on homepage"
+lev job "fix button styling on homepage"
 ```
 **Output:** 1-tab setup, Quick Implementation, ~10 minutes
 
@@ -330,4 +330,4 @@ npm run test:workflows
 
 ---
 
-The Kingly job system represents a sophisticated approach to AI-driven workflow orchestration, providing intelligent automation while maintaining human oversight and control through structured checkpoints and multi-tab coordination.
+The Leviathan job system represents a sophisticated approach to AI-driven workflow orchestration, providing intelligent automation while maintaining human oversight and control through structured checkpoints and multi-tab coordination.

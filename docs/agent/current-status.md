@@ -5,7 +5,7 @@
 
 ## 🎯 Executive Summary
 
-The Kingly system is **significantly more mature** than previous documentation suggested. Most core features are fully implemented and working, with comprehensive testing and documentation in place.
+The Leviathan system is **significantly more mature** than previous documentation suggested. Most core features are fully implemented and working, with comprehensive testing and documentation in place.
 
 **Ready for Production:**
 - ✅ Core hybrid command system
