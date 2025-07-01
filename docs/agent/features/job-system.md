@@ -1,6 +1,6 @@
 # Job System Documentation
 
-The Kingly job system provides AI-driven job orchestration with intelligent breakdown, multi-tab coordination, and callback chains for complex workflow management.
+The Leviathan job system provides AI-driven job orchestration with intelligent breakdown, multi-tab coordination, and callback chains for complex workflow management.
 
 ## Overview
 
@@ -13,13 +13,13 @@ The job system transforms natural language task descriptions into structured, ex
 ### Basic Job Creation
 ```bash
 # Simple task
-kingly job "implement user authentication"
+lev job "implement user authentication"
 
 # Complex task  
-kingly job "refactor payment system with comprehensive testing and documentation"
+lev job "refactor payment system with comprehensive testing and documentation"
 
 # Specific domain task
-kingly job "analyze security vulnerabilities in API endpoints"
+lev job "analyze security vulnerabilities in API endpoints"
 ```
 
 ### Job Analysis Output

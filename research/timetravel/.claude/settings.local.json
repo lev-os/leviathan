@@ -24,7 +24,9 @@
       "mcp__desktop-commander__search_files",
       "Bash(find:*)",
       "Bash(ls:*)",
-      "Bash(git mv:*)"
+      "Bash(git mv:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }
