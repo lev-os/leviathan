@@ -37,7 +37,7 @@ The Leviathan system is **significantly more mature** than previous documentatio
 
 **Example Job Output:**
 ```bash
-kingly job "implement user authentication"
+lev job "implement user authentication"
 # Returns: 2-tab setup, 35min estimate, Implementation + Validation stages
 ```
 
