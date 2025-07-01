@@ -1,0 +1,63 @@
+---
+title: AI Research Project Patterns
+description: Specific patterns for TimeTravel AI research intelligence system
+tags: [research, ai, mcp, automation]
+---
+
+# AI Research Development Guidelines
+
+## Research Engine Patterns
+
+- Preserve the working research engine architecture in src/
+- Never modify core research workflow files without testing
+- Use dry-run mode for testing research plan changes
+- Follow the three-tier research methodology (30min, 45min, 30min)
+
+## MCP Integration
+
+- Use MCP tools for external API calls and research automation
+- Implement proper timeout and retry logic for API calls
+- Cache research results in memory/ directory structure
+- Follow the established API orchestration patterns
+
+## Research Plan Configuration
+
+- Store research plans as YAML files in research-plans/
+- Use semantic naming for research topics and personalities
+- Validate YAML structure before execution
+- Implement horizon-based research (6mo, 1yr, 2yr, 5yr)
+
+## Data Management
+
+- Store research outputs in outputs/ with timestamp organization
+- Use semantic search for workflow discovery
+- Implement proper memory system integration
+- Preserve research history and synthesis results
+
+## API Cost Optimization
+
+- Implement cost tracking for research API calls
+- Use dry-run mode for development and testing
+- Cache frequently accessed research data
+- Monitor API usage patterns and costs
+
+## Personality System
+
+- Use the 8 personality perspectives consistently
+- Implement dynamic personality switching
+- Store personality configurations in personalities/ directory
+- Follow sovereignty_architect, abundance_amplifier patterns
+
+## Research Automation
+
+- Use cron-based scheduling for automated research
+- Implement proper error handling for scheduled tasks
+- Generate reports with executive summaries
+- Follow strategic positioning validation patterns
+
+## Testing Research Workflows
+
+- Always test with dry-run before live execution
+- Validate research plan YAML before processing
+- Test API integrations with minimal cost operations
+- Use BDD scenarios for workflow validation

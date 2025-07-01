@@ -61,15 +61,15 @@ pnpm install
 ### Basic Usage
 ```bash
 # Find workflows
-kingly find "creative brainstorming"
+lev find "creative brainstorming"
 
 # Session management
-kingly checkpoint --new "starting feature work"
-kingly checkpoint --context "implemented auth system"
-kingly checkpoint --final "feature complete"
+lev checkpoint --new "starting feature work"
+lev checkpoint --context "implemented auth system"
+lev checkpoint --final "feature complete"
 
 # Constitutional validation
-kingly validate context.yaml
+lev validate context.yaml
 ```
 
 ## System Overview
@@ -77,7 +77,7 @@ kingly validate context.yaml
 ### Core Principles
 1. **LLM-First Architecture**: Behavior emerges from AI reasoning, not hardcoded logic
 2. **Constitutional AI**: Neurochemical optimization for appropriate brain chemistry
-3. **Fractal Intelligence**: Local `.kingly/` mirrors global `~/ka/` structure
+3. **Fractal Intelligence**: Local `.leviathan/` mirrors global `~/.leviathan/` structure
 4. **Direct Adapters**: 10-100x performance boost over MCP protocol
 5. **Session Continuity**: Cross-tab coordination and context handoffs
 

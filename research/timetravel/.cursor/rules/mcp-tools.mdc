@@ -1,0 +1,70 @@
+---
+title: MCP Tools Integration
+description: Guidelines for Model Context Protocol tool development and usage
+tags: [mcp, tools, integration, api]
+---
+
+# MCP Tools Guidelines
+
+## Tool Development
+
+- Follow MCP protocol specifications for tool definitions
+- Implement proper input validation for all tool parameters
+- Use consistent error handling across all MCP tools
+- Document tool capabilities and usage patterns
+
+## API Integration
+
+- Implement proper authentication for external APIs
+- Use environment variables for API keys and configuration
+- Implement retry logic with exponential backoff
+- Track API usage and costs for optimization
+
+## Research API Tools
+
+- Perplexity: Use for AI-powered research and analysis
+- Brave/EXA/Tavily: Use for web search and content discovery
+- Firecrawl: Use for web scraping and content extraction
+- Desktop Commander: Use for local file operations
+
+## Tool Orchestration
+
+- Coordinate multiple API calls efficiently
+- Implement parallel processing where possible
+- Use appropriate timeouts for each tool type
+- Cache results to minimize redundant API calls
+
+## Error Handling
+
+- Implement graceful degradation when tools are unavailable
+- Provide meaningful error messages for tool failures
+- Log tool usage and errors for debugging
+- Handle rate limiting and quota exhaustion
+
+## Cost Management
+
+- Monitor API costs across all integrated tools
+- Implement cost thresholds and alerts
+- Use caching to reduce unnecessary API calls
+- Provide cost estimates for research operations
+
+## Development Tools
+
+- Use dry-run mode for testing without API costs
+- Implement tool health checks and status monitoring
+- Create mock implementations for development
+- Test tool integration in isolation
+
+## Security
+
+- Never expose API keys in code or logs
+- Use secure environment variable management
+- Validate all tool inputs to prevent injection attacks
+- Implement proper access controls for sensitive operations
+
+## Configuration
+
+- Store tool configurations in config/ directory
+- Use YAML for tool and API configurations
+- Implement configuration validation on startup
+- Support multiple environment configurations (dev, staging, prod)

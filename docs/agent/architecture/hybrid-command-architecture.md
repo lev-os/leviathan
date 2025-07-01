@@ -343,7 +343,7 @@ ${cmd.whisper.context_hint}
       .join('\n');
       
     return `
-Kingly Command Reference:
+Leviathan Command Reference:
 
 ${commands}
 

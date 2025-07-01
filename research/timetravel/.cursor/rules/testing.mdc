@@ -1,0 +1,70 @@
+---
+title: Testing Standards
+description: Comprehensive testing guidelines for TimeTravel platform
+tags: [testing, jest, bdd, integration]
+---
+
+# Testing Guidelines
+
+## Test Structure
+
+- Use Jest for unit and integration testing
+- Follow BDD scenarios in specs/features/ for behavior testing
+- Write tests before implementing new features (TDD approach)
+- Group related tests in describe blocks with clear names
+
+## Unit Testing
+
+- Test each function in isolation with mocked dependencies
+- Cover edge cases and error conditions
+- Use descriptive test names that explain the scenario
+- Aim for high test coverage but focus on critical paths
+
+## Integration Testing
+
+- Test API endpoints with real request/response cycles
+- Test research workflow execution with dry-run mode
+- Validate configuration file parsing and validation
+- Test MCP tool integration with mock responses
+
+## BDD Scenarios
+
+- Write Gherkin scenarios for user-facing features
+- Use Given/When/Then structure consistently
+- Test personality switching and research execution workflows
+- Validate research plan configuration scenarios
+
+## Research Testing
+
+- Always use dry-run mode for testing research plans
+- Mock external API calls to prevent costs during testing
+- Test research result parsing and synthesis
+- Validate memory system integration
+
+## Test Data
+
+- Use fixtures for consistent test data
+- Create minimal test research plans
+- Mock API responses for deterministic testing
+- Store test artifacts in temporary directories
+
+## Performance Testing
+
+- Test API response times under load
+- Validate memory usage for large research operations
+- Test concurrent research execution
+- Monitor and assert on API cost limits
+
+## CI/CD Integration
+
+- All tests must pass before merging
+- Run linting and type checking as part of test pipeline
+- Test both development and production builds
+- Validate that research workflows still function after changes
+
+## Error Testing
+
+- Test error handling and recovery scenarios
+- Validate proper error messages and logging
+- Test timeout and retry logic
+- Ensure graceful degradation when APIs are unavailable

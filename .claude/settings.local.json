@@ -70,7 +70,9 @@
       "Bash(turbo gen:*)",
       "Bash(CONTEXTS_PATH=\"$HOME/digital/leviathan/agent/contexts\" node \"$HOME/digital/leviathan/agent/src/adapters/cli/cli-entry.js\" --help)",
       "Bash(npm test)",
-      "Bash(rg:*)"
+      "Bash(rg:*)",
+      "Bash(screenpipe:*)",
+      "mcp__desktop-commander__read_output"
     ],
     "deny": []
   }

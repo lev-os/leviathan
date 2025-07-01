@@ -1,0 +1,60 @@
+---
+title: TypeScript & Node.js Development Rules
+description: Best practices for TypeScript development in the TimeTravel research platform
+tags: [typescript, nodejs, backend, api]
+---
+
+# TypeScript Development Guidelines
+
+## Code Style & Quality
+
+- Write concise, technical TypeScript code
+- Use functional, declarative programming patterns; avoid classes when possible
+- Prefer iteration and small helper modules over code duplication
+- Use descriptive variable names with auxiliary verbs (e.g., `isLoading`, `hasError`)
+- Follow Standard.js conventions for formatting
+
+## Type Safety
+
+- Enable `"strict": true` in tsconfig.json
+- Explicitly type function returns and object literals
+- Minimize use of `@ts-ignore` and `@ts-expect-error`
+- Prefer interfaces over types for object definitions
+- Avoid enums; use const objects or union types instead
+
+## Error Handling
+
+- Handle errors and edge cases at the beginning of functions
+- Use early returns for error conditions to avoid deeply nested if statements
+- Place the happy path last for readability
+- Always provide meaningful error messages
+- Log errors with appropriate context using Winston logger
+
+## Project Structure
+
+- Use path aliases defined in tsconfig.json (@/*, @cli/*, @api/*, @shared/*)
+- Keep related functionality grouped in logical modules
+- Separate concerns: API routes, business logic, utilities
+- Follow the established src/ directory structure
+
+## API Development
+
+- Use Express with TypeScript interfaces for request/response types
+- Implement proper middleware for validation and error handling
+- Use async/await consistently (never mix with .then()/.catch())
+- Always validate input data before processing
+- Return consistent response formats
+
+## Import/Export Conventions
+
+- Use ES modules (import/export) over CommonJS
+- Group imports: built-in modules, npm packages, local files
+- Use absolute imports with path aliases when possible
+- Export types and interfaces from index files for easy access
+
+## Documentation
+
+- Add JSDoc comments for public APIs and complex functions
+- Include examples in JSDoc when helpful
+- Keep inline comments concise and focused on "why" not "what"
+- Document any non-obvious business logic or research algorithms

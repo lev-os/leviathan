@@ -1,10 +1,10 @@
-# ADR: Core Packages Integration with Existing Kingly System
+# ADR: Core Packages Integration with Existing Leviathan System
 
 ## Status
-**ACCEPTED** - Integration plan for @kingly/debug and @kingly/cmd with existing LLM-first architecture
+**ACCEPTED** - Integration plan for @lev-os/debug and @lev-os/cmd with existing LLM-first architecture
 
 ## Context
-Two new core packages (@kingly/debug, @kingly/cmd) need integration with existing Kingly system at `/digital/kingly/core/agent` which has:
+Two new core packages (@lev-os/debug, @lev-os/cmd) need integration with existing Leviathan system at `/digital/leviathan/agent` which has:
 - **BDD workflow system** for generating specifications from ADRs
 - **YAML-first plugin architecture** with existing parallel.yaml plugin
 - **FlowMind context switching** with agent personalities (NFJ-Visionary, STP-Adapter, etc.)

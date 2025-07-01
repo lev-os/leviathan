@@ -1,0 +1,25 @@
+# Test URLs for Each Platform
+
+## Working URLs (Tested)
+- Instagram: https://www.instagram.com/reel/DLD1_ocJkNZ/ ✅
+- YouTube: https://youtube.com/watch?v=dQw4w9WgXcQ ✅
+
+## Test These When You Have Real Content:
+
+### TikTok Examples
+- https://tiktok.com/@username/video/7234567890123456789
+- https://vm.tiktok.com/shortlink/
+
+### Twitter/X Examples  
+- https://twitter.com/username/status/1234567890123456789
+- https://x.com/username/status/1234567890123456789
+
+### Other Platforms to Try
+- Vimeo: https://vimeo.com/123456789
+- Facebook: https://facebook.com/watch/?v=123456789
+- Reddit: https://reddit.com/r/videos/comments/abc123/
+
+## Notes
+- TikTok/Twitter may require login for some content
+- Use real URLs from your actual feeds for testing
+- Platform detection works regardless of whether content is accessible

@@ -1,12 +1,12 @@
-# @kingly/codex Plugin Specification
+# @lev-os/codex Plugin Specification
 
 ## Overview
 
-The **@kingly/codex** plugin is a dev agent plugin designed for framework knowledge search, pattern analysis, and intelligent code recommendations. It implements hexagonal architecture with knowledge crystallization methodology for LLM-first development workflows.
+The **@lev-os/codex** plugin is a dev agent plugin designed for framework knowledge search, pattern analysis, and intelligent code recommendations. It implements hexagonal architecture with knowledge crystallization methodology for LLM-first development workflows.
 
 ## Plugin Identity
 
-- **Name**: `@kingly/codex`
+- **Name**: `@lev-os/codex`
 - **Type**: Development Agent Plugin
 - **Architecture**: Hexagonal (Ports & Adapters)
 - **Target**: Kingly Agency development workflows

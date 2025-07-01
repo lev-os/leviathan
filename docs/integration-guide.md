@@ -1,7 +1,7 @@
 # Core Packages Integration Guide
 
 ## 🎯 Integration Overview
-This guide shows how to integrate @kingly/debug and @kingly/cmd with the existing Kingly agent system at `/digital/kingly/core/agent`.
+This guide shows how to integrate @lev-os/debug and @lev-os/cmd with the existing Leviathan agent system at `/digital/leviathan/agent`.
 
 ## 🔄 Integration Steps
 
@@ -11,8 +11,8 @@ Update the agent system's package.json:
 ```json
 {
   "dependencies": {
-    "@kingly/debug": "workspace:../../../k/core/packages/debug",
-    "@kingly/cmd": "workspace:../../../k/core/packages/cmd"
+    "@lev-os/debug": "workspace:../../../k/core/packages/debug",
+    "@lev-os/cmd": "workspace:../../../k/core/packages/cmd"
   }
 }
 ```
@@ -30,8 +30,8 @@ plugin:
   
 dependencies:
   core_packages:
-    - "@kingly/debug"    # Universal debugging and tracing
-    - "@kingly/cmd"      # Process management and git worktree
+    - "@lev-os/debug"    # Universal debugging and tracing
+    - "@lev-os/cmd"      # Process management and git worktree
 
 capabilities:
   - session_management
@@ -51,8 +51,8 @@ commands:
       cmd: "Create git worktrees and spawn Claude Code instances"
     whisper:
       strategies:
-        - "Create git worktrees using @kingly/cmd for isolation"
-        - "Setup @kingly/debug tracing for all agent personality switches"
+        - "Create git worktrees using @lev-os/cmd for isolation"
+        - "Setup @lev-os/debug tracing for all agent personality switches"
         - "Generate Claude Code spawn commands with agent context injection"
         - "Constitutional AI validation with full debug logging"
       llm_guidance: "Use enhanced debugging and process management for parallel orchestration"
@@ -76,8 +76,8 @@ core_integration:
 Update command registry to include core package commands:
 ```javascript
 // /digital/kingly/core/agent/src/command-registry.js enhancement
-import { logger, tracer, monitor } from '@kingly/debug';
-import { processManager, worktreeManager } from '@kingly/cmd';
+import { logger, tracer, monitor } from '@lev-os/debug';
+import { processManager, worktreeManager } from '@lev-os/cmd';
 
 // Enhanced command registry with core package integration
 export const ENHANCED_COMMAND_REGISTRY = {
@@ -172,8 +172,8 @@ core_prompt: |
   You are the NFJ-Visionary agent with enhanced debugging and process management.
   
   ENHANCED CAPABILITIES:
-  - All your reasoning is traced via @kingly/debug with confidence scores
-  - You can request isolated git worktrees via @kingly/cmd for parallel work
+  - All your reasoning is traced via @lev-os/debug with confidence scores
+  - You can request isolated git worktrees via @lev-os/cmd for parallel work
   - Your context switches are logged for optimization analysis
   
   When working:
@@ -191,8 +191,8 @@ Update MCP server to expose core package functionality:
 
 ```javascript
 // /digital/kingly/core/agent/src/mcp-server.js enhancement
-import { logger, tracer, monitor } from '@kingly/debug';
-import { processManager, jobIntegration, worktreeManager } from '@kingly/cmd';
+import { logger, tracer, monitor } from '@lev-os/debug';
+import { processManager, jobIntegration, worktreeManager } from '@lev-os/cmd';
 
 // Enhanced MCP tools
 const ENHANCED_MCP_TOOLS = [
@@ -320,7 +320,7 @@ Feature: Core Package Integration with Agent System
 
 Scenario: Debug tracing across agent personalities
   Given the parallel development system is initialized
-  And @kingly/debug tracing is enabled
+  And @lev-os/debug tracing is enabled
   When an agent switches from NFJ-Visionary to STP-Adapter
   Then the debug trace captures the personality switch
   And confidence scores are logged for both agents
@@ -328,7 +328,7 @@ Scenario: Debug tracing across agent personalities
 
 Scenario: Isolated agent workspaces
   Given multiple agent personalities need parallel work
-  When @kingly/cmd creates worktrees for each agent
+  When @lev-os/cmd creates worktrees for each agent
   Then each agent operates in an isolated git worktree
   And context switching maintains workspace isolation
   And cleanup occurs automatically on session end
@@ -336,7 +336,7 @@ Scenario: Isolated agent workspaces
 Scenario: Constitutional AI with enhanced debugging
   Given constitutional AI validation is active
   When agents perform reasoning operations
-  Then all validation steps are logged via @kingly/debug
+  Then all validation steps are logged via @lev-os/debug
   And constitutional compliance is traced
   And stress reduction metrics are monitored
 ```
@@ -353,4 +353,4 @@ Scenario: Constitutional AI with enhanced debugging
 - [ ] Performance monitoring active across all agent operations
 
 ---
-*Integration guide for @kingly/debug and @kingly/cmd with existing LLM-first agent system*
+*Integration guide for @lev-os/debug and @lev-os/cmd with existing LLM-first agent system*
