@@ -10,46 +10,70 @@ import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
-// Leviathan service definitions with actual detection
-const leviathanServices = [
-  {
-    id: 'neo4j',
-    name: 'Neo4j Database',
-    ports: [7474, 7687],
-    healthChecks: [
-      'http://localhost:7474',
-      'bolt://localhost:7687'
-    ],
-    processNames: ['neo4j', 'java.*neo4j'],
-    autoStart: true
-  },
-  {
-    id: 'graphiti',
-    name: 'Graphiti Memory',
-    ports: [50051],
-    healthChecks: ['http://localhost:50051'],
-    processNames: ['python.*memory_service', 'python.*graphiti'],
-    workingDir: '/Users/jean-patricksmith/digital/leviathan/memory/graphiti-service',
-    autoStart: true
-  },
-  {
-    id: 'agent',
-    name: 'Leviathan Agent MCP',
-    ports: [3001],
-    healthChecks: ['http://localhost:3001/status'],
-    processNames: ['node.*agent', 'node.*index.js.*agent'],
-    workingDir: '/Users/jean-patricksmith/digital/leviathan/agent',
-    autoStart: true
-  },
-  {
-    id: 'graphiti',
-    name: 'Graphiti Memory',
-    ports: [8000],
-    healthChecks: ['http://localhost:8000/health'],
-    processNames: ['python.*graphiti', 'uvicorn.*graphiti'],
-    autoStart: false // Optional service
-  }
-];
+// Environment-aware service configuration
+const getServiceConfig = () => {
+  const neo4jHttpPort = process.env.NEO4J_HTTP_PORT || 7474;
+  const neo4jBoltPort = process.env.NEO4J_BOLT_PORT || 7687;
+  const graphitiGrpcPort = process.env.GRAPHITI_GRPC_PORT || 50051;
+  const graphitiHttpPort = process.env.GRAPHITI_HTTP_PORT || 8000;
+  const agentPort = process.env.LEV_AGENT_PORT || 3001;
+
+  return [
+    {
+      id: 'neo4j',
+      name: 'Neo4j Database',
+      ports: [parseInt(neo4jHttpPort), parseInt(neo4jBoltPort)],
+      healthChecks: [
+        `http://localhost:${neo4jHttpPort}`,
+        `bolt://localhost:${neo4jBoltPort}`
+      ],
+      processNames: ['neo4j', 'java.*neo4j'],
+      autoStart: true,
+      configurable: {
+        httpPort: neo4jHttpPort,
+        boltPort: neo4jBoltPort
+      }
+    },
+    {
+      id: 'graphiti-grpc',
+      name: 'Graphiti gRPC Service',
+      ports: [parseInt(graphitiGrpcPort)],
+      healthChecks: [`grpc://localhost:${graphitiGrpcPort}`],
+      processNames: ['python.*memory_service', 'python.*graphiti'],
+      workingDir: '/Users/jean-patricksmith/digital/leviathan/memory/graphiti-service',
+      autoStart: true,
+      configurable: {
+        grpcPort: graphitiGrpcPort
+      }
+    },
+    {
+      id: 'agent',
+      name: 'Leviathan Agent MCP',
+      ports: [parseInt(agentPort)],
+      healthChecks: [`http://localhost:${agentPort}/status`],
+      processNames: ['node.*agent', 'node.*index.js.*agent'],
+      workingDir: '/Users/jean-patricksmith/digital/leviathan/agent',
+      autoStart: true,
+      configurable: {
+        port: agentPort
+      }
+    },
+    {
+      id: 'graphiti-http',
+      name: 'Graphiti HTTP API',
+      ports: [parseInt(graphitiHttpPort)],
+      healthChecks: [`http://localhost:${graphitiHttpPort}/health`],
+      processNames: ['python.*graphiti', 'uvicorn.*graphiti'],
+      autoStart: false, // Optional service
+      configurable: {
+        httpPort: graphitiHttpPort
+      }
+    }
+  ];
+};
+
+// Get service configuration (lazy initialization)
+const leviathanServices = getServiceConfig();
 
 class ServiceStatusChecker {
   constructor() {
@@ -176,13 +200,22 @@ class ServiceStatusChecker {
     
     console.log(`${runningIcon} ${healthIcon} ${autoStartIcon} ${status.name} (${status.id})`);
     
-    // Port status
+    // Port status with configuration info
     const activePorts = Object.entries(status.ports)
       .filter(([_, data]) => data.active)
       .map(([port, _]) => port);
     
     if (activePorts.length > 0) {
       console.log(`   🌐 Ports: ${activePorts.join(', ')}`);
+    }
+    
+    // Show configurable port information if available
+    const service = leviathanServices.find(s => s.id === status.id);
+    if (service?.configurable) {
+      const configInfo = Object.entries(service.configurable)
+        .map(([key, value]) => `${key}=${value}`)
+        .join(', ');
+      console.log(`   ⚙️  Config: ${configInfo}`);
     }
     
     // Process status  
