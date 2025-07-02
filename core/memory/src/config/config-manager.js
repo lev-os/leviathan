@@ -4,6 +4,7 @@
  */
 
 import { Neo4jDetector } from './neo4j-detector.js';
+import { GraphitiDetector } from './graphiti-detector.js';
 import fs from 'fs/promises';
 import path from 'path';
 import os from 'os';
@@ -11,7 +12,8 @@ import yaml from 'js-yaml';
 
 export class ConfigManager {
   constructor() {
-    this.detector = null; // Will be initialized after config loading
+    this.neo4jDetector = null; // Will be initialized after config loading
+    this.graphitiDetector = null; // Will be initialized after config loading
     this.config = null;
     this.configSources = [];
   }
@@ -71,16 +73,28 @@ export class ConfigManager {
     // Resolve environment variable placeholders first
     config = this.resolveEnvironmentVariables(config);
 
-    // 7. Initialize detector with resolved config and run auto-detection
-    this.detector = new Neo4jDetector({
+    // 7. Initialize detectors with resolved config and run auto-detection
+    this.neo4jDetector = new Neo4jDetector({
       neo4jHttpPort: config.neo4j?.ports?.http || 7474,
       neo4jBoltPort: config.neo4j?.ports?.bolt || 7687,
       neo4jUri: config.neo4j?.uri || 'bolt://localhost:7687'
     });
     
-    const detection = await this.detector.detect();
-    const autoConfig = this.detector.generateConfig();
-    config = this.mergeAutoDetectionConfig(config, autoConfig);
+    this.graphitiDetector = new GraphitiDetector({
+      grpcAddress: config.graphiti?.grpcAddress || 'localhost',
+      grpcPort: config.graphiti?.grpcPort || 50051,
+      timeout: config.graphiti?.timeout || 10000
+    });
+    
+    // Run both detections in parallel
+    const [neo4jDetection, graphitiDetection] = await Promise.all([
+      this.neo4jDetector.detect(),
+      this.graphitiDetector.detect()
+    ]);
+    
+    const neo4jAutoConfig = this.neo4jDetector.generateConfig();
+    config = this.mergeAutoDetectionConfig(config, neo4jAutoConfig);
+    config = this.mergeGraphitiDetectionConfig(config, graphitiDetection);
     this.configSources.push('auto-detection');
 
     this.config = config;
@@ -449,5 +463,68 @@ export class ConfigManager {
     merged._autoDetection = autoConfig.detectionResults;
     
     return merged;
+  }
+
+  /**
+   * Merge Graphiti detection config
+   */
+  mergeGraphitiDetectionConfig(userConfig, graphitiDetection) {
+    const merged = { ...userConfig };
+    
+    // Store detection results for debugging
+    merged._graphitiDetection = graphitiDetection;
+    
+    // Apply Graphiti-specific configuration based on detection
+    if (graphitiDetection.recommended) {
+      const recommendation = graphitiDetection.recommended;
+      
+      // Update deployment information if Graphiti service is detected
+      if (recommendation.type === 'existing_service') {
+        merged.graphiti = {
+          ...merged.graphiti,
+          skipServiceStart: true,
+          useExisting: true,
+          detectedRunning: true
+        };
+      } else if (recommendation.type === 'docker_container') {
+        merged.graphiti = {
+          ...merged.graphiti,
+          useDockerContainer: true,
+          detectedContainer: true
+        };
+      } else if (recommendation.type === 'local_installation') {
+        merged.graphiti = {
+          ...merged.graphiti,
+          canStartService: true,
+          detectedInstallation: true,
+          version: recommendation.config?.version
+        };
+      }
+    }
+    
+    return merged;
+  }
+
+  /**
+   * Get comprehensive detection summary
+   */
+  getDetectionSummary() {
+    if (!this.neo4jDetector || !this.graphitiDetector) {
+      return 'Detection not run yet';
+    }
+
+    let summary = '🔍 **Service Detection Summary**\n\n';
+    
+    // Neo4j detection summary
+    if (this.neo4jDetector.detectionResults) {
+      summary += this.neo4jDetector.getSummary() + '\n';
+    }
+    
+    // Graphiti detection summary  
+    if (this.graphitiDetector.detectionResults) {
+      summary += this.graphitiDetector.getSummary() + '\n';
+    }
+    
+    return summary;
   }
 }

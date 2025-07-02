@@ -126,36 +126,66 @@ TimeTravel is a comprehensive AI research platform that combines production-read
 
 ```
 timetravel/
-├── strategic/                    # Strategic framework (from CEO project)
-│   ├── horizons/                # Multi-horizon planning methodology
-│   ├── methodology/             # Research and tracking systems
-│   └── competitive/             # Intelligence and positioning
+├── .cursor/                     # Modern Cursor IDE rules
+│   └── rules/                  # TypeScript, research, testing guidelines
 │
-├── workflows/                    # Unified research workflows
-│   ├── strategic-research.yaml  # Multi-horizon methodology
-│   └── competitive-intel.yaml   # Market positioning
+├── src/                        # 🚨 CORE PRODUCTION CODE
+│   ├── cli/                   # Command-line interface
+│   ├── api/                   # Express API server
+│   ├── web/                   # React web interface
+│   ├── shared/                # Common types and utilities
+│   └── research-plan-engine.js # Core research engine
 │
-├── src/                         # Production implementation
-│   ├── cli/                    # Command-line interface
-│   ├── api/                    # Express API server
-│   ├── web/                    # React web interface
-│   └── shared/                 # Common types and utilities
+├── tests/                      # Comprehensive test suite
+│   ├── unit/                  # Unit tests with Jest
+│   ├── integration/           # API integration tests
+│   ├── e2e/                   # End-to-end workflow tests
+│   └── setup.js               # Test configuration and mocking
 │
-├── outputs/                     # Research outputs
-│   ├── research/               # Standard three-tier research
-│   ├── strategic/              # Multi-horizon strategic analysis
-│   ├── synthesis/              # Cross-horizon synthesis
-│   └── trends/                 # Trend monitoring
+├── config/                     # Configuration files
+│   ├── project.yaml           # Kingly project configuration
+│   ├── context-manifest.yaml  # Context loading definitions
+│   └── tsconfig.json          # TypeScript configuration
 │
-├── scripts/                     # Execution scripts
-│   ├── execute-research.sh     # Standard research workflow
-│   ├── strategic-research.sh   # Strategic research workflow
-│   └── setup-keys.sh          # API key configuration
+├── docs/                       # Consolidated documentation
+│   ├── adr/                   # Architecture decision records
+│   ├── specs/                 # Technical specifications
+│   ├── guides/                # User guides and methodology
+│   └── *.md                   # Moved documentation files
 │
-└── docs/                       # Documentation
-    ├── MCP_API_ECOSYSTEM_REPORT.md
-    ├── STRATEGIC_SYNTHESIS.md
-    └── adr/                    # Architecture decision records
+├── research/                   # Research data and planning
+│   ├── horizons/              # Multi-horizon planning methodology
+│   ├── topics/                # Research topic organization
+│   ├── strategic/             # Strategic framework
+│   ├── intake/                # Research intake process
+│   └── cache/                 # Research caching system
+│
+├── research-plans/             # 🚨 YAML research configurations
+├── specs/                      # 🚨 BDD test scenarios (Gherkin)
+├── handoff-plans/              # 🚨 Implementation documentation
+│
+├── workflows/                  # Research workflow definitions
+│   └── contexts/              # Context and personality configs
+│
+├── outputs/                    # Generated research outputs
+│   ├── research/              # Standard three-tier research
+│   ├── synthesis/             # Cross-horizon synthesis
+│   └── trends/                # Trend monitoring
+│
+├── scripts/                    # Production utility scripts
+│   ├── setup-keys.sh          # API key configuration
+│   ├── execute-research.sh    # Core research workflow
+│   ├── strategic-research.sh  # Strategic research workflow
+│   └── memory-*.sh           # Memory system operations
+│
+├── project/                    # Project management
+│   ├── milestones/            # Development milestones
+│   ├── roadmap.md             # Development roadmap
+│   └── execution-log.md       # Execution history
+│
+├── personalities/              # AI personality definitions
+├── marketplace/                # Research marketplace configs
+└── memory/                     # Memory system storage
 ```
 
 ## 🔧 Development Commands
@@ -176,18 +206,27 @@ timetravel/
 ```bash
 # Build and development
 npm run build                   # Full TypeScript build
+npm run build:web               # Web interface build
 npm run dev                     # API + Web + CLI development
 npm run dev:api                 # API server only
 npm run dev:web                 # Web interface only
+npm run dev:cli                 # CLI development mode
 
 # Testing and quality
-npm test                        # Run test suite
+npm test                        # Run all tests
+npm run test:unit               # Unit tests only
+npm run test:integration        # Integration tests only
+npm run test:e2e                # End-to-end tests only
+npm run test:watch              # Watch mode for development
+npm run test:coverage           # Generate coverage report
 npm run lint                    # ESLint validation
 npm run format                  # Prettier formatting
+npm run docs                    # Generate API documentation
 
 # API key management
 ./scripts/setup-keys.sh         # Interactive key setup
 ./scripts/validate-keys.sh      # Verify configuration
+./scripts/test-system.sh        # Full system validation
 ```
 
 ## 🌐 API Requirements

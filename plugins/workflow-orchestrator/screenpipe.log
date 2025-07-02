@@ -5703,3 +5703,6 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 [2m2025-07-01T19:21:44.695764Z[0m [32m INFO[0m [2mscreenpipe_server::resource_monitor[0m[2m:[0m Runtime: 21201s, Memory: 2% (1.57 GB / 64.00 GB), Virtual: 395.71 GB, CPU: 49%
 [2m2025-07-01T19:22:14.762576Z[0m [32m INFO[0m [2mscreenpipe_server::resource_monitor[0m[2m:[0m Runtime: 21231s, Memory: 3% (1.68 GB / 64.00 GB), Virtual: 395.70 GB, CPU: 38%
 [2m2025-07-01T19:22:19.465847Z[0m [32m INFO[0m [2mscreenpipe_server::video[0m[2m:[0m Queue stats for monitor 5: processed 1029 frames in 21235.3s (0.05 fps), queue sizes: video=0/30, ocr=0/30
+[2m2025-07-01T19:22:44.827213Z[0m [32m INFO[0m [2mscreenpipe_server::resource_monitor[0m[2m:[0m Runtime: 21261s, Memory: 3% (1.82 GB / 64.00 GB), Virtual: 395.70 GB, CPU: 47%
+[2m2025-07-01T19:23:12.679707Z[0m [32m INFO[0m [2mscreenpipe_server::video[0m[2m:[0m Queue stats for monitor 5: processed 1032 frames in 21288.5s (0.05 fps), queue sizes: video=0/30, ocr=0/30
+[2m2025-07-01T19:23:14.907752Z[0m [32m INFO[0m [2mscreenpipe_server::resource_monitor[0m[2m:[0m Runtime: 21291s, Memory: 3% (1.80 GB / 64.00 GB), Virtual: 395.70 GB, CPU: 32%

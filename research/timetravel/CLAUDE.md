@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-TimeTravel is a production-quality AI research platform that implements the Kingly/FlowMind methodology for conducting systematic AI future research. It features multi-tier research workflows, personality-driven analysis, and comprehensive tooling for research automation.
+TimeTravel is a production-ready open source AI research platform that implements the Kingly/FlowMind methodology for conducting systematic AI future research. It features multi-tier research workflows, personality-driven analysis, comprehensive testing infrastructure, and modern development tooling. The project has been fully consolidated into a clean, production-ready structure suitable for open source distribution.
 
 ## Package Management
 
@@ -38,14 +38,18 @@ cd src/web && npm run build  # Production build
 
 ### Testing and Quality
 ```bash
-# Run all tests
-npm test
-npm run test:watch  # Watch mode
+# Comprehensive testing
+npm test                     # Run all tests
+npm run test:unit            # Unit tests only
+npm run test:integration     # Integration tests only  
+npm run test:e2e             # End-to-end tests only
+npm run test:watch           # Watch mode for development
+npm run test:coverage        # Generate coverage report
 
 # Code quality
-npm run lint        # ESLint
-npm run format      # Prettier
-npm run docs        # Generate API docs
+npm run lint                 # ESLint validation
+npm run format               # Prettier formatting
+npm run docs                 # Generate API documentation
 ```
 
 ### Research Workflow Commands
@@ -63,11 +67,15 @@ npm run docs        # Generate API docs
 
 ## Architecture Overview
 
-### Core Components
+### Core Components (Consolidated Structure)
 - **CLI** (`src/cli/`): Command-line interface for research operations
 - **API** (`src/api/`): Express server with research engine and routing
 - **Web** (`src/web/`): React frontend with Vite, TailwindCSS, TypeScript
 - **Shared** (`src/shared/`): Common types and utilities
+- **Tests** (`tests/`): Comprehensive test suite (unit, integration, e2e)
+- **Config** (`config/`): All configuration files consolidated
+- **Docs** (`docs/`): All documentation consolidated
+- **Research** (`research/`): Research data and planning consolidated
 
 ### Research System Architecture
 The system implements a **three-tier research methodology**:
