@@ -1,0 +1,21 @@
+id,task,status,priority,effort,assigned,notes,created,completed
+1,Setup PM system,done,P0,0.5h,devagent,Created pm/ structure with process.md and tracker.csv,2025-07-02,2025-07-02
+2,Fix TypeScript build errors,done,P0,1.5h,agent,All builds passing successfully,2025-01-09,2025-01-09
+3,Consolidate documentation structure,done,P1,1h,agent,Moved from scattered locations to proper docs/,2025-01-09,2025-01-09
+4,Create ADR-003 Multi-API Orchestration,done,P1,0.75h,agent,Documented parallel execution strategy,2025-01-10,2025-01-10
+5,Create ADR-004 Research Repository Pattern,done,P1,0.75h,agent,Established research/ organization,2025-01-10,2025-01-10
+6,Implement research repository structure,done,P1,0.5h,agent,Created horizons and topics directories,2025-01-10,2025-01-10
+7,Clean up _intake folder,todo,P1,2h,agent,Move useful docs to proper locations and remove _intake,2025-07-02,
+8,Consolidate test directories,todo,P0,1h,agent,Move all tests to single tests/ location,2025-07-02,
+9,Fix failing test implementations,todo,P0,3h,agent,32 tests exist but 31 failing - need real implementations,2025-07-02,
+10,Connect PerplexityClient to orchestrator,todo,P0,2h,agent,Client exists but not integrated with research engine,2025-07-02,
+11,Implement real tool functions,todo,P0,4h,agent,Replace placeholder tools with actual API calls,2025-07-02,
+12,Create working CLI interface,todo,P1,3h,agent,Basic research and personality commands,2025-07-02,
+13,Set up API key management,todo,P1,1h,agent,Secure configuration for all research APIs,2025-07-02,
+14,Implement personality synthesis,todo,P1,2h,agent,Replace string concatenation with real personality application,2025-07-02,
+15,Create research workflow automation,todo,P2,2h,agent,Daily and weekly research scan scripts,2025-07-02,
+16,Build web interface MVP,todo,P2,4h,agent,Basic research dashboard and controls,2025-07-02,
+17,Add research result validation,todo,P1,1.5h,agent,Multi-source verification and quality checks,2025-07-02,
+18,Implement research repository search,todo,P1,2h,agent,Search through stored research by topic/horizon,2025-07-02,
+19,Create integration tests,todo,P1,2h,agent,End-to-end testing with real APIs,2025-07-02,
+20,Documentation cleanup and examples,todo,P2,1.5h,agent,Clear setup guide and usage examples,2025-07-02, 
