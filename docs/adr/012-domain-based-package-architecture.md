@@ -42,15 +42,17 @@ Reorganize the Leviathan architecture into domain-based packages that reflect ho
     - Whisper System (bi-directional context injection)
     - Intelligence Routing (capability assessment)
 
-@lev-os/build: # Optimization Domain
-  purpose: "Make everything fast through preparation and compilation"
+@lev-os/legos: # Assembly & Generation Domain (formerly @lev-os/build)
+  purpose: "Assemble schema-validated pieces to build things"
+  semantic_rationale: "Lego metaphor better captures build-time + runtime assembly"
   components:
+    - Assembly System (runtime context composition) = Context Compilation
+    - Generation System (build-time creation) = Bundle Generation  
+    - Template System (documentation generation)
+    - Validation Pipeline (schema-driven quality) = Performance Optimization
     - Request Processing Pipeline
     - FACT Caching Integration (sub-50ms responses)
-    - Context Compilation (~/c/ → platform adapters)
     - Embeddings Builder (semantic search indices)
-    - Bundle Generation (pre-packaged patterns)
-    - Performance Monitoring & Optimization
 
 @lev-os/memory: # Storage Domain (existing)
   purpose: "Store, retrieve, and learn from experience"
@@ -115,10 +117,20 @@ Reorganize the Leviathan architecture into domain-based packages that reflect ho
 
 ### Key Insights
 
-- **Build Domain Unity**: Request processing, caching, and compilation are all optimization concerns
+- **Lego Domain Unity**: Assembly, generation, templates, and validation all concern "building with validated pieces"
+- **Semantic Clarity**: "Legos" captures both build-time generation AND runtime assembly better than generic "build"
+- **Schema Factory Separation**: @lev-os/schema defines WHAT can exist, @lev-os/legos defines HOW to use what exists
 - **Whisper Integration**: Whisper is not a feature but the mechanism for bi-directional flow
-- **Workshop as Package**: Current workshop research becomes a discovery engine package
+- **Workshop as Meta-System**: Workshop contains the wizard and intake pipeline that builds the system itself
 - **Adapter Abstraction**: All adapters share the same auto-bootstrap pattern
+
+### Lego Architecture Discovery
+
+During implementation, we discovered the perfect "Factory vs Builder" separation:
+- **@lev-os/schema**: The Lego Factory - defines mold shapes and validation rules
+- **@lev-os/legos**: The Lego Builder - assembles validated pieces into working systems
+- **@lev-os/contexts**: The Context Library - contains actual contexts/schemas that exist
+- **workshop/**: The Meta-System - wizard and intake pipeline for building the system
 
 ## Related Documents
 

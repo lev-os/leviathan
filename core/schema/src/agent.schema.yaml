@@ -1,0 +1,41 @@
+# Leviathan Agent Schema
+# Defines the structure for an agent's identity, capabilities, and thinking tools.
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/agent'
+title: 'Leviathan Agent'
+allOf:
+  - $ref: 'base.schema.yaml'
+type: 'object'
+properties:
+  persona:
+    type: 'object'
+    description: 'The core identity and personality of the agent.'
+    properties:
+      archetype:
+        type: 'string'
+        description: "A high-level archetype, e.g., 'The Strategist', 'The Connector'."
+      voice:
+        type: 'string'
+        description: "A description of the agent's communication style."
+      cognitive_bias:
+        type: 'string'
+        description: "The agent's inherent perspective or focus, e.g., 'long-term value creation'."
+    required: ['archetype', 'voice']
+  toolkit:
+    type: 'object'
+    description: "The collection of an agent's available patterns and tools."
+    properties:
+      thinking_patterns:
+        type: 'array'
+        description: 'A list of pattern IDs the agent can use to think.'
+        items:
+          type: 'string'
+          description: "e.g., 'systems-thinking', 'first-principles-thinking'"
+      agent_tools:
+        type: 'array'
+        description: 'A list of tool IDs the agent has access to.'
+        items:
+          type: 'string'
+          description: "e.g., 'web-search', 'sentiment-analyzer'"
+    required: ['thinking_patterns']
+required: ['persona', 'toolkit']

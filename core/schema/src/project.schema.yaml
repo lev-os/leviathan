@@ -1,0 +1,71 @@
+# Leviathan Project Schema
+# Defines the structure for project management and coordination contexts.
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/project'
+title: 'Leviathan Project'
+allOf:
+  - $ref: 'base.schema.yaml'
+type: 'object'
+properties:
+  scope:
+    type: 'object'
+    description: 'The boundaries and objectives of the project.'
+    properties:
+      objectives:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Primary goals and deliverables for the project.'
+      constraints:
+        type: 'object'
+        description: 'Limitations and boundaries for the project.'
+        properties:
+          timeline: { type: 'string' }
+          budget: { type: 'string' }
+          resources: { type: 'array', items: { type: 'string' } }
+      success_criteria:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Measurable criteria for project success.'
+  coordination:
+    type: 'object'
+    description: 'How the project coordinates agents and workflows.'
+    properties:
+      primary_workflows:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Core workflows that drive the project forward.'
+      agent_roles:
+        type: 'object'
+        description: 'Agents and their responsibilities in the project.'
+        additionalProperties:
+          type: 'object'
+          properties:
+            agent_id: { type: 'string' }
+            responsibility: { type: 'string' }
+            authority_level: { type: 'string', enum: ['observer', 'contributor', 'decision_maker', 'project_lead'] }
+      dependencies:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            depends_on: { type: 'string' }
+            dependency_type: { type: 'string', enum: ['blocking', 'informational', 'resource'] }
+            description: { type: 'string' }
+  tracking:
+    type: 'object'
+    description: 'How progress and outcomes are measured.'
+    properties:
+      milestones:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            name: { type: 'string' }
+            description: { type: 'string' }
+            target_date: { type: 'string' }
+            validation_criteria: { type: 'array', items: { type: 'string' } }
+      metrics:
+        type: 'object'
+        description: 'Key performance indicators for the project.'
+        additionalProperties: { type: 'string' }
+required: ['scope', 'coordination']

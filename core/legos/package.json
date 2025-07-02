@@ -1,0 +1,66 @@
+{
+  "name": "@lev-os/legos",
+  "version": "1.0.0",
+  "description": "The Lego Builder - Assembles schema-validated pieces to build things",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "src/templates/**/*",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./assembly": "./dist/assembly/index.js",
+    "./generation": "./dist/generation/index.js",
+    "./templates": "./dist/templates/index.js",
+    "./validation": "./dist/validation/index.js",
+    "./composition": "./dist/composition/index.js"
+  },
+  "scripts": {
+    "build": "tsc && npm run copy-templates",
+    "copy-templates": "cp -r src/templates/ dist/",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "test:assembly": "jest src/assembly/",
+    "test:generation": "jest src/generation/",
+    "validate:examples": "node dist/examples/validate-all.js"
+  },
+  "keywords": [
+    "leviathan",
+    "lego-builder",
+    "assembly",
+    "generation",
+    "context-composition",
+    "schema-validation"
+  ],
+  "author": "Leviathan Team",
+  "license": "MIT",
+  "dependencies": {
+    "@lev-os/schema": "^1.0.0",
+    "handlebars": "^4.7.8",
+    "yaml": "^2.3.0",
+    "ajv": "^8.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/handlebars": "^4.1.0",
+    "typescript": "^5.0.0",
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0"
+  },
+  "peerDependencies": {
+    "@lev-os/contexts": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leviathan-os/leviathan.git",
+    "directory": "core/legos"
+  }
+}

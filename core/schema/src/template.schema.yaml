@@ -1,0 +1,59 @@
+# Leviathan Template Schema
+# Defines the structure for reusable templates across the system.
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/template'
+title: 'Leviathan Template'
+allOf:
+  - $ref: 'base.schema.yaml'
+type: 'object'
+properties:
+  template_type:
+    type: 'string'
+    enum: ['system_prompt', 'output_format', 'validation_criteria', 'thinking_pattern', 'communication']
+    description: 'The type of template this represents.'
+  content:
+    type: 'string'
+    description: 'The template content with parameter placeholders.'
+  parameters:
+    type: 'object'
+    description: 'Schema for template parameters.'
+    properties:
+      required:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Required parameters for the template.'
+      optional:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Optional parameters with defaults.'
+      schema:
+        type: 'object'
+        description: 'JSON schema for parameter validation.'
+        additionalProperties: true
+  usage_context:
+    type: 'object'
+    description: 'When and how this template should be used.'
+    properties:
+      applicable_agents:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Agent types that can use this template.'
+      applicable_workflows:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Workflow types where this template is relevant.'
+      conditions:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Conditions under which this template should be used.'
+  examples:
+    type: 'array'
+    items:
+      type: 'object'
+      properties:
+        name: { type: 'string' }
+        description: { type: 'string' }
+        parameters: { type: 'object' }
+        expected_output: { type: 'string' }
+    description: 'Example usage of the template.'
+required: ['template_type', 'content']

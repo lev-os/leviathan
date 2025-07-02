@@ -175,11 +175,9 @@ docs/
 │   ├── 10-mcp-orchestration.md
 │   └── memory/
 │       └── federation/
-├── adr/
-│   ├── 001-010-core-principles/
-│   ├── 011-020-architecture-evolution/
-│   ├── 021-030-implementation/
-│   └── 031-040-future-vision/
+├── adr/                             # Architecture Decision Records
+│   │                               # Sequential numbering (no hard ranges)
+│   │                               # Extract from both _ref/orig-agent and _ref/mcp-ceo
 ├── specs/
 │   ├── bdd/                        # NEW: Behavior specs
 │   ├── tdd/                        # NEW: Test specs

@@ -13,8 +13,14 @@ import os from 'os';
 const execAsync = promisify(exec);
 
 export class Neo4jDetector {
-  constructor() {
+  constructor(config = {}) {
     this.detectionResults = null;
+    this.config = {
+      neo4jHttpPort: config.neo4jHttpPort || process.env.NEO4J_HTTP_PORT || 7474,
+      neo4jBoltPort: config.neo4jBoltPort || process.env.NEO4J_BOLT_PORT || 7687,
+      neo4jUri: config.neo4jUri || process.env.NEO4J_URI || 'bolt://localhost:7687',
+      ...config
+    };
   }
 
   /**
@@ -43,7 +49,10 @@ export class Neo4jDetector {
       version: null,
       dataPath: null,
       running: false,
-      ports: { http: 7474, bolt: 7687 }
+      ports: { 
+        http: parseInt(this.config.neo4jHttpPort), 
+        bolt: parseInt(this.config.neo4jBoltPort) 
+      }
     };
 
     try {
@@ -80,9 +89,10 @@ export class Neo4jDetector {
         }
       }
 
-      // Check if Desktop Neo4j is running on standard ports
+      // Check if Desktop Neo4j is running on configured ports
       if (result.found) {
-        result.running = await this.checkPort(7474) && await this.checkPort(7687);
+        result.running = await this.checkPort(this.config.neo4jHttpPort) && 
+                        await this.checkPort(this.config.neo4jBoltPort);
       }
 
       return result;
@@ -137,22 +147,25 @@ export class Neo4jDetector {
    * Detect existing Neo4j instance (running service)
    */
   async detectExistingInstance() {
+    const httpPort = parseInt(this.config.neo4jHttpPort);
+    const boltPort = parseInt(this.config.neo4jBoltPort);
+    
     const result = {
-      http: { port: 7474, accessible: false },
-      bolt: { port: 7687, accessible: false },
+      http: { port: httpPort, accessible: false },
+      bolt: { port: boltPort, accessible: false },
       version: null,
       authentication: null
     };
 
     try {
-      // Check standard ports
-      result.http.accessible = await this.checkPort(7474);
-      result.bolt.accessible = await this.checkPort(7687);
+      // Check configured ports
+      result.http.accessible = await this.checkPort(httpPort);
+      result.bolt.accessible = await this.checkPort(boltPort);
 
       // Try to get version info if HTTP is accessible
       if (result.http.accessible) {
         try {
-          const response = await fetch('http://localhost:7474/db/data/');
+          const response = await fetch(`http://localhost:${httpPort}/db/data/`);
           const data = await response.json();
           result.version = data.neo4j_version;
         } catch (e) {
@@ -245,7 +258,7 @@ export class Neo4jDetector {
         type: 'desktop',
         reason: 'Neo4j Desktop is installed and running',
         config: {
-          neo4jUri: 'bolt://localhost:7687',
+          neo4jUri: this.config.neo4jUri,
           deploymentMode: 'desktop',
           requiresGraphitiService: true
         }
@@ -257,7 +270,7 @@ export class Neo4jDetector {
         type: 'existing',
         reason: 'Existing Neo4j instance detected on standard ports',
         config: {
-          neo4jUri: 'bolt://localhost:7687',
+          neo4jUri: this.config.neo4jUri,
           deploymentMode: 'external',
           requiresGraphitiService: true
         }
@@ -307,7 +320,7 @@ export class Neo4jDetector {
         return {
           ...baseConfig,
           neo4j: {
-            uri: 'bolt://localhost:7687',
+            uri: this.config.neo4jUri,
             username: 'neo4j',
             password: null, // User needs to provide
             source: 'desktop'
@@ -323,7 +336,7 @@ export class Neo4jDetector {
         return {
           ...baseConfig,
           neo4j: {
-            uri: 'bolt://localhost:7687',
+            uri: this.config.neo4jUri,
             username: 'neo4j',
             password: null, // User needs to provide
             source: 'external'

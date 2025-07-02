@@ -6,6 +6,7 @@
 import { MultiModalMemoryFusion } from './memory-fusion.js';
 import { VisualStateSpaceProcessor } from './visual-state-space.js';
 import { EdgeMemoryManager } from './edge-memory.js';
+import { ScreenpipeClient, RealScreenProcessor } from './screenpipe-integration.js';
 
 export class Max {
   constructor(config = {}) {
@@ -25,6 +26,14 @@ export class Max {
       edgeProcessor: this.config.privacyFirst
     });
 
+    // Real Screenpipe integration
+    this.screenpipeClient = new ScreenpipeClient({
+      baseUrl: config.screenpipeUrl || 'http://localhost:3030'
+    });
+    
+    this.realScreenProcessor = new RealScreenProcessor(this.screenpipeClient);
+
+    // Fallback to mock processor for non-Screenpipe features
     this.visualProcessor = new VisualStateSpaceProcessor({
       latencyTarget: this.config.latencyTarget,
       elementRecognition: true,
@@ -217,13 +226,28 @@ export class Max {
 
   // Private helper methods
   async _processScreenStream(screenData) {
-    const captured = await this.visualProcessor.captureScreen();
-    const processed = await this.visualProcessor.processFrame(captured);
-    
-    // Store in memory fusion
-    await this.memoryFusion.ingestStream('screen', processed, Date.now());
-    
-    return processed;
+    try {
+      // Use real Screenpipe data
+      const captured = await this.realScreenProcessor.captureScreen();
+      const processed = await this.realScreenProcessor.recognizeElements(captured);
+      
+      // Store in memory fusion
+      await this.memoryFusion.ingestStream('screen', {
+        ...processed,
+        rawData: captured
+      }, Date.now());
+      
+      return processed;
+    } catch (error) {
+      console.warn('Screenpipe not available, falling back to mock:', error.message);
+      
+      // Fallback to mock implementation
+      const captured = await this.visualProcessor.captureScreen();
+      const processed = await this.visualProcessor.processFrame(captured);
+      
+      await this.memoryFusion.ingestStream('screen', processed, Date.now());
+      return processed;
+    }
   }
 
   async _processAudioStream(audioData) {

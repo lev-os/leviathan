@@ -1,0 +1,94 @@
+# Leviathan Context Schema
+# Defines general contextual information and domain-specific knowledge.
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/context'
+title: 'Leviathan Context'
+allOf:
+  - $ref: 'base.schema.yaml'
+type: 'object'
+properties:
+  context_type:
+    type: 'string'
+    enum: ['domain_knowledge', 'environmental', 'historical', 'situational', 'cultural', 'technical']
+    description: 'The type of context this represents.'
+  scope:
+    type: 'object'
+    description: 'The boundaries and applicability of this context.'
+    properties:
+      domains:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Domain areas where this context applies.'
+      time_bounds:
+        type: 'object'
+        properties:
+          valid_from: { type: 'string' }
+          valid_until: { type: 'string' }
+          temporal_relevance: { type: 'string' }
+        description: 'Time boundaries for context relevance.'
+      geographic_bounds:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Geographic regions where context applies.'
+      agent_applicability:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Agent types that should consider this context.'
+  knowledge:
+    type: 'object'
+    description: 'The actual contextual knowledge and information.'
+    properties:
+      facts:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            statement: { type: 'string' }
+            confidence: { type: 'number', minimum: 0, maximum: 1 }
+            source: { type: 'string' }
+            last_verified: { type: 'string' }
+        description: 'Factual information with confidence levels.'
+      principles:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Guiding principles or rules within this context.'
+      constraints:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            constraint: { type: 'string' }
+            severity: { type: 'string', enum: ['hard', 'soft', 'preference'] }
+            rationale: { type: 'string' }
+        description: 'Limitations or boundaries within this context.'
+      relationships:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            entity_a: { type: 'string' }
+            relationship: { type: 'string' }
+            entity_b: { type: 'string' }
+            strength: { type: 'number', minimum: 0, maximum: 1 }
+        description: 'Relationships between entities in this context.'
+  integration:
+    type: 'object'
+    description: 'How this context integrates with other system components.'
+    properties:
+      triggers:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Conditions that make this context relevant.'
+      conflicts:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            conflicting_context: { type: 'string' }
+            resolution_strategy: { type: 'string' }
+        description: 'How to handle conflicts with other contexts.'
+      dependencies:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Other contexts this one depends on.'
+required: ['context_type', 'scope', 'knowledge']

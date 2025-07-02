@@ -1,0 +1,23 @@
+# Leviathan Tool Schema
+# Defines the structure for a capability or tool that an agent can use.
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/tool'
+title: 'Leviathan Tool'
+allOf:
+  - $ref: 'base.schema.yaml'
+type: 'object'
+properties:
+  tool_name:
+    type: 'string'
+    description: "The callable name of the tool, e.g., 'web_search'."
+  tool_description:
+    type: 'string'
+    description: 'A clear description of what the tool does, for the agent to understand its purpose.'
+  schema:
+    type: 'object'
+    description: "An OpenAPI-like schema defining the tool's inputs and outputs."
+    properties:
+      inputs: { type: 'object' }
+      outputs: { type: 'object' }
+    required: ['inputs']
+required: ['tool_name', 'tool_description', 'schema']

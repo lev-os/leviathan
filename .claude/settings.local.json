@@ -72,7 +72,9 @@
       "Bash(npm test)",
       "Bash(rg:*)",
       "Bash(screenpipe:*)",
-      "mcp__desktop-commander__read_output"
+      "mcp__desktop-commander__read_output",
+      "WebFetch(domain:docs.screenpi.pe)",
+      "WebFetch(domain:docs.anthropic.com)"
     ],
     "deny": []
   }

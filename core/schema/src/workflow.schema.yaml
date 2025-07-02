@@ -1,0 +1,64 @@
+# Leviathan Workflow Schema
+# Defines the structure for orchestrating agents and patterns to achieve a goal.
+# Supports both guided (steps) and dynamic (recommendations-only) execution.
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/workflow'
+title: 'Leviathan Workflow'
+allOf:
+  - $ref: 'base.schema.yaml'
+type: 'object'
+properties:
+  goal:
+    type: 'string'
+    description: 'A high-level description of the desired outcome for this workflow.'
+  recommendations:
+    type: 'object'
+    description: 'A set of optional recommendations for a dynamic agent to use.'
+    properties:
+      participants:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            agent_id: { type: 'string' }
+            role: { type: 'string' }
+            requirement: { type: 'string', enum: ['required', 'optional'] }
+          required: ['agent_id', 'role', 'requirement']
+      patterns:
+        type: 'array'
+        description: 'A list of suggested pattern IDs to use.'
+        items: { type: 'string' }
+  steps:
+    type: 'array'
+    description: 'An optional, ordered list of steps for guided execution.'
+    items:
+      type: 'object'
+      properties:
+        step_id: { type: 'string' }
+        description: { type: 'string' }
+        recommendation:
+          type: 'object'
+          description: 'The suggested action for this step.'
+          properties:
+            prompt: { type: 'string' }
+            agent: { type: 'string', description: 'The recommended agent ID for this step.' }
+        validation:
+          type: 'array'
+          description: 'A list of validation pattern IDs to run against the output of this step.'
+          items: { type: 'string' }
+      required: ['step_id', 'recommendation', 'validation']
+  state_machine_plugins:
+    type: 'object'
+    description: 'Metadata for execution engines to handle long-running or persistent workflows.'
+    properties:
+      long_running:
+        type: 'object'
+        properties:
+          duration: { type: 'string', description: "Estimated duration, e.g., '10d', '4h'." }
+      human_in_the_loop: { type: 'boolean' }
+      error_handling:
+        type: 'object'
+        properties:
+          retry_policy: { type: 'string', enum: ['none', 'linear', 'exponential_backoff'] }
+          max_retries: { type: 'integer' }
+required: ['goal']

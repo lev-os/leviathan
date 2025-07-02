@@ -1,0 +1,91 @@
+# Leviathan Validator Schema
+# Defines validation rules and criteria for quality assurance.
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/validator'
+title: 'Leviathan Validator'
+allOf:
+  - $ref: 'base.schema.yaml'
+type: 'object'
+properties:
+  validation_type:
+    type: 'string'
+    enum: ['output_quality', 'factual_accuracy', 'format_compliance', 'business_logic', 'security', 'performance']
+    description: 'The type of validation this rule performs.'
+  criteria:
+    type: 'object'
+    description: 'The specific validation criteria and rules.'
+    properties:
+      rules:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            rule_id: { type: 'string' }
+            description: { type: 'string' }
+            severity: { type: 'string', enum: ['error', 'warning', 'info'] }
+            validation_logic: { type: 'string' }
+        description: 'Individual validation rules to apply.'
+      thresholds:
+        type: 'object'
+        description: 'Quantitative thresholds for validation.'
+        properties:
+          min_confidence: { type: 'number', minimum: 0, maximum: 1 }
+          max_response_time: { type: 'number' }
+          required_sources: { type: 'integer', minimum: 0 }
+        additionalProperties: { type: 'number' }
+      patterns:
+        type: 'object'
+        description: 'Pattern-based validation rules.'
+        properties:
+          required_patterns:
+            type: 'array'
+            items: { type: 'string' }
+            description: 'Regex patterns that must be present.'
+          forbidden_patterns:
+            type: 'array'
+            items: { type: 'string' }
+            description: 'Regex patterns that must not be present.'
+          format_patterns:
+            type: 'object'
+            additionalProperties: { type: 'string' }
+            description: 'Named format patterns for validation.'
+  execution:
+    type: 'object'
+    description: 'How the validation should be executed.'
+    properties:
+      trigger:
+        type: 'string'
+        enum: ['pre_execution', 'post_execution', 'continuous', 'on_demand']
+        description: 'When the validation should run.'
+      tool_requirements:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Tools or capabilities needed for validation.'
+      fallback_strategy:
+        type: 'string'
+        enum: ['block', 'warn', 'auto_correct', 'escalate']
+        description: 'What to do when validation fails.'
+  remediation:
+    type: 'object'
+    description: 'How to handle validation failures.'
+    properties:
+      auto_corrections:
+        type: 'array'
+        items:
+          type: 'object'
+          properties:
+            condition: { type: 'string' }
+            action: { type: 'string' }
+            confidence_threshold: { type: 'number' }
+        description: 'Automatic corrections for common issues.'
+      escalation_path:
+        type: 'array'
+        items: { type: 'string' }
+        description: 'Who or what to escalate to when validation fails.'
+      retry_logic:
+        type: 'object'
+        properties:
+          max_attempts: { type: 'integer' }
+          backoff_strategy: { type: 'string' }
+          modification_hints: { type: 'array', items: { type: 'string' } }
+required: ['validation_type', 'criteria', 'execution']

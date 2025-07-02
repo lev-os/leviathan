@@ -1,0 +1,89 @@
+# Leviathan Specifications Registry
+# Auto-maintained index of all component specifications across the ecosystem
+
+metadata:
+  generated_at: "2025-01-14T12:00:00Z"
+  schema_version: "1.0.0"
+  total_components: 2
+  coverage_target: 0.8
+
+components:
+  "@lev-os/schema":
+    path: "./core/schema/specs/"
+    package_path: "./core/schema/"
+    description: "The Lego Factory - Constitutional framework and schema validation"
+    status: "specifications_captured"
+    coverage: 0.0  # No BDD features yet, only README specs
+    spec_types: ["feature", "integration", "performance"]
+    last_updated: "2025-01-14"
+    maintainer: "Leviathan Team"
+    behavioral_questions:
+      - "How does constitutional inheritance work?"
+      - "What happens when validation fails?"
+      - "How do schemas evolve over time?"
+    
+  "@lev-os/legos":
+    path: "./core/legos/specs/"
+    package_path: "./core/legos/"
+    description: "The Lego Builder - Assembly, generation, and composition system"
+    status: "specifications_captured"
+    coverage: 0.0  # No BDD features yet, only README specs
+    spec_types: ["feature", "integration", "performance", "bdd"]
+    last_updated: "2025-01-14"
+    maintainer: "Leviathan Team"
+    behavioral_questions:
+      - "What does context assembly actually create?"
+      - "How are dependencies resolved?"
+      - "How do composition patterns work?"
+
+# Planned Components (not yet implemented)
+planned_components:
+  "agent-system":
+    path: "./agent/specs/"
+    description: "Agent orchestration and intelligence coordination"
+    priority: "high"
+    
+  "@lev-os/contexts":
+    path: "./contexts/specs/"
+    description: "Universal context library for ecosystem-wide access"
+    priority: "high"
+    
+  "@lev-os/memory":
+    path: "./core/memory/specs/"
+    description: "Hybrid memory system with file + Graphiti architecture"
+    priority: "medium"
+
+# Discovery Rules
+discovery_rules:
+  - pattern: "*/specs/README.md"
+    auto_include: true
+    spec_type: "documentation"
+  
+  - pattern: "*/specs/features/*.feature"
+    auto_include: true
+    spec_type: "bdd"
+    
+  - pattern: "*/specs/*.yaml"
+    auto_include: true
+    spec_type: "configuration"
+
+# Coverage Requirements by Component Type
+coverage_requirements:
+  core_packages: 0.9      # Core infrastructure needs high coverage
+  plugins: 0.7            # Plugins need good coverage  
+  applications: 0.6       # Apps need reasonable coverage
+  experimental: 0.3       # Forge/experimental can have lower coverage
+
+# Validation Rules
+validation_rules:
+  required_files:
+    - "README.md"         # Must have component spec overview
+  
+  optional_files:
+    - "features/"         # BDD feature specifications
+    - "integration.yaml"  # Integration specifications
+    - "performance.yaml"  # Performance requirements
+    
+  naming_conventions:
+    features: "kebab-case.feature"
+    specs: "kebab-case.yaml"

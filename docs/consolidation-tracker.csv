@@ -22,8 +22,8 @@ Phase,Task_ID,Task_Name,Source_Files,Target_Location,Dependencies,Status,Priorit
 1,P1T04,Whisper to bi-directional evolution,"_01-whisper.md, drafts/whisper-bi-directional-plan.md",docs/specs/whisper-system/evolution-plan.md,P1T02,Pending,RESEARCH,4,Team,v2.0 - Future migration strategy
 1,P1T05,Package architecture spec,"docs/features/_core.md, workshop/intake/mastra-package-architecture-analysis.md",docs/features/_core.md,P-1T03,Completed,CRITICAL,3,Team,v1.0 Core - COMPLETE architecture spec with core/plugin boundaries, memory interfaces, migration plan
 1,P1T06,Memory architecture consolidation,"drafts/003-hybrid-memory-system-architecture.md, drafts/004-lev-os-memory-integration-architecture.md, drafts/005-graphiti-only-memory-architecture.md",docs/architecture/memory/,P0T07,Pending,CRITICAL,4,Team,v1.0 Core - Memory interface definition
-1,P1T07,ADR migration - orig-agent,_ref/orig-agent/docs/architecture/,docs/adr/001-010-core-principles/,P1T01,Pending,CRITICAL,3,Team,v1.0 Core - Foundation principles
-1,P1T08,ADR migration - new decisions,"drafts/adr-*.md, memory ADRs",docs/adr/011-020-architecture-evolution/,P1T06,Pending,HIGH,3,Team,New architectural decisions
+1,P1T07,ADR migration - both _ref projects,"_ref/orig-agent/docs/architecture/decisions/, _ref/mcp-ceo/docs/adr/",docs/adr/,P1T01,Pending,CRITICAL,4,Team,v1.0 Core - Extract ADRs from both reference projects with sequential numbering
+1,P1T08,ADR migration - drafts and new decisions,"drafts/adr-*.md, memory ADRs, new architectural decisions",docs/adr/,P1T06,Pending,HIGH,3,Team,Migrate remaining draft ADRs with sequential numbering
 1,P1T09,FlowMind documentation,_ref/mcp-ceo/docs/,docs/architecture/04-flowmind-language.md,P1T02,Pending,RESEARCH,3,Team,v2.0 - LLM as runtime concept
 1,P1T10,JEPA integration spec,_03-jepa.md,docs/specs/integrations/jepa-learning/,P0T07,Pending,PLUGIN,2,Team,Optional - Self-learning plugin
 1,P1T11,Prime context spec,_01-prime.md,docs/specs/constitutional/prime-context.md,P0T07,Pending,PLUGIN,2,Team,Optional - Constitutional AI overlay

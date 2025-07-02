@@ -11,18 +11,20 @@ import yaml from 'js-yaml';
 
 export class ConfigManager {
   constructor() {
-    this.detector = new Neo4jDetector();
+    this.detector = null; // Will be initialized after config loading
     this.config = null;
     this.configSources = [];
   }
 
   /**
-   * Load configuration using hierarchy:
-   * 1. Environment variables
-   * 2. Local config file (~/.lev/memory-config.yaml)
-   * 3. Project config (plugin.yaml backend section)
-   * 4. Auto-detection results
-   * 5. Default fallback
+   * Load configuration using hierarchy following ~/.leviathan fractal architecture:
+   * 1. Default fallback values
+   * 2. Component defaults (plugin.yaml backend section)
+   * 3. Profile config (~/.leviathan/profiles/{profile}.yaml)
+   * 4. Global user config (~/.leviathan/config.yaml)
+   * 5. Instance config (~/.leviathan/instances/{instance}/plugins/memory.yaml)
+   * 6. Environment variables (highest priority)
+   * 7. Auto-detection results (inform but don't override)
    */
   async loadConfig() {
     this.configSources = [];
@@ -32,64 +34,106 @@ export class ConfigManager {
     config = this.getDefaultConfig();
     this.configSources.push('defaults');
 
-    // 2. Auto-detection (run early to inform other configs)
-    const detection = await this.detector.detect();
-    const autoConfig = this.detector.generateConfig();
-    config = this.mergeConfigs(config, autoConfig);
-    this.configSources.push('auto-detection');
-
-    // 3. Project config
+    // 2. Component defaults (plugin.yaml backend section)
     const projectConfig = await this.loadProjectConfig();
     if (projectConfig) {
       config = this.mergeConfigs(config, projectConfig);
-      this.configSources.push('project-config');
+      this.configSources.push('component-defaults');
     }
 
-    // 4. Local config file    // 4. Local config file
-    const localConfig = await this.loadLocalConfig();
-    if (localConfig) {
-      config = this.mergeConfigs(config, localConfig);
-      this.configSources.push('local-config');
+    // 3. Profile config (~/.leviathan/profiles/{profile}.yaml)
+    const profileConfig = await this.loadProfileConfig();
+    if (profileConfig) {
+      config = this.mergeConfigs(config, profileConfig);
+      this.configSources.push('profile-config');
     }
 
-    // 5. Environment variables (highest priority)
+    // 4. Global user config (~/.leviathan/config.yaml)
+    const globalConfig = await this.loadGlobalConfig();
+    if (globalConfig) {
+      config = this.mergeConfigs(config, globalConfig);
+      this.configSources.push('global-config');
+    }
+
+    const instanceConfig = await this.loadInstanceConfig();
+    if (instanceConfig) {
+      config = this.mergeConfigs(config, instanceConfig);
+      this.configSources.push('instance-config');
+    }
+
+    // 6. Environment variables (highest priority)
     const envConfig = this.loadEnvironmentConfig();
     if (Object.keys(envConfig).length > 0) {
       config = this.mergeConfigs(config, envConfig);
       this.configSources.push('environment');
     }
 
+    // Resolve environment variable placeholders first
+    config = this.resolveEnvironmentVariables(config);
+
+    // 7. Initialize detector with resolved config and run auto-detection
+    this.detector = new Neo4jDetector({
+      neo4jHttpPort: config.neo4j?.ports?.http || 7474,
+      neo4jBoltPort: config.neo4j?.ports?.bolt || 7687,
+      neo4jUri: config.neo4j?.uri || 'bolt://localhost:7687'
+    });
+    
+    const detection = await this.detector.detect();
+    const autoConfig = this.detector.generateConfig();
+    config = this.mergeAutoDetectionConfig(config, autoConfig);
+    this.configSources.push('auto-detection');
+
     this.config = config;
     return config;
   }
 
   /**
-   * Get default configuration
+   * Get default configuration with environment variable placeholders
    */
   getDefaultConfig() {
     return {
-      deploymentMode: 'auto',
+      deploymentMode: '${LEV_DEPLOYMENT_MODE:-auto}',
       neo4j: {
-        uri: 'bolt://localhost:7687',
-        username: 'neo4j',
-        password: null,
-        timeout: 30000
+        uri: '${NEO4J_URI:-bolt://localhost:7687}',
+        username: '${NEO4J_USER:-neo4j}',
+        password: '${NEO4J_PASSWORD:-}',
+        timeout: '${NEO4J_TIMEOUT:-30000}',
+        ports: {
+          http: '${NEO4J_HTTP_PORT:-7474}',
+          bolt: '${NEO4J_BOLT_PORT:-7687}'
+        }
       },
       graphiti: {
-        grpcAddress: 'localhost:50051',
-        mode: 'service',
-        timeout: 10000,
-        retries: 3
+        grpcAddress: '${GRAPHITI_GRPC_ADDRESS:-localhost}',
+        grpcPort: '${GRAPHITI_GRPC_PORT:-50051}',
+        mode: '${GRAPHITI_MODE:-service}',
+        timeout: '${GRAPHITI_TIMEOUT:-10000}',
+        retries: '${GRAPHITI_RETRIES:-3}',
+        enableMcp: '${GRAPHITI_ENABLE_MCP:-true}',
+        enableTemporal: '${GRAPHITI_ENABLE_TEMPORAL:-true}'
       },
       paths: {
-        sessionsPath: path.join(os.homedir(), '.kingly', 'sessions'),
-        contextsPath: './contexts',
-        configPath: path.join(os.homedir(), '.lev', 'memory-config.yaml')
+        sessionsPath: '${LEV_SESSIONS_PATH:-' + path.join(os.homedir(), '.kingly', 'sessions') + '}',
+        contextsPath: '${LEV_CONTEXTS_PATH:-./contexts}',
+        configPath: '${LEV_CONFIG_PATH:-' + path.join(os.homedir(), '.lev', 'memory-config.yaml') + '}'
       },
       features: {
-        enableGraphiti: true,
-        fallbackMode: false,
-        autoStart: true
+        enableGraphiti: '${LEV_ENABLE_GRAPHITI:-true}',
+        fallbackMode: '${LEV_FALLBACK_MODE:-false}',
+        autoStart: '${LEV_AUTO_START:-true}',
+        debugEnabled: '${LEV_DEBUG:-false}',
+        performanceMonitoring: '${LEV_PERF_MONITOR:-true}'
+      },
+      memory: {
+        cacheSize: '${LEV_CACHE_SIZE:-256MB}',
+        queryTimeout: '${LEV_QUERY_TIMEOUT:-30s}',
+        syncInterval: '${LEV_SYNC_INTERVAL:-on_demand}',
+        backupStrategy: '${LEV_BACKUP_STRATEGY:-file_system_continuous}'
+      },
+      services: {
+        autoDetection: '${LEV_AUTO_DETECTION:-true}',
+        healthCheckInterval: '${LEV_HEALTH_CHECK_INTERVAL:-30}',
+        startupTimeout: '${LEV_STARTUP_TIMEOUT:-60}'
       }
     };
   }
@@ -122,7 +166,60 @@ export class ConfigManager {
 
     return config;
   }  /**
-   * Load local configuration file (~/.lev/memory-config.yaml)
+   * Load profile configuration (~/.leviathan/profiles/{profile}.yaml)
+   */
+  async loadProfileConfig() {
+    try {
+      const profile = process.env.LEV_PROFILE || 'development';
+      const configPath = path.join(os.homedir(), '.leviathan', 'profiles', `${profile}.yaml`);
+      const content = await fs.readFile(configPath, 'utf8');
+      const profileConfig = yaml.load(content);
+      return profileConfig?.memory || null;
+    } catch (error) {
+      if (error.code !== 'ENOENT') {
+        console.warn('Error loading profile config:', error.message);
+      }
+      return null;
+    }
+  }
+
+  /**
+   * Load global user configuration (~/.leviathan/config.yaml)
+   */
+  async loadGlobalConfig() {
+    try {
+      const configPath = path.join(os.homedir(), '.leviathan', 'config.yaml');
+      const content = await fs.readFile(configPath, 'utf8');
+      const globalConfig = yaml.load(content);
+      return globalConfig?.memory || null;
+    } catch (error) {
+      if (error.code !== 'ENOENT') {
+        console.warn('Error loading global config:', error.message);
+      }
+      return null;
+    }
+  }
+
+  /**
+   * Load instance configuration (~/.leviathan/instances/{instance}/plugins/memory.yaml)
+   */
+  async loadInstanceConfig() {
+    try {
+      const instance = process.env.LEV_INSTANCE || 'default';
+      const configPath = path.join(os.homedir(), '.leviathan', 'instances', instance, 'plugins', 'memory.yaml');
+      const content = await fs.readFile(configPath, 'utf8');
+      return yaml.load(content);
+    } catch (error) {
+      if (error.code !== 'ENOENT') {
+        console.warn('Error loading instance config:', error.message);
+      }
+      return null;
+    }
+  }
+
+  /**
+   * Load legacy local configuration file (~/.lev/memory-config.yaml) 
+   * @deprecated Use instance config instead
    */
   async loadLocalConfig() {
     try {
@@ -285,5 +382,72 @@ export class ConfigManager {
     }
     
     return this.config;
+  }
+
+  /**
+   * Resolve environment variable placeholders in configuration
+   * Supports ${VAR:-default} syntax
+   */
+  resolveEnvironmentVariables(config) {
+    const resolved = {};
+    
+    for (const [key, value] of Object.entries(config)) {
+      if (typeof value === 'string' && value.includes('${')) {
+        resolved[key] = this.resolveEnvString(value);
+      } else if (value && typeof value === 'object' && !Array.isArray(value)) {
+        resolved[key] = this.resolveEnvironmentVariables(value);
+      } else {
+        resolved[key] = value;
+      }
+    }
+    
+    return resolved;
+  }
+
+  /**
+   * Resolve individual environment variable string
+   */
+  resolveEnvString(str) {
+    return str.replace(/\$\{([^}]+)\}/g, (match, varExpr) => {
+      const [varName, defaultValue = ''] = varExpr.split(':-');
+      const envValue = process.env[varName];
+      
+      if (envValue !== undefined) {
+        // Convert boolean strings to actual booleans
+        if (envValue === 'true') return true;
+        if (envValue === 'false') return false;
+        // Convert numeric strings to numbers
+        if (/^\d+$/.test(envValue)) return parseInt(envValue, 10);
+        return envValue;
+      }
+      
+      // Handle default value conversions
+      if (defaultValue === 'true') return true;
+      if (defaultValue === 'false') return false;
+      if (/^\d+$/.test(defaultValue)) return parseInt(defaultValue, 10);
+      return defaultValue;
+    });
+  }
+
+  /**
+   * Merge auto-detection config without overriding user settings
+   * Auto-detection informs but doesn't override explicit user configuration
+   */
+  mergeAutoDetectionConfig(userConfig, autoConfig) {
+    const merged = { ...userConfig };
+    
+    // Only apply auto-detection if user hasn't explicitly configured
+    if (!userConfig.neo4j?.uri || userConfig.neo4j.uri.includes('${')) {
+      merged.neo4j = { ...merged.neo4j, ...autoConfig.neo4j };
+    }
+    
+    if (!userConfig.deploymentMode || userConfig.deploymentMode === 'auto') {
+      merged.deploymentMode = autoConfig.deploymentMode;
+    }
+    
+    // Store detection results for debugging
+    merged._autoDetection = autoConfig.detectionResults;
+    
+    return merged;
   }
 }

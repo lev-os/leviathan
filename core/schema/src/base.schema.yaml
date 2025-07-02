@@ -1,0 +1,35 @@
+# Leviathan Base Context Schema
+# All other contexts MUST extend this base.
+# Constitutional framework for the Leviathan ecosystem
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/base'
+title: 'Leviathan Base Context'
+type: 'object'
+properties:
+  id: 
+    type: 'string'
+    description: "The unique identifier for this context, e.g., 'ceo', 'cognitive-parliament'."
+  type: 
+    type: 'string'
+    description: 'The type of the context (e.g., agent, workflow, pattern, tool).'
+  description: 
+    type: 'string'
+    description: "A concise, powerful description of this context's purpose."
+  version: 
+    type: 'string'
+    pattern: "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    description: 'Semantic version of the context.'
+  validation:
+    type: 'object'
+    description: 'Defines the validation rules for this context and its outputs.'
+    properties:
+      schema_validator:
+        type: 'string'
+        description: "A reference to the structural schema for this context file (e.g., 'core/schema/agent.schema.yaml')."
+      runtime_validators:
+        type: 'array'
+        description: 'A list of validation pattern IDs to be applied to the RUNTIME OUTPUT of this context.'
+        items:
+          type: 'string'
+          description: "The ID of a validation pattern, e.g., 'reality-check'"
+required: ['id', 'type', 'description', 'version']

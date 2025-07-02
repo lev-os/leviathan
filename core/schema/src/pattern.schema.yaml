@@ -1,0 +1,16 @@
+# Leviathan Pattern Schema
+# Defines the structure for a reusable thinking pattern or mental model.
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/pattern'
+title: 'Leviathan Pattern'
+allOf:
+  - $ref: 'base.schema.yaml'
+type: 'object'
+properties:
+  template:
+    type: 'string'
+    description: 'The core logic of the pattern, often a parameterized prompt or a markdown template.'
+  input_schema:
+    type: 'object'
+    description: 'An optional schema defining the inputs this pattern expects.'
+required: ['template']

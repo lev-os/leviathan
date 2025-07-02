@@ -234,27 +234,65 @@ apps/* import from @lev-os/contexts
 - **Separate config concerns** (component vs instance vs user)
 - **Universal context access** for distributed Leviathan
 
-## 🎉 NEXT SESSION TODO LIST
+## 🎉 SESSION PROGRESS & NEXT STEPS
 
-### High Priority (Critical Path)
-- [ ] Create core/schema package with lego mold definitions (move from broken ~/path)
-- [ ] Create core/legos package with assembly/building tools  
-- [ ] Fix broken ~/k/~/lev path issue - move schemas to proper location
+### ✅ MAJOR ACCOMPLISHMENTS THIS SESSION
+- [x] **Create core/schema package** - The Lego Factory with 9 sophisticated schemas rescued
+- [x] **Create core/legos package** - The Lego Builder (THIS IS THE @lev-os/build UPGRADE!)
+- [x] **Fix broken ~/k/~/lev path issue** - Schemas moved to proper architectural location
+- [x] **Create specs/ fractal system** - Schema-driven component discovery with global registry
+- [x] **Capture behavioral specifications** - Component-local specs/README.md files created
+- [x] **Solve "save .md everywhere" problem** - specs/ provides natural home for all design docs
 
-### Medium Priority (Architecture)
-- [ ] Design ~/.leviathan fractal configuration architecture
-- [ ] Move contexts from agent/contexts to root level @lev-os/contexts package
-- [ ] Integrate component generation schemas from docs/schemas into appropriate packages
-- [ ] Update all import paths and references across codebase
+### 🔄 CRITICAL PATH (Next Session)
+- [ ] **Update ADR-012** - Reconcile @lev-os/build plan with core/legos implementation
+- [ ] **Naming alignment decision** - core/legos → @lev-os/build OR update ADR to match
+- [ ] **Define lego behavioral features** - What does context assembly actually DO?
+- [ ] **Define schema behavioral features** - How does constitutional framework work?
+- [ ] **Extend base.schema.yaml** - Add specifications section for BDD requirements
 
-### Documentation Complete
-- [x] Document complete architecture: Schema Factory + Lego Builder separation
+### 🏗️ ARCHITECTURE COMPLETION
+- [ ] **Design ~/.leviathan** - Fractal configuration architecture (solve config chaos)
+- [ ] **Add pnpm workspace entries** - Make packages discoverable  
+- [ ] **Test builds and validation** - Ensure packages actually work
+- [ ] **Move contexts to root** - @lev-os/contexts for universal access
+- [ ] **Integrate docs/schemas** - Component generation schemas into packages
+- [ ] **Update import paths** - All references across codebase
+
+### 🧙‍♂️ PARALLEL WORKSTREAM  
+- [ ] **Other agent**: Formalize wizard-experience into automated intake pipeline
+
+## 🎯 ADR-012 RECONCILIATION NEEDED
+
+**Discovery**: Our core/legos package IS the @lev-os/build upgrade from ADR-012!
+
+**Original ADR-012 Plan**:
+```yaml
+@lev-os/build: # Optimization Domain
+  purpose: "Make everything fast through preparation and compilation"
+  components:
+    - Context Compilation (~/c/ → platform adapters)
+    - Bundle Generation (pre-packaged patterns)  
+    - Performance Monitoring & Optimization
+```
+
+**What We Built**:
+```yaml
+core/legos: # The Lego Builder
+  purpose: "Assembles schema-validated pieces to build things"
+  components:
+    - Assembly system (context composition) = Context Compilation
+    - Generation system (templates) = Bundle Generation
+    - Validation pipeline = Performance Optimization
+```
+
+**Decision Required**: Rename core/legos → @lev-os/build OR update ADR-012 to reflect lego architecture.
 
 ---
 
-**Session Status**: COMPLETE ✅  
-**Architecture**: DESIGNED ✅  
-**Implementation**: READY TO BEGIN ✅
+**Session Status**: FOUNDATION COMPLETE ✅  
+**Architecture**: SPECS SYSTEM ESTABLISHED ✅  
+**Next**: BEHAVIORAL FEATURE DEFINITION & ADR RECONCILIATION ✅
 
 *"When you play with legos you're not defining the mold of the lego at the same time"* 🧱
 

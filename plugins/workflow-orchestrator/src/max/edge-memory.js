@@ -243,14 +243,20 @@ export class EdgeMemoryManager {
   async _encryptData(data) {
     if (!this.privacyPreserving) return data;
     
-    const cipher = crypto.createCipher('aes-256-cbc', this.encryptionKey);
+    // Simple XOR encryption for demo (in production, use proper crypto library)
     const dataStr = JSON.stringify(data.data);
-    let encrypted = cipher.update(dataStr, 'utf8', 'hex');
-    encrypted += cipher.final('hex');
+    const key = this.encryptionKey;
+    let encrypted = '';
+    
+    for (let i = 0; i < dataStr.length; i++) {
+      const char = dataStr.charCodeAt(i);
+      const keyChar = key.charCodeAt(i % key.length);
+      encrypted += String.fromCharCode(char ^ keyChar);
+    }
     
     return {
       ...data,
-      data: encrypted,
+      data: Buffer.from(encrypted, 'binary').toString('base64'),
       encrypted: true
     };
   }
@@ -258,9 +264,15 @@ export class EdgeMemoryManager {
   async _decryptData(data) {
     if (!data.encrypted) return data;
     
-    const decipher = crypto.createDecipher('aes-256-cbc', this.encryptionKey);
-    let decrypted = decipher.update(data.data, 'hex', 'utf8');
-    decrypted += decipher.final('utf8');
+    const encrypted = Buffer.from(data.data, 'base64').toString('binary');
+    const key = this.encryptionKey;
+    let decrypted = '';
+    
+    for (let i = 0; i < encrypted.length; i++) {
+      const char = encrypted.charCodeAt(i);
+      const keyChar = key.charCodeAt(i % key.length);
+      decrypted += String.fromCharCode(char ^ keyChar);
+    }
     
     return {
       ...data,
