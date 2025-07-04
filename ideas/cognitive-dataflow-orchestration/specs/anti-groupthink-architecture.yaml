@@ -1,0 +1,272 @@
+# Anti-Groupthink CDO Architecture Specification
+# Version: 1.0.0
+# Purpose: Prevent AI echo chambers through systematic architectural patterns
+
+metadata:
+  name: "Anti-Groupthink Cognitive Dataflow Orchestration"
+  version: "1.0.0"
+  created: "2025-07-03"
+  authors: ["Kingly Agency", "Claude Code"]
+  license: "MIT"
+  description: |
+    A revolutionary architecture pattern that prevents groupthink in AI systems
+    through file-based isolation, parallel execution, and systematic devil's 
+    advocate layers. Each cognitive agent operates independently, saving outputs
+    to the filesystem before any synthesis occurs.
+
+core_principles:
+  file_based_isolation: |
+    All communication between agents happens through files, not shared memory.
+    This prevents real-time influence and ensures independent reasoning.
+  
+  parallel_execution: |
+    Nodes execute simultaneously without knowledge of each other's processing.
+    This maximizes cognitive diversity and prevents convergent thinking.
+  
+  devil_advocate_layer: |
+    Every output is systematically challenged by an independent devil's advocate.
+    This ensures critical examination of all conclusions.
+  
+  balanced_assessment: |
+    A third layer reconciles original thoughts with critiques.
+    This produces nuanced, well-considered outputs.
+  
+  distributed_parliament: |
+    Multiple personality types analyze independently before final synthesis.
+    This ensures diverse perspectives are genuinely represented.
+
+architecture_components:
+  graph_turn:
+    description: "One complete cycle through all processing steps"
+    steps:
+      - node_execution
+      - devil_advocate
+      - balanced_assessment
+      - ceo_synthesis
+      - parliament_analysis
+      - final_synthesis
+  
+  node_step:
+    description: "Parallel execution of research nodes"
+    parallelism: true
+    isolation: file_based
+    outputs:
+      - node-a-{topic}.md
+      - node-b-{topic}.md
+      - node-c-{topic}.md
+  
+  synthesis_step:
+    description: "Integration points that read from files"
+    parallelism: false
+    inputs: file_based
+    outputs:
+      - ceo-synthesis.md
+      - final-synthesis.md
+  
+  pattern_step:
+    description: "Application of cognitive patterns"
+    types:
+      - devil_advocate
+      - balanced_assessment
+      - personality_analysis
+
+execution_flow:
+  step_1_parallel_nodes:
+    type: parallel
+    agents:
+      node_a:
+        focus: theoretical_foundations
+        mcp_tool: mcp__perplexity-ask_1__perplexity_research
+        output: turns/turn-{n}/nodes/node-a-theory.md
+      
+      node_b:
+        focus: implementation_patterns
+        mcp_tool: mcp__perplexity-ask_1__perplexity_research
+        output: turns/turn-{n}/nodes/node-b-implementation.md
+      
+      node_c:
+        focus: business_strategy
+        mcp_tool: mcp__perplexity-ask_1__perplexity_research
+        output: turns/turn-{n}/nodes/node-c-business.md
+  
+  step_2_parallel_devils:
+    type: parallel
+    agents:
+      devil_a:
+        input: node-a-theory.md
+        focus: critical_analysis
+        output: turns/turn-{n}/devils/devil-a-critique.md
+      
+      devil_b:
+        input: node-b-implementation.md
+        focus: technical_challenges
+        output: turns/turn-{n}/devils/devil-b-critique.md
+      
+      devil_c:
+        input: node-c-business.md
+        focus: market_risks
+        output: turns/turn-{n}/devils/devil-c-critique.md
+  
+  step_3_parallel_assessment:
+    type: parallel
+    agents:
+      assessment_a:
+        inputs: [node-a-theory.md, devil-a-critique.md]
+        output: turns/turn-{n}/assessments/final-a-balanced.md
+      
+      assessment_b:
+        inputs: [node-b-implementation.md, devil-b-critique.md]
+        output: turns/turn-{n}/assessments/final-b-balanced.md
+      
+      assessment_c:
+        inputs: [node-c-business.md, devil-c-critique.md]
+        output: turns/turn-{n}/assessments/final-c-balanced.md
+  
+  step_4_ceo_synthesis:
+    type: serial
+    agent: ceo_synthesizer
+    inputs: 
+      - final-a-balanced.md
+      - final-b-balanced.md
+      - final-c-balanced.md
+    output: turns/turn-{n}/synthesis/ceo-node-synthesis.md
+  
+  step_5_parallel_parliament:
+    type: parallel
+    agents:
+      nfj_visionary:
+        input: ceo-node-synthesis.md
+        personality: intuitive_feeling_judging
+        output: turns/turn-{n}/parliament/nfj-visionary.md
+      
+      ntj_strategist:
+        input: ceo-node-synthesis.md
+        personality: intuitive_thinking_judging
+        output: turns/turn-{n}/parliament/ntj-strategist.md
+      
+      sfj_caregiver:
+        input: ceo-node-synthesis.md
+        personality: sensing_feeling_judging
+        output: turns/turn-{n}/parliament/sfj-caregiver.md
+      
+      stp_adapter:
+        input: ceo-node-synthesis.md
+        personality: sensing_thinking_perceiving
+        output: turns/turn-{n}/parliament/stp-adapter.md
+      
+      nfp_advocate:
+        input: ceo-node-synthesis.md
+        personality: intuitive_feeling_perceiving
+        output: turns/turn-{n}/parliament/nfp-advocate.md
+      
+      ntp_innovator:
+        input: ceo-node-synthesis.md
+        personality: intuitive_thinking_perceiving
+        output: turns/turn-{n}/parliament/ntp-innovator.md
+      
+      sfp_connector:
+        input: ceo-node-synthesis.md
+        personality: sensing_feeling_perceiving
+        output: turns/turn-{n}/parliament/sfp-connector.md
+      
+      stj_leader:
+        input: ceo-node-synthesis.md
+        personality: sensing_thinking_judging
+        output: turns/turn-{n}/parliament/stj-leader.md
+  
+  step_6_final_synthesis:
+    type: serial
+    agent: ceo_final_synthesizer
+    inputs: all_parliament_outputs
+    output: turns/turn-{n}/final/turn-{n}-complete.md
+
+mcp_tool_usage:
+  correct_research_tool: mcp__perplexity-ask_1__perplexity_research
+  incorrect_simulation: Task_tool_only_simulates
+  
+  perplexity_configuration:
+    messages_format:
+      - role: system
+        content: "You are a {node_type} research specialist..."
+      - role: user
+        content: "{research_query}"
+    
+    execution_pattern: |
+      // CORRECT: Real external research
+      await mcp__perplexity-ask_1__perplexity_research({
+        messages: formatted_messages
+      })
+      
+      // INCORRECT: Simulated research
+      await Task({ prompt: "research..." })  // NO!
+
+file_structure:
+  root: ideas/cognitive-dataflow-orchestration/turns/
+  turn_structure:
+    nodes/: "Initial parallel research outputs"
+    devils/: "Critical analysis of each node"
+    assessments/: "Balanced final assessments"
+    synthesis/: "CEO integration outputs"
+    parliament/: "8 personality perspectives"
+    final/: "Complete turn synthesis"
+
+anti_groupthink_mechanisms:
+  isolation: "File-based communication only"
+  parallelism: "Simultaneous independent execution"
+  critique: "Systematic devil's advocate layer"
+  diversity: "8 distinct personality analyses"
+  synthesis: "Multiple integration checkpoints"
+
+implementation_notes:
+  claude_code_advantages:
+    - "Native parallelization support"
+    - "File system access for isolation"
+    - "MCP tool integration for real research"
+    - "Context management for complex flows"
+  
+  companion_agents:
+    description: |
+      Each graph can have a companion agent that orchestrates execution.
+      These agents reference templates, accept inputs, and manage outputs.
+    
+    types:
+      - full_graph_agent: "Runs entire graph turn"
+      - node_agent: "Runs single node + devil + assessment"
+      - subgraph_agent: "Runs specific subgraph"
+      - step_agent: "Runs individual step"
+    
+    example: |
+      The session-1-thinking-graph.md can become an agent that:
+      - References this architecture spec
+      - Accepts: current step, output directory
+      - Executes: appropriate parallelization
+      - Returns: completion status and outputs
+
+validation_criteria:
+  cognitive_diversity:
+    metric: "Semantic similarity between outputs"
+    target: "<0.7 cosine similarity"
+  
+  critical_thinking:
+    metric: "Devil's advocate substantive critiques"
+    target: ">3 significant challenges per node"
+  
+  balanced_output:
+    metric: "Integration of positive and negative"
+    target: "Both perspectives represented"
+  
+  execution_time:
+    metric: "Complete graph turn duration"
+    target: "<5 minutes for standard complexity"
+
+open_source_readiness:
+  documentation: complete
+  examples: provided
+  license: MIT
+  community: "Contributors welcome"
+  use_cases:
+    - "Complex decision making"
+    - "Research synthesis"
+    - "Strategic planning"
+    - "Risk assessment"
+    - "Creative ideation"

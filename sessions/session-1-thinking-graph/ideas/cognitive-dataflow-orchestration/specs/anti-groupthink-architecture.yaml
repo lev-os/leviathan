@@ -1,0 +1,245 @@
+# Anti-Groupthink CDO Architecture Specification
+# Version: 1.0.0
+# Purpose: Prevent AI echo chambers through file-based isolation and systematic opposition
+
+metadata:
+  name: "Anti-Groupthink Cognitive Diversity Orchestrator"
+  version: "1.0.0"
+  description: "Architecture for preventing consensus bias in multi-agent AI systems"
+  license: "MIT"
+  author: "Leviathan OS Team"
+  tags:
+    - cognitive-diversity
+    - anti-groupthink
+    - parallel-execution
+    - file-isolation
+    - mcp-tools
+
+core_principles:
+  isolation:
+    description: "Each agent works in complete isolation through file-based communication"
+    benefits:
+      - No real-time influence between agents
+      - Pure independent reasoning
+      - Authentic diverse perspectives
+      - Prevents cascade effects
+    
+  opposition:
+    description: "Systematic devil's advocate layers ensure critical examination"
+    levels:
+      - initial: "Independent research and analysis"
+      - challenge: "Active opposition to initial findings"
+      - synthesis: "CEO perspective integration"
+      - validation: "Skeptical review of synthesis"
+  
+  parallelization:
+    description: "True parallel execution prevents sequential bias"
+    implementation:
+      - Simultaneous agent spawning
+      - No shared runtime state
+      - File-based result collection
+      - Timestamp-based ordering
+
+architecture:
+  components:
+    orchestrator:
+      role: "Manages parallel execution and file coordination"
+      responsibilities:
+        - Spawn isolated agent processes
+        - Monitor file outputs
+        - Coordinate challenge rounds
+        - Prevent cross-contamination
+      
+    research_agents:
+      types:
+        theoretical_researcher:
+          focus: "Academic and theoretical perspectives"
+          tools:
+            - mcp__perplexity-ask_1__perplexity_research
+            - mcp__firecrawl__firecrawl_deep_research
+          output: "node-a-theoretical-foundation.md"
+        
+        implementation_analyst:
+          focus: "Practical patterns and implementations"
+          tools:
+            - mcp__context7__get-library-docs
+            - mcp__firecrawl__firecrawl_search
+          output: "node-b-implementation-patterns.md"
+        
+        competitive_intelligence:
+          focus: "Market analysis and competition"
+          tools:
+            - mcp__perplexity-ask_1__perplexity_research
+            - mcp__brave-search__brave_web_search
+          output: "node-c-competitive-landscape.md"
+    
+    challenge_agents:
+      devil_advocate:
+        triggers:
+          - "After all research nodes complete"
+          - "When consensus detected"
+          - "Before synthesis phase"
+        actions:
+          - "Question assumptions"
+          - "Find contradictions"
+          - "Propose alternatives"
+          - "Identify biases"
+      
+      skeptical_reviewer:
+        focus: "Technical and logical flaws"
+        approach:
+          - "Verify sources"
+          - "Check reasoning"
+          - "Test conclusions"
+          - "Find edge cases"
+    
+    synthesis_agent:
+      role: "CEO perspective integration"
+      constraints:
+        - "Must acknowledge all perspectives"
+        - "Cannot dismiss minority views"
+        - "Must explain trade-offs"
+        - "Preserves dissenting opinions"
+
+execution_flow:
+  phase_1_research:
+    parallel: true
+    agents:
+      - theoretical_researcher
+      - implementation_analyst
+      - competitive_intelligence
+    isolation: "complete"
+    output: "Individual markdown files"
+  
+  phase_2_challenge:
+    sequential: true
+    process:
+      - "Read all research outputs"
+      - "Identify consensus points"
+      - "Generate opposing arguments"
+      - "Document contradictions"
+    output: "challenge-notes.md"
+  
+  phase_3_synthesis:
+    inputs:
+      - "All research nodes"
+      - "Challenge notes"
+      - "Dissenting opinions"
+    approach: "Balanced integration"
+    output: "synthesis-ceo-perspective.md"
+  
+  phase_4_validation:
+    final_check:
+      - "Diversity preserved?"
+      - "Biases acknowledged?"
+      - "Trade-offs explicit?"
+      - "Implementation clear?"
+
+mcp_tool_usage:
+  correct_pattern:
+    research_phase:
+      - tool: "mcp__perplexity-ask_1__perplexity_research"
+        usage: |
+          messages = [
+            {"role": "system", "content": "You are a theoretical AI researcher"},
+            {"role": "user", "content": "Research ThinkingGraphs and graph-based reasoning"}
+          ]
+        purpose: "Deep academic research with citations"
+      
+      - tool: "mcp__firecrawl__firecrawl_deep_research"
+        usage: |
+          query = "ThinkingGraphs implementation patterns production systems"
+          maxDepth = 3
+          maxUrls = 50
+        purpose: "Comprehensive web research"
+    
+    implementation_phase:
+      - tool: "mcp__context7__get-library-docs"
+        usage: |
+          libraryID = "/anthropic/claude"
+          topic = "graph-based reasoning"
+        purpose: "Official documentation research"
+    
+    market_analysis:
+      - tool: "mcp__brave-search__brave_web_search"
+        usage: |
+          query = "AI reasoning systems market analysis 2025"
+          count = 20
+        purpose: "Current market intelligence"
+
+  incorrect_pattern:
+    warning: "Never use Task tool for actual research"
+    example: |
+      # WRONG - This doesn't actually research
+      Task:
+        name: research_thinking_graphs
+        
+      # CORRECT - Use actual MCP tools
+      mcp__perplexity-ask_1__perplexity_research:
+        messages: [...]
+
+file_structure:
+  session_root:
+    description: "Main session directory"
+    files:
+      - "README.md": "Session overview and navigation"
+      - "node-a-*.md": "Research agent outputs"
+      - "node-b-*.md": "Implementation findings"
+      - "node-c-*.md": "Competitive analysis"
+      - "synthesis-*.md": "CEO integration"
+      - "cognitive-parliament-analysis.md": "Meta-analysis"
+  
+  ideas_folder:
+    path: "ideas/anti-groupthink-cdo/"
+    structure:
+      - "specs/": "Formal specifications"
+      - "docs/": "Implementation guides"
+      - "research/": "Background research"
+      - "notes/": "Development notes"
+      - "examples/": "Reference implementations"
+
+benefits:
+  cognitive_diversity:
+    - "Genuine independent thinking"
+    - "Reduced confirmation bias"
+    - "Richer solution space"
+    - "Better decision making"
+  
+  quality_assurance:
+    - "Multiple validation layers"
+    - "Systematic opposition"
+    - "Explicit trade-offs"
+    - "Documented reasoning"
+  
+  scalability:
+    - "Parallel execution"
+    - "File-based coordination"
+    - "Stateless agents"
+    - "Cloud-native design"
+
+implementation_requirements:
+  technical:
+    - "MCP protocol support"
+    - "File system access"
+    - "Process isolation"
+    - "Parallel execution"
+  
+  operational:
+    - "Clear file naming"
+    - "Timestamp tracking"
+    - "Result aggregation"
+    - "Error handling"
+
+future_enhancements:
+  proposed:
+    - "Dynamic agent spawning based on topic complexity"
+    - "Automated bias detection algorithms"
+    - "Confidence scoring for perspectives"
+    - "Minority opinion amplification"
+    - "Cross-session learning"
+  
+  research:
+    - "Optimal number of parallel agents"
+    - "Challenge timing strategies"
+    - "Synthesis algorithms"
+    - "Diversity metrics"

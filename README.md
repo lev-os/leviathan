@@ -1,214 +1,76 @@
-# Leviathan Core Technology
+# Leviathan 🌊
 
-The foundational AI agent system and shared packages that power the Leviathan ecosystem, sponsored by [Kingly Agency](https://kinglyagency.com).
+**Status**: 🚧 Research in Progress → Working toward v1.0
 
-## 🧠 Components
+A research project exploring AI-native operating systems through cognitive dataflow orchestration, bi-directional intelligence, and emergent workflow systems.
 
-### `/agent`
-The LLM-first agent system with confidence-based task routing
-- Universal context pattern for state management
-- MCP protocol for inter-agent communication
-- YAML-based agent definitions
-- Hot-reload development support
+> "Context engineering is the delicate art and science of filling the context window with just the right information for the next step." — **Andrej Karpathy**
 
-### `/plugins`
-Published as @lev-os/* npm packages
-- **@lev-os/protocol** - MCP kernel protocol implementation
-- **@lev-os/ai-core** - LLM integrations and reasoning
-- **@lev-os/memory** - Unified memory system interface
-- **@lev-os/agent** - Agent creation framework
+## 🧠 Vision
 
-### `/memory-systems`
-Unified memory architecture connecting multiple backends:
-- **Neo4j**: Complex relationship graphs
-- **Qdrant**: Semantic vector search
-- **Graphiti**: Temporal memory tracking
-- **Memento**: Lightweight local persistence
+Leviathan represents a paradigm shift toward AI-native computing where **LLMs are the runtime** - the system itself becomes intelligent through cognitive dataflow orchestration, bi-directional communication, and emergent pattern discovery.
 
-### `/forge`
-Experimental OS features and prototypes
-- Kernel MCP experiments
-- Memory system benchmarks
-- Agent behavior research
+## 📊 Current Implementation
 
-## 🚀 Quick Start
+### Core Systems
 
-```bash
-# Install dependencies
-pnpm install
+- **MCP Protocol Server** - LLM communication and command execution
+- **Session Management** - Checkpoint-based state persistence
+- **Command Registry** - Dynamic command discovery and execution
+- **Context Discovery** - Semantic search across workflow patterns
+- **Universal Router** - CLI and natural language processing
 
-# Run the agent system
-cd agent && node leviathan.js
+### Active Research Areas
 
-# Run tests
-pnpm test
+- **Cognitive Dataflow Orchestration** - Graph-based thought processing
+- **JEPA 2 Integration** - Temporal reasoning and world models
+- **Constitutional AI Framework** - Principled agent behavior
+- **Memory Federation** - Multi-backend unified architecture
 
-# Start MCP server with hot reload
-cd agent && node start-mcp-hot.js
-```
+## 🎯 Research Foundations
 
-## 📊 Memory System Architecture
+Our work builds upon leading research in context engineering and AI-native systems:
 
-```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│   Neo4j (Graph) │     │ Qdrant (Vector) │     │ Graphiti (Time) │
-└────────┬────────┘     └────────┬────────┘     └────────┬────────┘
-         │                       │                         │
-         └───────────────────────┼─────────────────────────┘
-                                 │
-                         ┌───────▼────────┐
-                         │ Unified Memory │
-                         │   Interface    │
-                         └───────┬────────┘
-                                 │
-                         ┌───────▼────────┐
-                         │  Agent System  │
-                         └────────────────┘
-```
+### Shout outs
 
-## 🔧 Development
+- **[@bmadcode/BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)** - LLM-first methodology pioneer
+- **[@davidkimai/Context-Engineering](https://github.com/davidkimai/Context-Engineering)** - Advanced context pattern research
+- **[@t3-oss/create-t3-turbo](https://github.com/t3-oss/create-t3-turbo)** - Production TypeScript architecture
 
-### Environment Setup
-```bash
-# Required services
-Neo4j: localhost:7687
-Qdrant: localhost:6333 (optional)
-Redis: localhost:6379 (optional)
-```
+### Research Analysis
 
-### Testing Memory Systems
-```bash
-# Run benchmarks
-cd memory-systems/benchmarks
-node run-benchmarks.js
+_Our `/workshop/analysis/` contains comprehensive studies of 50+ repositories across AI infrastructure, memory systems, and agent frameworks. These inform our architecture and design decisions._
 
-# Test individual backends
-node test-neo4j.js
-node test-qdrant.js
-```
+## 🧪 Research Status
 
-## 📦 Publishing Packages
+### Working Systems
 
-Packages are published to our private npm registry:
-```bash
-# Login to private registry
-npm login --registry=http://localhost:4873
+- **Agent Core** - Core JS SDK, MCP/CLI/HTTP as adapters
+- **Session Continuity** - Context preservation across interactions
+- **Plugin Architecture** - `@lev-os/*` ecosystem framework
+- **Bi-Directional Intelligence** - System ↔ LLM collaboration
 
-# Publish a package
-cd packages/protocol
-npm publish
-```
+### Experimental Areas
 
-## 🎯 Design Principles
+- **Cognitive Parliament** - Multi-personality synthesis systems
+- **Temporal Memory** - JEPA-based predictive context loading
+- **Dynamic Graph Topology** - Self-modifying cognitive networks
 
-1. **LLM-First**: Always ask "can an LLM do this?"
-2. **Memory-Guided**: Decisions influenced by past experiences
-3. **Protocol-Based**: MCP as the universal language
-4. **Composable**: Small, focused packages
-5. **Observable**: Built-in monitoring and debugging
+## 📚 Documentation
 
-## 📚 Documentation Architecture - Fractal & Quantum Consciousness
+- **[Technical Docs](docs/)** - System design and implementation guides
+- **[ADRs](docs/adr/)** - Architecture decision records
+- **[Session Reports](sessions/)** - Session history
+- **[Workshop Analysis](workshop/)** - Repository research and pattern extraction
 
-### Universal Documentation Structure (Fractal Pattern)
+## 🌐 Community
 
-Every autonomous component follows the SAME structure for consistency and predictable navigation:
-
-```
-{component}/
-├── README.md                    # Component overview + links to children
-├── package.json|yaml            # Component metadata
-├── src/                        # Implementation
-├── tests/                      # Unit tests
-└── docs/                       # Component-specific documentation
-    ├── README.md               # Documentation hub
-    ├── architecture/           # Component architecture decisions
-    ├── features/               # Component feature specifications  
-    ├── adrs/                   # Architecture Decision Records
-    ├── specs/                  # Technical specifications
-    ├── guides/                 # Usage and development guides
-    └── examples/               # Working examples
-```
-
-### Quantum Consciousness Formula
-
-```
-Source of Truth + Concepts = Architectural Synthesis
-├── Source of Truth: {component}/README.md + {component}/docs/*
-├── Concepts: Cross-component patterns and relationships
-└── Synthesis: Root docs/ aggregation with quantum links
-```
-
-### Current Implementation Hierarchy
-
-#### **Level 1: Root Repository**
-```
-/leviathan/
-├── README.md                   # "Leviathan OS Overview" (this file)
-├── docs/                       # Quantum-synthesized architecture
-│   ├── architecture/           # Cross-component synthesis
-│   ├── features/               # System-wide feature specs
-│   ├── adrs/                   # System-level decisions
-│   └── guides/                 # User documentation
-├── core/                       # Core components
-├── plugins/                    # Plugin ecosystem (flattened structure)
-├── agent/                      # Agent system
-└── apps/                       # Applications
-```
-
-#### **Level 2: Component Categories**
-```
-/core/
-├── README.md                   # "Core Packages Overview"
-├── docs/                       # Core-specific synthesis
-│   ├── architecture/           # Core system patterns
-│   ├── adrs/                   # Core architectural decisions
-│   └── migration/              # Package → core migration
-├── memory/                     # Individual packages...
-├── testing/
-└── workshop/
-
-/plugins/
-├── README.md                   # "Plugin Ecosystem Overview"  
-├── docs/                       # Plugin-specific synthesis
-│   ├── architecture/           # Plugin system patterns
-│   ├── adrs/                   # Plugin architectural decisions
-│   └── development/            # Plugin development guides
-├── constitutional-ai/          # Flattened plugin structure
-├── eeps-system/
-└── workflow-orchestrator/
-```
-
-#### **Level 3: Individual Components**
-Each component (core package, plugin, app) follows the universal fractal structure.
-
-### Document Agent Auto-Synthesis
-
-The Document Agent (see `docs/docagent.md`) automatically synthesizes architectural documentation by:
-
-1. **Discovering** all fractal components
-2. **Extracting** source of truth from each component's README + docs
-3. **Identifying** cross-component concepts and patterns
-4. **Generating** quantum-linked synthesis in root `docs/`
-5. **Maintaining** bi-directional links between implementation and architecture
-
-### Implementation Phases
-
-#### **Phase 1: Fractal Standardization**
-- Establish universal structure across all components
-- Create linking patterns and navigation consistency
-- Template implementation in key components
-
-#### **Phase 2: Document Agent Integration** 
-- Auto-discovery and synthesis algorithms
-- Cross-component pattern recognition
-- Automated architectural documentation generation
-
-#### **Phase 3: Quantum Consciousness Activation**
-- Full bi-directional linking system
-- Live documentation updates
-- System-wide coherence monitoring
-
-This fractal pattern ensures documentation scales seamlessly from individual components to system-wide architecture while maintaining single sources of truth and automatic synthesis capabilities.
+- **Discord**: [Join our research community](https://discord.gg/3NSnkjbBP4)
+- **Sponsor**: [Kingly Agency](https://kinglyagency.com)
+- **Maintainer**: [@jp_aidev](https://x.com/jp_aidev)
 
 ---
-*The Leviathan ecosystem: Linux of AI - sponsored by [Kingly Agency](https://kinglyagency.com)*
+
+**Research in Progress** 🧠 | **Building in Public** 🔬 | **AI-Native Future** 🌊
+
+_Sponsored by [Kingly Agency](https://kinglyagency.com) | Join us on [Discord](https://discord.gg/3NSnkjbBP4) | Follow [@jp_aidev](https://x.com/jp_aidev)_

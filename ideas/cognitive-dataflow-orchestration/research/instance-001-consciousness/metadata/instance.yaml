@@ -1,0 +1,21 @@
+instance_id: "instance-001-consciousness"
+topic: "CDO Consciousness Architecture"
+created: "2025-07-04T03:45:00Z"
+status: "in_progress"
+description: |
+  First proper anti-groupthink CDO execution using real Perplexity MCP tools.
+  Topic: Consciousness as Cognitive Dataflow Orchestration
+  Pattern: 6-step anti-groupthink architecture with file-based isolation
+
+execution_plan:
+  step_1: "Parallel Nodes A, B, C - Perplexity Research"
+  step_2: "Parallel Devil's Advocates"
+  step_3: "Parallel Balanced Assessments"  
+  step_4: "CEO Node Synthesis"
+  step_5: "8-way Parallel Parliament"
+  step_6: "Final CEO Synthesis"
+
+mcp_tools:
+  research: "mcp__perplexity-ask_1__perplexity_research"
+  reasoning: "mcp__perplexity-ask_1__perplexity_reason"
+  quick_query: "mcp__perplexity-ask_1__perplexity_ask"
