@@ -1,0 +1,340 @@
+# Next.js 14+ App Router Framework Patterns
+# Project Codex: Framework Layer Implementation
+
+metadata:
+  type: "framework"
+  id: "nextjs"
+  name: "Next.js 14+ App Router Patterns"
+  scope: "framework_specific"
+  ecosystem: "fullstack"
+  version: "14.0+"
+  complexity_level: "advanced"
+  updated: "2025-01-15"
+
+description: |
+  Next.js is a React framework that enables server-side rendering, static site generation,
+  and full-stack web applications. The App Router (introduced in v13, stable in v14) 
+  provides file-system based routing with server/client component separation.
+
+# Core Next.js 14+ paradigms
+paradigms:
+  filesystem_based_routing:
+    description: "Routes are organized by directory structure in the app/ folder"
+    core_principle: "File system defines the application structure"
+    benefits: ["intuitive_organization", "automatic_routing", "clear_hierarchy"]
+    
+  server_components_first:
+    description: "Default to server components; opt-in to client components for interactivity"
+    core_principle: "Server-first rendering with selective client hydration"
+    performance_benefits: ["reduced_bundle_size", "faster_initial_load", "better_seo"]
+    
+  colocation_principle:
+    description: "UI, data fetching, and styles exist in the same folder"
+    example: "/app/users/page.tsx, loading.tsx, error.tsx in same directory"
+    benefits: ["better_organization", "easier_maintenance", "clear_boundaries"]
+    
+  streaming_by_default:
+    description: "Progressive rendering with Suspense boundaries"
+    core_principle: "Send UI to the browser as it's ready"
+    user_experience: ["faster_perceived_performance", "progressive_loading"]
+
+# Essential routing patterns
+routing_patterns:
+  basic_routes:
+    page_routes:
+      description: "page.tsx files define route endpoints"
+      example: "app/about/page.tsx → /about"
+      
+    layout_routes:
+      description: "layout.tsx files wrap child routes"
+      example: "app/dashboard/layout.tsx wraps all /dashboard/* routes"
+      
+    loading_routes:
+      description: "loading.tsx provides loading UI for async operations"
+      example: "app/posts/loading.tsx shows while posts are fetching"
+      
+    error_routes:
+      description: "error.tsx handles errors in route segments"
+      example: "app/api/error.tsx catches API route errors"
+      
+  dynamic_routes:
+    single_parameter:
+      pattern: "[id]"
+      example: "app/posts/[id]/page.tsx → /posts/123"
+      
+    catch_all:
+      pattern: "[...slug]"
+      example: "app/blog/[...slug]/page.tsx → /blog/any/deep/path"
+      
+    optional_catch_all:
+      pattern: "[[...slug]]"
+      example: "app/shop/[[...slug]]/page.tsx → /shop or /shop/category/item"
+      
+  route_groups:
+    description: "Organize routes without affecting URL structure"
+    pattern: "(group-name)"
+    example: "app/(marketing)/about/page.tsx → /about"
+    use_cases: ["shared_layouts", "feature_organization", "access_control"]
+
+# Advanced routing patterns
+advanced_routing:
+  parallel_routes:
+    description: "Render multiple pages simultaneously in the same layout"
+    pattern: "@folder"
+    example: "app/@sidebar and app/@main for dashboard layouts"
+    use_cases: ["modals", "dashboards", "multi_panel_interfaces"]
+    
+  intercepting_routes:
+    description: "Intercept routes to show in modals or overlays"
+    pattern: "(.)folder or (...)folder"
+    example: "app/(.)photo/[id] intercepts /photo/123 for modal view"
+    use_cases: ["modal_workflows", "preview_modes", "step_flows"]
+    
+  route_handlers:
+    description: "API routes using the new App Router convention"
+    pattern: "route.ts files with named exports"
+    example: "app/api/users/route.ts with GET, POST exports"
+    
+  middleware:
+    description: "Run code before request completion at the edge"
+    file: "middleware.ts at project root"
+    use_cases: ["authentication", "redirects", "locale_handling", "feature_flags"]
+
+# Data fetching strategies
+data_fetching:
+  server_component_fetching:
+    description: "Fetch data directly in server components"
+    pattern: "async function Component() { const data = await fetch(...) }"
+    benefits: ["no_client_side_requests", "better_seo", "reduced_waterfalls"]
+    
+  fetch_extensions:
+    description: "Next.js extends fetch with caching and revalidation"
+    cache_options: ["force-cache", "no-store", "no-cache"]
+    revalidation: ["time-based", "on-demand", "tag-based"]
+    
+  streaming_with_suspense:
+    description: "Show UI progressively as data loads"
+    implementation: "Wrap slow components in Suspense boundaries"
+    benefits: ["better_perceived_performance", "partial_interactivity"]
+    
+  server_actions:
+    description: "Server-side mutations called from client components"
+    pattern: "'use server' directive in async functions"
+    use_cases: ["form_submissions", "data_mutations", "file_uploads"]
+
+# Component patterns
+component_patterns:
+  server_vs_client:
+    server_components:
+      default: true
+      characteristics: ["no_interactivity", "server_rendering", "data_fetching"]
+      use_for: ["layouts", "static_content", "data_display"]
+      
+    client_components:
+      directive: "'use client'"
+      characteristics: ["interactivity", "browser_apis", "event_handlers"]
+      use_for: ["forms", "animations", "user_interactions"]
+      
+  composition_patterns:
+    server_client_boundaries:
+      description: "How server and client components interact"
+      rules: ["server_can_import_client", "client_cannot_import_server"]
+      patterns: ["prop_passing", "children_composition"]
+      
+    shared_layouts:
+      description: "Layouts that work across server and client components"
+      implementation: "Use children prop for composition"
+      
+  hydration_patterns:
+    selective_hydration:
+      description: "Only hydrate interactive parts of the page"
+      benefits: ["faster_hydration", "better_performance"]
+      
+    progressive_enhancement:
+      description: "Start with server-rendered HTML, enhance with JavaScript"
+      principle: "Work without JavaScript, better with it"
+
+# Performance optimization
+performance_patterns:
+  static_generation:
+    description: "Generate static HTML at build time"
+    when_to_use: ["marketing_pages", "blogs", "documentation"]
+    implementation: "Export pages without dynamic data fetching"
+    
+  incremental_static_regeneration:
+    description: "Update static content without full rebuilds"
+    configuration: "revalidate property in fetch options"
+    use_cases: ["cms_content", "product_catalogs", "news_sites"]
+    
+  edge_runtime:
+    description: "Run code at edge locations for better performance"
+    configuration: "export const runtime = 'edge'"
+    limitations: ["limited_node_apis", "smaller_bundle_size"]
+    
+  image_optimization:
+    description: "Automatic image optimization and lazy loading"
+    component: "next/image with automatic optimization"
+    features: ["format_conversion", "responsive_sizing", "lazy_loading"]
+    
+  font_optimization:
+    description: "Optimized font loading with next/font"
+    benefits: ["reduced_layout_shift", "better_performance"]
+    implementation: "Import fonts as CSS variables"
+
+# App Router specific patterns
+app_router_patterns:
+  route_organization:
+    feature_based:
+      structure: "Group by feature/domain"
+      example: "app/(auth)/login, app/(dashboard)/analytics"
+      
+    page_based:
+      structure: "Traditional page-based organization"
+      example: "app/about, app/contact, app/products"
+      
+  metadata_management:
+    static_metadata:
+      description: "Export metadata object from page/layout"
+      example: "export const metadata = { title: 'Page Title' }"
+      
+    dynamic_metadata:
+      description: "Generate metadata based on page params"
+      function: "generateMetadata async function"
+      
+  error_handling:
+    error_boundaries:
+      description: "error.tsx files create error boundaries"
+      scope: "Catches errors in route segment and children"
+      
+    not_found_handling:
+      description: "not-found.tsx for 404 errors"
+      trigger: "Call notFound() function or no matching route"
+      
+    global_error:
+      description: "global-error.tsx for app-level errors"
+      use_case: "Errors in root layout or severe failures"
+
+# Integration patterns
+integration_patterns:
+  react_integration:
+    server_components:
+      description: "React Server Components enabled by default"
+      benefits: ["zero_bundle_impact", "server_side_logic"]
+      
+    concurrent_features:
+      description: "Built-in support for React 18 concurrent features"
+      features: ["suspense", "streaming", "selective_hydration"]
+      
+  typescript_integration:
+    configuration: "TypeScript enabled by default"
+    types: ["page_props", "layout_props", "api_route_types"]
+    example_file: "./integrations/nextjs-typescript.tsx"
+    
+  tailwind_integration:
+    setup: "Built-in Tailwind CSS support"
+    configuration: "tailwind.config.js with app directory"
+    ssr_considerations: "Class name consistency across server/client"
+
+# API patterns
+api_patterns:
+  route_handlers:
+    structure: "app/api/*/route.ts files"
+    methods: "Named exports: GET, POST, PUT, DELETE, etc."
+    
+  middleware_integration:
+    authentication: "JWT validation, session management"
+    cors: "Cross-origin request handling"
+    rate_limiting: "Request throttling and protection"
+    
+  server_actions:
+    form_handling:
+      description: "Direct form submission to server functions"
+      pattern: "action={serverAction} on forms"
+      
+    progressive_enhancement:
+      description: "Forms work without JavaScript"
+      enhancement: "Better UX with JavaScript enabled"
+
+# Anti-patterns to avoid
+anti_patterns:
+  client_component_overuse:
+    description: "Making components client-side unnecessarily"
+    why_bad: "Larger bundle size, worse performance"
+    solution: "Use server components by default, client only when needed"
+    
+  data_fetching_waterfalls:
+    description: "Sequential data fetching causing delays"
+    why_bad: "Poor performance, slow page loads"
+    solution: "Parallel data fetching, proper Suspense boundaries"
+    
+  improper_caching:
+    description: "Not leveraging Next.js caching mechanisms"
+    why_bad: "Unnecessary requests, poor performance"
+    solution: "Use fetch extensions, proper cache strategies"
+    
+  layout_misuse:
+    description: "Creating unnecessary layout nesting"
+    why_bad: "Complex routing, performance issues"
+    solution: "Minimal layout hierarchy, route groups"
+
+# 2025 updates and best practices
+current_trends:
+  server_actions_standard:
+    description: "Server Actions as the main method for mutations"
+    adoption: "Replacing traditional API routes for forms"
+    
+  edge_runtime_adoption:
+    description: "More functions running at the edge"
+    benefits: ["lower_latency", "better_global_performance"]
+    
+  partial_prerendering:
+    description: "Combine static and dynamic rendering in single page"
+    status: "Experimental feature becoming stable"
+
+# Quality metrics
+quality_metrics:
+  performance:
+    core_web_vitals: "Monitor LCP, FID, CLS scores"
+    bundle_size: "Track client bundle size growth"
+    
+  seo:
+    meta_tags: "Proper metadata for all pages"
+    structured_data: "Schema.org markup where appropriate"
+    
+  accessibility:
+    semantic_html: "Proper HTML structure"
+    keyboard_navigation: "All interactive elements accessible"
+
+# LLM guidance for Next.js development
+llm_guidance:
+  component_decisions:
+    - "Default to server components unless interactivity needed"
+    - "Use 'use client' directive sparingly and strategically"
+    - "Implement proper loading and error boundaries"
+    - "Leverage streaming for better perceived performance"
+    
+  routing_best_practices:
+    - "Organize routes by feature using route groups"
+    - "Use dynamic routes for parameterized content"
+    - "Implement proper metadata for SEO"
+    - "Handle errors gracefully with error boundaries"
+    
+  performance_optimization:
+    - "Use static generation where possible"
+    - "Implement proper caching strategies"
+    - "Optimize images with next/image"
+    - "Minimize client-side JavaScript"
+
+# Cross-references
+relationships:
+  frameworks:
+    - "react"
+  languages:
+    - "typescript"
+    - "javascript"
+  paradigms:
+    - "server_side_rendering"
+    - "static_site_generation"
+  patterns:
+    - "file_system_routing"
+    - "progressive_enhancement"

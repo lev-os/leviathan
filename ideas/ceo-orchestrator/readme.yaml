@@ -1,0 +1,6 @@
+id: 2025-07-02-ceo-orchestrator
+title: "CEO Orchestrator - LLM Freestyling with Guardrails"
+status: specification
+created: "2025-07-02"
+tags: ["ceo", "orchestration", "expansion", "compression", "synths", "freestyling"]
+description: "Request resolution framework where CEO agent expands/compresses complexity and creates synth agents dynamically"

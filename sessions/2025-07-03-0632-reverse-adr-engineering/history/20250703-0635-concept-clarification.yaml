@@ -1,0 +1,36 @@
+session_event: "concept-clarification"
+timestamp: "2025-07-03T06:35:00Z"
+session_id: "reverse-adr-engineering"
+description: "Human clarified reverse ADR engineering purpose and use cases"
+
+clarification_captured:
+  core_purpose: "Scan code and create ADRs/specs from existing implementations"
+  primary_uses:
+    - "Code analysis for architectural understanding"
+    - "Context priming for LLM comprehension"
+    - "Research synthesis and documentation"
+    
+  target_scenarios:
+    - "Code built NOT to spec needs formalization"
+    - "Missing formal specs/idea linking"
+    - "No documentation or needs update"
+    - "Organic architectural patterns need codification"
+
+workflow_understanding:
+  process: "Code → Codified fractals → Iterate with human → Formalize → Save"
+  multi_session: "Workflow steps preserved across sessions for complex analysis"
+  
+side_issue_noted:
+  brave_search_enhancement: "Need to add analysis for where to save research"
+  proposed_solution: "Add brave search to hooks for post-processing"
+
+synth_performance:
+  reverse_adr_engineer_synth:
+    understanding: "enhanced"
+    confidence: 95%
+    ready_for: "architectural pattern extraction"
+
+next_actions:
+  immediate: "Begin analyzing existing code for architectural patterns"
+  enhancement: "Add brave search analysis hook"
+  validation: "Confirm approach with human before deep dive"

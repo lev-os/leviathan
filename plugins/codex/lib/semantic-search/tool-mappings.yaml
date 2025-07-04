@@ -1,0 +1,154 @@
+# Semantic Search Tool Mappings
+# Maps semantic search capabilities to specific API endpoints and parameters
+
+api_endpoints:
+  base_url: "http://localhost:8000"
+  
+  search:
+    endpoint: "/search"
+    method: "POST"
+    content_type: "application/json"
+    parameters:
+      query:
+        type: "string"
+        required: true
+        description: "Natural language search query"
+        examples:
+          - "HTTP server client networking"
+          - "JSON parsing encoding"
+          - "goroutines channels concurrency"
+          - "error handling patterns"
+          
+      content_types:
+        type: "array"
+        required: false
+        options: ["framework", "requirement", "principle"]
+        default: ["framework"]
+        description: "Types of content to search"
+        
+      project:
+        type: "string"
+        required: false
+        default: "go-stdlib"
+        description: "Project scope for search"
+        
+      limit:
+        type: "integer"
+        required: false
+        default: 10
+        min: 1
+        max: 50
+        description: "Maximum number of results"
+        
+    response_format:
+      query: "string"
+      results:
+        - id: "string"
+          content: "string"
+          score: "float"
+          metadata:
+            package: "string"
+            name: "string"
+            go_type: "string"
+            project: "string"
+      total: "integer"
+      processing_time_ms: "float"
+      
+  collections:
+    endpoint: "/collections"
+    method: "GET"
+    description: "Get collection statistics and health info"
+    response_format:
+      collections:
+        - name: "string"
+          points_count: "integer"
+          vector_size: "integer"
+          distance: "string"
+          
+  health:
+    endpoint: "/health"
+    method: "GET"
+    description: "System health check"
+    response_format:
+      status: "string"
+      qdrant_collections: "integer"
+      embedding_model: "string"
+
+# Integration patterns for common development workflows
+integration_patterns:
+  go_api_discovery:
+    description: "Find Go stdlib functions for specific tasks"
+    query_template: "{task} {domain} Go stdlib"
+    examples:
+      - query: "HTTP client server networking"
+        expected_packages: ["net/http", "net"]
+      - query: "JSON parsing encoding"
+        expected_packages: ["encoding/json"]
+      - query: "file I/O operations"
+        expected_packages: ["os", "io", "bufio"]
+        
+  error_pattern_research:
+    description: "Discover error handling patterns"
+    query_template: "error handling {context}"
+    examples:
+      - query: "error handling HTTP requests"
+      - query: "error wrapping patterns"
+      - query: "custom error types"
+        
+  concurrency_patterns:
+    description: "Find concurrency and parallelism patterns"
+    query_template: "{pattern} concurrency goroutines"
+    examples:
+      - query: "worker pool concurrency goroutines"
+      - query: "channel communication patterns"
+      - query: "context cancellation"
+        
+  testing_patterns:
+    description: "Discover testing approaches and utilities"
+    query_template: "testing {type} {framework}"
+    examples:
+      - query: "testing HTTP handlers"
+      - query: "benchmark testing performance"
+      - query: "table driven tests"
+
+# CLI usage examples for integration with development tools
+cli_examples:
+  basic_search: |
+    curl -X POST "http://localhost:8000/search" \
+      -H "Content-Type: application/json" \
+      -d '{"query": "HTTP server patterns", "limit": 5}'
+      
+  project_specific: |
+    curl -X POST "http://localhost:8000/search" \
+      -H "Content-Type: application/json" \
+      -d '{"query": "microservices", "project": "my-project", "content_types": ["framework", "requirement"]}'
+      
+  health_check: |
+    curl -s "http://localhost:8000/health" | jq .
+    
+  collection_stats: |
+    curl -s "http://localhost:8000/collections" | jq '.collections[] | {name, points_count}'
+
+# System integration notes
+system_integration:
+  startup_check:
+    - "Verify Qdrant is running on localhost:6333"
+    - "Confirm API server is responding on localhost:8000"
+    - "Check collection health via /collections endpoint"
+    
+  data_sources:
+    go_stdlib:
+      source: "Go 1.21.5 standard library"
+      documents: 23541
+      coverage: "Complete stdlib packages, functions, types"
+      
+  embedding_model:
+    name: "sentence-transformers/all-mpnet-base-v2"
+    dimensions: 768
+    optimization: "Accuracy over speed"
+    
+  performance_characteristics:
+    search_latency: "< 1 second typical"
+    concurrent_requests: "Supported"
+    memory_usage: "~2GB for full index"
+    disk_usage: "~500MB for vectors and metadata"

@@ -1,0 +1,342 @@
+# shadcn/ui Component Architecture Patterns
+# Project Codex: Framework Layer Implementation
+
+metadata:
+  type: "framework"
+  id: "shadcn-ui"
+  name: "shadcn/ui Component System"
+  scope: "component_library"
+  ecosystem: "react"
+  version: "latest"
+  complexity_level: "medium"
+  updated: "2025-01-15"
+
+description: |
+  shadcn/ui is a collection of reusable, accessible components built with Radix UI
+  primitives and styled with Tailwind CSS. It provides a copy-paste component system
+  that you own and can customize, rather than a traditional NPM package dependency.
+
+# Core shadcn/ui paradigms
+paradigms:
+  headless_accessible_components:
+    description: "Logic and accessibility separated from visual styling"
+    core_principle: "Radix UI provides behavior, Tailwind provides appearance"
+    benefits: ["full_customization", "accessibility_built_in", "consistent_behavior"]
+    
+  copy_paste_architecture:
+    description: "Components are copied into your codebase, not installed as dependencies"
+    philosophy: "You own the code, full control over customization"
+    advantages: ["no_version_conflicts", "complete_customization", "zero_runtime_overhead"]
+    
+  composable_primitives:
+    description: "Components are building blocks that can be combined"
+    approach: "Small, focused components that work together"
+    benefits: ["flexibility", "reusability", "predictable_composition"]
+    
+  design_system_foundation:
+    description: "Built-in design tokens and theming system"
+    implementation: "CSS variables with Tailwind integration"
+    features: ["dark_mode", "custom_themes", "consistent_spacing"]
+
+# Essential component patterns
+essential_patterns:
+  primitive_composition:
+    description: "Building complex UIs from simple primitive components"
+    examples:
+      dialog_composition:
+        components: ["Dialog", "DialogTrigger", "DialogContent", "DialogHeader"]
+        pattern: "Compose dialog behavior from separate concerns"
+        
+      dropdown_composition:
+        components: ["DropdownMenu", "DropdownMenuTrigger", "DropdownMenuContent"]
+        pattern: "Flexible dropdown interfaces"
+        
+    benefits: ["clear_api", "flexible_layouts", "consistent_behavior"]
+    
+  slot_props_pattern:
+    description: "Pass elements and content as children for maximum flexibility"
+    implementation: "asChild prop pattern from Radix UI"
+    example: "<Button asChild><Link href='/'>Home</Link></Button>"
+    use_cases: ["polymorphic_components", "custom_wrappers", "framework_integration"]
+    
+  variant_composition:
+    description: "Systematic component variations using class-variance-authority"
+    implementation: "cva() function for variant management"
+    pattern: |
+      const buttonVariants = cva(
+        "inline-flex items-center justify-center rounded-md",
+        {
+          variants: {
+            variant: {
+              default: "bg-primary text-primary-foreground",
+              destructive: "bg-destructive text-destructive-foreground"
+            },
+            size: {
+              default: "h-10 px-4 py-2",
+              sm: "h-9 rounded-md px-3",
+              lg: "h-11 rounded-md px-8"
+            }
+          }
+        }
+      )
+    
+  theme_customization:
+    description: "Comprehensive theming through CSS custom properties"
+    implementation: "CSS variables mapped to Tailwind theme"
+    customization_levels: ["color_palette", "spacing_scale", "typography_system"]
+
+# Advanced composition patterns
+advanced_patterns:
+  compound_component_system:
+    description: "Related components that work together as a system"
+    examples:
+      form_system:
+        components: ["Form", "FormField", "FormItem", "FormLabel", "FormControl", "FormMessage"]
+        pattern: "Complete form handling with validation"
+        
+      data_table_system:
+        components: ["Table", "TableHeader", "TableBody", "TableRow", "TableCell"]
+        pattern: "Flexible data display with sorting/filtering"
+        
+    benefits: ["consistent_apis", "predictable_behavior", "easy_customization"]
+    
+  polymorphic_components:
+    description: "Components that can render as different HTML elements"
+    implementation: "asChild prop pattern"
+    use_cases: ["button_as_link", "heading_levels", "semantic_flexibility"]
+    
+  controlled_uncontrolled_patterns:
+    description: "Components work in both controlled and uncontrolled modes"
+    controlled: "Parent manages state"
+    uncontrolled: "Component manages internal state"
+    examples: ["Form fields", "Dialog open state", "Select values"]
+    
+  forwarded_ref_patterns:
+    description: "Proper ref forwarding for DOM access"
+    implementation: "React.forwardRef with proper TypeScript typing"
+    use_cases: ["focus_management", "scroll_into_view", "imperative_apis"]
+
+# Styling and theming patterns
+styling_patterns:
+  css_variable_system:
+    description: "Design tokens implemented as CSS custom properties"
+    structure:
+      colors: "--primary, --primary-foreground, --secondary, --accent"
+      spacing: "--radius for border radius consistency"
+      typography: "--font-sans, --font-mono for font stacks"
+      
+  tailwind_integration:
+    description: "Seamless integration with Tailwind CSS"
+    configuration: "Extended Tailwind config with shadcn colors"
+    pattern: "Use Tailwind classes that reference CSS variables"
+    
+  dark_mode_implementation:
+    description: "Built-in dark mode support"
+    mechanism: "CSS variables change based on dark class"
+    customization: "Override variables for custom dark themes"
+    
+  component_variants:
+    description: "Systematic approach to component variations"
+    tools: ["class-variance-authority", "tailwind-merge", "clsx"]
+    pattern: "Consistent API across all components"
+
+# Accessibility patterns
+accessibility_patterns:
+  radix_primitives_foundation:
+    description: "Built on Radix UI for comprehensive accessibility"
+    features: ["keyboard_navigation", "screen_reader_support", "focus_management"]
+    compliance: "WCAG 2.1 AA compliance out of the box"
+    
+  aria_implementation:
+    description: "Proper ARIA attributes and relationships"
+    examples:
+      dialogs: "aria-describedby, aria-labelledby, role='dialog'"
+      menus: "aria-expanded, aria-haspopup, role='menu'"
+      forms: "aria-invalid, aria-describedby for error messages"
+      
+  keyboard_interaction:
+    description: "Full keyboard navigation support"
+    patterns: ["tab_order", "escape_handling", "arrow_key_navigation"]
+    
+  focus_management:
+    description: "Intelligent focus handling"
+    features: ["focus_trapping", "focus_restoration", "visible_focus_indicators"]
+
+# Form handling patterns
+form_patterns:
+  react_hook_form_integration:
+    description: "Seamless integration with react-hook-form"
+    components: ["Form", "FormField", "FormControl", "FormMessage"]
+    pattern: "Controller-based form field management"
+    
+  validation_integration:
+    description: "Built-in support for validation libraries"
+    supported: ["zod", "yup", "joi"]
+    implementation: "Automatic error display and validation state"
+    
+  field_composition:
+    description: "Flexible field layouts and compositions"
+    patterns: ["inline_fields", "grouped_fields", "conditional_fields"]
+
+# Data display patterns
+data_patterns:
+  table_system:
+    description: "Flexible data table components"
+    features: ["sorting", "filtering", "pagination", "selection"]
+    customization: "Custom cell renderers and row actions"
+    
+  list_patterns:
+    description: "Various list and collection displays"
+    components: ["ScrollArea", "Separator", "Card"]
+    use_cases: ["navigation_lists", "content_collections", "option_lists"]
+
+# Navigation patterns
+navigation_patterns:
+  menu_systems:
+    description: "Comprehensive menu and navigation components"
+    types: ["DropdownMenu", "NavigationMenu", "ContextMenu", "Menubar"]
+    patterns: ["nested_menus", "keyboard_navigation", "mobile_responsive"]
+    
+  breadcrumb_patterns:
+    description: "Hierarchical navigation display"
+    implementation: "Breadcrumb component with separator customization"
+    
+  tabs_system:
+    description: "Content organization with tab interfaces"
+    features: ["keyboard_navigation", "controlled_state", "custom_triggers"]
+
+# Integration patterns
+integration_patterns:
+  nextjs_integration:
+    description: "Optimized for Next.js applications"
+    considerations: ["ssr_compatibility", "server_components", "client_boundaries"]
+    setup: "Automatic configuration with Next.js"
+    
+  typescript_integration:
+    description: "Full TypeScript support with proper typing"
+    features: ["component_props", "variant_types", "ref_types"]
+    benefits: ["type_safety", "intellisense", "refactoring_support"]
+    
+  form_library_integration:
+    description: "Works with popular form libraries"
+    supported: ["react-hook-form", "formik", "final-form"]
+    pattern: "Controlled component pattern"
+    
+  state_management_integration:
+    description: "Compatible with state management solutions"
+    supported: ["zustand", "redux", "jotai", "context"]
+    pattern: "Controlled components with external state"
+
+# Customization patterns
+customization_patterns:
+  theme_extension:
+    description: "Extending the default theme system"
+    methods: ["css_variable_override", "tailwind_config_extension"]
+    
+  component_modification:
+    description: "Customizing existing components"
+    approaches: ["variant_addition", "style_override", "behavior_modification"]
+    
+  new_component_creation:
+    description: "Creating new components following shadcn patterns"
+    guidelines: ["radix_primitive_base", "tailwind_styling", "typescript_typing"]
+
+# Performance patterns
+performance_patterns:
+  bundle_optimization:
+    description: "Tree-shakeable component imports"
+    implementation: "Individual component imports"
+    benefit: "Only bundle components you use"
+    
+  lazy_loading:
+    description: "Dynamic component loading for large applications"
+    pattern: "React.lazy with Suspense boundaries"
+    
+  render_optimization:
+    description: "Optimized rendering with proper memoization"
+    techniques: ["memo_usage", "callback_optimization", "ref_stability"]
+
+# Anti-patterns to avoid
+anti_patterns:
+  dependency_mindset:
+    description: "Treating shadcn/ui like a traditional component library"
+    why_bad: "Misses the point of code ownership"
+    solution: "Customize components to fit your needs"
+    
+  over_customization:
+    description: "Changing components so much they lose consistency"
+    why_bad: "Breaks design system coherence"
+    solution: "Use theme system for systematic changes"
+    
+  accessibility_neglect:
+    description: "Removing or breaking accessibility features"
+    why_bad: "Makes application unusable for some users"
+    solution: "Understand accessibility requirements before customizing"
+    
+  improper_composition:
+    description: "Not using compound components correctly"
+    why_bad: "Complex, inflexible component APIs"
+    solution: "Follow established composition patterns"
+
+# 2025 updates and features
+current_features:
+  enhanced_theming:
+    description: "More comprehensive theme customization options"
+    features: ["semantic_colors", "responsive_themes", "animation_tokens"]
+    
+  improved_typescript:
+    description: "Better TypeScript experience"
+    improvements: ["stricter_typing", "better_inference", "component_api_types"]
+    
+  performance_optimizations:
+    description: "Better runtime performance"
+    optimizations: ["reduced_bundle_size", "faster_rendering", "better_tree_shaking"]
+
+# Quality metrics
+quality_metrics:
+  accessibility_compliance:
+    target: "WCAG 2.1 AA compliance"
+    testing: "Automated accessibility testing"
+    
+  bundle_impact:
+    guideline: "Minimal bundle size increase per component"
+    optimization: "Tree-shakeable imports"
+    
+  customization_flexibility:
+    requirement: "Components easily customizable without breaking"
+    validation: "Theme system covers common customization needs"
+
+# LLM guidance for shadcn/ui development
+llm_guidance:
+  component_usage:
+    - "Use compound components for complex UI patterns"
+    - "Leverage asChild prop for polymorphic behavior"
+    - "Implement proper TypeScript typing for all props"
+    - "Maintain accessibility features when customizing"
+    
+  theming_approach:
+    - "Use CSS variables for consistent theming"
+    - "Extend theme through Tailwind configuration"
+    - "Implement dark mode support by default"
+    - "Follow design token system for consistency"
+    
+  customization_strategy:
+    - "Understand component structure before modifying"
+    - "Use variant system for systematic changes"
+    - "Preserve accessibility features during customization"
+    - "Test components across different states and modes"
+
+# Cross-references
+relationships:
+  frameworks:
+    - "react"
+    - "tailwind"
+    - "nextjs"
+  libraries:
+    - "radix-ui"
+    - "class-variance-authority"
+    - "react-hook-form"
+  paradigms:
+    - "component_composition"
+    - "accessibility_first"
+    - "design_systems"

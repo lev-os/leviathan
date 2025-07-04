@@ -1,0 +1,260 @@
+# PROJECT CODEX - FRAMEWORK TEMPLATE
+# Template for defining framework and library-specific patterns
+
+metadata:
+  type: "framework"
+  id: "{framework_id}"  # e.g., "react"
+  name: "{Framework Name}"
+  scope: "framework_specific"
+  category: "{frontend|backend|fullstack|mobile|desktop|library}"
+  ecosystem: "{web|native|universal}"
+  base_language: "{primary_language}"  # e.g., "javascript"
+  
+framework_definition:
+  # Core concepts that define this framework
+  core_concepts:
+    - "{concept1}"  # e.g., "components"
+    - "{concept2}"  # e.g., "state"
+    - "{concept3}"  # e.g., "effects"
+    
+  # Main philosophy and approach
+  philosophy: "{framework_philosophy}"  # e.g., "declarative UI with unidirectional data flow"
+  
+  # Comprehensive framework documentation
+  documentation: "./docs/{framework_id}-comprehensive-guide.md"
+  
+  # Framework-specific patterns and best practices
+  patterns:
+    "{pattern_category}":  # e.g., "component_composition"
+      description: "{what this pattern category covers}"
+      guide: "./patterns/{pattern_category}.md"
+      examples: "./examples/{pattern_category}.{ext}"
+      anti_patterns: "./anti-patterns/{pattern_category}.md"
+      performance_considerations: "./performance/{pattern_category}.md"
+      
+    "{another_pattern}":  # e.g., "state_management"
+      description: "{description}"
+      guide: "./patterns/{another_pattern}.md"
+      examples: "./examples/{another_pattern}.{ext}"
+      anti_patterns: "./anti-patterns/{another_pattern}.md"
+      approaches:
+        "{approach1}": "./approaches/{approach1}.md"  # e.g., "local_state"
+        "{approach2}": "./approaches/{approach2}.md"  # e.g., "global_state"
+
+# Framework architecture and structure
+architecture:
+  component_model: "{how_components_work}"  # e.g., "functional_components_with_hooks"
+  data_flow: "{data_flow_pattern}"  # e.g., "unidirectional"
+  rendering_approach: "{rendering_strategy}"  # e.g., "virtual_dom"
+  
+  lifecycle:
+    creation: "./architecture/component-creation.md"
+    updates: "./architecture/component-updates.md"
+    destruction: "./architecture/component-cleanup.md"
+    
+  performance_model:
+    optimization_strategies: "./architecture/optimization-strategies.md"
+    performance_patterns: "./architecture/performance-patterns.md"
+    profiling_tools: "./architecture/profiling-tools.md"
+
+# Ecosystem and tooling
+ecosystem:
+  official_tools:
+    - tool: "{official_tool}"
+      purpose: "{what_it_does}"
+      guide: "./tooling/{official_tool}.md"
+      
+  community_tools:
+    - tool: "{community_tool}"
+      purpose: "{what_it_does}"
+      popularity: "{high|medium|low}"
+      guide: "./tooling/{community_tool}.md"
+      
+  development_environment:
+    setup: "./setup/development-environment.md"
+    debugging: "./setup/debugging-guide.md"
+    testing: "./setup/testing-setup.md"
+
+# Integration patterns with other technologies
+integrations:
+  languages:
+    "{language}":  # e.g., "typescript"
+      integration_guide: "./integrations/{language}-integration.md"
+      patterns: "./integrations/{language}/patterns/"
+      examples: "./integrations/{language}/examples/"
+      best_practices: "./integrations/{language}/best-practices.md"
+      
+  styling:
+    "{styling_approach}":  # e.g., "css_modules"
+      integration_guide: "./styling/{styling_approach}.md"
+      patterns: "./styling/{styling_approach}/patterns/"
+      examples: "./styling/{styling_approach}/examples/"
+      
+  state_management:
+    "{state_library}":  # e.g., "redux"
+      integration_guide: "./state/{state_library}.md"
+      patterns: "./state/{state_library}/patterns/"
+      migration_guide: "./state/{state_library}/migration.md"
+      
+  testing:
+    "{testing_library}":  # e.g., "jest"
+      integration_guide: "./testing/{testing_library}.md"
+      patterns: "./testing/{testing_library}/patterns/"
+      examples: "./testing/{testing_library}/examples/"
+
+# Performance optimization
+performance:
+  optimization_techniques:
+    - technique: "{optimization_technique}"
+      description: "{what_this_technique_does}"
+      implementation: "./performance/techniques/{optimization_technique}.md"
+      examples: "./performance/examples/{optimization_technique}.{ext}"
+      benchmarks: "./performance/benchmarks/{optimization_technique}.md"
+      
+  performance_patterns:
+    - pattern: "{performance_pattern}"
+      use_case: "{when_to_use_this_pattern}"
+      implementation: "./performance/patterns/{performance_pattern}.md"
+      trade_offs: "./performance/trade-offs/{performance_pattern}.md"
+      
+  monitoring:
+    tools: ["./performance/monitoring/tools.md"]
+    metrics: ["./performance/monitoring/metrics.md"]
+    alerts: ["./performance/monitoring/alerts.md"]
+
+# Security considerations
+security:
+  common_vulnerabilities:
+    - vulnerability: "{framework_specific_vulnerability}"
+      description: "{what_this_vulnerability_is}"
+      prevention: "./security/{vulnerability}-prevention.md"
+      examples: "./security/examples/{vulnerability}.{ext}"
+      
+  security_patterns:
+    - pattern: "{security_pattern}"
+      description: "{what_this_pattern_provides}"
+      implementation: "./security/patterns/{security_pattern}.md"
+      
+  security_checklist:
+    development: "./security/checklists/development.md"
+    deployment: "./security/checklists/deployment.md"
+    maintenance: "./security/checklists/maintenance.md"
+
+# Framework versions and migration
+versioning:
+  current_version: "{current_stable_version}"
+  lts_version: "{long_term_support_version}"
+  
+  migration_guides:
+    - from_version: "{old_version}"
+      to_version: "{new_version}"
+      guide: "./migrations/{old_version}-to-{new_version}.md"
+      breaking_changes: "./migrations/breaking-changes/{old_version}-to-{new_version}.md"
+      tools: "./migrations/tools/{old_version}-to-{new_version}.md"
+      
+  deprecation_timeline:
+    deprecated_features: "./deprecation/deprecated-features.md"
+    migration_timeline: "./deprecation/migration-timeline.md"
+    alternative_approaches: "./deprecation/alternatives.md"
+
+# Testing strategies
+testing:
+  testing_philosophy: "{framework_testing_approach}"
+  
+  testing_types:
+    unit_testing:
+      approach: "./testing/unit/approach.md"
+      tools: ["./testing/unit/tools.md"]
+      patterns: "./testing/unit/patterns/"
+      examples: "./testing/unit/examples/"
+      
+    integration_testing:
+      approach: "./testing/integration/approach.md"
+      tools: ["./testing/integration/tools.md"]
+      patterns: "./testing/integration/patterns/"
+      examples: "./testing/integration/examples/"
+      
+    e2e_testing:
+      approach: "./testing/e2e/approach.md"
+      tools: ["./testing/e2e/tools.md"]
+      patterns: "./testing/e2e/patterns/"
+      examples: "./testing/e2e/examples/"
+
+# Common use cases and applications
+use_cases:
+  "{use_case}":  # e.g., "single_page_applications"
+    description: "{what_this_use_case_involves}"
+    patterns: "./use-cases/{use_case}/patterns/"
+    examples: "./use-cases/{use_case}/examples/"
+    best_practices: "./use-cases/{use_case}/best-practices.md"
+    performance_considerations: "./use-cases/{use_case}/performance.md"
+
+# Learning resources and progression
+learning:
+  prerequisites:
+    - knowledge: "{prerequisite_knowledge}"
+      level: "{beginner|intermediate|advanced}"
+      resources: ["./prerequisites/{prerequisite_knowledge}.md"]
+      
+  learning_path:
+    beginner:
+      concepts: ["./learning/beginner/concepts/"]
+      projects: ["./learning/beginner/projects/"]
+      timeline: "{estimated_time}"
+      
+    intermediate:
+      concepts: ["./learning/intermediate/concepts/"]
+      projects: ["./learning/intermediate/projects/"]
+      timeline: "{estimated_time}"
+      
+    advanced:
+      concepts: ["./learning/advanced/concepts/"]
+      projects: ["./learning/advanced/projects/"]
+      timeline: "{estimated_time}"
+
+# Quality standards and best practices
+quality_standards:
+  code_organization:
+    file_structure: "./quality/file-structure.md"
+    component_structure: "./quality/component-structure.md"
+    naming_conventions: "./quality/naming-conventions.md"
+    
+  documentation_standards:
+    component_documentation: "./quality/component-docs.md"
+    api_documentation: "./quality/api-docs.md"
+    example_quality: "./quality/example-standards.md"
+    
+  performance_standards:
+    bundle_size_limits: "./quality/bundle-size.md"
+    runtime_performance: "./quality/runtime-performance.md"
+    accessibility_standards: "./quality/accessibility.md"
+
+# LLM guidance for intelligent application
+llm_guidance:
+  framework_selection:
+    recommend_when:
+      - project_type: "{project_type}"
+        reason: "{why_this_framework_fits}"
+        confidence: "{high|medium|low}"
+        alternatives: ["{alternative1}", "{alternative2}"]
+        
+  pattern_recommendations:
+    context_aware_patterns:
+      - context: "{development_context}"
+        recommended_patterns: ["{pattern1}", "{pattern2}"]
+        reasoning: "{why_these_patterns_fit}"
+        implementation_order: ["{step1}", "{step2}"]
+        
+  problem_solving:
+    common_problems:
+      - problem: "{common_framework_problem}"
+        symptoms: "{how_to_identify_this_problem}"
+        solutions: ["{solution1}", "{solution2}"]
+        prevention: "{how_to_avoid_this_problem}"
+        
+  code_generation:
+    generation_patterns:
+      - scenario: "{code_generation_scenario}"
+        template_approach: "{how_to_generate_code_for_this}"
+        validation_checklist: ["./validation/{scenario}-checklist.md"]
+        quality_requirements: ["./quality/{scenario}-requirements.md"]

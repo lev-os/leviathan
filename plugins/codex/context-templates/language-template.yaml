@@ -1,0 +1,215 @@
+# PROJECT CODEX - LANGUAGE TEMPLATE
+# Template for defining language-specific best practices and patterns
+
+metadata:
+  type: "language"
+  id: "{language_id}"  # e.g., "typescript"
+  name: "{Language Name}"
+  scope: "language_specific"
+  category: "{compiled|interpreted|transpiled}"
+  ecosystem: "{frontend|backend|fullstack|mobile|desktop}"
+  
+language_definition:
+  # Core characteristics and strengths
+  core_strengths:
+    - "{primary strength}"  # e.g., "type_safety"
+    - "{another strength}"  # e.g., "developer_experience"
+    
+  # Main use cases where this language excels
+  primary_use_cases:
+    - "{use case}"  # e.g., "web_applications"
+    - "{another use case}"  # e.g., "api_development"
+    
+  # Comprehensive language guide
+  documentation: "./docs/{language_id}-comprehensive-guide.md"
+  
+  # Core language patterns and idioms
+  patterns:
+    "{pattern_category}":  # e.g., "type_definitions"
+      description: "{what this pattern category covers}"
+      guide: "./patterns/{pattern_category}.md"
+      examples: "./examples/{pattern_category}-examples.{ext}"
+      best_practices: "./best-practices/{pattern_category}.md"
+      anti_patterns: "./anti-patterns/{pattern_category}.md"
+      
+    "{another_pattern}":  # e.g., "error_handling"
+      description: "{description}"
+      guide: "./patterns/{another_pattern}.md"
+      examples: "./examples/{another_pattern}-examples.{ext}"
+      best_practices: "./best-practices/{another_pattern}.md"
+      anti_patterns: "./anti-patterns/{another_pattern}.md"
+
+# Language-specific tooling and ecosystem
+tooling:
+  package_managers:
+    primary: "{main_package_manager}"  # e.g., "npm"
+    alternatives: ["{alt1}", "{alt2}"]  # e.g., ["yarn", "pnpm"]
+    
+  build_tools:
+    - name: "{build_tool}"
+      purpose: "{what it does}"
+      config_guide: "./tooling/{build_tool}-config.md"
+      
+  testing_frameworks:
+    - name: "{test_framework}"
+      type: "{unit|integration|e2e}"
+      guide: "./testing/{test_framework}-guide.md"
+      
+  linting_formatting:
+    linter: "{linter_name}"
+    formatter: "{formatter_name}"
+    config_guide: "./tooling/linting-formatting.md"
+
+# Performance characteristics and optimization
+performance:
+  characteristics:
+    execution_model: "{interpreted|compiled|jit}"
+    memory_management: "{gc|manual|automatic}"
+    concurrency_model: "{event_loop|threads|async_await}"
+    
+  optimization_patterns:
+    - category: "{optimization_category}"
+      techniques: "./performance/{optimization_category}.md"
+      examples: "./performance/examples/{optimization_category}.{ext}"
+      benchmarks: "./performance/benchmarks/{optimization_category}.md"
+      
+  common_bottlenecks:
+    - bottleneck: "{performance_issue}"
+      description: "{what causes this}"
+      solutions: "./performance/solutions/{performance_issue}.md"
+
+# Security considerations
+security:
+  common_vulnerabilities:
+    - vulnerability: "{vuln_type}"
+      description: "{what this vulnerability is}"
+      prevention: "./security/{vuln_type}-prevention.md"
+      examples: "./security/examples/{vuln_type}.{ext}"
+      
+  security_patterns:
+    - pattern: "{security_pattern}"
+      description: "{what this pattern provides}"
+      implementation: "./security/patterns/{security_pattern}.md"
+      
+  security_tools:
+    - tool: "{security_tool}"
+      purpose: "{what it checks for}"
+      integration: "./security/tools/{security_tool}.md"
+
+# Framework integrations
+framework_integrations:
+  "{framework_name}":  # e.g., "react"
+    integration_guide: "./integrations/{framework_name}-{language_id}.md"
+    patterns: "./integrations/{framework_name}/patterns/"
+    examples: "./integrations/{framework_name}/examples/"
+    best_practices: "./integrations/{framework_name}/best-practices.md"
+    
+  "{another_framework}":  # e.g., "express"
+    integration_guide: "./integrations/{another_framework}-{language_id}.md"
+    patterns: "./integrations/{another_framework}/patterns/"
+    examples: "./integrations/{another_framework}/examples/"
+    best_practices: "./integrations/{another_framework}/best-practices.md"
+
+# Code style and conventions
+style_guide:
+  naming_conventions:
+    variables: "{convention}"  # e.g., "camelCase"
+    functions: "{convention}"
+    classes: "{convention}"
+    constants: "{convention}"
+    files: "{convention}"
+    
+  code_organization:
+    file_structure: "./style/file-structure.md"
+    module_patterns: "./style/module-patterns.md"
+    import_conventions: "./style/import-conventions.md"
+    
+  documentation_standards:
+    inline_comments: "./style/inline-comments.md"
+    function_documentation: "./style/function-docs.md"
+    api_documentation: "./style/api-docs.md"
+
+# Common patterns and idioms
+idioms:
+  "{idiom_category}":  # e.g., "functional_patterns"
+    description: "{what this idiom category includes}"
+    examples: "./idioms/{idiom_category}.{ext}"
+    when_to_use: "./idioms/{idiom_category}-usage.md"
+    
+  "{another_idiom}":  # e.g., "async_patterns"
+    description: "{description}"
+    examples: "./idioms/{another_idiom}.{ext}"
+    when_to_use: "./idioms/{another_idiom}-usage.md"
+
+# Quality metrics and standards
+quality_standards:
+  code_complexity:
+    max_function_length: {number}
+    max_file_length: {number}
+    cyclomatic_complexity_limit: {number}
+    
+  test_coverage:
+    minimum_coverage: "{percentage}"
+    critical_path_coverage: "{percentage}"
+    integration_test_coverage: "{percentage}"
+    
+  documentation_requirements:
+    public_api_coverage: "{percentage}"
+    complex_function_documentation: "required"
+    readme_standards: "./quality/readme-standards.md"
+    
+  performance_standards:
+    build_time_limit: "{time_limit}"
+    bundle_size_limit: "{size_limit}"
+    runtime_performance: "./quality/performance-standards.md"
+
+# Learning progression
+learning_path:
+  beginner:
+    prerequisites: ["{prereq1}", "{prereq2}"]
+    core_concepts: ["./learning/beginner/{concept}.md"]
+    projects: ["./learning/beginner/projects/{project}.md"]
+    timeline: "{estimated_learning_time}"
+    
+  intermediate:
+    prerequisites: ["{intermediate_prereq}"]
+    advanced_concepts: ["./learning/intermediate/{concept}.md"]
+    projects: ["./learning/intermediate/projects/{project}.md"]
+    timeline: "{estimated_learning_time}"
+    
+  advanced:
+    prerequisites: ["{advanced_prereq}"]
+    expert_concepts: ["./learning/advanced/{concept}.md"]
+    projects: ["./learning/advanced/projects/{project}.md"]
+    timeline: "{estimated_learning_time}"
+
+# LLM guidance for intelligent application
+llm_guidance:
+  language_selection:
+    recommend_when:
+      - project_type: "{project_type}"
+        reason: "{why this language is good for this project type}"
+        confidence: "{high|medium|low}"
+        
+    avoid_when:
+      - project_type: "{project_type}"
+        reason: "{why this language might not be ideal}"
+        alternatives: ["{alt_language1}", "{alt_language2}"]
+        
+  pattern_application:
+    context_aware_suggestions:
+      - context: "{development_context}"
+        suggested_patterns: ["{pattern1}", "{pattern2}"]
+        reasoning: "{why these patterns fit this context}"
+        
+  code_review_guidance:
+    common_issues:
+      - issue: "{common_code_issue}"
+        detection: "{how to identify this issue}"
+        solution: "{how to fix it}"
+        prevention: "{how to avoid it in future}"
+        
+  teaching_approach:
+    explanation_strategy: "{how to explain concepts in this language}"
+    common_misconceptions: ["./teaching/misconceptions.md"]
+    effective_examples: ["./teaching/examples/"]

@@ -1,0 +1,156 @@
+session_id: "concept-dashboard-synth-breakthrough"
+created: "2025-07-02"
+last_updated: "2025-07-03"
+semantic_summary: "Revolutionary concept lifecycle dashboard + synth promotion system breakthrough + schema validation mission + rolling synths emergency refinement"
+
+# MASTER SESSION INDEX - READ THIS FIRST
+session_files:
+  session_intelligence: "./readme.yaml" # THIS FILE - master session state
+  continuity_analysis: "./session-continuity-failure.yaml" # Why this session failed 
+  schema_work_state: "./schema-analysis-state.yaml" # Where schema work left off
+  active_synths: "./synths.yaml" # Rolling synth definitions
+  workflow_state: "./workflow-state.yaml" # Current workflow step and context
+  evolved_synth: "./wizard_spec_analyst_synth.yaml" # Real-time synth evolution
+  critical_gaps: "./CRITICAL_GAPS.md" # Emergency intelligence preservation
+  emergency_continuation: "./session_emergency.yaml" # July 3rd emergency continuation
+
+# CURRENT WORKFLOW STATE
+workflow_context:
+  current_workflow: "core-schema-validation-development"
+  current_step: "schema-approach-testing"
+  step_number: 3
+  total_steps: 7
+  
+  workflow_definition:
+    step_1: "Understand existing schema approaches (COMPLETED)"
+    step_2: "Discover schema-context mismatches (COMPLETED)" 
+    step_3: "Test validation approaches (IN PROGRESS)"
+    step_4: "Choose best approach with human validation"
+    step_5: "Build minimal validation system"
+    step_6: "Test against real contexts"
+    step_7: "Document and integrate"
+
+# ACTIVE SYNTHS (CRITICAL FOR CONTINUITY)
+active_synths:
+  primary: "wizard_spec_analyst_synth"
+  secondary: "concept_lifecycle_analyst_synth"
+  
+  wizard_spec_analyst_synth:
+    role: "Wizard Spec Analyst"
+    job: "Apply five-fold path to existing code and synthesize comprehensive BDD specifications"
+    current_context: "Analyzing three schema approaches for core/schema validation"
+    active_reasoning: "Found original philosophy, agency production, dev reality - need testing"
+    next_action: "Test dev context against base.schema.yaml to document failure points"
+    confidence_level: 95%
+    
+  concept_lifecycle_analyst_synth:
+    role: "Concept Lifecycle Analyst" 
+    job: "Evaluate concept readiness for advancement and identify strategic priorities"
+    current_context: "Monitoring schema work impact on concept management system"
+    active_reasoning: "Schema validation needed to complete concept lifecycle automation"
+    next_action: "Ensure schema work serves concept management needs"
+    confidence_level: 90%
+
+# SESSION MENTAL MODELS (CRITICAL RESTORATION)
+mental_models:
+  session_vs_concept_clarity: "Sessions = LLM working memory + context preservation, Concepts = persistent ideas moving through lifecycle"
+  rolling_synths: "2-liner thinking modes that evolve and roll forward across context windows"
+  schema_mission: "Build constitutional framework to validate context system + concept lifecycle + synth architecture"
+  dogfooding_purpose: "We are testing our own concept management system by using it for this schema work"
+
+# KEY BREAKTHROUGHS (PRESERVE INSIGHTS)
+breakthroughs:
+  concept_lifecycle_dashboard: "Revolutionary daily driver intelligence for tracking concept readiness"
+  rolling_synth_evolution: "Real-time synth creation and evolution during sessions" 
+  session_architecture: "LLM-first freestyle structure with minimal templates"
+  schema_reality_gap: "Found 3 different YAML approaches, none match actual contexts"
+  rolling_synths_status_bar: "Compact rolling synths status bar design to replace XML debug blocks"
+  
+# CORE MISSION CONTEXT
+mission_statement: "Build schema validation system for Leviathan context ecosystem"
+
+mission_context:
+  why: "300+ contexts in agent/contexts/ need constitutional validation"
+  what: "Runtime validation system that checks context YAML against schemas"
+  how: "Test 3 schema approaches, choose best, implement validation, integrate with legos"
+  blocking: "Three schema approaches found, none match reality - need testing and decision"
+
+# HUMAN COLLABORATION STATE
+collaboration_context:
+  human_preference: "Step-by-step validation with approval before major decisions"
+  human_feedback: "Don't create new systems until you understand what exists"
+  current_need: "Human guidance on which schema approach to test first"
+  decision_pending: "Schema approach selection (original vs agency vs dev-reality)"
+
+# ARCHITECTURE UNDERSTANDING
+system_context:
+  leviathan_agent: "MCP server with adapters (CLI, MCP, etc.) - Claude Code calls CLI adapter"
+  contexts: "300+ YAML files defining AI capabilities (agents, workflows, patterns, tools)"
+  sessions: "Working memory preservation system we built last session"
+  synths: "Dynamic thinking modes created during sessions"
+  concepts: "Persistent idea tracking system (ideation → specification → implementation)"
+
+# CRITICAL FILES TO UNDERSTAND
+required_reading:
+  schema_examples:
+    - "~/digital/kingly/~/lev/agent/contexts/_schema/base.schema.yaml # Original philosophy"
+    - "~/digital/kingly/hub/agency/contexts/agents/brand/context.yaml # Agency production"
+    - "/agent/contexts/agents/dev/context.yaml # Dev reality"
+  
+  concept_system:
+    - "concepts/index.yaml # Our concept portfolio"
+    - "concepts/2025-07-02-ceo-orchestrator/concept.yaml # CEO orchestrator concept"
+    - "concepts/2025-07-02-lego-architecture/concept.yaml # Lego architecture concept"
+
+# NEXT SESSION CRITICAL ACTIONS
+next_session_instructions:
+  1: "Load this readme.yaml + workflow-state.yaml FIRST"
+  2: "Activate wizard_spec_analyst_synth with preserved context"
+  3: "Continue from workflow step 3: schema-approach-testing"
+  4: "Test dev context against base schema, document failures"
+  5: "Get human approval before choosing schema approach"
+  6: "DO NOT hallucinate new solutions - work with what exists"
+
+# CONTEXT RESTORATION TARGET
+confidence_restoration:
+  target_confidence: 95%
+  success_indicators:
+    - "Understands three schema approaches discovered"
+    - "Knows we're testing validation, not creating new schemas"
+    - "Remembers concept lifecycle system context"
+    - "Activates correct synths with proper context"
+    - "Continues from correct workflow step"
+
+# DOGFOODING STATUS
+system_validation:
+  concept_management: "✅ Working - 9 concepts tracked with lifecycle"
+  session_preservation: "⚠️ Partial - files exist but mental model restoration failed"
+  synth_evolution: "✅ Working - real-time synth creation validated"
+  schema_validation: "❌ NOT WORKING - mission of current work"
+
+session_continuity_lesson: "Session files exist but mental model restoration requires active synth loading with context"
+
+# FINAL SESSION SUMMARY
+session_completion:
+  status: "COMPLETE - Context emergency (4% remaining)"
+  total_achievements: 7
+  major_breakthroughs:
+    - "Constitutional schema framework with metadata wrapper validation"
+    - "Rolling synths status bar format (added to CLAUDE.md)"
+    - "Agent context path fixes (moved to core/contexts)"
+    - "Schema vs content architecture clarification"  
+    - "Plan-verify-act-verify framework established"
+    - "Synth success tracking system implemented"
+    - "Agent-in-the-loop vs human-in-the-loop distinction"
+  
+  synth_performance_final:
+    total_synths_created: 5
+    promotion_candidates: 2
+    average_success_rate: 98%
+    breakthrough_sessions: 3
+    
+  next_session_priorities:
+    - "Schema partials implementation in context structure"
+    - "Runtime validation system build"
+    - "Synth promotion to permanent agent status"
+    - "Constitutional framework testing"

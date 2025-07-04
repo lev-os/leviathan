@@ -20,7 +20,7 @@ export async function findContexts(query, options = {}) {
     type = null,
     mode = 'full',
     limit = 10,
-    contextsPath = process.env.CONTEXTS_PATH || './contexts',
+    contextsPath = process.env.CONTEXTS_PATH || '../core/contexts',
     threshold = 0.3,
   } = options
 
@@ -161,7 +161,7 @@ export async function scoreContext(context, query, options = {}) {
  * @returns {Promise<Array>} Array of context type summaries
  */
 export async function listContextTypes(options = {}) {
-  const { contextsPath = process.env.CONTEXTS_PATH || './contexts' } = options
+  const { contextsPath = process.env.CONTEXTS_PATH || '../core/contexts' } = options
 
   try {
     if (!(await fs.pathExists(contextsPath))) {
@@ -196,7 +196,7 @@ export async function listContextTypes(options = {}) {
  * @returns {Promise<Array>} Array of context combinations
  */
 export async function findContextCombos(query, options = {}) {
-  const { count = 3, contextsPath = process.env.CONTEXTS_PATH || './contexts' } = options
+  const { count = 3, contextsPath = process.env.CONTEXTS_PATH || '../core/contexts' } = options
 
   try {
     // This would integrate with the existing combo system from claude-code-adapter

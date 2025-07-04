@@ -1,0 +1,110 @@
+session_id: "concept-dashboard-synth-breakthrough-continuity-failure"
+parent_session: "concept-dashboard-synth-breakthrough"
+created: "2025-07-02"
+context_crisis: "ENTIRE session spent re-explaining previous breakthrough work"
+
+# CRITICAL SESSION CONTINUITY FAILURE
+failure_analysis:
+  problem: "AI lost mental model and breakthrough insights from previous session"
+  symptoms:
+    - "Started creating new specs instead of analyzing existing work"
+    - "Didn't recognize concept lifecycle system we built"
+    - "Lost understanding of sessions vs concepts distinction" 
+    - "Forgot synth evolution breakthrough"
+    - "Missed connection to schema validation purpose"
+  
+  context_window_waste: "~95% spent re-establishing context that should have been preserved"
+  
+# WHAT WE WERE ACTUALLY DOING
+real_work_context:
+  core_schema_mission: "Create constitutional framework to validate context system + concept lifecycle + synth system"
+  
+  schema_challenge:
+    - "Three different YAML approaches found (original philosophy, agency production, dev reality)"
+    - "Need to test and synthesize best approach"
+    - "Agency contexts show rich YAML consciousness streaming works"
+    - "Original schemas have good philosophy but don't match reality"
+    - "Dev context uses metadata wrapper + agent_config structure"
+  
+  testing_approach_needed:
+    - "Evaluate all three schema approaches against real contexts"
+    - "Test validation systems with actual YAML files"
+    - "Decide: migrate contexts to schemas OR update schemas to match reality"
+    - "Build BDD specs for whatever approach we choose"
+
+# BREAKTHROUGH SYSTEMS WE BUILT
+existing_architecture:
+  concept_lifecycle_system:
+    purpose: "Track ideas from ideation → specification → implementation"
+    location: "concepts/ directory with index.yaml"
+    status: "Working, needs schema validation"
+    
+  rolling_synths:
+    purpose: "2-liner thinking modes that evolve across sessions"
+    examples: ["concept_lifecycle_analyst_synth", "wizard_spec_analyst_synth"]
+    breakthrough: "Real-time synth evolution during sessions"
+    
+  session_architecture:
+    purpose: "LLM mental state + context preservation"
+    location: "tmp/session-id/ directories"
+    status: "Working but continuity failed this session"
+    
+  ceo_orchestrator:
+    purpose: "Confidence-based expansion/compression with dynamic synth creation"
+    location: "Enhanced in CLAUDE.md system prompt"
+    status: "Active, working in current session"
+
+# TEMPLATES & ARTIFACTS CREATED (UNTESTED)
+created_this_session:
+  untested_templates:
+    - "core/schema/src/template.smart.md - Concept lifecycle analysis template"
+    - "docs/templates/module-specs-structure.smart.md - BDD module structure"
+    - "docs/specs/leviathan-feature-matrix.md - Feature overview"
+    
+  untested_specs:
+    - "core/schema/specs/features/constitutional-framework.feature"
+    - "core/schema/specs/features/schema-validation-pipeline.feature" 
+    - "core/schema/specs/features/template-intelligence.feature"
+    
+  note: "All created before understanding real system context"
+
+# NEXT SESSION CRITICAL ACTIONS
+immediate_priorities:
+  1: "LOAD this session file + parent session readme.yaml FIRST"
+  2: "Activate concept_lifecycle_analyst_synth to understand concept portfolio"
+  3: "Test one schema approach against real contexts (start small)"
+  4: "Don't create new stuff until you understand what exists"
+  5: "Use human-in-the-loop validation before any major decisions"
+
+# SESSION CONTINUITY IMPROVEMENTS NEEDED
+rolling_memory_gaps:
+  context_loading: "Need automated loading of session intelligence on startup"
+  synth_persistence: "Synths created but not automatically reloaded"
+  mental_model_restoration: "Breakthrough insights lost between sessions"
+  work_context_preservation: "Mission/purpose needs clearer preservation"
+
+# HUMAN FEEDBACK INTEGRATION
+user_guidance:
+  session_definition: "Sessions = LLM working memory + context + synths + breakthrough preservation"
+  concept_definition: "Concepts = persistent ideas that move through lifecycle via sessions"  
+  schema_mission: "Validate context system + concept management + synth architecture"
+  approach_preference: "Test existing work before creating new work"
+  collaboration_style: "Human-in-the-loop, step-by-step, no assumptions"
+
+# DOGFOODING STATUS
+system_validation:
+  concept_management: "Working - we have 9 concepts tracked with lifecycle status"
+  session_preservation: "Partial - files exist but mental model lost"
+  synth_evolution: "Working - wizard_spec_analyst_synth evolved during session" 
+  schema_validation: "NOT WORKING - no validation system built yet"
+  
+breakthrough_quote: "Never seen concept lifecycle dashboard in any dev shop - daily driver intelligence"
+
+# CONTEXT RECOVERY INSTRUCTIONS
+next_ai_should:
+  1: "Read this file + parent session readme.yaml + concepts/index.yaml"
+  2: "Understand we're building schema validation for existing systems"
+  3: "Don't hallucinate new solutions - test what exists"  
+  4: "Use CEO orchestrator debug headers"
+  5: "Activate rolling synths for specialized thinking"
+  6: "Get human approval before any major architectural decisions"

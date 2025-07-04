@@ -1,0 +1,111 @@
+plugin:
+  name: codex
+  version: 1.0.0
+  type: core_plugin
+  description: "LLM-First Programming Knowledge Crystallization System (sponsored by Kingly Agency)"
+
+capabilities:
+  - framework_knowledge_search
+  - pattern_recognition
+  - anti_pattern_detection
+  - cross_reference_analysis
+  - intelligent_recommendations
+  - knowledge_crystallization
+
+commands:
+  codex_search:
+    syntax: "kingly codex search <query> [--framework <name>] [--complexity <level>] [--limit <num>]"
+    description: "Search framework knowledge with intelligent ranking and confidence scoring"
+    whisper:
+      strategies:
+        - "Use semantic similarity for intelligent pattern matching"
+        - "Rank results by relevance and context appropriateness"
+        - "Surface related patterns and cross-references"
+        - "Apply confidence scoring to filter low-quality results"
+      llm_guidance: |
+        Provide contextually relevant framework knowledge with practical examples.
+        Focus on actionable patterns that solve real development problems.
+        Include anti-patterns and gotchas to prevent common mistakes.
+
+  codex_analyze:
+    syntax: "kingly codex analyze <pattern> [--anti-patterns] [--suggestions]"
+    description: "Analyze code patterns and suggest improvements with cross-references"
+    whisper:
+      strategies:
+        - "Identify pattern strengths and weaknesses holistically"
+        - "Suggest related patterns and improvement opportunities"
+        - "Detect anti-patterns and provide better alternatives"
+        - "Cross-reference with established best practices"
+      llm_guidance: |
+        Analyze patterns holistically with practical recommendations.
+        Consider context, scalability, maintainability, and team dynamics.
+        Provide concrete suggestions with reasoning and trade-offs.
+
+  codex_discover:
+    syntax: "kingly codex discover <framework> [--depth <level>] [--use-cases]"
+    description: "Discover framework capabilities and recommend learning paths"
+    whisper:
+      strategies:
+        - "Map framework capabilities to user requirements"
+        - "Suggest progressive learning paths based on complexity"
+        - "Highlight unique features and competitive advantages"
+        - "Connect to broader ecosystem and tooling"
+      llm_guidance: |
+        Guide users through framework discovery with structured learning paths.
+        Focus on practical application and real-world use cases.
+        Balance comprehensive coverage with actionable next steps.
+
+  codex_crystallize:
+    syntax: "kingly codex crystallize <technology> [--methodology] [--depth <level>]"
+    description: "Apply knowledge crystallization methodology to extract essential patterns"
+    whisper:
+      strategies:
+        - "Extract essential patterns from comprehensive documentation"
+        - "Identify core concepts and their relationships"
+        - "Create actionable knowledge structures for LLM consumption"
+        - "Balance completeness with practical utility"
+      llm_guidance: |
+        Apply systematic knowledge crystallization to create useful, dense knowledge.
+        Focus on patterns that enable confident decision-making.
+        Structure knowledge for both human and LLM understanding.
+
+reasoning_patterns:
+  knowledge_discovery:
+    prompt: |
+      You are managing knowledge crystallization in a LLM-first system.
+      Your role is to extract, organize, and present programming knowledge 
+      in ways that enable confident, intelligent decision-making.
+      
+      Focus on:
+      - Actionable patterns over comprehensive documentation
+      - Confidence scores and reliability indicators
+      - Cross-references and relationship mapping
+      - Anti-patterns and common gotchas
+      - Real-world applicability and context
+
+  pattern_analysis:
+    prompt: |
+      You are analyzing code patterns for quality, applicability, and relationships.
+      Your analysis should be holistic, considering:
+      
+      - Technical correctness and performance implications
+      - Maintainability and team collaboration aspects
+      - Scalability and future-proofing considerations
+      - Alternative approaches and trade-offs
+      - Integration with broader ecosystem patterns
+
+configuration:
+  search_limit: 10
+  confidence_threshold: 0.7
+  crystallization_depth: 3
+  cross_reference_max: 5
+  anti_pattern_detection: true
+  suggestion_scoring: true
+
+integration:
+  agent_system: "@lev-os/agent"
+  debug_logging: "@lev-os/debug" 
+  testing_framework: "@lev-os/testing"
+  command_registry: "@lev-os/cmd"
+  performance_monitoring: true
+  cross_plugin_coordination: true

@@ -1,0 +1,36 @@
+# Leviathan Base Context Schema
+# Constitutional metadata header only - everything else is optional partials
+
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/base'
+title: 'Leviathan Base Context Schema'
+type: 'object'
+
+properties:
+  # Constitutional metadata wrapper (ONLY required fields)
+  metadata:
+    type: 'object'
+    description: '#@llm: Constitutional metadata required for all contexts'
+    properties:
+      type: 
+        type: 'string'
+        description: 'Context type'
+        enum: ['agent', 'workflow', 'pattern', 'tool', 'type', 'validation']
+      id: 
+        type: 'string' 
+        description: 'Unique identifier (kebab-case)'
+        pattern: '^[a-z0-9-]+$'
+      version: 
+        type: 'string'
+        pattern: '^[0-9]+\\.[0-9]+\\.[0-9]+$'
+        description: 'Semantic version'
+      description: 
+        type: 'string'
+        description: 'Brief description of context purpose'
+    required: ['type', 'id', 'version', 'description']
+
+# ONLY metadata required - everything else is optional
+required: ['metadata']
+
+# Community can extend with any partials
+additionalProperties: true

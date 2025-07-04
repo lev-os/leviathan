@@ -1,8 +1,8 @@
-## Context
+# AGENT TASK: Generate Session Handoff Report
 
-This checkpoint is about: {semantic topic}
+Your task is to generate a detailed handoff report based on the preceding conversation session. Your goal is to produce a timeline, a trail guide through code and context, key decisions made, and user feedback so the next agent can quickly get to a similar deterministic state.
 
-## Your Task
+## TEMPLATE & FORMATTING
 
 Analyze the current conversation context and manage session state based on the mode and $ARGUMENTS provided.
 
@@ -16,7 +16,7 @@ We should have a series of 3-15 "checkpoints", outlined below. For each checkpoi
 
 At the end of the handoff response provide a system prompt for the agent on what to do next and how to proceed summarzing the entire session + next steps. Ask it to load and analyze the files listed and ensure that you understand the same things at various checkpoints. Provide a "context confidence" score after priming the context, so the user understands if they should work w/ the LLM in order to properly get back to a similar state
 
-### Checkpoint Formart:
+### Checkpoint Format:
 
 ```
 ⚡ CHECKPOINT Progress

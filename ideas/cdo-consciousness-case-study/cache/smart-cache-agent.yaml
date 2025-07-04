@@ -1,0 +1,157 @@
+name: cdo-consciousness-smart-cache
+version: 1.0.0
+purpose: "Intelligent context loading for CDO consciousness research"
+
+# File loading strategy optimized for minimal context burn
+loading_strategy:
+  priority_1_essential:
+    # Core concept files - ALWAYS load these first
+    - path: "research/consciousness-case-study.md"
+      reason: "Primary consciousness mapping and architecture"
+      sections:
+        - "Executive Summary"
+        - "Core Hypothesis"
+        - "Consciousness Architecture"
+    
+    - path: "research/research-plan-graph-execution.md"
+      reason: "Active research queries and execution plan"
+      sections:
+        - "Perplexity Query Strategy"
+        - "Graph Execution Model"
+    
+    - path: "cache/context-primer.md"
+      reason: "Quick context restoration guide"
+      load_complete: true
+  
+  priority_2_workspace:
+    # Current work in progress
+    - pattern: "research/active-*.md"
+      reason: "Active research threads"
+      max_files: 3
+    
+    - pattern: "specs/*.yaml"
+      reason: "Implementation specifications"
+      max_files: 5
+  
+  priority_3_reference:
+    # Load only if specifically needed
+    - path: "timeline/session-events.yaml"
+      reason: "Historical context and decisions"
+      load_on_demand: true
+    
+    - pattern: "research/perplexity-results-*.md"
+      reason: "Research findings cache"
+      load_on_demand: true
+
+# Intelligent section extraction
+section_extraction:
+  strategies:
+    summary_first:
+      patterns:
+        - "## Executive Summary"
+        - "## Overview"
+        - "## Core Concepts"
+      max_lines: 50
+    
+    code_blocks:
+      languages: [yaml, python, javascript]
+      include_context: 5  # lines before/after
+    
+    definitions:
+      patterns:
+        - "^### .* Definition$"
+        - "^## What is"
+      include_full_section: true
+
+# Context compression rules
+compression:
+  remove_redundancy:
+    - markdown_formatting: false  # Keep formatting
+    - code_comments: false  # Keep all comments
+    - empty_sections: true  # Remove empty sections
+    - duplicate_content: true  # Remove exact duplicates
+  
+  summarization_triggers:
+    - section_length: 200  # Summarize sections > 200 lines
+    - file_size: 50000  # Summarize files > 50KB
+    - pattern: "*-archive-*"  # Always summarize archives
+
+# Dynamic loading based on query
+query_based_loading:
+  consciousness_mechanics:
+    additional_files:
+      - "research/quantum-classical-boundary.md"
+      - "specs/consciousness-architecture.yaml"
+  
+  implementation_details:
+    additional_files:
+      - "specs/implementation-plan.yaml"
+      - "research/technical-requirements.md"
+  
+  perplexity_research:
+    additional_files:
+      - "research/perplexity-prompts.md"
+      - "cache/query-results-cache.yaml"
+
+# Session state tracking
+session_state:
+  track:
+    - current_research_phase
+    - completed_queries
+    - open_questions
+    - implementation_progress
+  
+  persist_between_sessions: true
+  state_file: "cache/session-state.yaml"
+
+# Performance optimization
+optimization:
+  parallel_loading: true
+  max_concurrent_files: 5
+  cache_parsed_content: true
+  cache_ttl: 3600  # 1 hour
+
+# Error handling
+error_handling:
+  missing_files:
+    action: "log_and_continue"
+    fallback: "load_summary_if_available"
+  
+  large_files:
+    threshold: 100000  # 100KB
+    action: "extract_summary"
+    summary_length: 1000  # characters
+
+# Integration with Leviathan
+leviathan_integration:
+  context_injection:
+    method: "smart_prepend"
+    max_context_size: 8000  # tokens
+  
+  agent_coordination:
+    share_with:
+      - "research-coordinator"
+      - "implementation-architect"
+      - "consciousness-analyst"
+
+# Usage examples
+examples:
+  - description: "Initial session load"
+    command: "lev load-context cdo-consciousness --smart-cache"
+    loads:
+      - "priority_1_essential"
+      - "session_state"
+  
+  - description: "Research continuation"
+    command: "lev resume cdo-consciousness --phase research"
+    loads:
+      - "priority_1_essential"
+      - "priority_2_workspace"
+      - "query_based_loading.perplexity_research"
+  
+  - description: "Implementation work"
+    command: "lev resume cdo-consciousness --phase implementation"
+    loads:
+      - "priority_1_essential.consciousness-case-study.md"
+      - "specs/*.yaml"
+      - "query_based_loading.implementation_details"

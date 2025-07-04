@@ -1,0 +1,343 @@
+# Tailwind CSS v3+ Design System Patterns
+# Project Codex: Framework Layer Implementation
+
+metadata:
+  type: "framework"
+  id: "tailwind"
+  name: "Tailwind CSS v3+ Design System"
+  scope: "styling_framework"
+  ecosystem: "frontend"
+  version: "3.4+"
+  complexity_level: "medium"
+  updated: "2025-01-15"
+
+description: |
+  Tailwind CSS is a utility-first CSS framework that enables rapid UI development
+  through composable utility classes. Version 3+ introduces advanced features like
+  arbitrary values, JIT compilation, and enhanced design token systems.
+
+# Core Tailwind paradigms
+paradigms:
+  utility_first_css:
+    description: "Build UIs by composing small, single-purpose utility classes"
+    core_principle: "Each class does one thing well"
+    benefits: ["predictable_styling", "no_naming_conflicts", "easy_maintenance"]
+    
+  atomic_styling:
+    description: "Every style property is a separate, composable unit"
+    philosophy: "Build complex designs from simple building blocks"
+    advantages: ["reusability", "consistency", "rapid_prototyping"]
+    
+  design_token_system:
+    description: "Systematic approach to design values (colors, spacing, typography)"
+    implementation: "Configuration-driven design system"
+    benefits: ["consistent_spacing", "cohesive_colors", "scalable_typography"]
+    
+  responsive_first:
+    description: "Mobile-first responsive design with breakpoint prefixes"
+    approach: "Base styles for mobile, prefix for larger screens"
+    breakpoints: ["sm", "md", "lg", "xl", "2xl"]
+
+# Essential utility patterns
+essential_patterns:
+  layout_utilities:
+    flexbox:
+      container: "flex"
+      direction: "flex-row, flex-col, flex-row-reverse, flex-col-reverse"
+      wrap: "flex-wrap, flex-nowrap, flex-wrap-reverse"
+      justify: "justify-start, justify-center, justify-between, justify-around"
+      align: "items-start, items-center, items-end, items-stretch"
+      
+    grid:
+      container: "grid"
+      columns: "grid-cols-1 through grid-cols-12, grid-cols-none"
+      rows: "grid-rows-1 through grid-rows-6, grid-rows-none"
+      gap: "gap-0 through gap-96, gap-x-*, gap-y-*"
+      
+    positioning:
+      static: "static"
+      relative: "relative"
+      absolute: "absolute"
+      fixed: "fixed"
+      sticky: "sticky"
+      
+  spacing_system:
+    padding: "p-*, px-*, py-*, pt-*, pr-*, pb-*, pl-*"
+    margin: "m-*, mx-*, my-*, mt-*, mr-*, mb-*, ml-*"
+    space_between: "space-x-*, space-y-*"
+    scale: "0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64, 72, 80, 96"
+    
+  typography_system:
+    font_size: "text-xs, text-sm, text-base, text-lg, text-xl, text-2xl through text-9xl"
+    font_weight: "font-thin through font-black"
+    line_height: "leading-3 through leading-10, leading-none, leading-tight, leading-normal"
+    letter_spacing: "tracking-tighter through tracking-widest"
+    
+  color_system:
+    background: "bg-{color}-{shade}"
+    text: "text-{color}-{shade}"
+    border: "border-{color}-{shade}"
+    ring: "ring-{color}-{shade}"
+    shades: "50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950"
+
+# Advanced patterns and techniques
+advanced_patterns:
+  arbitrary_values:
+    description: "Use custom values with square bracket notation"
+    examples:
+      spacing: "p-[17px], m-[3.2rem]"
+      colors: "bg-[#1da1f2], text-[rgb(123,45,67)]"
+      sizes: "w-[calc(100%-2rem)], h-[50vh]"
+    use_cases: ["design_system_gaps", "legacy_integration", "pixel_perfect_designs"]
+    
+  modifier_stacking:
+    description: "Combine multiple state and responsive modifiers"
+    examples:
+      responsive_hover: "lg:hover:bg-blue-500"
+      dark_mode_responsive: "dark:md:text-white"
+      focus_within: "focus-within:ring-2 focus-within:ring-blue-500"
+    
+  custom_properties_integration:
+    description: "Use CSS custom properties with Tailwind utilities"
+    pattern: "bg-[color:var(--primary-color)]"
+    benefits: ["dynamic_theming", "javascript_integration", "runtime_customization"]
+    
+  component_abstractions:
+    apply_directive:
+      description: "Extract utility patterns into reusable CSS classes"
+      syntax: "@apply flex items-center justify-center;"
+      when_to_use: ["repeated_patterns", "component_variants", "legacy_integration"]
+      
+    component_variants:
+      description: "Create systematic component variations"
+      tools: ["class-variance-authority", "tailwind-variants"]
+      pattern: "Button component with size/variant props"
+
+# Responsive design patterns
+responsive_patterns:
+  mobile_first_approach:
+    principle: "Design for mobile first, enhance for larger screens"
+    implementation: "Base utilities for mobile, prefixed for desktop"
+    example: "text-sm md:text-base lg:text-lg"
+    
+  breakpoint_strategy:
+    sm: "640px - Small tablets and large phones"
+    md: "768px - Tablets"
+    lg: "1024px - Small laptops"
+    xl: "1280px - Large laptops"
+    2xl: "1536px - Large screens"
+    
+  container_patterns:
+    responsive_containers: "container mx-auto px-4 sm:px-6 lg:px-8"
+    max_width_approach: "max-w-sm, max-w-md, max-w-lg, max-w-xl through max-w-7xl"
+    
+  grid_responsive_patterns:
+    adaptive_columns: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+    responsive_gaps: "gap-4 md:gap-6 lg:gap-8"
+
+# State and interaction patterns
+state_patterns:
+  hover_states:
+    basic: "hover:bg-blue-500, hover:text-white"
+    group_hover: "group-hover:opacity-50 (child responds to parent hover)"
+    peer_hover: "peer-hover:bg-red-500 (sibling responses)"
+    
+  focus_states:
+    basic: "focus:outline-none focus:ring-2 focus:ring-blue-500"
+    focus_within: "focus-within:ring-2 (container has focused child)"
+    focus_visible: "focus-visible:ring-2 (keyboard focus only)"
+    
+  active_states:
+    basic: "active:bg-blue-600"
+    group_active: "group-active:scale-95"
+    
+  disabled_states:
+    basic: "disabled:opacity-50 disabled:cursor-not-allowed"
+    pointer_events: "disabled:pointer-events-none"
+
+# Dark mode patterns
+dark_mode:
+  configuration:
+    strategy: "class" # or "media"
+    toggle: "Document class manipulation"
+    
+  utility_patterns:
+    basic: "bg-white dark:bg-gray-900"
+    text: "text-gray-900 dark:text-gray-100"
+    borders: "border-gray-200 dark:border-gray-700"
+    
+  systematic_approach:
+    neutral_palette: "Use gray scale for backgrounds and borders"
+    semantic_colors: "Maintain color meaning across themes"
+    contrast_ratios: "Ensure accessibility in both modes"
+
+# Theme customization patterns
+theme_customization:
+  config_extension:
+    colors:
+      description: "Extend or override default color palette"
+      example: |
+        colors: {
+          primary: {
+            50: '#eff6ff',
+            500: '#3b82f6',
+            900: '#1e3a8a'
+          }
+        }
+        
+    spacing:
+      description: "Add custom spacing values"
+      example: "spacing: { '18': '4.5rem', '88': '22rem' }"
+      
+    typography:
+      description: "Custom font families and sizes"
+      example: |
+        fontFamily: {
+          sans: ['Inter', 'system-ui'],
+          mono: ['Fira Code', 'monospace']
+        }
+        
+  plugin_system:
+    official_plugins:
+      typography: "@tailwindcss/typography for prose content"
+      forms: "@tailwindcss/forms for form styling"
+      aspect_ratio: "@tailwindcss/aspect-ratio for aspect ratios"
+      
+    custom_plugins:
+      description: "Create reusable utility generators"
+      use_cases: ["design_system_utilities", "component_patterns"]
+
+# Performance optimization
+performance_patterns:
+  jit_compilation:
+    description: "Just-in-Time compilation for optimal bundle size"
+    benefits: ["faster_builds", "smaller_css", "arbitrary_values"]
+    
+  purging_optimization:
+    content_configuration: "Specify all template files for unused CSS removal"
+    safelist: "Protect dynamically generated classes"
+    
+  css_optimization:
+    layer_organization: "@layer base, components, utilities"
+    import_optimization: "Import only necessary Tailwind features"
+
+# Integration patterns with other frameworks
+integration_patterns:
+  react_integration:
+    conditional_classes:
+      tools: ["clsx", "classnames", "tailwind-merge"]
+      pattern: "clsx('base-classes', { 'conditional-class': condition })"
+      
+    component_variants:
+      tools: ["class-variance-authority", "tailwind-variants"]
+      pattern: "Systematic component API with Tailwind classes"
+      
+  nextjs_integration:
+    ssr_considerations: "Ensure class consistency across server/client"
+    optimization: "Built-in Tailwind support with automatic optimization"
+    
+  typescript_integration:
+    typed_classes: "TypeScript plugins for class name validation"
+    intellisense: "Enhanced IDE support with Tailwind IntelliSense"
+
+# Component architecture patterns
+component_patterns:
+  utility_composition:
+    description: "Build components by composing utility classes"
+    principle: "Prefer utilities over custom CSS"
+    
+  variant_patterns:
+    size_variants: "text-sm/base/lg, p-2/4/6, etc."
+    color_variants: "bg-blue/green/red-500, text-blue/green/red-600"
+    state_variants: "default, hover, active, disabled states"
+    
+  compound_utilities:
+    description: "Combine utilities for common patterns"
+    examples:
+      button_base: "inline-flex items-center justify-center rounded-md font-medium"
+      card_base: "bg-white rounded-lg shadow-md border border-gray-200"
+      input_base: "block w-full rounded-md border-gray-300 focus:border-blue-500"
+
+# Anti-patterns to avoid
+anti_patterns:
+  inline_styles:
+    description: "Using style attributes instead of utilities"
+    why_bad: "Breaks Tailwind's utility system"
+    solution: "Use arbitrary values or extend theme"
+    
+  excessive_apply_usage:
+    description: "Overusing @apply directive"
+    why_bad: "Defeats purpose of utility-first approach"
+    solution: "Embrace utility composition in templates"
+    
+  ignoring_design_system:
+    description: "Using arbitrary values excessively"
+    why_bad: "Inconsistent design, harder maintenance"
+    solution: "Extend theme configuration properly"
+    
+  class_order_chaos:
+    description: "No consistent class ordering"
+    why_bad: "Harder to read and maintain"
+    solution: "Use Prettier plugin for class sorting"
+
+# 2025 updates and features
+current_features:
+  css_cascade_layers:
+    description: "Better CSS specificity management"
+    usage: "@layer utilities { .custom-utility { ... } }"
+    
+  container_queries:
+    description: "Responsive design based on container size"
+    syntax: "@container (min-width: 400px) { ... }"
+    
+  improved_intellisense:
+    description: "Enhanced IDE support and autocomplete"
+    features: ["class_validation", "color_preview", "documentation_hints"]
+
+# Quality metrics and validation
+quality_metrics:
+  css_size:
+    target: "Production CSS under 50KB"
+    optimization: "Proper purging and JIT compilation"
+    
+  class_consistency:
+    guideline: "Use design system values over arbitrary"
+    ratio: "90%+ design system classes vs arbitrary values"
+    
+  responsive_coverage:
+    requirement: "All layouts work on mobile, tablet, desktop"
+    testing: "Visual regression testing across breakpoints"
+
+# LLM guidance for Tailwind development
+llm_guidance:
+  class_generation:
+    - "Prefer design system values over arbitrary ones"
+    - "Use responsive prefixes for mobile-first design"
+    - "Include hover/focus states for interactive elements"
+    - "Maintain consistent spacing throughout designs"
+    
+  component_styling:
+    - "Compose utilities for flexible, reusable components"
+    - "Use group/peer modifiers for related element interactions"
+    - "Implement proper dark mode variants"
+    - "Follow accessibility guidelines with focus states"
+    
+  performance_considerations:
+    - "Avoid redundant or conflicting classes"
+    - "Use design system colors and spacing"
+    - "Minimize arbitrary value usage"
+    - "Leverage JIT compilation for optimal bundles"
+
+# Cross-references
+relationships:
+  frameworks:
+    - "react"
+    - "nextjs"
+    - "shadcn-ui"
+  languages:
+    - "css"
+    - "typescript"
+  paradigms:
+    - "utility_first_design"
+    - "atomic_css"
+    - "design_systems"

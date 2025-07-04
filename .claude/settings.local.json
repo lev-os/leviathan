@@ -74,7 +74,13 @@
       "Bash(screenpipe:*)",
       "mcp__desktop-commander__read_output",
       "WebFetch(domain:docs.screenpi.pe)",
-      "WebFetch(domain:docs.anthropic.com)"
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(for:*)",
+      "Bash(do mkdir -p /Users/jean-patricksmith/digital/leviathan/concepts/$dir/{docs,research,code,adr,bdd,specs})",
+      "Bash(done)",
+      "Bash(sqlite3:*)",
+      "mcp__desktop-commander__get_config",
+      "Bash(tree:*)"
     ],
     "deny": []
   }

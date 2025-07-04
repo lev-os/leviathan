@@ -1,0 +1,35 @@
+# CRITICAL SESSION GAPS - 4% CONTEXT EMERGENCY
+
+## Missing Intelligence
+
+### 1. BMAD Embedded YAML System
+- BMAD templates have YAML frontmatter + embedded tasks + agent definitions
+- Our smartdown (.smart.md) only captured [[LLM:]] pattern
+- Need full BMAD system analysis from workshop/intake/BMAD-METHOD/
+
+### 2. Tool Calling Architecture  
+- Discussed tool calling system for synth integration
+- MCP tool generation from synths
+- Workshop automation via tool calling
+- NOT captured in session artifacts
+
+### 3. Schema Package Incomplete
+- @lev-os/schema supposed to define smartdown format
+- Template intelligence specifications missing
+- YAML + markdown hybrid schema undefined
+
+### 4. Synth-Tool Integration
+- Synths need MCP tool generation
+- Workshop automation requires tool calling
+- Core integration with agent system missing
+
+## Recovery Instructions for Next AI
+
+1. **Research BMAD patterns** in workshop/intake/BMAD-METHOD/
+2. **Load all linked concepts** for full context
+3. **Complete @lev-os/schema** with smartdown specification  
+4. **Design synth → MCP tool pipeline**
+5. **Integrate with existing agent/src/ architecture**
+
+## Emergency Preservation Complete
+Session intelligence captured but INCOMPLETE due to context limits.

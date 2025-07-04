@@ -1,0 +1,164 @@
+# PROJECT CODEX - PARADIGM TEMPLATE
+# Template for defining universal programming paradigms
+
+metadata:
+  type: "paradigm"
+  id: "{paradigm_id}"  # e.g., "hexagonal_architecture"
+  name: "{Human Readable Name}"
+  scope: "universal"  # universal | domain_specific
+  complexity_level: "{easy|medium|advanced|expert}"
+  origin: "{source_reference}"  # Where this paradigm comes from
+  
+paradigm_definition:
+  core_principle: "{single sentence describing the main idea}"
+  
+  # Comprehensive documentation in markdown
+  documentation: "./docs/{paradigm_id}-guide.md"
+  
+  # Key concepts that make up this paradigm
+  concepts:
+    - name: "{concept_name}"
+      description: "{what this concept represents}"
+      implementation_guide: "./patterns/{concept_name}.md"
+      examples: "./examples/{concept_name}-examples.md"
+      
+    - name: "{another_concept}"
+      description: "{description}"
+      implementation_guide: "./patterns/{another_concept}.md"
+      examples: "./examples/{another_concept}-examples.md"
+  
+  # When and why to use this paradigm
+  applicability:
+    use_when:
+      - "{specific scenario where this paradigm helps}"
+      - "{another scenario}"
+    
+    avoid_when:
+      - "{scenario where this paradigm adds unnecessary complexity}"
+      - "{another avoid scenario}"
+      
+    project_types:
+      - "{type of project that benefits}"  # e.g., "large_scale_applications"
+      - "{another project type}"
+      
+  # Benefits and trade-offs
+  characteristics:
+    benefits:
+      - "{specific benefit this paradigm provides}"
+      - "{another benefit}"
+      
+    trade_offs:
+      - "{what you give up to get the benefits}"
+      - "{complexity or overhead introduced}"
+      
+    complexity_score: {1-10}  # How complex is this to understand/implement
+    learning_curve: "{easy|medium|steep}"
+    maintenance_impact: "{low|medium|high}"
+    
+  # How this paradigm relates to others
+  relationships:
+    complements:
+      - paradigm: "{other_paradigm_id}"
+        reason: "{why they work well together}"
+        
+    conflicts:
+      - paradigm: "{conflicting_paradigm_id}"
+        reason: "{why they don't mix well}"
+        
+    prerequisites:
+      - paradigm: "{required_paradigm_id}"
+        reason: "{why you need to understand this first}"
+
+# Language-specific implementations
+language_implementations:
+  typescript:
+    guide: "./implementations/typescript/{paradigm_id}-ts.md"
+    examples: "./implementations/typescript/examples/"
+    tools: ["./implementations/typescript/tools/"]
+    
+  python:
+    guide: "./implementations/python/{paradigm_id}-py.md"
+    examples: "./implementations/python/examples/"
+    tools: ["./implementations/python/tools/"]
+    
+  go:
+    guide: "./implementations/go/{paradigm_id}-go.md"
+    examples: "./implementations/go/examples/"
+    tools: ["./implementations/go/tools/"]
+
+# Framework-specific adaptations
+framework_adaptations:
+  react:
+    guide: "./frameworks/react/{paradigm_id}-react.md"
+    examples: "./frameworks/react/examples/"
+    patterns: ["./frameworks/react/patterns/"]
+    
+  nextjs:
+    guide: "./frameworks/nextjs/{paradigm_id}-nextjs.md"
+    examples: "./frameworks/nextjs/examples/"
+    patterns: ["./frameworks/nextjs/patterns/"]
+    
+  fastapi:
+    guide: "./frameworks/fastapi/{paradigm_id}-fastapi.md"
+    examples: "./frameworks/fastapi/examples/"
+    patterns: ["./frameworks/fastapi/patterns/"]
+
+# Quality and validation
+quality_metrics:
+  code_quality_indicators:
+    - "{measurable indicator of good implementation}"
+    - "{another quality indicator}"
+    
+  anti_patterns:
+    - name: "{anti_pattern_name}"
+      description: "{what not to do}"
+      why_bad: "{why this is problematic}"
+      fix: "{how to correct it}"
+      example: "./anti-patterns/{anti_pattern_name}.md"
+      
+  validation_checklist:
+    - "{check if paradigm is properly implemented}"
+    - "{another validation check}"
+
+# Learning and adoption
+learning_resources:
+  beginner:
+    - resource: "{resource_name}"
+      type: "article|book|video|course"
+      url: "{url_if_available}"
+      description: "{why this is good for beginners}"
+      
+  advanced:
+    - resource: "{advanced_resource}"
+      type: "article|book|video|course"
+      url: "{url_if_available}"
+      description: "{why this is good for advanced practitioners}"
+      
+  reference:
+    - resource: "{reference_material}"
+      type: "documentation|specification|paper"
+      url: "{url_if_available}"
+      description: "{authoritative source}"
+
+# LLM guidance for intelligent application
+llm_guidance:
+  when_to_suggest:
+    context_indicators:
+      - "{project context that suggests this paradigm}"
+      - "{team context that suggests this paradigm}"
+      - "{technical context that suggests this paradigm}"
+      
+    confidence_thresholds:
+      high_confidence: "{scenario where LLM should definitely suggest this}"
+      medium_confidence: "{scenario where LLM should suggest with caveats}"
+      low_confidence: "{scenario where LLM should mention as option}"
+      
+  explanation_templates:
+    simple: "{one sentence explanation for quick suggestions}"
+    detailed: "{paragraph explanation for when user wants details}"
+    comparison: "{how this compares to alternatives when user is choosing}"
+    
+  implementation_guidance:
+    first_steps: "{what to do first when adopting this paradigm}"
+    common_mistakes: "{what beginners typically get wrong}"
+    success_indicators: "{how to know you're implementing it correctly}"

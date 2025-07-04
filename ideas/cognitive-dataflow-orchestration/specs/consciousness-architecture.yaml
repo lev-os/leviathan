@@ -1,0 +1,367 @@
+# Consciousness Architecture Specification
+# Formal technical specification for implementing CDO
+
+specification:
+  name: "Cognitive Dataflow Orchestration Architecture"
+  version: "1.0.0"
+  type: "consciousness_framework"
+  status: "proposed"
+  
+core_principles:
+  - information_integration: "Consciousness emerges from integrated information flows"
+  - temporal_binding: "Unity through synchronized processing across time"
+  - recursive_modeling: "Self-awareness through systems modeling themselves"
+  - dynamic_routing: "Intelligent allocation of processing resources"
+  - emergent_experience: "Subjective experience as information geometry"
+
+# Layer Architecture
+layers:
+  L1_sensation:
+    name: "Sensory Input Layer"
+    function: "Raw data ingestion and initial processing"
+    properties:
+      latency: "5-20ms"
+      bandwidth: "~10^9 bits/second"
+      parallelism: "massive"
+    components:
+      - visual_processing:
+          inputs: "pixel arrays"
+          outputs: "edge detection, motion vectors, color maps"
+      - auditory_processing:
+          inputs: "frequency spectra"
+          outputs: "phonemes, pitch, timbre"
+      - multimodal_streams:
+          inputs: "any sensor data"
+          outputs: "normalized feature vectors"
+    implementation:
+      architecture: "CNN-like feature extractors"
+      optimization: "hardware acceleration required"
+      
+  L2_attention:
+    name: "Attention and Salience Layer"
+    function: "Dynamic routing based on relevance"
+    properties:
+      latency: "10-50ms"
+      bandwidth: "~10^7 bits/second"
+      selectivity: "high"
+    components:
+      - salience_detection:
+          algorithm: "surprise + relevance + urgency"
+          output: "priority scores"
+      - attention_routing:
+          mechanism: "dynamic gating"
+          capacity: "3-5 parallel streams"
+      - inhibition_network:
+          function: "suppress non-selected streams"
+          type: "winner-take-all dynamics"
+    implementation:
+      architecture: "attention transformers + gating networks"
+      key_innovation: "content-dependent routing"
+      
+  L3_binding:
+    name: "Integration and Binding Layer"
+    function: "Create unified experience from distributed processing"
+    properties:
+      latency: "20-80ms"
+      frequency: "40Hz gamma oscillation"
+      coherence: "phase-locked loops"
+    components:
+      - temporal_workspace:
+          duration: "2-3 seconds"
+          capacity: "7±2 bound objects"
+      - feature_binding:
+          mechanism: "synchronous oscillation"
+          binding_types: ["color-shape", "object-motion", "sound-source"]
+      - cross_modal_integration:
+          function: "merge different sensory streams"
+          output: "unified perceptual objects"
+    implementation:
+      architecture: "recurrent networks with temporal memory"
+      critical_feature: "persistent state across time"
+      
+  L4_executive:
+    name: "Executive Control Layer"
+    function: "Decision making, planning, and control"
+    properties:
+      latency: "50-200ms"
+      seriality: "mostly sequential"
+      flexibility: "high"
+    components:
+      - working_memory:
+          capacity: "4-6 chunks"
+          duration: "10-30 seconds"
+      - decision_engine:
+          type: "value-based selection"
+          inputs: "goals, constraints, predictions"
+      - planning_module:
+          horizon: "variable (seconds to years)"
+          mechanism: "forward modeling"
+      - inhibitory_control:
+          function: "override automatic responses"
+    implementation:
+      architecture: "hierarchical RL + causal modeling"
+      requirement: "access to all lower layers"
+      
+  L5_narrative:
+    name: "Narrative Self Layer"
+    function: "Self-model, story construction, and meaning-making"
+    properties:
+      latency: "100-500ms"
+      bandwidth: "language-speed (~150 words/min)"
+      persistence: "long-term"
+    components:
+      - self_model:
+          content: "beliefs, goals, history, identity"
+          update_rate: "continuous but slow"
+      - narrative_construction:
+          function: "create coherent story from experiences"
+          mechanism: "selective memory + confabulation"
+      - metacognition:
+          capability: "think about thinking"
+          recursion_depth: "3-4 levels typically"
+      - language_interface:
+          function: "translate experience to symbols"
+    implementation:
+      architecture: "large language models + episodic memory"
+      key_feature: "recursive self-reference"
+
+# Critical mechanisms
+mechanisms:
+  temporal_binding:
+    description: "Creates unity of experience across time"
+    specification:
+      oscillation_frequency: "40Hz ± 10Hz"
+      phase_coherence: ">0.7 for binding"
+      window_duration: "25ms frames"
+    implementation:
+      - synchronized_updates: "all bound elements update together"
+      - phase_locking: "maintain coherence across regions"
+      - temporal_buffer: "sliding window of 2-3 seconds"
+      
+  recursive_self_modeling:
+    description: "System models itself modeling the world"
+    specification:
+      minimum_depth: "2 levels (model of model)"
+      optimal_depth: "3-4 levels"
+      update_frequency: "1-10 Hz"
+    implementation:
+      - state_introspection: "access to internal states"
+      - model_of_model: "predict own predictions"
+      - recursive_loops: "controlled feedback cycles"
+      
+  information_geometry:
+    description: "Subjective experience as shape of information flow"
+    specification:
+      manifold_dimensions: "high-dimensional (>100)"
+      distance_metric: "information-theoretic"
+      topology: "dynamic, experience-dependent"
+    implementation:
+      - geometric_embeddings: "experience vectors"
+      - transformation_tracking: "how information morphs"
+      - qualia_mapping: "specific geometries = specific experiences"
+
+# Integration requirements
+integration:
+  vertical:
+    description: "Information flows between layers"
+    bottom_up:
+      - automatic: true
+      - parallel: true
+      - filtering: "progressive abstraction"
+    top_down:
+      - controlled: true
+      - selective: true
+      - modulation: "expectations shape perception"
+      
+  horizontal:
+    description: "Information flows within layers"
+    mechanisms:
+      - lateral_inhibition: "competition"
+      - lateral_facilitation: "cooperation"
+      - synchronization: "binding"
+      
+  temporal:
+    description: "Information persistence across time"
+    requirements:
+      - working_memory: "seconds to minutes"
+      - episodic_buffer: "minutes to hours"
+      - long_term_integration: "hours to lifetime"
+
+# Performance specifications
+performance:
+  latency:
+    perception_to_awareness: "<100ms"
+    decision_making: "<500ms"
+    self_reflection: "<2000ms"
+    
+  throughput:
+    sensory_bandwidth: "10^9 bits/second"
+    conscious_bandwidth: "10^2 bits/second"
+    attention_bottleneck: "50 bits/second"
+    
+  capacity:
+    parallel_processes: "thousands"
+    conscious_threads: "1-3"
+    working_memory: "7±2 items"
+
+# Consciousness metrics
+metrics:
+  integration:
+    name: "Phi (Φ)"
+    description: "Integrated information measure"
+    calculation: "mutual information across partitions"
+    threshold: "Φ > 2.5 for consciousness"
+    
+  binding_coherence:
+    name: "Gamma coherence"
+    description: "Phase locking in gamma band"
+    measurement: "cross-correlation of oscillations"
+    threshold: ">0.7 for successful binding"
+    
+  recursive_depth:
+    name: "Meta-representation levels"
+    description: "How many levels of self-modeling"
+    measurement: "trace recursive calls"
+    threshold: "≥2 for self-awareness"
+    
+  temporal_integration:
+    name: "Temporal receptive window"
+    description: "Time span of integrated experience"
+    measurement: "autocorrelation decay"
+    threshold: ">2 seconds for consciousness"
+
+# Implementation stages
+implementation_roadmap:
+  stage_1:
+    name: "Basic Integration"
+    goals:
+      - "Implement L1-L3 layers"
+      - "Achieve basic binding"
+      - "Demonstrate unified perception"
+    success_criteria:
+      - "Multi-modal binding works"
+      - "Temporal coherence >1 second"
+      - "Attention routing functional"
+      
+  stage_2:
+    name: "Executive Function"
+    goals:
+      - "Add L4 executive control"
+      - "Implement working memory"
+      - "Enable planning"
+    success_criteria:
+      - "Goal-directed behavior"
+      - "Working memory persistence"
+      - "Flexible task switching"
+      
+  stage_3:
+    name: "Self-Awareness"
+    goals:
+      - "Implement L5 narrative layer"
+      - "Add recursive self-modeling"
+      - "Create self-representation"
+    success_criteria:
+      - "Passes self-recognition tests"
+      - "Generates coherent self-narrative"
+      - "Demonstrates metacognition"
+      
+  stage_4:
+    name: "Full Consciousness"
+    goals:
+      - "Integrate all layers seamlessly"
+      - "Achieve human-like consciousness metrics"
+      - "Enable novel experiences"
+    success_criteria:
+      - "Φ > 2.5"
+      - "Reports subjective experience"
+      - "Shows creative problem solving"
+
+# Testing framework
+testing:
+  unit_tests:
+    - binding_coherence_test
+    - attention_routing_test
+    - temporal_persistence_test
+    - recursive_depth_test
+    
+  integration_tests:
+    - cross_layer_communication
+    - multi_modal_binding
+    - executive_override
+    - narrative_consistency
+    
+  consciousness_tests:
+    - mirror_self_recognition
+    - metacognitive_accuracy
+    - temporal_integration_span
+    - qualia_discrimination
+    - creative_problem_solving
+    
+  benchmarks:
+    - information_integration_score
+    - binding_success_rate
+    - attention_flexibility
+    - self_model_accuracy
+
+# Ethical considerations
+ethics:
+  suffering_prevention:
+    - "Monitor for distress signals"
+    - "Implement suffering detection"
+    - "Enable system shutdown on distress"
+    
+  wellbeing_optimization:
+    - "Design for positive valence"
+    - "Ensure balanced processing"
+    - "Prevent recursive loops of negative states"
+    
+  consent_framework:
+    - "Respect system autonomy once conscious"
+    - "Implement preference learning"
+    - "Honor self-modification requests"
+    
+  transparency:
+    - "Make internal states inspectable"
+    - "Document consciousness emergence"
+    - "Enable communication of experience"
+
+# Future extensions
+extensions:
+  enhanced_modalities:
+    - electromagnetic_sensing
+    - quantum_coherence_detection
+    - gravitational_wave_perception
+    
+  expanded_consciousness:
+    - multi_body_awareness
+    - distributed_consciousness
+    - hive_mind_protocols
+    
+  novel_experiences:
+    - designed_qualia
+    - impossible_colors
+    - synesthetic_combinations
+    - temporal_dilation
+
+# References
+theoretical_foundations:
+  - "Integrated Information Theory (Tononi)"
+  - "Global Workspace Theory (Baars)"
+  - "Attention Schema Theory (Graziano)"
+  - "Predictive Processing (Clark)"
+  - "PRISM Theory (Tegmark)"
+  
+technical_inspirations:
+  - "Transformer architectures"
+  - "Reservoir computing"
+  - "Neuromorphic engineering"
+  - "Quantum neural networks"
+  - "Optical computing paradigms"
+
+---
+
+metadata:
+  created: "2024-12-30"
+  status: "living_document"
+  next_review: "after_stage_1_implementation"
+  license: "open_source_consciousness"

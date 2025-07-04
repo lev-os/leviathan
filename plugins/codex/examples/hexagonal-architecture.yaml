@@ -1,0 +1,215 @@
+# PROJECT CODEX - HEXAGONAL ARCHITECTURE EXAMPLE
+# Concrete implementation of universal programming paradigm
+
+metadata:
+  type: "paradigm"
+  id: "hexagonal_architecture"
+  name: "Hexagonal Architecture (Ports & Adapters)"
+  scope: "universal"
+  complexity_level: "advanced"
+  origin: "Alistair Cockburn, 2005"
+  
+paradigm_definition:
+  core_principle: "Isolate business logic from external concerns through ports and adapters"
+  
+  documentation: "./docs/hexagonal-architecture-guide.md"
+  
+  concepts:
+    - name: "domain_core"
+      description: "Pure business logic without external dependencies"
+      implementation_guide: "./patterns/domain-core.md"
+      examples: "./examples/domain-core-examples.md"
+      
+    - name: "ports"
+      description: "Interfaces that define how the domain interacts with outside world"
+      implementation_guide: "./patterns/ports-definition.md"
+      examples: "./examples/ports-examples.md"
+      
+    - name: "adapters"
+      description: "Implementations that connect ports to external systems"
+      implementation_guide: "./patterns/adapters-implementation.md"
+      examples: "./examples/adapters-examples.md"
+      
+    - name: "dependency_injection"
+      description: "Mechanism to wire adapters to ports at runtime"
+      implementation_guide: "./patterns/dependency-injection.md"
+      examples: "./examples/di-examples.md"
+  
+  applicability:
+    use_when:
+      - "Building applications with complex business logic"
+      - "Need to support multiple interfaces (web, CLI, API)"
+      - "Want to isolate business rules from infrastructure"
+      - "Planning for long-term maintainability"
+      - "Team size is medium to large (5+ developers)"
+    
+    avoid_when:
+      - "Building simple CRUD applications with minimal business logic"
+      - "Rapid prototyping or MVPs where speed trumps structure"
+      - "Very small applications with single interface"
+      - "Team lacks experience with dependency injection"
+      
+    project_types:
+      - "enterprise_applications"
+      - "microservices_with_complex_logic"
+      - "applications_with_multiple_interfaces"
+      - "domain_rich_applications"
+      
+  characteristics:
+    benefits:
+      - "Complete isolation of business logic from infrastructure"
+      - "Easy to test - can mock all external dependencies"
+      - "Flexible - can swap adapters without touching business logic"
+      - "Clear separation of concerns and responsibilities"
+      - "Supports multiple interfaces naturally"
+      
+    trade_offs:
+      - "Increased complexity and abstraction layers"
+      - "More files and interfaces to maintain"
+      - "Learning curve for developers unfamiliar with pattern"
+      - "Can be overkill for simple applications"
+      - "Initial setup time is higher"
+      
+    complexity_score: 8
+    learning_curve: "steep"
+    maintenance_impact: "low"  # Once established, very maintainable
+    
+  relationships:
+    complements:
+      - paradigm: "domain_driven_design"
+        reason: "DDD provides the business modeling, hexagonal provides the architecture"
+      - paradigm: "clean_architecture"
+        reason: "Both emphasize dependency inversion and separation of concerns"
+        
+    conflicts:
+      - paradigm: "anemic_domain_model"
+        reason: "Hexagonal architecture requires rich domain objects"
+        
+    prerequisites:
+      - paradigm: "dependency_injection"
+        reason: "Essential for wiring adapters to ports"
+      - paradigm: "interface_segregation"
+        reason: "Ports should be small, focused interfaces"
+
+# Language-specific implementations
+language_implementations:
+  typescript:
+    guide: "./implementations/typescript/hexagonal-architecture-ts.md"
+    examples: "./implementations/typescript/examples/"
+    tools: ["./implementations/typescript/tools/di-container.ts"]
+    
+  python:
+    guide: "./implementations/python/hexagonal-architecture-py.md"
+    examples: "./implementations/python/examples/"
+    tools: ["./implementations/python/tools/dependency_injector.py"]
+    
+  go:
+    guide: "./implementations/go/hexagonal-architecture-go.md"
+    examples: "./implementations/go/examples/"
+    tools: ["./implementations/go/tools/wire_setup.go"]
+
+# Framework-specific adaptations
+framework_adaptations:
+  react:
+    guide: "./frameworks/react/hexagonal-architecture-react.md"
+    examples: "./frameworks/react/examples/"
+    patterns: ["./frameworks/react/patterns/component-ports.md"]
+    
+  nextjs:
+    guide: "./frameworks/nextjs/hexagonal-architecture-nextjs.md"
+    examples: "./frameworks/nextjs/examples/"
+    patterns: ["./frameworks/nextjs/patterns/api-routes-as-adapters.md"]
+    
+  fastapi:
+    guide: "./frameworks/fastapi/hexagonal-architecture-fastapi.md"
+    examples: "./frameworks/fastapi/examples/"
+    patterns: ["./frameworks/fastapi/patterns/dependency-injection.md"]
+    
+  express:
+    guide: "./frameworks/express/hexagonal-architecture-express.md"
+    examples: "./frameworks/express/examples/"
+    patterns: ["./frameworks/express/patterns/middleware-adapters.md"]
+
+# Quality and validation
+quality_metrics:
+  code_quality_indicators:
+    - "Domain layer has zero dependencies on infrastructure"
+    - "All external dependencies are behind interfaces (ports)"
+    - "Business logic can be tested without any external systems"
+    - "Adapters are thin and contain no business logic"
+    
+  anti_patterns:
+    - name: "domain_logic_in_adapters"
+      description: "Putting business rules in adapters instead of domain"
+      why_bad: "Violates the isolation principle and makes testing harder"
+      fix: "Move business logic to domain services or entities"
+      example: "./anti-patterns/domain-logic-in-adapters.md"
+      
+    - name: "direct_infrastructure_dependencies"
+      description: "Domain directly depending on databases, APIs, etc."
+      why_bad: "Couples business logic to infrastructure concerns"
+      fix: "Create ports for infrastructure and use dependency injection"
+      example: "./anti-patterns/direct-infrastructure-deps.md"
+      
+    - name: "anemic_domain_model"
+      description: "Domain objects with only data, no behavior"
+      why_bad: "Leads to procedural code and business logic scattered"
+      fix: "Move behavior into domain entities and value objects"
+      example: "./anti-patterns/anemic-domain-model.md"
+      
+  validation_checklist:
+    - "Can run all business logic tests without database/external services"
+    - "Domain layer imports only other domain classes, no infrastructure"
+    - "All infrastructure access goes through defined ports"
+    - "Adapters contain no business logic or validation rules"
+    - "Can swap any adapter without changing domain code"
+
+# Learning and adoption
+learning_resources:
+  beginner:
+    - resource: "Hexagonal Architecture Guide by Alistair Cockburn"
+      type: "article"
+      url: "https://alistair.cockburn.us/hexagonal-architecture/"
+      description: "Original article explaining the pattern"
+      
+    - resource: "Clean Architecture by Robert Martin"
+      type: "book"
+      url: "https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164"
+      description: "Broader context of clean architecture principles"
+      
+  advanced:
+    - resource: "Implementing Domain-Driven Design by Vaughn Vernon"
+      type: "book"
+      url: "https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577"
+      description: "Advanced techniques for domain modeling within hexagonal architecture"
+      
+  reference:
+    - resource: "Ports and Adapters Pattern"
+      type: "documentation"
+      url: "https://wiki.c2.com/?PortsAndAdaptersArchitecture"
+      description: "Comprehensive wiki reference"
+
+# LLM guidance for intelligent application
+llm_guidance:
+  when_to_suggest:
+    context_indicators:
+      - "User mentions complex business rules or domain logic"
+      - "Project needs multiple interfaces (web, mobile, CLI)"
+      - "User wants to isolate business logic for testing"
+      - "Application will have significant long-term maintenance"
+      - "Team is experienced with dependency injection patterns"
+      
+    confidence_thresholds:
+      high_confidence: "Complex business domain with multiple interfaces and experienced team"
+      medium_confidence: "Moderate complexity domain with testing requirements"
+      low_confidence: "Simple applications or inexperienced teams"
+      
+  explanation_templates:
+    simple: "Hexagonal architecture isolates your business logic from databases and external services, making it easier to test and maintain."
+    detailed: "Hexagonal architecture (also called Ports and Adapters) creates a clear boundary around your business logic. The 'inside' contains your domain rules, while 'ports' define how it communicates with the outside world. 'Adapters' handle the actual implementation details like databases, APIs, or user interfaces. This makes your core business logic completely independent and testable."
+    comparison: "Unlike traditional layered architecture, hexagonal architecture treats all external concerns (database, UI, external APIs) equally as 'outside' the core domain, rather than having UI on top and database on bottom."
+    
+  implementation_guidance:
+    first_steps: "Start by identifying your core business entities and rules. Define ports (interfaces) for any external dependencies. Then create adapters that implement these ports."
+    common_mistakes: "Don't put business logic in adapters, don't make ports too large, don't skip dependency injection setup"
+    success_indicators: "You can test your business logic without any external systems running, and you can swap adapters without changing domain code"

@@ -1,0 +1,41 @@
+session_event: "lazy-loading-breakthrough"
+timestamp: "2025-07-03T07:00:00Z"
+session_id: "reverse-adr-engineering"
+description: "Discovered lazy file creation pattern through command debugging"
+
+breakthrough_details:
+  trigger: "User insight about file mask patterns"
+  realization: "Don't create files until you need them"
+  pattern_name: "Lazy File Creation Pattern"
+  
+architectural_insight: |
+  Structure should emerge from usage, not be predetermined.
+  LLMs work better with clear constraints and lazy evaluation.
+  User intent should drive file organization.
+
+implementation_impact:
+  before: "Commands create 5+ directories eagerly"
+  after: "Commands create 1 file, rest on demand"
+  improvement: "90% reduction in unnecessary file operations"
+
+examples_crystallized:
+  - "new idea → only readme.yaml"
+  - "research this → add research-{topic}.md"
+  - "create poc → then create pocs/ directory"
+  - "structure emerges from work"
+
+adr_generated:
+  title: "Lazy File Creation Pattern"
+  status: "Draft ADR created"
+  value: "Solves over-engineering problem in LLM systems"
+
+synth_performance:
+  reverse_adr_engineer_synth:
+    breakthrough: "Found architectural pattern through debugging"
+    pattern_extraction: "Excellent"
+    confidence: 100%
+
+next_actions:
+  immediate: "Apply pattern to other commands"
+  strategic: "Formalize as core Leviathan principle"
+  validation: "Test with real usage patterns"

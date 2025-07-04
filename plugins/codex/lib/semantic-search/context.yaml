@@ -1,0 +1,191 @@
+metadata:
+  type: "tool"
+  id: "semantic-search"
+  name: "Go Semantic Search Suite"
+  version: "1.0.0"
+  description: "Enterprise semantic search for Go stdlib and multi-project documentation"
+  
+tool_config:
+  available_tools:
+    # Primary Go Standard Library Search
+    - name: "go_stdlib_search"
+      type: "api"
+      endpoint: "http://localhost:8000/search"
+      capabilities: 
+        - "semantic_code_search"
+        - "go_stdlib_coverage"
+        - "pattern_discovery"
+        - "api_exploration"
+      cost_tier: "free"
+      use_cases:
+        - "Finding Go stdlib functions and packages"
+        - "Code pattern discovery and implementation"
+        - "API exploration and documentation lookup"
+        - "Architecture research for Go projects"
+      indexed_docs: 23541
+      search_accuracy: "high"
+      
+    # Multi-Project Framework Search
+    - name: "framework_search"
+      type: "api"
+      endpoint: "http://localhost:8000/search"
+      capabilities:
+        - "cross_project_search"
+        - "framework_documentation"
+        - "multi_language_support"
+      cost_tier: "free"
+      use_cases:
+        - "Framework API discovery"
+        - "Cross-project pattern analysis"
+        - "Technology stack research"
+      supported_frameworks: ["go", "python", "react"]
+      
+    # Requirements & Principles Search
+    - name: "requirements_search"
+      type: "api"
+      endpoint: "http://localhost:8000/search"
+      capabilities:
+        - "business_logic_search"
+        - "project_requirements"
+        - "specification_lookup"
+      cost_tier: "free"
+      use_cases:
+        - "Project requirements analysis"
+        - "Business logic discovery"
+        - "Feature specification lookup"
+        
+    - name: "principles_search"
+      type: "api"
+      endpoint: "http://localhost:8000/search"
+      capabilities:
+        - "coding_standards"
+        - "best_practices"
+        - "team_guidelines"
+      cost_tier: "free"
+      use_cases:
+        - "Programming best practices lookup"
+        - "Team coding standards reference"
+        - "Architecture guideline discovery"
+        
+    # Collection Management
+    - name: "collections_info"
+      type: "api"
+      endpoint: "http://localhost:8000/collections"
+      capabilities:
+        - "system_status"
+        - "collection_statistics"
+        - "data_inventory"
+      cost_tier: "free"
+      use_cases:
+        - "System health monitoring"
+        - "Data coverage verification"
+        - "Collection size tracking"
+
+  cost_optimization:
+    strategy: "local_first"
+    tiers:
+      1:
+        name: "Local Semantic Search"
+        tools: ["go_stdlib_search", "framework_search"]
+        use_when: "Go development and code discovery"
+        cost: "free"
+        
+      2:
+        name: "Project Intelligence"
+        tools: ["requirements_search", "principles_search"]
+        use_when: "Project planning and standards lookup"
+        cost: "free"
+        
+      3:
+        name: "System Monitoring"
+        tools: ["collections_info"]
+        use_when: "System administration and health checks"
+        cost: "free"
+        
+  orchestration_patterns:
+    go_development_flow:
+      description: "Complete Go development research workflow"
+      sequence:
+        - go_stdlib_search  # Find relevant stdlib functions
+        - principles_search  # Check coding standards
+        - collections_info  # Verify data coverage
+      example_query: "HTTP server implementation patterns"
+      
+    architecture_research:
+      description: "Multi-source architecture pattern discovery"
+      sequence:
+        - go_stdlib_search  # Core language patterns
+        - framework_search  # Framework-specific approaches
+        - requirements_search  # Business context
+      example_query: "microservices communication patterns"
+      
+    code_review_prep:
+      description: "Prepare for code reviews with standards lookup"
+      sequence:
+        - principles_search  # Team standards
+        - go_stdlib_search  # Best practice examples
+      example_query: "error handling best practices"
+      
+    project_onboarding:
+      description: "New developer project familiarization"
+      sequence:
+        - collections_info  # System overview
+        - requirements_search  # Project context
+        - principles_search  # Team standards
+        - go_stdlib_search  # Technical foundation
+      
+  quality_metrics:
+    search_relevance:
+      minimum_score: 0.3
+      high_relevance: 0.7
+      description: "Semantic similarity scoring"
+      
+    result_diversity:
+      minimum_packages: 2
+      optimal_coverage: "3-5 different packages"
+      description: "Package diversity in results"
+      
+    response_time:
+      target: "< 1 second"
+      acceptable: "< 3 seconds"
+      timeout: "10 seconds"
+      
+    data_freshness:
+      go_stdlib: "Go 1.21.5"
+      last_indexed: "current"
+      update_frequency: "on_demand"
+      
+  error_handling:
+    api_unavailable:
+      strategy: "graceful_degradation"
+      fallback: "notify_user_and_suggest_manual_search"
+      
+    empty_results:
+      strategy: "query_expansion"
+      suggestions:
+        - "Try broader search terms"
+        - "Check for typos in package names"
+        - "Use alternative terminology"
+        
+    timeout_handling:
+      strategy: "retry_with_backoff"
+      max_retries: 2
+      backoff_seconds: [1, 3]
+      
+  integration_notes:
+    kingly_compatibility: true
+    llm_first_approach: true
+    context_aware: true
+    emergent_behavior: "Search results + LLM reasoning for code discovery"
+    
+  system_requirements:
+    qdrant_instance: "localhost:6333"
+    api_server: "localhost:8000"
+    embedding_model: "sentence-transformers/all-mpnet-base-v2"
+    vector_dimension: 768
+    
+  performance_characteristics:
+    indexed_documents: 23541
+    search_latency: "sub-second"
+    concurrent_users: "unlimited"
+    memory_usage: "optimized for accuracy over speed"

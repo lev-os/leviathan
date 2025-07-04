@@ -1,0 +1,31 @@
+id: confidence-based-hitl
+title: "Confidence-Based Human-in-the-Loop Workflows"
+status: conceptualization
+tags: ["hitl", "confidence", "validation", "workflows", "autonomous"]
+description: "Dynamic human intervention based on LLM + human confidence intersection"
+
+confidence_thresholds:
+  autonomous: 0.8
+  validation_required: 0.6
+  human_required: 0.4
+
+validation_modes:
+  - autonomous
+  - enhanced_validation
+  - human_in_loop
+
+confidence_matrix:
+  llm_high_human_high: autonomous_execution
+  llm_high_human_low: checkpoint_requested
+  llm_low_human_high: llm_asks_guidance
+  llm_low_human_low: pause_reassess
+
+codebase_locations:
+  - "core/schema/src/base.schema.yaml"
+  - "plugins/workflow-orchestrator/"
+  - "agent/src/whisper-system.js"
+
+related_concepts:
+  - ceo_orchestrator
+  - synths
+  - bi_directional_intelligence

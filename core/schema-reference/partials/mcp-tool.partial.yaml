@@ -1,0 +1,59 @@
+# MCP Tool Integration Partial - For tools that expose MCP interfaces
+# Based on graphiti and external-toolchain patterns
+
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/partials/mcp-tool'
+title: 'MCP Tool Integration Partial'
+
+# Tool capabilities declaration
+tool_capabilities:
+  type: 'array'
+  description: '#@llm: What this tool can do'
+  items:
+    type: 'string'
+    enum: ['mcp_integration', 'api_access', 'memory_management', 'execution_tracking', 'data_processing']
+
+# MCP tool definitions - YES we describe entire APIs in YAML!
+mcp_tools:
+  type: 'array'
+  description: '#@llm: MCP tools exposed by this context'
+  items:
+    type: 'object'
+    properties:
+      name:
+        type: 'string'
+        description: 'Tool name (snake_case)'
+      description:
+        type: 'string'
+        description: 'What this tool does'
+      parameters:
+        type: 'object'
+        description: 'JSON schema for tool parameters'
+      examples:
+        type: 'array'
+        description: 'Usage examples'
+        items:
+          type: 'object'
+          properties:
+            scenario: {type: 'string'}
+            call: {type: 'object'}
+            expected_output: {type: 'string'}
+
+# Deployment configuration
+deployment:
+  type: 'object'
+  description: '#@llm: How to deploy/integrate this tool'
+  properties:
+    method:
+      type: 'string'
+      enum: ['docker_compose', 'standalone', 'mcp_server', 'embedded']
+    services:
+      type: 'array'
+      items: {type: 'string'}
+    configuration:
+      type: 'string'
+      description: 'Configuration file or settings'
+    dependencies:
+      type: 'array'
+      items: {type: 'string'}
+      description: 'External service dependencies (Neo4j, Redis, etc.)'

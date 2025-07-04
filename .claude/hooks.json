@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "mcp.*perplexity|search|research|WebSearch|WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "lev analysis-agent --input '$CLAUDE_TOOL_OUTPUT' --context . --session-state '$CLAUDE_SESSION_ID' --tool '$CLAUDE_TOOL_NAME'",
+            "background": true
+          }
+        ]
+      }
+    ]
+  }
+}

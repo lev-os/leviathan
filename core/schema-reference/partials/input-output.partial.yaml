@@ -1,0 +1,55 @@
+# Input/Output Partial - For contexts that have clear I/O boundaries
+# Use for workflows, agents, and tools that produce something
+
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/partials/input-output'
+title: 'Input/Output Specification Partial'
+
+# Input specification
+input:
+  type: 'object'
+  description: '#@llm: What this context expects as input'
+  properties:
+    parameters:
+      type: 'array'
+      items:
+        type: 'object'
+        properties:
+          name: {type: 'string'}
+          type: {enum: ['string', 'number', 'boolean', 'array', 'object']}
+          required: {type: 'boolean'}
+          description: {type: 'string'}
+          examples: {type: 'array'}
+    
+    context_requirements:
+      type: 'array'
+      description: 'Required context types or capabilities'
+      items: {type: 'string'}
+    
+    templates:
+      type: 'object'
+      description: 'Input templates or examples'
+
+# Output specification  
+output:
+  type: 'object'
+  description: '#@llm: What this context produces'
+  properties:
+    deliverables:
+      type: 'array'
+      items:
+        type: 'object'
+        properties:
+          name: {type: 'string'}
+          type: {enum: ['document', 'data', 'decision', 'artifact', 'context']}
+          format: {type: 'string'}
+          description: {type: 'string'}
+    
+    success_criteria:
+      type: 'array'
+      items: {type: 'string'}
+      description: 'How to know this succeeded'
+    
+    quality_metrics:
+      type: 'object'
+      description: 'Quality measurement approaches'

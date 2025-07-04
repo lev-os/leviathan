@@ -1,0 +1,43 @@
+{
+  "name": "@lev-os/codex",
+  "version": "0.1.0",
+  "description": "LLM-First Programming Knowledge Crystallization (sponsored by Kingly Agency)",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./search": "./src/commands/search.js",
+    "./analyze": "./src/commands/analyze.js",
+    "./discover": "./src/commands/discover.js",
+    "./crystallize": "./src/commands/crystallize.js"
+  },
+  "scripts": {
+    "test": "node test-search.js",
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "yaml": "^2.3.4",
+    "zod": "^3.23.8",
+    "glob": "^10.3.10"
+  },
+  "peerDependencies": {
+    "@lev-os/debug": "workspace:*",
+    "@lev-os/core": "workspace:*",
+    "@lev-os/testing": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "typescript": "^5.5.3"
+  },
+  "keywords": ["leviathan", "codex", "knowledge", "crystallization", "hexagonal"],
+  "author": "Leviathan Team (sponsored by Kingly Agency)",
+  "license": "MIT",
+  "files": [
+    "src/**/*",
+    "config/**/*",
+    "paradigms/**/*",
+    "languages/**/*",
+    "frameworks/**/*"
+  ]
+}

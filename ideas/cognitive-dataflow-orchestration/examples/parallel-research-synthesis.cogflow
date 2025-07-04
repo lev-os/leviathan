@@ -1,0 +1,169 @@
+# Parallel Research Synthesis - Multi-Perspective Analysis
+# Demonstrates lock-step parallel processing with iterative enhancement
+
+PARALLEL research_parliament:
+  NODES: [methodologist, domain_expert, critic, synthesizer]
+  INPUTS: [research_question, source_documents, constraints]
+  SYNC: when_all_perspectives_ready()
+  PROCESS: |
+    # Methodologist - focuses on research methodology and rigor
+    methodologist:
+      methodology_assessment = evaluate_research_methods(source_documents)
+      data_quality_analysis = assess_data_quality(source_documents)
+      bias_detection = identify_potential_biases(methodology_assessment)
+      validity_concerns = flag_validity_issues(data_quality_analysis)
+      
+    # Domain Expert - deep subject matter expertise
+    domain_expert:
+      domain_context = provide_domain_background(research_question)
+      source_credibility = assess_source_authority(source_documents)
+      knowledge_gaps = identify_missing_perspectives(source_documents)
+      cutting_edge_relevance = evaluate_current_relevance(domain_context)
+      
+    # Critic - challenges assumptions and findings
+    critic:
+      assumption_challenges = challenge_underlying_assumptions(source_documents)
+      alternative_interpretations = propose_alternative_explanations(findings)
+      contradiction_analysis = identify_contradictions(source_documents)
+      skeptical_questions = generate_critical_questions(findings)
+      
+    # Synthesizer - integrates perspectives and creates coherent narrative
+    synthesizer:
+      pattern_identification = identify_cross_source_patterns(source_documents)
+      narrative_construction = build_coherent_narrative(pattern_identification)
+      confidence_weighting = weight_findings_by_confidence(all_perspectives)
+      synthesis_framework = create_synthesis_structure(narrative_construction)
+  SYNTHESIZE: |
+    integrated_analysis = combine_all_perspectives([
+      methodologist.output,
+      domain_expert.output,
+      critic.output,
+      synthesizer.output
+    ])
+    
+    confidence_score = calculate_overall_confidence(integrated_analysis)
+    remaining_questions = identify_unresolved_questions(integrated_analysis)
+    
+    RETURN {
+      synthesis: integrated_analysis,
+      confidence: confidence_score,
+      open_questions: remaining_questions,
+      iteration_needed: confidence_score < 0.85
+    }
+  CONVERGENCE:
+    confidence_threshold: 0.85
+    max_iterations: 5
+    stability_check: no_major_changes_for(2_iterations)
+
+STREAM literature_monitor:
+  INPUTS: [new_publications, citation_updates, preprint_servers]
+  PROCESS: |
+    WHILE research_active:
+      new_sources = scan_for_relevant_publications(research_question)
+      citation_changes = track_citation_updates(current_sources)
+      emerging_topics = detect_emerging_research_trends(new_sources)
+      
+      IF significant_new_evidence_found:
+        EMIT source_update TO [research_parliament]
+        TRIGGER re_analysis_with_new_evidence()
+      
+      IF research_landscape_shift_detected:
+        EMIT paradigm_shift_alert TO [adaptive_research_coordinator]
+        
+      UPDATE literature_landscape_model()
+      SLEEP 1_hour
+  EMIT: [source_update, paradigm_shift_alert]
+  MEMORY:
+    literature_timeline: temporal_source_tracking()
+    citation_network: dynamic_citation_graph()
+    trend_detection: emerging_pattern_recognition()
+
+ADAPTIVE research_coordinator:
+  MONITOR: [synthesis_quality, iteration_count, time_spent, new_evidence_rate]
+  INPUTS: [research_parliament.output, literature_monitor.alerts]
+  RULES:
+    - IF synthesis_quality_plateau:
+        ADD specialized_expert_node(for=specific_domain)
+        REQUEST external_expert_consultation()
+    - IF too_many_iterations_without_convergence:
+        SWITCH_TO alternative_synthesis_strategy()
+        ADD consensus_building_facilitator()
+    - IF major_paradigm_shift_detected:
+        RESET research_framework()
+        RESTART with_updated_research_question()
+    - IF high_confidence_reached_early:
+        ADD peer_review_simulation()
+        VERIFY findings_with_adversarial_analysis()
+  TOPOLOGY:
+    ADD_NODE: |
+      IF specialized_expertise_needed:
+        expert_type = identify_missing_expertise(current_gaps)
+        new_expert = CREATE domain_expert_node(specialty=expert_type)
+        INTEGRATE new_expert INTO research_parliament()
+    MODIFY_PROCESS: |
+      IF synthesis_approach_ineffective:
+        new_synthesis_method = select_alternative_approach(current_method)
+        UPDATE research_parliament.synthesizer WITH new_synthesis_method
+  LEARNING:
+    methodology_refinement: learn_effective_research_patterns()
+    quality_prediction: predict_synthesis_quality_early()
+
+FEEDBACK peer_review_simulator:
+  NODES: [favorable_reviewer, critical_reviewer, neutral_reviewer, editor]
+  INPUTS: [research_parliament.final_synthesis]
+  CYCLES: |
+    # Review cycle
+    favorable_reviewer → editor (positive_feedback)
+    critical_reviewer → editor (critical_feedback)  
+    neutral_reviewer → editor (balanced_feedback)
+    
+    # Revision cycle
+    editor → research_parliament (revision_requests)
+    research_parliament → all_reviewers (revised_synthesis)
+    
+    # Convergence cycle
+    all_reviewers → editor (final_assessment)
+    editor → decision (accept/revise/reject)
+  PROCESS: |
+    favorable_reviewer:
+      strengths = identify_research_strengths(synthesis)
+      supportive_evidence = highlight_supporting_evidence(synthesis)
+      positive_implications = explore_positive_implications(findings)
+      
+    critical_reviewer:
+      weaknesses = identify_methodological_weaknesses(synthesis)
+      missing_elements = flag_missing_analyses(synthesis)
+      alternative_interpretations = propose_counter_arguments(findings)
+      
+    neutral_reviewer:
+      balanced_assessment = provide_objective_evaluation(synthesis)
+      clarity_feedback = assess_communication_clarity(synthesis)
+      reproducibility = evaluate_reproducibility(methodology)
+      
+    editor:
+      review_synthesis = synthesize_reviewer_feedback([
+        favorable_reviewer.output,
+        critical_reviewer.output,
+        neutral_reviewer.output
+      ])
+      decision_logic = apply_publication_standards(review_synthesis)
+      revision_requests = generate_revision_guidance(review_synthesis)
+  CONVERGENCE:
+    acceptance_criteria: all_reviewers_satisfied AND methodological_rigor_met
+    max_revision_cycles: 3
+
+# Example execution flow:
+# 1. research_parliament processes initial research question in parallel
+# 2. literature_monitor continuously scans for new relevant sources
+# 3. research_coordinator adapts the process based on quality and progress
+# 4. If synthesis reaches high confidence, peer_review_simulator validates
+# 5. System iterates until publication-ready quality achieved
+
+# Usage:
+# $ cogflow run parallel-research-synthesis.cogflow --input research_question.txt
+# > Initializing parallel research synthesis...
+# > research_parliament: 4 cognitive nodes analyzing in parallel
+# > literature_monitor: Scanning 247 sources, 3 new publications found
+# > Iteration 1: confidence=0.72, adding domain expert for quantum computing
+# > Iteration 2: confidence=0.89, triggering peer review simulation
+# > peer_review_simulator: 2 revision cycles, final acceptance achieved

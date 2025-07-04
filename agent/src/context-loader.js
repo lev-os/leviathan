@@ -8,7 +8,7 @@ import { glob } from 'glob';
 
 export class ContextLoader {
   constructor() {
-    this.contextPath = process.env.CONTEXTS_PATH || path.resolve('./contexts');
+    this.contextPath = process.env.CONTEXTS_PATH || path.resolve('../core/contexts');
     this.cache = new Map();
     this.quickCodes = new Map();
     this.loaded = false;

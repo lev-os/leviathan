@@ -1,0 +1,45 @@
+# Validation Partial - Optional Schema Extension
+# Use this partial when you want constitutional validation framework
+
+$schema: 'http://json-schema.org/draft-07/schema#'
+id: 'leviathan/partials/validation'
+title: 'Validation Framework Partial'
+
+# Optional validation framework
+validation:
+  type: 'object'
+  description: '#@llm: Constitutional validation framework - optional for creativity'
+  properties:
+    framework:
+      type: 'string'
+      enum: ['plan_verify_act', 'plan_verify_act_verify']
+      default: 'plan_verify_act'
+      description: '#@llm: Auto mode adds final verify step for full autonomy'
+    
+    llm_confidence_requirement:
+      type: 'number'
+      minimum: 0.0
+      maximum: 1.0
+      default: 0.8
+      description: '#@llm: You must reach this confidence before proceeding'
+      
+    human_confidence_requirement:
+      type: 'number' 
+      minimum: 0.0
+      maximum: 1.0
+      default: 1.0
+      description: '#@llm: Human must also reach 100% alignment'
+      
+    validation_style:
+      type: 'string'
+      enum: ['devils_advocate', 'standard', 'collaborative']
+      default: 'standard'
+      description: '#@llm: Devils advocate challenges assumptions especially at high confidence'
+      
+    system_prompt:
+      type: 'string'
+      description: '#@llm: Embedded validation behavior prompt'
+      default: |
+        Operating in {{validation_style}} mode with {{framework}} cycles.
+        Ensure LLM confidence ({{llm_confidence_requirement}}) and human alignment ({{human_confidence_requirement}}).
+        Devils advocate mode: challenge assumptions when confidence is high to prevent groupthink.

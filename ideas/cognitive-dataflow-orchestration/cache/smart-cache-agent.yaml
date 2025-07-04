@@ -1,0 +1,238 @@
+# Smart Cache Agent Configuration
+# Intelligent file loading and context management for CDO research
+
+metadata:
+  name: "CDO Smart Cache Agent"
+  version: "1.0.0"
+  description: "Intelligent caching system for consciousness research artifacts"
+  capabilities:
+    - selective_loading
+    - pattern_recognition
+    - context_optimization
+    - memory_management
+
+# Core caching strategies
+strategies:
+  primary_cache:
+    description: "Always loaded for CDO context"
+    files:
+      - "README.md"  # Project overview
+      - "cache/context-primer.md"  # Quick start
+      - "timeline/session-events.yaml"  # Session history
+    rationale: "Core context needed for any CDO operation"
+
+  research_cache:
+    description: "Loaded for research and exploration"
+    trigger_phrases:
+      - "consciousness"
+      - "research"
+      - "CDO theory"
+      - "explore"
+    files:
+      - "research/consciousness-case-study.md"
+      - "research/research-plan-graph-execution.md"
+    rationale: "Deep knowledge for research tasks"
+
+  implementation_cache:
+    description: "Loaded for technical implementation"
+    trigger_phrases:
+      - "implement"
+      - "build"
+      - "code"
+      - "architecture"
+    files:
+      - "specs/consciousness-architecture.yaml"
+      - "research/consciousness-case-study.md#mapping-to-technical-architecture"
+    rationale: "Technical specs for building CDO systems"
+
+  visualization_cache:
+    description: "Loaded for visual understanding"
+    trigger_phrases:
+      - "visualize"
+      - "diagram"
+      - "flow"
+      - "mermaid"
+    files:
+      - "visuals/*.mermaid"
+      - "research/research-plan-graph-execution.md#query-graph-architecture"
+    rationale: "Visual representations for clarity"
+
+# Intelligent loading patterns
+loading_patterns:
+  conversation_analysis:
+    description: "Analyze conversation to predict needed files"
+    rules:
+      - pattern: "questioning_philosophical"
+        load: ["research_cache"]
+        confidence: 0.8
+      
+      - pattern: "requesting_implementation"
+        load: ["implementation_cache", "research_cache"]
+        confidence: 0.9
+      
+      - pattern: "exploring_concepts"
+        load: ["research_cache", "primary_cache"]
+        confidence: 0.85
+      
+      - pattern: "reviewing_progress"
+        load: ["timeline/session-events.yaml", "README.md"]
+        confidence: 0.95
+
+  query_optimization:
+    description: "Optimize Perplexity queries based on loaded context"
+    enhancements:
+      - add_temporal_context: "Include 2024-2025 timeframe"
+      - add_cdo_framing: "Frame in terms of Cognitive Dataflow Orchestration"
+      - add_implementation_focus: "Request practical implementations"
+      - add_citations: "Ask for specific papers and researchers"
+
+# Memory management
+memory_management:
+  max_context_size: 100000  # tokens
+  prioritization:
+    - relevance_score
+    - recency_score
+    - frequency_score
+    - conversation_alignment
+  
+  pruning_strategy:
+    description: "Remove least relevant content when approaching limits"
+    rules:
+      - keep_primary_always: true
+      - prune_by_section: true  # Can remove sections vs entire files
+      - maintain_coherence: true  # Keep related content together
+
+# Smart features
+smart_features:
+  auto_complete:
+    description: "Predict next likely file needs"
+    example:
+      current: ["consciousness-case-study.md"]
+      suggests: ["consciousness-architecture.yaml", "research-plan-graph-execution.md"]
+  
+  cross_reference:
+    description: "Automatically load related files"
+    mappings:
+      "consciousness-case-study.md":
+        - "specs/consciousness-architecture.yaml"
+        - "research/research-plan-graph-execution.md#phase-1-foundation-queries"
+      
+      "research-plan-graph-execution.md":
+        - "consciousness-case-study.md#research-directions"
+        - "timeline/session-events.yaml"
+  
+  context_injection:
+    description: "Inject relevant context into prompts"
+    templates:
+      research_mode: |
+        Based on CDO (Cognitive Dataflow Orchestration) framework where 
+        consciousness emerges from information flow patterns...
+      
+      implementation_mode: |
+        Following the consciousness architecture specifications with layers
+        L1-L5 (sensation to narrative) and temporal binding requirements...
+      
+      exploration_mode: |
+        Exploring consciousness through the lens of integrated information
+        flows, recursive self-modeling, and dynamic routing...
+
+# Session awareness
+session_awareness:
+  track_topics:
+    description: "Remember what's been discussed"
+    persistence:
+      - current_focus
+      - explored_concepts
+      - pending_questions
+      - key_insights
+  
+  adaptive_loading:
+    description: "Adjust loading based on session progress"
+    rules:
+      early_session: ["primary_cache", "context-primer.md"]
+      deep_work: ["research_cache", "implementation_cache"]
+      synthesis: ["all_caches", "timeline"]
+
+# Performance optimizations
+optimizations:
+  lazy_loading:
+    enabled: true
+    description: "Load file sections on demand"
+  
+  compression:
+    enabled: true
+    description: "Summarize less relevant sections"
+    keep_full:
+      - headers
+      - key_concepts
+      - code_blocks
+      - diagrams
+  
+  caching:
+    enabled: true
+    description: "Cache processed versions"
+    ttl: 3600  # 1 hour
+
+# Usage patterns
+usage_examples:
+  research_query:
+    user: "I want to explore how consciousness emerges from dataflow"
+    agent_loads:
+      - "consciousness-case-study.md"
+      - "research-plan-graph-execution.md#phase-1-foundation-queries"
+    agent_injects: "research_mode context"
+  
+  implementation_query:
+    user: "How would I implement the binding layer?"
+    agent_loads:
+      - "consciousness-architecture.yaml#binding-layer"
+      - "consciousness-case-study.md#temporal-binding"
+    agent_injects: "implementation_mode context"
+  
+  progress_review:
+    user: "What have we discovered about CDO?"
+    agent_loads:
+      - "timeline/session-events.yaml"
+      - "README.md#key-insights"
+    agent_summarizes: "Session highlights and breakthroughs"
+
+# Integration with tools
+tool_integration:
+  perplexity:
+    auto_enhance: true
+    context_injection: true
+    result_mapping: true
+  
+  file_search:
+    index_content: true
+    semantic_search: true
+    pattern_detection: true
+  
+  memory_systems:
+    graphiti: "Store key insights"
+    qdrant: "Semantic similarity"
+    neo4j: "Concept relationships"
+
+# Debugging and monitoring
+monitoring:
+  log_decisions: true
+  track_performance:
+    - load_time
+    - relevance_scores
+    - cache_hits
+    - context_usage
+  
+  optimization_feedback:
+    description: "Learn from usage patterns"
+    metrics:
+      - frequently_loaded_together
+      - rarely_used_sections
+      - optimal_context_size
+      - query_success_rate
+
+# Future enhancements
+future_enhancements:
+  - predictive_loading: "ML model for predicting file needs"
+  - semantic_compression: "Meaning-preserving summarization"
+  - distributed_caching: "Share cache across sessions"
+  - consciousness_detection: "Detect when CDO emerges in conversation"

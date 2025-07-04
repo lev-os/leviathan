@@ -1,0 +1,19 @@
+session_id: "2025-07-03-rolling-synths-emergency"
+emergency_save: true
+context_remaining: "1%"
+
+# CRITICAL BREAKTHROUGH PRESERVED
+rolling_synths_status_bar_design: |
+  🧙🏽‍♂️ **ROLLING SYNTHS** | 📊 Confidence: 100% | 🎯 DIRECT | 🔧 CEO+Wizard+SchemaArch | 🌊 core-schema-validation (3/7) | 💡 Status bar format
+
+# CLAUDE.MD SECTIONS TO MODIFY
+debug_header_location: "## <debug_display> section"
+replacement_format: "5-6 line succinct status bar instead of XML blocks"
+
+# USER CONTEXT
+task: "Base schema validation framework design"  
+preference: "Hide XML, show rolling synths compactly"
+workflow: "core-schema-validation-development (step 3/7)"
+
+# RESTORE POINT
+next_action: "Show CLAUDE.md modification snippets for rolling synths status bar"

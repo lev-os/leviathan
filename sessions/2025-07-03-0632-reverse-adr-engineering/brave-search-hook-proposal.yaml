@@ -1,0 +1,38 @@
+# Brave Search Analysis Hook Proposal
+
+hook_configuration:
+  trigger: "PostToolUse"
+  condition: "tool matches 'mcp__brave-search__brave_web_search'"
+  
+  command: |
+    #!/bin/bash
+    # Analyze Brave search results and suggest storage location
+    
+    # Parse search query from tool invocation
+    QUERY="$CLAUDE_TOOL_ARGS"
+    TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+    
+    # Determine storage location based on query content
+    if [[ "$QUERY" =~ "framework|programming|LLM" ]]; then
+      echo "🔍 Research detected: Suggesting storage in drafts/llm-frameworks-$TIMESTAMP.md"
+    elif [[ "$QUERY" =~ "architecture|pattern|design" ]]; then
+      echo "📐 Architecture research: Suggesting storage in docs/research/architecture-$TIMESTAMP.md"
+    else
+      echo "📝 General research: Suggesting storage in tmp/research-$TIMESTAMP.md"
+    fi
+    
+    # Extract key insights prompt
+    echo "💡 Consider extracting: Key frameworks, comparison points, implementation patterns"
+
+implementation_steps:
+  1: "Run /hooks command in Claude Code"
+  2: "Select PostToolUse trigger"
+  3: "Add condition for brave_web_search tool"
+  4: "Configure analysis command"
+  5: "Test with sample searches"
+
+benefits:
+  - "Automatic research organization"
+  - "Consistent storage patterns"
+  - "Quick insight extraction reminders"
+  - "Session-aware research tracking"

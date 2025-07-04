@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+/**
+ * Leviathan Analysis Agent CLI
+ * Entry point for research intelligence routing
+ */
+
+import { ResearchRouter } from '../src/analysis-router.js';
+
+async function main() {
+  const args = process.argv.slice(2);
+  const options = {};
+  
+  // Parse command line arguments
+  for (let i = 0; i < args.length; i += 2) {
+    const key = args[i].replace('--', '');
+    const value = args[i + 1];
+    
+    if (key === 'input') {
+      options.input = value;
+    } else if (key === 'context') {
+      options.context = value;
+    } else if (key === 'session-state') {
+      options.sessionId = value;
+    } else if (key === 'tool') {
+      options.toolName = value;
+    } else if (key === 'debug') {
+      options.debug = value === 'true';
+    }
+  }
+  
+  try {
+    const router = new ResearchRouter(options);
+    const result = await router.analyze(options.input || '');
+    
+    // Output result for hook processing
+    if (options.output === 'json') {
+      console.log(JSON.stringify(result, null, 2));
+    }
+    
+    process.exit(0);
+  } catch (error) {
+    console.error('🔍 RESEARCH HOOK: ERROR |', error.message);
+    process.exit(1);
+  }
+}
+
+main();

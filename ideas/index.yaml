@@ -1,0 +1,54 @@
+# Simplified Concept Index
+metadata:
+  total_concepts: 9
+  
+concepts:
+  concept-of-concepts:
+    title: "The Concept of Concepts" 
+    status: "conceptualization"
+    tags: ["meta", "breakthrough"]
+    
+  lego-architecture:
+    title: "Schema Architecture Revolution"
+    status: "specification" 
+    tags: ["architecture", "packages"]
+    
+  ceo-orchestrator:
+    title: "CEO Orchestrator - LLM Freestyling with Guardrails"
+    status: "specification"
+    tags: ["ceo", "orchestration", "freestyling"]
+    
+  fractal-organization:
+    title: "Clean Fractal Organization"
+    status: "analysis"
+    tags: ["organization", "wizard"]
+    
+  intake-pipeline:
+    title: "YAML-Driven Automation Pipeline"
+    status: "analysis"
+    tags: ["automation", "wizard"]
+    
+  jobdesk-system:
+    title: "Jobdesk System Architecture"
+    status: "ideation"
+    tags: ["task-management"]
+    
+  onboarding:
+    title: "Leviathan Onboarding Experience" 
+    status: "ideation"
+    tags: ["onboarding", "ux"]
+    
+  repo-cleanup:
+    title: "Repository Cleanup Plan"
+    status: "analysis" 
+    tags: ["cleanup", "organization"]
+    
+  desktop-integration:
+    title: "Desktop Integration Strategy"
+    status: "ideation"
+    tags: ["desktop", "integration"]
+    
+  synths:
+    title: "Synthetic Agents - On-Demand Intelligence"
+    status: "draft"
+    tags: ["agents", "synthesis"]

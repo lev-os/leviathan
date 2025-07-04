@@ -1,0 +1,294 @@
+# Recursive Research Agent - Self-Expanding Knowledge Discovery
+# Executes 3 deep research queries in parallel, synthesizes findings, and generates next research iteration
+
+STREAM research_coordinator:
+  INPUTS: [research_context, knowledge_base, external_events]
+  PROCESS: |
+    WHILE research_active:
+      current_session = get_current_session_number()
+      session_context = load_session_context(current_session)
+      
+      IF current_session <= 10:
+        research_state = load_research_state_from_idea_folder()
+        next_queries = determine_next_research_queries(research_state)
+        
+        EMIT research_batch TO [parallel_research_executor]
+        WAIT_FOR research_batch_completion()
+        
+        EMIT synthesis_trigger TO [knowledge_synthesizer]
+        WAIT_FOR synthesis_completion()
+        
+        EMIT next_iteration_planning TO [recursive_planner]
+        
+        session_complete = save_session_progress_to_idea_folder()
+        current_session += 1
+      
+      SLEEP 1_minute  # Brief pause between research cycles
+  EMIT: [research_batch, synthesis_trigger, next_iteration_planning]
+  MEMORY:
+    research_timeline: session_by_session_progress()
+    knowledge_evolution: cumulative_knowledge_tracking()
+    query_effectiveness: successful_query_patterns()
+
+PARALLEL parallel_research_executor:
+  NODES: [deep_researcher_1, deep_researcher_2, deep_researcher_3]
+  INPUTS: [research_batch]
+  SYNC: when_research_queries_assigned()
+  PROCESS: |
+    # Deep Researcher 1 - Technical/Implementation Focus
+    deep_researcher_1:
+      query = extract_query_1(research_batch)
+      technical_sources = find_technical_sources(query)
+      implementation_analysis = analyze_implementation_details(technical_sources)
+      technical_insights = extract_technical_insights(implementation_analysis)
+      code_examples = gather_code_examples(technical_insights)
+      
+      research_output_1 = {
+        query: query,
+        sources: technical_sources,
+        insights: technical_insights,
+        examples: code_examples,
+        confidence: assess_research_confidence(technical_insights),
+        gaps: identify_knowledge_gaps(technical_insights)
+      }
+      
+    # Deep Researcher 2 - Theoretical/Academic Focus  
+    deep_researcher_2:
+      query = extract_query_2(research_batch)
+      academic_sources = find_academic_sources(query)
+      theoretical_analysis = analyze_theoretical_foundations(academic_sources)
+      academic_insights = extract_theoretical_insights(theoretical_analysis)
+      research_trends = identify_research_trends(academic_insights)
+      
+      research_output_2 = {
+        query: query,
+        sources: academic_sources,
+        insights: academic_insights,
+        trends: research_trends,
+        confidence: assess_research_confidence(academic_insights),
+        gaps: identify_knowledge_gaps(academic_insights)
+      }
+      
+    # Deep Researcher 3 - Applied/Commercial Focus
+    deep_researcher_3:
+      query = extract_query_3(research_batch)
+      commercial_sources = find_commercial_applications(query)
+      market_analysis = analyze_market_applications(commercial_sources)
+      commercial_insights = extract_commercial_insights(market_analysis)
+      business_opportunities = identify_business_opportunities(commercial_insights)
+      
+      research_output_3 = {
+        query: query,
+        sources: commercial_sources,
+        insights: commercial_insights,
+        opportunities: business_opportunities,
+        confidence: assess_research_confidence(commercial_insights),
+        gaps: identify_knowledge_gaps(commercial_insights)
+      }
+  SYNTHESIZE: |
+    parallel_research_results = combine_research_outputs([
+      research_output_1,
+      research_output_2, 
+      research_output_3
+    ])
+    
+    cross_domain_connections = identify_connections_across_domains(parallel_research_results)
+    research_completeness = assess_overall_research_completeness(parallel_research_results)
+    
+    session_research_summary = {
+      results: parallel_research_results,
+      connections: cross_domain_connections,
+      completeness: research_completeness,
+      session_number: current_session,
+      timestamp: current_timestamp()
+    }
+    
+    SAVE session_research_summary TO idea_folder/research/session_{current_session}_research.md
+    
+    RETURN session_research_summary
+  CONVERGENCE:
+    all_researchers_complete: true
+    minimum_confidence_per_query: 0.7
+    cross_domain_connections_found: true
+
+PARALLEL knowledge_synthesizer:
+  NODES: [ceo_orchestrator, synthesis_expert, pattern_detector, concept_evolver]
+  INPUTS: [session_research_summary, previous_sessions_knowledge]
+  SYNC: when_synthesis_triggered()
+  PROCESS: |
+    # CEO Orchestrator - Strategic synthesis leadership
+    ceo_orchestrator:
+      strategic_context = assess_strategic_research_context(session_research_summary)
+      synthesis_priorities = determine_synthesis_priorities(strategic_context)
+      resource_allocation = allocate_synthesis_resources(synthesis_priorities)
+      quality_standards = set_synthesis_quality_standards(strategic_context)
+      
+    # Synthesis Expert - Deep knowledge integration
+    synthesis_expert:
+      knowledge_integration = integrate_new_with_existing_knowledge(
+        session_research_summary,
+        previous_sessions_knowledge
+      )
+      insight_extraction = extract_breakthrough_insights(knowledge_integration)
+      knowledge_consolidation = consolidate_redundant_knowledge(insight_extraction)
+      synthesis_quality = assess_synthesis_quality(knowledge_consolidation)
+      
+    # Pattern Detector - Cross-session pattern recognition
+    pattern_detector:
+      emerging_patterns = detect_emerging_patterns(session_research_summary)
+      pattern_evolution = track_pattern_evolution_across_sessions(emerging_patterns)
+      meta_patterns = identify_meta_patterns(pattern_evolution)
+      pattern_significance = assess_pattern_significance(meta_patterns)
+      
+    # Concept Evolver - Concept refinement and evolution
+    concept_evolver:
+      concept_updates = evolve_core_concepts(session_research_summary)
+      concept_validation = validate_concept_updates(concept_updates)
+      concept_relationships = map_concept_relationships(concept_validation)
+      concept_maturity = assess_concept_maturity(concept_relationships)
+  SYNTHESIZE: |
+    integrated_synthesis = synthesize_all_perspectives([
+      ceo_orchestrator.strategic_guidance,
+      synthesis_expert.knowledge_integration,
+      pattern_detector.pattern_insights,
+      concept_evolver.concept_evolution
+    ])
+    
+    breakthrough_discoveries = identify_breakthrough_discoveries(integrated_synthesis)
+    research_impact_assessment = assess_research_impact(breakthrough_discoveries)
+    
+    synthesis_output = {
+      integrated_knowledge: integrated_synthesis,
+      breakthroughs: breakthrough_discoveries,
+      impact: research_impact_assessment,
+      session_number: current_session,
+      synthesis_confidence: calculate_synthesis_confidence()
+    }
+    
+    SAVE synthesis_output TO idea_folder/synthesis/session_{current_session}_synthesis.md
+    UPDATE idea_folder/concept.yaml WITH concept_evolution
+    
+    RETURN synthesis_output
+  CONVERGENCE:
+    synthesis_confidence: > 0.8
+    breakthrough_discoveries_found: true
+    concept_evolution_validated: true
+
+ADAPTIVE recursive_planner:
+  MONITOR: [research_progress, knowledge_gaps, discovery_rate, time_remaining]
+  INPUTS: [synthesis_output, research_effectiveness_metrics]
+  RULES:
+    - IF major_breakthrough_discovered:
+        PIVOT research_direction_toward_breakthrough()
+        INCREASE research_depth_in_breakthrough_area()
+        SPAWN specialized_breakthrough_researcher()
+        
+    - IF knowledge_gaps_persist_across_sessions:
+        REDESIGN research_queries_to_address_gaps()
+        ADD targeted_gap_filling_researcher()
+        INCREASE research_scope_for_persistent_gaps()
+        
+    - IF research_efficiency_declining:
+        OPTIMIZE research_query_formulation()
+        IMPROVE source_selection_algorithms()
+        ENHANCE synthesis_effectiveness()
+        
+    - IF approaching_context_limit:
+        COMPRESS non_critical_knowledge()
+        PRIORITIZE breakthrough_preservation()
+        CREATE emergency_knowledge_preservation_protocol()
+  PROCESS: |
+    research_state_analysis = analyze_current_research_state(synthesis_output)
+    gap_analysis = identify_remaining_knowledge_gaps(research_state_analysis)
+    opportunity_analysis = identify_research_opportunities(gap_analysis)
+    
+    next_research_queries = generate_next_research_iteration([
+      gap_analysis,
+      opportunity_analysis,
+      research_effectiveness_metrics,
+      remaining_sessions: (10 - current_session)
+    ])
+    
+    research_plan_update = {
+      next_queries: next_research_queries,
+      research_priorities: determine_research_priorities(next_research_queries),
+      expected_outcomes: predict_research_outcomes(next_research_queries),
+      session_planning: plan_remaining_sessions(next_research_queries)
+    }
+    
+    SAVE research_plan_update TO idea_folder/planning/session_{current_session}_next_plan.md
+    
+    RETURN research_plan_update
+  LEARNING:
+    query_effectiveness_optimization: learn_most_effective_query_patterns()
+    synthesis_improvement: optimize_synthesis_strategies()
+
+FEEDBACK progress_tracker:
+  NODES: [progress_monitor, knowledge_validator, concept_quality_assessor]
+  INPUTS: [all_session_outputs, research_effectiveness_data]
+  CYCLES: |
+    # Progress validation cycle
+    progress_monitor → knowledge_validator (progress_assessment)
+    knowledge_validator → concept_quality_assessor (validated_knowledge)
+    concept_quality_assessor → progress_monitor (quality_feedback)
+    
+    # Research optimization cycle
+    ALL_NODES → recursive_planner (optimization_recommendations)
+    recursive_planner → ALL_NODES (improved_research_strategies)
+  PROCESS: |
+    progress_monitor:
+      session_progress = track_progress_across_sessions(all_session_outputs)
+      velocity_analysis = analyze_research_velocity(session_progress)
+      trajectory_prediction = predict_research_trajectory(velocity_analysis)
+      milestone_tracking = track_research_milestones(trajectory_prediction)
+      
+    knowledge_validator:
+      knowledge_consistency = validate_knowledge_consistency(all_session_outputs)
+      fact_verification = verify_research_facts(knowledge_consistency)
+      source_reliability = assess_source_reliability(fact_verification)
+      knowledge_integrity = ensure_knowledge_integrity(source_reliability)
+      
+    concept_quality_assessor:
+      concept_maturity = assess_concept_maturity_evolution(all_session_outputs)
+      concept_coherence = evaluate_concept_coherence(concept_maturity)
+      concept_completeness = measure_concept_completeness(concept_coherence)
+      concept_impact_potential = assess_concept_impact_potential(concept_completeness)
+  CONVERGENCE:
+    research_goals_achieved: major_breakthroughs_documented
+    concept_maturity_sufficient: publication_ready_quality
+    knowledge_preservation_complete: all_critical_knowledge_saved
+
+# Initial Research Configuration for Cognitive Dataflow Orchestration
+INITIALIZE recursive_research WITH:
+  initial_context: "Cognitive Dataflow Orchestration breakthrough from session 2025-07-03-0741"
+  
+  session_1_queries:
+    query_1: "Technical implementation patterns for infinite streaming cognitive nodes with LLM integration"
+    query_2: "Academic research on distributed cognitive architectures and parallel reasoning systems"  
+    query_3: "Commercial applications and market opportunities for cognitive dataflow programming languages"
+  
+  research_objectives:
+    - "Establish theoretical foundations for cognitive dataflow programming"
+    - "Identify implementation architectures and technical patterns"
+    - "Discover commercial applications and market positioning strategies"
+    - "Develop patent-worthy technical innovations"
+    - "Create comprehensive specification for CognitiveFlow language"
+  
+  success_criteria:
+    - "10 sessions of iterative research completed"
+    - "Major technical breakthroughs documented and preserved"
+    - "Complete concept evolution saved to idea folder"
+    - "Next-generation research queries identified"
+    - "Emergency knowledge preservation protocols activated if needed"
+
+# Usage:
+# $ cogflow run recursive-research-agent.cogflow --concept cognitive-dataflow-orchestration --sessions 10
+# > Initializing recursive research agent for CDO concept...
+# > Session 1: Executing 3 parallel research queries
+# > deep_researcher_1: Technical implementation patterns research complete
+# > deep_researcher_2: Academic foundations research complete  
+# > deep_researcher_3: Commercial applications research complete
+# > knowledge_synthesizer: 4-node synthesis complete, 2 breakthrough discoveries
+# > recursive_planner: Next iteration queries generated, saved to planning/
+# > progress_tracker: Session 1 complete, research velocity optimal
+# > Proceeding to Session 2 with enhanced knowledge base...

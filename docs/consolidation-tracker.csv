@@ -27,7 +27,7 @@ Phase,Task_ID,Task_Name,Source_Files,Target_Location,Dependencies,Status,Priorit
 1,P1T09,FlowMind documentation,_ref/mcp-ceo/docs/,docs/architecture/04-flowmind-language.md,P1T02,Pending,RESEARCH,3,Team,v2.0 - LLM as runtime concept
 1,P1T10,JEPA integration spec,_03-jepa.md,docs/specs/integrations/jepa-learning/,P0T07,Pending,PLUGIN,2,Team,Optional - Self-learning plugin
 1,P1T11,Prime context spec,_01-prime.md,docs/specs/constitutional/prime-context.md,P0T07,Pending,PLUGIN,2,Team,Optional - Constitutional AI overlay
-1,P1T12,Codex plugin migration,_01-codex.md,docs/specs/plugins/codex/,P0T07,Pending,MEDIUM,2,Team,Knowledge crystallization
+1,P1T12,Codex plugin migration,_01-codex.md,docs/specs/plugins/codex/,P0T07,In Progress,MEDIUM,2,Team,Knowledge crystallization - Working implementation copied to plugins/codex/
 1,P1T13,Workshop intelligence plan,"workshop/WORKSHOP-INTELLIGENCE-MASTER-PLAN.md, workshop/index.md",docs/workshop/master-plan.md,P0T07,Pending,MEDIUM,3,Team,Tool evaluation framework
 1,P1T14,MCP orchestration layer,drafts/005-kingly-mcp-orchestration-layer.md,docs/architecture/mcp-orchestration.md,P1T02,Pending,HIGH,2,Team,MCP patterns
 1,P1T15,Coding standards,drafts/coding-guide.md,docs/guides/development/coding-standards.md,P0T07,Pending,MEDIUM,1,Team,Development guidelines

@@ -1,0 +1,90 @@
+session_id: "reverse-adr-engineering"
+created: "2025-07-03"
+last_updated: "2025-07-03T06:32:00Z"
+semantic_summary: "Reverse ADR Engineering - Extract architectural decisions from existing codebase patterns"
+
+# SESSION INTELLIGENCE CORE
+mission_statement: "Build reverse ADR engineering capability to extract architectural decisions from existing code patterns"
+
+mission_context:
+  why: "Leviathan has organic architecture patterns that need documentation via ADRs"
+  what: "Reverse engineering process to identify and document architectural decisions from code"
+  how: "Analyze codebase patterns, extract decision points, generate proper ADR documentation"
+  opportunity: "Transform implicit architectural knowledge into explicit decision records"
+
+# ROLLING SYNTHS INITIALIZATION
+active_synths:
+  primary: "reverse_adr_engineer_synth"
+  secondary: "architecture_pattern_analyst_synth"
+  
+  reverse_adr_engineer_synth:
+    role: "Reverse ADR Engineer"
+    job: "Extract architectural decisions from existing code patterns and generate proper ADR documentation"
+    confidence_level: 85%
+    activation_context: "New session - ready for pattern analysis"
+    
+  architecture_pattern_analyst_synth:
+    role: "Architecture Pattern Analyst"  
+    job: "Identify architectural patterns and decision points in codebases for reverse engineering"
+    confidence_level: 90%
+    activation_context: "New session - ready for codebase analysis"
+
+# WORKFLOW CONTEXT
+workflow_context:
+  current_workflow: "reverse-adr-discovery-and-documentation"
+  current_step: "initialization"
+  step_number: 1
+  total_steps: 6
+  
+  workflow_definition:
+    step_1: "Initialize session and understand existing ADR structure (CURRENT)"
+    step_2: "Analyze codebase for architectural patterns"
+    step_3: "Identify implicit architectural decisions"
+    step_4: "Generate ADR documentation for discovered decisions"
+    step_5: "Validate ADRs against actual implementation"
+    step_6: "Integrate into documentation system"
+
+# CONTEXT ANALYSIS
+system_context:
+  leviathan_architecture: "Multi-layered monorepo with plugin system"
+  existing_adrs: "docs/adr/ directory with some existing ADRs"
+  architectural_areas:
+    - "MCP protocol implementation patterns"
+    - "Plugin architecture decisions"
+    - "Session management patterns"
+    - "Context system architecture"
+    - "Synth creation and evolution patterns"
+
+# INITIAL EXPLORATION TARGETS
+reverse_engineering_candidates:
+  high_priority:
+    - "MCP adapter pattern (CLI vs MCP protocol)"
+    - "Universal Command Registry architecture"
+    - "Session preservation patterns"
+    - "Rolling synth architecture"
+    - "Plugin namespace standards (@lev-os/*)"
+    
+  medium_priority:
+    - "Monorepo organization decisions"
+    - "Context YAML structure patterns"
+    - "Workflow orchestration patterns"
+    - "Memory system integration"
+
+# SESSION GOALS
+session_objectives:
+  primary: "Extract 3-5 major architectural decisions into proper ADR format"
+  secondary: "Establish repeatable reverse ADR engineering process"
+  stretch: "Identify architectural debt and improvement opportunities"
+
+# HUMAN COLLABORATION
+collaboration_context:
+  human_preference: "Step-by-step validation with approval before major documentation"
+  validation_needed: "ADR content accuracy and architectural decision interpretation"
+  decision_points: "Which patterns to prioritize for reverse engineering"
+
+next_session_instructions:
+  1: "Load this session with reverse ADR engineering context"
+  2: "Activate both synths with architectural analysis mindset"
+  3: "Begin with existing ADR analysis to understand documentation patterns"
+  4: "Scan codebase for implicit architectural decisions"
+  5: "Generate ADR candidates with human validation"

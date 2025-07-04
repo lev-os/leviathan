@@ -1,0 +1,278 @@
+# TypeScript Language Specification
+# Project Codex: Language Layer Example
+
+meta:
+  name: "TypeScript"
+  type: "language"
+  category: "typed_javascript_superset"
+  version: "5.3+"
+  ecosystem: "javascript_node"
+  paradigms:
+    - "object_oriented"
+    - "functional"
+    - "structural_typing"
+  updated: "2025-01-15"
+
+description: |
+  TypeScript adds static type definitions to JavaScript, enabling better developer experience,
+  IDE support, and compile-time error catching. Essential for enterprise applications and
+  complex frontends where type safety improves maintainability.
+
+# Core language patterns for LLM agents
+patterns:
+  typing:
+    interface_design:
+      description: "Structural typing with clear contracts"
+      example: |
+        interface User {
+          id: string;
+          name: string;
+          email?: string;
+          preferences: UserPreferences;
+        }
+      best_practice: "Use interfaces for object shapes, types for unions/intersections"
+    
+    generic_constraints:
+      description: "Reusable types with proper constraints"
+      example: |
+        interface Repository<T extends { id: string }> {
+          findById(id: string): Promise<T | null>;
+          create(entity: Omit<T, 'id'>): Promise<T>;
+        }
+      best_practice: "Constrain generics to ensure type safety"
+    
+    discriminated_unions:
+      description: "Type-safe state management and error handling"
+      example: |
+        type Result<T, E = Error> = 
+          | { success: true, data: T }
+          | { success: false, error: E };
+      best_practice: "Use discriminated unions for complex state"
+
+  organization:
+    module_structure:
+      description: "Clear import/export patterns"
+      example: |
+        // types/user.ts
+        export interface User { ... }
+        export type UserRole = 'admin' | 'user';
+        
+        // services/user.service.ts
+        import type { User, UserRole } from '../types/user';
+      best_practice: "Separate types, group related exports"
+    
+    barrel_exports:
+      description: "Clean public API surfaces"
+      example: |
+        // index.ts
+        export type { User, UserRole } from './types/user';
+        export { UserService } from './services/user.service';
+      best_practice: "Use barrel exports for library boundaries"
+
+# Framework integrations
+framework_adaptations:
+  react:
+    component_props:
+      description: "Type-safe React component interfaces"
+      example: |
+        interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+          variant?: 'primary' | 'secondary';
+          size?: 'sm' | 'md' | 'lg';
+        }
+        
+        const Button: React.FC<ButtonProps> = ({ variant = 'primary', ...props }) => {
+          return <button className={cn(buttonVariants({ variant }))} {...props} />;
+        };
+      best_practice: "Extend HTML attributes, use discriminated unions for variants"
+    
+    hooks_typing:
+      description: "Type-safe custom hooks"
+      example: |
+        function useAsyncData<T>(fetcher: () => Promise<T>) {
+          const [state, setState] = useState<{
+            data: T | null;
+            loading: boolean;
+            error: Error | null;
+          }>({ data: null, loading: false, error: null });
+          
+          return { ...state, refetch };
+        }
+      best_practice: "Generic hooks with proper state typing"
+
+  nextjs:
+    api_routes:
+      description: "Type-safe API endpoints"
+      example: |
+        import type { NextApiRequest, NextApiResponse } from 'next';
+        
+        type Data = { users: User[] } | { error: string };
+        
+        export default function handler(
+          req: NextApiRequest,
+          res: NextApiResponse<Data>
+        ) {
+          if (req.method === 'GET') {
+            res.status(200).json({ users: [] });
+          }
+        }
+      best_practice: "Type response data, handle method routing"
+    
+    page_props:
+      description: "Type-safe page components and props"
+      example: |
+        interface PageProps {
+          user: User;
+          posts: Post[];
+        }
+        
+        export default function UserPage({ user, posts }: PageProps) {
+          return <div>{user.name}</div>;
+        }
+        
+        export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
+          return { props: { user, posts } };
+        };
+      best_practice: "Type props interface, use proper Next.js generics"
+
+# Development practices specific to TypeScript
+practices:
+  configuration:
+    tsconfig:
+      description: "Optimal TypeScript configuration"
+      example: |
+        {
+          "compilerOptions": {
+            "target": "ES2022",
+            "lib": ["ES2022", "DOM", "DOM.Iterable"],
+            "allowJs": true,
+            "skipLibCheck": true,
+            "strict": true,
+            "forceConsistentCasingInFileNames": true,
+            "noEmit": true,
+            "esModuleInterop": true,
+            "module": "esnext",
+            "moduleResolution": "bundler",
+            "resolveJsonModule": true,
+            "isolatedModules": true,
+            "jsx": "preserve",
+            "incremental": true,
+            "plugins": [{ "name": "next" }],
+            "paths": { "@/*": ["./src/*"] }
+          }
+        }
+      best_practice: "Enable strict mode, use path mapping, optimize for bundlers"
+  
+  error_handling:
+    result_pattern:
+      description: "Type-safe error handling without exceptions"
+      example: |
+        type AsyncResult<T, E = Error> = Promise<Result<T, E>>;
+        
+        async function fetchUser(id: string): AsyncResult<User> {
+          try {
+            const user = await api.getUser(id);
+            return { success: true, data: user };
+          } catch (error) {
+            return { success: false, error: error as Error };
+          }
+        }
+      best_practice: "Use Result types instead of throwing exceptions"
+  
+  utility_types:
+    common_patterns:
+      description: "Leverage TypeScript utility types"
+      example: |
+        // Create types from existing interfaces
+        type CreateUser = Omit<User, 'id' | 'createdAt'>;
+        type UserUpdate = Partial<Pick<User, 'name' | 'email'>>;
+        type UserKeys = keyof User;
+        
+        // Transform types
+        type UserRecord = Record<string, User>;
+        type RequiredUser = Required<User>;
+      best_practice: "Use utility types to derive related types"
+
+# Code quality and tooling
+tooling:
+  linting:
+    eslint_config:
+      description: "TypeScript-specific linting rules"
+      example: |
+        {
+          "extends": [
+            "@typescript-eslint/recommended",
+            "@typescript-eslint/recommended-requiring-type-checking"
+          ],
+          "rules": {
+            "@typescript-eslint/no-unused-vars": "error",
+            "@typescript-eslint/no-explicit-any": "warn",
+            "@typescript-eslint/prefer-as-const": "error"
+          }
+        }
+      best_practice: "Use TypeScript ESLint rules, avoid 'any'"
+  
+  testing:
+    type_testing:
+      description: "Test types with TypeScript"
+      example: |
+        import { expectType, expectError } from 'tsd';
+        
+        expectType<User>(createUser({ name: 'John' }));
+        expectError(createUser({ invalidProp: true }));
+      best_practice: "Use tsd or vitest for type testing"
+
+# Performance considerations
+performance:
+  compilation:
+    incremental_builds:
+      description: "Optimize TypeScript compilation"
+      best_practice: "Use incremental compilation, composite projects for monorepos"
+  
+  bundle_size:
+    tree_shaking:
+      description: "Ensure TypeScript doesn't prevent tree shaking"
+      best_practice: "Use ES modules, avoid side effects in type definitions"
+
+# Common anti-patterns to avoid
+anti_patterns:
+  - name: "any_abuse"
+    description: "Overusing 'any' type"
+    avoid: "Don't use 'any' to bypass type checking"
+    instead: "Use 'unknown' or proper type definitions"
+  
+  - name: "deep_nesting"
+    description: "Overly complex nested types"
+    avoid: "Type UserData = { user: { profile: { settings: { theme: string } } } }"
+    instead: "Break into smaller, composable interfaces"
+  
+  - name: "enum_over_union"
+    description: "Using enums when string literals suffice"
+    avoid: "enum Status { PENDING, COMPLETED }"
+    instead: "type Status = 'pending' | 'completed'"
+
+# LLM-specific guidance
+llm_usage:
+  prompt_patterns:
+    - "Generate TypeScript interfaces for {domain} with proper typing"
+    - "Create type-safe {pattern} implementation in TypeScript"
+    - "Convert JavaScript {code} to TypeScript with proper types"
+  
+  code_generation:
+    - "Always include proper type annotations"
+    - "Use generic constraints appropriately"
+    - "Follow established naming conventions"
+    - "Include JSDoc comments for complex types"
+
+# Related contexts
+relationships:
+  paradigms:
+    - "hexagonal_architecture"
+    - "functional_programming"
+    - "object_oriented_design"
+  languages:
+    - "javascript"
+  frameworks:
+    - "react"
+    - "nextjs"
+    - "express"
+    - "nestjs"

@@ -1,0 +1,293 @@
+# React 18+ Framework Patterns
+# Project Codex: Framework Layer Implementation
+
+metadata:
+  type: "framework"
+  id: "react"
+  name: "React 18+ Modern Patterns"
+  scope: "framework_specific"
+  ecosystem: "frontend"
+  version: "18.3+"
+  complexity_level: "medium"
+  updated: "2025-01-15"
+
+description: |
+  React is a JavaScript library for building user interfaces through component composition.
+  React 18+ introduces concurrent features, server components, and advanced performance 
+  patterns that enable sophisticated user experiences with optimal performance.
+
+# Core React 18+ paradigms based on 2025 research
+paradigms:
+  functional_components_first:
+    description: "Functional components are the standard; class components are obsolete"
+    core_principle: "Use functional components with hooks for all logic"
+    rationale: "Functional components provide better performance, easier testing, and cleaner code"
+    
+  composition_over_inheritance:
+    description: "Build flexible UIs through component composition, not inheritance"
+    core_principle: "Compose components for flexibility; inheritance is discouraged"
+    patterns: ["compound_components", "render_props", "children_as_functions"]
+    
+  declarative_ui_description:
+    description: "Describe what the UI should look like, not how to achieve it"
+    core_principle: "Focus on the 'what', not the 'how'"
+    benefits: ["predictable_state", "easier_debugging", "better_testability"]
+    
+  hooks_centric_logic:
+    description: "All state, side effects, and context handled with hooks"
+    core_principle: "Hooks are the primary mechanism for logic in React"
+    hook_categories: ["state", "effects", "context", "performance", "custom"]
+
+# Essential patterns every React developer should know
+essential_patterns:
+  component_composition:
+    description: "Building flexible, modular UIs through component nesting"
+    use_cases: ["dashboards", "forms", "complex_layouts"]
+    example_file: "./examples/component-composition.tsx"
+    benefits: ["reusability", "maintainability", "flexibility"]
+    
+  controlled_uncontrolled_components:
+    description: "Managing form state and input behavior"
+    controlled:
+      description: "React controls the input state"
+      when_to_use: "When you need full control over form behavior"
+      example: "./examples/controlled-input.tsx"
+    uncontrolled:
+      description: "DOM controls the input state"
+      when_to_use: "Simple forms with minimal validation"
+      example: "./examples/uncontrolled-input.tsx"
+      
+  custom_hooks:
+    description: "Abstract and share logic cleanly across components"
+    benefits: ["logic_reuse", "separation_of_concerns", "testability"]
+    example_file: "./examples/custom-hooks.tsx"
+    patterns: ["data_fetching", "local_storage", "api_integration"]
+    
+  context_api:
+    description: "Lightweight state management for non-global state"
+    use_cases: ["themes", "authentication", "user_preferences"]
+    example_file: "./examples/context-usage.tsx"
+    best_practices: ["avoid_overuse", "split_contexts", "provider_composition"]
+
+# Advanced patterns for complex scenarios
+advanced_patterns:
+  compound_component_pattern:
+    description: "Parent manages state/logic, children control rendering"
+    examples: ["tabs", "dropdowns", "accordions", "modals"]
+    implementation_guide: "./patterns/compound-components.md"
+    benefits: ["flexible_api", "composable_interface", "clear_separation"]
+    
+  provider_patterns:
+    description: "Dependency injection and context layering"
+    types: ["dependency_injection", "context_composition", "service_providers"]
+    example_file: "./examples/provider-patterns.tsx"
+    
+  portals:
+    description: "Render components outside the normal DOM hierarchy"
+    use_cases: ["modals", "popovers", "tooltips", "notifications"]
+    implementation: "./examples/portal-usage.tsx"
+    considerations: ["event_bubbling", "z_index", "accessibility"]
+    
+  concurrent_features:
+    description: "Use startTransition, Suspense, and Server Components"
+    features:
+      start_transition:
+        description: "Mark updates as non-urgent to avoid blocking UI"
+        use_case: "Heavy computations, large list updates"
+      suspense:
+        description: "Handle loading states declaratively"
+        use_case: "Data fetching, code splitting"
+      server_components:
+        description: "Server-side rendering with client hydration"
+        use_case: "Data-heavy pages, SEO optimization"
+
+# State management approaches
+state_management:
+  local_state:
+    description: "useState for component-local state"
+    when_to_use: ["simple_values", "ui_state", "temporary_data"]
+    
+  context_reducer:
+    description: "useContext + useReducer for shared state"
+    when_to_use: ["complex_state_logic", "multiple_components", "predictable_updates"]
+    example_file: "./examples/context-reducer.tsx"
+    
+  external_libraries:
+    description: "Third-party state management solutions"
+    recommended: ["zustand", "jotai", "redux_toolkit"]
+    when_to_use: ["global_state", "complex_workflows", "time_travel_debugging"]
+    selection_criteria: ["bundle_size", "learning_curve", "team_familiarity"]
+
+# Performance optimization patterns
+performance_patterns:
+  memoization:
+    description: "Prevent unnecessary re-renders with memoization"
+    techniques:
+      react_memo:
+        description: "Memoize entire components"
+        use_case: "Expensive rendering operations"
+      use_memo:
+        description: "Memoize computed values"
+        use_case: "Heavy calculations, derived state"
+      use_callback:
+        description: "Memoize function references"
+        use_case: "Callbacks passed to child components"
+    example_file: "./examples/memoization-patterns.tsx"
+    
+  lazy_loading_code_splitting:
+    description: "Load components and code on demand"
+    techniques:
+      react_lazy:
+        description: "Dynamic component imports"
+        example: "const Component = lazy(() => import('./Component'))"
+      dynamic_imports:
+        description: "Runtime module loading"
+        use_case: "Feature flags, conditional loading"
+    
+  suspense_concurrent_rendering:
+    description: "Smooth UI with progressive loading"
+    patterns: ["progressive_enhancement", "skeleton_loading", "optimistic_updates"]
+    implementation: "./examples/suspense-patterns.tsx"
+
+# Modern hooks patterns (React 18+)
+modern_hooks:
+  use_sync_external_store:
+    description: "Subscribe to external state in concurrent mode"
+    use_case: "Browser APIs, third-party stores"
+    example_file: "./examples/external-store-hook.tsx"
+    
+  use_transition:
+    description: "Prioritize updates without blocking UI"
+    benefits: ["responsive_ui", "smooth_interactions", "better_ux"]
+    example_file: "./examples/transition-hook.tsx"
+    
+  custom_domain_hooks:
+    description: "Encapsulate business/domain logic in hooks"
+    patterns: ["data_fetching", "form_handling", "api_integration"]
+    benefits: ["testability", "reusability", "separation_of_concerns"]
+
+# Integration with other technologies
+integrations:
+  typescript:
+    patterns: ["typed_props", "generic_components", "strict_typing"]
+    best_practices: ["interface_segregation", "proper_generics", "utility_types"]
+    example_file: "./integrations/react-typescript.tsx"
+    
+  nextjs:
+    patterns: ["server_components", "client_components", "app_router"]
+    considerations: ["hydration", "seo", "performance"]
+    example_file: "./integrations/react-nextjs.tsx"
+    
+  tailwind:
+    patterns: ["utility_composition", "conditional_classes", "component_variants"]
+    tools: ["clsx", "tailwind_merge", "class_variance_authority"]
+    example_file: "./integrations/react-tailwind.tsx"
+
+# Anti-patterns to avoid
+anti_patterns:
+  large_monolithic_components:
+    description: "Components with too many responsibilities"
+    why_bad: "Violates single responsibility principle"
+    symptoms: ["excessive_props", "complex_logic", "hard_to_test"]
+    solution: "Extract custom hooks and smaller components"
+    
+  context_overuse:
+    description: "Using context for large-scale state management"
+    why_bad: "Performance issues, unnecessary re-renders"
+    solution: "Use external state management libraries"
+    
+  side_effects_in_render:
+    description: "Performing side effects during component render"
+    why_bad: "Unpredictable behavior, memory leaks"
+    solution: "Use useEffect with proper dependencies"
+    
+  missing_cleanup:
+    description: "Not cleaning up subscriptions and timers"
+    why_bad: "Memory leaks, continued execution"
+    solution: "Return cleanup functions from useEffect"
+
+# 2025 updates and emerging best practices
+current_trends:
+  server_components_default:
+    description: "Server Components used for data fetching and heavy computation"
+    adoption: "Standard in Next.js 14+, expanding to other frameworks"
+    
+  concurrent_features_mainstream:
+    description: "Concurrent features now default in new applications"
+    impact: "Better user experience, improved performance"
+    
+  strict_type_safety:
+    description: "TypeScript as the baseline for React development"
+    trend: "Moving beyond 'any' types to strict typing"
+    
+  performance_by_default:
+    description: "Performance optimization built into development workflow"
+    tools: ["react_dev_tools", "profiler", "concurrent_mode"]
+
+# Quality metrics and validation
+quality_metrics:
+  component_size:
+    guideline: "Components should be under 200 lines"
+    rationale: "Easier to understand, test, and maintain"
+    
+  prop_count:
+    guideline: "Components should have fewer than 10 props"
+    solution: "Use composition or configuration objects"
+    
+  render_frequency:
+    guideline: "Monitor unnecessary re-renders"
+    tools: ["react_profiler", "why_did_you_render"]
+    
+  accessibility:
+    requirements: ["semantic_html", "keyboard_navigation", "screen_reader_support"]
+    tools: ["axe", "eslint_jsx_a11y", "react_testing_library"]
+
+# Learning resources and references
+learning_resources:
+  official:
+    - name: "React 18 Documentation"
+      url: "https://react.dev"
+      focus: "Official patterns and API reference"
+      
+  advanced:
+    - name: "React Design Patterns (2025)"
+      focus: "Modern patterns and best practices"
+      topics: ["composition", "performance", "concurrent_features"]
+      
+  community:
+    - name: "React Community Patterns"
+      focus: "Real-world implementations and case studies"
+
+# LLM guidance for code generation
+llm_guidance:
+  component_generation:
+    - "Always use functional components with hooks"
+    - "Implement proper TypeScript typing for all props"
+    - "Include accessibility attributes by default"
+    - "Use composition over complex prop drilling"
+    
+  performance_considerations:
+    - "Add memoization for expensive operations"
+    - "Use lazy loading for heavy components"
+    - "Implement proper key props for lists"
+    - "Avoid inline objects and functions in render"
+    
+  best_practice_enforcement:
+    - "Extract custom hooks for reusable logic"
+    - "Use proper dependency arrays in useEffect"
+    - "Implement cleanup functions for side effects"
+    - "Follow single responsibility principle"
+
+# Cross-references to other codex entries
+relationships:
+  languages:
+    - "typescript"
+    - "javascript"
+  frameworks:
+    - "nextjs"
+  paradigms:
+    - "component_composition"
+    - "functional_programming"
+  patterns:
+    - "observer_pattern"
+    - "provider_pattern"

@@ -1,0 +1,46 @@
+# 🧱 LEGO ARCHITECTURE SESSION SYNTHESIS
+
+metadata:
+  id: "2025-07-02-lego-architecture"
+  title: "Schema Architecture Revolution - Lego Factory vs Builder"
+  type: "architecture-breakthrough"
+  created: "2025-07-02"
+  source_file: "_lego.md"
+  
+lifecycle:
+  current_stage: "specification"
+  progression:
+    - stage: "ideation"
+      notes: "Template confusion led to schema architecture clarity"
+    - stage: "analysis"
+      notes: "Five-fold path revealed two schema systems"
+    - stage: "conceptualization" 
+      notes: "Perfect lego factory vs builder metaphor alignment"
+    - stage: "specification"
+      notes: "ADR-013 created, package boundaries locked"
+      
+breakthrough_insights:
+  core_metaphor: "Schema Factory (defines molds) vs Lego Builder (assembles pieces)"
+  package_architecture:
+    - "@lev-os/schema: Pure YAML schemas + intelligent .md templates"
+    - "@lev-os/legos: Assembly, generation, task orchestration"
+    - "@lev-os/context: Actual contexts (singular)"
+    - "@lev-os/workshop: Meta-system for building the system"
+    
+  separation_clarity: "core/schema defines what CAN exist, core/legos defines how to USE what exists"
+  
+key_decisions:
+  - "Templates ARE molds (content molds vs structural molds)"
+  - "BMAD-inspired intelligent templates with [[LLM:]] instructions"
+  - "Keep lego naming (not assembler/weaver/builder alternatives)"
+  - "Workshop as meta-development system"
+  
+next_transitions:
+  to_implementation:
+    requirements:
+      - "Package workspace entries"
+      - "Schema migration from broken path"
+      - "Template system with BMAD patterns"
+      - "Workshop productionalization"
+      
+tags: ["architecture", "packages", "lego-metaphor", "bmad-inspired", "breakthrough"]

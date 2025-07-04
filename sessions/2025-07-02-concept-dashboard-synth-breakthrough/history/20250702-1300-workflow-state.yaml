@@ -1,0 +1,158 @@
+# WORKFLOW STATE - Core Schema Validation Development
+
+workflow_id: "core-schema-validation-development"
+workflow_type: "technical_architecture"
+created: "2025-07-02"
+current_step: 3
+status: "in_progress"
+
+# WORKFLOW DEFINITION
+workflow_steps:
+  step_1:
+    name: "Understand existing schema approaches"
+    status: "completed"
+    completion_context: "Found 3 approaches: original philosophy, agency production, dev reality"
+    key_findings:
+      - "Original schemas have good philosophy but don't match contexts"
+      - "Agency contexts use rich consciousness streaming patterns"  
+      - "Dev context uses metadata wrapper + agent_config structure"
+    artifacts: ["schema-analysis-state.yaml"]
+    
+  step_2:
+    name: "Discover schema-context mismatches"  
+    status: "completed"
+    completion_context: "Documented structural conflicts between schemas and actual contexts"
+    key_findings:
+      - "Base schema expects top-level id/type/description/version"
+      - "Dev context nests these under metadata wrapper"
+      - "Agency contexts use completely different structure"
+      - "No runtime validation system exists"
+    blocking_issues: ["Three incompatible approaches found"]
+    
+  step_3:
+    name: "Test validation approaches"
+    status: "in_progress"
+    current_context: "Need to test dev context against base schema to document failure points"
+    required_actions:
+      - "Load dev context.yaml and base.schema.yaml"
+      - "Attempt validation and document exact failures"
+      - "Try creating updated schema that validates dev context"
+      - "Test updated schema against agency context"
+    human_collaboration_needed: "Schema approach selection decision"
+    
+  step_4:
+    name: "Choose best approach with human validation"
+    status: "pending"
+    dependencies: ["step_3_completion"]
+    decision_criteria:
+      - "Which approach requires least migration effort"
+      - "Which approach supports richest context patterns"
+      - "Which approach aligns with Leviathan philosophy"
+    
+  step_5:
+    name: "Build minimal validation system"
+    status: "pending" 
+    dependencies: ["step_4_completion"]
+    requirements:
+      - "Runtime schema loading"
+      - "YAML validation against schemas"
+      - "Clear error messages for validation failures"
+      - "Integration with agent loading system"
+    
+  step_6:
+    name: "Test against real contexts"
+    status: "pending"
+    dependencies: ["step_5_completion"]
+    test_cases:
+      - "dev context (complex agent)"
+      - "brand context (agency pattern)"  
+      - "workflow context (orchestration)"
+      - "pattern context (thinking framework)"
+    
+  step_7:
+    name: "Document and integrate"
+    status: "pending"
+    dependencies: ["step_6_completion"]
+    deliverables:
+      - "Schema validation system documentation"
+      - "Migration guide for existing contexts"
+      - "Integration with @lev-os/legos package"
+      - "BDD specs for validation behaviors"
+
+# CURRENT STEP DETAILED STATE
+step_3_detailed:
+  current_task: "Test dev context against base schema"
+  
+  files_needed:
+    source_context: "/agent/contexts/agents/dev/context.yaml"
+    target_schema: "~/digital/kingly/~/lev/agent/contexts/_schema/base.schema.yaml"
+    comparison_schema: "~/digital/kingly/~/lev/agent/contexts/_schema/agent.schema.yaml"
+    
+  expected_failures:
+    - "Metadata wrapper not recognized by base schema"
+    - "agent_config vs persona/toolkit mismatch"  
+    - "Missing constitutional fields at top level"
+    - "Rich endpoint structure not defined in agent schema"
+    
+  testing_approach:
+    1: "Load both files and compare structures"
+    2: "Document specific field mismatches"
+    3: "Identify what would need to change for validation"
+    4: "Estimate migration effort for each approach"
+    
+  success_criteria:
+    - "Complete list of validation failures documented"
+    - "Clear understanding of required changes"
+    - "Effort estimation for each schema approach"
+    - "Recommendation ready for human decision"
+
+# SYNTH CONTEXT FOR STEP 3
+step_3_synth_context:
+  wizard_spec_analyst_synth:
+    current_focus: "Analyzing schema validation failures"
+    five_fold_context:
+      evolution: "Schemas evolved separately from contexts, creating mismatch"
+      impact: "Validation system needed to ensure constitutional compliance"
+      relationships: "Schemas must serve context system, legos, and concept management"
+      essence: "Constitutional compliance without constraining rich patterns"
+      paradigm: "Schema serves reality, not the other way around"
+    
+  next_wizard_action: "Apply five-fold analysis to validation failure patterns"
+
+# HUMAN DECISION POINTS
+pending_decisions:
+  schema_approach_selection:
+    decision_needed: "Which schema approach to pursue"
+    options:
+      - "Update contexts to match original schemas (high migration effort)"
+      - "Update schemas to match context reality (preserves existing work)"
+      - "Hybrid approach with constitutional base + rich extensions"
+    criteria: ["Migration effort", "Pattern richness", "Philosophy alignment"]
+    
+# WORKFLOW CONTINUATION INSTRUCTIONS
+next_session_continuation:
+  load_order:
+    1: "readme.yaml (master session state)"
+    2: "workflow-state.yaml (this file)"
+    3: "synths.yaml (active synth definitions)"
+    
+  activate_synths:
+    - "wizard_spec_analyst_synth with step_3 context"
+    - "concept_lifecycle_analyst_synth for mission alignment"
+    
+  resume_at: "step_3: Test dev context against base schema"
+  
+  immediate_actions:
+    1: "Load required files for step 3"
+    2: "Activate wizard synth with five-fold analysis context"
+    3: "Begin validation testing as defined in step_3_detailed"
+    4: "Document findings for human decision point"
+
+# MISSION ALIGNMENT
+concept_lifecycle_context:
+  related_concepts:
+    - "lego-architecture (specification) - depends on this schema work"
+    - "ceo-orchestrator (specification) - uses schema for validation"
+    - "concept-of-concepts (conceptualization) - needs schema for concept management"
+    
+  advancement_blocking: "Schema validation system needed before concept automation"
